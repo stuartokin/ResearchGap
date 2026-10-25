@@ -198,7 +198,15 @@ canvas.chart{width:100%;height:11em;display:block;margin:.4em 0}
 #timebar select{padding:7px 8px}
 body.clean #timebar{opacity:.25}
 
-body.clean .win,body.clean #top .actions,body.clean #foot{opacity:0;pointer-events:none}
+.win.max{left:10px!important;top:10px!important;width:calc(100vw - 20px)!important;height:calc(100vh - 20px)!important;z-index:95!important;resize:none}
+.vidwin .vbody{padding:0;background:#000;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.vidwin video{width:100%;height:100%;object-fit:contain;display:block;background:#000}
+.vmsg{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:.8em;padding:1.2em;text-align:center;background:rgba(8,19,29,.92);font-size:.95em;color:var(--muted)}
+.vmsg.on{display:flex}
+.vmsg label{cursor:pointer;color:var(--text)}
+.looplbl{display:inline-flex;align-items:center;gap:6px;cursor:pointer;backdrop-filter:none}
+.looplbl input{accent-color:#E9F2FF;margin:0}
+body.clean .win:not(.vidwin),body.clean #top .actions,body.clean #foot{opacity:0;pointer-events:none}
 #loading{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:22px;color:var(--muted);z-index:100;background:var(--ink);transition:opacity .8s}
 #loading.done{opacity:0;pointer-events:none}
 @media (max-width:820px){ .actions .wide{display:none} #foot span:first-child{display:none} }
@@ -236,6 +244,8 @@ body.clean .win,body.clean #top .actions,body.clean #foot{opacity:0;pointer-even
     <div class="flist" id="fieldList"></div>
     <h3>Where the research began</h3>
     <div class="chips" id="srcChips"></div>
+    <h3>Type of milestone</h3>
+    <div class="chips" id="catChips"></div>
     <h3>Status</h3>
     <div class="chips" id="kindChips"></div>
     <h3>Confidence</h3>
@@ -269,6 +279,7 @@ body.clean .win,body.clean #top .actions,body.clean #foot{opacity:0;pointer-even
     <label class="toggle">Moving lights <input type="checkbox" id="pulseT" checked></label>
     <label class="toggle">Trend lines <input type="checkbox" id="trendT" checked></label>
     <label class="toggle">Floor labels <input type="checkbox" id="floorT" checked></label>
+    <label class="toggle">Loop Play the century <input type="checkbox" id="loopD"></label>
     <h3>Motion and glow</h3>
     <div class="slider"><label>Rotation speed <b id="rotV">0.35</b></label><input type="range" id="rotR" min="0" max="2" step="0.05" value="0.35"></div>
     <div class="slider"><label>Glow <b id="glowV">0.75</b></label><input type="range" id="glowR" min="0" max="1.6" step="0.05" value="0.75"></div>
@@ -334,9 +345,18 @@ body.clean .win,body.clean #top .actions,body.clean #foot{opacity:0;pointer-even
   </div>
 </section>
 
+<!-- VIDEOS -->
+<section class="win vidwin" id="w-vid1" data-title="Video: Q-Day intro">
+  <div class="wbody vbody"><video id="vid1" src="QDayIntro.mp4" muted loop playsinline preload="auto" controls></video>
+  <div class="vmsg" id="vid1msg"><p>Could not load <b>QDayIntro.mp4</b>. Put it in the same GitHub folder as index.html, or choose the file from this computer.</p><label class="mini">Choose video file<input type="file" accept="video/*" data-for="vid1" hidden></label></div></div>
+</section>
+<section class="win vidwin" id="w-vid2" data-title="Video: CAE cover">
+  <div class="wbody vbody"><video id="vid2" src="cae_cover_16x9.mp4" muted loop playsinline preload="auto" controls></video>
+  <div class="vmsg" id="vid2msg"><p>Could not load <b>cae_cover_16x9.mp4</b>. Put it in the same GitHub folder as index.html, or choose the file from this computer.</p><label class="mini">Choose video file<input type="file" accept="video/*" data-for="vid2" hidden></label></div></div>
+</section>
 <div id="tip" role="tooltip"></div>
 <div id="yearbig" aria-hidden="true"><span id="yearNum">1925</span><small id="yearSub">Time taken from research to change</small></div>
-<div id="timebar"><button class="btn" id="tbPause">Pause</button><input type="range" id="scrub" min="1925" max="2032" step="0.1" value="1925" aria-label="Scrub through time"><select id="tbSpeed" class="btn" aria-label="Play speed"><option value="0.5">Slow</option><option value="1" selected>Normal</option><option value="2">Fast</option></select><button class="btn" id="tbStop">Exit</button></div>
+<div id="timebar"><button class="btn" id="tbPause">Pause</button><input type="range" id="scrub" min="1925" max="2032" step="0.1" value="1925" aria-label="Scrub through time"><select id="tbSpeed" class="btn" aria-label="Play speed"><option value="0.5">Slow</option><option value="1" selected>Normal</option><option value="2">Fast</option></select><label class="btn looplbl"><input type="checkbox" id="loopT"> Loop</label><button class="btn" id="tbStop">Exit</button></div>
 <footer id="foot">
   <span>Drag to rotate, scroll to zoom, right-drag to pan. Keys: 1–9 single field, 0 all fields, P play, Space pause, L labels, R reset, H hide windows.</span>
   <span>Stuart Okin, Director of Cyber Regulation and Emerging Technologies, Ofgem</span>
@@ -366,6 +386,7 @@ body.clean .win,body.clean #top .actions,body.clean #foot{opacity:0;pointer-even
       <li>NCSC, <i>Timelines for migration to post-quantum cryptography</i> (2025); NIST FIPS 203, 204 and 205 (2024).</li>
       <li>Ofgem, long duration electricity storage cap and floor Window 1 minded-to decisions (June 2026).</li>
       <li>DESNZ, <i>Vision for an AI-enabled clean energy system</i>, call for evidence (September 2026); NESO Volta programme.</li>
+      <li>Company product arcs run from founding or first prototype to first commercial release.</li>
       <li>Founder wealth dates use the first listing, sale or private valuation that made founders multi-millionaires on paper. They are approximate, and the sample is selective.</li>
       <li>UK Government and Great British Energy – Nuclear announcements on Rolls-Royce SMR at Wylfa (2025–26).</li>
       <li>EU Digital Omnibus on AI amending the AI Act high-risk dates (2026).</li>
@@ -625,7 +646,92 @@ const DATA = [
 // ---------- EXTRA RESEARCH: LIFE SCIENCES ----------
 {v:'life',s:'government',kind:'hist',t:'DNA sequencing',r:1977,p:1987,c:'high',rw:'Sanger publishes chain-termination sequencing at the MRC LMB, Cambridge.',pw:'First automated DNA sequencer goes on sale.',note:'Two Nobel prizes for Sanger.'},
 {v:'life',s:'industry',kind:'hist',t:'Statins',r:1973,p:1987,c:'high',rw:'Endo at Sankyo discovers the first statin.',pw:'Lovastatin is approved.',note:'Typical of medicines: about 14 years.'},
-{v:'life',s:'academic',kind:'hist',t:'Next-generation sequencing',r:1998,p:2006,c:'high',rw:'Balasubramanian and Klenerman at Cambridge invent Solexa sequencing.',pw:'First commercial Solexa sequencer.',note:'A UK invention that cut genome costs a million-fold.'}
+{v:'life',s:'academic',kind:'hist',t:'Next-generation sequencing',r:1998,p:2006,c:'high',rw:'Balasubramanian and Klenerman at Cambridge invent Solexa sequencing.',pw:'First commercial Solexa sequencer.',note:'A UK invention that cut genome costs a million-fold.'},
+// ================== COMPANY PRODUCTS (co = company) ==================
+// ---------- Software ----------
+{v:'sw',s:'industry',kind:'hist',co:'SAP',t:'SAP enterprise software',r:1972,p:1973,c:'high',rw:'Five former IBM engineers found SAP to build real-time business software.',pw:'First financial accounting system goes live for a customer; R/3 follows in 1992.',note:'Industry-led: built from customer projects rather than lab research.'},
+{v:'sw',s:'academic',kind:'hist',co:'VisiCalc',t:'Electronic spreadsheet',r:1978,p:1979,c:'high',rw:'Bricklin conceives the spreadsheet as a Harvard Business School student.',pw:'VisiCalc goes on sale for the Apple II.',note:'The first “killer app” that sold personal computers.'},
+{v:'sw',s:'industry',kind:'hist',co:'Adobe',t:'PostScript and desktop publishing',r:1978,p:1985,c:'medium',rw:'Warnock and Geschke work on page description languages at Xerox PARC.',pw:'PostScript ships in the Apple LaserWriter.',note:'Another PARC idea commercialised by people who left PARC.'},
+{v:'sw',s:'industry',kind:'hist',co:'Microsoft',t:'Microsoft Windows',r:1981,p:1985,c:'high',rw:'Microsoft starts its Interface Manager project.',pw:'Windows 1.0 is released.',note:'Popularised graphical computing on IBM-compatible PCs.'},
+{v:'sw',s:'industry',kind:'hist',co:'Salesforce',t:'Software as a service',r:1999,p:2000,c:'high',rw:'Salesforce is founded to deliver business software over the web.',pw:'Its subscription CRM service launches.',note:'Turned software from a licence into a subscription.'},
+{v:'sw',s:'academic',kind:'hist',co:'Facebook',t:'Social networking',r:2003,p:2004,c:'high',rw:'Zuckerberg’s Facemash project at Harvard.',pw:'TheFacebook launches to Harvard students, then the world.',note:'A student project to a global platform in a few years.'},
+{v:'sw',s:'industry',kind:'hist',co:'YouTube',t:'Online video sharing',r:2005,p:2005,c:'high',rw:'Three former PayPal employees build a video-sharing site.',pw:'YouTube opens to the public.',note:'Bought by Google within 18 months.'},
+{v:'sw',s:'industry',kind:'hist',co:'Twitter',t:'Microblogging',r:2006,p:2006,c:'high',rw:'Dorsey proposes a status-sharing service inside podcast company Odeo.',pw:'Twitter launches publicly.',note:'From internal hack to public product in months.'},
+{v:'sw',s:'industry',kind:'hist',co:'Spotify',t:'Music streaming',r:2006,p:2008,c:'high',rw:'Spotify is founded in Stockholm.',pw:'The streaming service launches in Europe.',note:'Licensing, not technology, set the pace.'},
+{v:'sw',s:'industry',kind:'hist',co:'Instagram',t:'Mobile photo sharing',r:2010,p:2010,c:'high',rw:'Systrom and Krieger pivot their app Burbn to photos.',pw:'Instagram launches on the iPhone.',note:'Sold to Facebook for $1bn 18 months later.'},
+{v:'sw',s:'industry',kind:'hist',co:'Slack',t:'Workplace messaging',r:2012,p:2014,c:'high',rw:'Tiny Speck builds an internal chat tool while making a game.',pw:'Slack launches publicly.',note:'A side project that outgrew the main product.'},
+
+// ---------- Computing hardware ----------
+{v:'hw',s:'industry',kind:'hist',co:'IBM',t:'IBM System/360',r:1961,p:1965,c:'high',rw:'IBM’s SPREAD committee defines a compatible family of computers.',pw:'First System/360 machines are delivered.',note:'Created the idea of a compatible computer architecture.'},
+{v:'hw',s:'industry',kind:'hist',co:'Cray Research',t:'Cray-1 supercomputer',r:1972,p:1976,c:'high',rw:'Seymour Cray founds Cray Research.',pw:'Cray-1 is delivered to Los Alamos.',note:'Supercomputers later became essential to weather and grid modelling.'},
+{v:'hw',s:'industry',kind:'hist',co:'Apple',t:'Apple II personal computer',r:1976,p:1977,c:'high',rw:'Wozniak designs the Apple I.',pw:'The Apple II goes on sale.',note:'Personal computing becomes a consumer product.'},
+{v:'hw',s:'industry',kind:'hist',co:'IBM',t:'IBM PC',r:1980,p:1981,c:'high',rw:'IBM’s Project Chess team in Boca Raton.',pw:'The IBM PC launches.',note:'Open architecture created the PC industry.'},
+{v:'hw',s:'government',kind:'hist',co:'TSMC',t:'Pure-play chip foundry',r:1985,p:1987,c:'medium',rw:'Taiwan’s publicly funded ITRI, led by Morris Chang, develops the foundry model.',pw:'TSMC begins manufacturing chips for other companies.',note:'Government research created the company most chips now depend on.'},
+{v:'hw',s:'industry',kind:'hist',co:'NVIDIA',t:'Graphics processing unit',r:1993,p:1999,c:'high',rw:'NVIDIA is founded to build graphics chips.',pw:'GeForce 256, marketed as the first GPU.',note:'The chip family that now powers AI.'},
+{v:'hw',s:'industry',kind:'hist',co:'Apple',t:'iPhone',r:2004,p:2007,c:'high',rw:'Apple’s Project Purple begins.',pw:'The iPhone launches.',note:'Combined decades of research into one product.'},
+{v:'hw',s:'academic',kind:'hist',co:'Raspberry Pi',t:'Raspberry Pi',r:2006,p:2012,c:'high',rw:'Cambridge computer scientists prototype a cheap computer for teaching.',pw:'Raspberry Pi goes on sale.',note:'A UK charity product now used widely in industry.'},
+
+// ---------- AI ----------
+{v:'ai',s:'industry',kind:'hist',co:'NVIDIA',t:'AI data-centre GPUs',r:2012,p:2016,c:'high',rw:'AlexNet is trained on two NVIDIA gaming GPUs.',pw:'NVIDIA ships the DGX-1 AI system.',note:'Turned a graphics company into AI’s main supplier.'},
+{v:'ai',s:'industry',kind:'hist',co:'Google',t:'Tensor processing unit',r:2013,p:2016,c:'high',rw:'Google begins designing a custom chip for neural networks.',pw:'TPUs revealed as already in use in Google data centres.',note:'Custom AI chips designed and deployed in about three years.'},
+{v:'ai',s:'industry',kind:'hist',co:'Graphcore',t:'Graphcore IPU',r:2016,p:2018,c:'medium',rw:'Graphcore is founded in Bristol to build AI processors.',pw:'First IPU systems ship to customers.',note:'A UK AI chip company, later acquired by SoftBank.'},
+{v:'ai',s:'industry',kind:'hist',co:'Cerebras',t:'Wafer-scale AI chip',r:2016,p:2019,c:'medium',rw:'Cerebras is founded to build a chip the size of a wafer.',pw:'The CS-1 system ships.',note:'Rethinking the chip itself for AI.'},
+{v:'ai',s:'industry',kind:'hist',co:'OpenAI',t:'Large language model API',r:2018,p:2020,c:'high',rw:'OpenAI publishes its first GPT model.',pw:'GPT-3 is offered commercially through an API.',note:'Two years from paper to paid product.'},
+{v:'ai',s:'industry',kind:'hist',co:'Anthropic',t:'Claude assistant',r:2021,p:2023,c:'high',rw:'Anthropic is founded by former OpenAI researchers.',pw:'Claude is released commercially.',note:'Lab-to-product cycles now measured in months.'},
+{v:'ai',s:'industry',kind:'hist',co:'Mistral AI',t:'Open-weight European models',r:2023,p:2023,c:'high',rw:'Mistral AI is founded in Paris.',pw:'Its first open-weight model is released within months.',note:'Founding to product in under a year.'},
+{v:'ai',s:'industry',kind:'hist',co:'ElevenLabs',t:'AI voice generation',r:2022,p:2023,c:'medium',rw:'ElevenLabs is founded by two Polish engineers, based in London.',pw:'Its voice generation platform opens to the public.',note:'Raises new authentication questions for voice-based security.'},
+{v:'ai',s:'industry',kind:'hist',co:'Anysphere',t:'AI coding editor (Cursor)',r:2022,p:2023,c:'medium',rw:'Anysphere is founded by MIT students.',pw:'The Cursor AI code editor launches.',note:'Among the fastest software products ever to reach large revenue.'},
+
+// ---------- Cyber security vendors ----------
+{v:'cyber',s:'industry',kind:'hist',co:'Check Point',t:'Stateful inspection firewall',r:1993,p:1994,c:'high',rw:'Check Point is founded in Israel and develops stateful inspection.',pw:'FireWall-1 goes on sale.',note:'Defined the commercial firewall market.'},
+{v:'cyber',s:'industry',kind:'hist',co:'Fortinet',t:'Security appliances on custom chips',r:2000,p:2002,c:'medium',rw:'Fortinet designs dedicated security processors.',pw:'FortiGate hardware appliances ship.',note:'Security hardware built on custom silicon.'},
+{v:'cyber',s:'industry',kind:'hist',co:'Splunk',t:'Machine data analytics (SIEM)',r:2003,p:2005,c:'medium',rw:'Splunk is founded to search machine-generated data.',pw:'First Splunk release.',note:'Became the backbone of many security operations centres.'},
+{v:'cyber',s:'industry',kind:'hist',co:'Palo Alto Networks',t:'Next-generation firewall',r:2005,p:2007,c:'high',rw:'Palo Alto Networks is founded to inspect traffic by application.',pw:'Its first next-generation firewall ships.',note:'Redefined network security around applications and users.'},
+{v:'cyber',s:'industry',kind:'hist',co:'Yubico',t:'Hardware security keys',r:2007,p:2008,c:'medium',rw:'Yubico is founded in Sweden.',pw:'YubiKey hardware authenticators go on sale.',note:'Hardware that later underpinned phishing-resistant MFA.'},
+{v:'cyber',s:'industry',kind:'hist',co:'Zscaler',t:'Cloud-delivered security',r:2007,p:2008,c:'medium',rw:'Zscaler is founded to move security into the cloud.',pw:'Cloud security service launches.',note:'Security as a service rather than a box.'},
+{v:'cyber',s:'industry',kind:'hist',co:'Okta',t:'Cloud identity',r:2009,p:2010,c:'medium',rw:'Okta is founded to manage identity for cloud apps.',pw:'Okta’s identity service launches.',note:'Identity became the new perimeter.'},
+{v:'cyber',s:'industry',kind:'hist',co:'CrowdStrike',t:'Cloud endpoint protection',r:2011,p:2013,c:'high',rw:'CrowdStrike is founded.',pw:'Falcon cloud-native endpoint platform launches.',note:'The 2024 outage showed the systemic risk of widely deployed security agents.'},
+{v:'cyber',s:'industry',kind:'hist',co:'Darktrace',t:'AI threat detection',r:2013,p:2014,c:'medium',rw:'Cambridge mathematicians and former intelligence staff found Darktrace.',pw:'Its self-learning detection product launches.',note:'An early UK example of AI in cyber defence.'},
+{v:'cyber',s:'industry',kind:'hist',co:'Dragos',t:'OT security platform',r:2016,p:2017,c:'medium',rw:'Former US intelligence ICS specialists found Dragos.',pw:'Its industrial control system security platform launches.',note:'Specialist OT security, highly relevant to energy networks.',dv:'gov'},
+{v:'cyber',s:'industry',kind:'hist',co:'Wiz',t:'Cloud security posture',r:2020,p:2021,c:'medium',rw:'Wiz is founded in Israel.',pw:'Its cloud security platform launches.',note:'Fastest-growing security company on record; agreed sale to Google in 2025.'},
+
+// ---------- Energy ----------
+{v:'energy',s:'industry',kind:'hist',co:'Vestas',t:'Commercial wind turbines',r:1978,p:1979,c:'medium',rw:'Vestas, a Danish machinery maker, begins wind turbine development.',pw:'Vestas sells its first turbines.',note:'Danish industry turned research into an export industry.'},
+{v:'energy',s:'government',kind:'hist',co:'DONG (now Ørsted)',t:'Offshore wind farm',r:1985,p:1991,c:'medium',rw:'Danish state-backed studies of offshore wind.',pw:'Vindeby, the world’s first offshore wind farm, starts generating.',note:'Now central to GB’s Clean Power 2030 plans.'},
+{v:'energy',s:'industry',kind:'hist',co:'Enphase',t:'Solar microinverters',r:2006,p:2008,c:'medium',rw:'Enphase is founded to put an inverter on every panel.',pw:'First microinverters ship.',note:'Power electronics, and their cyber security, at the grid edge.'},
+{v:'energy',s:'industry',kind:'hist',co:'Tesla',t:'Home and grid batteries',r:2012,p:2015,c:'medium',rw:'Tesla begins stationary storage development.',pw:'Powerwall and Powerpack launch.',note:'Brought battery storage to homes and grids at scale.'},
+{v:'energy',s:'industry',kind:'hist',co:'Octopus Energy',t:'Kraken energy platform',r:2015,p:2016,c:'medium',rw:'Octopus Energy is founded in London with its own software platform.',pw:'Kraken runs Octopus customers; later licensed to other suppliers.',note:'A UK software platform enabling smart tariffs and flexibility.',dv:'demand'},
+
+// ---------- Quantum ----------
+{v:'quantum',s:'industry',kind:'hist',co:'Rigetti',t:'Superconducting quantum cloud',r:2013,p:2017,c:'medium',rw:'Rigetti Computing is founded.',pw:'Its quantum cloud service opens.',note:'Start-ups took quantum computing to the cloud.'},
+{v:'quantum',s:'industry',kind:'hist',co:'Quantinuum',t:'Trapped-ion commercial systems',r:2014,p:2020,c:'medium',rw:'Honeywell begins its trapped-ion programme.',pw:'The H1 system becomes commercially available.',note:'Merged with UK-founded Cambridge Quantum in 2021.'},
+{v:'quantum',s:'industry',kind:'hist',co:'Oxford Quantum Circuits',t:'UK quantum computing service',r:2017,p:2021,c:'medium',rw:'Oxford Quantum Circuits spins out of Oxford research.',pw:'UK’s first commercial quantum computing-as-a-service.',note:'A UK university spin-out reaching customers in four years.'},
+{v:'quantum',s:'industry',kind:'flight',co:'PsiQuantum',t:'Photonic fault-tolerant quantum computer',r:2016,tg:2035,c:'low',rw:'PsiQuantum is founded to build a photonic quantum computer.',pw:'Not yet landed. Large government-backed builds are under way.',note:'Huge capital before any product: very different from software.'},
+
+// ---------- Communications ----------
+{v:'comms',s:'academic',kind:'hist',co:'Cisco',t:'Multi-protocol router',r:1984,p:1986,c:'high',rw:'Bosack and Lerner connect Stanford’s networks.',pw:'Cisco ships its first commercial router.',note:'University networking research became the internet’s backbone vendor.'},
+{v:'comms',s:'industry',kind:'hist',co:'Qualcomm',t:'CDMA mobile networks',r:1985,p:1995,c:'high',rw:'Qualcomm is founded and develops CDMA for mobile phones.',pw:'First commercial CDMA network launches.',note:'Standards fights took a decade.'},
+{v:'comms',s:'industry',kind:'hist',co:'Skype',t:'Internet voice calls',r:2003,p:2003,c:'high',rw:'Skype is built by Estonian engineers for Zennström and Friis.',pw:'Skype launches.',note:'Disrupted international telephony within two years.'},
+{v:'comms',s:'industry',kind:'hist',co:'WhatsApp',t:'Mobile messaging',r:2009,p:2009,c:'high',rw:'Koum and Acton found WhatsApp.',pw:'The app launches on the iPhone.',note:'Over a billion users in seven years.'},
+{v:'comms',s:'industry',kind:'hist',co:'Zoom',t:'Video meetings',r:2011,p:2013,c:'high',rw:'Eric Yuan founds Zoom.',pw:'Zoom launches publicly.',note:'Ready just in time for 2020.'},
+
+// ---------- Space ----------
+{v:'space',s:'academic',kind:'hist',co:'Surrey Satellite Technology',t:'Small commercial satellites',r:1979,p:1985,c:'medium',rw:'University of Surrey builds the UoSAT research satellites.',pw:'Surrey Satellite Technology is spun out to sell small satellites.',note:'A UK university pioneered low-cost satellites.'},
+{v:'space',s:'industry',kind:'hist',co:'SpaceX',t:'Private orbital rocket',r:2002,p:2008,c:'high',rw:'SpaceX is founded.',pw:'Falcon 1 reaches orbit.',note:'Commercial launch reshaped the whole space sector.'},
+{v:'space',s:'industry',kind:'hist',co:'Rocket Lab',t:'Small-satellite launcher',r:2006,p:2018,c:'medium',rw:'Rocket Lab is founded in New Zealand.',pw:'Electron makes its first commercial launch.',note:'Twelve years: rockets remain hard.'},
+
+// ---------- Robotics ----------
+{v:'robotics',s:'academic',kind:'hist',co:'Boston Dynamics',t:'Legged robots',r:1992,p:2020,c:'high',rw:'Boston Dynamics spins out of MIT’s Leg Laboratory.',pw:'Spot goes on general commercial sale.',note:'Nearly 30 years, now used for substation and plant inspection.'},
+{v:'robotics',s:'industry',kind:'hist',co:'DJI',t:'DJI camera drones',r:2006,p:2013,c:'medium',rw:'DJI is founded in Shenzhen.',pw:'The Phantom ready-to-fly drone launches.',note:'Now common in network inspection, with supply chain security questions.'},
+{v:'robotics',s:'industry',kind:'hist',co:'Ocado',t:'Automated grocery warehouses',r:2010,p:2014,c:'low',rw:'Ocado develops its grid-based robotic storage system.',pw:'Robot grid warehouse operations begin. Dates approximate.',note:'A UK company that now licenses its robotics.'},
+
+// ---------- Materials ----------
+{v:'materials',s:'industry',kind:'hist',co:'3M',t:'Repositionable adhesive (Post-it)',r:1968,p:1980,c:'high',rw:'Spencer Silver at 3M creates a low-tack adhesive.',pw:'Post-it Notes go on national sale.',note:'Twelve years waiting for the right product.'},
+{v:'materials',s:'industry',kind:'hist',co:'W. L. Gore',t:'Expanded PTFE (Gore-Tex)',r:1969,p:1976,c:'high',rw:'Bob Gore discovers expanded PTFE.',pw:'Gore-Tex fabric is sold commercially.',note:'Also used in cable insulation and filtration.'},
+{v:'materials',s:'industry',kind:'hist',co:'DSM',t:'Ultra-strong polyethylene fibre',r:1979,p:1990,c:'medium',rw:'DSM researchers develop gel-spun polyethylene.',pw:'Dyneema is produced commercially.',note:'Stronger than steel by weight; used in cables and armour.'},
+
+// ---------- Life sciences ----------
+{v:'life',s:'academic',kind:'hist',co:'Oxford Nanopore',t:'Nanopore sequencing',r:2005,p:2014,c:'high',rw:'Oxford Nanopore is founded on Bayley’s Oxford nanopore research.',pw:'The MinION portable sequencer reaches early users.',note:'A UK spin-out; genomics in your hand.'}
 ];
 
 const FIELDS = {
@@ -724,11 +830,52 @@ const FORTUNES = [
  {n:'Poppy Gustafsson and co-founders',co:'Darktrace',v:'cyber',f:2013,w:2021,how:'Stock market listing',c:'high'},
  {n:'Chris Monroe and Jungsang Kim',co:'IonQ',v:'quantum',f:2015,w:2021,how:'Listing via merger',c:'medium'},
  {n:'Alexandr Wang',co:'Scale AI',v:'ai',f:2016,w:2021,how:'Private valuation',c:'medium'},
+ {n:'Hasso Plattner, Dietmar Hopp and co-founders',co:'SAP',v:'sw',f:1972,w:1988,how:'Stock market listing',c:'high'},
+ {n:'Seymour Cray',co:'Cray Research',v:'hw',f:1972,w:1976,how:'Stock market listing',c:'high'},
+ {n:'Hermann Hauser and Chris Curry',co:'Acorn Computers',v:'hw',f:1978,w:1983,how:'Stock market listing',c:'medium'},
+ {n:'John Warnock and Charles Geschke',co:'Adobe',v:'sw',f:1982,w:1986,how:'Stock market listing',c:'high'},
+ {n:'Len Bosack and Sandy Lerner',co:'Cisco',v:'comms',f:1984,w:1990,how:'Stock market listing',c:'high'},
+ {n:'Morris Chang',co:'TSMC',v:'hw',f:1987,w:1994,how:'Stock market listing',c:'medium'},
+ {n:'Marc Raibert',co:'Boston Dynamics',v:'robotics',f:1992,w:2013,how:'Sale to Google',c:'medium'},
+ {n:'Marc Benioff and Parker Harris',co:'Salesforce',v:'sw',f:1999,w:2004,how:'Stock market listing',c:'high'},
+ {n:'Ken and Michael Xie',co:'Fortinet',v:'cyber',f:2000,w:2009,how:'Stock market listing',c:'high'},
+ {n:'Niklas Zennström and Janus Friis',co:'Skype',v:'comms',f:2003,w:2005,how:'Sale to eBay',c:'high'},
+ {n:'Mick Mountz',co:'Kiva Systems',v:'robotics',f:2003,w:2012,how:'Sale to Amazon',c:'high'},
+ {n:'Erik Swan, Rob Das and Michael Baum',co:'Splunk',v:'cyber',f:2003,w:2012,how:'Stock market listing',c:'medium'},
+ {n:'Mark Zuckerberg',co:'Facebook',v:'sw',f:2004,w:2005,how:'Private valuation',c:'medium'},
+ {n:'Chad Hurley, Steve Chen and Jawed Karim',co:'YouTube',v:'sw',f:2005,w:2006,how:'Sale to Google',c:'high'},
+ {n:'Nir Zuk',co:'Palo Alto Networks',v:'cyber',f:2005,w:2012,how:'Stock market listing',c:'high'},
+ {n:'Gordon Sanghera, Hagan Bayley and Spike Willcocks',co:'Oxford Nanopore',v:'life',f:2005,w:2021,how:'Stock market listing',c:'medium'},
+ {n:'Jack Dorsey, Evan Williams and Biz Stone',co:'Twitter',v:'sw',f:2006,w:2009,how:'Private valuation',c:'medium'},
+ {n:'Raghu Belur and Martin Fornage',co:'Enphase',v:'energy',f:2006,w:2012,how:'Stock market listing',c:'medium'},
+ {n:'Lyndon and Peter Rive',co:'SolarCity',v:'energy',f:2006,w:2012,how:'Stock market listing',c:'medium'},
+ {n:'Frank Wang',co:'DJI',v:'robotics',f:2006,w:2014,how:'Private valuation',c:'medium'},
+ {n:'Drew Houston and Arash Ferdowsi',co:'Dropbox',v:'sw',f:2007,w:2011,how:'Private valuation',c:'medium'},
+ {n:'Jay Chaudhry',co:'Zscaler',v:'cyber',f:2007,w:2018,how:'Stock market listing',c:'medium'},
+ {n:'Jan Koum and Brian Acton',co:'WhatsApp',v:'comms',f:2009,w:2014,how:'Sale to Facebook',c:'high'},
+ {n:'Todd McKinnon and Frederic Kerrest',co:'Okta',v:'cyber',f:2009,w:2017,how:'Stock market listing',c:'medium'},
+ {n:'Kevin Systrom and Mike Krieger',co:'Instagram',v:'sw',f:2010,w:2012,how:'Sale to Facebook',c:'high'},
+ {n:'Will Marshall, Robbie Schingler and Chris Boshuizen',co:'Planet',v:'space',f:2010,w:2021,how:'Listing via merger',c:'medium'},
+ {n:'Chad Rigetti',co:'Rigetti Computing',v:'quantum',f:2013,w:2022,how:'Listing via merger',c:'medium'},
+ {n:'Ilyas Khan',co:'Cambridge Quantum',v:'quantum',f:2014,w:2021,how:'Merger to form Quantinuum',c:'medium'},
+ {n:'Greg Jackson',co:'Octopus Energy',v:'energy',f:2015,w:2020,how:'Private valuation',c:'medium'},
+ {n:'Jeremy O’Brien and co-founders',co:'PsiQuantum',v:'quantum',f:2016,w:2021,how:'Private valuation',c:'medium'},
+ {n:'Nigel Toon and Simon Knowles',co:'Graphcore',v:'ai',f:2016,w:2018,how:'Private valuation',c:'medium'},
+ {n:'Victor Riparbelli and co-founders',co:'Synthesia',v:'ai',f:2017,w:2023,how:'Private valuation',c:'medium'},
+ {n:'Alex Kendall and Amar Shah',co:'Wayve',v:'robotics',f:2017,w:2024,how:'Private valuation',c:'medium'},
+ {n:'Assaf Rappaport and co-founders',co:'Wiz',v:'cyber',f:2020,w:2021,how:'Private valuation',c:'medium'},
+ {n:'Dario Amodei, Daniela Amodei and co-founders',co:'Anthropic',v:'ai',f:2021,w:2023,how:'Private valuation',c:'medium'},
+ {n:'Mati Staniszewski and Piotr Dąbkowski',co:'ElevenLabs',v:'ai',f:2022,w:2024,how:'Private valuation',c:'medium'},
+ {n:'Aravind Srinivas and co-founders',co:'Perplexity',v:'ai',f:2022,w:2024,how:'Private valuation',c:'medium'},
+ {n:'Michael Truell and co-founders',co:'Anysphere (Cursor)',v:'ai',f:2022,w:2024,how:'Private valuation',c:'medium'},
+ {n:'Ilya Sutskever, Daniel Gross and Daniel Levy',co:'Safe Superintelligence',v:'ai',f:2024,w:2024,how:'Private valuation',c:'medium'},
+ {n:'Mira Murati and co-founders',co:'Thinking Machines Lab',v:'ai',f:2025,w:2025,how:'Private valuation',c:'medium'},
  {n:'Arthur Mensch, Guillaume Lample and Timothée Lacroix',co:'Mistral AI',v:'ai',f:2023,w:2025,how:'Private valuation',c:'medium'}
 ];
 const Y0 = 1925, Y1 = 2032, NOW = 2026, HORIZON = 2031.6, XS = 1.2, MID = (Y0 + Y1) / 2, H = 0.85, ZE = 28;
 const xOf = y => (y - MID) * XS;
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const lagTxt = n => n < 1 ? 'under a year' : n === 1 ? '1 year' : n + ' years';
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const $ = id => document.getElementById(id);
 const store = {
@@ -741,7 +888,7 @@ const store = {
  * ================================================================== */
 const DEFAULT_FILTERS = () => ({
   fields:new Set(FKEYS), src:{academic:true,industry:true,government:true},
-  kinds:{hist:true,proj:true,flight:true}, conf:{high:true,medium:true,low:true},
+  kinds:{hist:true,proj:true,flight:true}, conf:{high:true,medium:true,low:true}, cats:{br:true,co:true},
   from:1925, to:2026, gapMax:60, q:'', ghosts:true, vision:false,
   dv:{opt:true,asset:true,demand:true,rd:true,gov:true}
 });
@@ -988,7 +1135,7 @@ function applyLanes(instant){
  *  FILTERING
  * ================================================================== */
 function matches(it){
-  if (!F.fields.has(it.v) || !F.src[it.s] || !F.kinds[it.kind] || !F.conf[it.c]) return false;
+  if (!F.fields.has(it.v) || !F.src[it.s] || !F.kinds[it.kind] || !F.conf[it.c] || !F.cats[it.co ? 'co' : 'br']) return false;
   if (it.r < F.from || it.r > F.to) return false;
   if (F.gapMax < 60 && it.lag > F.gapMax) return false;
   if (F.vision && !(it.dv && F.dv[it.dv])) return false;
@@ -1025,8 +1172,8 @@ function buildTrends(){
 /* ==================================================================
  *  WINDOW MANAGER
  * ================================================================== */
-const WIN_IDS = ['filters','display','summary','milestones','details','key','context','landing','gapchart','fortunes','vision'];
-const WIN_NAMES = {filters:'Filters', display:'Display', summary:'Summary', milestones:'Milestones', details:'Details', key:'Reading the model', context:'Context', landing:'Landing and starting', gapchart:'Gap over time', fortunes:'Time to a fortune', vision:'DESNZ AI energy vision'};
+const WIN_IDS = ['filters','display','summary','milestones','details','key','context','landing','gapchart','fortunes','vision','vid1','vid2'];
+const WIN_NAMES = {filters:'Filters', display:'Display', summary:'Summary', milestones:'Milestones', details:'Details', key:'Reading the model', context:'Context', landing:'Landing and starting', gapchart:'Gap over time', fortunes:'Time to a fortune', vision:'DESNZ AI energy vision', vid1:'Video: Q-Day intro', vid2:'Video: CAE cover'};
 function defaultLayout(){
   const W = innerWidth, Hh = innerHeight, top = 80, narrow = W < 820, rw = Math.min(340, W - 36);
   return {
@@ -1040,8 +1187,16 @@ function defaultLayout(){
     landing:{x:18, y:top + 316, w:320, h:Math.max(200, Hh - top - 316 - 130), fs:1, open:false},
     gapchart:{x:W - rw - 18, y:top, w:rw, h:270, fs:1, open:false},
     fortunes:{x:W - rw - 18, y:top + 286, w:rw, h:Math.max(220, Hh - top - 286 - 130), fs:1, open:false},
-    vision:{x:Math.min(326, W - 330), y:top, w:330, h:Math.min(470, Hh - top - 60), fs:1, open:false}
+    vision:{x:Math.min(326, W - 330), y:top, w:330, h:Math.min(470, Hh - top - 60), fs:1, open:false},
+    vid1:{x:Math.round(W * .06), y:top + 30, w:Math.round(W * .42), h:Math.round(W * .42 * 9 / 16 + 40), fs:1, open:false},
+    vid2:{x:Math.round(W * .52), y:top + 30, w:Math.round(W * .42), h:Math.round(W * .42 * 9 / 16 + 40), fs:1, open:false}
   };
+}
+function waitLayout(){
+  const d = defaultLayout();
+  WIN_IDS.forEach(id => d[id].open = false);
+  d.vid1.open = d.vid2.open = true;
+  return d;
 }
 function playLayout(){
   const d = defaultLayout();
@@ -1062,20 +1217,21 @@ function placeWin(id){
   el.classList.toggle('closed', !L.open);
 }
 function raise(id){ wins[id].style.zIndex = ++zTop; }
-function setOpen(id, open){ layout[id].open = open; placeWin(id); if (open) raise(id); saveLayout(); buildWinMenu(); if (open && typeof updateTimeWindows === 'function') updateTimeWindows(true); }
+function setOpen(id, open){ layout[id].open = open; if (!open) wins[id].classList.remove('max'); placeWin(id); if (typeof syncVideos === 'function') syncVideos(); if (open) raise(id); saveLayout(); buildWinMenu(); if (open && typeof updateTimeWindows === 'function') updateTimeWindows(true); }
 WIN_IDS.forEach(id => {
   const el = $('w-' + id); wins[id] = el;
   const head = document.createElement('div'); head.className = 'wh';
-  head.innerHTML = `<h2>${el.dataset.title}</h2><button data-a="dn" title="Smaller text" aria-label="Smaller text">A−</button><button data-a="up" title="Larger text" aria-label="Larger text">A+</button><button data-a="x" title="Close" aria-label="Close window">✕</button>`;
+  head.innerHTML = `<h2>${el.dataset.title}</h2><button data-a="max" title="Maximise or restore" aria-label="Maximise or restore">⤢</button><button data-a="dn" title="Smaller text" aria-label="Smaller text">A−</button><button data-a="up" title="Larger text" aria-label="Larger text">A+</button><button data-a="x" title="Close" aria-label="Close window">✕</button>`;
   el.prepend(head);
   head.addEventListener('click', e => {
     const a = e.target.dataset && e.target.dataset.a; if (!a) return;
     if (a === 'x') setOpen(id, false);
+    if (a === 'max') { const on = el.classList.toggle('max'); raise(id); e.target.textContent = on ? '⤡' : '⤢'; twKey = ''; }
     if (a === 'up' || a === 'dn') { const old = layout[id].fs, nf = Math.round(clamp(old + (a === 'up' ? .1 : -.1), .7, 2.2) * 10) / 10, k = nf / old; layout[id].fs = nf; layout[id].w = Math.max(220, layout[id].w * k); layout[id].h = Math.max(96, layout[id].h * k); if (layout[id].x + layout[id].w > innerWidth - 8) layout[id].x = Math.max(8, innerWidth - 8 - layout[id].w); if (layout[id].y + layout[id].h > innerHeight - 8) layout[id].y = Math.max(8, innerHeight - 8 - layout[id].h); placeWin(id); saveLayout(); updateTimeWindows(true); }
   });
   let drag = null;
   head.addEventListener('pointerdown', e => {
-    if (e.target.tagName === 'BUTTON') return;
+    if (e.target.tagName === 'BUTTON' || el.classList.contains('max')) return;
     raise(id); drag = {dx:e.clientX - layout[id].x, dy:e.clientY - layout[id].y}; head.setPointerCapture(e.pointerId);
   });
   head.addEventListener('pointermove', e => { if (!drag) return; layout[id].x = e.clientX - drag.dx; layout[id].y = e.clientY - drag.dy; placeWin(id); });
@@ -1088,7 +1244,7 @@ if (window.ResizeObserver) {
   const ro = new ResizeObserver(entries => {
     entries.forEach(en => {
       const id = en.target.id.slice(2), el = en.target;
-      if (el.classList.contains('closed')) return;
+      if (el.classList.contains('closed') || el.classList.contains('max')) return;
       layout[id].w = el.offsetWidth; layout[id].h = el.offsetHeight;
     });
     clearTimeout(ro.t); ro.t = setTimeout(saveLayout, 300);
@@ -1098,16 +1254,17 @@ if (window.ResizeObserver) {
 const winMenu = $('winMenu');
 function buildWinMenu(){
   winMenu.innerHTML = WIN_IDS.map(id => `<button data-w="${id}"><span class="tick ${layout[id].open ? 'on' : ''}">${layout[id].open ? '✓' : ''}</span>${WIN_NAMES[id]}</button>`).join('') +
-    `<hr><button data-w="__play">Arrange for Play the century</button><button data-w="__reset">Arrange for exploring (default)</button><button data-w="__all">Open all windows</button>` +
+    `<hr><button data-w="__wait">Arrange for waiting (both videos)</button><button data-w="__play">Arrange for Play the century</button><button data-w="__reset">Arrange for exploring (default)</button><button data-w="__all">Open all windows</button>` +
     `<small>Drag a title bar to move, drag the bottom-right corner to resize, A− and A+ change text size. Double-click a title bar to restore its default place.</small>`;
 }
 buildWinMenu();
 winMenu.addEventListener('click', e => {
   const b = e.target.closest('button'); if (!b) return;
   const w = b.dataset.w;
-  if (w === '__reset') { layout = defaultLayout(); WIN_IDS.forEach(placeWin); saveLayout(); buildWinMenu(); }
+  if (w === '__reset') { layout = defaultLayout(); WIN_IDS.forEach(placeWin); saveLayout(); buildWinMenu(); syncVideos(); }
+  else if (w === '__wait') { layout = waitLayout(); WIN_IDS.forEach(placeWin); saveLayout(); buildWinMenu(); syncVideos(); }
   else if (w === '__play') { layout = playLayout(); WIN_IDS.forEach(placeWin); saveLayout(); buildWinMenu(); updateTimeWindows(true); }
-  else if (w === '__all') { WIN_IDS.forEach(id => { layout[id].open = true; placeWin(id); }); saveLayout(); buildWinMenu(); }
+  else if (w === '__all') { WIN_IDS.forEach(id => { layout[id].open = true; placeWin(id); }); saveLayout(); buildWinMenu(); syncVideos(); }
   else setOpen(w, !layout[w].open);
 });
 $('winBtn').onclick = e => { e.stopPropagation(); const o = winMenu.classList.toggle('open'); $('winBtn').setAttribute('aria-expanded', o); };
@@ -1136,6 +1293,7 @@ function chipGroup(el, obj, labels, colours){
 }
 chipGroup($('srcChips'), () => F.src, {academic:'Academic', industry:'Industry', government:'Government'}, {academic:SRC.academic.hex, industry:SRC.industry.hex, government:SRC.government.hex});
 chipGroup($('kindChips'), () => F.kinds, KINDS);
+chipGroup($('catChips'), () => F.cats, {br:'Research breakthroughs', co:'Company products'});
 chipGroup($('confChips'), () => F.conf, CONFS);
 $('q').addEventListener('input', e => { F.q = e.target.value.trim(); refresh(); });
 $('fromR').addEventListener('input', e => { F.from = +e.target.value; if (F.from > F.to) { F.to = F.from; } refresh(); });
@@ -1151,7 +1309,7 @@ function syncFilterUI(){
     r.querySelector('.ct').textContent = items.filter(it => it.v === k).length;
   });
   const sync = (el, obj) => el.querySelectorAll('.chipbtn').forEach(b => b.setAttribute('aria-pressed', !!obj[b.dataset.k]));
-  sync($('srcChips'), F.src); sync($('kindChips'), F.kinds); sync($('confChips'), F.conf);
+  sync($('srcChips'), F.src); sync($('kindChips'), F.kinds); sync($('confChips'), F.conf); sync($('catChips'), F.cats);
   $('fromR').value = F.from; $('toR').value = F.to; $('gapR').value = F.gapMax;
   $('fromV').textContent = F.from; $('toV').textContent = F.to; $('gapV').textContent = F.gapMax >= 60 ? 'Any' : F.gapMax + ' years';
   $('ghostT').checked = F.ghosts; if ($('q').value.trim() !== F.q) $('q').value = F.q;
@@ -1247,11 +1405,11 @@ function openDetail(it){
   selected = it;
   const s = SRC[it.s];
   const pYear = it.kind === 'hist' ? it.p : it.kind === 'proj' ? '~' + it.p : 'Status';
-  const gapTxt = it.kind === 'hist' ? `<strong>${it.lag}</strong><span>${it.lag === 1 ? 'year' : 'years'} from research to change</span>`
+  const gapTxt = it.kind === 'hist' ? (it.lag < 1 ? `<strong>&lt;1</strong><span>year from research to change</span>` : `<strong>${it.lag}</strong><span>${it.lag === 1 ? 'year' : 'years'} from research to change</span>`)
     : it.kind === 'proj' ? `<strong>~${it.lag}</strong><span>years, if it lands on time</span>` : `<strong>${NOW - it.r}+</strong><span>years and counting</span>`;
   const conf = it.kind === 'hist' ? (it.c === 'high' ? 'Well documented' : 'Dates approximate') : CONF_LONG[it.c];
   detailBody.innerHTML = `
-    <div class="dchips"><span class="chip src" style="background:${s.hex}">${s.name}</span><span class="chip" style="color:${FIELDS[it.v].hex};border-color:${FIELDS[it.v].hex}55">${FIELDS[it.v].name}</span><span class="chip conf-${it.c}">${conf}</span>${it.dv ? `<span class="chip vis">DESNZ vision: ${VISION[it.dv]}</span>` : ''}</div>
+    <div class="dchips"><span class="chip src" style="background:${s.hex}">${s.name}</span><span class="chip" style="color:${FIELDS[it.v].hex};border-color:${FIELDS[it.v].hex}55">${FIELDS[it.v].name}</span><span class="chip conf-${it.c}">${conf}</span>${it.co ? `<span class="chip">Company: ${it.co}</span>` : ''}${it.dv ? `<span class="chip vis">DESNZ vision: ${VISION[it.dv]}</span>` : ''}</div>
     <h3 class="dtitle">${it.t}</h3>
     <div class="gap">${gapTxt}</div>
     <div class="span"><b>${it.r}</b><div>${it.rw}</div><b>${pYear}</b><div>${it.pw}</div></div>
@@ -1283,13 +1441,17 @@ let camGoal = null, focusGoal = null;
 function resetView(){ camGoal = {pos:HOME.pos.clone(), target:HOME.target.clone()}; focusGoal = null; }
 controls.addEventListener('start', () => { camGoal = null; focusGoal = null; });
 
-const PLAY_SECONDS = 24; let paused = false, playSpeed = 1;
+const PLAY_SECONDS = 24; let paused = false, playSpeed = 1, endHold = 0;
 function startPlay(){ state.playing = true; paused = false; state.cursor = Y0; $('playBtn').textContent = 'Exit play'; $('yearbig').classList.add('on'); $('timebar').classList.add('on'); cursorGroup.visible = true; syncPause(); updateTimeWindows(true); }
 function stopPlay(){ state.playing = false; paused = false; state.cursor = Y1; $('playBtn').textContent = 'Play the century'; $('yearbig').classList.remove('on'); $('timebar').classList.remove('on'); cursorGroup.visible = false; updateTimeWindows(true); }
 function syncPause(){ $('tbPause').textContent = paused ? (state.cursor >= Y1 ? 'Replay' : 'Resume') : 'Pause'; }
 function togglePause(){ if (!state.playing) { startPlay(); return; } if (paused && state.cursor >= Y1) state.cursor = Y0; paused = !paused; syncPause(); }
 $('tbPause').onclick = togglePause;
 $('tbStop').onclick = stopPlay;
+$('loopT').checked = !!view.loopPlay;
+$('loopT').addEventListener('change', e => { view.loopPlay = e.target.checked; $('loopD').checked = view.loopPlay; store.set('sg.view.v2', view); });
+$('loopD').checked = !!view.loopPlay;
+$('loopD').addEventListener('change', e => { view.loopPlay = e.target.checked; $('loopT').checked = view.loopPlay; store.set('sg.view.v2', view); });
 $('tbSpeed').onchange = e => { playSpeed = +e.target.value; };
 $('scrub').addEventListener('input', e => { if (!state.playing) startPlay(); paused = true; state.cursor = +e.target.value; syncPause(); });
 
@@ -1322,7 +1484,7 @@ renderer.domElement.addEventListener('pointermove', ev => {
   if (ev.pointerType !== 'mouse') return;
   const it = pick(ev); hovered = it; document.body.classList.toggle('pointing', !!it);
   if (it) {
-    const span = it.kind === 'hist' ? `${it.r} to ${it.p}, ${it.lag} years` : it.kind === 'proj' ? `Expected around ${it.p}` : `Since ${it.r}, not yet landed`;
+    const span = it.kind === 'hist' ? `${it.r} to ${it.p}, ${lagTxt(it.lag)}` : it.kind === 'proj' ? `Expected around ${it.p}` : `Since ${it.r}, not yet landed`;
     tip.innerHTML = `<b>${it.t}</b><span>${FIELDS[it.v].name}. ${span}${it.dv ? '<br>Linked to the DESNZ AI energy vision' : ''}</span>`;
     tip.style.left = Math.min(ev.clientX + 14, innerWidth - 290) + 'px'; tip.style.top = (ev.clientY + 14) + 'px'; tip.style.opacity = 1;
   } else tip.style.opacity = 0;
@@ -1380,14 +1542,18 @@ function frame(){
   requestAnimationFrame(frame);
   const dt = Math.min(clock.getDelta(), .05), t = clock.elapsedTime;
   if (state.playing) {
-    if (!paused) { state.cursor += dt * (Y1 - Y0) / PLAY_SECONDS * playSpeed; if (state.cursor >= Y1) { state.cursor = Y1; paused = true; syncPause(); } }
+    if (!paused) {
+      if (state.cursor < Y1) { state.cursor += dt * (Y1 - Y0) / PLAY_SECONDS * playSpeed; if (state.cursor >= Y1) { state.cursor = Y1; endHold = 0; } }
+      else if (view.loopPlay) { endHold += dt; if (endHold > 4) { state.cursor = Y0; endHold = 0; } }
+      else { paused = true; syncPause(); }
+    }
     cursorGroup.position.x = xOf(Math.min(state.cursor, Y1));
     const yr = Math.floor(Math.min(state.cursor, 2031));
     if (yearShown !== yr) {
       yearShown = yr;
       $('yearNum').textContent = yr;
       const g = rollingGap(yr);
-      $('yearSub').innerHTML = g ? `Time taken from research to change: <b>${g.m} years</b><br><span>median of ${g.n} ${g.n === 1 ? 'arc' : 'arcs'} landing ${Math.max(Y0, yr - 9)}–${yr}${yr > NOW ? ', including expected' : ''}</span>` : 'Time taken from research to change: <b>no arcs landing yet</b>';
+      $('yearSub').innerHTML = g ? `Time taken from research to change: <b>${g.m} years</b><br><span>median of ${g.n} ${g.n === 1 ? 'arc' : 'arcs'} landing ${Math.max(Y0, yr - 9)}–${yr}${yr > NOW ? ', including expected' : ''}</span>` : `Time taken from research to change: <b>${yr - 9 <= Y0 ? 'no arcs landing yet' : 'no arcs landed in the last ten years'}</b><br><span>for this selection</span>`;
       if (document.activeElement !== $('scrub')) $('scrub').value = state.cursor;
     }
   }
@@ -1504,8 +1670,8 @@ function renderLanding(yr){
   const landed = pool.filter(it => it.kind !== 'flight' && (it.kind === 'hist' || yr > NOW) && it.p <= yr && it.p > yr - 8).sort((a, b) => b.p - a.p || a.lag - b.lag).slice(0, 12);
   const started = pool.filter(it => it.r <= yr && it.r > yr - 8).sort((a, b) => b.r - a.r).slice(0, 12);
   const row = (y, it, extra) => `<div class="trow" data-id="${it.id}"><b>${y}</b><i class="cat" style="background:${itemHex(it)}"></i><span>${it.t}<em>${extra}</em></span></div>`;
-  $('landList').innerHTML = landed.length ? landed.map(it => row(it.p, it, `${it.lag} ${it.lag === 1 ? 'year' : 'years'}${it.kind === 'proj' ? ', expected' : ''}`)).join('') : '<p class="empty">Nothing in this selection reached change in these years.</p>';
-  $('startList').innerHTML = started.length ? started.map(it => row(it.r, it, it.kind === 'flight' ? 'still in the lab' : it.p <= yr ? `landed after ${it.lag} ${it.lag === 1 ? 'year' : 'years'}` : 'in progress')).join('') : '<p class="empty">No research in this selection began in these years.</p>';
+  $('landList').innerHTML = landed.length ? landed.map(it => row(it.p, it, `${lagTxt(it.lag)}${it.kind === 'proj' ? ', expected' : ''}`)).join('') : '<p class="empty">Nothing in this selection reached change in these years.</p>';
+  $('startList').innerHTML = started.length ? started.map(it => row(it.r, it, it.kind === 'flight' ? 'still in the lab' : it.p <= yr ? `landed after ${lagTxt(it.lag)}` : 'in progress')).join('') : '<p class="empty">No research in this selection began in these years.</p>';
 }
 function renderFortunes(yr){
   const pool = FORTUNES.filter(x => F.fields.has(x.v));
@@ -1520,14 +1686,11 @@ function renderFortunes(yr){
     });
   }
   const med = a => a.length ? Math.round(median(a)) : null, got = pool.filter(x => x.w <= yr);
-  const e1 = med(got.filter(x => x.f < 1970).map(x => x.w - x.f)), e2 = med(got.filter(x => x.f >= 1970 && x.f < 2000).map(x => x.w - x.f)), e3 = med(got.filter(x => x.f >= 2000).map(x => x.w - x.f));
-  const parts = [];
-  if (e1 != null) parts.push(`${e1} years for companies founded before 1970`);
-  if (e2 != null) parts.push(`${e2} for 1970–99`);
-  if (e3 != null) parts.push(`${e3} since 2000`);
-  const fastest = got.slice().sort((a, b) => (a.w - a.f) - (b.w - b.f))[0];
-  $('fortStat').textContent = !pool.length ? 'No examples for the selected fields.' : parts.length ? `Median time to a fortune: ${parts.join(', ')}.` + (fastest ? ` Fastest so far: ${fastest.co}, ${fastest.w - fastest.f} ${fastest.w - fastest.f === 1 ? 'year' : 'years'}.` : '') : 'No founders in this selection had reached a fortune by this year.';
-  $('fortList').innerHTML = shown.map(x => `<div class="trow"><b>${x.f}</b><i class="cat" style="background:${FIELDS[x.v].hex}"></i><span><strong>${x.n}</strong>, ${x.co}<em>${x.w <= yr ? `${x.w - x.f} ${x.w - x.f === 1 ? 'year' : 'years'}: ${x.how.toLowerCase()}, ${x.w}` : 'building'}</em></span></div>`).join('');
+  const eraDefs = [['before 1970', 0, 1970], ['1970–99', 1970, 2000], ['2000–14', 2000, 2015], ['2015 onwards', 2015, 3000]];
+  const parts = eraDefs.map(([lab, a, b]) => { const m = med(got.filter(x => x.f >= a && x.f < b).map(x => x.w - x.f)); return m == null ? null : `${lagTxt(m)} for companies founded ${lab}`; }).filter(Boolean);
+  const fastest = got.slice().sort((a, b) => (a.w - a.f) - (b.w - b.f) || b.f - a.f)[0];
+  $('fortStat').textContent = !pool.length ? 'No examples for the selected fields.' : parts.length ? `Median time to a fortune: ${parts.join('; ')}.` + (fastest ? ` Fastest so far: ${fastest.co}, ${lagTxt(fastest.w - fastest.f)}.` : '') : 'No founders in this selection had reached a fortune by this year.';
+  $('fortList').innerHTML = shown.map(x => `<div class="trow"><b>${x.f}</b><i class="cat" style="background:${FIELDS[x.v].hex}"></i><span><strong>${x.n}</strong>, ${x.co}<em>${x.w <= yr ? `${lagTxt(x.w - x.f)}: ${x.how.toLowerCase()}, ${x.w}` : 'building'}</em></span></div>`).join('');
 }
 function renderVision(yr){
   if (yr === undefined) yr = state.playing ? Math.floor(Math.min(state.cursor, 2031)) : 2031;
@@ -1566,9 +1729,29 @@ function updateTimeWindows(force){
 if (window.ResizeObserver) { const cro = new ResizeObserver(() => { twKey = ''; }); ['gapCanvas','fortCanvas'].forEach(id => cro.observe($(id))); }
 
 /* ==================================================================
+ *  VIDEO WINDOWS
+ * ================================================================== */
+function syncVideos(){
+  ['vid1','vid2'].forEach(id => {
+    const v = $(id); if (!v) return;
+    if (layout[id] && layout[id].open) { const pr = v.play(); if (pr && pr.catch) pr.catch(() => {}); }
+    else v.pause();
+  });
+}
+['vid1','vid2'].forEach(id => {
+  const v = $(id), msg = $(id + 'msg');
+  v.addEventListener('error', () => msg.classList.add('on'));
+  v.addEventListener('loadeddata', () => msg.classList.remove('on'));
+  msg.querySelector('input').addEventListener('change', e => {
+    const f = e.target.files && e.target.files[0]; if (!f) return;
+    v.src = URL.createObjectURL(f); msg.classList.remove('on'); v.load(); syncVideos();
+  });
+});
+
+/* ==================================================================
  *  START
  * ================================================================== */
-applyLanes(true); applyColours(); refresh(); setAutoRotate(state.autoRotate);
+applyLanes(true); applyColours(); refresh(); setAutoRotate(state.autoRotate); syncVideos();
 $('floorT').dispatchEvent(new Event('change'));
 frame();
 requestAnimationFrame(() => {
