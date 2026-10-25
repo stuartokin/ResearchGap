@@ -148,9 +148,11 @@ table.stats tr.all td{font-weight:600;color:var(--text)}
 #tip{position:fixed;pointer-events:none;z-index:70;background:var(--panel-solid);border:1px solid var(--line-strong);border-radius:9px;padding:8px 11px;font-size:13px;opacity:0;transition:opacity .15s;max-width:280px}
 #tip b{display:block;font-weight:600;margin-bottom:2px}
 #tip span{color:var(--muted);font-variant-numeric:tabular-nums}
-#yearbig{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(var(--safe-b) + 40px);font-family:var(--serif);font-size:clamp(60px,9vw,128px);line-height:1;color:var(--text);opacity:0;transition:opacity .5s;pointer-events:none;z-index:4;font-variant-numeric:tabular-nums;text-shadow:0 0 40px rgba(233,242,255,.25);text-align:center}
+#yearbig{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(var(--safe-b) + 96px);font-family:var(--serif);font-size:clamp(60px,9vw,128px);line-height:1;color:var(--text);opacity:0;transition:opacity .5s;pointer-events:none;z-index:4;font-variant-numeric:tabular-nums;text-shadow:0 0 40px rgba(233,242,255,.25);text-align:center}
 #yearbig.on{opacity:.9}
-#yearbig small{display:block;font-family:var(--sans);font-size:14px;color:var(--muted);margin-top:6px}
+#yearbig small{display:block;font-family:var(--sans);font-size:16px;color:var(--text);margin-top:8px;line-height:1.35}
+#yearbig small b{font-weight:600;color:#fff}
+#yearbig small span{font-size:12.5px;color:var(--muted)}
 #foot{position:fixed;left:20px;right:20px;bottom:calc(var(--safe-b) + 12px);display:flex;justify-content:space-between;gap:20px;font-size:12px;color:var(--faint);pointer-events:none;z-index:3}
 #foot span:last-child{text-align:right}
 
@@ -164,6 +166,37 @@ table.stats tr.all td{font-weight:600;color:var(--text)}
 #about ul{padding-left:18px;margin:6px 0}
 #about .by{margin-top:22px;padding-top:14px;border-top:1px solid var(--line);font-size:13.5px;color:var(--text)}
 #about .close{position:absolute;top:14px;right:14px}
+
+.era{font-family:var(--serif);font-size:1.6em;line-height:1.1;margin:.1em 0 .15em}
+.tlist{display:flex;flex-direction:column}
+.trow{display:grid;grid-template-columns:2.9em .7em 1fr;gap:.55em;align-items:baseline;padding:.38em .2em;border-top:1px solid var(--line);font-size:.92em;line-height:1.4}
+.trow:first-child{border-top:0}
+.trow b{font-variant-numeric:tabular-nums;font-weight:600}
+.trow i.cat{width:.6em;height:.6em;border-radius:50%;display:inline-block;align-self:center}
+.cat-world{background:#9FB4FF}.cat-energy{background:#F7C04A}.cat-tech{background:#7FE3F0}.cat-future{background:transparent;border:1px solid #E9F2FF}
+.trow.fresh{background:rgba(233,242,255,.08);border-radius:6px}
+.trow.fut span{color:var(--muted);font-style:italic}
+.trow em{font-style:normal;color:var(--faint);font-size:.9em;margin-left:.45em}
+.trow strong{font-weight:600}
+.trow[data-id]{cursor:pointer}.trow[data-id]:hover span{text-decoration:underline}
+canvas.chart{width:100%;height:11em;display:block;margin:.4em 0}
+.insight.sm{font-size:1.1em;margin-top:.3em}
+.fstat{font-size:.9em;color:var(--text);margin:.2em 0 .6em;line-height:1.45}
+.vrow{display:block;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:9px;padding:.6em .7em;margin:.45em 0;cursor:pointer}
+.vrow:hover{border-color:var(--line-strong)}
+.vrow.on{border-color:#FFF4D6;background:rgba(255,244,214,.08)}
+.vrow .vn{display:block;font-weight:600;font-size:.95em}
+.vrow .vc{display:block;color:var(--muted);font-size:.86em;margin-top:.15em}
+.vrow .vt{display:flex;flex-wrap:wrap;gap:.3em;margin-top:.45em}
+.vrow .vt span{font-size:.78em;padding:.12em .5em;border-radius:999px;border:1px solid rgba(255,244,214,.35);color:var(--text)}
+.vrow .vt span:hover{background:rgba(255,255,255,.08)}
+.vrow .vt span.ahead{color:var(--muted);border-style:dashed;border-color:var(--line-strong)}
+.chip.vis{color:#FFF4D6;border-color:rgba(255,244,214,.4)}
+#timebar{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(var(--safe-b) + 38px);display:none;align-items:center;gap:8px;z-index:45;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:6px 8px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);width:min(660px,calc(100vw - 40px))}
+#timebar.on{display:flex}
+#timebar input{flex:1;min-width:0}
+#timebar select{padding:7px 8px}
+body.clean #timebar{opacity:.25}
 
 body.clean .win,body.clean #top .actions,body.clean #foot{opacity:0;pointer-events:none}
 #loading{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:22px;color:var(--muted);z-index:100;background:var(--ink);transition:opacity .8s}
@@ -211,6 +244,10 @@ body.clean .win,body.clean #top .actions,body.clean #foot{opacity:0;pointer-even
     <div class="slider"><label>From <b id="fromV">1925</b></label><input type="range" id="fromR" min="1925" max="2026" value="1925"></div>
     <div class="slider"><label>To <b id="toV">2026</b></label><input type="range" id="toR" min="1925" max="2026" value="2026"></div>
     <div class="slider"><label>Longest gap shown <b id="gapV">Any</b></label><input type="range" id="gapR" min="1" max="60" value="60"></div>
+    <h3>DESNZ AI energy vision</h3>
+    <label class="toggle">Only arcs linked to the vision <input type="checkbox" id="visT"></label>
+    <p class="note-s">Diamonds mark arcs that have helped, or could help, deliver the September 2026 vision. The vision window breaks them down by area.</p>
+    <h3>Display of filtered arcs</h3>
     <label class="toggle">Show filtered-out arcs faintly <input type="checkbox" id="ghostT" checked></label>
     <button class="wide-btn" id="resetFilters">Reset all filters</button>
   </div>
@@ -243,6 +280,7 @@ body.clean .win,body.clean #top .actions,body.clean #foot{opacity:0;pointer-even
   <div class="wbody">
     <h3>Median years from research to change</h3>
     <table class="stats" id="stats"></table>
+    <p class="note-s">The 2020+ column only counts research that has already landed, so it is biased towards short gaps.</p>
     <p class="insight" id="insight"></p>
     <p class="count" id="count"></p>
   </div>
@@ -271,10 +309,36 @@ body.clean .win,body.clean #top .actions,body.clean #foot{opacity:0;pointer-even
   </div>
 </section>
 
+<!-- CONTEXT -->
+<section class="win" id="w-context" data-title="Context">
+  <div class="wbody"><p class="era" id="ctxEra"></p><p class="note-s" id="ctxYear"></p><div class="tlist" id="ctxList"></div></div>
+</section>
+<!-- LANDING -->
+<section class="win" id="w-landing" data-title="Landing and starting">
+  <div class="wbody"><h3>Reached change in the last eight years</h3><div class="tlist" id="landList"></div><h3>Research begun in the last eight years</h3><div class="tlist" id="startList"></div></div>
+</section>
+<!-- GAP CHART -->
+<section class="win" id="w-gapchart" data-title="Gap over time">
+  <div class="wbody"><p class="note-s">Median years from research to change for arcs landing in the previous ten years. Dashed beyond today includes expected arcs. Follows your filters.</p><canvas id="gapCanvas" class="chart"></canvas><p class="insight sm" id="gapNow"></p></div>
+</section>
+<!-- FORTUNES -->
+<section class="win" id="w-fortunes" data-title="Time to a fortune">
+  <div class="wbody"><p class="note-s">Years from founding to the first listing, sale or private valuation that made founders multi-millionaires on paper. Hollow dots are still building. Follows the field filter. Approximate and selective.</p><canvas id="fortCanvas" class="chart"></canvas><p class="fstat" id="fortStat"></p><div class="tlist" id="fortList"></div></div>
+</section>
+<!-- VISION -->
+<section class="win" id="w-vision" data-title="DESNZ AI energy vision">
+  <div class="wbody">
+    <p class="note-s">DESNZ’s <i>Vision for an AI-enabled clean energy system</i> (call for evidence, September 2026, closing 6 November) groups AI opportunities into four areas and highlights barriers such as data access, incentives, regulatory clarity, security and skills. Select an area to show its arcs; select a name to inspect it.</p>
+    <div class="minis"><button class="mini" id="visAll">Show all vision arcs</button><button class="mini" id="visOff">Clear vision filter</button></div>
+    <div id="visList"></div>
+  </div>
+</section>
+
 <div id="tip" role="tooltip"></div>
-<div id="yearbig" aria-hidden="true"><span id="yearNum">1925</span><small id="yearSub">Research to change</small></div>
+<div id="yearbig" aria-hidden="true"><span id="yearNum">1925</span><small id="yearSub">Time taken from research to change</small></div>
+<div id="timebar"><button class="btn" id="tbPause">Pause</button><input type="range" id="scrub" min="1925" max="2032" step="0.1" value="1925" aria-label="Scrub through time"><select id="tbSpeed" class="btn" aria-label="Play speed"><option value="0.5">Slow</option><option value="1" selected>Normal</option><option value="2">Fast</option></select><button class="btn" id="tbStop">Exit</button></div>
 <footer id="foot">
-  <span>Drag to rotate, scroll to zoom, right-drag to pan. Keys: 1–9 single field, 0 all fields, P play, L labels, R reset, H hide windows.</span>
+  <span>Drag to rotate, scroll to zoom, right-drag to pan. Keys: 1–9 single field, 0 all fields, P play, Space pause, L labels, R reset, H hide windows.</span>
   <span>Stuart Okin, Director of Cyber Regulation and Emerging Technologies, Ofgem</span>
 </footer>
 
@@ -301,6 +365,8 @@ body.clean .win,body.clean #top .actions,body.clean #foot{opacity:0;pointer-even
       <li>Nobel Prize citations in physics, chemistry and medicine for origin dates.</li>
       <li>NCSC, <i>Timelines for migration to post-quantum cryptography</i> (2025); NIST FIPS 203, 204 and 205 (2024).</li>
       <li>Ofgem, long duration electricity storage cap and floor Window 1 minded-to decisions (June 2026).</li>
+      <li>DESNZ, <i>Vision for an AI-enabled clean energy system</i>, call for evidence (September 2026); NESO Volta programme.</li>
+      <li>Founder wealth dates use the first listing, sale or private valuation that made founders multi-millionaires on paper. They are approximate, and the sample is selective.</li>
       <li>UK Government and Great British Energy – Nuclear announcements on Rolls-Royce SMR at Wylfa (2025–26).</li>
       <li>EU Digital Omnibus on AI amending the AI Act high-risk dates (2026).</li>
       <li>IBM quantum roadmap (2026); vendor battery roadmaps (Toyota, Samsung SDI, CATL), treated as aspirations rather than facts.</li>
@@ -340,7 +406,7 @@ const DATA = [
 {v:'energy',s:'academic',kind:'hist',t:'Perovskite solar',r:2009,p:2024,c:'medium',rw:'Miyasaka’s group reports perovskite photovoltaic cells.',pw:'First commercial perovskite-on-silicon modules ship.',note:'Durability, not efficiency, set the pace.'},
 {v:'energy',s:'government',kind:'flight',t:'Fusion power',r:1983,tg:2050,c:'low',rw:'JET, a European publicly funded tokamak at Culham, produces first plasma.',pw:'Not yet landed. UK STEP targets a prototype plant around 2040.',note:'The longest arc in the model and still rising.'},
 {v:'energy',s:'academic',kind:'proj',t:'Tandem solar at volume',r:2009,p:2028,c:'medium',rw:'Perovskite research from 2009, tandem cells from the mid-2010s.',pw:'Perovskite–silicon tandem modules move from niche shipments to volume manufacturing.',note:'Depends on proving 25-year field durability.'},
-{v:'energy',s:'industry',kind:'proj',t:'AI in grid control rooms',r:2017,p:2027,c:'medium',rw:'Machine-learning forecasting for wind, solar and demand.',pw:'AI-assisted forecasting, flexibility dispatch and switching advice become routine operator tools.',note:'Assurance, explainability and cyber resilience will set the pace, not model capability.'},
+{v:'energy',s:'industry',kind:'proj',t:'AI in grid control rooms',r:2017,p:2027,c:'medium',rw:'Machine-learning forecasting for wind, solar and demand.',pw:'AI-assisted forecasting and dispatch become routine control room tools, as NESO’s Volta programme (with Alphabet’s Tapestry on the Grand Optimiser) intends.',note:'Assurance, explainability and cyber resilience will set the pace, not model capability.'},
 {v:'energy',s:'industry',kind:'proj',t:'Household flexibility at scale',r:2010,p:2028,c:'medium',rw:'Smart grid and demand response research and trials.',pw:'Batteries, heat pumps and EVs routinely aggregated to support distribution networks.',note:'Turns customers into a network resource; raises new cyber and data questions for DSOs.'},
 {v:'energy',s:'academic',kind:'proj',t:'Grid-forming inverters as standard',r:2007,p:2028,c:'medium',rw:'Academic work on inverters that behave like synchronous machines.',pw:'Grid-forming capability routinely specified on new storage and renewable connections.',note:'Replaces stability services once provided by spinning generators.'},
 {v:'energy',s:'government',kind:'proj',t:'Long-duration storage at scale',r:2015,p:2030,c:'medium',rw:'Pumped hydro, flow batteries, compressed air and other long-duration technologies proven.',pw:'First GB cap and floor projects (Ofgem Window 1 minded-to decision, June 2026) reach operation.',note:'A case where market design, not research, is the limiting factor.'},
@@ -486,7 +552,80 @@ const DATA = [
 {v:'life',s:'academic',kind:'hist',t:'CRISPR gene editing',r:2012,p:2023,c:'high',rw:'Doudna and Charpentier publish programmable CRISPR-Cas9.',pw:'First CRISPR therapy approved, by the UK regulator first.',note:'Fast for a medicine; regulation still sets the floor.'},
 {v:'life',s:'industry',kind:'hist',t:'Protein structure prediction',r:2020,p:2021,c:'high',rw:'AlphaFold 2 from DeepMind wins CASP14.',pw:'Open AlphaFold database of predicted structures released.',note:'Software-speed delivery in a physical science.'},
 {v:'life',s:'industry',kind:'proj',t:'AI-discovered medicines',r:2020,p:2029,c:'low',rw:'AI-designed drug candidates enter clinical trials.',pw:'First approval of a medicine where AI designed the molecule.',note:'AI shortens discovery, not clinical trials.'},
-{v:'life',s:'academic',kind:'proj',t:'In-body gene editing',r:2012,p:2030,c:'low',rw:'Delivery of editing tools directly into the body.',pw:'First approval of an in vivo gene-editing therapy.',note:'Safety findings could move this either way.'}
+{v:'life',s:'academic',kind:'proj',t:'In-body gene editing',r:2012,p:2030,c:'low',rw:'Delivery of editing tools directly into the body.',pw:'First approval of an in vivo gene-editing therapy.',note:'Safety findings could move this either way.'},
+// ---------- ENERGY: DESNZ AI-ENABLED CLEAN ENERGY VISION (dv = vision area) ----------
+{v:'energy',s:'government',kind:'hist',dv:'opt',t:'Computer weather forecasting',r:1950,p:1955,c:'medium',rw:'First computer weather forecast on ENIAC by Charney and von Neumann’s publicly funded team.',pw:'Operational numerical weather prediction begins.',note:'Every wind and solar forecast in today’s control rooms rests on this.'},
+{v:'energy',s:'academic',kind:'hist',dv:'opt',t:'Power system state estimation',r:1969,p:1976,c:'medium',rw:'Schweppe at MIT publishes state estimation for power networks.',pw:'Energy management systems with state estimation enter control rooms.',note:'The first time software, not just operators, built a live picture of the grid.'},
+{v:'energy',s:'academic',kind:'hist',dv:'opt',t:'Synchrophasor measurement',r:1988,p:1992,c:'medium',rw:'Phadke and Thorp build the phasor measurement unit at Virginia Tech.',pw:'First commercial phasor measurement units.',note:'High-speed grid data: one of the foundations the vision says AI depends on.'},
+{v:'energy',s:'government',kind:'hist',dv:'opt',t:'Wind power forecasting',r:1990,p:1996,c:'medium',rw:'Risø, the Danish national laboratory, develops statistical wind power prediction.',pw:'Wind power forecasts used operationally by utilities. Dates approximate.',note:'Forecasting was the first job machine learning did for renewables.'},
+{v:'energy',s:'academic',kind:'hist',dv:'asset',t:'Wind turbine predictive maintenance',r:2008,p:2015,c:'medium',rw:'Academic work on machine learning from turbine SCADA and vibration data.',pw:'Commercial predictive maintenance services for wind fleets. Dates approximate.',note:'One of the vision’s near-term areas, already common in generation.'},
+{v:'energy',s:'industry',kind:'hist',dv:'demand',t:'AI data centre cooling',r:2014,p:2016,c:'high',rw:'Google researchers model data centre efficiency with neural networks.',pw:'DeepMind control cuts Google data centre cooling energy.',note:'An early proof that AI can cut end-use energy at scale.'},
+{v:'energy',s:'academic',kind:'hist',dv:'demand',t:'Smart EV charging',r:2010,p:2020,c:'medium',rw:'Academic research on optimised and price-responsive EV charging.',pw:'Supplier-managed smart EV charging tariffs reach GB households at scale.',note:'The vision names EV charging as an area where AI is already used.'},
+{v:'energy',s:'industry',kind:'hist',dv:'opt',t:'Machine learning solar nowcasting',r:2019,p:2023,c:'medium',rw:'Open Climate Fix, a UK non-profit, develops machine learning solar forecasts.',pw:'Its forecasts are used by the GB system operator’s control room.',note:'A UK example of research reaching the control room in about four years.'},
+{v:'energy',s:'industry',kind:'flight',dv:'opt',t:'A largely self-running energy system',r:2022,tg:2042,c:'low',rw:'Agentic AI research; the DESNZ vision’s stretching scenario of AI agents coordinating every asset.',pw:'Not landed. DESNZ treats it as one plausible future, not a prediction.',note:'Raises the vision’s hardest questions: oversight, accountability, concentration and skills.'},
+{v:'energy',s:'industry',kind:'proj',dv:'asset',t:'AI predictive maintenance across networks',r:2008,p:2028,c:'medium',rw:'Condition monitoring and machine learning on network asset data.',pw:'AI-driven maintenance routine for transformers, cables and overhead lines.',note:'Fewer faults and less premature replacement, two of the vision’s goals.'},
+{v:'energy',s:'industry',kind:'proj',dv:'asset',t:'Self-updating network digital twins',r:2015,p:2030,c:'low',rw:'Digital twin and network modelling research.',pw:'Live digital twins continuously reassess where reinforcement is needed.',note:'The vision flags tension with planning and consenting built around fixed decision points.'},
+{v:'energy',s:'government',kind:'proj',dv:'gov',t:'AI assurance for energy',r:2023,p:2028,c:'medium',rw:'Ofgem’s ethical AI guidance, AI Regulatory Laboratory and technical sandbox.',pw:'Sector-specific, system-level assurance for AI in operational decisions.',note:'The vision names regulatory clarity and assurance as key barriers to adoption.'},
+{v:'energy',s:'government',kind:'proj',dv:'gov',t:'AI for Clean Energy Strategy',r:2025,p:2027,c:'medium',rw:'Lucy Yu’s review of AI in electricity networks and the DESNZ vision call for evidence (closes 6 November 2026).',pw:'The UK’s first AI for Clean Energy Strategy, designed to be updated iteratively.',note:'Policy itself is being designed to keep pace with fast change.'},
+{v:'energy',s:'government',kind:'proj',dv:'demand',t:'Machine-speed flexibility markets',r:2018,p:2030,c:'low',rw:'Research on automated, local flexibility trading.',pw:'Automated agents trade household and business flexibility in granular local markets.',note:'The vision asks whether current market design can support coordination at machine speed.'},
+{v:'energy',s:'industry',kind:'proj',dv:'rd',t:'AI plasma control for fusion',r:2022,p:2030,c:'low',rw:'DeepMind and EPFL control a tokamak plasma with reinforcement learning.',pw:'AI control routinely used on fusion experiments.',note:'The vision cites AI for Science support for fusion, including at Culham.'},
+
+// ---------- EXTRA RESEARCH: ENERGY ----------
+{v:'energy',s:'industry',kind:'hist',t:'Combined-cycle gas turbine',r:1939,p:1968,c:'low',rw:'Brown Boveri builds the first utility gas turbine.',pw:'Combined-cycle plants enter commercial service. Dates approximate.',note:'The technology behind the 1990s dash for gas.'},
+{v:'energy',s:'industry',kind:'hist',t:'Grid-scale lithium-ion storage',r:1991,p:2017,c:'medium',rw:'Commercial lithium-ion cells from 1991.',pw:'Large grid batteries provide fast frequency response at scale.',note:'Cost decline, not invention, closed this gap.'},
+
+// ---------- EXTRA RESEARCH: COMPUTING HARDWARE ----------
+{v:'hw',s:'academic',kind:'hist',t:'Magnetic core memory',r:1951,p:1955,c:'medium',rw:'Forrester’s team at MIT, defence funded.',pw:'Core memory in commercial computers.',note:'Dominated computer memory for 20 years.'},
+{v:'hw',s:'industry',kind:'hist',t:'Hard disk drive',r:1953,p:1956,c:'high',rw:'IBM San Jose begins disk storage research.',pw:'IBM RAMAC ships with the first hard disk.',note:'Five megabytes, the size of two fridges.'},
+{v:'hw',s:'industry',kind:'hist',t:'CMOS logic',r:1963,p:1968,c:'medium',rw:'Wanlass at Fairchild invents CMOS.',pw:'First commercial CMOS integrated circuits.',note:'Low-power logic that every modern chip uses.'},
+{v:'hw',s:'industry',kind:'hist',t:'Microprocessor',r:1969,p:1971,c:'high',rw:'Hoff, Faggin and Mazor design a CPU on one chip at Intel.',pw:'Intel 4004 goes on sale.',note:'Built for a calculator maker.'},
+{v:'hw',s:'academic',kind:'hist',t:'RISC processors',r:1980,p:1987,c:'high',rw:'Berkeley RISC and Stanford MIPS projects.',pw:'Acorn Archimedes ships with the ARM processor.',note:'ARM, born in Cambridge, now powers almost every phone.'},
+{v:'hw',s:'academic',kind:'hist',t:'FinFET transistors',r:1999,p:2011,c:'high',rw:'Hu and colleagues at Berkeley, DARPA funded.',pw:'Intel ships 22 nm 3D transistors.',note:'Kept Moore’s law going for another decade.'},
+
+// ---------- EXTRA RESEARCH: COMPUTING SOFTWARE ----------
+{v:'sw',s:'academic',kind:'hist',t:'Utility and cloud computing',r:1961,p:2006,c:'medium',rw:'McCarthy at MIT proposes computing sold like a utility.',pw:'Amazon Web Services launches on-demand cloud services.',note:'A 45-year arc waiting for networks and economics.'},
+{v:'sw',s:'industry',kind:'hist',t:'Blockchain',r:1991,p:2009,c:'medium',rw:'Haber and Stornetta at Bellcore publish tamper-evident time-stamping.',pw:'Bitcoin launches.',note:'Cited in the original Bitcoin paper.'},
+{v:'sw',s:'academic',kind:'hist',t:'Web search ranking',r:1996,p:1998,c:'high',rw:'Page and Brin develop PageRank at Stanford.',pw:'Google launches as a company.',note:'Two years from PhD project to product.'},
+
+// ---------- EXTRA RESEARCH: AI ----------
+{v:'ai',s:'industry',kind:'hist',t:'Statistical machine translation',r:1990,p:2006,c:'medium',rw:'IBM’s Candide project models translation statistically.',pw:'Google Translate launches.',note:'Data, not linguistics, won.'},
+{v:'ai',s:'academic',kind:'hist',t:'Recommender systems',r:1994,p:1998,c:'medium',rw:'GroupLens collaborative filtering at the University of Minnesota.',pw:'Amazon deploys item-to-item recommendations.',note:'Quietly one of the most profitable AI applications.'},
+{v:'ai',s:'academic',kind:'hist',t:'LSTM networks',r:1997,p:2015,c:'high',rw:'Hochreiter and Schmidhuber publish LSTM in Munich.',pw:'LSTM speech recognition deployed in Google’s products.',note:'Eighteen years waiting for data and GPUs.'},
+{v:'ai',s:'government',kind:'hist',t:'Voice assistants',r:2003,p:2011,c:'medium',rw:'DARPA’s CALO personal assistant programme at SRI.',pw:'Siri, an SRI spin-out, ships on the iPhone.',note:'Defence research reaches every pocket in eight years.'},
+
+// ---------- EXTRA RESEARCH: QUANTUM ----------
+{v:'quantum',s:'industry',kind:'hist',t:'SQUID magnetometers',r:1964,p:1972,c:'low',rw:'Ford Research Laboratory demonstrates the superconducting quantum interference device.',pw:'Commercial SQUID magnetometers. Dates approximate.',note:'Quantum sensing has a 60-year commercial history.'},
+{v:'quantum',s:'academic',kind:'hist',t:'Trapped-ion quantum computing',r:1995,p:2019,c:'medium',rw:'Cirac and Zoller propose trapped-ion quantum logic.',pw:'Trapped-ion quantum computers available through public clouds.',note:'Spun out of university and national laboratory research.'},
+
+// ---------- EXTRA RESEARCH: CYBER ----------
+{v:'cyber',s:'industry',kind:'hist',t:'Data Encryption Standard',r:1971,p:1977,c:'high',rw:'IBM’s Lucifer cipher (Feistel).',pw:'DES becomes a US federal standard.',note:'The first public, standardised commercial cipher.'},
+{v:'cyber',s:'academic',kind:'hist',t:'AES encryption',r:1998,p:2001,c:'high',rw:'Daemen and Rijmen at KU Leuven submit Rijndael.',pw:'Published as the AES standard.',note:'Open competition delivered a trusted standard in three years.'},
+{v:'cyber',s:'industry',kind:'hist',t:'Passkeys',r:2012,p:2022,c:'medium',rw:'The FIDO Alliance forms to replace passwords with public-key credentials.',pw:'Passkeys launch across major platforms.',note:'Standards and ecosystem alignment set this pace.'},
+
+// ---------- EXTRA RESEARCH: COMMUNICATIONS ----------
+{v:'comms',s:'government',kind:'hist',t:'Packet switching',r:1965,p:1975,c:'medium',rw:'Davies at the National Physical Laboratory, alongside Baran at RAND.',pw:'First commercial packet-switched networks open.',note:'A British government laboratory helped invent how the internet moves data.'},
+{v:'comms',s:'government',kind:'hist',t:'TCP/IP',r:1974,p:1989,c:'high',rw:'Cerf and Kahn publish the internet protocol design, DARPA funded.',pw:'First commercial internet service providers.',note:'Fifteen years inside publicly funded networks.'},
+{v:'comms',s:'government',kind:'hist',t:'GSM mobile',r:1982,p:1991,c:'high',rw:'European telecoms administrations form the GSM group.',pw:'First GSM call on a commercial network.',note:'A common standard made Europe a mobile leader.'},
+{v:'comms',s:'industry',kind:'hist',t:'Bluetooth',r:1994,p:1999,c:'high',rw:'Ericsson begins short-range radio research.',pw:'First Bluetooth products ship.',note:'Industry consortia can move fast.'},
+
+// ---------- EXTRA RESEARCH: MATERIALS ----------
+{v:'materials',s:'government',kind:'hist',t:'Shape-memory alloy',r:1962,p:1975,c:'medium',rw:'US Naval Ordnance Laboratory discovers nitinol.',pw:'First commercial medical uses. Dates approximate.',note:'Now in stents, actuators and couplings.'},
+{v:'materials',s:'industry',kind:'hist',t:'Strengthened glass',r:1962,p:2007,c:'medium',rw:'Corning’s Project Muscle creates chemically strengthened glass.',pw:'Used as the cover glass of the first iPhone.',note:'A 45-year arc: the material waited for its product.'},
+{v:'materials',s:'industry',kind:'hist',t:'Neodymium magnets',r:1982,p:1984,c:'high',rw:'General Motors and Sumitomo independently develop NdFeB magnets.',pw:'Commercial production begins.',note:'Essential to wind turbines and electric vehicles today.'},
+
+// ---------- EXTRA RESEARCH: SPACE ----------
+{v:'space',s:'government',kind:'hist',t:'Electric propulsion',r:1959,p:1997,c:'medium',rw:'Kaufman at NASA builds the gridded ion thruster.',pw:'Ion thrusters used on commercial communications satellites.',note:'Nearly 40 years, then standard.'},
+{v:'space',s:'industry',kind:'hist',t:'Satellite television',r:1962,p:1976,c:'medium',rw:'Telstar relays the first transatlantic television.',pw:'Commercial satellite distribution of cable TV channels begins.',note:'Turned broadcasting into a global industry.'},
+
+// ---------- EXTRA RESEARCH: ROBOTICS ----------
+{v:'robotics',s:'academic',kind:'hist',t:'Robot mapping (SLAM)',r:1986,p:2015,c:'medium',rw:'Smith and Cheeseman formalise simultaneous localisation and mapping.',pw:'Visual SLAM ships in consumer home robots.',note:'Now in every autonomous vehicle and AR headset.'},
+{v:'robotics',s:'industry',kind:'hist',t:'Warehouse robots',r:2003,p:2006,c:'medium',rw:'Kiva Systems develops mobile shelf-moving robots.',pw:'First commercial warehouse deployments.',note:'Amazon bought Kiva in 2012 and scaled it.'},
+{v:'robotics',s:'industry',kind:'hist',t:'Spinning lidar',r:2005,p:2007,c:'medium',rw:'Velodyne develops lidar for the DARPA Grand Challenge.',pw:'Commercial 3D lidar sensors go on sale.',note:'A government prize created a sensor industry.'},
+
+// ---------- EXTRA RESEARCH: LIFE SCIENCES ----------
+{v:'life',s:'government',kind:'hist',t:'DNA sequencing',r:1977,p:1987,c:'high',rw:'Sanger publishes chain-termination sequencing at the MRC LMB, Cambridge.',pw:'First automated DNA sequencer goes on sale.',note:'Two Nobel prizes for Sanger.'},
+{v:'life',s:'industry',kind:'hist',t:'Statins',r:1973,p:1987,c:'high',rw:'Endo at Sankyo discovers the first statin.',pw:'Lovastatin is approved.',note:'Typical of medicines: about 14 years.'},
+{v:'life',s:'academic',kind:'hist',t:'Next-generation sequencing',r:1998,p:2006,c:'high',rw:'Balasubramanian and Klenerman at Cambridge invent Solexa sequencing.',pw:'First commercial Solexa sequencer.',note:'A UK invention that cut genome costs a million-fold.'}
 ];
 
 const FIELDS = {
@@ -504,6 +643,89 @@ Object.keys(SRC).forEach(k => SRC[k].col = new THREE.Color(SRC[k].hex));
 const KINDS = {hist:'Landed', proj:'Next five years', flight:'Still in the lab'};
 const CONFS = {high:'High', medium:'Medium', low:'Low'};
 const CONF_LONG = {high:'High confidence', medium:'Medium confidence', low:'Low confidence'};
+const DV_TAGS = {'AI in grid control rooms':'opt','Household flexibility at scale':'demand','Quantum optimisation pilots':'opt','AI anomaly detection in OT networks':'gov','AI-discovered materials in products':'rd','AI as a scientific collaborator':'rd','Fusion power':'rd'};
+DATA.forEach(d => { if (DV_TAGS[d.t]) d.dv = DV_TAGS[d.t]; });
+const VISION = {opt:'System optimisation and operation', asset:'Asset planning, operation and maintenance', demand:'End-use efficiency and demand', rd:'Energy innovation and R&D', gov:'Security, assurance and governance'};
+
+/* Context events for the time windows */
+const EVENTS = [
+ {y:1926,c:'energy',t:'Electricity (Supply) Act creates the Central Electricity Board to build a national grid'},
+ {y:1929,c:'world',t:'Wall Street Crash and the Great Depression'},
+ {y:1933,c:'energy',t:'Britain’s national grid substantially complete'},
+ {y:1939,c:'world',t:'Second World War begins; science is mobilised for war'},
+ {y:1945,c:'world',t:'War ends; post-war governments fund big science'},
+ {y:1948,c:'energy',t:'UK electricity industry nationalised'},
+ {y:1955,c:'energy',t:'UK announces its first civil nuclear power programme'},
+ {y:1957,c:'world',t:'Sputnik launches: the space race and a surge in research funding'},
+ {y:1958,c:'tech',t:'ARPA (later DARPA) and NASA are created'},
+ {y:1965,c:'energy',t:'North Sea gas discovered; the Northeast US blackout'},
+ {y:1969,c:'tech',t:'Apollo 11 Moon landing; ARPANET links its first nodes'},
+ {y:1973,c:'energy',t:'Oil crisis: prices quadruple and governments fund energy research'},
+ {y:1979,c:'energy',t:'Second oil shock; Three Mile Island accident'},
+ {y:1980,c:'tech',t:'Bayh-Dole Act lets US universities own and license their inventions'},
+ {y:1981,c:'tech',t:'IBM PC launches; personal computing goes mainstream'},
+ {y:1986,c:'energy',t:'Chernobyl disaster reshapes nuclear policy'},
+ {y:1989,c:'world',t:'Fall of the Berlin Wall; the web is proposed at CERN'},
+ {y:1990,c:'energy',t:'UK electricity privatised; competitive markets introduced'},
+ {y:1991,c:'world',t:'Cold War ends; defence research budgets shrink'},
+ {y:1995,c:'tech',t:'The commercial internet takes off'},
+ {y:1997,c:'world',t:'Kyoto Protocol agreed'},
+ {y:2000,c:'tech',t:'Dot-com crash; Ofgem formed'},
+ {y:2001,c:'world',t:'September 11 attacks; security research expands'},
+ {y:2003,c:'energy',t:'Major blackouts in North America, London and Italy'},
+ {y:2007,c:'tech',t:'iPhone launches; the smartphone era begins'},
+ {y:2008,c:'world',t:'Global financial crisis; UK Climate Change Act passed'},
+ {y:2010,c:'tech',t:'Stuxnet revealed: cyber attacks can damage physical plant'},
+ {y:2012,c:'tech',t:'Deep learning breakthrough on ImageNet'},
+ {y:2015,c:'energy',t:'Paris Agreement; the first cyber attack to cut power, in Ukraine'},
+ {y:2018,c:'energy',t:'UK NIS Regulations take effect, with Ofgem a competent authority for energy'},
+ {y:2019,c:'energy',t:'UK legislates for net zero by 2050; 9 August power cut'},
+ {y:2020,c:'world',t:'COVID-19 pandemic; mRNA vaccines authorised within a year'},
+ {y:2021,c:'world',t:'COP26 climate summit in Glasgow'},
+ {y:2022,c:'energy',t:'Russia invades Ukraine and the energy price crisis; ChatGPT launches'},
+ {y:2024,c:'energy',t:'NESO becomes the independent system operator; Ratcliffe, the last UK coal plant, closes; Clean Power 2030 Action Plan'},
+ {y:2025,c:'energy',t:'Iberian Peninsula blackout; NCSC sets post-quantum migration timelines'},
+ {y:2026,c:'energy',t:'DESNZ vision for an AI-enabled clean energy system; Ofgem minded-to long-duration storage awards; supervised robotaxis in London'},
+ {y:2027,c:'future',t:'EU high-risk AI obligations apply from December'},
+ {y:2029,c:'future',t:'IBM’s target date for a fault-tolerant quantum computer'},
+ {y:2030,c:'future',t:'Clean Power 2030 target year'},
+ {y:2031,c:'future',t:'NCSC target for migrating priority systems to post-quantum cryptography'}
+];
+const CTX_ERAS = [[1925,'Electrification'],[1939,'Science at war'],[1946,'Post-war big science'],[1957,'Space race and Cold War'],[1973,'Oil shocks and microelectronics'],[1990,'Liberalisation and the internet'],[2001,'Mobile, cloud and security'],[2012,'Deep learning and decarbonisation'],[2020,'Pandemic, AI and energy security'],[2026,'The next five years']];
+
+/* Time from founding to founders becoming multi-millionaires (first listing, sale or valuation event). Approximate. */
+const FORTUNES = [
+ {n:'Chester Carlson',co:'Xerography (Xerox)',v:'hw',f:1938,w:1960,how:'Royalties after the Xerox 914 copier',c:'medium'},
+ {n:'William Hewlett and David Packard',co:'Hewlett-Packard',v:'hw',f:1939,w:1957,how:'Stock market listing',c:'high'},
+ {n:'Masaru Ibuka and Akio Morita',co:'Sony',v:'comms',f:1946,w:1958,how:'Tokyo stock market listing',c:'medium'},
+ {n:'Ken Olsen and Harlan Anderson',co:'Digital Equipment Corporation',v:'hw',f:1957,w:1966,how:'Stock market listing',c:'high'},
+ {n:'Robert Noyce and Gordon Moore',co:'Intel',v:'hw',f:1968,w:1971,how:'Stock market listing',c:'high'},
+ {n:'Bill Gates and Paul Allen',co:'Microsoft',v:'sw',f:1975,w:1986,how:'Stock market listing',c:'high'},
+ {n:'Steve Jobs and Steve Wozniak',co:'Apple',v:'hw',f:1976,w:1980,how:'Stock market listing',c:'high'},
+ {n:'Herbert Boyer and Robert Swanson',co:'Genentech',v:'life',f:1976,w:1980,how:'Stock market listing',c:'high'},
+ {n:'Larry Ellison',co:'Oracle',v:'sw',f:1977,w:1986,how:'Stock market listing',c:'high'},
+ {n:'Michael Dell',co:'Dell',v:'hw',f:1984,w:1988,how:'Stock market listing',c:'high'},
+ {n:'Irwin Jacobs and Andrew Viterbi',co:'Qualcomm',v:'comms',f:1985,w:1991,how:'Stock market listing',c:'high'},
+ {n:'Robin Saxby and the founding team',co:'Arm',v:'hw',f:1990,w:1998,how:'Stock market listing',c:'medium'},
+ {n:'Colin Angle, Helen Greiner and Rodney Brooks',co:'iRobot',v:'robotics',f:1990,w:2005,how:'Stock market listing',c:'high'},
+ {n:'Jensen Huang',co:'NVIDIA',v:'hw',f:1993,w:1999,how:'Stock market listing',c:'high'},
+ {n:'Gil Shwed',co:'Check Point',v:'cyber',f:1993,w:1996,how:'Stock market listing',c:'high'},
+ {n:'Marc Andreessen and Jim Clark',co:'Netscape',v:'sw',f:1994,w:1995,how:'Stock market listing',c:'high'},
+ {n:'Elon and Kimbal Musk',co:'Zip2',v:'sw',f:1995,w:1999,how:'Sale to Compaq',c:'high'},
+ {n:'Larry Page and Sergey Brin',co:'Google',v:'ai',f:1998,w:2004,how:'Stock market listing',c:'high'},
+ {n:'Shi Zhengrong',co:'Suntech Power',v:'energy',f:2001,w:2005,how:'Stock market listing',c:'high'},
+ {n:'Peter Beck',co:'Rocket Lab',v:'space',f:2006,w:2021,how:'Listing via merger',c:'medium'},
+ {n:'Uğur Şahin and Özlem Türeci',co:'BioNTech',v:'life',f:2008,w:2019,how:'Stock market listing',c:'high'},
+ {n:'Demis Hassabis, Shane Legg and Mustafa Suleyman',co:'DeepMind',v:'ai',f:2010,w:2014,how:'Sale to Google',c:'high'},
+ {n:'Patrick and John Collison',co:'Stripe',v:'sw',f:2010,w:2016,how:'Private valuation',c:'medium'},
+ {n:'Robin Zeng',co:'CATL',v:'energy',f:2011,w:2018,how:'Stock market listing',c:'high'},
+ {n:'George Kurtz and Dmitri Alperovitch',co:'CrowdStrike',v:'cyber',f:2011,w:2019,how:'Stock market listing',c:'high'},
+ {n:'Eric Yuan',co:'Zoom',v:'comms',f:2011,w:2019,how:'Stock market listing',c:'high'},
+ {n:'Poppy Gustafsson and co-founders',co:'Darktrace',v:'cyber',f:2013,w:2021,how:'Stock market listing',c:'high'},
+ {n:'Chris Monroe and Jungsang Kim',co:'IonQ',v:'quantum',f:2015,w:2021,how:'Listing via merger',c:'medium'},
+ {n:'Alexandr Wang',co:'Scale AI',v:'ai',f:2016,w:2021,how:'Private valuation',c:'medium'},
+ {n:'Arthur Mensch, Guillaume Lample and Timothée Lacroix',co:'Mistral AI',v:'ai',f:2023,w:2025,how:'Private valuation',c:'medium'}
+];
 const Y0 = 1925, Y1 = 2032, NOW = 2026, HORIZON = 2031.6, XS = 1.2, MID = (Y0 + Y1) / 2, H = 0.85, ZE = 28;
 const xOf = y => (y - MID) * XS;
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
@@ -520,7 +742,8 @@ const store = {
 const DEFAULT_FILTERS = () => ({
   fields:new Set(FKEYS), src:{academic:true,industry:true,government:true},
   kinds:{hist:true,proj:true,flight:true}, conf:{high:true,medium:true,low:true},
-  from:1925, to:2026, gapMax:60, q:'', ghosts:true
+  from:1925, to:2026, gapMax:60, q:'', ghosts:true, vision:false,
+  dv:{opt:true,asset:true,demand:true,rd:true,gov:true}
 });
 const F = DEFAULT_FILTERS();
 const hidden = new Set();
@@ -725,6 +948,12 @@ const items = DATA.map((d, i) => {
   if (d.kind !== 'flight') pts.push(it.curve.v2);
   pts.forEach(p => { const m = new THREE.Mesh(new THREE.SphereGeometry(1.5, 8, 6), hitMat); m.position.copy(p); m.userData.it = it; it.group.add(m); hitMeshes.push(m); });
   it.peak = it.curve.getPoint(d.kind === 'flight' ? it.maxFrac * .55 : .5);
+  if (d.dv) {
+    it.diamondMat = addMat(new THREE.MeshBasicMaterial({color:0xFFF4D6, transparent:true, opacity:.95, depthWrite:false}), .95);
+    it.diamond = new THREE.Mesh(new THREE.OctahedronGeometry(.42, 0), it.diamondMat);
+    it.diamond.position.copy(d.kind === 'flight' ? it.curve.v0 : it.curve.v2).setY(1.5);
+    it.group.add(it.diamond);
+  }
   return it;
 });
 
@@ -762,6 +991,7 @@ function matches(it){
   if (!F.fields.has(it.v) || !F.src[it.s] || !F.kinds[it.kind] || !F.conf[it.c]) return false;
   if (it.r < F.from || it.r > F.to) return false;
   if (F.gapMax < 60 && it.lag > F.gapMax) return false;
+  if (F.vision && !(it.dv && F.dv[it.dv])) return false;
   if (F.q) { const q = F.q.toLowerCase(); if (!(it.t + ' ' + it.rw + ' ' + it.pw).toLowerCase().includes(q)) return false; }
   return true;
 }
@@ -795,23 +1025,34 @@ function buildTrends(){
 /* ==================================================================
  *  WINDOW MANAGER
  * ================================================================== */
-const WIN_IDS = ['filters','display','summary','milestones','details','key'];
-const WIN_NAMES = {filters:'Filters', display:'Display', summary:'Summary', milestones:'Milestones', details:'Details', key:'Reading the model'};
+const WIN_IDS = ['filters','display','summary','milestones','details','key','context','landing','gapchart','fortunes','vision'];
+const WIN_NAMES = {filters:'Filters', display:'Display', summary:'Summary', milestones:'Milestones', details:'Details', key:'Reading the model', context:'Context', landing:'Landing and starting', gapchart:'Gap over time', fortunes:'Time to a fortune', vision:'DESNZ AI energy vision'};
 function defaultLayout(){
   const W = innerWidth, Hh = innerHeight, top = 80, narrow = W < 820, rw = Math.min(340, W - 36);
   return {
     filters:{x:18, y:top, w:Math.min(290, W - 36), h:Math.max(200, Math.min(Hh - top - 230, 640)), fs:1, open:!narrow},
     key:{x:18, y:Math.max(top + 210, Hh - 210), w:Math.min(290, W - 36), h:160, fs:1, open:!narrow},
     display:{x:Math.min(326, W - 310), y:top, w:290, h:Math.min(520, Hh - top - 60), fs:1, open:false},
-    summary:{x:W - rw - 18, y:top, w:rw, h:300, fs:1, open:!narrow},
-    details:{x:W - rw - 18, y:top + 316, w:rw, h:Math.max(220, Math.min(400, Hh - top - 380)), fs:1, open:false},
-    milestones:{x:Math.max(18, W - rw - 18 - 330), y:top, w:310, h:Math.min(560, Hh - top - 60), fs:1, open:false}
+    summary:{x:W - rw - 18, y:top, w:Math.min(370, W - 36), h:370, fs:1, open:!narrow},
+    details:{x:W - rw - 18, y:top + 386, w:rw, h:Math.max(220, Math.min(380, Hh - top - 440)), fs:1, open:false},
+    milestones:{x:Math.max(18, W - rw - 18 - 330), y:top, w:310, h:Math.min(560, Hh - top - 60), fs:1, open:false},
+    context:{x:18, y:top, w:320, h:300, fs:1, open:false},
+    landing:{x:18, y:top + 316, w:320, h:Math.max(200, Hh - top - 316 - 130), fs:1, open:false},
+    gapchart:{x:W - rw - 18, y:top, w:rw, h:270, fs:1, open:false},
+    fortunes:{x:W - rw - 18, y:top + 286, w:rw, h:Math.max(220, Hh - top - 286 - 130), fs:1, open:false},
+    vision:{x:Math.min(326, W - 330), y:top, w:330, h:Math.min(470, Hh - top - 60), fs:1, open:false}
   };
 }
-let layout = Object.assign(defaultLayout(), store.get('sg.layout.v2', {}));
+function playLayout(){
+  const d = defaultLayout();
+  WIN_IDS.forEach(id => d[id].open = false);
+  ['context','landing','gapchart','fortunes'].forEach(id => d[id].open = true);
+  return d;
+}
+let layout = Object.assign(defaultLayout(), store.get('sg.layout.v3', {}));
 let zTop = 20;
 const wins = {};
-function saveLayout(){ store.set('sg.layout.v2', layout); }
+function saveLayout(){ store.set('sg.layout.v3', layout); }
 function placeWin(id){
   const el = wins[id], L = layout[id];
   L.w = Math.min(L.w, innerWidth - 8); L.h = Math.min(L.h, innerHeight - 8);
@@ -821,7 +1062,7 @@ function placeWin(id){
   el.classList.toggle('closed', !L.open);
 }
 function raise(id){ wins[id].style.zIndex = ++zTop; }
-function setOpen(id, open){ layout[id].open = open; placeWin(id); if (open) raise(id); saveLayout(); buildWinMenu(); }
+function setOpen(id, open){ layout[id].open = open; placeWin(id); if (open) raise(id); saveLayout(); buildWinMenu(); if (open && typeof updateTimeWindows === 'function') updateTimeWindows(true); }
 WIN_IDS.forEach(id => {
   const el = $('w-' + id); wins[id] = el;
   const head = document.createElement('div'); head.className = 'wh';
@@ -830,7 +1071,7 @@ WIN_IDS.forEach(id => {
   head.addEventListener('click', e => {
     const a = e.target.dataset && e.target.dataset.a; if (!a) return;
     if (a === 'x') setOpen(id, false);
-    if (a === 'up' || a === 'dn') { const old = layout[id].fs, nf = Math.round(clamp(old + (a === 'up' ? .1 : -.1), .7, 2.2) * 10) / 10, k = nf / old; layout[id].fs = nf; layout[id].w = Math.max(220, layout[id].w * k); layout[id].h = Math.max(96, layout[id].h * k); if (layout[id].x + layout[id].w > innerWidth - 8) layout[id].x = Math.max(8, innerWidth - 8 - layout[id].w); if (layout[id].y + layout[id].h > innerHeight - 8) layout[id].y = Math.max(8, innerHeight - 8 - layout[id].h); placeWin(id); saveLayout(); }
+    if (a === 'up' || a === 'dn') { const old = layout[id].fs, nf = Math.round(clamp(old + (a === 'up' ? .1 : -.1), .7, 2.2) * 10) / 10, k = nf / old; layout[id].fs = nf; layout[id].w = Math.max(220, layout[id].w * k); layout[id].h = Math.max(96, layout[id].h * k); if (layout[id].x + layout[id].w > innerWidth - 8) layout[id].x = Math.max(8, innerWidth - 8 - layout[id].w); if (layout[id].y + layout[id].h > innerHeight - 8) layout[id].y = Math.max(8, innerHeight - 8 - layout[id].h); placeWin(id); saveLayout(); updateTimeWindows(true); }
   });
   let drag = null;
   head.addEventListener('pointerdown', e => {
@@ -857,7 +1098,7 @@ if (window.ResizeObserver) {
 const winMenu = $('winMenu');
 function buildWinMenu(){
   winMenu.innerHTML = WIN_IDS.map(id => `<button data-w="${id}"><span class="tick ${layout[id].open ? 'on' : ''}">${layout[id].open ? '✓' : ''}</span>${WIN_NAMES[id]}</button>`).join('') +
-    `<hr><button data-w="__all">Open all windows</button><button data-w="__reset">Reset layout and text sizes</button>` +
+    `<hr><button data-w="__play">Arrange for Play the century</button><button data-w="__reset">Arrange for exploring (default)</button><button data-w="__all">Open all windows</button>` +
     `<small>Drag a title bar to move, drag the bottom-right corner to resize, A− and A+ change text size. Double-click a title bar to restore its default place.</small>`;
 }
 buildWinMenu();
@@ -865,6 +1106,7 @@ winMenu.addEventListener('click', e => {
   const b = e.target.closest('button'); if (!b) return;
   const w = b.dataset.w;
   if (w === '__reset') { layout = defaultLayout(); WIN_IDS.forEach(placeWin); saveLayout(); buildWinMenu(); }
+  else if (w === '__play') { layout = playLayout(); WIN_IDS.forEach(placeWin); saveLayout(); buildWinMenu(); updateTimeWindows(true); }
   else if (w === '__all') { WIN_IDS.forEach(id => { layout[id].open = true; placeWin(id); }); saveLayout(); buildWinMenu(); }
   else setOpen(w, !layout[w].open);
 });
@@ -900,6 +1142,7 @@ $('fromR').addEventListener('input', e => { F.from = +e.target.value; if (F.from
 $('toR').addEventListener('input', e => { F.to = +e.target.value; if (F.to < F.from) { F.from = F.to; } refresh(); });
 $('gapR').addEventListener('input', e => { F.gapMax = +e.target.value; refresh(); });
 $('ghostT').addEventListener('change', e => { F.ghosts = e.target.checked; refresh(); });
+$('visT').addEventListener('change', e => { F.vision = e.target.checked; if (F.vision) F.dv = {opt:true,asset:true,demand:true,rd:true,gov:true}; refresh(); });
 $('resetFilters').onclick = () => { Object.assign(F, DEFAULT_FILTERS()); hidden.clear(); refresh(); };
 
 function syncFilterUI(){
@@ -912,6 +1155,7 @@ function syncFilterUI(){
   $('fromR').value = F.from; $('toR').value = F.to; $('gapR').value = F.gapMax;
   $('fromV').textContent = F.from; $('toV').textContent = F.to; $('gapV').textContent = F.gapMax >= 60 ? 'Any' : F.gapMax + ' years';
   $('ghostT').checked = F.ghosts; if ($('q').value.trim() !== F.q) $('q').value = F.q;
+  $('visT').checked = F.vision;
 }
 
 /* Display UI */
@@ -948,6 +1192,7 @@ function refresh(){
   });
   if (selected && selected.target < 1) closeDetail();
   syncFilterUI(); buildTrends(); renderStats(); renderMilestones();
+  if (typeof computeGapSeries === 'function') { computeGapSeries(); renderVision(); updateTimeWindows(true); }
 }
 
 function fieldPhrase(){
@@ -956,7 +1201,7 @@ function fieldPhrase(){
   return 'Across the selected fields';
 }
 function renderStats(){
-  const cols = [['Pre-1970', 0, 1970], ['1970–99', 1970, 2000], ['2000+', 2000, 3000]];
+  const cols = [['Pre-1970', 0, 1970], ['1970–99', 1970, 2000], ['2000–19', 2000, 2020], ['2020+', 2020, 3000]];
   const pool = items.filter(it => it.kind === 'hist' && shownFully(it));
   const cell = set => { const m = median(set.map(it => it.lag)); return m == null ? '<td class="none">–</td>' : `<td>${Math.round(m)}</td>`; };
   let html = '<tr><th></th>' + cols.map(c => `<th>${c[0]}</th>`).join('') + '</tr>';
@@ -966,14 +1211,15 @@ function renderStats(){
   });
   html += '<tr class="all"><td>All sources</td>' + cols.map(c => cell(pool.filter(it => it.r >= c[1] && it.r < c[2]))).join('') + '</tr>';
   $('stats').innerHTML = html;
-  const pre = pool.filter(it => it.r < 1970), mid = pool.filter(it => it.r >= 1970 && it.r < 2000), rec = pool.filter(it => it.r >= 2000);
-  const base = pre.length >= 2 ? {set:pre, label:'before 1970'} : mid.length >= 2 ? {set:mid, label:'in 1970–99'} : null;
-  const early = base ? median(base.set.map(it => it.lag)) : null, late = rec.length ? median(rec.map(it => it.lag)) : null;
+  const med = set => set.length ? Math.round(median(set.map(it => it.lag))) : null;
+  const pre = pool.filter(it => it.r < 1970), mid = pool.filter(it => it.r >= 1970 && it.r < 2000);
+  const e20 = med(pool.filter(it => it.r >= 2000 && it.r < 2020)), r20 = med(pool.filter(it => it.r >= 2020));
+  const base = pre.length >= 2 ? {v:med(pre), label:'before 1970'} : mid.length >= 2 ? {v:med(mid), label:'in 1970–99'} : null;
   let msg = '';
-  if (early != null && late != null) msg = late < early - 1
-    ? `${fieldPhrase()}, the typical gap has fallen from about ${Math.round(early)} years ${base.label} to ${Math.round(late)} since 2000.`
-    : `${fieldPhrase()}, the gap has barely moved: about ${Math.round(late)} years since 2000, against ${Math.round(early)} ${base.label}.`;
-  else if (late != null) msg = `${fieldPhrase()}, recent breakthroughs have reached product in about ${Math.round(late)} years.`;
+  if (base && e20 != null) {
+    msg = `${fieldPhrase()}: about ${base.v} years ${base.label}, ${e20} for research begun in 2000–19`;
+    msg += r20 != null ? `, and ${r20} for research begun since 2020.` : '.';
+  } else if (e20 != null) msg = `${fieldPhrase()}: about ${e20} years for research begun in 2000–19` + (r20 != null ? `, ${r20} since 2020.` : '.');
   else if (!pool.length) msg = 'No landed milestones match the current filters.';
   $('insight').textContent = msg;
   const n = items.filter(shownFully).length;
@@ -1005,7 +1251,7 @@ function openDetail(it){
     : it.kind === 'proj' ? `<strong>~${it.lag}</strong><span>years, if it lands on time</span>` : `<strong>${NOW - it.r}+</strong><span>years and counting</span>`;
   const conf = it.kind === 'hist' ? (it.c === 'high' ? 'Well documented' : 'Dates approximate') : CONF_LONG[it.c];
   detailBody.innerHTML = `
-    <div class="dchips"><span class="chip src" style="background:${s.hex}">${s.name}</span><span class="chip" style="color:${FIELDS[it.v].hex};border-color:${FIELDS[it.v].hex}55">${FIELDS[it.v].name}</span><span class="chip conf-${it.c}">${conf}</span></div>
+    <div class="dchips"><span class="chip src" style="background:${s.hex}">${s.name}</span><span class="chip" style="color:${FIELDS[it.v].hex};border-color:${FIELDS[it.v].hex}55">${FIELDS[it.v].name}</span><span class="chip conf-${it.c}">${conf}</span>${it.dv ? `<span class="chip vis">DESNZ vision: ${VISION[it.dv]}</span>` : ''}</div>
     <h3 class="dtitle">${it.t}</h3>
     <div class="gap">${gapTxt}</div>
     <div class="span"><b>${it.r}</b><div>${it.rw}</div><b>${pYear}</b><div>${it.pw}</div></div>
@@ -1032,13 +1278,20 @@ $('aboutClose').onclick = () => $('about').classList.remove('open');
 $('about').onclick = e => { if (e.target.id === 'about') $('about').classList.remove('open'); };
 $('playBtn').onclick = () => state.playing ? stopPlay() : startPlay();
 
+
 let camGoal = null, focusGoal = null;
 function resetView(){ camGoal = {pos:HOME.pos.clone(), target:HOME.target.clone()}; focusGoal = null; }
 controls.addEventListener('start', () => { camGoal = null; focusGoal = null; });
 
-let playT0 = 0; const PLAY_SECONDS = 20;
-function startPlay(){ state.playing = true; state.cursor = Y0; playT0 = performance.now(); $('playBtn').textContent = 'Stop'; $('yearbig').classList.add('on'); cursorGroup.visible = true; }
-function stopPlay(){ state.playing = false; state.cursor = Y1; $('playBtn').textContent = 'Play the century'; $('yearbig').classList.remove('on'); cursorGroup.visible = false; }
+const PLAY_SECONDS = 24; let paused = false, playSpeed = 1;
+function startPlay(){ state.playing = true; paused = false; state.cursor = Y0; $('playBtn').textContent = 'Exit play'; $('yearbig').classList.add('on'); $('timebar').classList.add('on'); cursorGroup.visible = true; syncPause(); updateTimeWindows(true); }
+function stopPlay(){ state.playing = false; paused = false; state.cursor = Y1; $('playBtn').textContent = 'Play the century'; $('yearbig').classList.remove('on'); $('timebar').classList.remove('on'); cursorGroup.visible = false; updateTimeWindows(true); }
+function syncPause(){ $('tbPause').textContent = paused ? (state.cursor >= Y1 ? 'Replay' : 'Resume') : 'Pause'; }
+function togglePause(){ if (!state.playing) { startPlay(); return; } if (paused && state.cursor >= Y1) state.cursor = Y0; paused = !paused; syncPause(); }
+$('tbPause').onclick = togglePause;
+$('tbStop').onclick = stopPlay;
+$('tbSpeed').onchange = e => { playSpeed = +e.target.value; };
+$('scrub').addEventListener('input', e => { if (!state.playing) startPlay(); paused = true; state.cursor = +e.target.value; syncPause(); });
 
 document.addEventListener('keydown', e => {
   const tag = e.target.tagName;
@@ -1047,6 +1300,7 @@ document.addEventListener('keydown', e => {
   if (e.key >= '1' && e.key <= '9') { F.fields = new Set([FKEYS[+e.key - 1]]); refresh(); }
   else if (e.key === '0') { F.fields = new Set(FKEYS); refresh(); }
   else if (e.key === 'p' || e.key === 'P') state.playing ? stopPlay() : startPlay();
+  else if (e.key === ' ' && state.playing) { e.preventDefault(); togglePause(); }
   else if (e.key === 'r' || e.key === 'R') resetView();
   else if (e.key === 'h' || e.key === 'H') document.body.classList.toggle('clean');
   else if (e.key === 'f' || e.key === 'F') $('fsBtn').click();
@@ -1069,7 +1323,7 @@ renderer.domElement.addEventListener('pointermove', ev => {
   const it = pick(ev); hovered = it; document.body.classList.toggle('pointing', !!it);
   if (it) {
     const span = it.kind === 'hist' ? `${it.r} to ${it.p}, ${it.lag} years` : it.kind === 'proj' ? `Expected around ${it.p}` : `Since ${it.r}, not yet landed`;
-    tip.innerHTML = `<b>${it.t}</b><span>${FIELDS[it.v].name}. ${span}</span>`;
+    tip.innerHTML = `<b>${it.t}</b><span>${FIELDS[it.v].name}. ${span}${it.dv ? '<br>Linked to the DESNZ AI energy vision' : ''}</span>`;
     tip.style.left = Math.min(ev.clientX + 14, innerWidth - 290) + 'px'; tip.style.top = (ev.clientY + 14) + 'px'; tip.style.opacity = 1;
   } else tip.style.opacity = 0;
 });
@@ -1121,18 +1375,23 @@ function updateLabels(){
 /* ==================================================================
  *  ANIMATION
  * ================================================================== */
-const clock = new THREE.Clock(), tmp = new THREE.Vector3();
+const clock = new THREE.Clock(), tmp = new THREE.Vector3(); let yearShown = -1;
 function frame(){
   requestAnimationFrame(frame);
   const dt = Math.min(clock.getDelta(), .05), t = clock.elapsedTime;
   if (state.playing) {
-    const k = (performance.now() - playT0) / 1000 / PLAY_SECONDS, e = k < 1 ? (1 - Math.pow(1 - k, 1.6)) : 1;
-    state.cursor = Y0 + (Y1 - Y0) * e;
+    if (!paused) { state.cursor += dt * (Y1 - Y0) / PLAY_SECONDS * playSpeed; if (state.cursor >= Y1) { state.cursor = Y1; paused = true; syncPause(); } }
     cursorGroup.position.x = xOf(Math.min(state.cursor, Y1));
-    $('yearNum').textContent = Math.floor(Math.min(state.cursor, 2031));
-    $('yearSub').textContent = state.cursor >= NOW ? 'The next five years' : 'Research to change';
-    if (k >= 1.12) stopPlay();
+    const yr = Math.floor(Math.min(state.cursor, 2031));
+    if (yearShown !== yr) {
+      yearShown = yr;
+      $('yearNum').textContent = yr;
+      const g = rollingGap(yr);
+      $('yearSub').innerHTML = g ? `Time taken from research to change: <b>${g.m} years</b><br><span>median of ${g.n} ${g.n === 1 ? 'arc' : 'arcs'} landing ${Math.max(Y0, yr - 9)}–${yr}${yr > NOW ? ', including expected' : ''}</span>` : 'Time taken from research to change: <b>no arcs landing yet</b>';
+      if (document.activeElement !== $('scrub')) $('scrub').value = state.cursor;
+    }
   }
+  updateTimeWindows(false);
   if (camGoal) {
     camera.position.lerp(camGoal.pos, 1 - Math.pow(.02, dt)); controls.target.lerp(camGoal.target, 1 - Math.pow(.02, dt));
     if (camera.position.distanceTo(camGoal.pos) < .3) camGoal = null;
@@ -1165,6 +1424,7 @@ function frame(){
         if (frac >= it.maxFrac) it.pulseMat.opacity *= .35;
       } else { it.curve.getPoint(frac, tmp); it.pulse.position.copy(tmp); it.pulse.scale.set(3, 3, 1); }
     }
+    if (it.diamond) it.diamond.rotation.y = t * 1.4;
     if (it.ring) {
       const landed = it.kind === 'hist' ? frac >= 1 : cur >= NOW;
       it.ring.visible = it.land.visible = landed;
@@ -1188,6 +1448,122 @@ function frame(){
   if (composer) composer.render(); else renderer.render(scene, camera);
   updateLabels();
 }
+
+/* ==================================================================
+ *  TIME-LINKED WINDOWS
+ * ================================================================== */
+function rollingGap(yr){
+  const set = items.filter(it => shownFully(it) && it.kind !== 'flight' && (it.kind === 'hist' || yr > NOW) && it.p <= yr && it.p > yr - 10);
+  if (!set.length) return null;
+  return {m:Math.round(median(set.map(it => it.lag))), n:set.length};
+}
+let gapSeries = [];
+function computeGapSeries(){ gapSeries = []; for (let y = 1930; y <= 2031; y++) { const g = rollingGap(y); gapSeries.push({y, m:g ? g.m : null}); } }
+function setupCanvas(cv){
+  if (!cv) return null;
+  const w = cv.clientWidth, h = cv.clientHeight, dpr = Math.min(window.devicePixelRatio || 1, 2);
+  if (!w || !h) return null;
+  if (cv.width !== Math.round(w * dpr) || cv.height !== Math.round(h * dpr)) { cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr); }
+  const g = cv.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0); g.clearRect(0, 0, w, h);
+  return {g, w, h, fs:parseFloat(getComputedStyle(cv).fontSize) || 14};
+}
+function axes(S, x0, x1, ymax, step){
+  const {g, w, h, fs} = S, L = fs * 2.1, Rr = 8, T = 8, B = fs * 1.5;
+  const X = y => L + (y - x0) / (x1 - x0) * (w - L - Rr), Y = v => T + (1 - v / ymax) * (h - T - B);
+  g.font = `${fs * .78}px "Instrument Sans", system-ui, sans-serif`; g.fillStyle = '#5D7486'; g.strokeStyle = 'rgba(160,195,220,.12)'; g.lineWidth = 1;
+  for (let v = 0; v <= ymax; v += step) { g.beginPath(); g.moveTo(L, Y(v)); g.lineTo(w - Rr, Y(v)); g.stroke(); g.fillText(v, 2, Y(v) + fs * .28); }
+  for (let y = 1940; y <= 2020; y += 20) g.fillText(y, X(y) - fs, h - 3);
+  g.fillStyle = 'rgba(233,242,255,.05)'; g.fillRect(X(NOW), T, X(x1) - X(NOW), h - T - B);
+  return {X, Y, L, T, B};
+}
+function drawGap(c){
+  const S = setupCanvas($('gapCanvas')); if (!S) return;
+  const {g} = S, top = Math.max(20, Math.ceil((Math.max(0, ...gapSeries.map(p => p.m || 0)) + 2) / 10) * 10);
+  const {X, Y, T, B} = axes(S, 1930, 2031, top, 10);
+  const path = (cond, stroke, width, dash) => {
+    g.beginPath(); let on = false;
+    gapSeries.forEach(p => { if (p.m == null || !cond(p)) { on = false; return; } const px = X(p.y), py = Y(p.m); if (!on) { g.moveTo(px, py); on = true; } else g.lineTo(px, py); });
+    g.setLineDash(dash || []); g.strokeStyle = stroke; g.lineWidth = width; g.stroke(); g.setLineDash([]);
+  };
+  path(() => true, 'rgba(233,242,255,.14)', 1.5);
+  path(p => p.y <= c && p.y <= NOW, '#E9F2FF', 2.2);
+  path(p => p.y <= c && p.y >= NOW, '#E9F2FF', 2.2, [3, 4]);
+  if (state.playing) { const cx = X(Math.min(c, 2031)); g.strokeStyle = 'rgba(255,255,255,.55)'; g.beginPath(); g.moveTo(cx, T); g.lineTo(cx, S.h - B); g.stroke(); }
+  const yr = Math.floor(Math.min(c, 2031)), pt = gapSeries.find(p => p.y === yr);
+  $('gapNow').textContent = pt && pt.m != null ? `${yr}: arcs landing in the previous ten years took a median of ${pt.m} years.` : `${yr}: no arcs landing in the previous ten years for this selection.`;
+}
+function renderContext(yr){
+  const era = CTX_ERAS.filter(e => e[0] <= yr).pop();
+  $('ctxEra').textContent = era ? era[1] : '';
+  $('ctxYear').textContent = state.playing ? `Events up to ${yr}` : 'Latest events and the years ahead';
+  const list = EVENTS.filter(e => e.y <= yr).slice(-9).reverse();
+  $('ctxList').innerHTML = list.map((e, i) => `<div class="trow ${i === 0 && state.playing && yr - e.y < 3 ? 'fresh' : ''} ${e.c === 'future' ? 'fut' : ''}"><b>${e.y}</b><i class="cat cat-${e.c}"></i><span>${e.t}</span></div>`).join('');
+}
+function renderLanding(yr){
+  const pool = items.filter(shownFully);
+  const landed = pool.filter(it => it.kind !== 'flight' && (it.kind === 'hist' || yr > NOW) && it.p <= yr && it.p > yr - 8).sort((a, b) => b.p - a.p || a.lag - b.lag).slice(0, 12);
+  const started = pool.filter(it => it.r <= yr && it.r > yr - 8).sort((a, b) => b.r - a.r).slice(0, 12);
+  const row = (y, it, extra) => `<div class="trow" data-id="${it.id}"><b>${y}</b><i class="cat" style="background:${itemHex(it)}"></i><span>${it.t}<em>${extra}</em></span></div>`;
+  $('landList').innerHTML = landed.length ? landed.map(it => row(it.p, it, `${it.lag} ${it.lag === 1 ? 'year' : 'years'}${it.kind === 'proj' ? ', expected' : ''}`)).join('') : '<p class="empty">Nothing in this selection reached change in these years.</p>';
+  $('startList').innerHTML = started.length ? started.map(it => row(it.r, it, it.kind === 'flight' ? 'still in the lab' : it.p <= yr ? `landed after ${it.lag} ${it.lag === 1 ? 'year' : 'years'}` : 'in progress')).join('') : '<p class="empty">No research in this selection began in these years.</p>';
+}
+function renderFortunes(yr){
+  const pool = FORTUNES.filter(x => F.fields.has(x.v));
+  const shown = pool.filter(x => x.f <= yr).sort((a, b) => b.f - a.f);
+  const S = setupCanvas($('fortCanvas'));
+  if (S) {
+    const {g, fs} = S, {X, Y} = axes(S, 1930, 2031, 25, 5);
+    shown.slice().reverse().forEach(x => {
+      const done = x.w <= yr, yv = done ? x.w - x.f : Math.min(yr - x.f, 25), col = FIELDS[x.v].hex;
+      g.beginPath(); g.arc(X(x.f), Y(yv), fs * .34, 0, Math.PI * 2);
+      if (done) { g.fillStyle = col; g.fill(); } else { g.strokeStyle = col; g.lineWidth = 1.5; g.stroke(); }
+    });
+  }
+  const med = a => a.length ? Math.round(median(a)) : null, got = pool.filter(x => x.w <= yr);
+  const e1 = med(got.filter(x => x.f < 1970).map(x => x.w - x.f)), e2 = med(got.filter(x => x.f >= 1970 && x.f < 2000).map(x => x.w - x.f)), e3 = med(got.filter(x => x.f >= 2000).map(x => x.w - x.f));
+  const parts = [];
+  if (e1 != null) parts.push(`${e1} years for companies founded before 1970`);
+  if (e2 != null) parts.push(`${e2} for 1970–99`);
+  if (e3 != null) parts.push(`${e3} since 2000`);
+  const fastest = got.slice().sort((a, b) => (a.w - a.f) - (b.w - b.f))[0];
+  $('fortStat').textContent = !pool.length ? 'No examples for the selected fields.' : parts.length ? `Median time to a fortune: ${parts.join(', ')}.` + (fastest ? ` Fastest so far: ${fastest.co}, ${fastest.w - fastest.f} ${fastest.w - fastest.f === 1 ? 'year' : 'years'}.` : '') : 'No founders in this selection had reached a fortune by this year.';
+  $('fortList').innerHTML = shown.map(x => `<div class="trow"><b>${x.f}</b><i class="cat" style="background:${FIELDS[x.v].hex}"></i><span><strong>${x.n}</strong>, ${x.co}<em>${x.w <= yr ? `${x.w - x.f} ${x.w - x.f === 1 ? 'year' : 'years'}: ${x.how.toLowerCase()}, ${x.w}` : 'building'}</em></span></div>`).join('');
+}
+function renderVision(yr){
+  if (yr === undefined) yr = state.playing ? Math.floor(Math.min(state.cursor, 2031)) : 2031;
+  const pool = items.filter(it => it.dv), single = Object.values(F.dv).filter(Boolean).length === 1;
+  $('visList').innerHTML = Object.keys(VISION).map(k => {
+    const set = pool.filter(it => it.dv === k).sort((a, b) => (a.p || a.tg) - (b.p || b.tg));
+    const landed = set.filter(it => it.kind === 'hist' && it.p <= yr), ahead = set.filter(it => !(it.kind === 'hist' && it.p <= yr));
+    const on = F.vision && F.dv[k] && single;
+    return `<div class="vrow ${on ? 'on' : ''}" data-dv="${k}" role="button" tabindex="0"><span class="vn">${VISION[k]}</span><span class="vc">${landed.length} already helping, ${ahead.length} still to land</span><span class="vt">${landed.map(it => `<span data-id="${it.id}">${it.t}</span>`).join('')}${ahead.map(it => `<span class="ahead" data-id="${it.id}">${it.t}</span>`).join('')}</span></div>`;
+  }).join('');
+}
+$('visList').addEventListener('click', e => {
+  const id = e.target.dataset && e.target.dataset.id;
+  if (id != null && id !== undefined && e.target.tagName === 'SPAN' && e.target.parentElement.classList.contains('vt')) { const it = items[+id]; hidden.delete(it.id); openDetail(it); return; }
+  const row = e.target.closest('.vrow'); if (!row) return;
+  const k = row.dataset.dv, single = Object.values(F.dv).filter(Boolean).length === 1;
+  if (F.vision && single && F.dv[k]) { F.vision = false; F.dv = {opt:true,asset:true,demand:true,rd:true,gov:true}; }
+  else { F.vision = true; F.dv = {opt:false,asset:false,demand:false,rd:false,gov:false}; F.dv[k] = true; F.fields = new Set(FKEYS); }
+  refresh();
+});
+$('visAll').onclick = () => { F.vision = true; F.dv = {opt:true,asset:true,demand:true,rd:true,gov:true}; F.fields = new Set(FKEYS); refresh(); };
+$('visOff').onclick = () => { F.vision = false; F.dv = {opt:true,asset:true,demand:true,rd:true,gov:true}; refresh(); };
+['landList','startList'].forEach(id => $(id).addEventListener('click', e => { const r = e.target.closest('.trow'); if (r && r.dataset.id) openDetail(items[+r.dataset.id]); }));
+let twKey = '';
+function updateTimeWindows(force){
+  const c = state.playing ? state.cursor : Y1, yr = Math.floor(Math.min(c, 2031));
+  const key = (state.playing ? Math.floor(c * 4) : 'end');
+  if (!force && key === twKey) return;
+  twKey = key;
+  if (layout.context.open) renderContext(yr);
+  if (layout.landing.open) renderLanding(yr);
+  if (layout.gapchart.open) drawGap(c);
+  if (layout.fortunes.open) renderFortunes(yr);
+  if (layout.vision.open) renderVision(yr);
+}
+if (window.ResizeObserver) { const cro = new ResizeObserver(() => { twKey = ''; }); ['gapCanvas','fortCanvas'].forEach(id => cro.observe($(id))); }
 
 /* ==================================================================
  *  START
