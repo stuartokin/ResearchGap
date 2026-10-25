@@ -3,29 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>The shrinking gap: research to product, 1925–2031</title>
-<meta name="description" content="An interactive 3D view of how quickly academic, industry and government research has become product over the last century, with a five-year outlook for energy, IT and cyber.">
+<title>The Shrinking Gap from Research to Change</title>
+<meta name="description" content="An interactive 3D model of how quickly academic, industry and government research has turned into products and change over the last century, with a five-year outlook.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#08131D;
-  --panel:rgba(13,29,43,.74);
-  --panel-solid:#0E2131;
-  --line:rgba(160,195,220,.15);
-  --line-strong:rgba(160,195,220,.32);
-  --text:#E3ECF2;
-  --muted:#8FA6B8;
-  --faint:#5D7486;
-  --aca:#F5B04C;
-  --ind:#4CD3C2;
-  --gov:#A891FF;
-  --proj:#E9F2FF;
+  --ink:#08131D; --panel:rgba(13,29,43,.8); --panel-solid:#0E2131;
+  --line:rgba(160,195,220,.15); --line-strong:rgba(160,195,220,.32);
+  --text:#E3ECF2; --muted:#8FA6B8; --faint:#5D7486; --proj:#E9F2FF;
   --serif:"Instrument Serif","Iowan Old Style",Georgia,serif;
   --sans:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  --safe-t:env(safe-area-inset-top,0px);
-  --safe-b:env(safe-area-inset-bottom,0px);
+  --safe-t:env(safe-area-inset-top,0px); --safe-b:env(safe-area-inset-bottom,0px);
+  --lfs:12px;
 }
 *{box-sizing:border-box}
 html,body{margin:0;height:100%;background:var(--ink);color:var(--text);font-family:var(--sans);overflow:hidden;-webkit-font-smoothing:antialiased}
@@ -33,189 +24,257 @@ html,body{margin:0;height:100%;background:var(--ink);color:var(--text);font-fami
 #scene canvas{display:block;cursor:grab}
 #scene canvas:active{cursor:grabbing}
 body.pointing #scene canvas{cursor:pointer}
-button{font:inherit;color:inherit}
+button,input,select{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--proj);outline-offset:2px}
 
 /* Top bar */
-#top{position:fixed;top:calc(var(--safe-t) + 18px);left:22px;right:22px;display:flex;justify-content:space-between;align-items:flex-start;gap:20px;pointer-events:none;z-index:5}
+#top{position:fixed;top:calc(var(--safe-t) + 16px);left:20px;right:20px;display:flex;justify-content:space-between;align-items:center;gap:20px;pointer-events:none;z-index:50}
 #top > *{pointer-events:auto}
-.title h1{font-family:var(--serif);font-weight:400;font-size:clamp(28px,3.2vw,44px);line-height:1;margin:0;letter-spacing:-.01em}
-.title h1 em{font-style:italic;color:var(--muted)}
-.title p{margin:8px 0 0;color:var(--muted);font-size:14px;max-width:46ch;line-height:1.45}
-.actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
-.btn{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:9px 14px;font-size:13.5px;font-weight:500;cursor:pointer;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:border-color .2s,background .2s}
+#top h1{font-family:var(--serif);font-weight:400;font-size:clamp(24px,2.8vw,40px);line-height:1.05;margin:0;letter-spacing:-.01em}
+.actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;position:relative}
+.btn{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px 13px;font-size:13.5px;font-weight:500;cursor:pointer;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:border-color .2s,background .2s;white-space:nowrap}
 .btn:hover{border-color:var(--line-strong)}
 .btn.primary{background:rgba(233,242,255,.92);color:#0A1622;border-color:transparent}
 .btn.primary:hover{background:#fff}
 .btn[aria-pressed="false"]{color:var(--muted)}
+#winMenu{position:absolute;top:calc(100% + 8px);right:0;width:250px;background:var(--panel-solid);border:1px solid var(--line-strong);border-radius:12px;padding:6px;display:none;z-index:60;box-shadow:0 18px 40px rgba(0,0,0,.4)}
+#winMenu.open{display:block}
+#winMenu button{display:flex;width:100%;align-items:center;gap:10px;background:none;border:0;padding:8px 10px;border-radius:8px;cursor:pointer;font-size:14px;text-align:left}
+#winMenu button:hover{background:rgba(255,255,255,.05)}
+#winMenu .tick{width:16px;height:16px;border-radius:4px;border:1px solid var(--line-strong);display:inline-flex;align-items:center;justify-content:center;font-size:11px}
+#winMenu .tick.on{background:var(--proj);color:#0A1622;border-color:transparent}
+#winMenu hr{border:0;border-top:1px solid var(--line);margin:6px 4px}
+#winMenu small{display:block;color:var(--faint);font-size:12px;padding:4px 10px 6px;line-height:1.4}
 
-/* Panels */
-.panel{position:fixed;background:var(--panel);border:1px solid var(--line);border-radius:14px;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);z-index:4;transition:opacity .35s,transform .35s}
-#left{left:22px;top:calc(var(--safe-t) + 128px);width:236px;padding:16px 14px;max-height:calc(100% - 200px);overflow:auto}
-#right{right:22px;top:calc(var(--safe-t) + 128px);width:316px;padding:16px 16px 14px}
-.panel h2{font-size:12.5px;font-weight:500;color:var(--muted);margin:0 0 8px 4px;letter-spacing:.01em}
-.group + .group{margin-top:18px;padding-top:14px;border-top:1px solid var(--line)}
-.vbtn{display:flex;width:100%;align-items:center;justify-content:space-between;background:none;border:0;border-radius:8px;padding:8px 10px;font-size:14.5px;cursor:pointer;text-align:left;color:var(--muted);position:relative}
-.vbtn:hover{color:var(--text);background:rgba(255,255,255,.03)}
-.vbtn[aria-pressed="true"]{color:var(--text);background:rgba(233,242,255,.07)}
-.vbtn[aria-pressed="true"]::before{content:"";position:absolute;left:0;top:8px;bottom:8px;width:2px;border-radius:2px;background:var(--proj)}
-.vbtn kbd{font-family:var(--sans);font-size:11px;color:var(--faint);border:1px solid var(--line);border-radius:4px;padding:0 5px}
-.sbtn{display:flex;width:100%;align-items:center;gap:10px;background:none;border:0;padding:7px 10px;border-radius:8px;cursor:pointer;font-size:14px;text-align:left}
-.sbtn:hover{background:rgba(255,255,255,.03)}
-.sbtn .dot{width:10px;height:10px;border-radius:50%;flex:none;box-shadow:0 0 10px currentColor;background:currentColor}
-.sbtn .n{margin-left:auto;color:var(--faint);font-size:12.5px;font-variant-numeric:tabular-nums}
-.sbtn[aria-pressed="false"]{opacity:.38}
-.sbtn[aria-pressed="false"] .dot{box-shadow:none}
-.toggle{display:flex;align-items:center;justify-content:space-between;padding:6px 10px;font-size:14px;color:var(--text);cursor:pointer;border-radius:8px}
-.toggle:hover{background:rgba(255,255,255,.03)}
-.toggle input{appearance:none;-webkit-appearance:none;width:30px;height:18px;border-radius:9px;background:rgba(255,255,255,.12);position:relative;cursor:pointer;transition:background .2s;margin:0}
-.toggle input::after{content:"";position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:var(--muted);transition:transform .2s,background .2s}
+/* Windows */
+.win{position:fixed;--fs:1;font-size:calc(14px * var(--fs));background:var(--panel);border:1px solid var(--line);border-radius:14px;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);display:flex;flex-direction:column;resize:both;overflow:hidden;min-width:220px;min-height:96px;max-width:96vw;max-height:calc(100vh - 20px);z-index:10;box-shadow:0 12px 36px rgba(0,0,0,.25);transition:opacity .3s}
+.win.closed{display:none}
+.wh{display:flex;align-items:center;gap:2px;padding:.45em .45em .45em .95em;cursor:move;user-select:none;-webkit-user-select:none;border-bottom:1px solid var(--line);touch-action:none;flex:none}
+.wh h2{font-size:.93em;font-weight:600;flex:1;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wh button{min-width:2em;height:2em;border:0;background:transparent;color:var(--muted);border-radius:7px;cursor:pointer;font-size:.82em;padding:0 .35em}
+.wh button:hover{background:rgba(255,255,255,.08);color:var(--text)}
+.wbody{overflow:auto;padding:.8em .95em 1em;flex:1;scrollbar-width:thin;scrollbar-color:rgba(160,195,220,.25) transparent}
+.wbody h3{font-size:.86em;font-weight:500;color:var(--muted);margin:1.2em 0 .5em}
+.wbody h3:first-child{margin-top:.1em}
+.row{display:flex;align-items:center;gap:.6em}
+
+/* Filter controls */
+.search{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:8px;padding:.5em .7em;font-size:.95em}
+.search::placeholder{color:var(--faint)}
+.minis{display:flex;gap:.35em;flex-wrap:wrap;margin:.2em 0 .5em}
+.mini{background:none;border:1px solid var(--line);border-radius:999px;padding:.2em .7em;font-size:.82em;color:var(--muted);cursor:pointer}
+.mini:hover{color:var(--text);border-color:var(--line-strong)}
+.flist{display:flex;flex-direction:column;gap:1px}
+.frow{display:flex;align-items:center;gap:.6em;padding:.32em .45em;border-radius:7px;cursor:pointer;font-size:.95em}
+.frow:hover{background:rgba(255,255,255,.04)}
+.frow .sw{width:.8em;height:.8em;border-radius:3px;flex:none;border:1.5px solid currentColor}
+.frow.on .sw{background:currentColor;box-shadow:0 0 8px currentColor}
+.frow .nm{flex:1;color:var(--text)}
+.frow:not(.on) .nm{color:var(--faint)}
+.frow .ct{color:var(--faint);font-size:.85em;font-variant-numeric:tabular-nums}
+.frow .only{opacity:0;border:0;background:rgba(255,255,255,.08);border-radius:5px;font-size:.75em;padding:.15em .5em;cursor:pointer;color:var(--text)}
+.frow:hover .only{opacity:1}
+.chips{display:flex;gap:.35em;flex-wrap:wrap}
+.chipbtn{background:none;border:1px solid var(--line);border-radius:999px;padding:.3em .75em;font-size:.86em;cursor:pointer;display:inline-flex;align-items:center;gap:.45em}
+.chipbtn .d{width:.65em;height:.65em;border-radius:50%;background:currentColor}
+.chipbtn[aria-pressed="true"]{background:rgba(233,242,255,.1);border-color:var(--line-strong)}
+.chipbtn[aria-pressed="false"]{opacity:.42}
+.chipbtn span.t{color:var(--text)}
+.slider{display:flex;flex-direction:column;gap:.25em;margin:.35em 0 .6em}
+.slider label{display:flex;justify-content:space-between;font-size:.86em;color:var(--muted)}
+.slider label b{color:var(--text);font-weight:600;font-variant-numeric:tabular-nums}
+input[type=range]{width:100%;accent-color:#E9F2FF;margin:0}
+.toggle{display:flex;align-items:center;justify-content:space-between;padding:.35em .2em;font-size:.95em;cursor:pointer;gap:1em}
+.toggle input{appearance:none;-webkit-appearance:none;width:2.15em;height:1.3em;border-radius:1em;background:rgba(255,255,255,.12);position:relative;cursor:pointer;transition:background .2s;margin:0;flex:none}
+.toggle input::after{content:"";position:absolute;top:.15em;left:.15em;width:1em;height:1em;border-radius:50%;background:var(--muted);transition:transform .2s,background .2s}
 .toggle input:checked{background:rgba(233,242,255,.3)}
-.toggle input:checked::after{transform:translateX(12px);background:var(--proj)}
-.key{font-size:12.5px;color:var(--muted);line-height:1.5;margin:4px 4px 0}
-.key p{margin:0 0 7px}
-.key svg{vertical-align:-3px;margin-right:6px}
+.toggle input:checked::after{transform:translateX(.85em);background:var(--proj)}
+.seg{display:flex;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:9px;padding:2px;margin:.2em 0 .5em}
+.seg button{flex:1;background:none;border:0;border-radius:7px;padding:.4em .3em;font-size:.86em;cursor:pointer;color:var(--muted);white-space:nowrap}
+.seg button[aria-pressed="true"]{background:rgba(233,242,255,.14);color:var(--text)}
+.note-s{font-size:.82em;color:var(--faint);line-height:1.45;margin:.3em 0 0}
+.wide-btn{width:100%;margin-top:1em;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:8px;padding:.5em;cursor:pointer;font-size:.9em}
+.wide-btn:hover{border-color:var(--line-strong)}
 
-/* Stats */
-.stats-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
-.stats-head h2{margin:0}
-.stats-head span{font-size:12px;color:var(--faint)}
+/* Summary */
 table.stats{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
-table.stats th{font-weight:500;font-size:12px;color:var(--faint);text-align:right;padding:0 0 6px 10px;white-space:nowrap}
-table.stats th:first-child{text-align:left}
-table.stats td{padding:7px 0;border-top:1px solid var(--line);text-align:right;font-size:15px}
-table.stats td:first-child{text-align:left;font-size:13.5px;color:var(--muted)}
-table.stats td:first-child i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;vertical-align:1px}
+table.stats th{font-weight:500;font-size:.82em;color:var(--faint);text-align:right;padding:0 0 .45em .6em;white-space:nowrap}
+table.stats th:first-child{text-align:left;padding-left:0}
+table.stats td{padding:.45em 0;border-top:1px solid var(--line);text-align:right;font-size:1.02em}
+table.stats td:first-child{text-align:left;font-size:.92em;color:var(--muted);white-space:nowrap}
+table.stats td:first-child i{display:inline-block;width:.55em;height:.55em;border-radius:50%;margin-right:.55em;vertical-align:.08em}
 table.stats td.none{color:var(--faint)}
 table.stats tr.all td{font-weight:600;color:var(--text)}
-table.stats tr.all td:first-child{color:var(--text)}
-.insight{margin:12px 0 0;font-family:var(--serif);font-size:19px;line-height:1.3;color:var(--text)}
+.insight{margin:.85em 0 0;font-family:var(--serif);font-size:1.32em;line-height:1.3}
+.count{font-size:.82em;color:var(--faint);margin:.7em 0 0}
 
-/* Detail */
-#detail{right:22px;bottom:calc(var(--safe-b) + 60px);width:316px;padding:18px 18px 16px;opacity:0;transform:translateY(12px);pointer-events:none}
-#detail.open{opacity:1;transform:none;pointer-events:auto}
-#detail .close{position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:8px;border:0;background:rgba(255,255,255,.06);cursor:pointer;font-size:16px;line-height:1}
-#detail .close:hover{background:rgba(255,255,255,.12)}
-#detail .chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
-.chip{font-size:12px;padding:3px 9px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+/* Details */
+.dchips{display:flex;gap:.4em;flex-wrap:wrap;margin-bottom:.7em}
+.chip{font-size:.82em;padding:.2em .65em;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
 .chip.src{color:#0A1622;border-color:transparent;font-weight:600}
 .chip.conf-high{color:#A8E6B5;border-color:rgba(168,230,181,.35)}
 .chip.conf-medium{color:#F2D38A;border-color:rgba(242,211,138,.35)}
 .chip.conf-low{color:#F2A08A;border-color:rgba(242,160,138,.35)}
-#detail h3{font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.1;margin:0 34px 14px 0}
-.span{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:13.5px;line-height:1.45;margin-bottom:12px}
-.span b{font-weight:600;font-variant-numeric:tabular-nums;color:var(--text)}
+.wbody .dtitle{font-family:var(--serif);font-weight:400;font-size:1.85em;line-height:1.1;margin:0 0 .6em;color:var(--text)}
+.gap{display:flex;align-items:baseline;gap:.55em;padding:.6em 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:.7em}
+.gap strong{font-family:var(--serif);font-weight:400;font-size:2.7em;line-height:1}
+.gap span{color:var(--muted);font-size:.95em}
+.span{display:grid;grid-template-columns:auto 1fr;gap:.3em 1em;font-size:.95em;line-height:1.45;margin-bottom:.8em}
+.span b{font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
 .span div{color:var(--muted)}
-.gap{display:flex;align-items:baseline;gap:8px;padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:10px}
-.gap strong{font-family:var(--serif);font-weight:400;font-size:40px;line-height:1}
-.gap span{color:var(--muted);font-size:13.5px}
-#detail .note{font-size:13px;color:var(--muted);line-height:1.5;margin:0}
+.dnote{font-size:.92em;color:var(--muted);line-height:1.5;margin:0}
+.dacts{display:flex;gap:.4em;margin-top:.9em;flex-wrap:wrap}
+.empty{color:var(--faint);font-size:.95em;line-height:1.5}
+
+/* Milestones */
+.mlist{display:flex;flex-direction:column}
+.mrow{display:grid;grid-template-columns:auto auto 1fr auto;align-items:center;gap:.55em;padding:.32em .3em;border-radius:7px;font-size:.92em}
+.mrow:hover{background:rgba(255,255,255,.04)}
+.mrow input{margin:0;accent-color:#E9F2FF}
+.mrow i{width:.6em;height:.6em;border-radius:50%}
+.mrow button{background:none;border:0;text-align:left;cursor:pointer;padding:0;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mrow button:hover{text-decoration:underline}
+.mrow span{color:var(--faint);font-variant-numeric:tabular-nums;font-size:.88em;white-space:nowrap}
+.mrow.off button{color:var(--faint);text-decoration:line-through}
+
+/* Key */
+.key p{margin:0 0 .6em;font-size:.92em;color:var(--muted);line-height:1.45;display:flex;gap:.6em;align-items:flex-start}
+.key svg{flex:none;margin-top:.15em}
 
 /* Overlays */
-#tip{position:fixed;pointer-events:none;z-index:8;background:var(--panel-solid);border:1px solid var(--line-strong);border-radius:9px;padding:8px 11px;font-size:13px;opacity:0;transition:opacity .15s;max-width:260px}
+#labels{position:fixed;inset:0;pointer-events:none;z-index:5;overflow:hidden}
+.lbl{position:absolute;left:0;top:0;font-size:var(--lfs);white-space:nowrap;color:var(--text);padding:.15em .5em .15em .4em;border-radius:.4em;background:rgba(8,19,29,.62);border-left:2px solid currentColor;will-change:transform;display:none;line-height:1.3}
+.lbl b{font-weight:500;color:#E3ECF2}
+#tip{position:fixed;pointer-events:none;z-index:70;background:var(--panel-solid);border:1px solid var(--line-strong);border-radius:9px;padding:8px 11px;font-size:13px;opacity:0;transition:opacity .15s;max-width:280px}
 #tip b{display:block;font-weight:600;margin-bottom:2px}
 #tip span{color:var(--muted);font-variant-numeric:tabular-nums}
-#yearbig{position:fixed;left:22px;bottom:calc(var(--safe-b) + 46px);font-family:var(--serif);font-size:clamp(64px,10vw,140px);line-height:1;color:var(--text);opacity:0;transition:opacity .5s;pointer-events:none;z-index:3;font-variant-numeric:tabular-nums;text-shadow:0 0 40px rgba(233,242,255,.25)}
-#yearbig.on{opacity:.92}
-#yearbig small{display:block;font-family:var(--sans);font-size:14px;color:var(--muted);margin-top:6px;letter-spacing:.01em}
-#foot{position:fixed;left:22px;right:22px;bottom:calc(var(--safe-b) + 14px);display:flex;justify-content:space-between;gap:20px;font-size:12px;color:var(--faint);pointer-events:none;z-index:3}
+#yearbig{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(var(--safe-b) + 40px);font-family:var(--serif);font-size:clamp(60px,9vw,128px);line-height:1;color:var(--text);opacity:0;transition:opacity .5s;pointer-events:none;z-index:4;font-variant-numeric:tabular-nums;text-shadow:0 0 40px rgba(233,242,255,.25);text-align:center}
+#yearbig.on{opacity:.9}
+#yearbig small{display:block;font-family:var(--sans);font-size:14px;color:var(--muted);margin-top:6px}
+#foot{position:fixed;left:20px;right:20px;bottom:calc(var(--safe-b) + 12px);display:flex;justify-content:space-between;gap:20px;font-size:12px;color:var(--faint);pointer-events:none;z-index:3}
 #foot span:last-child{text-align:right}
 
 /* About */
-#about{position:fixed;inset:0;z-index:20;background:rgba(4,10,16,.6);display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+#about{position:fixed;inset:0;z-index:90;background:rgba(4,10,16,.6);display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
 #about.open{display:flex}
-#about .sheet{background:var(--panel-solid);border:1px solid var(--line);border-radius:16px;max-width:640px;width:100%;max-height:min(84vh,780px);overflow:auto;padding:28px 30px;position:relative}
+#about .sheet{background:var(--panel-solid);border:1px solid var(--line);border-radius:16px;max-width:680px;width:100%;max-height:min(86vh,820px);overflow:auto;padding:28px 30px;position:relative}
 #about h2{font-family:var(--serif);font-weight:400;font-size:32px;margin:0 0 12px;line-height:1.1}
 #about h3{font-size:14px;font-weight:600;margin:22px 0 6px}
-#about p,#about li{font-size:14.5px;line-height:1.6;color:var(--muted);max-width:66ch}
+#about p,#about li{font-size:14.5px;line-height:1.6;color:var(--muted);max-width:68ch}
 #about ul{padding-left:18px;margin:6px 0}
 #about .by{margin-top:22px;padding-top:14px;border-top:1px solid var(--line);font-size:13.5px;color:var(--text)}
 #about .close{position:absolute;top:14px;right:14px}
 
-body.clean .panel,body.clean #top .actions,body.clean #foot{opacity:0;pointer-events:none}
-body.clean #detail{opacity:0!important}
-
-#loading{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:22px;color:var(--muted);z-index:30;background:var(--ink);transition:opacity .8s}
+body.clean .win,body.clean #top .actions,body.clean #foot{opacity:0;pointer-events:none}
+#loading{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:22px;color:var(--muted);z-index:100;background:var(--ink);transition:opacity .8s}
 #loading.done{opacity:0;pointer-events:none}
-
-@media (max-width:860px){
-  .title p{display:none}
-  .actions .wide{display:none}
-  #left{top:auto;left:10px;right:10px;width:auto;bottom:calc(var(--safe-b) + 34px);padding:8px;max-height:none;overflow:visible}
-  #left .group{margin:0;padding:0;border:0}
-  #left .group + .group{margin-top:6px}
-  #left h2,#left .key,#left .layers{display:none}
-  #left .verts,#left .srcs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
-  #left .vbtn,#left .sbtn{width:auto;white-space:nowrap;flex:none;font-size:13px;padding:6px 10px}
-  #left .vbtn kbd,#left .sbtn .n{display:none}
-  #left .vbtn[aria-pressed="true"]::before{display:none}
-  #right{display:none}
-  #detail{left:10px;right:10px;width:auto;bottom:calc(var(--safe-b) + 140px)}
-  #foot span:first-child{display:none}
-  #yearbig{bottom:calc(var(--safe-b) + 150px)}
-}
-@media (prefers-reduced-motion:reduce){
-  .panel,#detail,#yearbig,#loading{transition:none}
-}
+@media (max-width:820px){ .actions .wide{display:none} #foot span:first-child{display:none} }
+@media (prefers-reduced-motion:reduce){ .win,#yearbig,#loading{transition:none} }
 </style>
 </head>
 <body>
 <div id="loading">Building the century…</div>
 <div id="scene" aria-label="Interactive 3D chart. Drag to rotate, scroll to zoom."></div>
+<div id="labels" aria-hidden="true"></div>
 
 <header id="top">
-  <div class="title">
-    <h1>The shrinking gap</h1>
-    <p>How long research has taken to become a product, 1925 to today, and where energy, IT and cyber are heading over the next five years.</p>
-  </div>
+  <h1>The Shrinking Gap from Research to Change</h1>
   <div class="actions">
     <button class="btn primary" id="playBtn">Play the century</button>
+    <button class="btn" id="winBtn" aria-haspopup="true" aria-expanded="false">Windows</button>
     <button class="btn wide" id="rotBtn" aria-pressed="true">Auto-rotate</button>
     <button class="btn wide" id="resetBtn">Reset view</button>
     <button class="btn wide" id="fsBtn">Full screen</button>
     <button class="btn" id="aboutBtn">About</button>
+    <div id="winMenu" role="menu"></div>
   </div>
 </header>
 
-<aside id="left" class="panel" aria-label="Filters">
-  <div class="group">
-    <h2>Field</h2>
-    <div class="verts" id="verts"></div>
+<!-- FILTERS -->
+<section class="win" id="w-filters" data-title="Filters">
+  <div class="wbody">
+    <input class="search" id="q" type="search" placeholder="Search milestones" aria-label="Search milestones">
+    <h3>Fields</h3>
+    <div class="minis">
+      <button class="mini" data-preset="all">All</button>
+      <button class="mini" data-preset="none">None</button>
+      <button class="mini" data-preset="core">Energy, cyber and computing</button>
+    </div>
+    <div class="flist" id="fieldList"></div>
+    <h3>Where the research began</h3>
+    <div class="chips" id="srcChips"></div>
+    <h3>Status</h3>
+    <div class="chips" id="kindChips"></div>
+    <h3>Confidence</h3>
+    <div class="chips" id="confChips"></div>
+    <h3>Research began</h3>
+    <div class="slider"><label>From <b id="fromV">1925</b></label><input type="range" id="fromR" min="1925" max="2026" value="1925"></div>
+    <div class="slider"><label>To <b id="toV">2026</b></label><input type="range" id="toR" min="1925" max="2026" value="2026"></div>
+    <div class="slider"><label>Longest gap shown <b id="gapV">Any</b></label><input type="range" id="gapR" min="1" max="60" value="60"></div>
+    <label class="toggle">Show filtered-out arcs faintly <input type="checkbox" id="ghostT" checked></label>
+    <button class="wide-btn" id="resetFilters">Reset all filters</button>
   </div>
-  <div class="group">
-    <h2>Where the research began</h2>
-    <div class="srcs" id="srcs"></div>
+</section>
+
+<!-- DISPLAY -->
+<section class="win" id="w-display" data-title="Display">
+  <div class="wbody">
+    <h3>Labels in the model</h3>
+    <div class="seg" id="labelSeg">
+      <button data-v="off">Off</button><button data-v="peak">On arcs</button><button data-v="follow">Follow lights</button>
+    </div>
+    <div class="slider"><label>Label size <b id="lfsV">12</b></label><input type="range" id="lfsR" min="9" max="26" value="12"></div>
+    <h3>Arrange lanes by</h3>
+    <div class="seg" id="laneSeg"><button data-v="s">Research source</button><button data-v="v">Field</button></div>
+    <h3>Colour arcs by</h3>
+    <div class="seg" id="colSeg"><button data-v="s">Research source</button><button data-v="v">Field</button></div>
+    <h3>Layers</h3>
+    <label class="toggle">Moving lights <input type="checkbox" id="pulseT" checked></label>
+    <label class="toggle">Trend lines <input type="checkbox" id="trendT" checked></label>
+    <label class="toggle">Floor labels <input type="checkbox" id="floorT" checked></label>
+    <h3>Motion and glow</h3>
+    <div class="slider"><label>Rotation speed <b id="rotV">0.35</b></label><input type="range" id="rotR" min="0" max="2" step="0.05" value="0.35"></div>
+    <div class="slider"><label>Glow <b id="glowV">0.75</b></label><input type="range" id="glowR" min="0" max="1.6" step="0.05" value="0.75"></div>
   </div>
-  <div class="group layers">
-    <h2>Layers</h2>
-    <label class="toggle">Five-year outlook <input type="checkbox" id="lyProj" checked></label>
-    <label class="toggle">Trend lines <input type="checkbox" id="lyTrend" checked></label>
-    <label class="toggle">Still in the lab <input type="checkbox" id="lyFlight" checked></label>
+</section>
+
+<!-- SUMMARY -->
+<section class="win" id="w-summary" data-title="Summary">
+  <div class="wbody">
+    <h3>Median years from research to change</h3>
+    <table class="stats" id="stats"></table>
+    <p class="insight" id="insight"></p>
+    <p class="count" id="count"></p>
   </div>
-  <div class="group key">
-    <h2>Reading the model</h2>
-    <p><svg width="22" height="12" viewBox="0 0 22 12"><path d="M1 11 Q11 -9 21 11" fill="none" stroke="#E3ECF2" stroke-width="1.6"/></svg>Each arc runs from first research to first product. Taller means slower.</p>
-    <p><svg width="22" height="12" viewBox="0 0 22 12"><path d="M1 11 Q11 -9 21 11" fill="none" stroke="#E3ECF2" stroke-width="1.8" stroke-dasharray="1 3" stroke-linecap="round"/></svg>Dotted arcs land in the next five years.</p>
+</section>
+
+<!-- MILESTONES -->
+<section class="win" id="w-milestones" data-title="Milestones">
+  <div class="wbody">
+    <div class="minis"><button class="mini" id="showAllM">Show all hidden</button><button class="mini" id="hideAllM">Hide all listed</button></div>
+    <p class="note-s" style="margin-bottom:.6em">Untick to hide a single arc. Select a name to inspect it.</p>
+    <div class="mlist" id="mlist"></div>
+  </div>
+</section>
+
+<!-- DETAILS -->
+<section class="win" id="w-details" data-title="Details">
+  <div class="wbody" id="detailBody"><p class="empty">Select an arc or a milestone to see its story.</p></div>
+</section>
+
+<!-- KEY -->
+<section class="win" id="w-key" data-title="Reading the model">
+  <div class="wbody key">
+    <p><svg width="22" height="12" viewBox="0 0 22 12"><path d="M1 11 Q11 -9 21 11" fill="none" stroke="#E3ECF2" stroke-width="1.6"/></svg>Each arc runs from first research to first product or change. Taller means slower.</p>
+    <p><svg width="22" height="12" viewBox="0 0 22 12"><path d="M1 11 Q11 -9 21 11" fill="none" stroke="#E3ECF2" stroke-width="1.8" stroke-dasharray="1 3" stroke-linecap="round"/></svg>Dotted arcs are expected to land in the next five years.</p>
     <p><svg width="22" height="12" viewBox="0 0 22 12"><defs><linearGradient id="fd"><stop offset="0" stop-color="#E3ECF2"/><stop offset="1" stop-color="#E3ECF2" stop-opacity="0"/></linearGradient></defs><path d="M1 11 Q11 -9 21 11" fill="none" stroke="url(#fd)" stroke-width="1.6"/></svg>Fading arcs have not landed yet.</p>
   </div>
-</aside>
-
-<aside id="right" class="panel" aria-label="Summary">
-  <div class="stats-head"><h2>Median years from research to product</h2></div>
-  <table class="stats" id="stats"></table>
-  <p class="insight" id="insight"></p>
-</aside>
-
-<section id="detail" class="panel" aria-live="polite">
-  <button class="close" id="detailClose" aria-label="Close details">×</button>
-  <div id="detailBody"></div>
 </section>
 
 <div id="tip" role="tooltip"></div>
-<div id="yearbig" aria-hidden="true"><span id="yearNum">1925</span><small id="yearSub">Research to product</small></div>
-
+<div id="yearbig" aria-hidden="true"><span id="yearNum">1925</span><small id="yearSub">Research to change</small></div>
 <footer id="foot">
-  <span>Drag to rotate, scroll to zoom, right-drag to pan. Keys: 1–5 fields, P play, R reset, H hide panels.</span>
+  <span>Drag to rotate, scroll to zoom, right-drag to pan. Keys: 1–9 single field, 0 all fields, P play, L labels, R reset, H hide windows.</span>
   <span>Stuart Okin, Director of Cyber Regulation and Emerging Technologies, Ofgem</span>
 </footer>
 
@@ -223,27 +282,29 @@ body.clean #detail{opacity:0!important}
   <div class="sheet">
     <button class="btn close" id="aboutClose">Close</button>
     <h2 id="aboutTitle">About this model</h2>
-    <p>Each arc traces one breakthrough from the first published or demonstrated research to its first commercial or operational use. Arcs sit in three lanes by where the originating research was done: universities, industry labs, or government and publicly funded labs. The height of each arc is the gap in years.</p>
+    <p>Each arc traces one breakthrough from the first published or demonstrated research to its first commercial product, operational use or binding change. Lanes group arcs by where the research began (universities, industry labs, or government and publicly funded labs) or by field. The height of each arc is the gap in years.</p>
     <h3>Definitions</h3>
     <ul>
-      <li><b>Research</b> is the first credible publication, patent or lab demonstration of the core idea.</li>
-      <li><b>Product</b> is the first commercial sale or operational deployment, not mass adoption. Adoption usually takes longer.</li>
+      <li><b>Research</b> is the first credible publication, patent or demonstration of the core idea.</li>
+      <li><b>Change</b> is the first commercial sale, operational deployment, or rule taking effect. It is not mass adoption, which usually takes longer.</li>
       <li><b>Trend lines</b> join the median gap for each lane in each era: before 1950, 1950–69, 1970–89, 1990–2009 and 2010 onwards.</li>
-      <li><b>Outlook</b> arcs are indicative judgements for 2026–2031, each marked with a confidence level. They are not forecasts.</li>
+      <li><b>Outlook</b> arcs are indicative judgements for 2026–2031, each with a confidence level. They are not forecasts.</li>
     </ul>
     <h3>Caveats</h3>
     <ul>
       <li>Dates are approximate and some attributions are contested; many breakthroughs drew on all three sources.</li>
-      <li>The sample is curated rather than exhaustive, and it only includes ideas that succeeded.</li>
-      <li>Physical sectors (energy, medicines) remain slower than software because of capital, safety and regulatory cycles. This is often appropriate.</li>
+      <li>The sample is curated, not exhaustive, and only includes ideas that succeeded.</li>
+      <li>Physical and safety-critical sectors stay slower than software because of capital, safety and regulatory cycles. That is often appropriate.</li>
     </ul>
     <h3>Main references</h3>
     <ul>
-      <li>Nobel Prize citations (physics, chemistry, medicine) for origin dates.</li>
-      <li>NCSC, <i>Timelines for migration to post-quantum cryptography</i> (2025).</li>
-      <li>NIST FIPS 203, 204 and 205 (August 2024).</li>
-      <li>Company and institutional histories: Bell Labs, IBM Research, Xerox PARC, CERN, DARPA, MRC Laboratory of Molecular Biology.</li>
-      <li>Published vendor roadmaps, treated as aspirations rather than facts.</li>
+      <li>Nobel Prize citations in physics, chemistry and medicine for origin dates.</li>
+      <li>NCSC, <i>Timelines for migration to post-quantum cryptography</i> (2025); NIST FIPS 203, 204 and 205 (2024).</li>
+      <li>Ofgem, long duration electricity storage cap and floor Window 1 minded-to decisions (June 2026).</li>
+      <li>UK Government and Great British Energy – Nuclear announcements on Rolls-Royce SMR at Wylfa (2025–26).</li>
+      <li>EU Digital Omnibus on AI amending the AI Act high-risk dates (2026).</li>
+      <li>IBM quantum roadmap (2026); vendor battery roadmaps (Toyota, Samsung SDI, CATL), treated as aspirations rather than facts.</li>
+      <li>Institutional histories: Bell Labs, IBM Research, Xerox PARC, CERN, DARPA, CSIRO, RAE Farnborough, MRC Laboratory of Molecular Biology.</li>
     </ul>
     <p class="by">Stuart Okin, Director of Cyber Regulation and Emerging Technologies, Ofgem.<br>Illustrative analysis prepared for discussion. Outlook views are indicative and do not represent Ofgem policy.</p>
   </div>
@@ -261,458 +322,368 @@ body.clean #detail{opacity:0!important}
 function boot(){
 "use strict";
 
-/* ------------------------------------------------------------------ *
+/* ==================================================================
  *  DATA
- *  kind: hist (landed), proj (lands 2026–2031), flight (not yet landed)
- *  s: academic | industry | government (where the research began)
- *  r: research year, p: product year (or projected year), tg: notional target for in-flight arcs
- *  c: confidence (high | medium | low)
- * ------------------------------------------------------------------ */
+ *  v: field   s: academic | industry | government (where research began)
+ *  kind: hist (landed) | proj (expected 2026–2031) | flight (not landed)
+ *  r: research year   p: product/change year   tg: notional target (flight only)
+ *  c: confidence      rw/pw: what happened at each end   note: takeaway
+ * ================================================================== */
 const DATA = [
-  // ENERGY
-  {v:'energy',s:'academic',kind:'hist',t:'Nuclear fission to grid power',r:1938,p:1956,c:'high',
-   rw:'Hahn and Strassmann observe fission in Berlin; Meitner and Frisch explain it.',
-   pw:'Calder Hall connects to the UK grid.',
-   note:'The war diverted the science into weapons first; civil power followed through state programmes.'},
-  {v:'energy',s:'industry',kind:'hist',t:'HVDC transmission',r:1929,p:1954,c:'medium',
-   rw:'Uno Lamm begins work on high-voltage mercury-arc valves at ASEA.',
-   pw:'Gotland link enters commercial service in Sweden.',
-   note:'A long engineering road from valve research to a dependable link.'},
-  {v:'energy',s:'industry',kind:'hist',t:'Silicon solar cell',r:1954,p:1958,c:'high',
-   rw:'Bell Labs demonstrates the first practical silicon photovoltaic cell.',
-   pw:'Vanguard 1 satellite flies on solar power.',
-   note:'Fast to first use because space was a customer that could pay any price. Cheap terrestrial solar took another 50 years.'},
-  {v:'energy',s:'government',kind:'hist',t:'Utility-scale wind',r:1975,p:1980,c:'medium',
-   rw:'NASA and the US energy research agency run the MOD-0 turbine programme.',
-   pw:'First commercial wind farm opens in New Hampshire.',
-   note:'Oil shocks gave government research a sharp push into energy.'},
-  {v:'energy',s:'academic',kind:'hist',t:'Lithium-ion battery',r:1980,p:1991,c:'high',
-   rw:'Goodenough’s Oxford group identifies the lithium cobalt oxide cathode.',
-   pw:'Sony launches the first commercial lithium-ion cell.',
-   note:'The same chemistry family later made grid-scale storage viable.'},
-  {v:'energy',s:'academic',kind:'hist',t:'Perovskite solar',r:2009,p:2024,c:'medium',
-   rw:'Miyasaka’s group reports perovskite photovoltaic cells.',
-   pw:'First commercial perovskite-on-silicon modules ship.',
-   note:'Durability, not efficiency, set the pace.'},
-  {v:'energy',s:'government',kind:'flight',t:'Fusion power',r:1983,tg:2050,c:'low',
-   rw:'JET, a European publicly funded tokamak at Culham, produces first plasma.',
-   pw:'Not yet landed. UK STEP targets a prototype plant around 2040.',
-   note:'The longest arc in the model and still rising.'},
-  {v:'energy',s:'academic',kind:'proj',t:'Tandem solar at volume',r:2009,p:2028,c:'medium',
-   rw:'Perovskite research from 2009, tandem cells from the mid-2010s.',
-   pw:'Perovskite–silicon tandem modules move from niche shipments to volume manufacturing.',
-   note:'Depends on proving 25-year field durability.'},
-  {v:'energy',s:'industry',kind:'proj',t:'AI in grid control rooms',r:2017,p:2027,c:'medium',
-   rw:'Machine-learning forecasting for wind, solar and demand.',
-   pw:'AI-assisted forecasting, flexibility dispatch and switching advice become routine operator tools.',
-   note:'Assurance, explainability and cyber resilience will set the pace, not model capability.'},
-  {v:'energy',s:'government',kind:'proj',t:'Long-duration storage at scale',r:2015,p:2030,c:'medium',
-   rw:'Flow batteries, liquid air and other long-duration technologies proven at pilot scale.',
-   pw:'First large long-duration storage projects backed by GB market support reach operation.',
-   note:'A case where market design, not research, is the limiting factor.'},
-  {v:'energy',s:'government',kind:'proj',t:'Small modular reactors',r:2015,p:2031,c:'low',
-   rw:'SMR design competitions and regulatory assessment begin.',
-   pw:'First UK units under construction; first power expected in the 2030s.',
-   note:'Lands at the edge of the window. Licensing and supply chain dominate the timeline.'},
-  {v:'energy',s:'academic',kind:'proj',t:'Quantum optimisation pilots',r:2019,p:2030,c:'low',
-   rw:'Academic work on quantum and quantum-inspired grid optimisation.',
-   pw:'Operator pilots for network planning, alongside quantum-inspired classical tools.',
-   note:'Expect quantum-inspired classical methods to deliver value first.'},
+// ---------- ENERGY ----------
+{v:'energy',s:'academic',kind:'hist',t:'Nuclear fission to grid power',r:1938,p:1956,c:'high',rw:'Hahn and Strassmann observe fission in Berlin; Meitner and Frisch explain it.',pw:'Calder Hall connects to the UK grid.',note:'War diverted the science into weapons first; civil power came through state programmes.'},
+{v:'energy',s:'industry',kind:'hist',t:'HVDC transmission',r:1929,p:1954,c:'medium',rw:'Uno Lamm begins work on high-voltage mercury-arc valves at ASEA.',pw:'Gotland link enters commercial service in Sweden.',note:'A long engineering road from valve research to a dependable link.'},
+{v:'energy',s:'industry',kind:'hist',t:'Silicon solar cell',r:1954,p:1958,c:'high',rw:'Bell Labs demonstrates the first practical silicon photovoltaic cell.',pw:'Vanguard 1 satellite flies on solar power.',note:'Fast to first use because space could pay any price. Cheap terrestrial solar took another 50 years.'},
+{v:'energy',s:'government',kind:'hist',t:'Utility-scale wind',r:1975,p:1980,c:'medium',rw:'NASA and the US energy research agency run the MOD-0 turbine programme.',pw:'First commercial wind farm opens in New Hampshire.',note:'Oil shocks gave government research a sharp push into energy.'},
+{v:'energy',s:'academic',kind:'hist',t:'Lithium-ion battery',r:1980,p:1991,c:'high',rw:'Goodenough’s Oxford group identifies the lithium cobalt oxide cathode.',pw:'Sony launches the first commercial lithium-ion cell.',note:'The same chemistry family later made grid-scale storage viable.'},
+{v:'energy',s:'industry',kind:'hist',t:'High-temperature superconducting cable',r:1986,p:2008,c:'medium',rw:'Bednorz and Müller at IBM Zurich discover high-temperature superconductors.',pw:'A superconducting transmission cable is energised in a US utility grid.',note:'Still niche: cooling, cost and reliability set the pace.'},
+{v:'energy',s:'academic',kind:'hist',t:'Perovskite solar',r:2009,p:2024,c:'medium',rw:'Miyasaka’s group reports perovskite photovoltaic cells.',pw:'First commercial perovskite-on-silicon modules ship.',note:'Durability, not efficiency, set the pace.'},
+{v:'energy',s:'government',kind:'flight',t:'Fusion power',r:1983,tg:2050,c:'low',rw:'JET, a European publicly funded tokamak at Culham, produces first plasma.',pw:'Not yet landed. UK STEP targets a prototype plant around 2040.',note:'The longest arc in the model and still rising.'},
+{v:'energy',s:'academic',kind:'proj',t:'Tandem solar at volume',r:2009,p:2028,c:'medium',rw:'Perovskite research from 2009, tandem cells from the mid-2010s.',pw:'Perovskite–silicon tandem modules move from niche shipments to volume manufacturing.',note:'Depends on proving 25-year field durability.'},
+{v:'energy',s:'industry',kind:'proj',t:'AI in grid control rooms',r:2017,p:2027,c:'medium',rw:'Machine-learning forecasting for wind, solar and demand.',pw:'AI-assisted forecasting, flexibility dispatch and switching advice become routine operator tools.',note:'Assurance, explainability and cyber resilience will set the pace, not model capability.'},
+{v:'energy',s:'industry',kind:'proj',t:'Household flexibility at scale',r:2010,p:2028,c:'medium',rw:'Smart grid and demand response research and trials.',pw:'Batteries, heat pumps and EVs routinely aggregated to support distribution networks.',note:'Turns customers into a network resource; raises new cyber and data questions for DSOs.'},
+{v:'energy',s:'academic',kind:'proj',t:'Grid-forming inverters as standard',r:2007,p:2028,c:'medium',rw:'Academic work on inverters that behave like synchronous machines.',pw:'Grid-forming capability routinely specified on new storage and renewable connections.',note:'Replaces stability services once provided by spinning generators.'},
+{v:'energy',s:'government',kind:'proj',t:'Long-duration storage at scale',r:2015,p:2030,c:'medium',rw:'Pumped hydro, flow batteries, compressed air and other long-duration technologies proven.',pw:'First GB cap and floor projects (Ofgem Window 1 minded-to decision, June 2026) reach operation.',note:'A case where market design, not research, is the limiting factor.'},
+{v:'energy',s:'government',kind:'proj',t:'First UK small modular reactors',r:2015,p:2031,c:'medium',rw:'SMR competition and regulatory assessment begin.',pw:'Rolls-Royce SMR units at Wylfa well into construction; first power expected mid-2030s.',note:'Lands at the edge of the window. Licensing and supply chain dominate the timeline.'},
+{v:'energy',s:'academic',kind:'proj',t:'Quantum optimisation pilots',r:2019,p:2030,c:'low',rw:'Academic work on quantum and quantum-inspired grid optimisation.',pw:'Operator pilots for network planning, alongside quantum-inspired classical tools.',note:'Expect quantum-inspired classical methods to deliver value first.'},
 
-  // IT & COMPUTING
-  {v:'it',s:'academic',kind:'hist',t:'Stored-program computer',r:1936,p:1951,c:'high',
-   rw:'Turing’s paper on computable numbers, Cambridge and Princeton.',
-   pw:'Ferranti Mark 1 is delivered to the University of Manchester.',
-   note:'Wartime codebreaking compressed the engineering effort.'},
-  {v:'it',s:'industry',kind:'hist',t:'Transistor',r:1947,p:1954,c:'high',
-   rw:'Bardeen, Brattain and Shockley at Bell Labs.',
-   pw:'Regency TR-1 transistor radio goes on sale.',
-   note:'The classic corporate lab story: basic science and product under one roof.'},
-  {v:'it',s:'industry',kind:'hist',t:'Integrated circuit',r:1958,p:1961,c:'high',
-   rw:'Kilby at Texas Instruments, then Noyce at Fairchild.',
-   pw:'First commercial integrated circuits are sold.',
-   note:'Defence and space procurement bought the first chips.'},
-  {v:'it',s:'government',kind:'hist',t:'Packet-switched internet',r:1969,p:1989,c:'high',
-   rw:'ARPANET, funded by the US Department of Defense, links its first nodes.',
-   pw:'First commercial dial-up internet providers open.',
-   note:'Two decades in publicly funded networks before commercial use was allowed.'},
-  {v:'it',s:'industry',kind:'hist',t:'Relational database',r:1970,p:1979,c:'high',
-   rw:'Codd publishes the relational model at IBM.',
-   pw:'Oracle ships the first commercial SQL database.',
-   note:'A start-up beat the inventing company to market.'},
-  {v:'it',s:'industry',kind:'hist',t:'Graphical interface',r:1973,p:1981,c:'high',
-   rw:'Xerox PARC builds the Alto.',
-   pw:'Xerox Star goes on sale; Apple popularises the idea in 1984.',
-   note:'Invention and commercial success often happen in different companies.'},
-  {v:'it',s:'government',kind:'hist',t:'Satellite navigation',r:1973,p:1989,c:'high',
-   rw:'US Department of Defense approves the GPS programme.',
-   pw:'First handheld commercial GPS receiver.',
-   note:'Full civilian accuracy only arrived in 2000.'},
-  {v:'it',s:'government',kind:'hist',t:'World Wide Web',r:1989,p:1994,c:'high',
-   rw:'Berners-Lee proposes the web at CERN, a publicly funded lab.',
-   pw:'Netscape Navigator is released commercially.',
-   note:'CERN released the technology royalty-free in 1993, which sped everything up.'},
-  {v:'it',s:'industry',kind:'hist',t:'Quantum computing access',r:1999,p:2016,c:'high',
-   rw:'NEC demonstrates a superconducting qubit.',
-   pw:'IBM opens cloud access to a small quantum processor.',
-   note:'A product for learning and research, not yet for advantage.'},
-  {v:'it',s:'academic',kind:'hist',t:'Deep learning for images',r:2012,p:2013,c:'high',
-   rw:'AlexNet from the University of Toronto wins ImageNet.',
-   pw:'Deep-learning photo search appears in Google’s products.',
-   note:'Google acquired the team, a pattern that became common.'},
-  {v:'it',s:'industry',kind:'hist',t:'Transformer models',r:2017,p:2019,c:'high',
-   rw:'Google researchers publish the transformer architecture.',
-   pw:'Transformer models enter Google Search ranking; ChatGPT follows in 2022.',
-   note:'From here on, research and product cycles in AI largely merge.'},
-  {v:'it',s:'industry',kind:'hist',t:'Reasoning models',r:2022,p:2024,c:'medium',
-   rw:'Chain-of-thought prompting research shows step-by-step reasoning gains.',
-   pw:'Commercial reasoning models are released.',
-   note:'Months, not years, between paper and product.'},
-  {v:'it',s:'industry',kind:'flight',t:'Cryptographically relevant quantum computer',r:1994,tg:2045,c:'low',
-   rw:'Shor, at Bell Labs, shows quantum computers could break public-key cryptography.',
-   pw:'Not yet landed. Timelines are uncertain and widely debated.',
-   note:'Uncertainty about when is exactly why migration has to start now.'},
-  {v:'it',s:'industry',kind:'proj',t:'Agentic AI in everyday work',r:2022,p:2027,c:'medium',
-   rw:'Tool-using and planning language model research.',
-   pw:'AI agents routinely complete multi-step tasks inside enterprise systems.',
-   note:'Governance, identity and access control become the bottleneck.'},
-  {v:'it',s:'industry',kind:'proj',t:'On-device AI as default',r:2017,p:2027,c:'high',
-   rw:'Efficient neural networks and neural processing units.',
-   pw:'Capable AI runs locally on most new phones and laptops.',
-   note:'Shifts some risk from the cloud to the endpoint.'},
-  {v:'it',s:'industry',kind:'proj',t:'Optical interconnects in AI data centres',r:2010,p:2028,c:'medium',
-   rw:'Silicon photonics research.',
-   pw:'Co-packaged optics become common in large AI clusters.',
-   note:'Driven by the power demands of AI, which links back to energy.'},
-  {v:'it',s:'industry',kind:'proj',t:'Early fault-tolerant quantum',r:1999,p:2029,c:'low',
-   rw:'Superconducting and other qubit research since the late 1990s.',
-   pw:'First demonstrations of error-corrected logical qubits doing useful work.',
-   note:'Based on published vendor roadmaps, which have slipped before.'},
+// ---------- COMPUTING HARDWARE ----------
+{v:'hw',s:'academic',kind:'hist',t:'Stored-program computer',r:1936,p:1951,c:'high',rw:'Turing’s paper on computable numbers.',pw:'Ferranti Mark 1 is delivered to the University of Manchester.',note:'Wartime codebreaking compressed the engineering effort.'},
+{v:'hw',s:'industry',kind:'hist',t:'Transistor',r:1947,p:1954,c:'high',rw:'Bardeen, Brattain and Shockley at Bell Labs.',pw:'Regency TR-1 transistor radio goes on sale.',note:'The classic corporate lab story: basic science and product under one roof.'},
+{v:'hw',s:'industry',kind:'hist',t:'Integrated circuit',r:1958,p:1961,c:'high',rw:'Kilby at Texas Instruments, then Noyce at Fairchild.',pw:'First commercial integrated circuits are sold.',note:'Defence and space procurement bought the first chips.'},
+{v:'hw',s:'industry',kind:'hist',t:'MOSFET',r:1959,p:1964,c:'high',rw:'Atalla and Kahng demonstrate the MOS transistor at Bell Labs.',pw:'First commercial MOS integrated circuits.',note:'Now the most manufactured device in history.'},
+{v:'hw',s:'industry',kind:'hist',t:'DRAM',r:1967,p:1970,c:'high',rw:'Dennard invents the one-transistor memory cell at IBM.',pw:'Intel 1103 becomes the first commercial DRAM chip.',note:'Again, a different company reached market first.'},
+{v:'hw',s:'industry',kind:'hist',t:'Flash memory',r:1984,p:1988,c:'high',rw:'Masuoka presents flash memory at Toshiba.',pw:'First commercial NOR flash chips.',note:'Enabled phones, cameras and solid-state drives.'},
+{v:'hw',s:'academic',kind:'hist',t:'Giant magnetoresistance',r:1988,p:1997,c:'high',rw:'Fert (Paris-Sud) and Grünberg (Jülich) discover GMR independently.',pw:'IBM ships GMR read heads in hard drives.',note:'A Nobel physics result in every hard drive within a decade.'},
+{v:'hw',s:'government',kind:'hist',t:'EUV lithography',r:1997,p:2019,c:'medium',rw:'US national laboratories and industry form the EUV LLC research consortium.',pw:'Volume chip production using EUV begins.',note:'Twenty years and enormous capital to make one machine work.'},
+{v:'hw',s:'academic',kind:'hist',t:'GPUs for general computing',r:2003,p:2007,c:'medium',rw:'Stanford’s Brook project programs graphics chips for general maths.',pw:'NVIDIA releases CUDA.',note:'The hardware path that later made modern AI possible.'},
+{v:'hw',s:'industry',kind:'proj',t:'High-NA EUV in volume production',r:2015,p:2028,c:'medium',rw:'Development of higher-resolution EUV optics.',pw:'Leading chipmakers use High-NA EUV for volume manufacturing.',note:'Each new tool generation costs more and takes longer.'},
+{v:'hw',s:'industry',kind:'proj',t:'Optical interconnects in AI data centres',r:2010,p:2028,c:'medium',rw:'Silicon photonics research.',pw:'Co-packaged optics become common in large AI clusters.',note:'Driven by the power demands of AI, which links back to energy.'},
+{v:'hw',s:'industry',kind:'proj',t:'Chiplet ecosystems',r:2019,p:2027,c:'medium',rw:'Industry work on standard die-to-die interfaces.',pw:'Mix-and-match chiplets from different suppliers in mainstream products.',note:'Shifts hardware supply chain assurance to the package level.'},
+{v:'hw',s:'academic',kind:'proj',t:'Neuromorphic chips at the edge',r:1989,p:2030,c:'low',rw:'Carver Mead’s neuromorphic engineering at Caltech.',pw:'Brain-inspired, low-power chips in sensors and edge devices.',note:'A 40-year arc that may finally land because of AI energy costs.'},
 
-  // CYBER
-  {v:'cyber',s:'government',kind:'hist',t:'Machine codebreaking',r:1939,p:1940,c:'high',
-   rw:'Turing and Welchman design the Bombe at Bletchley Park.',
-   pw:'First Bombe goes into operational use.',
-   note:'Wartime urgency: research to operations in months.'},
-  {v:'cyber',s:'government',kind:'hist',t:'Public-key cryptography (secret)',r:1973,p:1997,c:'high',
-   rw:'Ellis and Cocks at GCHQ invent non-secret encryption.',
-   pw:'GCHQ publicly discloses the work.',
-   note:'Classified research can be decades ahead of the market and never reach it.'},
-  {v:'cyber',s:'academic',kind:'hist',t:'Public-key cryptography (open)',r:1976,p:1986,c:'medium',
-   rw:'Diffie and Hellman at Stanford; RSA at MIT a year later.',
-   pw:'RSA Data Security ships its first commercial products.',
-   note:'Became the foundation of e-commerce and online banking.'},
-  {v:'cyber',s:'academic',kind:'hist',t:'Antivirus',r:1983,p:1987,c:'high',
-   rw:'Cohen’s research defines the computer virus.',
-   pw:'First commercial antivirus products launch.',
-   note:'The threat arrived quickly, so the market did too.'},
-  {v:'cyber',s:'government',kind:'hist',t:'Intrusion detection',r:1987,p:1997,c:'medium',
-   rw:'Denning’s intrusion detection model at SRI, publicly funded.',
-   pw:'Commercial network intrusion detection products reach the market.',
-   note:'Government-funded research seeded much of today’s security monitoring.'},
-  {v:'cyber',s:'industry',kind:'hist',t:'Firewall',r:1988,p:1991,c:'medium',
-   rw:'Packet-filtering research at Digital Equipment Corporation.',
-   pw:'DEC SEAL, an early commercial firewall, is sold.',
-   note:'Internet growth turned research into a product line within three years.'},
-  {v:'cyber',s:'government',kind:'hist',t:'Industrial control system security',r:2007,p:2013,c:'medium',
-   rw:'Aurora test at Idaho National Laboratory shows a cyber attack can destroy a generator.',
-   pw:'Dedicated OT network monitoring products appear.',
-   note:'Stuxnet in 2010 turned a lab demonstration into a market.'},
-  {v:'cyber',s:'academic',kind:'hist',t:'Homomorphic encryption',r:2009,p:2018,c:'medium',
-   rw:'Gentry’s first fully homomorphic scheme, Stanford.',
-   pw:'Production-grade libraries released for commercial use.',
-   note:'Still slow, but useful for privacy-preserving analytics.'},
-  {v:'cyber',s:'industry',kind:'hist',t:'Zero trust',r:2010,p:2016,c:'medium',
-   rw:'Forrester defines the zero trust model; Google begins BeyondCorp.',
-   pw:'Commercial zero trust access services launch.',
-   note:'Now embedded in government guidance worldwide.'},
-  {v:'cyber',s:'government',kind:'hist',t:'Post-quantum cryptography',r:2016,p:2024,c:'high',
-   rw:'NIST opens its post-quantum standardisation process.',
-   pw:'FIPS 203–205 published; hybrid post-quantum key exchange on by default in major browsers.',
-   note:'Standards and early deployment arrived together.'},
-  {v:'cyber',s:'government',kind:'hist',t:'AI vulnerability discovery',r:2016,p:2025,c:'medium',
-   rw:'DARPA Cyber Grand Challenge pits autonomous systems against each other.',
-   pw:'AI systems find real vulnerabilities in widely used software; AIxCC tools released.',
-   note:'Helps defenders and attackers alike.'},
-  {v:'cyber',s:'government',kind:'proj',t:'Post-quantum migration of priority systems',r:2016,p:2031,c:'high',
-   rw:'Post-quantum standardisation from 2016.',
-   pw:'NCSC guidance sets 2031 for completing migration of the highest-priority systems.',
-   note:'Owners of long-lived operational technology need to plan now.'},
-  {v:'cyber',s:'industry',kind:'proj',t:'AI agents in security operations',r:2023,p:2028,c:'medium',
-   rw:'Language models applied to alert triage and investigation.',
-   pw:'Most first-line alert triage is handled by AI agents under human oversight.',
-   note:'Analyst skills shift toward supervision and threat hunting.'},
-  {v:'cyber',s:'industry',kind:'proj',t:'Exploit windows collapse',r:2020,p:2027,c:'medium',
-   rw:'AI-assisted code analysis and exploit research.',
-   pw:'Time from disclosure to exploitation falls to days or hours for many flaws.',
-   note:'Patching and compensating controls for operational technology need rethinking.'},
-  {v:'cyber',s:'government',kind:'proj',t:'Automated vulnerability repair',r:2016,p:2029,c:'medium',
-   rw:'DARPA challenges on autonomous find-and-fix.',
-   pw:'AI-generated patches become standard in mainstream software maintenance.',
-   note:'Assurance of AI-written fixes becomes a new discipline.'},
-  {v:'cyber',s:'industry',kind:'proj',t:'AI anomaly detection in OT networks',r:2013,p:2029,c:'medium',
-   rw:'OT monitoring and machine learning anomaly detection.',
-   pw:'AI-assisted detection is standard across energy network control systems.',
-   note:'False positives in safety-critical settings are the hard problem.'},
+// ---------- COMPUTING SOFTWARE ----------
+{v:'sw',s:'industry',kind:'hist',t:'High-level programming languages',r:1954,p:1957,c:'high',rw:'Backus proposes FORTRAN at IBM.',pw:'The first FORTRAN compiler ships.',note:'Made programming accessible to scientists and engineers.'},
+{v:'sw',s:'academic',kind:'hist',t:'Time-sharing',r:1961,p:1966,c:'medium',rw:'MIT demonstrates the Compatible Time-Sharing System.',pw:'Commercial time-sharing services launch.',note:'The conceptual ancestor of cloud computing.'},
+{v:'sw',s:'academic',kind:'hist',t:'Object-oriented programming',r:1967,p:1985,c:'medium',rw:'Simula 67 from the Norwegian Computing Center, a public research institute.',pw:'C++ is released commercially.',note:'Ideas can wait years for hardware and markets to catch up.'},
+{v:'sw',s:'industry',kind:'hist',t:'Unix',r:1969,p:1975,c:'medium',rw:'Thompson and Ritchie create Unix at Bell Labs.',pw:'AT&T begins licensing Unix commercially.',note:'Antitrust limits on AT&T shaped how Unix spread.'},
+{v:'sw',s:'industry',kind:'hist',t:'Relational database',r:1970,p:1979,c:'high',rw:'Codd publishes the relational model at IBM.',pw:'Oracle ships the first commercial SQL database.',note:'A start-up beat the inventing company to market.'},
+{v:'sw',s:'industry',kind:'hist',t:'Graphical interface',r:1973,p:1981,c:'high',rw:'Xerox PARC builds the Alto.',pw:'Xerox Star goes on sale; Apple popularises the idea in 1984.',note:'Invention and commercial success often happen in different companies.'},
+{v:'sw',s:'government',kind:'hist',t:'World Wide Web',r:1989,p:1994,c:'high',rw:'Berners-Lee proposes the web at CERN, a publicly funded lab.',pw:'Netscape Navigator is released commercially.',note:'CERN released the technology royalty-free in 1993, which sped everything up.'},
+{v:'sw',s:'academic',kind:'hist',t:'Open-source operating systems',r:1991,p:1995,c:'medium',rw:'Torvalds, a Helsinki student, releases the Linux kernel.',pw:'Commercial Linux distributions are sold with support.',note:'A new model where the research and the product are shared.'},
+{v:'sw',s:'academic',kind:'hist',t:'Virtualisation on PCs',r:1997,p:1999,c:'high',rw:'Stanford’s Disco project virtualises commodity hardware.',pw:'VMware, founded by the researchers, ships Workstation.',note:'The foundation of cloud computing.'},
+{v:'sw',s:'industry',kind:'hist',t:'Large-scale data processing',r:2004,p:2009,c:'medium',rw:'Google publishes MapReduce.',pw:'Managed big-data services offered by cloud providers.',note:'Open-source reimplementation moved it out of Google.'},
+{v:'sw',s:'industry',kind:'proj',t:'AI writes most new code',r:2021,p:2028,c:'medium',rw:'Code-generating language models.',pw:'In many organisations most new code is drafted by AI and reviewed by people.',note:'Software assurance and supply chain security must adapt.'},
+{v:'sw',s:'industry',kind:'proj',t:'Agent interoperability standards',r:2024,p:2027,c:'medium',rw:'Protocols for connecting AI agents to tools and data.',pw:'Common standards let agents work across vendors’ systems.',note:'Identity and authorisation for agents become critical controls.'},
+{v:'sw',s:'industry',kind:'proj',t:'Memory-safe languages by default',r:2010,p:2029,c:'medium',rw:'Rust and similar languages emerge from industry research.',pw:'New critical systems code is written in memory-safe languages by default.',note:'Backed by government security agency guidance.'},
+{v:'sw',s:'academic',kind:'proj',t:'AI-assisted formal verification',r:2019,p:2030,c:'low',rw:'Machine learning applied to mathematical proof of program correctness.',pw:'Routine proofs of correctness for critical components.',note:'Could change how safety-critical software is assured.'},
 
-  // LIFE SCIENCES (contrast vertical)
-  {v:'life',s:'academic',kind:'hist',t:'Penicillin',r:1928,p:1943,c:'high',
-   rw:'Fleming observes penicillin at St Mary’s Hospital, London.',
-   pw:'Mass production for Allied forces.',
-   note:'Fifteen years, and a war, to get from discovery to scale.'},
-  {v:'life',s:'academic',kind:'hist',t:'Recombinant DNA',r:1973,p:1982,c:'high',
-   rw:'Cohen and Boyer, Stanford and UCSF.',
-   pw:'Recombinant human insulin is approved.',
-   note:'Launched the biotech industry.'},
-  {v:'life',s:'government',kind:'hist',t:'Monoclonal antibodies',r:1975,p:1986,c:'high',
-   rw:'Köhler and Milstein at the MRC Laboratory of Molecular Biology, Cambridge.',
-   pw:'First monoclonal antibody therapy is approved.',
-   note:'Not patented, which some still debate.'},
-  {v:'life',s:'industry',kind:'hist',t:'PCR',r:1983,p:1987,c:'high',
-   rw:'Mullis at Cetus Corporation.',
-   pw:'Commercial PCR instruments and kits are sold.',
-   note:'Lab tools move faster than medicines.'},
-  {v:'life',s:'government',kind:'hist',t:'Genome sequencing to consumers',r:1990,p:2007,c:'high',
-   rw:'Human Genome Project begins.',
-   pw:'Direct-to-consumer genetic testing launches.',
-   note:'Sequencing cost fell faster than Moore’s law.'},
-  {v:'life',s:'academic',kind:'hist',t:'mRNA vaccines',r:2005,p:2020,c:'high',
-   rw:'Karikó and Weissman’s modified nucleoside work, University of Pennsylvania.',
-   pw:'First mRNA vaccine is authorised.',
-   note:'Fifteen years of slow research, then less than a year to authorisation.'},
-  {v:'life',s:'academic',kind:'hist',t:'CRISPR gene editing',r:2012,p:2023,c:'high',
-   rw:'Doudna and Charpentier publish programmable CRISPR-Cas9.',
-   pw:'First CRISPR therapy is approved, by the UK regulator first.',
-   note:'Fast for a medicine; regulation still sets the floor.'},
-  {v:'life',s:'industry',kind:'hist',t:'Protein structure prediction',r:2020,p:2021,c:'high',
-   rw:'AlphaFold 2 from DeepMind wins CASP14.',
-   pw:'Open AlphaFold database of predicted structures released.',
-   note:'Software-speed delivery in a physical science.'},
-  {v:'life',s:'industry',kind:'proj',t:'AI-discovered medicines',r:2020,p:2029,c:'low',
-   rw:'AI-designed drug candidates enter clinical trials.',
-   pw:'First approval of a medicine where AI designed the molecule.',
-   note:'AI shortens discovery, not clinical trials.'},
-  {v:'life',s:'academic',kind:'proj',t:'In-body gene editing',r:2012,p:2030,c:'low',
-   rw:'Delivery of editing tools directly into the body.',
-   pw:'First approval of an in vivo gene-editing therapy.',
-   note:'Safety findings could move this either way.'}
+// ---------- ARTIFICIAL INTELLIGENCE ----------
+{v:'ai',s:'academic',kind:'hist',t:'Expert systems',r:1965,p:1980,c:'medium',rw:'DENDRAL at Stanford encodes expert chemistry knowledge.',pw:'XCON goes into operational use at Digital Equipment Corporation.',note:'Early AI that worked, then hit the limits of hand-written rules.'},
+{v:'ai',s:'industry',kind:'hist',t:'Statistical speech recognition',r:1975,p:1997,c:'medium',rw:'IBM’s statistical approach to speech recognition.',pw:'Continuous-speech dictation software goes on sale.',note:'Computing power, not ideas, was the bottleneck.'},
+{v:'ai',s:'academic',kind:'hist',t:'Neural networks in products',r:1986,p:1996,c:'medium',rw:'Rumelhart, Hinton and Williams popularise backpropagation.',pw:'Neural networks read handwritten cheques in commercial banking systems.',note:'Worked in a niche, then went quiet for 15 years.'},
+{v:'ai',s:'academic',kind:'hist',t:'Deep learning for images',r:2012,p:2013,c:'high',rw:'AlexNet from the University of Toronto wins ImageNet.',pw:'Deep-learning photo search appears in Google’s products.',note:'Google acquired the team, a pattern that became common.'},
+{v:'ai',s:'industry',kind:'hist',t:'Transformer models',r:2017,p:2019,c:'high',rw:'Google researchers publish the transformer architecture.',pw:'Transformer models enter Google Search ranking.',note:'From here on, research and product cycles in AI largely merge.'},
+{v:'ai',s:'industry',kind:'hist',t:'Learning from human feedback',r:2017,p:2022,c:'high',rw:'Researchers show models can learn from human preference ratings.',pw:'ChatGPT launches.',note:'The method that made language models usable by the public.'},
+{v:'ai',s:'academic',kind:'hist',t:'Diffusion image generation',r:2020,p:2022,c:'high',rw:'Berkeley researchers publish denoising diffusion models.',pw:'Public text-to-image services launch.',note:'Two years from paper to mass use.'},
+{v:'ai',s:'industry',kind:'hist',t:'Reasoning models',r:2022,p:2024,c:'medium',rw:'Chain-of-thought research shows step-by-step reasoning gains.',pw:'Commercial reasoning models are released.',note:'Months, not years, between paper and product.'},
+{v:'ai',s:'industry',kind:'proj',t:'Agentic AI in everyday work',r:2022,p:2027,c:'medium',rw:'Tool-using and planning language model research.',pw:'AI agents routinely complete multi-step tasks inside enterprise systems.',note:'Governance, identity and access control become the bottleneck.'},
+{v:'ai',s:'industry',kind:'proj',t:'On-device AI as default',r:2017,p:2027,c:'high',rw:'Efficient neural networks and neural processing units.',pw:'Capable AI runs locally on most new phones and laptops.',note:'Shifts some risk from the cloud to the endpoint.'},
+{v:'ai',s:'government',kind:'proj',t:'EU high-risk AI rules apply',r:2021,p:2027,c:'high',rw:'European Commission proposes the AI Act.',pw:'High-risk obligations for stand-alone systems apply from 2 December 2027, after the 2026 Digital Omnibus delay.',note:'Change also means regulation: here the gap is set by law-making, not research.'},
+{v:'ai',s:'industry',kind:'proj',t:'AI as a scientific collaborator',r:2020,p:2028,c:'medium',rw:'AI systems that generate and test scientific hypotheses.',pw:'AI-originated results are routine in peer-reviewed science.',note:'Could compress research gaps in every other lane.'},
+
+// ---------- QUANTUM ----------
+{v:'quantum',s:'academic',kind:'hist',t:'Atomic clock',r:1945,p:1956,c:'medium',rw:'Rabi proposes atomic-beam clocks at Columbia; NPL builds a caesium clock in 1955.',pw:'The first commercial caesium clock goes on sale.',note:'First-generation quantum technology now underpins GPS and the grid’s timing.'},
+{v:'quantum',s:'industry',kind:'hist',t:'Laser',r:1958,p:1962,c:'medium',rw:'Schawlow and Townes publish the laser principle (Bell Labs, Columbia).',pw:'Commercial lasers go on sale.',note:'Called a solution looking for a problem; now everywhere.'},
+{v:'quantum',s:'industry',kind:'hist',t:'Quantum key distribution',r:1984,p:2003,c:'medium',rw:'Bennett (IBM) and Brassard (Montréal) publish BB84.',pw:'First commercial QKD systems go on sale.',note:'Real but niche; national security agencies favour post-quantum cryptography.'},
+{v:'quantum',s:'academic',kind:'hist',t:'Quantum annealing',r:2000,p:2011,c:'medium',rw:'MIT researchers propose adiabatic quantum computing.',pw:'D-Wave sells its first quantum annealer.',note:'Commercial before it was clearly useful.'},
+{v:'quantum',s:'industry',kind:'hist',t:'Quantum computing access',r:1999,p:2016,c:'high',rw:'NEC demonstrates a superconducting qubit.',pw:'IBM opens cloud access to a small quantum processor.',note:'A product for learning and research, not yet for advantage.'},
+{v:'quantum',s:'academic',kind:'hist',t:'Quantum gravimeter',r:1991,p:2015,c:'medium',rw:'Stanford demonstrates atom interferometry.',pw:'Commercial atom-interferometer gravimeters go on sale.',note:'Quantum sensing is arriving before quantum computing.'},
+{v:'quantum',s:'industry',kind:'flight',t:'Cryptographically relevant quantum computer',r:1994,tg:2045,c:'low',rw:'Shor, at Bell Labs, shows quantum computers could break public-key cryptography.',pw:'Not yet landed. Timelines are uncertain and widely debated.',note:'Uncertainty about when is exactly why migration has to start now.'},
+{v:'quantum',s:'industry',kind:'proj',t:'Verified quantum advantage',r:1999,p:2027,c:'medium',rw:'Superconducting and other qubit platforms since the late 1990s.',pw:'Independently verified advantage on scientific problems; IBM expects first examples in 2026.',note:'Expect claims and counter-claims as classical methods improve too.'},
+{v:'quantum',s:'industry',kind:'proj',t:'Fault-tolerant quantum computer',r:1999,p:2029,c:'low',rw:'Error-correction research since the 1990s.',pw:'IBM targets Starling, with 200 logical qubits, for 2029.',note:'A vendor roadmap. Previous roadmaps have slipped.'},
+{v:'quantum',s:'government',kind:'proj',t:'Quantum navigation in service',r:1991,p:2030,c:'medium',rw:'Atom interferometry and cold-atom sensing.',pw:'Quantum navigation trialled operationally as a backup when satellite navigation is jammed or spoofed.',note:'A UK national quantum mission; relevant to timing-dependent infrastructure.'},
+
+// ---------- CYBER ----------
+{v:'cyber',s:'government',kind:'hist',t:'Machine codebreaking',r:1939,p:1940,c:'high',rw:'Turing and Welchman design the Bombe at Bletchley Park.',pw:'First Bombe goes into operational use.',note:'Wartime urgency: research to operations in months.'},
+{v:'cyber',s:'government',kind:'hist',t:'Public-key cryptography (secret)',r:1973,p:1997,c:'high',rw:'Ellis and Cocks at GCHQ invent non-secret encryption.',pw:'GCHQ publicly discloses the work.',note:'Classified research can be decades ahead of the market and never reach it.'},
+{v:'cyber',s:'academic',kind:'hist',t:'Public-key cryptography (open)',r:1976,p:1986,c:'medium',rw:'Diffie and Hellman at Stanford; RSA at MIT a year later.',pw:'RSA Data Security ships its first commercial products.',note:'Became the foundation of e-commerce and online banking.'},
+{v:'cyber',s:'academic',kind:'hist',t:'Antivirus',r:1983,p:1987,c:'high',rw:'Cohen’s research defines the computer virus.',pw:'First commercial antivirus products launch.',note:'The threat arrived quickly, so the market did too.'},
+{v:'cyber',s:'government',kind:'hist',t:'Intrusion detection',r:1987,p:1997,c:'medium',rw:'Denning’s intrusion detection model at SRI, publicly funded.',pw:'Commercial network intrusion detection products reach the market.',note:'Government-funded research seeded much of today’s security monitoring.'},
+{v:'cyber',s:'industry',kind:'hist',t:'Firewall',r:1988,p:1991,c:'medium',rw:'Packet-filtering research at Digital Equipment Corporation.',pw:'DEC SEAL, an early commercial firewall, is sold.',note:'Internet growth turned research into a product line within three years.'},
+{v:'cyber',s:'government',kind:'hist',t:'Industrial control system security',r:2007,p:2013,c:'medium',rw:'Aurora test at Idaho National Laboratory shows a cyber attack can destroy a generator.',pw:'Dedicated OT network monitoring products appear.',note:'Stuxnet in 2010 turned a lab demonstration into a market.'},
+{v:'cyber',s:'academic',kind:'hist',t:'Homomorphic encryption',r:2009,p:2018,c:'medium',rw:'Gentry’s first fully homomorphic scheme, Stanford.',pw:'Production-grade libraries released for commercial use.',note:'Still slow, but useful for privacy-preserving analytics.'},
+{v:'cyber',s:'industry',kind:'hist',t:'Zero trust',r:2010,p:2016,c:'medium',rw:'Forrester defines the zero trust model; Google begins BeyondCorp.',pw:'Commercial zero trust access services launch.',note:'Now embedded in government guidance worldwide.'},
+{v:'cyber',s:'government',kind:'hist',t:'Post-quantum cryptography',r:2016,p:2024,c:'high',rw:'NIST opens its post-quantum standardisation process.',pw:'FIPS 203–205 published; hybrid post-quantum key exchange on by default in major browsers.',note:'Standards and early deployment arrived together.'},
+{v:'cyber',s:'government',kind:'hist',t:'AI vulnerability discovery',r:2016,p:2025,c:'medium',rw:'DARPA Cyber Grand Challenge pits autonomous systems against each other.',pw:'AI systems find real vulnerabilities in widely used software; AIxCC tools released.',note:'Helps defenders and attackers alike.'},
+{v:'cyber',s:'government',kind:'proj',t:'Post-quantum migration of priority systems',r:2016,p:2031,c:'high',rw:'Post-quantum standardisation from 2016.',pw:'NCSC guidance sets 2031 for completing migration of the highest-priority systems.',note:'Owners of long-lived operational technology need to plan now.'},
+{v:'cyber',s:'industry',kind:'proj',t:'AI agents in security operations',r:2023,p:2028,c:'medium',rw:'Language models applied to alert triage and investigation.',pw:'Most first-line alert triage is handled by AI agents under human oversight.',note:'Analyst skills shift toward supervision and threat hunting.'},
+{v:'cyber',s:'industry',kind:'proj',t:'Exploit windows collapse',r:2020,p:2027,c:'medium',rw:'AI-assisted code analysis and exploit research.',pw:'Time from disclosure to exploitation falls to days or hours for many flaws.',note:'Patching and compensating controls for operational technology need rethinking.'},
+{v:'cyber',s:'government',kind:'proj',t:'Automated vulnerability repair',r:2016,p:2029,c:'medium',rw:'DARPA challenges on autonomous find-and-fix.',pw:'AI-generated patches become standard in mainstream software maintenance.',note:'Assurance of AI-written fixes becomes a new discipline.'},
+{v:'cyber',s:'industry',kind:'proj',t:'AI anomaly detection in OT networks',r:2013,p:2029,c:'medium',rw:'OT monitoring and machine learning anomaly detection.',pw:'AI-assisted detection is standard across energy network control systems.',note:'False positives in safety-critical settings are the hard problem.'},
+
+// ---------- COMMUNICATIONS ----------
+{v:'comms',s:'industry',kind:'hist',t:'Television',r:1926,p:1936,c:'high',rw:'Baird demonstrates television in London.',pw:'The BBC starts a regular high-definition television service.',note:'A public broadcaster turned an inventor’s demo into a service.'},
+{v:'comms',s:'government',kind:'hist',t:'Radar',r:1935,p:1938,c:'high',rw:'Watson-Watt’s Daventry experiment for the Air Ministry.',pw:'Chain Home radar stations become operational.',note:'Threat of war produced one of the fastest arcs of the century.'},
+{v:'comms',s:'industry',kind:'hist',t:'Cellular networks',r:1947,p:1979,c:'high',rw:'Bell Labs engineers set out the cellular concept.',pw:'The first commercial cellular network opens in Tokyo.',note:'Thirty years, largely waiting for spectrum allocation and electronics. Regulators can set the clock.'},
+{v:'comms',s:'industry',kind:'hist',t:'Communications satellites',r:1955,p:1965,c:'high',rw:'Pierce at Bell Labs proposes orbital radio relays.',pw:'Intelsat I begins commercial service.',note:'The space race supplied the launchers.'},
+{v:'comms',s:'academic',kind:'hist',t:'LDPC error-correcting codes',r:1960,p:2005,c:'medium',rw:'Gallager invents LDPC codes at MIT.',pw:'LDPC codes adopted in satellite TV standards, then Wi-Fi and 5G.',note:'Forgotten for 30 years until rediscovered at Cambridge in the 1990s.'},
+{v:'comms',s:'industry',kind:'hist',t:'Optical fibre',r:1966,p:1977,c:'high',rw:'Kao and Hockham at STL, Harlow, show low-loss glass fibre is possible.',pw:'First commercial fibre links carry live traffic.',note:'British research, Nobel prize, global backbone.'},
+{v:'comms',s:'government',kind:'hist',t:'Wi-Fi technology',r:1992,p:2001,c:'medium',rw:'CSIRO, Australia’s public research agency, patents its wireless LAN technique.',pw:'High-speed Wi-Fi products using the technique go on sale.',note:'Radio astronomy research ended up in billions of devices.'},
+{v:'comms',s:'academic',kind:'hist',t:'MIMO wireless',r:1994,p:2004,c:'medium',rw:'Paulraj and Kailath at Stanford patent spatial multiplexing.',pw:'First MIMO Wi-Fi chipsets ship.',note:'Behind every modern Wi-Fi and mobile network.'},
+{v:'comms',s:'industry',kind:'hist',t:'Massive MIMO',r:2010,p:2019,c:'medium',rw:'Marzetta at Bell Labs proposes very large antenna arrays.',pw:'First commercial 5G networks use massive MIMO.',note:'Standards cycles set the pace for telecoms.'},
+{v:'comms',s:'industry',kind:'proj',t:'Satellite direct to phones',r:2019,p:2027,c:'medium',rw:'Research on satellites talking to ordinary handsets.',pw:'Messaging and basic data from satellites to standard phones become mainstream.',note:'A new layer of resilience for remote network assets.'},
+{v:'comms',s:'industry',kind:'proj',t:'First 6G networks',r:2019,p:2030,c:'medium',rw:'6G research programmes in academia and industry.',pw:'First commercial 6G services launch.',note:'Expect sensing, AI-native operation and security by design to feature.'},
+
+// ---------- MATERIALS SCIENCE ----------
+{v:'materials',s:'industry',kind:'hist',t:'Polyethylene',r:1933,p:1939,c:'high',rw:'Fawcett and Gibson at ICI discover polyethylene.',pw:'Commercial production begins; vital for radar cable insulation.',note:'A lab accident that became the world’s most common plastic.'},
+{v:'materials',s:'industry',kind:'hist',t:'Nylon',r:1935,p:1938,c:'high',rw:'Carothers’ team at DuPont makes nylon.',pw:'First nylon products go on sale; stockings follow in 1940.',note:'Corporate labs at their fastest.'},
+{v:'materials',s:'industry',kind:'hist',t:'PTFE (Teflon)',r:1938,p:1946,c:'high',rw:'Plunkett discovers PTFE at DuPont.',pw:'PTFE products are sold commercially.',note:'War production came before consumer use.'},
+{v:'materials',s:'government',kind:'hist',t:'Carbon fibre',r:1963,p:1967,c:'medium',rw:'Watt, Johnson and Phillips at RAE Farnborough.',pw:'British firms begin commercial production.',note:'UK government research created a global industry.'},
+{v:'materials',s:'industry',kind:'hist',t:'Kevlar',r:1965,p:1971,c:'high',rw:'Kwolek discovers aramid fibre at DuPont.',pw:'Kevlar is commercialised.',note:'Now in body armour and high-voltage cable reinforcement.'},
+{v:'materials',s:'academic',kind:'hist',t:'Stable liquid crystals',r:1972,p:1974,c:'medium',rw:'Gray’s team at the University of Hull, funded by the UK defence ministry.',pw:'Liquid crystal displays in watches and calculators.',note:'Fast because a clear customer need was defined up front.'},
+{v:'materials',s:'academic',kind:'hist',t:'Blue LED',r:1989,p:1993,c:'high',rw:'Akasaki and Amano make p-type gallium nitride in Nagoya.',pw:'Nichia launches the bright blue LED.',note:'Enabled white LED lighting, a large global energy saving.'},
+{v:'materials',s:'academic',kind:'hist',t:'Metal-organic frameworks',r:1999,p:2016,c:'medium',rw:'Yaghi’s group reports the MOF-5 framework.',pw:'First commercial MOF product used in fruit storage.',note:'Honoured with the 2025 Nobel Prize in Chemistry; carbon capture is the next test.'},
+{v:'materials',s:'academic',kind:'hist',t:'Metamaterials',r:2000,p:2017,c:'medium',rw:'Pendry at Imperial College describes the perfect lens.',pw:'Metamaterial satellite antennas reach the market.',note:'Theory first, engineering second.'},
+{v:'materials',s:'academic',kind:'hist',t:'Graphene',r:2004,p:2013,c:'medium',rw:'Geim and Novoselov isolate graphene at Manchester.',pw:'First consumer products with graphene additives.',note:'Big promise, slower industrial impact than expected.'},
+{v:'materials',s:'academic',kind:'hist',t:'Sodium-ion batteries',r:2011,p:2023,c:'medium',rw:'Renewed academic research on sodium-ion electrodes.',pw:'First production cars with sodium-ion batteries.',note:'Cheaper, abundant materials, less exposed to lithium supply.'},
+{v:'materials',s:'academic',kind:'proj',t:'Solid-state batteries in production cars',r:2011,p:2028,c:'medium',rw:'Tokyo Tech reports a fast lithium-ion solid conductor.',pw:'Small-volume production in premium electric vehicles; makers target 2027–28.',note:'Volume and cost, not chemistry, are now the limits.'},
+{v:'materials',s:'industry',kind:'proj',t:'Sodium-ion grid storage at scale',r:2011,p:2027,c:'medium',rw:'Sodium-ion electrode research and first products.',pw:'Large sodium-ion installations on electricity networks.',note:'Diversifies storage supply chains.'},
+{v:'materials',s:'academic',kind:'proj',t:'MOFs for carbon capture',r:1999,p:2028,c:'low',rw:'Metal-organic framework research.',pw:'Commercial-scale carbon capture using MOF sorbents.',note:'Cost and durability at industrial scale still to be shown.'},
+{v:'materials',s:'industry',kind:'proj',t:'AI-discovered materials in products',r:2023,p:2029,c:'low',rw:'AI models predict hundreds of thousands of new stable crystals.',pw:'A commercial product built on an AI-discovered material.',note:'Synthesis and testing remain slow, physical steps.'},
+
+// ---------- SPACE ----------
+{v:'space',s:'academic',kind:'hist',t:'Liquid-fuelled rocket to orbit',r:1926,p:1957,c:'high',rw:'Goddard launches the first liquid-fuelled rocket in Massachusetts.',pw:'Sputnik becomes the first artificial satellite.',note:'Government programmes did the scaling.'},
+{v:'space',s:'government',kind:'hist',t:'Commercial Earth observation',r:1972,p:1986,c:'high',rw:'NASA launches Landsat 1.',pw:'SPOT 1 begins selling satellite imagery commercially.',note:'Now central to network monitoring, vegetation management and climate data.'},
+{v:'space',s:'government',kind:'hist',t:'Satellite navigation',r:1973,p:1989,c:'high',rw:'US Department of Defense approves the GPS programme.',pw:'First handheld commercial GPS receiver.',note:'Full civilian accuracy only arrived in 2000. Grid timing now depends on it.'},
+{v:'space',s:'government',kind:'hist',t:'Reusable rockets',r:1993,p:2017,c:'medium',rw:'DC-X vertical-landing demonstrator, US defence funded.',pw:'A Falcon 9 booster is reflown commercially.',note:'Government proved the idea; a company proved the economics.'},
+{v:'space',s:'academic',kind:'hist',t:'CubeSats',r:1999,p:2014,c:'medium',rw:'Stanford and Cal Poly define the CubeSat standard.',pw:'Commercial imaging constellations of small satellites deploy.',note:'Standardisation cut the cost of reaching orbit.'},
+{v:'space',s:'industry',kind:'hist',t:'Low-orbit satellite broadband',r:1994,p:2020,c:'medium',rw:'Teledesic proposes a broadband constellation.',pw:'Starlink opens public service.',note:'The first attempt failed; cheap launch made the second work.'},
+{v:'space',s:'government',kind:'hist',t:'In-orbit satellite servicing',r:2007,p:2020,c:'medium',rw:'DARPA’s Orbital Express demonstrates robotic servicing.',pw:'A commercial servicing vehicle docks to extend a satellite’s life.',note:'Space is becoming maintainable infrastructure.'},
+{v:'space',s:'industry',kind:'proj',t:'Fully reusable heavy launch',r:2012,p:2028,c:'low',rw:'Development of fully reusable launch systems.',pw:'Routine operational flights with both stages recovered.',note:'Would cut launch costs again, by a large factor.'},
+{v:'space',s:'industry',kind:'proj',t:'In-orbit refuelling',r:2007,p:2028,c:'medium',rw:'Robotic servicing research.',pw:'Commercial refuelling of satellites in orbit.',note:'Extends asset lives, raises new security questions.'},
+{v:'space',s:'industry',kind:'proj',t:'Space-based solar power demonstration',r:1968,p:2030,c:'low',rw:'Glaser proposes space-based solar power.',pw:'Power beamed from orbit to the ground in a meaningful demonstration.',note:'A 60-year arc. Still a demonstration, not a power source.'},
+
+// ---------- ROBOTICS & AUTONOMY ----------
+{v:'robotics',s:'industry',kind:'hist',t:'Industrial robot',r:1954,p:1961,c:'high',rw:'Devol files his patent for a programmable manipulator.',pw:'Unimate starts work on a General Motors line.',note:'Automation entered factories within a decade.'},
+{v:'robotics',s:'academic',kind:'hist',t:'Home robots',r:1986,p:2002,c:'medium',rw:'Brooks’ behaviour-based robotics at MIT.',pw:'The Roomba vacuum cleaner goes on sale.',note:'The first mass-market robot was deliberately simple.'},
+{v:'robotics',s:'government',kind:'hist',t:'Surgical robots',r:1991,p:2000,c:'medium',rw:'SRI telepresence surgery research, defence funded.',pw:'A robotic surgical system is cleared for use in the US.',note:'Medical regulation lengthened the arc.'},
+{v:'robotics',s:'government',kind:'hist',t:'Driverless cars',r:2004,p:2020,c:'high',rw:'DARPA Grand Challenge for autonomous vehicles.',pw:'Fully driverless robotaxi rides open to the public in Arizona.',note:'Government prize money created an industry.'},
+{v:'robotics',s:'academic',kind:'hist',t:'Consumer drones',r:2007,p:2013,c:'medium',rw:'University research on stable autonomous quadrotor control.',pw:'Ready-to-fly camera drones go on sale.',note:'Dates approximate. Cheap phone sensors did the rest.'},
+{v:'robotics',s:'academic',kind:'hist',t:'UK robotaxis',r:2017,p:2026,c:'high',rw:'Wayve spins out of Cambridge with end-to-end driving AI.',pw:'Supervised autonomous Uber rides launch across London in September 2026.',note:'UK legislation, the Automated Vehicles Act 2024, set the route to market.'},
+{v:'robotics',s:'academic',kind:'proj',t:'Fully driverless rides in London',r:2017,p:2028,c:'medium',rw:'Autonomous driving research and supervised service.',pw:'Paid rides with no safety driver on board.',note:'Depends on full deployment rules under the Automated Vehicles Act.'},
+{v:'robotics',s:'industry',kind:'proj',t:'Humanoid robots at work',r:2000,p:2028,c:'medium',rw:'Humanoid research from the early 2000s.',pw:'Paid humanoid deployments in warehouses and factories, in small numbers.',note:'Expect pilots to outnumber real deployments for some time.'},
+{v:'robotics',s:'industry',kind:'proj',t:'Routine beyond-sight drone inspection',r:2015,p:2028,c:'medium',rw:'Autonomous inspection drone research and trials.',pw:'Drones routinely inspect power lines beyond the pilot’s line of sight.',note:'Directly relevant to network operators; airspace rules set the pace.'},
+
+// ---------- LIFE SCIENCES ----------
+{v:'life',s:'academic',kind:'hist',t:'Penicillin',r:1928,p:1943,c:'high',rw:'Fleming observes penicillin at St Mary’s Hospital, London.',pw:'Mass production for Allied forces.',note:'Fifteen years, and a war, to get from discovery to scale.'},
+{v:'life',s:'academic',kind:'hist',t:'Recombinant DNA',r:1973,p:1982,c:'high',rw:'Cohen and Boyer, Stanford and UCSF.',pw:'Recombinant human insulin is approved.',note:'Launched the biotech industry.'},
+{v:'life',s:'academic',kind:'hist',t:'MRI scanning',r:1973,p:1980,c:'high',rw:'Lauterbur publishes magnetic resonance imaging; Mansfield develops it at Nottingham.',pw:'The first commercial MRI scanner.',note:'Quantum physics in every hospital.'},
+{v:'life',s:'government',kind:'hist',t:'Monoclonal antibodies',r:1975,p:1986,c:'high',rw:'Köhler and Milstein at the MRC Laboratory of Molecular Biology, Cambridge.',pw:'First monoclonal antibody therapy is approved.',note:'Not patented, which some still debate.'},
+{v:'life',s:'industry',kind:'hist',t:'PCR',r:1983,p:1987,c:'high',rw:'Mullis at Cetus Corporation.',pw:'Commercial PCR instruments and kits are sold.',note:'Lab tools move faster than medicines.'},
+{v:'life',s:'government',kind:'hist',t:'Genome sequencing to consumers',r:1990,p:2007,c:'high',rw:'Human Genome Project begins.',pw:'Direct-to-consumer genetic testing launches.',note:'Sequencing costs fell faster than Moore’s law.'},
+{v:'life',s:'academic',kind:'hist',t:'mRNA vaccines',r:2005,p:2020,c:'high',rw:'Karikó and Weissman’s modified nucleoside work, University of Pennsylvania.',pw:'First mRNA vaccine is authorised.',note:'Fifteen years of slow research, then less than a year to authorisation.'},
+{v:'life',s:'academic',kind:'hist',t:'CRISPR gene editing',r:2012,p:2023,c:'high',rw:'Doudna and Charpentier publish programmable CRISPR-Cas9.',pw:'First CRISPR therapy approved, by the UK regulator first.',note:'Fast for a medicine; regulation still sets the floor.'},
+{v:'life',s:'industry',kind:'hist',t:'Protein structure prediction',r:2020,p:2021,c:'high',rw:'AlphaFold 2 from DeepMind wins CASP14.',pw:'Open AlphaFold database of predicted structures released.',note:'Software-speed delivery in a physical science.'},
+{v:'life',s:'industry',kind:'proj',t:'AI-discovered medicines',r:2020,p:2029,c:'low',rw:'AI-designed drug candidates enter clinical trials.',pw:'First approval of a medicine where AI designed the molecule.',note:'AI shortens discovery, not clinical trials.'},
+{v:'life',s:'academic',kind:'proj',t:'In-body gene editing',r:2012,p:2030,c:'low',rw:'Delivery of editing tools directly into the body.',pw:'First approval of an in vivo gene-editing therapy.',note:'Safety findings could move this either way.'}
 ];
 
-const VERTS = {all:'All fields',energy:'Energy',it:'IT & computing',cyber:'Cyber security',life:'Life sciences'};
-const SRC = {
-  academic:{name:'Academic',hex:'#F5B04C',col:0xF5B04C,z:-12},
-  industry:{name:'Industry',hex:'#4CD3C2',col:0x4CD3C2,z:0},
-  government:{name:'Government',hex:'#A891FF',col:0xA891FF,z:12}
+const FIELDS = {
+  energy:{name:'Energy',hex:'#F7C04A'}, hw:{name:'Computing hardware',hex:'#5AB0FF'}, sw:{name:'Computing software',hex:'#7FE3F0'},
+  ai:{name:'Artificial intelligence',hex:'#C08BFF'}, quantum:{name:'Quantum',hex:'#FF7AC8'}, cyber:{name:'Cyber security',hex:'#FF6B6B'},
+  comms:{name:'Communications',hex:'#6BE39A'}, materials:{name:'Materials science',hex:'#E8A07A'}, space:{name:'Space',hex:'#9FB4FF'},
+  robotics:{name:'Robotics & autonomy',hex:'#B5E35A'}, life:{name:'Life sciences',hex:'#4FD1B0'}
 };
-const CONF = {high:'High confidence',medium:'Medium confidence',low:'Low confidence'};
-const Y0 = 1925, Y1 = 2032, NOW = 2026, HORIZON = 2031.6, XS = 1.2, MID = (Y0 + Y1) / 2, H = 0.85;
+const FKEYS = Object.keys(FIELDS);
+FKEYS.forEach((k, i) => { FIELDS[k].col = new THREE.Color(FIELDS[k].hex); FIELDS[k].z = -25 + i * 5; });
+const SRC = {
+  academic:{name:'Academic',hex:'#F5B04C',z:-12}, industry:{name:'Industry',hex:'#4CD3C2',z:0}, government:{name:'Government',hex:'#A891FF',z:12}
+};
+Object.keys(SRC).forEach(k => SRC[k].col = new THREE.Color(SRC[k].hex));
+const KINDS = {hist:'Landed', proj:'Next five years', flight:'Still in the lab'};
+const CONFS = {high:'High', medium:'Medium', low:'Low'};
+const CONF_LONG = {high:'High confidence', medium:'Medium confidence', low:'Low confidence'};
+const Y0 = 1925, Y1 = 2032, NOW = 2026, HORIZON = 2031.6, XS = 1.2, MID = (Y0 + Y1) / 2, H = 0.85, ZE = 28;
 const xOf = y => (y - MID) * XS;
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-/* ------------------------------------------------------------------ *
- *  STATE
- * ------------------------------------------------------------------ */
-const state = {
-  vert:'all',
-  src:{academic:true,industry:true,government:true},
-  proj:true, trend:true, flight:true,
-  playing:false, cursor:Y1, autoRotate:!reduced
+const $ = id => document.getElementById(id);
+const store = {
+  get(k, d){ try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
+  set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
 };
+
+/* ==================================================================
+ *  STATE
+ * ================================================================== */
+const DEFAULT_FILTERS = () => ({
+  fields:new Set(FKEYS), src:{academic:true,industry:true,government:true},
+  kinds:{hist:true,proj:true,flight:true}, conf:{high:true,medium:true,low:true},
+  from:1925, to:2026, gapMax:60, q:'', ghosts:true
+});
+const F = DEFAULT_FILTERS();
+const hidden = new Set();
+const view = {labels:'off', lfs:12, lanes:'s', colour:'s', pulses:true, trend:true, floor:true, rotSpeed:0.35, glow:0.75};
+Object.assign(view, store.get('sg.view.v2', {}));
+const state = {playing:false, cursor:Y1, autoRotate:!reduced};
 let selected = null, hovered = null;
 
-/* ------------------------------------------------------------------ *
+/* ==================================================================
  *  THREE SETUP
- * ------------------------------------------------------------------ */
-const host = document.getElementById('scene');
+ * ================================================================== */
+const host = $('scene');
 const renderer = new THREE.WebGLRenderer({antialias:true});
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.setSize(innerWidth, innerHeight);
 renderer.setClearColor(0x08131D, 1);
 host.appendChild(renderer.domElement);
-
 const scene = new THREE.Scene();
-scene.fog = new THREE.FogExp2(0x08131D, 0.0058);
-const camera = new THREE.PerspectiveCamera(46, innerWidth / innerHeight, 0.1, 1200);
-const HOME = {pos:new THREE.Vector3(-18, 30, 118), target:new THREE.Vector3(2, 9, 0)};
-camera.position.set(-150, 110, 210);
-
+scene.fog = new THREE.FogExp2(0x08131D, 0.0052);
+const camera = new THREE.PerspectiveCamera(46, innerWidth / innerHeight, 0.1, 1400);
+const HOME = {pos:new THREE.Vector3(-16, 36, 132), target:new THREE.Vector3(2, 9, 0)};
+camera.position.set(-160, 120, 230);
 const controls = new THREE.OrbitControls(camera, renderer.domElement);
 controls.target.copy(HOME.target);
-controls.enableDamping = true;
-controls.dampingFactor = 0.06;
-controls.autoRotate = state.autoRotate;
-controls.autoRotateSpeed = 0.35;
-controls.minDistance = 18;
-controls.maxDistance = 240;
-controls.maxPolarAngle = Math.PI * 0.49;
-controls.rotateSpeed = 0.6;
+controls.enableDamping = true; controls.dampingFactor = 0.06;
+controls.autoRotate = state.autoRotate; controls.autoRotateSpeed = view.rotSpeed;
+controls.minDistance = 16; controls.maxDistance = 260; controls.maxPolarAngle = Math.PI * 0.49; controls.rotateSpeed = 0.6;
 
 let composer = null, bloom = null;
 if (THREE.EffectComposer && THREE.UnrealBloomPass && THREE.RenderPass) {
   try {
     composer = new THREE.EffectComposer(renderer);
-    composer.setPixelRatio && composer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    if (composer.setPixelRatio) composer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     composer.addPass(new THREE.RenderPass(scene, camera));
-    bloom = new THREE.UnrealBloomPass(new THREE.Vector2(innerWidth, innerHeight), 0.75, 0.5, 0.22);
+    bloom = new THREE.UnrealBloomPass(new THREE.Vector2(innerWidth, innerHeight), view.glow, 0.5, 0.22);
     composer.addPass(bloom);
   } catch (e) { composer = null; }
 }
 
-/* Textures */
-function glowTexture() {
+function glowTexture(){
   const c = document.createElement('canvas'); c.width = c.height = 128;
-  const g = c.getContext('2d');
-  const gr = g.createRadialGradient(64, 64, 0, 64, 64, 64);
-  gr.addColorStop(0, 'rgba(255,255,255,1)');
-  gr.addColorStop(0.18, 'rgba(255,255,255,.75)');
-  gr.addColorStop(0.45, 'rgba(255,255,255,.18)');
-  gr.addColorStop(1, 'rgba(255,255,255,0)');
-  g.fillStyle = gr; g.fillRect(0, 0, 128, 128);
-  return new THREE.CanvasTexture(c);
+  const g = c.getContext('2d'), gr = g.createRadialGradient(64,64,0,64,64,64);
+  gr.addColorStop(0,'rgba(255,255,255,1)'); gr.addColorStop(.18,'rgba(255,255,255,.75)');
+  gr.addColorStop(.45,'rgba(255,255,255,.18)'); gr.addColorStop(1,'rgba(255,255,255,0)');
+  g.fillStyle = gr; g.fillRect(0,0,128,128); return new THREE.CanvasTexture(c);
 }
 const GLOW = glowTexture();
 
-function textSprite(txt, opts) {
-  opts = opts || {};
-  const size = opts.size || 26, color = opts.color || '#8FA6B8';
-  const family = opts.serif ? '"Instrument Serif", Georgia, serif' : '"Instrument Sans", system-ui, sans-serif';
-  const weight = opts.weight || (opts.serif ? '400' : '500');
+function textSprite(txt, o){
+  o = o || {};
+  const size = o.size || 26, color = o.color || '#8FA6B8';
+  const family = o.serif ? '"Instrument Serif", Georgia, serif' : '"Instrument Sans", system-ui, sans-serif';
+  const font = `${o.weight || (o.serif ? '400' : '500')} ${size * 2}px ${family}`;
   const c = document.createElement('canvas'), g = c.getContext('2d');
-  const font = `${weight} ${size * 2}px ${family}`;
-  g.font = font;
-  const w = Math.ceil(g.measureText(txt).width) + 20;
+  g.font = font; const w = Math.ceil(g.measureText(txt).width) + 20;
   c.width = w; c.height = Math.ceil(size * 2.8);
-  g.font = font; g.fillStyle = color; g.textBaseline = 'middle';
-  g.fillText(txt, 10, c.height / 2);
-  const tex = new THREE.CanvasTexture(c);
-  tex.minFilter = THREE.LinearFilter;
-  const mat = new THREE.SpriteMaterial({map:tex, transparent:true, depthWrite:false, opacity:opts.opacity == null ? 1 : opts.opacity, fog:opts.fog !== false});
-  const s = new THREE.Sprite(mat);
-  const hh = (opts.world || 1.6);
-  s.scale.set(hh * c.width / c.height, hh, 1);
-  if (opts.align === 'right') s.center.set(1, 0.5);
-  if (opts.align === 'left') s.center.set(0, 0.5);
+  g.font = font; g.fillStyle = color; g.textBaseline = 'middle'; g.fillText(txt, 10, c.height / 2);
+  const tex = new THREE.CanvasTexture(c); tex.minFilter = THREE.LinearFilter;
+  const s = new THREE.Sprite(new THREE.SpriteMaterial({map:tex, transparent:true, depthWrite:false}));
+  const hh = o.world || 1.6; s.scale.set(hh * c.width / c.height, hh, 1);
+  if (o.align === 'right') s.center.set(1, .5);
+  if (o.align === 'left') s.center.set(0, .5);
   return s;
 }
-
-/* ------------------------------------------------------------------ *
- *  STAGE: floor, lanes, decades, today wall, outlook zone, dust
- * ------------------------------------------------------------------ */
-const stage = new THREE.Group(); scene.add(stage);
-
-function line(points, color, opacity) {
-  const geo = new THREE.BufferGeometry().setFromPoints(points);
-  const mat = new THREE.LineBasicMaterial({color, transparent:true, opacity, depthWrite:false});
-  return new THREE.Line(geo, mat);
+function line(points, color, opacity){
+  return new THREE.Line(new THREE.BufferGeometry().setFromPoints(points),
+    new THREE.LineBasicMaterial({color, transparent:true, opacity, depthWrite:false}));
 }
 
-// Floor sheen
+/* ==================================================================
+ *  STAGE
+ * ================================================================== */
+const stage = new THREE.Group(); scene.add(stage);
+const floorLabels = new THREE.Group(); scene.add(floorLabels);
 (function(){
   const c = document.createElement('canvas'); c.width = c.height = 256;
-  const g = c.getContext('2d');
-  const gr = g.createRadialGradient(128, 128, 0, 128, 128, 128);
-  gr.addColorStop(0, 'rgba(36,74,104,.16)'); gr.addColorStop(1, 'rgba(36,74,104,0)');
-  g.fillStyle = gr; g.fillRect(0, 0, 256, 256);
-  const m = new THREE.Mesh(new THREE.PlaneGeometry(260, 120), new THREE.MeshBasicMaterial({map:new THREE.CanvasTexture(c), transparent:true, depthWrite:false}));
+  const g = c.getContext('2d'), gr = g.createRadialGradient(128,128,0,128,128,128);
+  gr.addColorStop(0,'rgba(36,74,104,.16)'); gr.addColorStop(1,'rgba(36,74,104,0)');
+  g.fillStyle = gr; g.fillRect(0,0,256,256);
+  const m = new THREE.Mesh(new THREE.PlaneGeometry(280,150), new THREE.MeshBasicMaterial({map:new THREE.CanvasTexture(c), transparent:true, depthWrite:false}));
   m.rotation.x = -Math.PI / 2; m.position.y = -0.05; stage.add(m);
 })();
-
-// Decade lines and labels
 for (let y = 1930; y <= 2030; y += 10) {
   const x = xOf(y);
-  stage.add(line([new THREE.Vector3(x, 0, -19), new THREE.Vector3(x, 0, 19)], 0x9CC3DC, y % 50 === 0 ? 0.22 : 0.1));
-  const lab = textSprite(String(y), {size:26, color:'#7E95A7', world:1.5});
-  lab.position.set(x, 0.2, 22.5); stage.add(lab);
+  stage.add(line([new THREE.Vector3(x,0,-ZE), new THREE.Vector3(x,0,ZE)], 0x9CC3DC, y % 50 === 0 ? 0.2 : 0.09));
+  const lab = textSprite(String(y), {size:26, color:'#7E95A7', world:1.6}); lab.position.set(x, 0.2, ZE + 3); floorLabels.add(lab);
 }
-// Year minor ticks
-for (let y = 1925; y <= 2031; y++) {
-  if (y % 10 === 0) continue;
-  const x = xOf(y);
-  stage.add(line([new THREE.Vector3(x, 0, 18.4), new THREE.Vector3(x, 0, 19)], 0x9CC3DC, 0.18));
+for (let y = 1925; y <= 2031; y++) { if (y % 10) stage.add(line([new THREE.Vector3(xOf(y),0,ZE-.6), new THREE.Vector3(xOf(y),0,ZE)], 0x9CC3DC, 0.18)); }
+
+// lanes (two layouts)
+const laneSets = {s:new THREE.Group(), v:new THREE.Group()};
+scene.add(laneSets.s); scene.add(laneSets.v);
+function addLane(group, z, col, hex, name){
+  group.add(line([new THREE.Vector3(xOf(Y0),0,z), new THREE.Vector3(xOf(NOW),0,z)], col, 0.32));
+  group.add(line([new THREE.Vector3(xOf(NOW),0,z), new THREE.Vector3(xOf(Y1),0,z)], col, 0.12));
+  const lab = textSprite(name, {size:28, color:hex, world:group === laneSets.s ? 2.1 : 1.5, align:'right'});
+  lab.position.set(xOf(Y0) - 2, 0.4, z); group.add(lab); lab.userData.floorLabel = true;
 }
-// Lanes
 Object.keys(SRC).forEach(k => {
-  const z = SRC[k].z;
-  stage.add(line([new THREE.Vector3(xOf(Y0), 0, z), new THREE.Vector3(xOf(NOW), 0, z)], SRC[k].col, 0.35));
-  stage.add(line([new THREE.Vector3(xOf(NOW), 0, z), new THREE.Vector3(xOf(Y1), 0, z)], SRC[k].col, 0.14));
+  addLane(laneSets.s, SRC[k].z, SRC[k].col.getHex(), SRC[k].hex, SRC[k].name);
   const strip = new THREE.Mesh(new THREE.PlaneGeometry(xOf(Y1) - xOf(Y0), 3.2),
     new THREE.MeshBasicMaterial({color:SRC[k].col, transparent:true, opacity:0.035, depthWrite:false, side:THREE.DoubleSide}));
-  strip.rotation.x = -Math.PI / 2; strip.position.set(0, 0.01, z); stage.add(strip);
-  const lab = textSprite(SRC[k].name, {size:30, color:SRC[k].hex, world:2.1, align:'right'});
-  lab.position.set(xOf(Y0) - 2, 0.4, z); stage.add(lab);
+  strip.rotation.x = -Math.PI / 2; strip.position.set(0, 0.01, SRC[k].z); laneSets.s.add(strip);
 });
+FKEYS.forEach(k => addLane(laneSets.v, FIELDS[k].z, FIELDS[k].col.getHex(), FIELDS[k].hex, FIELDS[k].name));
 
-// Today wall
 const todayX = xOf(NOW);
 (function(){
-  const wall = new THREE.Mesh(new THREE.PlaneGeometry(38, 30),
+  const wall = new THREE.Mesh(new THREE.PlaneGeometry(ZE * 2, 30),
     new THREE.MeshBasicMaterial({color:0xE9F2FF, transparent:true, opacity:0.03, depthWrite:false, side:THREE.DoubleSide}));
   wall.rotation.y = Math.PI / 2; wall.position.set(todayX, 15, 0); stage.add(wall);
-  stage.add(line([new THREE.Vector3(todayX, 0, -19), new THREE.Vector3(todayX, 0, 19)], 0xE9F2FF, 0.55));
-  stage.add(line([new THREE.Vector3(todayX, 30, -19), new THREE.Vector3(todayX, 30, 19)], 0xE9F2FF, 0.12));
-  stage.add(line([new THREE.Vector3(todayX, 0, -19), new THREE.Vector3(todayX, 30, -19)], 0xE9F2FF, 0.12));
-  const t = textSprite('Today', {size:30, color:'#E9F2FF', world:3, serif:true});
-  t.position.set(todayX, 31.6, -19); stage.add(t);
-  // outlook zone
+  stage.add(line([new THREE.Vector3(todayX,0,-ZE), new THREE.Vector3(todayX,0,ZE)], 0xE9F2FF, 0.55));
+  stage.add(line([new THREE.Vector3(todayX,30,-ZE), new THREE.Vector3(todayX,30,ZE)], 0xE9F2FF, 0.12));
+  stage.add(line([new THREE.Vector3(todayX,0,-ZE), new THREE.Vector3(todayX,30,-ZE)], 0xE9F2FF, 0.12));
+  const t = textSprite('Today', {size:30, color:'#E9F2FF', world:3, serif:true}); t.position.set(todayX, 31.8, -ZE); floorLabels.add(t);
   const w = xOf(Y1) - todayX;
-  const zone = new THREE.Mesh(new THREE.PlaneGeometry(w, 38),
+  const zone = new THREE.Mesh(new THREE.PlaneGeometry(w, ZE * 2),
     new THREE.MeshBasicMaterial({color:0xE9F2FF, transparent:true, opacity:0.045, depthWrite:false, side:THREE.DoubleSide}));
   zone.rotation.x = -Math.PI / 2; zone.position.set(todayX + w / 2, 0.02, 0); stage.add(zone);
-  const z2 = textSprite('Next five years', {size:24, color:'#C9D8E6', world:1.5, serif:true, align:'left'});
-  z2.position.set(todayX + 0.6, 0.3, -21.5); stage.add(z2);
-})();
-
-// Time axis caption
-(function(){
+  const z2 = textSprite('Next five years', {size:24, color:'#C9D8E6', world:1.6, serif:true, align:'left'});
+  z2.position.set(todayX + 0.6, 0.3, -ZE - 2.5); floorLabels.add(z2);
   const cap = textSprite('Year research began', {size:22, color:'#5D7486', world:1.3, align:'left'});
-  cap.position.set(xOf(Y0), 0.2, 25.5); stage.add(cap);
-  // height scale on the back wall at 1925
+  cap.position.set(xOf(Y0), 0.2, ZE + 6); floorLabels.add(cap);
   for (let yrs = 10; yrs <= 30; yrs += 10) {
     const y = yrs * H;
-    stage.add(line([new THREE.Vector3(xOf(Y0), y, -19), new THREE.Vector3(xOf(Y0), y, 19)], 0x9CC3DC, 0.07));
+    stage.add(line([new THREE.Vector3(xOf(Y0),y,-ZE), new THREE.Vector3(xOf(Y0),y,ZE)], 0x9CC3DC, 0.07));
     const l = textSprite(yrs + ' years', {size:22, color:'#5D7486', world:1.3, align:'right'});
-    l.position.set(xOf(Y0) - 1, y, -19); stage.add(l);
+    l.position.set(xOf(Y0) - 1, y, -ZE); floorLabels.add(l);
   }
 })();
 
-// Ambient dust
 const dust = (function(){
   const N = 1400, pos = new Float32Array(N * 3);
   for (let i = 0; i < N; i++) {
-    const r = 60 + Math.random() * 220, th = Math.random() * Math.PI * 2, ph = Math.acos(2 * Math.random() - 1);
-    pos[i * 3] = r * Math.sin(ph) * Math.cos(th);
-    pos[i * 3 + 1] = Math.abs(r * Math.cos(ph)) * 0.6 - 10;
-    pos[i * 3 + 2] = r * Math.sin(ph) * Math.sin(th);
+    const r = 70 + Math.random() * 230, th = Math.random() * Math.PI * 2, ph = Math.acos(2 * Math.random() - 1);
+    pos[i*3] = r * Math.sin(ph) * Math.cos(th); pos[i*3+1] = Math.abs(r * Math.cos(ph)) * .6 - 10; pos[i*3+2] = r * Math.sin(ph) * Math.sin(th);
   }
   const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-  const m = new THREE.PointsMaterial({size:0.9, map:GLOW, color:0x7FA6C4, transparent:true, opacity:0.5, depthWrite:false, blending:THREE.AdditiveBlending});
-  const p = new THREE.Points(g, m); scene.add(p); return p;
+  const p = new THREE.Points(g, new THREE.PointsMaterial({size:0.9, map:GLOW, color:0x7FA6C4, transparent:true, opacity:0.5, depthWrite:false, blending:THREE.AdditiveBlending}));
+  scene.add(p); return p;
 })();
 
-// Time cursor (play mode)
 const cursorGroup = new THREE.Group(); scene.add(cursorGroup);
 (function(){
-  const wall = new THREE.Mesh(new THREE.PlaneGeometry(38, 30),
+  const wall = new THREE.Mesh(new THREE.PlaneGeometry(ZE * 2, 30),
     new THREE.MeshBasicMaterial({color:0xE9F2FF, transparent:true, opacity:0.06, depthWrite:false, side:THREE.DoubleSide, blending:THREE.AdditiveBlending}));
   wall.rotation.y = Math.PI / 2; wall.position.y = 15; cursorGroup.add(wall);
-  const base = line([new THREE.Vector3(0, 0.05, -19), new THREE.Vector3(0, 0.05, 19)], 0xFFFFFF, 0.9);
-  cursorGroup.add(base);
+  cursorGroup.add(line([new THREE.Vector3(0,0.05,-ZE), new THREE.Vector3(0,0.05,ZE)], 0xFFFFFF, 0.9));
   cursorGroup.visible = false;
 })();
 
-/* ------------------------------------------------------------------ *
+/* ==================================================================
  *  ITEMS
- * ------------------------------------------------------------------ */
-const SEG = 120, RAD = 6, IDX_PER_SEG = RAD * 6;
+ * ================================================================== */
+const SEG = 90, RAD = 6, IDX_PER_SEG = RAD * 6;
 const hitMeshes = [];
+const WHITE = new THREE.Color(0xffffff);
 const items = DATA.map((d, i) => {
   const it = Object.assign({id:i, f:0, target:1}, d);
-  const src = SRC[d.s], z = src.z, col = new THREE.Color(src.col);
   const end = d.kind === 'flight' ? d.tg : d.p;
   it.lag = end - d.r;
   const x0 = xOf(d.r), x1 = xOf(end), h = Math.max(it.lag, 0.8) * H;
-  it.curve = new THREE.QuadraticBezierCurve3(new THREE.Vector3(x0, 0, z), new THREE.Vector3((x0 + x1) / 2, 2 * h, z), new THREE.Vector3(x1, 0, z));
+  it.curve = new THREE.QuadraticBezierCurve3(new THREE.Vector3(x0,0,0), new THREE.Vector3((x0+x1)/2, 2*h, 0), new THREE.Vector3(x1,0,0));
   it.group = new THREE.Group(); scene.add(it.group);
   it.mats = [];
   const addMat = (m, base) => { m.userData.base = base; it.mats.push(m); return m; };
@@ -720,243 +691,341 @@ const items = DATA.map((d, i) => {
   if (d.kind === 'hist' || d.kind === 'flight') {
     const geo = new THREE.TubeGeometry(it.curve, SEG, d.kind === 'flight' ? 0.08 : 0.1, RAD, false);
     if (d.kind === 'flight') {
-      // fade along length via vertex colours
-      const cnt = geo.attributes.position.count, colors = new Float32Array(cnt * 3);
-      const per = RAD + 1;
-      for (let v = 0; v < cnt; v++) {
-        const seg = Math.floor(v / per) / SEG;
-        const fade = clamp(1 - seg / ((HORIZON - d.r) / it.lag), 0, 1);
-        const k = Math.pow(fade, 0.7);
-        colors[v * 3] = col.r * k; colors[v * 3 + 1] = col.g * k; colors[v * 3 + 2] = col.b * k;
-      }
-      geo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-      it.tubeMat = addMat(new THREE.MeshBasicMaterial({vertexColors:true, transparent:true, opacity:0.9, depthWrite:false, blending:THREE.AdditiveBlending}), 0.9);
       it.maxFrac = clamp((HORIZON - d.r) / it.lag, 0, 1);
+      geo.setAttribute('color', new THREE.BufferAttribute(new Float32Array(geo.attributes.position.count * 3), 3));
+      it.tubeMat = addMat(new THREE.MeshBasicMaterial({vertexColors:true, transparent:true, opacity:.9, depthWrite:false, blending:THREE.AdditiveBlending}), .9);
     } else {
-      it.tubeMat = addMat(new THREE.MeshBasicMaterial({color:col, transparent:true, opacity:0.85, depthWrite:false, blending:THREE.AdditiveBlending}), 0.85);
       it.maxFrac = 1;
+      it.tubeMat = addMat(new THREE.MeshBasicMaterial({transparent:true, opacity:.85, depthWrite:false, blending:THREE.AdditiveBlending}), .85);
     }
-    it.tube = new THREE.Mesh(geo, it.tubeMat);
-    it.tubeIdx = geo.index.count;
-    it.group.add(it.tube);
-    // soft halo tube
-    const halo = new THREE.Mesh(geo, addMat(new THREE.MeshBasicMaterial({color:col, transparent:true, opacity:0.12, depthWrite:false, blending:THREE.AdditiveBlending}), 0.12));
-    halo.scale.set(1, 1, 1);
-    it.halo = halo;
-    // pulse
-    it.pulse = new THREE.Sprite(addMat(new THREE.SpriteMaterial({map:GLOW, color:col, transparent:true, depthWrite:false, blending:THREE.AdditiveBlending}), 1));
-    it.pulse.scale.set(2.2, 2.2, 1);
-    it.group.add(it.pulse);
-    it.speed = 1 / (1.6 + it.lag * 0.12);
-    it.phase = Math.random();
+    it.tube = new THREE.Mesh(geo, it.tubeMat); it.group.add(it.tube);
+    it.pulseMat = addMat(new THREE.SpriteMaterial({map:GLOW, transparent:true, depthWrite:false, blending:THREE.AdditiveBlending}), 1);
+    it.pulse = new THREE.Sprite(it.pulseMat); it.pulse.scale.set(2.2, 2.2, 1); it.group.add(it.pulse);
+    it.speed = 1 / (1.6 + it.lag * 0.12); it.phase = Math.random();
   }
-
   if (d.kind === 'proj') {
-    const N = 34;
-    it.dotN = N;
-    it.dotPos = new Float32Array(N * 3);
+    it.dotN = 34; it.dotPos = new Float32Array(it.dotN * 3);
     const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(it.dotPos, 3));
-    const pc = col.clone().lerp(new THREE.Color(0xffffff), 0.35);
-    it.dotMat = addMat(new THREE.PointsMaterial({size:0.75, map:GLOW, color:pc, transparent:true, depthWrite:false, blending:THREE.AdditiveBlending}), 1);
-    it.dots = new THREE.Points(g, it.dotMat);
-    it.group.add(it.dots);
-    it.speed = 0.05;
+    it.dotMat = addMat(new THREE.PointsMaterial({size:.75, map:GLOW, transparent:true, depthWrite:false, blending:THREE.AdditiveBlending}), 1);
+    it.dots = new THREE.Points(g, it.dotMat); it.group.add(it.dots); it.speed = 0.05;
+    it.lead = new THREE.Vector3();
   }
-
-  // origin node
-  it.origin = new THREE.Mesh(new THREE.SphereGeometry(d.kind === 'proj' ? 0.22 : 0.32, 16, 12),
-    addMat(new THREE.MeshBasicMaterial({color:col, transparent:true, opacity:0.95}), 0.95));
-  it.origin.position.copy(it.curve.v0);
-  it.group.add(it.origin);
-
-  // landing ring + glow (not for flight)
+  it.originMat = addMat(new THREE.MeshBasicMaterial({transparent:true, opacity:.95}), .95);
+  it.origin = new THREE.Mesh(new THREE.SphereGeometry(d.kind === 'proj' ? .22 : .32, 16, 12), it.originMat);
+  it.origin.position.copy(it.curve.v0); it.group.add(it.origin);
   if (d.kind !== 'flight') {
-    const ringCol = d.kind === 'proj' ? new THREE.Color(0xE9F2FF) : col;
-    it.ring = new THREE.Mesh(new THREE.RingGeometry(0.55, 0.85, 40),
-      addMat(new THREE.MeshBasicMaterial({color:ringCol, transparent:true, opacity:0.9, depthWrite:false, side:THREE.DoubleSide, blending:THREE.AdditiveBlending}), 0.9));
-    it.ring.rotation.x = -Math.PI / 2;
-    it.ring.position.copy(it.curve.v2).setY(0.05);
-    it.group.add(it.ring);
-    it.land = new THREE.Sprite(addMat(new THREE.SpriteMaterial({map:GLOW, color:ringCol, transparent:true, depthWrite:false, blending:THREE.AdditiveBlending}), 0.7));
-    it.land.scale.set(2.6, 2.6, 1);
-    it.land.position.copy(it.curve.v2).setY(0.3);
-    it.group.add(it.land);
+    it.ringMat = addMat(new THREE.MeshBasicMaterial({transparent:true, opacity:.9, depthWrite:false, side:THREE.DoubleSide, blending:THREE.AdditiveBlending}), .9);
+    it.ring = new THREE.Mesh(new THREE.RingGeometry(.55, .85, 40), it.ringMat);
+    it.ring.rotation.x = -Math.PI / 2; it.ring.position.copy(it.curve.v2).setY(.05); it.group.add(it.ring);
+    it.landMat = addMat(new THREE.SpriteMaterial({map:GLOW, transparent:true, depthWrite:false, blending:THREE.AdditiveBlending}), .7);
+    it.land = new THREE.Sprite(it.landMat); it.land.scale.set(2.6, 2.6, 1); it.land.position.copy(it.curve.v2).setY(.3); it.group.add(it.land);
   }
-
-  // hit targets
   const hitMat = new THREE.MeshBasicMaterial({transparent:true, opacity:0, depthWrite:false});
-  const pts = [it.curve.v0, d.kind === 'flight' ? null : it.curve.v2, it.curve.getPoint(0.5)].filter(Boolean);
-  pts.forEach(p => {
-    const m = new THREE.Mesh(new THREE.SphereGeometry(1.5, 8, 6), hitMat);
-    m.position.copy(p); m.userData.it = it; it.group.add(m); hitMeshes.push(m);
-  });
-  if (d.kind === 'flight') {
-    const m = new THREE.Mesh(new THREE.SphereGeometry(1.5, 8, 6), hitMat);
-    m.position.copy(it.curve.getPoint(it.maxFrac * 0.8)); m.userData.it = it; it.group.add(m); hitMeshes.push(m);
-  }
+  const pts = [it.curve.v0, it.curve.getPoint(d.kind === 'flight' ? it.maxFrac * .55 : .5)];
+  if (d.kind !== 'flight') pts.push(it.curve.v2);
+  pts.forEach(p => { const m = new THREE.Mesh(new THREE.SphereGeometry(1.5, 8, 6), hitMat); m.position.copy(p); m.userData.it = it; it.group.add(m); hitMeshes.push(m); });
+  it.peak = it.curve.getPoint(d.kind === 'flight' ? it.maxFrac * .55 : .5);
   return it;
 });
 
-/* ------------------------------------------------------------------ *
- *  TREND LINES
- * ------------------------------------------------------------------ */
-const trendGroup = new THREE.Group(); scene.add(trendGroup);
-const ERAS = [[1920,1950],[1950,1970],[1970,1990],[1990,2010],[2010,2030]];
-function median(a) { if (!a.length) return null; const s = a.slice().sort((x, y) => x - y), m = s.length >> 1; return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; }
-
-function inField(it) { return state.vert === 'all' || it.v === state.vert; }
-function shown(it) {
-  if (!state.src[it.s]) return false;
-  if (it.kind === 'proj' && !state.proj) return false;
-  if (it.kind === 'flight' && !state.flight) return false;
-  return true;
+function itemColour(it){ return view.colour === 'v' ? FIELDS[it.v].col : SRC[it.s].col; }
+function itemHex(it){ return view.colour === 'v' ? FIELDS[it.v].hex : SRC[it.s].hex; }
+function laneZ(it){ return view.lanes === 'v' ? FIELDS[it.v].z : SRC[it.s].z; }
+function applyColours(){
+  items.forEach(it => {
+    const col = itemColour(it);
+    if (it.kind === 'hist') it.tubeMat.color.copy(col);
+    if (it.kind === 'flight') {
+      const a = it.tube.geometry.attributes.color, per = RAD + 1;
+      for (let v = 0; v < a.count; v++) {
+        const seg = Math.floor(v / per) / SEG, k = Math.pow(clamp(1 - seg / it.maxFrac, 0, 1), .7);
+        a.setXYZ(v, col.r * k, col.g * k, col.b * k);
+      }
+      a.needsUpdate = true;
+    }
+    if (it.pulseMat) it.pulseMat.color.copy(col);
+    it.originMat.color.copy(col);
+    if (it.ringMat) { const rc = it.kind === 'proj' ? col.clone().lerp(WHITE, .6) : col; it.ringMat.color.copy(rc); it.landMat.color.copy(rc); }
+    if (it.dotMat) it.dotMat.color.copy(col.clone().lerp(WHITE, .35));
+    if (it.labelEl) it.labelEl.style.color = itemHex(it);
+  });
+}
+function applyLanes(instant){
+  laneSets.s.visible = view.lanes === 's'; laneSets.v.visible = view.lanes === 'v';
+  items.forEach(it => { it.zTarget = laneZ(it); if (instant) it.group.position.z = it.zTarget; });
 }
 
-function buildTrends() {
-  while (trendGroup.children.length) {
-    const c = trendGroup.children.pop();
-    c.geometry && c.geometry.dispose();
-  }
-  if (!state.trend) return;
-  Object.keys(SRC).forEach(k => {
-    if (!state.src[k]) return;
+/* ==================================================================
+ *  FILTERING
+ * ================================================================== */
+function matches(it){
+  if (!F.fields.has(it.v) || !F.src[it.s] || !F.kinds[it.kind] || !F.conf[it.c]) return false;
+  if (it.r < F.from || it.r > F.to) return false;
+  if (F.gapMax < 60 && it.lag > F.gapMax) return false;
+  if (F.q) { const q = F.q.toLowerCase(); if (!(it.t + ' ' + it.rw + ' ' + it.pw).toLowerCase().includes(q)) return false; }
+  return true;
+}
+function shownFully(it){ return matches(it) && !hidden.has(it.id); }
+
+const trendGroup = new THREE.Group(); scene.add(trendGroup);
+const ERAS = [[1920,1950],[1950,1970],[1970,1990],[1990,2010],[2010,2030]];
+function median(a){ if (!a.length) return null; const s = a.slice().sort((x,y) => x - y), m = s.length >> 1; return s.length % 2 ? s[m] : (s[m-1] + s[m]) / 2; }
+function buildTrends(){
+  while (trendGroup.children.length) { const c = trendGroup.children.pop(); if (c.geometry) c.geometry.dispose(); }
+  if (!view.trend) return;
+  const lanes = view.lanes === 'v' ? FKEYS.map(k => ({key:k, z:FIELDS[k].z, col:FIELDS[k].col, test:it => it.v === k}))
+                                   : Object.keys(SRC).map(k => ({key:k, z:SRC[k].z, col:SRC[k].col, test:it => it.s === k}));
+  lanes.forEach(L => {
     const pts = [];
     ERAS.forEach(([a, b]) => {
-      const set = items.filter(it => it.kind === 'hist' && it.s === k && inField(it) && it.r >= a && it.r < b);
+      const set = items.filter(it => it.kind === 'hist' && shownFully(it) && L.test(it) && it.r >= a && it.r < b);
       if (!set.length) return;
-      const lag = median(set.map(it => it.lag));
-      const mid = median(set.map(it => it.r + it.lag / 2));
-      pts.push(new THREE.Vector3(xOf(mid), lag * H + 0.6, SRC[k].z));
+      pts.push(new THREE.Vector3(xOf(median(set.map(it => it.r + it.lag / 2))), median(set.map(it => it.lag)) * H + .6, L.z));
     });
-    const col = new THREE.Color(SRC[k].col).lerp(new THREE.Color(0xffffff), 0.55);
-    pts.forEach(p => {
-      const s = new THREE.Mesh(new THREE.SphereGeometry(0.3, 12, 8), new THREE.MeshBasicMaterial({color:col, transparent:true, opacity:0.9}));
-      s.position.copy(p); trendGroup.add(s);
-    });
+    const col = L.col.clone().lerp(WHITE, .55);
+    pts.forEach(p => { const s = new THREE.Mesh(new THREE.SphereGeometry(.3, 12, 8), new THREE.MeshBasicMaterial({color:col, transparent:true, opacity:.9})); s.position.copy(p); trendGroup.add(s); });
     if (pts.length >= 2) {
-      const curve = new THREE.CatmullRomCurve3(pts, false, 'centripetal');
-      const t = new THREE.Mesh(new THREE.TubeGeometry(curve, 80, 0.06, 6, false),
-        new THREE.MeshBasicMaterial({color:col, transparent:true, opacity:0.55, depthWrite:false, blending:THREE.AdditiveBlending}));
-      trendGroup.add(t);
-      // drop lines
-      pts.forEach(p => trendGroup.add(line([p, new THREE.Vector3(p.x, 0, p.z)], col.getHex(), 0.12)));
+      trendGroup.add(new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts, false, 'centripetal'), 80, .06, 6, false),
+        new THREE.MeshBasicMaterial({color:col, transparent:true, opacity:.55, depthWrite:false, blending:THREE.AdditiveBlending})));
+      pts.forEach(p => trendGroup.add(line([p, new THREE.Vector3(p.x, 0, p.z)], col.getHex(), .12)));
     }
   });
 }
 
-/* ------------------------------------------------------------------ *
- *  UI
- * ------------------------------------------------------------------ */
-const $ = id => document.getElementById(id);
-const vertsEl = $('verts'), srcsEl = $('srcs');
-Object.keys(VERTS).forEach((k, i) => {
-  const b = document.createElement('button');
-  b.className = 'vbtn'; b.dataset.v = k;
-  b.innerHTML = `<span>${VERTS[k]}</span><kbd>${i + 1}</kbd>`;
-  b.setAttribute('aria-pressed', k === state.vert);
-  b.onclick = () => setVert(k);
-  vertsEl.appendChild(b);
+/* ==================================================================
+ *  WINDOW MANAGER
+ * ================================================================== */
+const WIN_IDS = ['filters','display','summary','milestones','details','key'];
+const WIN_NAMES = {filters:'Filters', display:'Display', summary:'Summary', milestones:'Milestones', details:'Details', key:'Reading the model'};
+function defaultLayout(){
+  const W = innerWidth, Hh = innerHeight, top = 80, narrow = W < 820, rw = Math.min(340, W - 36);
+  return {
+    filters:{x:18, y:top, w:Math.min(290, W - 36), h:Math.max(200, Math.min(Hh - top - 230, 640)), fs:1, open:!narrow},
+    key:{x:18, y:Math.max(top + 210, Hh - 210), w:Math.min(290, W - 36), h:160, fs:1, open:!narrow},
+    display:{x:Math.min(326, W - 310), y:top, w:290, h:Math.min(520, Hh - top - 60), fs:1, open:false},
+    summary:{x:W - rw - 18, y:top, w:rw, h:300, fs:1, open:!narrow},
+    details:{x:W - rw - 18, y:top + 316, w:rw, h:Math.max(220, Math.min(400, Hh - top - 380)), fs:1, open:false},
+    milestones:{x:Math.max(18, W - rw - 18 - 330), y:top, w:310, h:Math.min(560, Hh - top - 60), fs:1, open:false}
+  };
+}
+let layout = Object.assign(defaultLayout(), store.get('sg.layout.v2', {}));
+let zTop = 20;
+const wins = {};
+function saveLayout(){ store.set('sg.layout.v2', layout); }
+function placeWin(id){
+  const el = wins[id], L = layout[id];
+  L.w = Math.min(L.w, innerWidth - 8); L.h = Math.min(L.h, innerHeight - 8);
+  L.x = clamp(L.x, -L.w + 80, innerWidth - 80); L.y = clamp(L.y, 0, innerHeight - 40);
+  el.style.left = L.x + 'px'; el.style.top = L.y + 'px'; el.style.width = L.w + 'px'; el.style.height = L.h + 'px';
+  el.style.setProperty('--fs', L.fs);
+  el.classList.toggle('closed', !L.open);
+}
+function raise(id){ wins[id].style.zIndex = ++zTop; }
+function setOpen(id, open){ layout[id].open = open; placeWin(id); if (open) raise(id); saveLayout(); buildWinMenu(); }
+WIN_IDS.forEach(id => {
+  const el = $('w-' + id); wins[id] = el;
+  const head = document.createElement('div'); head.className = 'wh';
+  head.innerHTML = `<h2>${el.dataset.title}</h2><button data-a="dn" title="Smaller text" aria-label="Smaller text">A−</button><button data-a="up" title="Larger text" aria-label="Larger text">A+</button><button data-a="x" title="Close" aria-label="Close window">✕</button>`;
+  el.prepend(head);
+  head.addEventListener('click', e => {
+    const a = e.target.dataset && e.target.dataset.a; if (!a) return;
+    if (a === 'x') setOpen(id, false);
+    if (a === 'up' || a === 'dn') { const old = layout[id].fs, nf = Math.round(clamp(old + (a === 'up' ? .1 : -.1), .7, 2.2) * 10) / 10, k = nf / old; layout[id].fs = nf; layout[id].w = Math.max(220, layout[id].w * k); layout[id].h = Math.max(96, layout[id].h * k); if (layout[id].x + layout[id].w > innerWidth - 8) layout[id].x = Math.max(8, innerWidth - 8 - layout[id].w); if (layout[id].y + layout[id].h > innerHeight - 8) layout[id].y = Math.max(8, innerHeight - 8 - layout[id].h); placeWin(id); saveLayout(); }
+  });
+  let drag = null;
+  head.addEventListener('pointerdown', e => {
+    if (e.target.tagName === 'BUTTON') return;
+    raise(id); drag = {dx:e.clientX - layout[id].x, dy:e.clientY - layout[id].y}; head.setPointerCapture(e.pointerId);
+  });
+  head.addEventListener('pointermove', e => { if (!drag) return; layout[id].x = e.clientX - drag.dx; layout[id].y = e.clientY - drag.dy; placeWin(id); });
+  head.addEventListener('pointerup', () => { if (drag) { drag = null; saveLayout(); } });
+  head.addEventListener('dblclick', e => { if (e.target.tagName !== 'BUTTON') { const d = defaultLayout()[id]; Object.assign(layout[id], {x:d.x, y:d.y, w:d.w, h:d.h}); placeWin(id); saveLayout(); } });
+  el.addEventListener('pointerdown', () => raise(id));
+  placeWin(id);
 });
-Object.keys(SRC).forEach(k => {
-  const b = document.createElement('button');
-  b.className = 'sbtn'; b.dataset.s = k; b.style.color = SRC[k].hex;
-  b.innerHTML = `<span class="dot"></span><span style="color:var(--text)">${SRC[k].name}</span><span class="n"></span>`;
-  b.setAttribute('aria-pressed', 'true');
-  b.onclick = () => { state.src[k] = !state.src[k]; b.setAttribute('aria-pressed', state.src[k]); refresh(); };
-  srcsEl.appendChild(b);
+if (window.ResizeObserver) {
+  const ro = new ResizeObserver(entries => {
+    entries.forEach(en => {
+      const id = en.target.id.slice(2), el = en.target;
+      if (el.classList.contains('closed')) return;
+      layout[id].w = el.offsetWidth; layout[id].h = el.offsetHeight;
+    });
+    clearTimeout(ro.t); ro.t = setTimeout(saveLayout, 300);
+  });
+  WIN_IDS.forEach(id => ro.observe(wins[id]));
+}
+const winMenu = $('winMenu');
+function buildWinMenu(){
+  winMenu.innerHTML = WIN_IDS.map(id => `<button data-w="${id}"><span class="tick ${layout[id].open ? 'on' : ''}">${layout[id].open ? '✓' : ''}</span>${WIN_NAMES[id]}</button>`).join('') +
+    `<hr><button data-w="__all">Open all windows</button><button data-w="__reset">Reset layout and text sizes</button>` +
+    `<small>Drag a title bar to move, drag the bottom-right corner to resize, A− and A+ change text size. Double-click a title bar to restore its default place.</small>`;
+}
+buildWinMenu();
+winMenu.addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  const w = b.dataset.w;
+  if (w === '__reset') { layout = defaultLayout(); WIN_IDS.forEach(placeWin); saveLayout(); buildWinMenu(); }
+  else if (w === '__all') { WIN_IDS.forEach(id => { layout[id].open = true; placeWin(id); }); saveLayout(); buildWinMenu(); }
+  else setOpen(w, !layout[w].open);
 });
-$('lyProj').onchange = e => { state.proj = e.target.checked; refresh(); };
-$('lyTrend').onchange = e => { state.trend = e.target.checked; refresh(); };
-$('lyFlight').onchange = e => { state.flight = e.target.checked; refresh(); };
+$('winBtn').onclick = e => { e.stopPropagation(); const o = winMenu.classList.toggle('open'); $('winBtn').setAttribute('aria-expanded', o); };
+document.addEventListener('click', e => { if (!winMenu.contains(e.target) && e.target.id !== 'winBtn') { winMenu.classList.remove('open'); $('winBtn').setAttribute('aria-expanded', false); } });
 
-function setVert(k) {
-  state.vert = k;
-  vertsEl.querySelectorAll('.vbtn').forEach(b => b.setAttribute('aria-pressed', b.dataset.v === k));
-  if (selected && !inField(selected)) closeDetail();
+/* ==================================================================
+ *  FILTER UI
+ * ================================================================== */
+const fieldList = $('fieldList');
+fieldList.innerHTML = FKEYS.map((k, i) => `<div class="frow" data-f="${k}" style="color:${FIELDS[k].hex}" role="checkbox" tabindex="0"><span class="sw"></span><span class="nm">${FIELDS[k].name}</span><span class="ct"></span><button class="only" data-only="${k}" title="Show only this field">Only</button></div>`).join('');
+fieldList.addEventListener('click', e => {
+  const only = e.target.dataset.only;
+  if (only) { F.fields = new Set([only]); refresh(); return; }
+  const row = e.target.closest('.frow'); if (!row) return;
+  const k = row.dataset.f; F.fields.has(k) ? F.fields.delete(k) : F.fields.add(k); refresh();
+});
+fieldList.addEventListener('keydown', e => { if ((e.key === ' ' || e.key === 'Enter') && e.target.classList.contains('frow')) { e.preventDefault(); e.target.click(); } });
+document.querySelectorAll('[data-preset]').forEach(b => b.onclick = () => {
+  const p = b.dataset.preset;
+  F.fields = p === 'all' ? new Set(FKEYS) : p === 'none' ? new Set() : new Set(['energy','cyber','hw','sw','ai','quantum']);
   refresh();
+});
+function chipGroup(el, obj, labels, colours){
+  el.innerHTML = Object.keys(labels).map(k => `<button class="chipbtn" data-k="${k}" ${colours ? `style="color:${colours[k]}"` : ''}>${colours ? '<span class="d"></span>' : ''}<span class="t">${labels[k]}</span></button>`).join('');
+  el.addEventListener('click', e => { const b = e.target.closest('.chipbtn'); if (!b) return; obj()[b.dataset.k] = !obj()[b.dataset.k]; refresh(); });
+}
+chipGroup($('srcChips'), () => F.src, {academic:'Academic', industry:'Industry', government:'Government'}, {academic:SRC.academic.hex, industry:SRC.industry.hex, government:SRC.government.hex});
+chipGroup($('kindChips'), () => F.kinds, KINDS);
+chipGroup($('confChips'), () => F.conf, CONFS);
+$('q').addEventListener('input', e => { F.q = e.target.value.trim(); refresh(); });
+$('fromR').addEventListener('input', e => { F.from = +e.target.value; if (F.from > F.to) { F.to = F.from; } refresh(); });
+$('toR').addEventListener('input', e => { F.to = +e.target.value; if (F.to < F.from) { F.from = F.to; } refresh(); });
+$('gapR').addEventListener('input', e => { F.gapMax = +e.target.value; refresh(); });
+$('ghostT').addEventListener('change', e => { F.ghosts = e.target.checked; refresh(); });
+$('resetFilters').onclick = () => { Object.assign(F, DEFAULT_FILTERS()); hidden.clear(); refresh(); };
+
+function syncFilterUI(){
+  fieldList.querySelectorAll('.frow').forEach(r => {
+    const k = r.dataset.f, on = F.fields.has(k); r.classList.toggle('on', on); r.setAttribute('aria-checked', on);
+    r.querySelector('.ct').textContent = items.filter(it => it.v === k).length;
+  });
+  const sync = (el, obj) => el.querySelectorAll('.chipbtn').forEach(b => b.setAttribute('aria-pressed', !!obj[b.dataset.k]));
+  sync($('srcChips'), F.src); sync($('kindChips'), F.kinds); sync($('confChips'), F.conf);
+  $('fromR').value = F.from; $('toR').value = F.to; $('gapR').value = F.gapMax;
+  $('fromV').textContent = F.from; $('toV').textContent = F.to; $('gapV').textContent = F.gapMax >= 60 ? 'Any' : F.gapMax + ' years';
+  $('ghostT').checked = F.ghosts; if ($('q').value.trim() !== F.q) $('q').value = F.q;
 }
 
-function refresh() {
+/* Display UI */
+function segBind(id, key, after){
+  const el = $(id);
+  const sync = () => el.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', b.dataset.v === view[key]));
+  el.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; view[key] = b.dataset.v; sync(); store.set('sg.view.v2', view); after && after(); });
+  sync(); return sync;
+}
+const syncLabelSeg = segBind('labelSeg', 'labels', () => {});
+segBind('laneSeg', 'lanes', () => { applyLanes(false); buildTrends(); });
+segBind('colSeg', 'colour', () => { applyColours(); renderMilestones(); });
+function bindToggle(id, key, after){ const el = $(id); el.checked = view[key]; el.addEventListener('change', () => { view[key] = el.checked; store.set('sg.view.v2', view); after && after(); }); }
+bindToggle('pulseT', 'pulses');
+bindToggle('trendT', 'trend', buildTrends);
+bindToggle('floorT', 'floor', () => { floorLabels.visible = view.floor; laneSets.s.children.concat(laneSets.v.children).forEach(c => { if (c.userData.floorLabel) c.visible = view.floor; }); });
+function bindRange(id, outId, key, after, fmt){
+  const el = $(id), out = $(outId); el.value = view[key]; out.textContent = fmt ? fmt(view[key]) : view[key];
+  el.addEventListener('input', () => { view[key] = +el.value; out.textContent = fmt ? fmt(view[key]) : view[key]; store.set('sg.view.v2', view); after && after(); });
+}
+bindRange('lfsR', 'lfsV', 'lfs', () => document.documentElement.style.setProperty('--lfs', view.lfs + 'px'), v => v + 'px');
+bindRange('rotR', 'rotV', 'rotSpeed', () => { controls.autoRotateSpeed = view.rotSpeed; if (view.rotSpeed > 0 && !state.autoRotate) setAutoRotate(true); if (view.rotSpeed === 0) setAutoRotate(false); }, v => v.toFixed(2));
+bindRange('glowR', 'glowV', 'glow', () => { if (bloom) bloom.strength = view.glow; }, v => v.toFixed(2));
+document.documentElement.style.setProperty('--lfs', view.lfs + 'px');
+floorLabels.visible = view.floor;
+
+/* ==================================================================
+ *  REFRESH: targets, trends, stats, list
+ * ================================================================== */
+function refresh(){
   items.forEach(it => {
-    it.target = !shown(it) ? 0 : inField(it) ? 1 : 0.06;
+    it.match = matches(it);
+    it.target = hidden.has(it.id) ? 0 : it.match ? 1 : (F.ghosts ? .06 : 0);
   });
-  buildTrends();
-  // counts
-  srcsEl.querySelectorAll('.sbtn').forEach(b => {
-    const k = b.dataset.s;
-    b.querySelector('.n').textContent = items.filter(it => it.s === k && inField(it)).length;
-  });
-  renderStats();
+  if (selected && selected.target < 1) closeDetail();
+  syncFilterUI(); buildTrends(); renderStats(); renderMilestones();
 }
 
-function renderStats() {
+function fieldPhrase(){
+  if (F.fields.size === 1) { const n = FIELDS[[...F.fields][0]].name; return 'In ' + (n === 'Artificial intelligence' ? 'AI' : n.charAt(0).toLowerCase() + n.slice(1)); }
+  if (F.fields.size === FKEYS.length) return 'Across all fields';
+  return 'Across the selected fields';
+}
+function renderStats(){
   const cols = [['Pre-1970', 0, 1970], ['1970–99', 1970, 2000], ['2000+', 2000, 3000]];
-  const pool = items.filter(it => it.kind === 'hist' && inField(it) && state.src[it.s]);
-  let html = '<tr><th></th>' + cols.map(c => `<th>${c[0]}</th>`).join('') + '</tr>';
+  const pool = items.filter(it => it.kind === 'hist' && shownFully(it));
   const cell = set => { const m = median(set.map(it => it.lag)); return m == null ? '<td class="none">–</td>' : `<td>${Math.round(m)}</td>`; };
+  let html = '<tr><th></th>' + cols.map(c => `<th>${c[0]}</th>`).join('') + '</tr>';
   Object.keys(SRC).forEach(k => {
-    if (!state.src[k]) return;
-    html += `<tr><td><i style="background:${SRC[k].hex}"></i>${SRC[k].name}</td>` +
-      cols.map(c => cell(pool.filter(it => it.s === k && it.r >= c[1] && it.r < c[2]))).join('') + '</tr>';
+    if (!F.src[k]) return;
+    html += `<tr><td><i style="background:${SRC[k].hex}"></i>${SRC[k].name}</td>` + cols.map(c => cell(pool.filter(it => it.s === k && it.r >= c[1] && it.r < c[2]))).join('') + '</tr>';
   });
   html += '<tr class="all"><td>All sources</td>' + cols.map(c => cell(pool.filter(it => it.r >= c[1] && it.r < c[2]))).join('') + '</tr>';
   $('stats').innerHTML = html;
   const pre = pool.filter(it => it.r < 1970), mid = pool.filter(it => it.r >= 1970 && it.r < 2000), rec = pool.filter(it => it.r >= 2000);
   const base = pre.length >= 2 ? {set:pre, label:'before 1970'} : mid.length >= 2 ? {set:mid, label:'in 1970–99'} : null;
-  const early = base ? median(base.set.map(it => it.lag)) : null;
-  const late = rec.length ? median(rec.map(it => it.lag)) : null;
-  const field = state.vert === 'all' ? 'Across these fields' : 'In ' + VERTS[state.vert].toLowerCase().replace('it &', 'IT &');
+  const early = base ? median(base.set.map(it => it.lag)) : null, late = rec.length ? median(rec.map(it => it.lag)) : null;
   let msg = '';
-  if (early != null && late != null) {
-    msg = late < early - 1
-      ? `${field}, the typical gap has fallen from about ${Math.round(early)} years ${base.label} to ${Math.round(late)} since 2000.`
-      : `${field}, the gap has barely moved: about ${Math.round(late)} years since 2000, against ${Math.round(early)} ${base.label}.`;
-  } else if (late != null) {
-    msg = `${field}, recent breakthroughs have reached product in about ${Math.round(late)} years.`;
-  }
+  if (early != null && late != null) msg = late < early - 1
+    ? `${fieldPhrase()}, the typical gap has fallen from about ${Math.round(early)} years ${base.label} to ${Math.round(late)} since 2000.`
+    : `${fieldPhrase()}, the gap has barely moved: about ${Math.round(late)} years since 2000, against ${Math.round(early)} ${base.label}.`;
+  else if (late != null) msg = `${fieldPhrase()}, recent breakthroughs have reached product in about ${Math.round(late)} years.`;
+  else if (!pool.length) msg = 'No landed milestones match the current filters.';
   $('insight').textContent = msg;
+  const n = items.filter(shownFully).length;
+  $('count').textContent = `${n} of ${items.length} milestones shown` + (hidden.size ? `, ${hidden.size} hidden individually` : '') + '.';
 }
 
-/* Detail panel */
-function openDetail(it) {
+const mlist = $('mlist');
+function renderMilestones(){
+  const list = items.filter(matches).sort((a, b) => a.r - b.r || a.lag - b.lag);
+  mlist.innerHTML = list.length ? list.map(it => {
+    const yrs = it.kind === 'hist' ? `${it.r}–${it.p}` : it.kind === 'proj' ? `${it.r}–~${it.p}` : `${it.r}–`;
+    return `<div class="mrow ${hidden.has(it.id) ? 'off' : ''}"><input type="checkbox" data-h="${it.id}" ${hidden.has(it.id) ? '' : 'checked'} aria-label="Show ${it.t}"><i style="background:${itemHex(it)}"></i><button data-s="${it.id}">${it.t}</button><span>${yrs}</span></div>`;
+  }).join('') : '<p class="empty">No milestones match the current filters.</p>';
+}
+mlist.addEventListener('change', e => { const id = +e.target.dataset.h; if (isNaN(id)) return; e.target.checked ? hidden.delete(id) : hidden.add(id); refresh(); });
+mlist.addEventListener('click', e => { const id = e.target.dataset.s; if (id == null) return; const it = items[+id]; if (hidden.has(it.id)) { hidden.delete(it.id); refresh(); } openDetail(it); });
+$('showAllM').onclick = () => { hidden.clear(); refresh(); };
+$('hideAllM').onclick = () => { items.filter(matches).forEach(it => hidden.add(it.id)); refresh(); };
+
+/* ==================================================================
+ *  DETAILS
+ * ================================================================== */
+const detailBody = $('detailBody');
+function openDetail(it){
   selected = it;
   const s = SRC[it.s];
-  const when = it.kind === 'hist' ? 'First product' : it.kind === 'proj' ? 'Expected' : 'Status';
-  const pYear = it.kind === 'hist' ? it.p : it.kind === 'proj' ? '~' + it.p : '';
-  const gapTxt = it.kind === 'hist' ? `<strong>${it.lag}</strong><span>${it.lag === 1 ? 'year' : 'years'} from research to product</span>`
-    : it.kind === 'proj' ? `<strong>~${it.lag}</strong><span>years, if it lands on time</span>`
-    : `<strong>${NOW - it.r}+</strong><span>years and counting</span>`;
-  $('detailBody').innerHTML = `
-    <div class="chips">
-      <span class="chip src" style="background:${s.hex}">${s.name}</span>
-      <span class="chip">${VERTS[it.v]}</span>
-      <span class="chip conf-${it.c}">${it.kind === 'hist' ? (it.c === 'high' ? 'Well documented' : 'Dates approximate') : CONF[it.c]}</span>
-    </div>
-    <h3>${it.t}</h3>
+  const pYear = it.kind === 'hist' ? it.p : it.kind === 'proj' ? '~' + it.p : 'Status';
+  const gapTxt = it.kind === 'hist' ? `<strong>${it.lag}</strong><span>${it.lag === 1 ? 'year' : 'years'} from research to change</span>`
+    : it.kind === 'proj' ? `<strong>~${it.lag}</strong><span>years, if it lands on time</span>` : `<strong>${NOW - it.r}+</strong><span>years and counting</span>`;
+  const conf = it.kind === 'hist' ? (it.c === 'high' ? 'Well documented' : 'Dates approximate') : CONF_LONG[it.c];
+  detailBody.innerHTML = `
+    <div class="dchips"><span class="chip src" style="background:${s.hex}">${s.name}</span><span class="chip" style="color:${FIELDS[it.v].hex};border-color:${FIELDS[it.v].hex}55">${FIELDS[it.v].name}</span><span class="chip conf-${it.c}">${conf}</span></div>
+    <h3 class="dtitle">${it.t}</h3>
     <div class="gap">${gapTxt}</div>
-    <div class="span">
-      <b>${it.r}</b><div>${it.rw}</div>
-      <b>${pYear || when}</b><div>${it.pw}</div>
-    </div>
-    <p class="note">${it.note}</p>`;
-  $('detail').classList.add('open');
-  focusGoal = it.curve.getPoint(0.5).clone().multiply(new THREE.Vector3(1, 0.5, 1));
+    <div class="span"><b>${it.r}</b><div>${it.rw}</div><b>${pYear}</b><div>${it.pw}</div></div>
+    <p class="dnote">${it.note}</p>
+    <div class="dacts"><button class="mini" id="dHide">Hide this arc</button><button class="mini" id="dOnly">Show only this field</button></div>`;
+  $('dHide').onclick = () => { hidden.add(it.id); closeDetail(); refresh(); };
+  $('dOnly').onclick = () => { F.fields = new Set([it.v]); refresh(); };
+  if (!layout.details.open) setOpen('details', true); else raise('details');
+  focusGoal = it.peak.clone().setZ(laneZ(it)).multiply(new THREE.Vector3(1, .5, 1));
   setAutoRotate(false);
 }
-function closeDetail() { selected = null; $('detail').classList.remove('open'); }
-$('detailClose').onclick = closeDetail;
+function closeDetail(){ selected = null; detailBody.innerHTML = '<p class="empty">Select an arc or a milestone to see its story.</p>'; }
 
-/* Buttons */
-function setAutoRotate(on) {
-  state.autoRotate = on; controls.autoRotate = on;
-  $('rotBtn').setAttribute('aria-pressed', on);
-}
+/* ==================================================================
+ *  TOP BAR, KEYBOARD
+ * ================================================================== */
+function setAutoRotate(on){ state.autoRotate = on; controls.autoRotate = on && view.rotSpeed > 0; $('rotBtn').setAttribute('aria-pressed', on); }
 $('rotBtn').onclick = () => setAutoRotate(!state.autoRotate);
 $('resetBtn').onclick = resetView;
-$('fsBtn').onclick = () => {
-  if (!document.fullscreenElement) document.documentElement.requestFullscreen && document.documentElement.requestFullscreen();
-  else document.exitFullscreen && document.exitFullscreen();
-};
+$('fsBtn').onclick = () => { if (!document.fullscreenElement) { document.documentElement.requestFullscreen && document.documentElement.requestFullscreen(); } else { document.exitFullscreen && document.exitFullscreen(); } };
 document.addEventListener('fullscreenchange', () => { $('fsBtn').textContent = document.fullscreenElement ? 'Exit full screen' : 'Full screen'; });
 $('aboutBtn').onclick = () => $('about').classList.add('open');
 $('aboutClose').onclick = () => $('about').classList.remove('open');
@@ -964,182 +1033,167 @@ $('about').onclick = e => { if (e.target.id === 'about') $('about').classList.re
 $('playBtn').onclick = () => state.playing ? stopPlay() : startPlay();
 
 let camGoal = null, focusGoal = null;
-function resetView() { camGoal = {pos:HOME.pos.clone(), target:HOME.target.clone()}; focusGoal = null; closeDetail(); }
+function resetView(){ camGoal = {pos:HOME.pos.clone(), target:HOME.target.clone()}; focusGoal = null; }
 controls.addEventListener('start', () => { camGoal = null; focusGoal = null; });
 
-let playT0 = 0;
-const PLAY_SECONDS = 18;
-function startPlay() {
-  state.playing = true; state.cursor = Y0; playT0 = performance.now();
-  $('playBtn').textContent = 'Stop';
-  $('yearbig').classList.add('on');
-  cursorGroup.visible = true;
-  closeDetail();
-}
-function stopPlay() {
-  state.playing = false; state.cursor = Y1;
-  $('playBtn').textContent = 'Play the century';
-  $('yearbig').classList.remove('on');
-  cursorGroup.visible = false;
-}
+let playT0 = 0; const PLAY_SECONDS = 20;
+function startPlay(){ state.playing = true; state.cursor = Y0; playT0 = performance.now(); $('playBtn').textContent = 'Stop'; $('yearbig').classList.add('on'); cursorGroup.visible = true; }
+function stopPlay(){ state.playing = false; state.cursor = Y1; $('playBtn').textContent = 'Play the century'; $('yearbig').classList.remove('on'); cursorGroup.visible = false; }
 
-/* Keyboard */
 document.addEventListener('keydown', e => {
-  if (e.target.tagName === 'INPUT' && e.key !== 'Escape') return;
-  const keys = Object.keys(VERTS);
-  if (e.key >= '1' && e.key <= String(keys.length)) setVert(keys[+e.key - 1]);
+  const tag = e.target.tagName;
+  if ((tag === 'INPUT' || tag === 'SELECT' || tag === 'TEXTAREA') && e.key !== 'Escape') return;
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  if (e.key >= '1' && e.key <= '9') { F.fields = new Set([FKEYS[+e.key - 1]]); refresh(); }
+  else if (e.key === '0') { F.fields = new Set(FKEYS); refresh(); }
   else if (e.key === 'p' || e.key === 'P') state.playing ? stopPlay() : startPlay();
   else if (e.key === 'r' || e.key === 'R') resetView();
   else if (e.key === 'h' || e.key === 'H') document.body.classList.toggle('clean');
   else if (e.key === 'f' || e.key === 'F') $('fsBtn').click();
-  else if (e.key === 'Escape') { $('about').classList.remove('open'); closeDetail(); }
+  else if (e.key === 'l' || e.key === 'L') { const order = ['off','peak','follow']; view.labels = order[(order.indexOf(view.labels) + 1) % 3]; syncLabelSeg(); store.set('sg.view.v2', view); }
+  else if (e.key === 'Escape') { $('about').classList.remove('open'); winMenu.classList.remove('open'); selected = null; }
 });
 
 /* Picking */
-const ray = new THREE.Raycaster(), mouse = new THREE.Vector2();
-const tip = $('tip');
+const ray = new THREE.Raycaster(), mouse = new THREE.Vector2(), tip = $('tip');
 let downAt = null;
-function pick(ev) {
+function pick(ev){
   const r = renderer.domElement.getBoundingClientRect();
-  mouse.x = ((ev.clientX - r.left) / r.width) * 2 - 1;
-  mouse.y = -((ev.clientY - r.top) / r.height) * 2 + 1;
+  mouse.x = ((ev.clientX - r.left) / r.width) * 2 - 1; mouse.y = -((ev.clientY - r.top) / r.height) * 2 + 1;
   ray.setFromCamera(mouse, camera);
-  const hits = ray.intersectObjects(hitMeshes, false);
-  for (const h of hits) {
-    const it = h.object.userData.it;
-    if (it.f > 0.5 && state.cursor >= it.r) return it;
-  }
+  for (const h of ray.intersectObjects(hitMeshes, false)) { const it = h.object.userData.it; if (it.f > .5 && state.cursor >= it.r) return it; }
   return null;
 }
 renderer.domElement.addEventListener('pointermove', ev => {
   if (ev.pointerType !== 'mouse') return;
-  const it = pick(ev);
-  hovered = it;
-  document.body.classList.toggle('pointing', !!it);
+  const it = pick(ev); hovered = it; document.body.classList.toggle('pointing', !!it);
   if (it) {
-    const span = it.kind === 'hist' ? `${it.r} to ${it.p}, ${it.lag} years`
-      : it.kind === 'proj' ? `Expected around ${it.p}` : `Since ${it.r}, not yet landed`;
-    tip.innerHTML = `<b>${it.t}</b><span>${span}</span>`;
-    tip.style.left = Math.min(ev.clientX + 14, innerWidth - 270) + 'px';
-    tip.style.top = (ev.clientY + 14) + 'px';
-    tip.style.opacity = 1;
+    const span = it.kind === 'hist' ? `${it.r} to ${it.p}, ${it.lag} years` : it.kind === 'proj' ? `Expected around ${it.p}` : `Since ${it.r}, not yet landed`;
+    tip.innerHTML = `<b>${it.t}</b><span>${FIELDS[it.v].name}. ${span}</span>`;
+    tip.style.left = Math.min(ev.clientX + 14, innerWidth - 290) + 'px'; tip.style.top = (ev.clientY + 14) + 'px'; tip.style.opacity = 1;
   } else tip.style.opacity = 0;
 });
 renderer.domElement.addEventListener('pointerleave', () => { hovered = null; tip.style.opacity = 0; });
 renderer.domElement.addEventListener('pointerdown', ev => { downAt = {x:ev.clientX, y:ev.clientY}; });
 renderer.domElement.addEventListener('pointerup', ev => {
-  if (!downAt) return;
-  const moved = Math.hypot(ev.clientX - downAt.x, ev.clientY - downAt.y);
-  downAt = null;
-  if (moved > 6) return;
-  const it = pick(ev);
-  if (it) openDetail(it); else closeDetail();
+  if (!downAt) return; const moved = Math.hypot(ev.clientX - downAt.x, ev.clientY - downAt.y); downAt = null;
+  if (moved > 6) return; const it = pick(ev); if (it) openDetail(it); else selected = null;
 });
-
-/* Resize */
 addEventListener('resize', () => {
   camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix();
-  renderer.setSize(innerWidth, innerHeight);
-  if (composer) composer.setSize(innerWidth, innerHeight);
-  if (bloom) bloom.setSize(innerWidth, innerHeight);
+  renderer.setSize(innerWidth, innerHeight); if (composer) composer.setSize(innerWidth, innerHeight);
+  WIN_IDS.forEach(placeWin);
 });
 
-/* ------------------------------------------------------------------ *
- *  ANIMATION
- * ------------------------------------------------------------------ */
-const clock = new THREE.Clock();
-const tmp = new THREE.Vector3();
-function frame() {
-  requestAnimationFrame(frame);
-  const dt = Math.min(clock.getDelta(), 0.05), t = clock.elapsedTime;
+/* ==================================================================
+ *  LABELS (DOM)
+ * ================================================================== */
+const labelLayer = $('labels');
+items.forEach(it => {
+  const el = document.createElement('div'); el.className = 'lbl'; el.innerHTML = `<b>${it.t}</b>`; el.style.color = itemHex(it);
+  labelLayer.appendChild(el); it.labelEl = el;
+});
+const lv = new THREE.Vector3();
+function updateLabels(){
+  if (view.labels === 'off' || document.body.classList.contains('clean')) { labelLayer.style.display = 'none'; return; }
+  labelLayer.style.display = '';
+  const W = innerWidth, Hh = innerHeight;
+  items.forEach(it => {
+    const el = it.labelEl;
+    const show = it.group.visible && it.f > .5 && it.target === 1;
+    if (!show) { if (el._on) { el.style.display = 'none'; el._on = false; } return; }
+    if (view.labels === 'follow') {
+      if (it.pulse) lv.copy(it.pulse.position); else lv.copy(it.lead);
+    } else lv.copy(it.peak);
+    lv.y += .9; lv.add(it.group.position);
+    const dist = camera.position.distanceTo(lv);
+    lv.project(camera);
+    if (lv.z > 1 || lv.x < -1.1 || lv.x > 1.1 || lv.y < -1.1 || lv.y > 1.1) { if (el._on) { el.style.display = 'none'; el._on = false; } return; }
+    if (!el._on) { el.style.display = 'block'; el._on = true; }
+    const x = (lv.x * .5 + .5) * W, y = (-lv.y * .5 + .5) * Hh;
+    el.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) translate(-50%, -100%)`;
+    const sel = selected === it ? 1 : selected ? .35 : 1;
+    el.style.opacity = (clamp(1.25 - dist / 220, .25, 1) * sel * Math.min(1, it.f)).toFixed(2);
+    el.style.zIndex = Math.round(1000 - dist);
+  });
+}
 
-  // play
+/* ==================================================================
+ *  ANIMATION
+ * ================================================================== */
+const clock = new THREE.Clock(), tmp = new THREE.Vector3();
+function frame(){
+  requestAnimationFrame(frame);
+  const dt = Math.min(clock.getDelta(), .05), t = clock.elapsedTime;
   if (state.playing) {
-    const k = (performance.now() - playT0) / 1000 / PLAY_SECONDS;
-    const e = k < 1 ? (1 - Math.pow(1 - k, 1.6)) : 1;
+    const k = (performance.now() - playT0) / 1000 / PLAY_SECONDS, e = k < 1 ? (1 - Math.pow(1 - k, 1.6)) : 1;
     state.cursor = Y0 + (Y1 - Y0) * e;
     cursorGroup.position.x = xOf(Math.min(state.cursor, Y1));
     $('yearNum').textContent = Math.floor(Math.min(state.cursor, 2031));
-    $('yearSub').textContent = state.cursor >= NOW ? 'The next five years' : 'Research to product';
+    $('yearSub').textContent = state.cursor >= NOW ? 'The next five years' : 'Research to change';
     if (k >= 1.12) stopPlay();
   }
-
-  // camera tweens
   if (camGoal) {
-    camera.position.lerp(camGoal.pos, 1 - Math.pow(0.02, dt));
-    controls.target.lerp(camGoal.target, 1 - Math.pow(0.02, dt));
-    if (camera.position.distanceTo(camGoal.pos) < 0.3) camGoal = null;
+    camera.position.lerp(camGoal.pos, 1 - Math.pow(.02, dt)); controls.target.lerp(camGoal.target, 1 - Math.pow(.02, dt));
+    if (camera.position.distanceTo(camGoal.pos) < .3) camGoal = null;
   } else if (focusGoal) {
-    controls.target.lerp(focusGoal, 1 - Math.pow(0.05, dt));
-    if (controls.target.distanceTo(focusGoal) < 0.1) focusGoal = null;
+    controls.target.lerp(focusGoal, 1 - Math.pow(.05, dt)); if (controls.target.distanceTo(focusGoal) < .1) focusGoal = null;
   }
-
   const cur = state.cursor;
   items.forEach(it => {
     it.f += (it.target - it.f) * Math.min(1, dt * 5);
-    const boost = selected ? (selected === it ? 1.4 : 0.28) : 1;
-    const hov = hovered === it ? 1.5 : 1;
+    it.group.position.z += (it.zTarget - it.group.position.z) * Math.min(1, dt * 3.5);
     const born = cur >= it.r ? 1 : 0;
-    const k = it.f * boost * hov * born;
-    it.group.visible = it.f > 0.005 && born > 0;
+    it.group.visible = it.f > .005 && born > 0;
     if (!it.group.visible) return;
-
+    const boost = selected ? (selected === it ? 1.4 : .28) : 1, hov = hovered === it ? 1.5 : 1;
+    const k = it.f * boost * hov;
     let frac = 1;
-    if (it.kind === 'hist') frac = clamp((cur - it.r) / Math.max(it.lag, 0.5), 0, 1);
+    if (it.kind === 'hist') frac = clamp((cur - it.r) / Math.max(it.lag, .5), 0, 1);
     if (it.kind === 'flight') frac = Math.min(it.maxFrac, clamp((cur - it.r) / it.lag, 0, 1));
-
     it.mats.forEach(m => { m.opacity = clamp(m.userData.base * k, 0, 1); });
-
     if (it.tube) {
-      const segs = Math.max(1, Math.floor(frac * SEG));
-      it.tube.geometry.setDrawRange(0, segs * IDX_PER_SEG);
-      // pulse
+      it.tube.geometry.setDrawRange(0, Math.max(1, Math.floor(frac * SEG)) * IDX_PER_SEG);
+      it.pulse.visible = view.pulses || frac < 1;
       if (it.kind === 'hist' && frac >= 1) {
-        const tt = (t * it.speed + it.phase) % 1;
-        it.curve.getPoint(tt, tmp); it.pulse.position.copy(tmp);
-        const s = 1.8 + Math.sin(tt * Math.PI) * 1.2;
-        it.pulse.scale.set(s, s, 1);
+        const tt = (t * it.speed + it.phase) % 1; it.curve.getPoint(tt, tmp); it.pulse.position.copy(tmp);
+        const s = 1.8 + Math.sin(tt * Math.PI) * 1.2; it.pulse.scale.set(s, s, 1);
+        if (!view.pulses) it.pulse.position.copy(it.peak);
       } else if (it.kind === 'flight') {
-        const tt = frac >= it.maxFrac ? it.maxFrac : frac;
-        it.curve.getPoint(Math.max(tt - 0.002, 0), tmp); it.pulse.position.copy(tmp);
-        const s = 2 + Math.sin(t * 2.2 + it.phase * 6) * 0.6;
-        it.pulse.scale.set(s, s, 1);
-        it.pulse.material.opacity *= frac >= it.maxFrac ? 0.35 : 1;
-      } else {
-        it.curve.getPoint(frac, tmp); it.pulse.position.copy(tmp);
-        it.pulse.scale.set(3, 3, 1);
-      }
+        it.curve.getPoint(Math.max(frac - .002, 0), tmp); it.pulse.position.copy(tmp);
+        const s = 2 + Math.sin(t * 2.2 + it.phase * 6) * .6; it.pulse.scale.set(s, s, 1);
+        if (frac >= it.maxFrac) it.pulseMat.opacity *= .35;
+      } else { it.curve.getPoint(frac, tmp); it.pulse.position.copy(tmp); it.pulse.scale.set(3, 3, 1); }
     }
     if (it.ring) {
       const landed = it.kind === 'hist' ? frac >= 1 : cur >= NOW;
       it.ring.visible = it.land.visible = landed;
-      const pulse = 1 + 0.12 * Math.sin(t * 2 + it.id);
-      it.ring.scale.set(pulse, pulse, pulse);
+      const p = 1 + .12 * Math.sin(t * 2 + it.id); it.ring.scale.set(p, p, p);
     }
     if (it.dots) {
       const a = clamp((cur - NOW) / 2.5, 0, 1);
-      it.dotMat.opacity *= a;
-      if (it.ring) { it.ring.material.opacity *= a; it.land.material.opacity *= a; }
+      it.dotMat.opacity *= a; if (it.ring) { it.ringMat.opacity *= a; it.landMat.opacity *= a; }
+      const off = view.pulses ? t * it.speed : 0;
       for (let i = 0; i < it.dotN; i++) {
-        const tt = ((i / it.dotN) + t * it.speed) % 1;
-        it.curve.getPoint(tt, tmp);
-        it.dotPos[i * 3] = tmp.x; it.dotPos[i * 3 + 1] = tmp.y; it.dotPos[i * 3 + 2] = tmp.z;
+        it.curve.getPoint(((i / it.dotN) + off) % 1, tmp);
+        it.dotPos[i*3] = tmp.x; it.dotPos[i*3+1] = tmp.y; it.dotPos[i*3+2] = tmp.z;
       }
       it.dots.geometry.attributes.position.needsUpdate = true;
+      it.curve.getPoint((off * 1.0 + .5) % 1, it.lead);
     }
   });
-
-  trendGroup.visible = !state.playing || cur >= Y1 - 0.5;
-  dust.rotation.y += dt * 0.006;
-
+  trendGroup.visible = !state.playing || cur >= Y1 - .5;
+  dust.rotation.y += dt * .006;
   controls.update();
   if (composer) composer.render(); else renderer.render(scene, camera);
+  updateLabels();
 }
 
-/* ------------------------------------------------------------------ *
+/* ==================================================================
  *  START
- * ------------------------------------------------------------------ */
-refresh();
+ * ================================================================== */
+applyLanes(true); applyColours(); refresh(); setAutoRotate(state.autoRotate);
+$('floorT').dispatchEvent(new Event('change'));
 frame();
 requestAnimationFrame(() => {
   $('loading').classList.add('done');
