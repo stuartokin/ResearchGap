@@ -152,6 +152,13 @@ table.stats tr.all td{font-weight:600;color:var(--text)}
 .lbl{position:absolute;left:0;top:0;font-size:var(--lfs);white-space:nowrap;color:var(--text);padding:.15em .5em .15em .4em;border-radius:.4em;background:rgba(8,19,29,.62);border-left:2px solid currentColor;will-change:transform;display:none;line-height:1.3}
 .lbl b{font-weight:500;color:#E3ECF2}
 .lbl.maj b{font-weight:600}
+.lbl.majhi{font-size:calc(var(--lfs) * 1.15);background:rgba(8,19,29,.85);box-shadow:0 0 14px rgba(255,255,255,.18)}
+.lbl.majhi b{color:#FFFFFF;font-weight:700;text-shadow:0 0 10px rgba(255,255,255,.55)}
+.lbl.minor b{color:#B7C6D2;font-weight:400}
+.afmore summary{cursor:pointer;font-size:.88em;color:var(--text);margin:.6em 0 .3em}
+.afmore .af{margin-top:.4em}
+.afmore textarea{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:8px;padding:.5em .7em;font:inherit;font-size:.95em;color:var(--text);resize:vertical}
+.audrow a{color:var(--text);text-decoration:none}.audrow a:hover{text-decoration:underline}
 #tip{position:fixed;pointer-events:none;z-index:1500;background:var(--panel-solid);border:1px solid var(--line-strong);border-radius:9px;padding:8px 11px;font-size:13px;opacity:0;transition:opacity .15s;max-width:280px}
 #tip b{display:block;font-weight:600;margin-bottom:2px}
 #tip span{color:var(--muted);font-variant-numeric:tabular-nums}
@@ -415,6 +422,11 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
       <label class="af">Reaches change<select id="audP"></select></label>
       <label class="af wide">Who (optional)<input id="audWho" class="search" placeholder="Name or team" maxlength="60"></label>
     </div>
+    <details class="afmore"><summary>More details (optional)</summary>
+      <label class="af">Description<textarea id="audDesc" rows="3" maxlength="400" placeholder="What it does, why it matters"></textarea></label>
+      <label class="af">Source<input id="audSource" class="search" placeholder="e.g. Glasgow research paper, 2026" maxlength="120"></label>
+      <label class="af">Link<input id="audUrl" class="search" placeholder="https://…" maxlength="300"></label>
+    </details>
     <button class="audadd" id="audAdd">Add to the model</button>
     <p class="note-s" id="audMsg"></p>
     <div class="tlist" id="audList"></div>
@@ -541,6 +553,7 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
     <label class="toggle">Reveal the whole century at the end <input type="checkbox" id="revealT" checked></label>
     <label class="toggle">Keep lane names in view while travelling <input type="checkbox" id="laneFollowT" checked></label>
     <p class="note-s">The camera rides the time cursor: you see each arc launch, follow the ones in the air, watch them land, and leave them behind. Drag or zoom during the journey to change the angle; the camera keeps that angle as it moves.</p>
+    <label class="toggle">Major milestones in brighter, bolder labels <input type="checkbox" id="majBrightT" checked></label>
     <h3>Label presets</h3>
     <div class="minis"><button class="mini" data-lp="story">Clean story</button><button class="mini" data-lp="highlights">Landing highlights</button><button class="mini" data-lp="major">Major milestones</button><button class="mini" data-lp="all">Everything</button></div>
     <h3>Labels during Play the century</h3>
@@ -686,7 +699,7 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
       <li>Institutional histories: Bell Labs, IBM Research, Xerox PARC, CERN, DARPA, CSIRO, RAE Farnborough, MRC Laboratory of Molecular Biology.</li>
     </ul>
     <p><button class="btn" id="aboutSources">View all sources</button> <span class="note-s">Opens a window you can move, resize and keep open.</span></p>
-    <p class="ver">Version 7.3. Built BUILDTIMEP GMT.</p>
+    <p class="ver">Version 7.4. Built 26 October 2026 at 16:17 GMT.</p>
     <p class="by">Stuart Okin, Director of Cyber Regulation and Emerging Technologies, Ofgem.<br>Illustrative analysis prepared for discussion. Outlook views are indicative and do not represent Ofgem policy.</p>
   </div>
 </div>
@@ -3346,6 +3359,27 @@ const OUTLOOK_BASIS = {
  'Tandem solar at volume':['Industry roadmaps following first commercial shipments (2024)','']
 };
 
+/* Sources for milestones checked against the web during development */
+const HIST_SRC = {
+ 'Active network management':['University of Strathclyde REF impact case study','https://results2021.ref.ac.uk/impact/submissions/6b98e262-ec7f-434e-a9af-108419c779b6/impact'],
+ 'AI-optimised flexibility aggregation':['Flexitricity: the past, present and future of flexibility','https://flexitricity.com/more/blog/the-past-present-and-future-of-energy-flexibility/'],
+ 'Firewall':['Avolio: firewall history (first commercial firewall, 1991)','https://avolio.com/?p=969'],
+ 'AI weather forecasting goes operational':['ECMWF: AI forecasts become operational','https://www.ecmwf.int/node/29308'],
+ 'AI cloudcasting':['Open Climate Fix: Cloudcasting','https://new.openclimatefix.org/projects/cloud-forecasting'],
+ 'Open Balancing Platform':['NESO: Open Balancing Platform goes live','https://www.neso.energy/news/first-stages-open-balancing-platform-go-live'],
+ 'Drone inspection of transmission towers':['SP Energy Networks: drones on the transmission network','https://www.spenergynetworks.co.uk/news/pages/drones_transmission_network.aspx'],
+ 'AI drone inspection of pylons':['Transport & Energy: National Grid AI drone inspection','https://transportandenergy.com/2025/09/04/national-grid-uses-ai-drone-aerial-inspection/'],
+ 'OT threat detection for utilities':['SecurityWeek: Radiflow intrusion detection','https://www.securityweek.com/radiflow-launches-new-intrusion-detection-system-icsscada-networks/amp/'],
+ 'Grid-forming battery stability services':['Solar Power Portal: Zenobē Blackhillock','https://www.solarpowerportal.co.uk/zenobe-200mw-bess-operational-first-to-provide-stability-services-for-neso'],
+ 'Satellite AI vegetation management':['AiDash: satellite AI vegetation management','https://www.aidash.com/wp-content/uploads/2021/06/Earth-Observation-and-Utility-Vegetation-Management.pdf'],
+ 'Vehicle-to-grid for households':['Electrive: Octopus and BYD V2G bundle','https://www.electrive.com/2025/06/24/octopus-energy-and-byd-launch-uks-first-v2g-bundle'],
+ 'Wearable quantum brain scanner':['University of Nottingham: OPM-MEG','https://www.nottingham.ac.uk/research/groups/spmic/research/meg-and-opm.aspx'],
+ 'Power Networks Demonstration Centre':['University of Strathclyde: PNDC','https://www.strath.ac.uk/research/powernetworksdemonstrationcentre/'],
+ 'Demand Flexibility Service':['NESO (formerly National Grid ESO) programme records',''],
+ 'Cyber Assessment Framework':['NCSC: Cyber Assessment Framework',''],
+ 'UK robotaxis':['Wayve and Uber London service announcements (2026)','']
+};
+
 const VISION = {opt:'System optimisation and operation', asset:'Asset planning, operation and maintenance', demand:'End-use efficiency and demand', rd:'Energy innovation and R&D', gov:'Security, assurance and governance'};
 
 /* Context events for the time windows */
@@ -3513,7 +3547,7 @@ const FORT_RESEARCH = {'Google':['uni'], 'Cisco':['uni'], 'Genentech':['uni','La
   'Wayve':['uni'], 'Mistral AI':['lab'], 'Anthropic':['lab'], 'Safe Superintelligence':['lab'], 'Thinking Machines Lab':['lab'], 'Acorn Computers':['uni'], 'Rigetti Computing':['lab'],
   'Boston Dynamics':['uni'], 'iRobot':['uni'], 'Kiva Systems':['uni'], 'Netscape':['uni'], 'Planet':['lab'], 'Intel':['lab'], 'Hewlett-Packard':['uni'], 'Darktrace':['uni'], 'Xerography (Xerox)':['lab']};
 FORTUNES.forEach(x => { const r = FORT_RESEARCH[x.co]; if (r && !x.ac) { x.ac = r[0]; if (r[1]) x.prize = r[1]; } });
-const APP_VERSION = '7.3', APP_BUILD = 'BUILDTIME';
+const APP_VERSION = '7.4', APP_BUILD = '26 October 2026, 16:17 GMT';
 // Screen-aware scaling: laptops slightly smaller, large screens larger
 const UI = (() => { const w = innerWidth; return w < 1280 ? .85 : w < 1500 ? .95 : w < 1800 ? 1.05 : w < 2300 ? 1.2 : 1.4; })();
 const LARGE = innerWidth >= 1700;
@@ -3620,7 +3654,7 @@ const DEFAULT_FILTERS = () => ({
 });
 const F = DEFAULT_FILTERS();
 const hidden = new Set();
-const view = {uniHi:true, audSpot:true, audPause:true, statsBy:'landed', statsLive:true, gapBuild:true, compactLanes:true, fortSort:'year', musicOn:true, loopPlay:true, fortHi:true, fortOnly:false, laneFollow:true, camTravel:true, fadeLanded:true, keepYears:5, revealEnd:true, labelPlay:'until', labelScope:'all', labelMax:14, labelLinger:2, labels:'follow', lfs:LARGE ? 18 : 15, lanes:'v', colour:'v', pulses:true, trend:true, floor:true, rotSpeed:0.35, glow:0.75};
+const view = {majBright:true, uniHi:true, audSpot:true, audPause:true, statsBy:'landed', statsLive:true, gapBuild:true, compactLanes:true, fortSort:'year', musicOn:true, loopPlay:true, fortHi:true, fortOnly:false, laneFollow:true, camTravel:true, fadeLanded:true, keepYears:5, revealEnd:true, labelPlay:'until', labelScope:'all', labelMax:14, labelLinger:2, labels:'follow', lfs:LARGE ? 18 : 15, lanes:'v', colour:'v', pulses:true, trend:true, floor:true, rotSpeed:0.35, glow:0.75};
 Object.assign(view, store.get('sg.view.v2', {}));
 const state = {playing:false, cursor:Y1, autoRotate:!reduced};
 let selected = null, hovered = null;
@@ -3859,6 +3893,7 @@ function itemHex(it){ if (it.aud && view.audSpot !== false) return '#FF5FD7'; re
 function laneZ(it){ const z = view.lanes === 'v' ? LANEZ.v[it.v] : LANEZ.s[it.s]; return z == null ? (it.group ? it.group.position.z : 0) : z; }
 function applyColours(){
   items.forEach(it => {
+    if (it.removed || !FIELDS[it.v]) return;
     const col = itemColour(it);
     if (it.kind === 'hist') it.tubeMat.color.copy(col);
     if (it.kind === 'flight') {
@@ -4077,6 +4112,7 @@ $('statsBySeg').addEventListener('click', e => { const b = e.target.closest('but
 $('statsLiveT').addEventListener('change', e => { view.statsLive = e.target.checked; renderStats(); });
 $('gapBuildT').addEventListener('change', e => { view.gapBuild = e.target.checked; twKey = ''; });
 $('compactT').addEventListener('change', e => { view.compactLanes = e.target.checked; refresh(); });
+$('majBrightT').addEventListener('change', e => { view.majBright = e.target.checked; });
 $('uniOnlyT').addEventListener('change', e => { F.uniOnly = e.target.checked; refresh(); });
 $('uniHiT').addEventListener('change', e => { view.uniHi = e.target.checked; document.body.classList.toggle('nouni', !view.uniHi); });
 $('majT').addEventListener('change', e => { F.majorOnly = e.target.checked; refresh(); });
@@ -4086,7 +4122,7 @@ $('resetFilters').onclick = () => { Object.assign(F, DEFAULT_FILTERS()); hidden.
 function syncFilterUI(){
   fieldList.querySelectorAll('.frow').forEach(r => {
     const k = r.dataset.f, on = F.fields.has(k); r.classList.toggle('on', on); r.setAttribute('aria-checked', on);
-    r.querySelector('.ct').textContent = items.filter(it => it.v === k).length;
+    r.querySelector('.ct').textContent = items.filter(it => it.v === k && !it.removed).length;
   });
   const sync = (el, obj) => el.querySelectorAll('.chipbtn').forEach(b => b.setAttribute('aria-pressed', !!obj[b.dataset.k]));
   sync($('srcChips'), F.src); sync($('kindChips'), F.kinds); sync($('confChips'), F.conf); sync($('catChips'), F.cats);
@@ -4203,7 +4239,7 @@ function renderStats(limitYear){
   const parts = [[e1, 'before 1970'], [e2, 'in 1970–99'], [e3, 'in 2000–19'], [e4, byLand ? 'since 2020' : 'since 2020']].filter(x => x[0] != null).map(x => `${x[0]} years ${x[1]}`);
   $('insight').textContent = !pool.length ? (live ? 'Nothing in this selection has landed yet.' : 'No landed milestones match the current filters.') : `${fieldPhrase()}, ${verb}: ${parts.join(', ')}.`;
   const n = items.filter(shownFully).length;
-  $('count').textContent = live ? `${pool.length} landed so far of ${n} milestones in this selection.` : `${n} of ${items.length} milestones shown` + (hidden.size ? `, ${hidden.size} hidden individually` : '') + '.';
+  $('count').textContent = live ? `${pool.length} landed so far of ${n} milestones in this selection.` : `${n} of ${items.filter(i => !i.removed).length} milestones shown` + (hidden.size ? `, ${hidden.size} hidden individually` : '') + '.';
 }
 
 const mlist = $('mlist');
@@ -4235,13 +4271,24 @@ function openDetail(it){
     <h3 class="dtitle">${it.t}</h3>
     <div class="gap">${gapTxt}</div>
     <div class="span"><b>${it.r}</b><div>${it.rw}</div><b>${pYear}</b><div>${it.pw}</div></div>
-    <p class="dnote">${it.note}</p>${it.kind === 'proj' && !it.aud ? `<p class="basis">Basis: ${OUTLOOK_BASIS[it.t] ? (OUTLOOK_BASIS[it.t][1] ? `<a href="${OUTLOOK_BASIS[it.t][1]}" target="_blank" rel="noopener">${OUTLOOK_BASIS[it.t][0]}</a>` : OUTLOOK_BASIS[it.t][0]) : 'our estimate; no published target found.'}</p>` : ''}
-    <div class="dacts"><button class="mini" id="dHide">Hide this arc</button><button class="mini" id="dOnly">Show only this field</button></div>`;
+    <p class="dnote">${it.note}</p><p class="basis">${sourceHtml(it)}</p>
+    <div class="dacts">${it.aud ? '<button class="mini" id="dDel">Delete this idea</button>' : ''}<button class="mini" id="dHide">Hide this arc</button><button class="mini" id="dOnly">Show only this field</button></div>`;
+  if (it.aud) $('dDel').onclick = () => { if (confirm('Delete this idea' + (FIELDS[it.v] && FIELDS[it.v].custom ? ' (and its new field track if nothing else uses it)' : '') + '?')) removeAudienceIdea(it.id); };
   $('dHide').onclick = () => { hidden.add(it.id); closeDetail(); refresh(); };
   $('dOnly').onclick = () => { F.fields = new Set([it.v]); refresh(); };
   if (!layout.details.open) setOpen('details', true); else raise('details');
   focusGoal = it.peak.clone().setZ(laneZ(it)).multiply(new THREE.Vector3(1, .5, 1));
   setAutoRotate(false);
+}
+function srcLink(label, url){ return url ? `<a href="${url}" target="_blank" rel="noopener">${esc(label || url)}</a>` : esc(label); }
+function sourceHtml(it){
+  if (it.aud) return (it.srcLabel || it.srcUrl) ? 'Source: ' + srcLink(it.srcLabel, it.srcUrl) : 'Source: idea from the room.';
+  const m = HIST_SRC[it.t] || (it.kind === 'proj' ? OUTLOOK_BASIS[it.t] : null);
+  let h = it.kind === 'proj' ? 'Basis: ' + (m ? srcLink(m[0], m[1]) : 'our estimate; no published target found.')
+    : 'Source: ' + (m ? srcLink(m[0], m[1]) : 'compiled by Claude from standard references: institutional and company histories, Nobel and award citations, and regulator approval records.');
+  const q = it.t.replace(/\s*\(.*?\)\s*/g, ' ').trim();
+  h += `<br>Further reading: <a href="https://en.wikipedia.org/w/index.php?search=${encodeURIComponent(q)}" target="_blank" rel="noopener">look up “${esc(q)}”</a> (online)`;
+  return h;
 }
 function closeDetail(){ selected = null; detailBody.innerHTML = '<p class="empty">Select an arc or a milestone to see its story.</p>'; }
 
@@ -4427,10 +4474,12 @@ function updateLabels(){
     placed.push({x, y, w, h}); if (!aud) placedN++;
     el.classList.toggle('aud', !!aud);
     el.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) translate(-50%, -100%)`;
-    const sel = selected === it ? 1 : selected ? .35 : 1;
-    el.style.opacity = (clamp(1.25 - dist / 220, .25, 1) * sel * Math.min(1, it.f) * clamp(alpha, 0, 1)).toFixed(2);
+    const sel = (selected === it ? 1 : selected ? .35 : 1) * (view.majBright !== false && !it.major && !aud ? .72 : 1);
+    el.style.opacity = (clamp(1.25 - dist / 220, (view.majBright !== false && it.major) || aud ? .85 : .25, 1) * sel * Math.min(1, it.f) * clamp(alpha, 0, 1)).toFixed(2);
     el.style.zIndex = Math.round(1000 - dist);
     el.classList.toggle('maj', !!it.major);
+    el.classList.toggle('majhi', !!it.major && view.majBright !== false && !aud);
+    el.classList.toggle('minor', !it.major && view.majBright !== false && !aud);
   });
 }
 
@@ -4957,7 +5006,7 @@ function saveViewFile(){
 function syncDisplayUI(){
   if (typeof renderFortunes === 'function' && layout.fortunes && layout.fortunes.open) renderFortunes();
   [['labelSeg','labels'],['labelPlaySeg','labelPlay'],['labelScopeSeg','labelScope'],['laneSeg','lanes'],['colSeg','colour']].forEach(([id, k]) => $(id).querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', b.dataset.v === view[k])));
-  $('uniHiT').checked = view.uniHi !== false; document.body.classList.toggle('nouni', view.uniHi === false); $('audSpotT').checked = view.audSpot !== false; $('audPauseT').checked = view.audPause !== false;
+  $('majBrightT').checked = view.majBright !== false; $('uniHiT').checked = view.uniHi !== false; document.body.classList.toggle('nouni', view.uniHi === false); $('audSpotT').checked = view.audSpot !== false; $('audPauseT').checked = view.audPause !== false;
   [['pulseT','pulses'],['trendT','trend'],['floorT','floor'],['loopD','loopPlay'],['loopT','loopPlay'],['liteT','lite']].forEach(([id, k]) => { $(id).checked = !!view[k]; });
   applyLite(); applyHeader(); syncTravelUI();
   [['labelMaxR','labelMaxV','labelMax',v => v >= 60 ? 'All' : String(v)],['lingerR','lingerV','labelLinger',v => v + ' s'],['lfsR','lfsV','lfs',v => v + 'px'],['rotR','rotV','rotSpeed',v => (+v).toFixed(2)],['glowR','glowV','glow',v => (+v).toFixed(2)]].forEach(([r, o, k, f]) => { $(r).value = view[k]; $(o).textContent = f(view[k]); });
@@ -5047,52 +5096,76 @@ function fillAudFields(){
 })();
 $('audField').addEventListener('change', () => { $('audNewWrap').style.display = $('audField').value === '__new' ? '' : 'none'; if ($('audField').value === '__new') $('audNew').focus(); });
 $('audR').addEventListener('change', () => { if (+$('audP').value < +$('audR').value) $('audP').value = $('audR').value; });
-['audName','audNew','audWho'].forEach(id => $(id).addEventListener('keydown', e => { e.stopPropagation(); if (e.key === 'Enter') $('audAdd').click(); }));
+['audName','audNew','audWho','audSource','audUrl'].forEach(id => $(id).addEventListener('keydown', e => { e.stopPropagation(); if (e.key === 'Enter') $('audAdd').click(); }));
+const esc = t => String(t == null ? '' : t).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const safeUrl = u => /^https?:\/\//i.test(String(u || '').trim()) ? String(u).trim() : '';
+$('audDesc').addEventListener('keydown', e => e.stopPropagation());
 function addAudienceIdea(o, quiet){
   let key = o.fieldKey;
   if (!key && o.field) key = ensureField(o.field);
   if (!key || !FIELDS[key]) return null;
   const r = +o.r, p = Math.max(+o.p, +o.r);
   const d = {v:key, s:o.s || 'academic', kind:p > NOW ? 'proj' : 'hist', t:o.t, r, p, c:'medium', aud:true, who:o.who || '',
-    rw:o.who ? `An idea from ${o.who}.` : 'An idea from the audience.', pw:p > NOW ? `Expected to reach change around ${p}.` : `Reached change in ${p}.`, note:'Added live during the session.'};
+    rw:o.who ? `An idea from ${esc(o.who)}.` : 'An idea from the audience.', pw:p > NOW ? `Expected to reach change around ${p}.` : `Reached change in ${p}.`,
+    note:o.desc ? esc(o.desc) : 'Added live during the session.', desc:o.desc || '', srcLabel:o.source || '', srcUrl:safeUrl(o.url)};
+  d.t = esc(o.t);
   const it = buildItem(d, items.length); items.push(it); makeLabel(it);
   F.fields.add(key);
   applyColours(); refresh(); applyLanes(true);
-  const rec = {t:o.t, field:FIELDS[key].name, s:d.s, r, p, who:d.who, id:it.id}; AUD.push(rec); renderAudList();
+  const rec = {t:o.t, field:FIELDS[key].name, s:d.s, r, p, who:d.who, desc:o.desc || '', source:o.source || '', url:safeUrl(o.url), id:it.id}; AUD.push(rec); renderAudList();
   if (!quiet) {
     showSpot(`💡 ${o.t}`, `${FIELDS[key].name}: research ${r}, change ${p > NOW ? 'expected ' : ''}${p}${d.who ? ', from ' + d.who : ''}`);
     focusGoal = it.peak.clone().setZ(laneZ(it)).multiply(new THREE.Vector3(1, .5, 1));
   }
   return it;
 }
-function removeAudienceIdea(id){
-  const it = items[id]; if (!it) return;
-  it.removed = true; hideLabel(it.labelEl);
-  const i = AUD.findIndex(a => a.id === id); if (i >= 0) AUD.splice(i, 1);
+function retireItem(it){
+  it.removed = true; it.target = 0; hideLabel(it.labelEl);
+  scene.remove(it.group);
+  for (let i = hitMeshes.length - 1; i >= 0; i--) if (hitMeshes[i].userData.it === it) hitMeshes.splice(i, 1);
   if (selected === it) closeDetail();
+}
+function removeFieldIfUnused(key){
+  if (!key || !FIELDS[key] || !FIELDS[key].custom) return;
+  if (items.some(it => !it.removed && it.v === key)) return;
+  const sub = laneSets.v.children.find(c => c.userData.laneKey === key);
+  if (sub) { laneSets.v.remove(sub); sub.traverse(c => { if (c.geometry) c.geometry.dispose(); if (c.material) { if (c.material.map) c.material.map.dispose(); c.material.dispose(); } }); }
+  const i = FKEYS.indexOf(key); if (i >= 0) FKEYS.splice(i, 1);
+  F.fields.delete(key); delete FIELDS[key]; delete LANEZ.v[key];
+  buildFieldList(); fillAudFields();
+}
+function removeAudienceIdea(id){
+  const it = items[id]; if (!it || it.removed) return;
+  const key = it.v;
+  retireItem(it);
+  const i = AUD.findIndex(a => a.id === id); if (i >= 0) AUD.splice(i, 1);
+  removeFieldIfUnused(key);
   refresh(); renderAudList();
 }
 function clearAudience(){
-  AUD.slice().forEach(a => { const it = items[a.id]; if (it) { it.removed = true; hideLabel(it.labelEl); } });
+  const keys = new Set();
+  AUD.slice().forEach(a => { const it = items[a.id]; if (it && !it.removed) { keys.add(it.v); retireItem(it); } });
   AUD.length = 0;
-  FKEYS.filter(k => FIELDS[k].custom).forEach(k => F.fields.delete(k));
+  keys.forEach(removeFieldIfUnused);
+  FKEYS.filter(k => FIELDS[k] && FIELDS[k].custom).forEach(removeFieldIfUnused);
   refresh(); renderAudList();
 }
 function renderAudList(){
-  $('audList').innerHTML = AUD.length ? AUD.map(a => `<div class="audrow"><i style="background:${AUD_HEX}"></i><span>${a.t}<em>${a.field}, ${a.r} to ${a.p}${a.who ? ', ' + a.who : ''}</em></span><button data-rm="${a.id}" title="Remove">✕</button></div>`).join('') : '<p class="empty">Ideas you add appear here and as bright arcs in the model.</p>';
+  $('audList').innerHTML = AUD.length ? AUD.map(a => `<div class="audrow"><i style="background:${AUD_HEX}"></i><span><a href="#" data-open="${a.id}">${esc(a.t)}</a><em>${esc(a.field)}, ${a.r} to ${a.p}${a.who ? ', ' + esc(a.who) : ''}${a.desc || a.source ? ', with details' : ''}</em></span><button data-rm="${a.id}" title="Delete this idea${FIELDS[items[a.id].v] && FIELDS[items[a.id].v].custom ? ' and its new field track if nothing else uses it' : ''}">✕</button></div>`).join('') : '<p class="empty">Ideas you add appear here and as bright arcs in the model.</p>';
 }
-$('audList').addEventListener('click', e => { const b = e.target.closest('button[data-rm]'); if (b) removeAudienceIdea(+b.dataset.rm); });
+$('audList').addEventListener('click', e => { const b = e.target.closest('button[data-rm]'); if (b) { removeAudienceIdea(+b.dataset.rm); return; } const o = e.target.closest('a[data-open]'); if (o) { e.preventDefault(); openDetail(items[+o.dataset.open]); } });
 $('audAdd').onclick = () => {
   const t = $('audName').value.trim();
   if (!t) { $('audMsg').textContent = 'Give the idea a short name first.'; $('audName').focus(); return; }
-  let o = {t, s:$('audSrc').value, r:+$('audR').value, p:+$('audP').value, who:$('audWho').value.trim()};
+  let o = {t, s:$('audSrc').value, r:+$('audR').value, p:+$('audP').value, who:$('audWho').value.trim(), desc:$('audDesc').value.trim(), source:$('audSource').value.trim(), url:$('audUrl').value.trim()};
+  if (o.url && !safeUrl(o.url)) { $('audMsg').textContent = 'Links must start with http:// or https://.'; $('audUrl').focus(); return; }
   if ($('audField').value === '__new') { const n = $('audNew').value.trim(); if (!n) { $('audMsg').textContent = 'Type a name for the new field.'; $('audNew').focus(); return; } o.field = n; }
   else o.fieldKey = $('audField').value;
   const it = addAudienceIdea(o);
-  if (it) { $('audMsg').textContent = `Added “${t}”.`; $('audName').value = ''; $('audWho').value = ''; $('audNew').value = ''; fillAudFields(); $('audField').value = it.v; $('audNewWrap').style.display = 'none'; }
+  if (it) { $('audMsg').textContent = `Added “${t}”.`; $('audName').value = ''; $('audWho').value = ''; $('audNew').value = ''; $('audDesc').value = ''; $('audSource').value = ''; $('audUrl').value = ''; document.querySelector('.afmore').open = false; fillAudFields(); $('audField').value = it.v; $('audNewWrap').style.display = 'none'; }
 };
-function audSnapshot(){ return AUD.map(a => ({t:a.t, field:a.field, s:a.s, r:a.r, p:a.p, who:a.who})); }
-function loadAudience(list){ clearAudience(); (list || []).forEach(a => addAudienceIdea({t:a.t, field:a.field, s:a.s, r:a.r, p:a.p, who:a.who}, true)); }
+function audSnapshot(){ return AUD.map(a => ({t:a.t, field:a.field, s:a.s, r:a.r, p:a.p, who:a.who, desc:a.desc, source:a.source, url:a.url})); }
+function loadAudience(list){ clearAudience(); (list || []).forEach(a => addAudienceIdea({t:a.t, field:a.field, s:a.s, r:a.r, p:a.p, who:a.who, desc:a.desc, source:a.source, url:a.url}, true)); }
 $('audSave').onclick = () => {
   const name = (prompt('Name this set of ideas:', 'ideas-from-the-room') || '').trim(); if (!name) return;
   const blob = new Blob([JSON.stringify({app:'the-shrinking-gap-ideas', version:1, saved:new Date().toISOString(), ideas:audSnapshot()}, null, 2)], {type:'application/json'});
