@@ -237,6 +237,20 @@ body.nouni .lbl .uni{display:none}
 .basis a{color:#A8D8FF}
 
 .tickwin{max-width:none;min-height:36px}
+#finale{position:fixed;inset:0;z-index:2650;display:none;align-items:center;justify-content:center;background:rgba(4,10,16,.5);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);cursor:pointer}
+#finale.on{display:flex}
+#fwCanvas{position:absolute;inset:0;width:100%;height:100%}
+.fbx{position:relative;text-align:center;padding:1.2em 2.4em;border-radius:22px;background:rgba(26,7,22,.55);border:2px solid rgba(255,209,102,.7);box-shadow:0 0 80px rgba(255,95,215,.45);max-width:88vw;animation:fbin .9s cubic-bezier(.2,1.4,.4,1)}
+@keyframes fbin{0%{transform:scale(.6);opacity:0}100%{transform:scale(1);opacity:1}}
+.f0{font-size:clamp(18px,1.9vw,34px);color:#FFD166;letter-spacing:.04em}
+.f1{font-family:var(--serif);font-size:clamp(48px,8vw,150px);line-height:1.02;color:#fff;margin:.12em 0;text-shadow:0 0 40px rgba(255,209,102,.6)}
+.f2{font-family:var(--serif);font-size:clamp(24px,3vw,56px);line-height:1.15;color:#FFC2EE}
+.f3{font-size:clamp(22px,2.6vw,48px);color:#E9F2FF;margin-top:.5em}
+.f3 b{color:#FFD166;font-weight:700}
+.fnoff{position:absolute;right:20px;bottom:calc(var(--safe-b) + 20px);z-index:2;background:rgba(8,19,29,.85);border:1px solid var(--line-strong);color:var(--text);border-radius:10px;padding:9px 14px;font-size:14px;cursor:pointer;opacity:.55;transition:opacity .2s}
+.fnoff:hover,.fnoff:focus-visible{opacity:1}
+.f4{font-size:clamp(14px,1.3vw,24px);color:var(--muted);margin-top:.5em}
+@media (prefers-reduced-motion:reduce){.fbx{animation:none}}
 .pagetitlewin{min-height:36px}
 #countdown,#thanks{position:fixed;inset:0;z-index:2700;display:none;align-items:center;justify-content:center;flex-direction:column;background:rgba(4,10,16,.55);backdrop-filter:blur(9px) saturate(.8);-webkit-backdrop-filter:blur(9px) saturate(.8)}
 #countdown.on,#thanks.on{display:flex}
@@ -266,6 +280,9 @@ body.nothanks #thanksBtn{display:none}
 .nw small{color:var(--muted);font-size:.9em;margin-left:.35em}
 .fb{display:inline-block;font-style:normal;font-size:.78em;margin:.25em .35em 0 0;padding:.05em .5em;border-radius:999px;border:1px solid rgba(255,209,102,.45);color:#FFE3A3}
 .fb.prize{border-color:#FFD166;background:rgba(255,209,102,.12)}
+.trow.jokerow{background:linear-gradient(90deg,rgba(255,95,215,.18),rgba(255,209,102,.14));border-radius:6px;box-shadow:inset 3px 0 0 #FF5FD7}
+.trow.jokerow strong{color:#fff}
+.audok{flex-direction:row!important;align-items:center;justify-content:space-between;color:var(--text)!important;font-size:.95em!important}
 .trow.resrow{background:rgba(255,209,102,.05);border-radius:6px}
 .mini[aria-pressed="true"]{color:var(--text);border-color:var(--line-strong);background:rgba(233,242,255,.08)}
 body.notitle #top h1{visibility:hidden}
@@ -438,6 +455,8 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
       <label class="af">Research begins<select id="audR"></select></label>
       <label class="af">Reaches change<select id="audP"></select></label>
       <label class="af wide">Who (optional)<input id="audWho" class="search" placeholder="Name or team" maxlength="60"></label>
+      <label class="toggle af wide audok" title="For fun: anyone named in Who becomes the richest and fastest fortune ever in Time to a fortune">Successful <input type="checkbox" id="audSuccessT" checked></label>
+      <label class="toggle af wide audok" title="At the end of Play the century, with Time to a fortune open, celebrate the named people with fireworks and music. Shown once each time you start Play.">Celebrate at the end of Play <input type="checkbox" id="audFinaleT" checked></label>
     </div>
     <details class="afmore"><summary>More details (optional)</summary>
       <label class="af">Description<textarea id="audDesc" rows="3" maxlength="400" placeholder="What it does, why it matters"></textarea></label>
@@ -682,6 +701,9 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
 </div>
 <div id="countdown" aria-hidden="true"><div id="cdNum">3</div><div id="cdSub">Play the century</div></div>
 <div id="thanks" role="dialog" aria-modal="true" aria-label="Thank you"><div class="tybox"><div class="ty1">Thank you for your time</div><div class="ty2">Any questions?</div><div class="ty3">Stuart Okin, Director of Cyber Regulation and Emerging Technologies, Ofgem</div></div></div>
+<div id="finale" role="dialog" aria-modal="true" aria-label="Celebration"><canvas id="fwCanvas"></canvas>
+  <div class="fbx"><div class="f0">🎉 Congratulations 🎉</div><div class="f1" id="fnName"></div><div class="f2">Your idea “<span id="fnIdea"></span>” changed the world</div><div class="f3">Net worth <b id="fnWorth"></b></div><div class="f4">The richest and fastest fortune in history</div></div>
+  <button id="fnOff" class="fnoff" title="End now and switch off the joke and the celebration">End and switch off the joke</button></div>
 <div id="tip" role="tooltip"></div>
 <footer id="foot">
   <span>Drag to rotate, scroll to zoom, right-drag to pan. Keys: 1–9 single field, 0 all fields, P play, Space pause, L labels, T page title, Q thank you, R reset camera, H hide windows.</span>
@@ -721,7 +743,7 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
       <li>Institutional histories: Bell Labs, IBM Research, Xerox PARC, CERN, DARPA, CSIRO, RAE Farnborough, MRC Laboratory of Molecular Biology.</li>
     </ul>
     <p><button class="btn" id="aboutSources">View all sources</button> <span class="note-s">Opens a window you can move, resize and keep open.</span></p>
-    <p class="ver">Version 7.5. Built 26 October 2026 at 16:52 GMT.</p>
+    <p class="ver">Version 7.8. Built 26 October 2026 at 18:24 GMT.</p>
     <p class="by">Stuart Okin, Director of Cyber Regulation and Emerging Technologies, Ofgem.<br>Illustrative analysis prepared for discussion. Outlook views are indicative and do not represent Ofgem policy.</p>
   </div>
 </div>
@@ -3563,13 +3585,13 @@ const NW = {
   'Dropbox':[2,'Drew Houston','estimate'], 'Qualcomm':[1.5,'Irwin Jacobs','estimate'], 'Mistral AI':[1.1,'Arthur Mensch','estimate']
 };
 FORTUNES.forEach(x => { const n = NW[x.co]; if (n) { x.nw = n[0]; x.nwWho = n[1]; x.nwBasis = n[2]; } });
-const fmtMoney = (bn, sym) => bn >= 1 ? `${sym}${bn >= 100 ? Math.round(bn) : Math.round(bn * 10) / 10}bn` : `${sym}${Math.round(bn * 1000)}m`;
+const fmtMoney = (bn, sym) => bn >= 1000 ? `${sym}${(bn / 1000).toFixed(1)}tn` : bn >= 1 ? `${sym}${bn >= 100 ? Math.round(bn) : Math.round(bn * 10) / 10}bn` : `${sym}${Math.round(bn * 1000)}m`;
 const FORT_RESEARCH = {'Google':['uni'], 'Cisco':['uni'], 'Genentech':['uni','Lasker Award 1980 (Boyer)'], 'Qualcomm':['uni','US National Medal of Technology 1994 (Jacobs)'],
   'Oxford Nanopore':['uni'], 'BioNTech':['uni'], 'DeepMind':['lab','Nobel Prize in Chemistry 2024 (Hassabis)'], 'IonQ':['uni'], 'PsiQuantum':['uni'], 'Synthesia':['uni'],
   'Wayve':['uni'], 'Mistral AI':['lab'], 'Anthropic':['lab'], 'Safe Superintelligence':['lab'], 'Thinking Machines Lab':['lab'], 'Acorn Computers':['uni'], 'Rigetti Computing':['lab'],
   'Boston Dynamics':['uni'], 'iRobot':['uni'], 'Kiva Systems':['uni'], 'Netscape':['uni'], 'Planet':['lab'], 'Intel':['lab'], 'Hewlett-Packard':['uni'], 'Darktrace':['uni'], 'Xerography (Xerox)':['lab']};
 FORTUNES.forEach(x => { const r = FORT_RESEARCH[x.co]; if (r && !x.ac) { x.ac = r[0]; if (r[1]) x.prize = r[1]; } });
-const APP_VERSION = '7.5', APP_BUILD = '26 October 2026, 16:52 GMT';
+const APP_VERSION = '7.8', APP_BUILD = '26 October 2026, 18:24 GMT';
 // Screen-aware scaling: laptops slightly smaller, large screens larger
 const UI = (() => { const w = innerWidth; return w < 1280 ? .85 : w < 1500 ? .95 : w < 1800 ? 1.05 : w < 2300 ? 1.2 : 1.4; })();
 const LARGE = innerWidth >= 1700;
@@ -3676,7 +3698,7 @@ const DEFAULT_FILTERS = () => ({
 });
 const F = DEFAULT_FILTERS();
 const hidden = new Set();
-const view = {countdown:true, thanksIcon:true, majBright:true, uniHi:true, audSpot:true, audPause:true, statsBy:'landed', statsLive:true, gapBuild:true, compactLanes:true, fortSort:'year', musicOn:true, loopPlay:true, fortHi:true, fortOnly:false, laneFollow:true, camTravel:true, fadeLanded:true, keepYears:5, revealEnd:true, labelPlay:'until', labelScope:'all', labelMax:14, labelLinger:2, labels:'follow', lfs:LARGE ? 18 : 15, lanes:'v', colour:'v', pulses:true, trend:true, floor:true, rotSpeed:0.35, glow:0.75};
+const view = {audFinale:true, audSuccess:true, countdown:true, thanksIcon:true, majBright:true, uniHi:true, audSpot:true, audPause:true, statsBy:'landed', statsLive:true, gapBuild:true, compactLanes:true, fortSort:'year', musicOn:true, loopPlay:true, fortHi:true, fortOnly:false, laneFollow:true, camTravel:true, fadeLanded:true, keepYears:5, revealEnd:true, labelPlay:'until', labelScope:'all', labelMax:14, labelLinger:2, labels:'follow', lfs:LARGE ? 18 : 15, lanes:'v', colour:'v', pulses:true, trend:true, floor:true, rotSpeed:0.35, glow:0.75};
 Object.assign(view, store.get('sg.view.v2', {}));
 const state = {playing:false, cursor:Y1, autoRotate:!reduced};
 let selected = null, hovered = null;
@@ -4352,8 +4374,8 @@ controls.addEventListener('start', () => { camGoal = null; focusGoal = null; });
 const prefs = Object.assign({playSpeed:1}, store.get('sg.prefs', {}));
 function savePrefs(){ store.set('sg.prefs', prefs); }
 const PLAY_SECONDS = 24; let paused = false, playSpeed = prefs.playSpeed || 1, endHold = 0;
-function startPlay(){ if (view.camTravel) startTravel(); state.playing = true; paused = false; state.cursor = Y0; $('playBtn').textContent = 'Exit play'; yearShown = -1; if (!layout.player.open) setOpen('player', true); else raise('player'); cursorGroup.visible = true; syncPause(); updateTimeWindows(true); }
-function stopPlay(){ endTravel(); state.playing = false; setTimeout(() => { renderStats(); twKey = ''; }, 0); paused = false; state.cursor = Y1; $('playBtn').textContent = 'Play the century'; if (layout.player.open) setOpen('player', false); cursorGroup.visible = false; updateTimeWindows(true); }
+function startPlay(){ finaleDoneThisPlay = false; if (view.camTravel) startTravel(); state.playing = true; paused = false; state.cursor = Y0; $('playBtn').textContent = 'Exit play'; yearShown = -1; if (!layout.player.open) setOpen('player', true); else raise('player'); cursorGroup.visible = true; syncPause(); updateTimeWindows(true); }
+function stopPlay(){ finaleArm = 0; endFinale(); endTravel(); state.playing = false; setTimeout(() => { renderStats(); twKey = ''; }, 0); paused = false; state.cursor = Y1; $('playBtn').textContent = 'Play the century'; if (layout.player.open) setOpen('player', false); cursorGroup.visible = false; updateTimeWindows(true); }
 function syncPause(){ $('tbPause').textContent = paused ? (state.cursor >= Y1 ? 'Replay' : 'Resume') : 'Pause'; }
 function togglePause(){ if (!state.playing) { playWithCountdown(); return; } if (paused && state.cursor >= Y1) state.cursor = Y0; paused = !paused; syncPause(); }
 $('tbPause').onclick = togglePause;
@@ -4367,6 +4389,8 @@ $('tbSpeed').onchange = e => { playSpeed = +e.target.value; prefs.playSpeed = pl
 $('scrub').addEventListener('input', e => { cancelCountdown(); if (!state.playing) startPlay(); paused = true; state.cursor = +e.target.value; syncPause(); });
 
 document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && finaleActive) { endFinale(); return; }
+  if ((e.key === 'j' || e.key === 'J') && finaleActive) { switchOffJoke(); return; }
   if (e.key === 'Escape' && ($('thanks').classList.contains('on') || $('countdown').classList.contains('on'))) { showThanks(false); cancelCountdown(); return; }
   if ($('thanks').classList.contains('on') && e.key !== 'q' && e.key !== 'Q') return;
   if ($('slideshow').classList.contains('open')) {
@@ -4528,8 +4552,8 @@ function frame(){
   const dt = Math.min(clock.getDelta(), .05), t = clock.elapsedTime;
   if (state.playing) {
     if (!paused) {
-      if (state.cursor < Y1) { state.cursor += dt * (Y1 - Y0) / PLAY_SECONDS * playSpeed; if (state.cursor >= Y1) { state.cursor = Y1; endHold = 0; } }
-      else if (view.loopPlay) { endHold += dt; if (endHold > 4) { state.cursor = Y0; endHold = 0; } }
+      if (state.cursor < Y1) { state.cursor += dt * (Y1 - Y0) / PLAY_SECONDS * playSpeed; if (state.cursor >= Y1) { state.cursor = Y1; endHold = 0; finaleArm = performance.now(); } }
+      else if (view.loopPlay) { if (!finaleActive && !finaleArm) endHold += dt; if (endHold > 4) { state.cursor = Y0; endHold = 0; } }
       else { paused = true; syncPause(); }
     }
     cursorGroup.position.x = xOf(Math.min(state.cursor, Y1));
@@ -4546,6 +4570,8 @@ function frame(){
       if (layout.summary.open && view.statsLive !== false) renderStats(yr);
     }
   }
+  if (finaleArm && performance.now() - finaleArm > 1600) { finaleArm = 0; maybeFinale(); }
+  if (finaleActive) fwStep(dt);
   updateTimeWindows(false);
   tickStep(dt);
   audPlayCheck();
@@ -4723,13 +4749,22 @@ function renderLanding(yr){
   $('landList').innerHTML = landed.length ? landed.map(it => row(it.p, it, `${lagTxt(it.lag)}${it.kind === 'proj' ? ', expected' : ''}`)).join('') : '<p class="empty">Nothing in this selection reached change in these years.</p>';
   $('startList').innerHTML = started.length ? started.map(it => row(it.r, it, it.kind === 'flight' ? 'still in the lab' : it.p <= yr ? `landed after ${lagTxt(it.lag)}` : 'in progress')).join('') : '<p class="empty">No research in this selection began in these years.</p>';
 }
+function jokeFortunes(){
+  if (view.audSuccess === false) return [];
+  const top = Math.max(...FORTUNES.map(x => x.nw || 0));
+  return AUD.filter(a => a.who && items[a.id] && !items[a.id].removed && FIELDS[items[a.id].v]).map((a, i) => ({
+    n:esc(a.who), co:esc(a.t), v:items[a.id].v, f:a.r, w:a.r, how:'Idea from the room', c:'high', joke:true,
+    nw:Math.round(top * (1.25 + .1 * i)), nwWho:esc(a.who), nwBasis:'a confident forecast from this room',
+    ac:a.s === 'academic' ? 'uni' : null, prize:'Richest and fastest fortune in history'
+  }));
+}
 function renderFortunes(yr){
   if (yr === undefined) yr = state.playing ? Math.floor(Math.min(state.cursor, YEND)) : YEND;
   $('fortHi').setAttribute('aria-pressed', !!view.fortHi); $('fortOnly').setAttribute('aria-pressed', !!view.fortOnly);
-  let pool = FORTUNES.filter(x => F.fields.has(x.v));
+  let pool = FORTUNES.concat(jokeFortunes()).filter(x => F.fields.has(x.v));
   const allPool = pool;
   if (view.fortOnly) pool = pool.filter(x => x.ac);
-  const sorters = {year:(a, b) => b.f - a.f, worth:(a, b) => (b.nw || -1) - (a.nw || -1) || b.f - a.f, speed:(a, b) => ((a.w <= yr ? a.w - a.f : 99) - (b.w <= yr ? b.w - b.f : 99)) || b.f - a.f};
+  const sorters = {year:(a, b) => b.f - a.f || (b.joke ? 1 : 0) - (a.joke ? 1 : 0), worth:(a, b) => (b.nw || -1) - (a.nw || -1) || b.f - a.f, speed:(a, b) => ((a.w <= yr ? a.w - a.f : 99) - (b.w <= yr ? b.w - b.f : 99)) || (b.joke ? 1 : 0) - (a.joke ? 1 : 0) || b.f - a.f};
   document.querySelectorAll('#fortSortSeg button').forEach(b => b.setAttribute('aria-pressed', b.dataset.v === (view.fortSort || 'year')));
   const shown = pool.filter(x => x.f <= yr).sort(sorters[view.fortSort] || sorters.year);
   const chartList = pool.filter(x => x.f <= yr).sort(sorters.year);
@@ -4741,18 +4776,20 @@ function renderFortunes(yr){
       g.beginPath(); g.arc(X(x.f), Y(yv), fs * .34, 0, Math.PI * 2);
       if (done) { g.fillStyle = col; g.fill(); } else { g.strokeStyle = col; g.lineWidth = 1.5; g.stroke(); }
       if (view.fortHi && x.ac) { g.beginPath(); g.arc(X(x.f), Y(yv), fs * .62, 0, Math.PI * 2); g.strokeStyle = '#FFD166'; g.lineWidth = x.prize ? 2.4 : 1.4; g.stroke(); }
+      if (x.joke) { g.font = `${fs * 1.5}px sans-serif`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('⭐', X(x.f), Y(yv) - fs * .9); g.textAlign = 'start'; g.textBaseline = 'alphabetic'; }
     });
   }
-  const med = a => a.length ? Math.round(median(a)) : null, got = pool.filter(x => x.w <= yr);
+  const med = a => a.length ? Math.round(median(a)) : null, gotAllInc = pool.filter(x => x.w <= yr), got = gotAllInc.filter(x => !x.joke);
   const eraDefs = [['before 1970', 0, 1970], ['1970–99', 1970, 2000], ['2000–14', 2000, 2015], ['2015 onwards', 2015, 3000]];
   const parts = eraDefs.map(([lab, a, b]) => { const m = med(got.filter(x => x.f >= a && x.f < b).map(x => x.w - x.f)); return m == null ? null : `${lagTxt(m)} for companies founded ${lab}`; }).filter(Boolean);
-  const fastest = got.slice().sort((a, b) => (a.w - a.f) - (b.w - b.f) || b.f - a.f)[0];
-  $('fortStat').textContent = !pool.length ? 'No examples for the selected fields.' : parts.length ? `Median time to a fortune: ${parts.join('; ')}.` + (fastest ? ` Fastest so far: ${fastest.co}, ${lagTxt(fastest.w - fastest.f)}.` : '') : 'No founders in this selection had reached a fortune by this year.';
+  const fastest = gotAllInc.slice().sort((a, b) => (a.w - a.f) - (b.w - b.f) || (b.joke ? 1 : 0) - (a.joke ? 1 : 0) || b.f - a.f)[0];
+  const richest = gotAllInc.filter(x => x.joke).sort((a, b) => b.nw - a.nw)[0];
+  $('fortStat').textContent = !pool.length ? 'No examples for the selected fields.' : parts.length ? `Median time to a fortune: ${parts.join('; ')}.` + (fastest ? ` Fastest so far: ${fastest.joke ? fastest.n + ', ' : ''}${fastest.co}, ${lagTxt(fastest.w - fastest.f)}.` : '') + (richest ? ` Richest person ever: ${richest.n}, ${fmtMoney(richest.nw, '$')}.` : '') : 'No founders in this selection had reached a fortune by this year.';
   // research banner
-  const gotAll = allPool.filter(x => x.w <= yr), res = gotAll.filter(x => x.ac), recent = res.filter(x => x.f >= 2015);
+  const gotAll = allPool.filter(x => x.w <= yr && !x.joke), res = gotAll.filter(x => x.ac), recent = res.filter(x => x.f >= 2015);
   $('fortBanner').innerHTML = res.length ? `<b>${res.length} of ${gotAll.length}</b> fortunes here began in a university or research lab, typically in <b>${lagTxt(Math.round(median(res.map(x => x.w - x.f))))}</b>` + (recent.length ? `; since 2015, in <b>${lagTxt(Math.round(median(recent.map(x => x.w - x.f))))}</b>` : '') + `. <span>Researchers in this room: this could be your time.</span>` : '';
   const badge = x => (x.ac === 'uni' ? '<span class="fb uni" title="Founded out of university research">🎓 University</span>' : x.ac === 'lab' ? '<span class="fb lab" title="Founders known for research">🔬 Research</span>' : '') + (x.prize ? `<span class="fb prize" title="${x.prize}">🏅 ${x.prize}</span>` : '');
-  $('fortList').innerHTML = shown.map(x => `<div class="trow ${view.fortHi && x.ac ? 'resrow' : ''}"><b>${x.f}</b><i class="cat" style="background:${FIELDS[x.v].hex}"></i><span><strong>${x.n}</strong>, ${x.co}<em>${x.w <= yr ? `${lagTxt(x.w - x.f)}: ${(x.how.charAt(0).toLowerCase() + x.how.slice(1))}, ${x.w}` : 'building'}</em>${x.nw ? `<span class="nw" title="${x.nwWho}: ${x.nwBasis}. Approximate, in 2026 money; £ at $1 = £${FX_GBP}.">≈ ${fmtMoney(x.nw, '$')} | ${fmtMoney(x.nw * FX_GBP, '£')} <small>${x.nwWho}</small></span>` : ''}${view.fortHi ? badge(x) : ''}</span></div>`).join('');
+  $('fortList').innerHTML = shown.map(x => `<div class="trow ${x.joke ? 'jokerow' : view.fortHi && x.ac ? 'resrow' : ''}"><b>${x.f}</b><i class="cat" style="background:${FIELDS[x.v].hex}"></i><span><strong>${x.n}</strong>, ${x.co}<em>${x.w <= yr ? `${lagTxt(x.w - x.f)}: ${(x.how.charAt(0).toLowerCase() + x.how.slice(1))}, ${x.w}` : 'building'}</em>${x.nw ? `<span class="nw" title="${x.nwWho}: ${x.nwBasis}. Approximate, in 2026 money; £ at $1 = £${FX_GBP}.">≈ ${fmtMoney(x.nw, '$')} | ${fmtMoney(x.nw * FX_GBP, '£')} <small>${x.nwWho}</small></span>` : ''}${view.fortHi ? badge(x) : ''}</span></div>`).join('');
 }
 $('fortHi').onclick = () => { view.fortHi = !view.fortHi; renderFortunes(); };
 $('fortSortSeg').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; view.fortSort = b.dataset.v; renderFortunes(); });
@@ -5044,6 +5081,7 @@ function saveViewFile(){
 function syncDisplayUI(){
   if (typeof renderFortunes === 'function' && layout.fortunes && layout.fortunes.open) renderFortunes();
   [['labelSeg','labels'],['labelPlaySeg','labelPlay'],['labelScopeSeg','labelScope'],['laneSeg','lanes'],['colSeg','colour']].forEach(([id, k]) => $(id).querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', b.dataset.v === view[k])));
+  $('audSuccessT').checked = view.audSuccess !== false; $('audFinaleT').checked = view.audFinale !== false;
   $('countdownT').checked = view.countdown !== false; $('thanksIconT').checked = view.thanksIcon !== false; document.body.classList.toggle('nothanks', view.thanksIcon === false);
   $('gapBuildT').checked = view.gapBuild !== false; $('statsLiveT').checked = view.statsLive !== false; $('compactT').checked = view.compactLanes !== false;
   $('majBrightT').checked = view.majBright !== false; $('uniHiT').checked = view.uniHi !== false; document.body.classList.toggle('nouni', view.uniHi === false); $('audSpotT').checked = view.audSpot !== false; $('audPauseT').checked = view.audPause !== false;
@@ -5154,6 +5192,7 @@ function addAudienceIdea(o, quiet){
   const it = buildItem(d, items.length); items.push(it); makeLabel(it);
   F.fields.add(key);
   applyColours(); refresh(); applyLanes(true);
+  setTimeout(() => { if (layout.fortunes.open) renderFortunes(); }, 0);
   const rec = {t:o.t, field:FIELDS[key].name, s:d.s, r, p, who:d.who, desc:o.desc || '', source:o.source || '', url:safeUrl(o.url), id:it.id}; AUD.push(rec); renderAudList();
   if (!quiet) {
     showSpot(`💡 ${o.t}`, `${FIELDS[key].name}: research ${r}, change ${p > NOW ? 'expected ' : ''}${p}${d.who ? ', from ' + d.who : ''}`);
@@ -5182,7 +5221,7 @@ function removeAudienceIdea(id){
   retireItem(it);
   const i = AUD.findIndex(a => a.id === id); if (i >= 0) AUD.splice(i, 1);
   removeFieldIfUnused(key);
-  refresh(); renderAudList();
+  refresh(); renderAudList(); if (layout.fortunes.open) renderFortunes();
 }
 function clearAudience(){
   const keys = new Set();
@@ -5221,6 +5260,7 @@ $('audLoad').addEventListener('change', e => {
   rd.readAsText(f);
 });
 $('audClear').onclick = () => { if (!AUD.length || confirm('Remove all ideas from the room?')) clearAudience(); };
+$('audSuccessT').addEventListener('change', e => { view.audSuccess = e.target.checked; if (layout.fortunes.open) renderFortunes(); });
 $('audSpotT').addEventListener('change', e => { view.audSpot = e.target.checked; applyColours(); });
 $('audPauseT').addEventListener('change', e => { view.audPause = e.target.checked; });
 let spotTimer = 0;
@@ -5270,6 +5310,75 @@ $('thanksBtn').onclick = () => showThanks(true);
 $('thanks').onclick = () => showThanks(false);
 $('countdownT').addEventListener('change', e => { view.countdown = e.target.checked; });
 $('thanksIconT').addEventListener('change', e => { view.thanksIcon = e.target.checked; document.body.classList.toggle('nothanks', !view.thanksIcon); });
+
+/* ==================================================================
+ *  END-OF-PLAY CELEBRATION (ideas from the room)
+ * ================================================================== */
+const FINALE_TRACK = 'mixkit-welcome-to-the-games-54.mp3';
+let finaleDoneThisPlay = false, finaleArm = 0, finaleActive = false, finaleTimer = 0, finaleCycle = 0, finaleMusic = null;
+$('audFinaleT').addEventListener('change', e => { view.audFinale = e.target.checked; });
+function maybeFinale(){
+  if (finaleDoneThisPlay || view.audFinale === false || view.audSuccess === false || !layout.fortunes.open) return;
+  const list = jokeFortunes().filter(x => F.fields.has(x.v)).sort((a, b) => b.nw - a.nw);
+  if (!list.length) return;
+  finaleActive = true; finaleDoneThisPlay = true; $('finale').classList.add('on');
+  let i = 0;
+  const show = () => { const x = list[i % list.length];
+    $('fnName').innerHTML = x.n; $('fnIdea').innerHTML = x.co; $('fnWorth').textContent = `${fmtMoney(x.nw, '$')} (${fmtMoney(x.nw * FX_GBP, '£')})`;
+    const box = document.querySelector('.fbx'); box.style.animation = 'none'; void box.offsetWidth; box.style.animation = ''; i++; };
+  show(); clearInterval(finaleCycle); if (list.length > 1) finaleCycle = setInterval(show, 4500);
+  clearTimeout(finaleTimer); finaleTimer = setTimeout(endFinale, Math.max(9000, list.length * 4500));
+  fwInit(); finaleMusicStart();
+}
+function endFinale(){
+  if (!finaleActive) return;
+  finaleActive = false; clearInterval(finaleCycle); clearTimeout(finaleTimer);
+  $('finale').classList.remove('on'); finaleMusicEnd();
+}
+$('finale').onclick = endFinale;
+function switchOffJoke(){
+  view.audFinale = false; view.audSuccess = false;
+  $('audFinaleT').checked = false; $('audSuccessT').checked = false;
+  endFinale();
+  if (layout.fortunes.open) renderFortunes();
+}
+$('fnOff').onclick = e => { e.stopPropagation(); switchOffJoke(); };
+/* Music: if the music is playing (not muted), switch to the celebration track, then back */
+function finaleMusicStart(){
+  if (music.paused || view.musicOn === false) { finaleMusic = null; return; }
+  finaleMusic = {src:music.getAttribute('src'), t:music.currentTime};
+  music.src = FINALE_TRACK; music.currentTime = 0;
+  music.play().catch(() => finaleMusicEnd());
+}
+function finaleMusicEnd(){
+  if (!finaleMusic) return;
+  const prev = finaleMusic; finaleMusic = null;
+  music.src = prev.src;
+  music.addEventListener('loadedmetadata', () => { try { music.currentTime = prev.t; } catch (e) {} }, {once:true});
+  music.play().catch(() => {});
+}
+/* Fireworks */
+const fw = {cv:$('fwCanvas'), parts:[], next:0};
+const FW_COLS = ['#F7991C','#FF5FD7','#0AA8F5','#FFD166','#7CE04A','#FFFFFF','#C08BFF'];
+function fwInit(){ const c = fw.cv, dpr = Math.min(window.devicePixelRatio || 1, 2); c.width = innerWidth * dpr; c.height = innerHeight * dpr; fw.ctx = c.getContext('2d'); fw.ctx.setTransform(dpr, 0, 0, dpr, 0, 0); fw.parts = []; fw.next = 0; }
+function fwBurst(){
+  const x = innerWidth * (.08 + Math.random() * .84), y = innerHeight * (.1 + Math.random() * .5), col = FW_COLS[Math.floor(Math.random() * FW_COLS.length)], n = 70 + Math.floor(Math.random() * 50), sp = 2.2 + Math.random() * 2.8;
+  for (let k = 0; k < n; k++) { const a = Math.PI * 2 * k / n + Math.random() * .1, v = sp * (.6 + Math.random() * .6); fw.parts.push({x, y, vx:Math.cos(a) * v, vy:Math.sin(a) * v, life:1, col: Math.random() < .2 ? '#FFFFFF' : col}); }
+}
+function fwStep(dt){
+  const g = fw.ctx; if (!g) return;
+  const k = Math.min(3, (dt || 1 / 60) * 60);   // same speed on 60Hz and 144Hz displays
+  const now = performance.now();
+  if (!reduced && now > fw.next) { fwBurst(); if (Math.random() < .5) fwBurst(); fw.next = now + 260 + Math.random() * 380; }
+  g.globalCompositeOperation = 'destination-out'; g.fillStyle = `rgba(0,0,0,${Math.min(.6, .22 * k)})`; g.fillRect(0, 0, innerWidth, innerHeight);
+  g.globalCompositeOperation = 'lighter';
+  for (let i = fw.parts.length - 1; i >= 0; i--) {
+    const q = fw.parts[i]; q.x += q.vx * k; q.y += q.vy * k; q.vy += .045 * k; const dr = Math.pow(.985, k); q.vx *= dr; q.vy *= dr; q.life -= .012 * k;
+    if (q.life <= 0) { fw.parts.splice(i, 1); continue; }
+    g.globalAlpha = Math.max(0, q.life); g.fillStyle = q.col; g.beginPath(); g.arc(q.x, q.y, 2.2, 0, Math.PI * 2); g.fill();
+  }
+  g.globalAlpha = 1;
+}
 
 /* ==================================================================
  *  VIDEO WINDOWS
