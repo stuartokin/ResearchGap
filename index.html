@@ -30,8 +30,8 @@ button,input,select{font:inherit;color:inherit}
 /* Top bar */
 #top{position:fixed;top:calc(var(--safe-t) + 16px);left:20px;right:20px;display:flex;justify-content:space-between;align-items:center;gap:20px;pointer-events:none;z-index:50}
 #top > *{pointer-events:auto}
-#top h1{font-family:var(--serif);font-weight:400;font-size:clamp(24px,2.8vw,40px);line-height:1.05;margin:0;letter-spacing:-.01em}
-.actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;position:relative}
+#top h1{font-family:var(--serif);font-weight:400;font-size:clamp(20px,2.2vw,36px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;line-height:1.05;margin:0;letter-spacing:-.01em}
+.actions{display:flex;gap:6px;flex-wrap:nowrap;justify-content:flex-end;position:relative;flex:none}
 .btn{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px 13px;font-size:13.5px;font-weight:500;cursor:pointer;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:border-color .2s,background .2s;white-space:nowrap}
 .btn:hover{border-color:var(--line-strong)}
 .btn.primary{background:rgba(233,242,255,.92);color:#0A1622;border-color:transparent}
@@ -206,7 +206,51 @@ body.clean #timebar{opacity:.25}
 .vmsg label{cursor:pointer;color:var(--text)}
 .looplbl{display:inline-flex;align-items:center;gap:6px;cursor:pointer;backdrop-filter:none}
 .looplbl input{accent-color:#E9F2FF;margin:0}
-body.clean .win:not(.vidwin),body.clean #top .actions,body.clean #foot{opacity:0;pointer-events:none}
+.tickwin{max-width:none}
+.chromeless{border-color:transparent;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.chromeless .wh{position:absolute;top:0;left:0;right:0;z-index:6;background:rgba(8,19,29,.88);opacity:0;transition:opacity .2s;border-radius:14px 14px 0 0}
+.chromeless:hover .wh,.chromeless:focus-within .wh{opacity:1}
+.chromeless .wbody{padding:0}
+.titlewin .tbody{display:flex;flex-direction:column;justify-content:center;padding:.5em 1.4em;position:relative;height:100%;overflow:hidden}
+.ttext{font-family:var(--serif);font-size:2.3em;line-height:1.08;outline:none;text-shadow:0 2px 18px rgba(0,0,0,.25)}
+.tbar{height:4px;width:5em;border-radius:2px;margin-bottom:.45em;flex:none}
+.cfgbtn{position:absolute;right:.5em;bottom:.4em;z-index:5;opacity:0;transition:opacity .2s;font-size:.75em;background:rgba(8,19,29,.85);border:1px solid var(--line-strong);border-radius:7px;padding:.25em .6em;cursor:pointer;color:var(--text)}
+.chromeless:hover .cfgbtn{opacity:1}
+.cfg{position:absolute;right:.5em;bottom:2.2em;z-index:7;display:none;flex-wrap:wrap;gap:.6em;align-items:center;background:var(--panel-solid);border:1px solid var(--line-strong);border-radius:10px;padding:.5em .8em;font-size:.78em;color:var(--text);max-width:calc(100% - 1em)}
+.cfg.on{display:flex}
+.cfg label{display:inline-flex;align-items:center;gap:.4em}
+.cfg input[type=color]{width:2em;height:1.5em;border:0;padding:0;background:none;cursor:pointer}
+.cfg input[type=range]{width:6em}
+.cfg select{background:var(--panel-solid);color:var(--text);border:1px solid var(--line-strong);border-radius:6px;padding:.1em .3em}
+.tickwin .kbody{position:relative;overflow:hidden;display:flex;align-items:center;height:100%}
+.ktrack{display:flex;white-space:nowrap;will-change:transform;font-size:1.2em}
+.kseg{display:inline-flex;align-items:center;flex:none}
+.kj{padding:0 .5em}
+.ks{opacity:.55;padding:0 .7em;font-size:.75em}
+.kcfg{top:.25em;bottom:auto;right:5.8em;flex-wrap:nowrap;white-space:nowrap}
+.tickwin .cfgbtn{bottom:auto;top:50%;transform:translateY(-50%)}
+.deckimg{display:block;width:100%;padding:0;border:0;background:none;cursor:pointer;border-radius:8px;overflow:hidden}
+.deckimg img{width:100%;display:block;transition:transform .3s}
+.deckimg:hover img{transform:scale(1.02)}
+a.mini{text-decoration:none;color:var(--muted)}
+.olrow{border-top:1px solid var(--line);padding:.6em 0}
+.olh{display:flex;align-items:center;gap:.5em;font-size:.95em}
+.olh i{width:.6em;height:.6em;border-radius:50%;flex:none}
+.olh span{margin-left:auto;font-variant-numeric:tabular-nums;white-space:nowrap}
+.olbar{position:relative;height:.5em;background:rgba(255,255,255,.06);border-radius:3px;margin:.45em 0}
+.olbar .b{position:absolute;top:0;bottom:0;left:0;background:rgba(233,242,255,.3);border-radius:3px}
+.olbar .a{position:absolute;top:-2px;bottom:-2px;background:#4CD3C2;border-radius:3px}
+.olrow p{margin:0;font-size:.85em;color:var(--muted);line-height:1.45}
+.legend{font-size:.8em;color:var(--muted);display:flex;gap:1em;flex-wrap:wrap;margin:.2em 0}
+.lg{display:inline-block;width:1.4em;height:.22em;vertical-align:.25em;margin-right:.35em;border-radius:2px}
+.l1{background:#E9F2FF}.l2{background:repeating-linear-gradient(90deg,#E9F2FF 0 4px,transparent 4px 8px)}.l3{background:#4CD3C2;height:.6em;vertical-align:.05em;opacity:.75}
+.vhead{cursor:pointer}
+.vdet summary{cursor:pointer;font-size:.86em;color:var(--text);margin-top:.45em}
+.vdet .trow{font-size:.85em}
+body.tick-on #timebar{bottom:calc(var(--safe-b) + 78px)}
+body.tick-on #yearbig{bottom:calc(var(--safe-b) + 136px)}
+
+body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foot{opacity:0;pointer-events:none}
 #loading{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:22px;color:var(--muted);z-index:100;background:var(--ink);transition:opacity .8s}
 #loading.done{opacity:0;pointer-events:none}
 @media (max-width:820px){ .actions .wide{display:none} #foot span:first-child{display:none} }
@@ -222,6 +266,7 @@ body.clean .win:not(.vidwin),body.clean #top .actions,body.clean #foot{opacity:0
   <h1>The Shrinking Gap from Research to Change</h1>
   <div class="actions">
     <button class="btn primary" id="playBtn">Play the century</button>
+    <button class="btn" id="musicBtn" aria-pressed="false">♪ Music</button>
     <button class="btn" id="winBtn" aria-haspopup="true" aria-expanded="false">Windows</button>
     <button class="btn wide" id="rotBtn" aria-pressed="true">Auto-rotate</button>
     <button class="btn wide" id="resetBtn">Reset view</button>
@@ -230,6 +275,67 @@ body.clean .win:not(.vidwin),body.clean #top .actions,body.clean #foot{opacity:0
     <div id="winMenu" role="menu"></div>
   </div>
 </header>
+
+<!-- SHOWCASE TITLE -->
+<section class="win chromeless titlewin keep" id="w-title" data-title="Showcase title">
+  <div class="wbody tbody">
+    <div class="tbar" id="titleBar"></div>
+    <div class="ttext" id="titleText" contenteditable="true" spellcheck="false" title="Click to edit the title">SP Energy Networks &amp; University of Glasgow Partnership Showcase</div>
+    <button class="cfgbtn" id="titleCfgBtn">Colours</button>
+    <div class="cfg" id="titleCfg">
+      <label>Text <input type="color" id="tcText"></label>
+      <label>Background <input type="color" id="tcBg"></label>
+      <label>Accent <input type="color" id="tcAcc"></label>
+      <label>Opacity <input type="range" id="tcAlpha" min="0" max="1" step="0.05"></label>
+      <label>Align <select id="tcAlign"><option value="center">Centre</option><option value="left">Left</option></select></label>
+      <button class="mini" id="tcReset">Reset</button>
+    </div>
+  </div>
+</section>
+<!-- JOKE TICKER -->
+<section class="win chromeless tickwin keep" id="w-ticker" data-title="Joke ticker">
+  <div class="wbody kbody">
+    <div class="ktrack" id="ktrack"></div>
+    <button class="cfgbtn" id="tickCfgBtn">Settings</button>
+    <div class="cfg kcfg" id="tickCfg">
+      <label>Speed <input type="range" id="tkSpeed" min="10" max="300" step="5"> <b id="tkSpeedV"></b></label>
+      <button class="mini" id="tkPause">Pause</button>
+      <label>Text <input type="color" id="tkText"></label>
+      <label>Background <input type="color" id="tkBg"></label>
+      <label>Opacity <input type="range" id="tkAlpha" min="0" max="1" step="0.05"></label>
+    </div>
+  </div>
+</section>
+<!-- OUTLOOK -->
+<section class="win" id="w-outlook" data-title="Can AI shrink the gap?">
+  <div class="wbody">
+    <p class="insight sm" id="olHead"></p>
+    <p class="note-s">Each bar runs from 0 to 25 years. Grey: recent median gap for research begun since 2000. Teal: plausible range with AI and digital twins. These are scenario assumptions, not forecasts.</p>
+    <div id="olList"></div>
+    <h3>Early evidence</h3>
+    <p class="note-s">Google DeepMind’s GNoME predicted 2.2 million new crystal structures (2023). Microsoft and PNNL used AI to screen 32 million candidates and make a new battery electrolyte (2024). AI-designed drug candidates are progressing through clinical trials. AI-generated layouts are used in Google’s TPU chips. Network digital twins are entering planning and connections work.</p>
+    <h3>What AI does not compress</h3>
+    <p class="note-s">Factories, clinical trials, safety cases, standards, spectrum, planning consent and grid connections. That is why physical fields shrink less than software, and why regulation and assurance increasingly set the pace.</p>
+  </div>
+</section>
+<!-- OFGEM DECK -->
+<section class="win" id="w-deck" data-title="Ofgem: Cyber Regulation and Emerging Technologies">
+  <div class="wbody">
+    <button class="deckimg" id="deckOpen" title="Open the presentation"><img src="Ofgem_Cyber_and_ET.png" alt="Ofgem Cyber Regulation and Emerging Technologies overview slide"></button>
+    <div class="minis" style="margin-top:.6em"><button class="mini" id="deckView">Open presentation</button><a class="mini" href="Cyber_Reg_and_ET_-_Single_Slide_Overivew.pptx" download>Download PowerPoint</a></div>
+  </div>
+</section>
+<!-- MUSIC -->
+<section class="win" id="w-music" data-title="Music">
+  <div class="wbody">
+    <audio id="music" src="mixkit-driving-ambition-32.mp3" loop preload="auto"></audio>
+    <div class="row"><button class="mini" id="muPlay">Play music</button><span class="note-s" id="muName">Driving Ambition (Mixkit)</span></div>
+    <div class="slider"><label>Volume <b id="muVolV">50%</b></label><input type="range" id="muVol" min="0" max="1" step="0.05" value="0.5"></div>
+    <label class="mini" style="display:inline-block;cursor:pointer">Choose another track<input type="file" accept="audio/*" id="muFile" hidden></label>
+    <p class="note-s" id="muMsg"></p>
+  </div>
+</section>
+<input type="file" id="viewFile" accept="application/json,.json" hidden>
 
 <!-- FILTERS -->
 <section class="win" id="w-filters" data-title="Filters">
@@ -330,7 +436,7 @@ body.clean .win:not(.vidwin),body.clean #top .actions,body.clean #foot{opacity:0
 </section>
 <!-- GAP CHART -->
 <section class="win" id="w-gapchart" data-title="Gap over time">
-  <div class="wbody"><p class="note-s">Median years from research to change for arcs landing in the previous ten years. Dashed beyond today includes expected arcs. Follows your filters.</p><canvas id="gapCanvas" class="chart"></canvas><p class="insight sm" id="gapNow"></p></div>
+  <div class="wbody"><p class="note-s">History: median years from research to change for arcs landing in the previous ten years. Beyond today: a scenario for research starting now, at the recent pace and with AI and digital twins. Follows your filters.</p><p class="legend"><span><i class="lg l1"></i>History</span><span><i class="lg l2"></i>Recent pace</span><span><i class="lg l3"></i>With AI and digital twins</span></p><canvas id="gapCanvas" class="chart"></canvas><p class="insight sm" id="gapNow"></p></div>
 </section>
 <!-- FORTUNES -->
 <section class="win" id="w-fortunes" data-title="Time to a fortune">
@@ -340,7 +446,7 @@ body.clean .win:not(.vidwin),body.clean #top .actions,body.clean #foot{opacity:0
 <section class="win" id="w-vision" data-title="DESNZ AI energy vision">
   <div class="wbody">
     <p class="note-s">DESNZ’s <i>Vision for an AI-enabled clean energy system</i> (call for evidence, September 2026, closing 6 November) groups AI opportunities into four areas and highlights barriers such as data access, incentives, regulatory clarity, security and skills. Select an area to show its arcs; select a name to inspect it.</p>
-    <div class="minis"><button class="mini" id="visAll">Show all vision arcs</button><button class="mini" id="visOff">Clear vision filter</button></div>
+    <div class="minis"><button class="mini" id="visExpand">Expand all already helping</button><button class="mini" id="visAll">Show all vision arcs</button><button class="mini" id="visOff">Clear vision filter</button></div>
     <div id="visList"></div>
   </div>
 </section>
@@ -386,6 +492,7 @@ body.clean .win:not(.vidwin),body.clean #top .actions,body.clean #foot{opacity:0
       <li>NCSC, <i>Timelines for migration to post-quantum cryptography</i> (2025); NIST FIPS 203, 204 and 205 (2024).</li>
       <li>Ofgem, long duration electricity storage cap and floor Window 1 minded-to decisions (June 2026).</li>
       <li>DESNZ, <i>Vision for an AI-enabled clean energy system</i>, call for evidence (September 2026); NESO Volta programme.</li>
+      <li>Beyond today, the gap chart shows a scenario: the recent median gap (research begun since 2000) and a range with AI and digital twins, using stated assumptions about which stages AI can compress in each field.</li>
       <li>Company product arcs run from founding or first prototype to first commercial release.</li>
       <li>Founder wealth dates use the first listing, sale or private valuation that made founders multi-millionaires on paper. They are approximate, and the sample is selective.</li>
       <li>UK Government and Great British Energy – Nuclear announcements on Rolls-Royce SMR at Wylfa (2025–26).</li>
@@ -731,7 +838,75 @@ const DATA = [
 {v:'materials',s:'industry',kind:'hist',co:'DSM',t:'Ultra-strong polyethylene fibre',r:1979,p:1990,c:'medium',rw:'DSM researchers develop gel-spun polyethylene.',pw:'Dyneema is produced commercially.',note:'Stronger than steel by weight; used in cables and armour.'},
 
 // ---------- Life sciences ----------
-{v:'life',s:'academic',kind:'hist',co:'Oxford Nanopore',t:'Nanopore sequencing',r:2005,p:2014,c:'high',rw:'Oxford Nanopore is founded on Bayley’s Oxford nanopore research.',pw:'The MinION portable sequencer reaches early users.',note:'A UK spin-out; genomics in your hand.'}
+{v:'life',s:'academic',kind:'hist',co:'Oxford Nanopore',t:'Nanopore sequencing',r:2005,p:2014,c:'high',rw:'Oxford Nanopore is founded on Bayley’s Oxford nanopore research.',pw:'The MinION portable sequencer reaches early users.',note:'A UK spin-out; genomics in your hand.'},
+// ================== GAP REVIEW: FURTHER MATERIAL MILESTONES ==================
+// ---------- Energy ----------
+{v:'energy',s:'government',kind:'hist',t:'Pressurised water reactor',r:1948,p:1957,c:'high',rw:'US naval reactor programme develops the pressurised water reactor.',pw:'Shippingport, the first full-scale PWR power station, starts up.',note:'The design behind most of the world’s nuclear fleet, including Sizewell B.'},
+{v:'energy',s:'industry',kind:'hist',t:'Smart meters at scale',r:1985,p:2001,c:'medium',rw:'Utility research into automated meter reading and two-way metering.',pw:'Italy’s Enel begins the first national smart meter rollout.',note:'The data foundation for flexibility and AI in demand.',dv:'demand'},
+{v:'energy',s:'industry',kind:'hist',t:'Voltage-source HVDC',r:1994,p:1997,c:'medium',rw:'ABB develops HVDC using IGBT voltage-source converters.',pw:'First commercial transmission with HVDC Light.',note:'Made offshore wind links and interconnectors practical.'},
+{v:'energy',s:'industry',kind:'hist',t:'Carbon capture and storage',r:1991,p:1996,c:'medium',rw:'Statoil studies CO₂ storage after Norway introduces a carbon tax.',pw:'Sleipner begins storing CO₂ under the North Sea.',note:'A policy signal created the first commercial-scale storage.'},
+{v:'energy',s:'academic',kind:'hist',t:'Lithium iron phosphate batteries',r:1997,p:2006,c:'medium',rw:'Goodenough’s Texas group reports the LFP cathode.',pw:'Commercial LFP cells go on sale.',note:'Now the dominant chemistry for grid storage.'},
+{v:'energy',s:'industry',kind:'hist',t:'Modern electric cars',r:1997,p:2008,c:'medium',rw:'AC Propulsion’s tzero shows lithium-ion cars can perform.',pw:'Tesla Roadster goes on sale.',note:'Electric vehicles became a grid planning question.'},
+{v:'energy',s:'industry',kind:'hist',t:'Tidal stream power',r:2003,p:2016,c:'medium',rw:'Marine Current Turbines tests the Seaflow tidal turbine.',pw:'MeyGen in the Pentland Firth exports tidal power to the grid.',note:'A Scottish first.'},
+{v:'energy',s:'industry',kind:'hist',t:'Floating offshore wind',r:2009,p:2017,c:'high',rw:'Statoil’s Hywind demonstration turbine off Norway.',pw:'Hywind Scotland, the first floating wind farm, starts generating.',note:'Opens deep water to wind, again in Scotland.'},
+
+// ---------- Computing hardware ----------
+{v:'hw',s:'government',kind:'hist',t:'Capacitive touchscreen',r:1965,p:1973,c:'medium',rw:'E. A. Johnson at the Royal Radar Establishment, Malvern.',pw:'Capacitive touchscreens used in CERN’s accelerator control room.',note:'A UK government lab idea now on every phone.'},
+{v:'hw',s:'industry',kind:'hist',t:'Compact disc',r:1974,p:1982,c:'high',rw:'Philips and Sony develop optical digital audio.',pw:'The CD goes on sale.',note:'Industry standards alliance at its best.'},
+{v:'hw',s:'industry',kind:'hist',t:'High-bandwidth memory',r:2008,p:2015,c:'medium',rw:'AMD and SK Hynix develop stacked high-bandwidth memory.',pw:'First GPUs with HBM ship.',note:'Now a bottleneck for AI chips.'},
+{v:'hw',s:'industry',kind:'hist',t:'AI-designed chip layouts',r:2020,p:2021,c:'medium',rw:'Google researchers use reinforcement learning for chip floorplanning.',pw:'AI-generated layouts used in production TPU chips.',note:'AI already shortens part of hardware design.'},
+
+// ---------- Computing software ----------
+{v:'sw',s:'government',kind:'hist',t:'Email',r:1971,p:1979,c:'medium',rw:'Tomlinson sends networked email on ARPANET at BBN.',pw:'Commercial email services open to subscribers.',note:'Also the start of phishing.'},
+{v:'sw',s:'industry',kind:'hist',t:'Java and portable code',r:1991,p:1996,c:'high',rw:'Sun Microsystems starts the Green project.',pw:'Java 1.0 is released.',note:'Still runs much of enterprise and energy IT.'},
+{v:'sw',s:'industry',kind:'hist',t:'Android',r:2003,p:2008,c:'high',rw:'Android Inc. is founded.',pw:'The first Android phone goes on sale.',note:'Now the world’s most used operating system.'},
+{v:'sw',s:'industry',kind:'hist',t:'Containers and Kubernetes',r:2003,p:2014,c:'medium',rw:'Google’s internal Borg cluster manager.',pw:'Kubernetes is released as open source.',note:'How most cloud software is now run.'},
+
+// ---------- AI ----------
+{v:'ai',s:'industry',kind:'hist',t:'Face detection in cameras',r:2001,p:2005,c:'medium',rw:'Viola and Jones publish real-time face detection.',pw:'Face detection ships in consumer digital cameras.',note:'Computer vision quietly entered everyday products.'},
+{v:'ai',s:'academic',kind:'hist',t:'Generative adversarial networks',r:2014,p:2018,c:'medium',rw:'Goodfellow and colleagues at the University of Montréal.',pw:'Realistic synthetic image tools reach the public.',note:'And with them, deepfakes and new fraud risks.'},
+
+// ---------- Quantum ----------
+{v:'quantum',s:'government',kind:'hist',t:'Quantum dots',r:1981,p:2015,c:'medium',rw:'Ekimov observes quantum dots in glass; Brus at Bell Labs in solution.',pw:'Quantum dot displays in mass-market televisions.',note:'2023 Nobel Prize in Chemistry.'},
+
+// ---------- Cyber ----------
+{v:'cyber',s:'industry',kind:'hist',t:'Smart cards',r:1974,p:1984,c:'medium',rw:'Moreno patents the memory chip card in France.',pw:'Chip cards adopted by French banks.',note:'The basis of chip and PIN and SIM cards.'},
+{v:'cyber',s:'academic',kind:'hist',t:'Kerberos authentication',r:1983,p:2000,c:'medium',rw:'MIT’s Project Athena designs Kerberos.',pw:'Kerberos becomes the default in Windows networks.',note:'Still underpins most corporate logins.'},
+{v:'cyber',s:'industry',kind:'hist',t:'Encrypted web (SSL/TLS)',r:1994,p:1995,c:'high',rw:'Netscape designs the Secure Sockets Layer protocol.',pw:'SSL ships in Netscape Navigator, enabling online payments.',note:'Now the protocol that post-quantum migration must upgrade.'},
+
+// ---------- Communications ----------
+{v:'comms',s:'academic',kind:'hist',t:'Erbium-doped fibre amplifier',r:1986,p:1995,c:'high',rw:'Payne’s team at the University of Southampton.',pw:'Optical amplifiers in commercial transoceanic cables.',note:'A UK invention that made the global internet affordable.'},
+{v:'comms',s:'industry',kind:'hist',t:'Broadband over phone lines (DSL)',r:1987,p:1998,c:'medium',rw:'Lechleider at Bellcore proposes asymmetric DSL.',pw:'Consumer ADSL broadband launches.',note:'Reused copper wires for the internet.'},
+{v:'comms',s:'industry',kind:'hist',t:'4G LTE',r:2004,p:2009,c:'high',rw:'3GPP begins Long Term Evolution work.',pw:'First commercial LTE networks open.',note:'Made the smartphone economy possible.'},
+
+// ---------- Materials ----------
+{v:'materials',s:'industry',kind:'hist',t:'Float glass',r:1952,p:1959,c:'high',rw:'Alastair Pilkington conceives float glass in St Helens.',pw:'Pilkington announces commercial float glass.',note:'A British process now used for almost all flat glass.'},
+{v:'materials',s:'industry',kind:'hist',t:'3D printing',r:1984,p:1988,c:'high',rw:'Chuck Hull patents stereolithography.',pw:'3D Systems sells the first commercial 3D printer.',note:'Now used for turbine parts and spares.'},
+{v:'materials',s:'academic',kind:'hist',t:'Silicon carbide power devices',r:1987,p:2011,c:'medium',rw:'Cree is founded from North Carolina State University SiC research.',pw:'First commercial SiC power MOSFETs.',note:'Now in EV inverters, chargers and grid converters.'},
+
+// ---------- Space ----------
+{v:'space',s:'government',kind:'hist',t:'Weather satellites',r:1959,p:1966,c:'medium',rw:'NASA launches TIROS-1 in 1960 after early research.',pw:'An operational weather satellite system begins.',note:'Behind every renewable forecast.'},
+{v:'space',s:'government',kind:'hist',t:'Satellite radar imaging',r:1978,p:1995,c:'medium',rw:'Seasat flies the first civil synthetic aperture radar.',pw:'Radarsat-1 sells radar imagery commercially.',note:'Sees through cloud: useful for asset and vegetation monitoring.'},
+
+// ---------- Robotics ----------
+{v:'robotics',s:'industry',kind:'hist',co:'Universal Robots',t:'Collaborative robots',r:2005,p:2008,c:'high',rw:'Universal Robots is founded in Denmark.',pw:'The first commercial collaborative robot ships.',note:'Robots that work safely beside people.'},
+{v:'robotics',s:'academic',kind:'hist',co:'ANYbotics',t:'Legged inspection robots',r:2009,p:2020,c:'medium',rw:'ETH Zürich legged robotics research.',pw:'ANYmal inspection robots deployed commercially at industrial sites.',note:'Used for autonomous plant and substation rounds.'},
+
+// ---------- Life sciences ----------
+{v:'life',s:'academic',kind:'hist',t:'Polio vaccine',r:1952,p:1955,c:'high',rw:'Salk develops the inactivated polio vaccine at the University of Pittsburgh.',pw:'The vaccine is licensed after a national field trial.',note:'Fast because the need was overwhelming.'},
+{v:'life',s:'industry',kind:'hist',t:'CT scanning',r:1967,p:1972,c:'high',rw:'Hounsfield at EMI in Hayes conceives computed tomography.',pw:'The first commercial CT scanner is unveiled.',note:'Funded in part by Beatles record profits; a Nobel prize.'},
+{v:'life',s:'academic',kind:'hist',t:'IVF',r:1968,p:1978,c:'high',rw:'Edwards (Cambridge) and Steptoe achieve fertilisation outside the body.',pw:'First baby born through IVF, in Oldham.',note:'A British medical first.'},
+{v:'life',s:'government',kind:'hist',t:'First HIV drug',r:1985,p:1987,c:'high',rw:'US National Cancer Institute shows AZT works against HIV.',pw:'AZT is approved.',note:'Crisis compressed the timeline to two years.'},
+{v:'life',s:'academic',kind:'hist',t:'GLP-1 medicines',r:1984,p:2005,c:'high',rw:'GLP-1 hormone identified in academic research.',pw:'First GLP-1 drug approved; later used for weight loss.',note:'Twenty years, then one of the biggest drug classes in history.'},
+
+// ================== AI-ACCELERATED OUTLOOK ARCS (acc) ==================
+{v:'energy',s:'industry',kind:'proj',acc:true,t:'AI-discovered battery electrolyte in cells',r:2024,p:2030,c:'low',rw:'Microsoft and PNNL use AI to screen 32 million candidates and make a new electrolyte.',pw:'An AI-discovered battery material in commercial cells.',note:'Discovery compressed to months; testing and manufacturing still take years.',dv:'rd'},
+{v:'energy',s:'government',kind:'proj',acc:true,t:'Digital-twin grid connection studies',r:2023,p:2028,c:'medium',rw:'Network digital twins and automated power system studies.',pw:'Connection and reinforcement studies done routinely on live digital twins.',note:'Could shorten the time from project idea to energisation.',dv:'asset'},
+{v:'materials',s:'academic',kind:'proj',acc:true,t:'Autonomous materials labs in industry',r:2020,p:2028,c:'medium',rw:'Robotic self-driving labs that plan and run experiments with AI.',pw:'Industrial R&D routinely uses autonomous labs.',note:'Speeds the experiment loop, not the factory.'},
+{v:'quantum',s:'industry',kind:'proj',acc:true,t:'AI decoders for quantum error correction',r:2023,p:2029,c:'low',rw:'Machine-learning decoders for error-corrected qubits.',pw:'AI decoders running on fault-tolerant prototypes.',note:'AI helping to build the next computing platform.'},
+{v:'robotics',s:'industry',kind:'proj',acc:true,t:'Robot foundation models in products',r:2023,p:2027,c:'medium',rw:'Vision-language-action models trained across many robots.',pw:'General-purpose AI control in commercial robots.',note:'Simulation and AI shorten robot development.'},
+{v:'space',s:'industry',kind:'proj',acc:true,t:'AI-run satellite operations',r:2018,p:2028,c:'medium',rw:'On-board AI and autonomous constellation management.',pw:'Large constellations routinely operated autonomously.',note:'Raises new resilience and cyber questions.'},
+{v:'comms',s:'industry',kind:'proj',acc:true,t:'AI-native radio networks',r:2020,p:2030,c:'medium',rw:'AI-designed air interfaces and network optimisation research.',pw:'AI built into 6G network operation from day one.',note:'Standards cycles still set the pace.'}
 ];
 
 const FIELDS = {
@@ -881,6 +1056,84 @@ const $ = id => document.getElementById(id);
 const store = {
   get(k, d){ try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
   set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+};
+
+const JOKES = [
+ 'A qubit walks into a bar. The barman asks, “In or out?” It says, “Yes.”',
+ 'Heisenberg is pulled over. “Do you know how fast you were going?” “No, but I know exactly where I am.”',
+ 'Schrödinger’s project plan is both on track and late until someone opens the status report.',
+ 'I asked the quantum computer if it had finished. It said, “Probably.”',
+ 'Q-Day is like a surprise party: everyone knows it’s coming, nobody knows when, and you’d better have your keys sorted.',
+ 'Post-quantum cryptography: for when the future arrives early and brings a crowbar.',
+ 'I tried to tell a joke about quantum entanglement, but someone on the other side of the world told it first. Instantly.',
+ 'Why don’t qubits gossip? They can’t observe anything without changing the story.',
+ 'Fusion power is 30 years away, and always will be. Lately it has been looking more like 20.',
+ 'Why did the transformer model go to therapy? Attention issues.',
+ 'The neural network broke up with me. It said I had too many hidden layers.',
+ 'Overfitting is memorising the exam. Underfitting is bringing a pencil and hope.',
+ 'Machine learning: when your spreadsheet gets a PhD.',
+ 'The AI said it would replace my job. Then it asked me to approve its expenses.',
+ 'AI can write code, compose music and design molecules. It still can’t find the right HDMI input.',
+ 'The AI passed the Turing test, then failed the CAPTCHA.',
+ 'My digital twin attended the meeting for me. It agreed to everything.',
+ 'The engineer said the grid could run on AI. The AI said it would need more grid.',
+ 'Data centres want gigawatts. Grid engineers want a seat and a strong coffee.',
+ 'What do you call a regulator who loves AI? A model regulator.',
+ 'Large language models are excellent listeners, right up until the context window closes.',
+ 'I asked a chatbot for a joke about decarbonisation. It gave me three and apologised for the carbon footprint.',
+ 'What’s an AI’s favourite snack? Microchips, with cookies if you accept them.',
+ 'There are 10 types of people: those who understand binary and those who don’t.',
+ 'I’d tell you a UDP joke, but you might not get it.',
+ 'I’d tell you a TCP joke, but I’d have to keep telling it until you acknowledged it.',
+ 'My password is the last eight digits of pi.',
+ 'I changed my password to “incorrect”. Now when I forget it, the system reminds me.',
+ 'Our new password policy needs a capital letter, a number, a symbol and a haiku.',
+ 'Zero trust: also the policy for the office biscuit tin.',
+ 'Why was the cyber analyst so calm? She had already assumed breach.',
+ 'Patch Tuesday, exploit Wednesday, apology Thursday.',
+ 'Cyber resilience is like flossing: everyone agrees it matters, right up until the audit.',
+ 'Phishing email of the day: “Dear valued customer, your grid frequency has expired.”',
+ 'My smart fridge got hacked. Now it only lets me eat kale.',
+ 'Why did the firewall get promoted? It knew exactly what not to let through.',
+ 'Two-factor authentication: because one good decision deserves another.',
+ 'Electricity jokes are shocking, but at least they’re current.',
+ 'Grid engineers don’t panic. They experience brief frequency deviations.',
+ 'Why was the battery so calm in the board meeting? It knew how to hold its charge.',
+ 'Sodium-ion batteries: definitely worth their salt.',
+ 'Battery researchers have a positive attitude, mostly at the cathode.',
+ 'Why did the solar panel get promoted? It was outstanding in its field.',
+ 'Wind turbines: big fans of renewable energy.',
+ 'Heat pumps prove that sometimes the best way to get warm is to run something backwards.',
+ 'My smart meter and I are no longer speaking. It said I used too much energy arguing.',
+ 'The cloud is just someone else’s computer. The grid is just someone else’s power station.',
+ 'Moore’s law says chips double every two years. My printer still takes five minutes to wake up.',
+ 'The robot vacuum mapped my house perfectly, then raised a formal complaint about the stairs.',
+ 'A cobot and a human bump into each other on the factory floor. The cobot apologises first.',
+ 'Penicillin took 15 years to reach patients. My app update took 15 minutes and broke everything.',
+ 'University: “We’ve made a breakthrough.” Industry: “Can we make it?” Investor: “Can it be on a slide by Friday?”',
+ 'In theory there is no difference between theory and practice. In practice, there is.',
+ 'Research to product used to take decades. Now it takes a weekend and a press release.',
+ 'The university said it was ready. Industry said it was ready in theory. The regulator said, “Show me the risk assessment.”',
+ 'Why did the digital twin refuse to go on holiday? It didn’t want to be out of sync.',
+ 'A regulator, an engineer and an AI walk into a substation. Only one of them signed the visitor book.',
+ 'Why do photons travel so light? They never carry any mass.',
+ 'My electricity bill and quantum mechanics have one thing in common: nobody fully understands either.',
+ 'This ticker was written without AI. Probably.'
+];
+
+/* Assumed share of the recent research-to-change gap that remains with AI and digital twins (low and high case). Scenario assumptions, not forecasts. */
+const ACCEL = {
+ energy:{lo:.6,hi:.85,speeds:'materials and cell discovery, network design, digital twins for planning and connection studies',limits:'manufacturing scale-up, safety cases, planning consent and grid connection queues'},
+ hw:{lo:.6,hi:.8,speeds:'chip layout and verification, where AI already designs production chips',limits:'fab construction, lithography tools and yield learning'},
+ sw:{lo:.3,hi:.6,speeds:'code generation, testing and documentation',limits:'adoption, assurance and security review'},
+ ai:{lo:.4,hi:.7,speeds:'AI is used to build AI, with release cycles of months',limits:'compute, energy and regulation'},
+ quantum:{lo:.75,hi:.95,speeds:'error-correction decoding, control and device simulation',limits:'physics, fabrication and cryogenics'},
+ cyber:{lo:.5,hi:.8,speeds:'vulnerability discovery, detection engineering and patch generation',limits:'long operational technology lifecycles, and attackers using the same tools'},
+ comms:{lo:.75,hi:.9,speeds:'network design, spectrum planning and optimisation',limits:'standards cycles and spectrum release'},
+ materials:{lo:.5,hi:.75,speeds:'screening millions of candidates and autonomous labs',limits:'synthesis, testing, durability and manufacturing'},
+ space:{lo:.7,hi:.9,speeds:'design, simulation and autonomous operations',limits:'launch, qualification and in-orbit testing'},
+ robotics:{lo:.5,hi:.8,speeds:'simulation-trained control and robot foundation models',limits:'hardware reliability and safety certification'},
+ life:{lo:.7,hi:.9,speeds:'target discovery, molecule design and trial design',limits:'clinical trials and regulatory approval'}
 };
 
 /* ==================================================================
@@ -1172,42 +1425,49 @@ function buildTrends(){
 /* ==================================================================
  *  WINDOW MANAGER
  * ================================================================== */
-const WIN_IDS = ['filters','display','summary','milestones','details','key','context','landing','gapchart','fortunes','vision','vid1','vid2'];
-const WIN_NAMES = {filters:'Filters', display:'Display', summary:'Summary', milestones:'Milestones', details:'Details', key:'Reading the model', context:'Context', landing:'Landing and starting', gapchart:'Gap over time', fortunes:'Time to a fortune', vision:'DESNZ AI energy vision', vid1:'Video: Q-Day intro', vid2:'Video: CAE cover'};
+const WIN_IDS = ['title','ticker','filters','display','summary','milestones','details','key','context','landing','gapchart','fortunes','vision','outlook','deck','music','vid1','vid2'];
+const WIN_NAMES = {title:'Showcase title', ticker:'Joke ticker', filters:'Filters', display:'Display', summary:'Summary', milestones:'Milestones', details:'Details', key:'Reading the model', context:'Context', landing:'Landing and starting', gapchart:'Gap over time', fortunes:'Time to a fortune', vision:'DESNZ AI energy vision', outlook:'Can AI shrink the gap?', deck:'Ofgem presentation', music:'Music', vid1:'Video: Q-Day intro', vid2:'Video: CAE cover'};
 function defaultLayout(){
-  const W = innerWidth, Hh = innerHeight, top = 80, narrow = W < 820, rw = Math.min(340, W - 36);
+  const W = innerWidth, Hh = innerHeight, top = 80, narrow = W < 820, rw = Math.min(340, W - 36), lw = Math.min(290, W - 36);
+  const tickH = 58, tickY = Hh - tickH - 8, bottom = tickY - 12, keyH = 150, keyY = bottom - keyH;
+  const vw = Math.round(W * .42), vh = Math.round(vw * 9 / 16 + 40), midX = lw + 36, midW = Math.max(300, W - midX - rw - 36);
   return {
-    filters:{x:18, y:top, w:Math.min(290, W - 36), h:Math.max(200, Math.min(Hh - top - 230, 640)), fs:1, open:!narrow},
-    key:{x:18, y:Math.max(top + 210, Hh - 210), w:Math.min(290, W - 36), h:160, fs:1, open:!narrow},
-    display:{x:Math.min(326, W - 310), y:top, w:290, h:Math.min(520, Hh - top - 60), fs:1, open:false},
-    summary:{x:W - rw - 18, y:top, w:Math.min(370, W - 36), h:370, fs:1, open:!narrow},
-    details:{x:W - rw - 18, y:top + 386, w:rw, h:Math.max(220, Math.min(380, Hh - top - 440)), fs:1, open:false},
-    milestones:{x:Math.max(18, W - rw - 18 - 330), y:top, w:310, h:Math.min(560, Hh - top - 60), fs:1, open:false},
+    title:{x:midX, y:top, w:midW, h:112, fs:1, open:true},
+    ticker:{x:10, y:tickY, w:W - 20, h:tickH, fs:1, open:true},
+    filters:{x:18, y:top, w:lw, h:Math.max(200, keyY - top - 12), fs:1, open:!narrow},
+    key:{x:18, y:keyY, w:lw, h:keyH, fs:1, open:!narrow},
+    display:{x:midX, y:top + 128, w:290, h:Math.min(520, bottom - top - 128), fs:1, open:false},
+    summary:{x:W - rw - 18, y:top, w:rw, h:370, fs:1, open:!narrow},
+    details:{x:W - rw - 18, y:top + 386, w:rw, h:Math.max(200, bottom - top - 386), fs:1, open:false},
+    milestones:{x:Math.max(18, W - rw - 18 - 330), y:top + 128, w:310, h:Math.min(560, bottom - top - 128), fs:1, open:false},
     context:{x:18, y:top, w:320, h:300, fs:1, open:false},
-    landing:{x:18, y:top + 316, w:320, h:Math.max(200, Hh - top - 316 - 130), fs:1, open:false},
-    gapchart:{x:W - rw - 18, y:top, w:rw, h:270, fs:1, open:false},
-    fortunes:{x:W - rw - 18, y:top + 286, w:rw, h:Math.max(220, Hh - top - 286 - 130), fs:1, open:false},
-    vision:{x:Math.min(326, W - 330), y:top, w:330, h:Math.min(470, Hh - top - 60), fs:1, open:false},
-    vid1:{x:Math.round(W * .06), y:top + 30, w:Math.round(W * .42), h:Math.round(W * .42 * 9 / 16 + 40), fs:1, open:false},
-    vid2:{x:Math.round(W * .52), y:top + 30, w:Math.round(W * .42), h:Math.round(W * .42 * 9 / 16 + 40), fs:1, open:false}
+    landing:{x:18, y:top + 316, w:320, h:Math.max(180, bottom - top - 316), fs:1, open:false},
+    gapchart:{x:W - rw - 18, y:top, w:rw, h:320, fs:1, open:false},
+    fortunes:{x:W - rw - 18, y:top + 336, w:rw, h:Math.max(200, bottom - top - 336), fs:1, open:false},
+    vision:{x:midX, y:top + 128, w:360, h:Math.min(560, bottom - top - 128), fs:1, open:false},
+    outlook:{x:midX + 376, y:top + 128, w:Math.max(320, W - rw - 36 - midX - 376), h:Math.min(580, bottom - top - 128), fs:1, open:false},
+    deck:{x:W - rw - 18, y:top + 386, w:rw, h:Math.round(rw * 1064 / 1912) + 100, fs:1, open:false},
+    music:{x:midX, y:Math.max(top + 128, bottom - 190), w:310, h:180, fs:1, open:false},
+    vid1:{x:Math.round(W * .06), y:top + 128, w:vw, h:vh, fs:1, open:false},
+    vid2:{x:Math.round(W * .52), y:top + 128, w:vw, h:vh, fs:1, open:false}
   };
 }
 function waitLayout(){
   const d = defaultLayout();
   WIN_IDS.forEach(id => d[id].open = false);
-  d.vid1.open = d.vid2.open = true;
+  ['vid1','vid2','title','ticker'].forEach(id => d[id].open = true);
   return d;
 }
 function playLayout(){
   const d = defaultLayout();
   WIN_IDS.forEach(id => d[id].open = false);
-  ['context','landing','gapchart','fortunes'].forEach(id => d[id].open = true);
+  ['context','landing','gapchart','fortunes','title','ticker'].forEach(id => d[id].open = true);
   return d;
 }
-let layout = Object.assign(defaultLayout(), store.get('sg.layout.v3', {}));
+let layout = Object.assign(defaultLayout(), store.get('sg.layout.v4', {}));
 let zTop = 20;
 const wins = {};
-function saveLayout(){ store.set('sg.layout.v3', layout); }
+function saveLayout(){ store.set('sg.layout.v4', layout); }
 function placeWin(id){
   const el = wins[id], L = layout[id];
   L.w = Math.min(L.w, innerWidth - 8); L.h = Math.min(L.h, innerHeight - 8);
@@ -1215,6 +1475,7 @@ function placeWin(id){
   el.style.left = L.x + 'px'; el.style.top = L.y + 'px'; el.style.width = L.w + 'px'; el.style.height = L.h + 'px';
   el.style.setProperty('--fs', L.fs);
   el.classList.toggle('closed', !L.open);
+  if (layout.ticker) document.body.classList.toggle('tick-on', !!layout.ticker.open);
 }
 function raise(id){ wins[id].style.zIndex = ++zTop; }
 function setOpen(id, open){ layout[id].open = open; if (!open) wins[id].classList.remove('max'); placeWin(id); if (typeof syncVideos === 'function') syncVideos(); if (open) raise(id); saveLayout(); buildWinMenu(); if (open && typeof updateTimeWindows === 'function') updateTimeWindows(true); }
@@ -1254,14 +1515,16 @@ if (window.ResizeObserver) {
 const winMenu = $('winMenu');
 function buildWinMenu(){
   winMenu.innerHTML = WIN_IDS.map(id => `<button data-w="${id}"><span class="tick ${layout[id].open ? 'on' : ''}">${layout[id].open ? '✓' : ''}</span>${WIN_NAMES[id]}</button>`).join('') +
-    `<hr><button data-w="__wait">Arrange for waiting (both videos)</button><button data-w="__play">Arrange for Play the century</button><button data-w="__reset">Arrange for exploring (default)</button><button data-w="__all">Open all windows</button>` +
-    `<small>Drag a title bar to move, drag the bottom-right corner to resize, A− and A+ change text size. Double-click a title bar to restore its default place.</small>`;
+    `<hr><button data-w="__wait">Arrange for waiting (both videos)</button><button data-w="__play">Arrange for Play the century</button><button data-w="__reset">Arrange for exploring (default)</button><button data-w="__all">Open all windows</button><hr><button data-w="__save">Save this view to a file…</button><button data-w="__load">Load a view from a file…</button>` +
+    `<small>Saved views remember open windows, positions, text sizes, filters, display settings, title, ticker and camera. Open one directly with index.html?view=yourfile.json. Drag a title bar to move, drag the bottom-right corner to resize, A− and A+ change text size. Double-click a title bar to restore its default place.</small>`;
 }
 buildWinMenu();
 winMenu.addEventListener('click', e => {
   const b = e.target.closest('button'); if (!b) return;
   const w = b.dataset.w;
   if (w === '__reset') { layout = defaultLayout(); WIN_IDS.forEach(placeWin); saveLayout(); buildWinMenu(); syncVideos(); }
+  else if (w === '__save') { winMenu.classList.remove('open'); saveViewFile(); }
+  else if (w === '__load') { winMenu.classList.remove('open'); $('viewFile').click(); }
   else if (w === '__wait') { layout = waitLayout(); WIN_IDS.forEach(placeWin); saveLayout(); buildWinMenu(); syncVideos(); }
   else if (w === '__play') { layout = playLayout(); WIN_IDS.forEach(placeWin); saveLayout(); buildWinMenu(); updateTimeWindows(true); }
   else if (w === '__all') { WIN_IDS.forEach(id => { layout[id].open = true; placeWin(id); }); saveLayout(); buildWinMenu(); syncVideos(); }
@@ -1409,7 +1672,7 @@ function openDetail(it){
     : it.kind === 'proj' ? `<strong>~${it.lag}</strong><span>years, if it lands on time</span>` : `<strong>${NOW - it.r}+</strong><span>years and counting</span>`;
   const conf = it.kind === 'hist' ? (it.c === 'high' ? 'Well documented' : 'Dates approximate') : CONF_LONG[it.c];
   detailBody.innerHTML = `
-    <div class="dchips"><span class="chip src" style="background:${s.hex}">${s.name}</span><span class="chip" style="color:${FIELDS[it.v].hex};border-color:${FIELDS[it.v].hex}55">${FIELDS[it.v].name}</span><span class="chip conf-${it.c}">${conf}</span>${it.co ? `<span class="chip">Company: ${it.co}</span>` : ''}${it.dv ? `<span class="chip vis">DESNZ vision: ${VISION[it.dv]}</span>` : ''}</div>
+    <div class="dchips"><span class="chip src" style="background:${s.hex}">${s.name}</span><span class="chip" style="color:${FIELDS[it.v].hex};border-color:${FIELDS[it.v].hex}55">${FIELDS[it.v].name}</span><span class="chip conf-${it.c}">${conf}</span>${it.co ? `<span class="chip">Company: ${it.co}</span>` : ''}${it.acc ? `<span class="chip vis">AI-accelerated outlook</span>` : ''}${it.dv ? `<span class="chip vis">DESNZ vision: ${VISION[it.dv]}</span>` : ''}</div>
     <h3 class="dtitle">${it.t}</h3>
     <div class="gap">${gapTxt}</div>
     <div class="span"><b>${it.r}</b><div>${it.rw}</div><b>${pYear}</b><div>${it.pw}</div></div>
@@ -1553,11 +1816,14 @@ function frame(){
       yearShown = yr;
       $('yearNum').textContent = yr;
       const g = rollingGap(yr);
-      $('yearSub').innerHTML = g ? `Time taken from research to change: <b>${g.m} years</b><br><span>median of ${g.n} ${g.n === 1 ? 'arc' : 'arcs'} landing ${Math.max(Y0, yr - 9)}–${yr}${yr > NOW ? ', including expected' : ''}</span>` : `Time taken from research to change: <b>${yr - 9 <= Y0 ? 'no arcs landing yet' : 'no arcs landed in the last ten years'}</b><br><span>for this selection</span>`;
+      const scY = yr > NOW ? scenario() : null;
+      if (scY) { const v = scenAt(scY, yr); $('yearSub').innerHTML = `Scenario for research starting now: <b>${fmtY(scY.base)} years</b> at the recent pace, <b>${fmtY(v.lo)}–${fmtY(v.hi)}</b> with AI and digital twins<br><span>an illustration, not a forecast</span>`; }
+      else $('yearSub').innerHTML = g ? `Time taken from research to change: <b>${g.m} years</b><br><span>median of ${g.n} ${g.n === 1 ? 'arc' : 'arcs'} landing ${Math.max(Y0, yr - 9)}–${yr}${yr > NOW ? ', including expected' : ''}</span>` : `Time taken from research to change: <b>${yr - 9 <= Y0 ? 'no arcs landing yet' : 'no arcs landed in the last ten years'}</b><br><span>for this selection</span>`;
       if (document.activeElement !== $('scrub')) $('scrub').value = state.cursor;
     }
   }
   updateTimeWindows(false);
+  tickStep(dt);
   if (camGoal) {
     camera.position.lerp(camGoal.pos, 1 - Math.pow(.02, dt)); controls.target.lerp(camGoal.target, 1 - Math.pow(.02, dt));
     if (camera.position.distanceTo(camGoal.pos) < .3) camGoal = null;
@@ -1619,12 +1885,12 @@ function frame(){
  *  TIME-LINKED WINDOWS
  * ================================================================== */
 function rollingGap(yr){
-  const set = items.filter(it => shownFully(it) && it.kind !== 'flight' && (it.kind === 'hist' || yr > NOW) && it.p <= yr && it.p > yr - 10);
+  const set = items.filter(it => shownFully(it) && it.kind === 'hist' && it.p <= yr && it.p > yr - 10);
   if (!set.length) return null;
   return {m:Math.round(median(set.map(it => it.lag))), n:set.length};
 }
 let gapSeries = [];
-function computeGapSeries(){ gapSeries = []; for (let y = 1930; y <= 2031; y++) { const g = rollingGap(y); gapSeries.push({y, m:g ? g.m : null}); } }
+function computeGapSeries(){ gapSeries = []; for (let y = 1930; y <= NOW; y++) { const g = rollingGap(y); gapSeries.push({y, m:g ? g.m : null}); } }
 function setupCanvas(cv){
   if (!cv) return null;
   const w = cv.clientWidth, h = cv.clientHeight, dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -1644,19 +1910,31 @@ function axes(S, x0, x1, ymax, step){
 }
 function drawGap(c){
   const S = setupCanvas($('gapCanvas')); if (!S) return;
-  const {g} = S, top = Math.max(20, Math.ceil((Math.max(0, ...gapSeries.map(p => p.m || 0)) + 2) / 10) * 10);
+  const {g} = S, sc = scenario();
+  const top = Math.max(20, Math.ceil((Math.max(0, sc ? sc.base : 0, ...gapSeries.map(p => p.m || 0)) + 2) / 10) * 10);
   const {X, Y, T, B} = axes(S, 1930, 2031, top, 10);
-  const path = (cond, stroke, width, dash) => {
+  const path = (cond, stroke, width) => {
     g.beginPath(); let on = false;
     gapSeries.forEach(p => { if (p.m == null || !cond(p)) { on = false; return; } const px = X(p.y), py = Y(p.m); if (!on) { g.moveTo(px, py); on = true; } else g.lineTo(px, py); });
-    g.setLineDash(dash || []); g.strokeStyle = stroke; g.lineWidth = width; g.stroke(); g.setLineDash([]);
+    g.strokeStyle = stroke; g.lineWidth = width; g.stroke();
   };
   path(() => true, 'rgba(233,242,255,.14)', 1.5);
-  path(p => p.y <= c && p.y <= NOW, '#E9F2FF', 2.2);
-  path(p => p.y <= c && p.y >= NOW, '#E9F2FF', 2.2, [3, 4]);
-  if (state.playing) { const cx = X(Math.min(c, 2031)); g.strokeStyle = 'rgba(255,255,255,.55)'; g.beginPath(); g.moveTo(cx, T); g.lineTo(cx, S.h - B); g.stroke(); }
-  const yr = Math.floor(Math.min(c, 2031)), pt = gapSeries.find(p => p.y === yr);
-  $('gapNow').textContent = pt && pt.m != null ? `${yr}: arcs landing in the previous ten years took a median of ${pt.m} years.` : `${yr}: no arcs landing in the previous ten years for this selection.`;
+  path(p => p.y <= c, '#E9F2FF', 2.2);
+  const end = Math.min(c, 2031);
+  if (sc && end > NOW) {
+    g.beginPath();
+    for (let y = NOW; y <= end + 1e-6; y += .25) g.lineTo(X(y), Y(scenAt(sc, y).hi));
+    for (let y = end; y >= NOW - 1e-6; y -= .25) g.lineTo(X(y), Y(scenAt(sc, y).lo));
+    g.closePath(); g.fillStyle = 'rgba(76,211,194,.25)'; g.fill();
+    g.beginPath(); for (let y = NOW; y <= end + 1e-6; y += .25) { const v = scenAt(sc, y); g.lineTo(X(y), Y((v.lo + v.hi) / 2)); }
+    g.strokeStyle = '#4CD3C2'; g.lineWidth = 2.2; g.stroke();
+    g.beginPath(); g.moveTo(X(NOW), Y(sc.base)); g.lineTo(X(end), Y(sc.base));
+    g.setLineDash([4, 4]); g.strokeStyle = 'rgba(233,242,255,.75)'; g.lineWidth = 1.6; g.stroke(); g.setLineDash([]);
+  }
+  if (state.playing) { const cx = X(end); g.strokeStyle = 'rgba(255,255,255,.55)'; g.beginPath(); g.moveTo(cx, T); g.lineTo(cx, S.h - B); g.stroke(); }
+  const yr = Math.floor(end), pt = gapSeries.find(p => p.y === yr);
+  if (yr > NOW && sc) { const v = scenAt(sc, yr); $('gapNow').textContent = `${yr} scenario: about ${fmtY(sc.base)} years at the recent pace; ${fmtY(v.lo)}–${fmtY(v.hi)} with AI and digital twins.`; }
+  else $('gapNow').textContent = pt && pt.m != null ? `${yr}: arcs landing in the previous ten years took a median of ${pt.m} years.` : `${yr}: no arcs landing in the previous ten years for this selection.`;
 }
 function renderContext(yr){
   const era = CTX_ERAS.filter(e => e[0] <= yr).pop();
@@ -1692,6 +1970,7 @@ function renderFortunes(yr){
   $('fortStat').textContent = !pool.length ? 'No examples for the selected fields.' : parts.length ? `Median time to a fortune: ${parts.join('; ')}.` + (fastest ? ` Fastest so far: ${fastest.co}, ${lagTxt(fastest.w - fastest.f)}.` : '') : 'No founders in this selection had reached a fortune by this year.';
   $('fortList').innerHTML = shown.map(x => `<div class="trow"><b>${x.f}</b><i class="cat" style="background:${FIELDS[x.v].hex}"></i><span><strong>${x.n}</strong>, ${x.co}<em>${x.w <= yr ? `${lagTxt(x.w - x.f)}: ${x.how.toLowerCase()}, ${x.w}` : 'building'}</em></span></div>`).join('');
 }
+const visOpen = new Set();
 function renderVision(yr){
   if (yr === undefined) yr = state.playing ? Math.floor(Math.min(state.cursor, 2031)) : 2031;
   const pool = items.filter(it => it.dv), single = Object.values(F.dv).filter(Boolean).length === 1;
@@ -1699,18 +1978,23 @@ function renderVision(yr){
     const set = pool.filter(it => it.dv === k).sort((a, b) => (a.p || a.tg) - (b.p || b.tg));
     const landed = set.filter(it => it.kind === 'hist' && it.p <= yr), ahead = set.filter(it => !(it.kind === 'hist' && it.p <= yr));
     const on = F.vision && F.dv[k] && single;
-    return `<div class="vrow ${on ? 'on' : ''}" data-dv="${k}" role="button" tabindex="0"><span class="vn">${VISION[k]}</span><span class="vc">${landed.length} already helping, ${ahead.length} still to land</span><span class="vt">${landed.map(it => `<span data-id="${it.id}">${it.t}</span>`).join('')}${ahead.map(it => `<span class="ahead" data-id="${it.id}">${it.t}</span>`).join('')}</span></div>`;
+    return `<div class="vrow ${on ? 'on' : ''}" data-dv="${k}"><div class="vhead" role="button" tabindex="0" title="Show only this area in the model"><span class="vn">${VISION[k]}</span><span class="vc">${landed.length} already helping, ${ahead.length} still to land</span></div>
+      <details class="vdet" data-k="${k}" ${visOpen.has(k) ? 'open' : ''}><summary>Already helping (${landed.length})</summary>${landed.length ? landed.slice().reverse().map(it => `<div class="trow" data-id="${it.id}"><b>${it.p}</b><i class="cat" style="background:${itemHex(it)}"></i><span>${it.t}<em>${it.pw}</em></span></div>`).join('') : '<p class="empty">Nothing yet at this point in time.</p>'}</details>
+      <span class="vt">${ahead.map(it => `<span class="ahead" data-id="${it.id}">${it.t}</span>`).join('')}</span></div>`;
   }).join('');
 }
+$('visList').addEventListener('toggle', e => { const d = e.target; if (!d.classList || !d.classList.contains('vdet')) return; d.open ? visOpen.add(d.dataset.k) : visOpen.delete(d.dataset.k); }, true);
 $('visList').addEventListener('click', e => {
-  const id = e.target.dataset && e.target.dataset.id;
-  if (id != null && id !== undefined && e.target.tagName === 'SPAN' && e.target.parentElement.classList.contains('vt')) { const it = items[+id]; hidden.delete(it.id); openDetail(it); return; }
-  const row = e.target.closest('.vrow'); if (!row) return;
-  const k = row.dataset.dv, single = Object.values(F.dv).filter(Boolean).length === 1;
+  const tr = e.target.closest('.vdet .trow[data-id], .vt span[data-id]');
+  if (tr) { const it = items[+tr.dataset.id]; hidden.delete(it.id); openDetail(it); return; }
+  if (e.target.closest('.vdet')) return;
+  const head = e.target.closest('.vhead'); if (!head) return;
+  const k = head.parentElement.dataset.dv, single = Object.values(F.dv).filter(Boolean).length === 1;
   if (F.vision && single && F.dv[k]) { F.vision = false; F.dv = {opt:true,asset:true,demand:true,rd:true,gov:true}; }
   else { F.vision = true; F.dv = {opt:false,asset:false,demand:false,rd:false,gov:false}; F.dv[k] = true; F.fields = new Set(FKEYS); }
   refresh();
 });
+$('visExpand').onclick = () => { const all = visOpen.size < Object.keys(VISION).length; Object.keys(VISION).forEach(k => all ? visOpen.add(k) : visOpen.delete(k)); $('visExpand').textContent = all ? 'Collapse all' : 'Expand all already helping'; renderVision(); };
 $('visAll').onclick = () => { F.vision = true; F.dv = {opt:true,asset:true,demand:true,rd:true,gov:true}; F.fields = new Set(FKEYS); refresh(); };
 $('visOff').onclick = () => { F.vision = false; F.dv = {opt:true,asset:true,demand:true,rd:true,gov:true}; refresh(); };
 ['landList','startList'].forEach(id => $(id).addEventListener('click', e => { const r = e.target.closest('.trow'); if (r && r.dataset.id) openDetail(items[+r.dataset.id]); }));
@@ -1725,8 +2009,184 @@ function updateTimeWindows(force){
   if (layout.gapchart.open) drawGap(c);
   if (layout.fortunes.open) renderFortunes(yr);
   if (layout.vision.open) renderVision(yr);
+  if (layout.outlook.open && (force || !state.playing)) renderOutlook();
 }
 if (window.ResizeObserver) { const cro = new ResizeObserver(() => { twKey = ''; }); ['gapCanvas','fortCanvas'].forEach(id => cro.observe($(id))); }
+
+/* ==================================================================
+ *  AI OUTLOOK: CAN AI AND DIGITAL TWINS SHRINK THE GAP?
+ * ================================================================== */
+const fmtY = v => v < 3 ? String(Math.round(v * 10) / 10) : String(Math.round(v));
+function recentMedianFor(test){
+  let set = items.filter(it => it.kind === 'hist' && !it.co && test(it) && it.r >= 2000);
+  if (set.length < 3) set = items.filter(it => it.kind === 'hist' && !it.co && test(it) && it.r >= 1990);
+  return set.length ? {m:median(set.map(it => it.lag)), n:set.length} : null;
+}
+function scenario(){
+  const per = FKEYS.filter(k => F.fields.has(k)).map(k => ({k, r:recentMedianFor(it => it.v === k && F.src[it.s])})).filter(x => x.r);
+  if (!per.length) return null;
+  const pool = items.filter(it => it.kind === 'hist' && !it.co && F.fields.has(it.v) && F.src[it.s] && it.r >= 2000);
+  const base = pool.length >= 3 ? median(pool.map(it => it.lag)) : median(per.map(x => x.r.m));
+  let w = 0, lo = 0, hi = 0;
+  per.forEach(x => { w += x.r.n; lo += ACCEL[x.k].lo * x.r.n; hi += ACCEL[x.k].hi * x.r.n; });
+  return {base, lo:base * lo / w, hi:base * hi / w, per};
+}
+function scenAt(sc, y){ const t = clamp((y - NOW) / 5, 0, 1); return {lo:sc.base - (sc.base - sc.lo) * t, hi:sc.base - (sc.base - sc.hi) * t}; }
+function renderOutlook(){
+  const sc = scenario();
+  $('olHead').textContent = sc ? `For the selected fields, research begun since 2000 has taken a median of ${fmtY(sc.base)} years to reach change. With AI and digital twins compressing discovery, design and testing, a plausible range for research starting now is ${fmtY(sc.lo)}–${fmtY(sc.hi)} years.` : 'Select at least one field to see the outlook.';
+  $('olList').innerHTML = FKEYS.filter(k => F.fields.has(k)).map(k => {
+    const r = recentMedianFor(it => it.v === k && F.src[it.s]); if (!r) return '';
+    const A = ACCEL[k], lo = Math.max(.5, r.m * A.lo), hi = r.m * A.hi, sc25 = v => Math.min(100, v / 25 * 100);
+    return `<div class="olrow"><div class="olh"><i style="background:${FIELDS[k].hex}"></i><b>${FIELDS[k].name}</b><span>${fmtY(r.m)} → ${fmtY(lo)}–${fmtY(hi)} years</span></div>
+      <div class="olbar"><div class="b" style="width:${sc25(r.m)}%"></div><div class="a" style="left:${sc25(lo)}%;width:${Math.max(1, sc25(hi) - sc25(lo))}%"></div></div>
+      <p><strong>AI speeds up:</strong> ${A.speeds}. <strong>Still limits:</strong> ${A.limits}.</p></div>`;
+  }).join('');
+}
+
+/* ==================================================================
+ *  SHOWCASE TITLE
+ * ================================================================== */
+const TITLE_DEFAULT = {text:'SP Energy Networks & University of Glasgow Partnership Showcase', color:'#FFFFFF', bg:'#004E64', alpha:.92, accent:'#7CE04A', align:'center'};
+const titleCfg = Object.assign({}, TITLE_DEFAULT, store.get('sg.title', {}));
+const hexA = (hex, a) => { const n = parseInt(hex.slice(1), 16); return `rgba(${n >> 16 & 255},${n >> 8 & 255},${n & 255},${a})`; };
+function applyTitle(){
+  const el = wins.title, tt = $('titleText');
+  if (document.activeElement !== tt) tt.textContent = titleCfg.text;
+  tt.style.color = titleCfg.color; tt.style.textAlign = titleCfg.align;
+  el.style.background = hexA(titleCfg.bg, titleCfg.alpha);
+  $('titleBar').style.background = titleCfg.accent; $('titleBar').style.alignSelf = titleCfg.align === 'center' ? 'center' : 'flex-start';
+  $('tcText').value = titleCfg.color; $('tcBg').value = titleCfg.bg; $('tcAcc').value = titleCfg.accent; $('tcAlpha').value = titleCfg.alpha; $('tcAlign').value = titleCfg.align;
+  store.set('sg.title', titleCfg);
+}
+$('titleText').addEventListener('input', e => { titleCfg.text = e.target.textContent; store.set('sg.title', titleCfg); });
+$('titleText').addEventListener('keydown', e => { e.stopPropagation(); if (e.key === 'Enter') { e.preventDefault(); e.target.blur(); } });
+[['tcText','color'],['tcBg','bg'],['tcAcc','accent'],['tcAlign','align']].forEach(([id, k]) => $(id).addEventListener('input', e => { titleCfg[k] = e.target.value; applyTitle(); }));
+$('tcAlpha').addEventListener('input', e => { titleCfg.alpha = +e.target.value; applyTitle(); });
+$('tcReset').onclick = () => { Object.assign(titleCfg, TITLE_DEFAULT); applyTitle(); };
+$('titleCfgBtn').onclick = () => $('titleCfg').classList.toggle('on');
+
+/* ==================================================================
+ *  JOKE TICKER
+ * ================================================================== */
+const TICK_DEFAULT = {speed:70, color:'#E9F2FF', bg:'#0E2131', alpha:.9, paused:false};
+const tick = Object.assign({}, TICK_DEFAULT, store.get('sg.ticker', {}));
+const ktrack = $('ktrack');
+let kx = 0, kSegW = 0;
+(function buildTicker(){
+  const order = JOKES.map((j, i) => i).sort(() => Math.random() - .5);
+  const html = order.map(i => `<span class="kj">${JOKES[i]}</span><span class="ks">◆</span>`).join('');
+  ktrack.innerHTML = `<span class="kseg">${html}</span><span class="kseg" aria-hidden="true">${html}</span>`;
+})();
+function measureTicker(){ const s = ktrack.firstElementChild; kSegW = s ? s.offsetWidth : 0; }
+function applyTicker(){
+  wins.ticker.style.background = hexA(tick.bg, tick.alpha); ktrack.style.color = tick.color;
+  $('tkSpeed').value = tick.speed; $('tkSpeedV').textContent = tick.speed; $('tkText').value = tick.color; $('tkBg').value = tick.bg; $('tkAlpha').value = tick.alpha;
+  $('tkPause').textContent = tick.paused ? 'Resume' : 'Pause';
+  store.set('sg.ticker', tick); kSegW = 0;
+}
+function tickStep(dt){
+  if (!layout.ticker.open || tick.paused) return;
+  if (!kSegW) measureTicker(); if (!kSegW) return;
+  kx -= tick.speed * dt * (layout.ticker.fs || 1);
+  if (-kx >= kSegW) kx += kSegW;
+  ktrack.style.transform = `translate3d(${kx.toFixed(1)}px,0,0)`;
+}
+$('tkSpeed').addEventListener('input', e => { tick.speed = +e.target.value; applyTicker(); });
+$('tkText').addEventListener('input', e => { tick.color = e.target.value; applyTicker(); });
+$('tkBg').addEventListener('input', e => { tick.bg = e.target.value; applyTicker(); });
+$('tkAlpha').addEventListener('input', e => { tick.alpha = +e.target.value; applyTicker(); });
+$('tkPause').onclick = () => { tick.paused = !tick.paused; applyTicker(); };
+$('tickCfgBtn').onclick = () => $('tickCfg').classList.toggle('on');
+addEventListener('resize', () => { kSegW = 0; });
+if (window.ResizeObserver) new ResizeObserver(() => { kSegW = 0; }).observe(wins.ticker);
+
+/* ==================================================================
+ *  MUSIC
+ * ================================================================== */
+const music = $('music');
+const mus = Object.assign({vol:.5}, store.get('sg.music', {}));
+music.volume = mus.vol; $('muVol').value = mus.vol; $('muVolV').textContent = Math.round(mus.vol * 100) + '%';
+function syncMusic(){
+  const on = !music.paused;
+  $('muPlay').textContent = on ? 'Pause music' : 'Play music';
+  $('musicBtn').setAttribute('aria-pressed', on); $('musicBtn').textContent = on ? '♪ Music on' : '♪ Music';
+}
+function toggleMusic(){
+  if (music.paused) {
+    const pr = music.play();
+    if (pr && pr.catch) pr.catch(() => { $('muMsg').textContent = 'Could not play the track. Check it is in the same GitHub folder as index.html, or choose a track from this computer.'; if (!layout.music.open) setOpen('music', true); });
+  } else music.pause();
+}
+music.addEventListener('play', () => { $('muMsg').textContent = ''; syncMusic(); });
+music.addEventListener('pause', syncMusic);
+music.addEventListener('error', () => { $('muMsg').textContent = 'Track not found. Upload mixkit-driving-ambition-32.mp3 next to index.html, or choose a track.'; syncMusic(); });
+$('muPlay').onclick = toggleMusic; $('musicBtn').onclick = toggleMusic;
+$('muVol').addEventListener('input', e => { mus.vol = +e.target.value; music.volume = mus.vol; $('muVolV').textContent = Math.round(mus.vol * 100) + '%'; store.set('sg.music', mus); });
+$('muFile').addEventListener('change', e => {
+  const f = e.target.files && e.target.files[0]; if (!f) return;
+  music.src = URL.createObjectURL(f); $('muName').textContent = f.name; music.play().catch(() => {});
+});
+
+/* ==================================================================
+ *  OFGEM DECK THUMBNAIL
+ * ================================================================== */
+const DECK_FILE = 'Cyber_Reg_and_ET_-_Single_Slide_Overivew.pptx';
+function openDeck(){
+  const url = new URL(DECK_FILE, location.href).href;
+  const isPublic = location.protocol === 'https:' && !/^(localhost|127\.|\[::1\])/.test(location.hostname);
+  window.open(isPublic ? 'https://view.officeapps.live.com/op/view.aspx?src=' + encodeURIComponent(url) : url, '_blank', 'noopener');
+}
+$('deckOpen').onclick = openDeck; $('deckView').onclick = openDeck;
+
+/* ==================================================================
+ *  SAVED VIEWS (JSON)
+ * ================================================================== */
+function snapshot(name){
+  return {app:'the-shrinking-gap', version:1, name, saved:new Date().toISOString(),
+    layout:JSON.parse(JSON.stringify(layout)), maxed:WIN_IDS.filter(id => wins[id].classList.contains('max')),
+    view:Object.assign({}, view), filters:Object.assign({}, F, {fields:[...F.fields]}),
+    hidden:[...hidden].map(i => items[i].t), title:Object.assign({}, titleCfg), ticker:Object.assign({}, tick),
+    camera:{pos:camera.position.toArray(), target:controls.target.toArray()}, autoRotate:state.autoRotate, musicVolume:mus.vol};
+}
+function saveViewFile(){
+  const name = (prompt('Name this view, for example “opening”, “play” or “questions”:', 'view') || '').trim();
+  if (!name) return;
+  const blob = new Blob([JSON.stringify(snapshot(name), null, 2)], {type:'application/json'});
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+  a.download = name.replace(/[^\w\-]+/g, '-').toLowerCase() + '.json';
+  document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 3000);
+}
+function syncDisplayUI(){
+  [['labelSeg','labels'],['laneSeg','lanes'],['colSeg','colour']].forEach(([id, k]) => $(id).querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', b.dataset.v === view[k])));
+  [['pulseT','pulses'],['trendT','trend'],['floorT','floor'],['loopD','loopPlay'],['loopT','loopPlay']].forEach(([id, k]) => { $(id).checked = !!view[k]; });
+  [['lfsR','lfsV','lfs',v => v + 'px'],['rotR','rotV','rotSpeed',v => (+v).toFixed(2)],['glowR','glowV','glow',v => (+v).toFixed(2)]].forEach(([r, o, k, f]) => { $(r).value = view[k]; $(o).textContent = f(view[k]); });
+  document.documentElement.style.setProperty('--lfs', view.lfs + 'px');
+  controls.autoRotateSpeed = view.rotSpeed; if (bloom) bloom.strength = view.glow;
+  applyLanes(false); applyColours(); $('floorT').dispatchEvent(new Event('change'));
+}
+function applyView(o){
+  if (!o || o.app !== 'the-shrinking-gap') { alert('That file is not a saved view from this app.'); return; }
+  const d = defaultLayout();
+  layout = {}; WIN_IDS.forEach(id => { layout[id] = Object.assign({}, d[id], (o.layout || {})[id] || {}); });
+  WIN_IDS.forEach(id => { wins[id].classList.toggle('max', (o.maxed || []).includes(id)); placeWin(id); });
+  saveLayout(); buildWinMenu();
+  if (o.view) { Object.assign(view, o.view); store.set('sg.view.v2', view); syncDisplayUI(); }
+  if (o.filters) { const f = o.filters, def = DEFAULT_FILTERS(); Object.assign(F, def, f, {fields:new Set(f.fields || FKEYS)}); }
+  hidden.clear(); (o.hidden || []).forEach(t => { const it = items.find(x => x.t === t); if (it) hidden.add(it.id); });
+  if (o.title) { Object.assign(titleCfg, o.title); applyTitle(); }
+  if (o.ticker) { Object.assign(tick, o.ticker); applyTicker(); }
+  if (o.musicVolume != null) { mus.vol = o.musicVolume; music.volume = mus.vol; $('muVol').value = mus.vol; $('muVolV').textContent = Math.round(mus.vol * 100) + '%'; }
+  if (o.camera) camGoal = {pos:new THREE.Vector3().fromArray(o.camera.pos), target:new THREE.Vector3().fromArray(o.camera.target)};
+  if (o.autoRotate != null) setAutoRotate(o.autoRotate);
+  refresh(); syncVideos(); twKey = '';
+}
+$('viewFile').addEventListener('change', e => {
+  const f = e.target.files && e.target.files[0]; if (!f) return;
+  const rd = new FileReader();
+  rd.onload = () => { try { applyView(JSON.parse(rd.result)); } catch (err) { alert('Could not read that view file.'); } e.target.value = ''; };
+  rd.readAsText(f);
+});
 
 /* ==================================================================
  *  VIDEO WINDOWS
@@ -1751,7 +2211,8 @@ function syncVideos(){
 /* ==================================================================
  *  START
  * ================================================================== */
-applyLanes(true); applyColours(); refresh(); setAutoRotate(state.autoRotate); syncVideos();
+applyLanes(true); applyColours(); refresh(); setAutoRotate(state.autoRotate); syncVideos(); applyTitle(); applyTicker(); syncMusic();
+{ const vp = new URLSearchParams(location.search).get('view'); if (vp) fetch(vp).then(r => r.json()).then(applyView).catch(() => {}); }
 $('floorT').dispatchEvent(new Event('change'));
 frame();
 requestAnimationFrame(() => {
