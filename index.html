@@ -29,7 +29,7 @@ button,input,select{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--proj);outline-offset:2px}
 
 /* Top bar */
-#top{position:fixed;top:calc(var(--safe-t) + 16px);left:20px;right:20px;display:flex;justify-content:space-between;align-items:center;gap:20px;pointer-events:none;z-index:1000}
+#top{position:fixed;top:calc(var(--safe-t) + 16px);left:20px;right:20px;display:flex;justify-content:flex-end;align-items:center;gap:20px;pointer-events:none;z-index:1000}
 #top > *{pointer-events:auto}
 #top h1{font-family:var(--serif);font-weight:400;font-size:clamp(20px,2.2vw,44px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;line-height:1.05;margin:0;letter-spacing:-.01em}
 .actions{display:flex;gap:6px;flex-wrap:nowrap;justify-content:flex-end;position:relative;flex:none}
@@ -200,11 +200,17 @@ canvas.chart{width:100%;height:11em;display:block;margin:.4em 0}
 .looplbl{display:inline-flex;align-items:center;gap:6px;cursor:pointer;backdrop-filter:none}
 .looplbl input{accent-color:#E9F2FF;margin:0}
 .tickwin{max-width:none}
+.pagetitlewin{background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none;min-height:40px}
+.pagetitlewin:hover{background:rgba(13,29,43,.5)}
+.ptbody{display:flex;align-items:center;height:100%;padding:0 .4em!important;overflow:hidden}
+.ptitle{font-family:var(--serif);font-weight:400;font-size:2.4em;line-height:1.05;margin:0;white-space:nowrap;outline:none;letter-spacing:-.01em}
 .srcs a{display:block;color:var(--text);text-decoration:none;padding:.35em .2em;border-top:1px solid var(--line);font-size:.92em;line-height:1.35}
 .srcs a:hover{color:#FFD166;text-decoration:underline}
 .fbanner{font-family:var(--serif);font-size:1.12em;line-height:1.35;margin:.4em 0 .2em;color:var(--text)}
 .fbanner b{color:#FFD166;font-weight:400}
 .fbanner span{display:block;font-size:.85em;color:#FFD166;margin-top:.2em;font-style:italic}
+.nw{display:block;font-style:normal;font-size:.86em;color:#A8E6B5;margin-top:.15em;font-variant-numeric:tabular-nums}
+.nw small{color:var(--muted);font-size:.9em;margin-left:.35em}
 .fb{display:inline-block;font-style:normal;font-size:.78em;margin:.25em .35em 0 0;padding:.05em .5em;border-radius:999px;border:1px solid rgba(255,209,102,.45);color:#FFE3A3}
 .fb.prize{border-color:#FFD166;background:rgba(255,209,102,.12)}
 .trow.resrow{background:rgba(255,209,102,.05);border-radius:6px}
@@ -285,7 +291,6 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
 <div id="labels" aria-hidden="true"></div>
 
 <header id="top">
-  <h1>The Shrinking Gap from Research to Change</h1>
   <div class="actions">
     <button class="btn primary" id="playBtn">Play the century</button>
     <button class="btn" id="musicBtn" aria-pressed="false">♪ Music</button>
@@ -363,6 +368,10 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
 </section>
 <input type="file" id="viewFile" accept="application/json,.json" hidden>
 
+<!-- PAGE TITLE -->
+<section class="win chromeless keep pagetitlewin" id="w-pagetitle" data-title="Page title">
+  <div class="wbody ptbody"><h1 class="ptitle" id="pageTitle" contenteditable="true" spellcheck="false" title="Click to edit">The Shrinking Gap from Research to Change</h1></div>
+</section>
 <!-- PLAY THE CENTURY -->
 <section class="win chromeless playerwin keep" id="w-player" data-title="Play the century">
   <div class="wbody pbody">
@@ -392,6 +401,11 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
     <a href="https://www.spenergynetworks.co.uk/news/pages/drones_transmission_network.aspx" target="_blank" rel="noopener">SPEN: drones for transmission tower inspection</a>
     <a href="https://transportandenergy.com/2025/09/04/national-grid-uses-ai-drone-aerial-inspection/" target="_blank" rel="noopener">National Grid: AI drone aerial inspection</a>
     <a href="https://www.solarpowerportal.co.uk/battery-storage/drax-acquires-uk-based-ai-enabled-asset-optimisation-platform-flexitricity" target="_blank" rel="noopener">Drax acquires Flexitricity (AI optimisation)</a>
+    <h3>Networks, stability and cyber law</h3>
+    <a href="https://www.solarpowerportal.co.uk/zenobe-200mw-bess-operational-first-to-provide-stability-services-for-neso" target="_blank" rel="noopener">Zenobē Blackhillock: first battery to provide stability services</a>
+    <a href="https://easterngreenlink1.co.uk" target="_blank" rel="noopener">Eastern Green Link 1 (SPEN and National Grid)</a>
+    <a href="https://bills.parliament.uk/Bills/4035" target="_blank" rel="noopener">Cyber Security and Resilience (NIS) Bill: progress</a>
+    <a href="https://www.scrippsnews.com/world/forbes-2026-worlds-billionaires-list-is-here-some-rankings-may-surprise-you" target="_blank" rel="noopener">Forbes 2026 World’s Billionaires (summary)</a>
     <h3>Energy storage and nuclear</h3>
     <a href="https://greatriverenergy.com/what-we-do/cambridge-energy-storage-project" target="_blank" rel="noopener">Form Energy iron-air battery project</a>
     <a href="https://research.senedd.wales/research-articles/new-nuclear-at-wylfa-what-happens-next/" target="_blank" rel="noopener">Rolls-Royce SMR at Wylfa</a>
@@ -524,7 +538,7 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
 </section>
 <!-- FORTUNES -->
 <section class="win" id="w-fortunes" data-title="Time to a fortune">
-  <div class="wbody"><p class="note-s">Years from founding to the first listing, sale or private valuation that made founders multi-millionaires on paper. Hollow dots are still building. Follows the field filter. Approximate and selective.</p><div class="minis"><button class="mini" id="fortHi" aria-pressed="true">Highlight research founders</button><button class="mini" id="fortOnly" aria-pressed="false">Research founders only</button></div><p class="fbanner" id="fortBanner"></p><canvas id="fortCanvas" class="chart"></canvas><p class="fstat" id="fortStat"></p><div class="tlist" id="fortList"></div></div>
+  <div class="wbody"><p class="note-s">Years from founding to the first listing, sale or private valuation that made founders multi-millionaires on paper. Net worth is the lead founder’s approximate wealth in 2026 money (Forbes 2026 where available; deceased founders at death, inflation-adjusted). Hover a figure for its basis. Follows the field filter.</p><div class="minis"><button class="mini" id="fortHi" aria-pressed="true">Highlight research founders</button><button class="mini" id="fortOnly" aria-pressed="false">Research founders only</button></div><div class="seg" id="fortSortSeg"><button data-v="year">Newest first</button><button data-v="worth">Net worth</button><button data-v="speed">Fastest fortune</button></div><p class="fbanner" id="fortBanner"></p><canvas id="fortCanvas" class="chart"></canvas><p class="fstat" id="fortStat"></p><div class="tlist" id="fortList"></div></div>
 </section>
 <!-- VISION -->
 <section class="win" id="w-vision" data-title="DESNZ AI energy vision">
@@ -586,7 +600,7 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
       <li>IBM quantum roadmap (2026); vendor battery roadmaps (Toyota, Samsung SDI, CATL), treated as aspirations rather than facts.</li>
       <li>Institutional histories: Bell Labs, IBM Research, Xerox PARC, CERN, DARPA, CSIRO, RAE Farnborough, MRC Laboratory of Molecular Biology.</li>
     </ul>
-    <p class="ver">Version 6.7. Built 26 October 2026 at 08:44 GMT.</p>
+    <p class="ver">Version 6.8. Built 26 October 2026 at 09:13 GMT.</p>
     <p class="by">Stuart Okin, Director of Cyber Regulation and Emerging Technologies, Ofgem.<br>Illustrative analysis prepared for discussion. Outlook views are indicative and do not represent Ofgem policy.</p>
   </div>
 </div>
@@ -1014,7 +1028,13 @@ const DATA = [
 {v:'energy',s:'academic',kind:'proj',dv:'opt',co:'University of Glasgow and SPEN',t:'Weather-driven fault forecasting',r:2022,p:2028,c:'medium',rw:'Predict4Resilience, led by Dr Jethro Browell at the University of Glasgow, combines ensemble weather forecasts with statistical models, funded through Ofgem’s Strategic Innovation Fund.',pw:'Forecasts of weather-related network faults up to two weeks ahead used routinely to prepare crews and reduce outages.',note:'University research aimed at doubling the network fault forecasting range.'},
 {v:'energy',s:'academic',kind:'proj',dv:'asset',co:'SPEN, Strathclyde, Glasgow and partners',t:'ENSIGN energy system digital twin',r:2023,p:2028,c:'medium',rw:'SPEN and the University of Strathclyde lead ENSIGN, a £10m AI-led digital twin with Glasgow, St Andrews and Heriot-Watt, funded through an EPSRC Prosperity Partnership.',pw:'A working AI digital twin used to stress-test network investments and new services before they go live.',note:'University and network operator research designed to shorten the gap from idea to network change.'},
 {v:'energy',s:'academic',kind:'proj',dv:'demand',co:'University of Glasgow and SPEN',t:'Heat flexibility and thermal storage',r:2022,p:2030,c:'low',rw:'Flexible Heat and Heat Balance, led by James Watt School of Engineering professors, study domestic heat flexibility and large-scale thermal storage.',pw:'Heat pumps and thermal stores routinely shift heating demand away from network peaks.',note:'Thermal storage is one of the lowest-cost forms of energy storage.'},
-{v:'cyber',s:'academic',kind:'proj',dv:'gov',co:'SPEN and University of Glasgow',t:'SPEN–University of Glasgow Cyber Defence Lab',r:2026,p:2028,c:'medium',rw:'A multi-year strategic partnership announced in February 2026 to build a Cyber Defence Lab and fund PhDs and graduate apprenticeships in data, cyber, digital and AI.',pw:'Joint research and skills feeding directly into network cyber defence.',note:'The partnership behind today’s showcase.'}
+{v:'cyber',s:'academic',kind:'proj',dv:'gov',co:'SPEN and University of Glasgow',t:'SPEN–University of Glasgow Cyber Defence Lab',r:2026,p:2028,c:'medium',rw:'A multi-year strategic partnership announced in February 2026 to build a Cyber Defence Lab and fund PhDs and graduate apprenticeships in data, cyber, digital and AI.',pw:'Joint research and skills feeding directly into network cyber defence.',note:'The partnership behind today’s showcase.'},
+// ================== FURTHER RESEARCH: ENERGY, CYBER, COMPUTING ==================
+{v:'energy',s:'industry',kind:'hist',co:'Zenobē',t:'Grid-forming battery stability services',r:2019,p:2025,c:'high',rw:'NESO’s Stability Pathfinder seeks inertia and short-circuit strength from new technologies.',pw:'Zenobē’s Blackhillock battery in Scotland becomes the first transmission-connected battery in the world to provide stability services, using grid-forming inverters.',note:'Europe’s largest battery when it opened; replaces stability once provided only by spinning generators.'},
+{v:'energy',s:'industry',kind:'proj',co:'SP Energy Networks and National Grid',t:'Eastern Green Link 1 subsea HVDC',r:2019,p:2029,c:'medium',rw:'Network planning identifies the need for a Scotland–England subsea HVDC link.',pw:'The 2GW, 525kV link from Torness in East Lothian to Hawthorn Pit in County Durham enters service.',note:'Construction began in February 2025; a joint venture of SPEN and National Grid.'},
+{v:'cyber',s:'government',kind:'proj',dv:'gov',co:'UK Government',t:'Cyber Security and Resilience Act in force',r:2024,p:2027,c:'medium',rw:'The government announces the Cyber Security and Resilience Bill in July 2024; it is introduced to Parliament in November 2025.',pw:'The Act takes effect, with obligations phased in through secondary legislation, including faster incident reporting.',note:'The Bill cleared the Commons in June 2026; Royal Assent is expected late 2026. It brings large load controllers of 300MW or more under DESNZ and Ofgem oversight.'},
+{v:'hw',s:'government',kind:'hist',t:'Exascale supercomputing',r:2016,p:2022,c:'high',rw:'The US Exascale Computing Project begins.',pw:'Frontier becomes the first computer to pass one exaflop.',note:'The scale needed for high-resolution climate, grid and materials simulation.'},
+{v:'hw',s:'industry',kind:'hist',co:'Apple',t:'Arm processors in laptops',r:2008,p:2020,c:'medium',rw:'Apple acquires chip designer P.A. Semi and begins designing its own processors.',pw:'Macs with Apple’s Arm-based M1 chip go on sale.',note:'Showed that UK-designed Arm architecture could lead in personal computers.'}
 ];
 
 const FIELDS = {
@@ -1083,6 +1103,14 @@ const EVENTS = [
  {y:2030,c:'future',t:'Clean Power 2030 target year'},
  {y:2031,c:'future',t:'NCSC target for migrating priority systems to post-quantum cryptography'}
 ];
+EVENTS.push(
+ {y:2017,c:'tech',t:'WannaCry and NotPetya cyber attacks disrupt hospitals, shipping and industry'},
+ {y:2021,c:'tech',t:'Colonial Pipeline ransomware attack shuts a major US fuel pipeline'},
+ {y:2024,c:'tech',t:'A faulty security update causes a global IT outage; Google shows quantum error correction improving below threshold'},
+ {y:2025,c:'energy',t:'UK AI Energy Council meets; Cyber Security and Resilience Bill introduced to Parliament'},
+ {y:2026,c:'energy',t:'Cyber Security and Resilience Bill clears the House of Commons'}
+);
+EVENTS.sort((a, b) => a.y - b.y);
 const CTX_ERAS = [[1925,'Electrification'],[1939,'Science at war'],[1946,'Post-war big science'],[1957,'Space race and Cold War'],[1973,'Oil shocks and microelectronics'],[1990,'Liberalisation and the internet'],[2001,'Mobile, cloud and security'],[2012,'Deep learning and decarbonisation'],[2020,'Pandemic, AI and energy security'],[2026,'The next five years']];
 
 /* Time from founding to founders becoming multi-millionaires (first listing, sale or valuation event). Approximate. */
@@ -1170,12 +1198,31 @@ const FORTUNES = [
  {n:'Chris Ballance and Tom Harty',co:'Oxford Ionics',v:'quantum',f:2019,w:2025,how:'Sale to IonQ',c:'medium',ac:'uni'},
  {n:'Arthur Mensch, Guillaume Lample and Timothée Lacroix',co:'Mistral AI',v:'ai',f:2023,w:2023,how:'Private valuation',c:'medium'}
 ];
+/* Approximate net worth of the lead founder in 2026 money (US$ billions).
+   Living founders: Forbes 2026 list where available, otherwise recent rich-list estimates.
+   Deceased founders: wealth at death, inflation-adjusted. Collapsed fortunes: peak, inflation-adjusted. */
+const FX_GBP = 0.75; // pounds per dollar, approximate
+const NW = {
+  'Zip2':[839,'Elon Musk','Forbes 2026'], 'Google':[257,'Larry Page','Forbes 2026'], 'Facebook':[222,'Mark Zuckerberg','Forbes 2026'],
+  'Oracle':[190,'Larry Ellison','Forbes 2026'], 'NVIDIA':[154,'Jensen Huang','Forbes 2026'], 'Microsoft':[108,'Bill Gates','Forbes 2026'],
+  'Dell':[120,'Michael Dell','estimate'], 'CATL':[60,'Robin Zeng','estimate'], 'Broadcom':[25,'Henry Samueli','estimate'],
+  'SAP':[15,'Hasso Plattner','estimate'], 'Zscaler':[15,'Jay Chaudhry','estimate'], 'WhatsApp':[15,'Jan Koum','estimate'],
+  'Apple':[15,'Steve Jobs','at death (2011), inflation-adjusted'], 'Sun Microsystems':[13,'Andy Bechtolsheim','estimate'],
+  'Stripe':[12,'Patrick Collison','estimate'], 'Salesforce':[10,'Marc Benioff','estimate'], 'Intel':[7.7,'Gordon Moore','at death (2023), inflation-adjusted'],
+  'BioNTech':[5,'Uğur Şahin','peak (2021), inflation-adjusted'], 'Check Point':[5,'Gil Shwed','estimate'], 'Fortinet':[5,'Ken Xie','estimate'],
+  'DJI':[5,'Frank Wang','estimate'], 'Twitter':[5,'Jack Dorsey','estimate'], 'Suntech Power':[4.6,'Shi Zhengrong','peak (2006), inflation-adjusted'],
+  'Zoom':[4,'Eric Yuan','estimate'], 'CrowdStrike':[4,'George Kurtz','estimate'], 'Anthropic':[3.7,'each co-founder','Forbes 2025 estimate'],
+  'Scale AI':[3.6,'Alexandr Wang','estimate'], 'Wiz':[3,'Assaf Rappaport','estimate'], 'Netscape':[2,'Marc Andreessen','estimate'],
+  'Dropbox':[2,'Drew Houston','estimate'], 'Qualcomm':[1.5,'Irwin Jacobs','estimate'], 'Mistral AI':[1.1,'Arthur Mensch','estimate']
+};
+FORTUNES.forEach(x => { const n = NW[x.co]; if (n) { x.nw = n[0]; x.nwWho = n[1]; x.nwBasis = n[2]; } });
+const fmtMoney = (bn, sym) => bn >= 1 ? `${sym}${bn >= 100 ? Math.round(bn) : Math.round(bn * 10) / 10}bn` : `${sym}${Math.round(bn * 1000)}m`;
 const FORT_RESEARCH = {'Google':['uni'], 'Cisco':['uni'], 'Genentech':['uni','Lasker Award 1980 (Boyer)'], 'Qualcomm':['uni','US National Medal of Technology 1994 (Jacobs)'],
   'Oxford Nanopore':['uni'], 'BioNTech':['uni'], 'DeepMind':['lab','Nobel Prize in Chemistry 2024 (Hassabis)'], 'IonQ':['uni'], 'PsiQuantum':['uni'], 'Synthesia':['uni'],
   'Wayve':['uni'], 'Mistral AI':['lab'], 'Anthropic':['lab'], 'Safe Superintelligence':['lab'], 'Thinking Machines Lab':['lab'], 'Acorn Computers':['uni'], 'Rigetti Computing':['lab'],
   'Boston Dynamics':['uni'], 'iRobot':['uni'], 'Kiva Systems':['uni'], 'Netscape':['uni'], 'Planet':['lab'], 'Intel':['lab'], 'Hewlett-Packard':['uni'], 'Darktrace':['uni'], 'Xerography (Xerox)':['lab']};
 FORTUNES.forEach(x => { const r = FORT_RESEARCH[x.co]; if (r && !x.ac) { x.ac = r[0]; if (r[1]) x.prize = r[1]; } });
-const APP_VERSION = '6.7', APP_BUILD = '26 October 2026, 08:44 GMT';
+const APP_VERSION = '6.8', APP_BUILD = '26 October 2026, 09:13 GMT';
 // Screen-aware scaling: laptops slightly smaller, large screens larger
 const UI = (() => { const w = innerWidth; return w < 1280 ? .85 : w < 1500 ? .95 : w < 1800 ? 1.05 : w < 2300 ? 1.2 : 1.4; })();
 const LARGE = innerWidth >= 1700;
@@ -1282,7 +1329,7 @@ const DEFAULT_FILTERS = () => ({
 });
 const F = DEFAULT_FILTERS();
 const hidden = new Set();
-const view = {musicOn:true, loopPlay:true, fortHi:true, fortOnly:false, laneFollow:true, camTravel:true, fadeLanded:true, keepYears:5, revealEnd:true, labelPlay:'until', labelScope:'all', labelMax:14, labelLinger:2, labels:'follow', lfs:LARGE ? 18 : 15, lanes:'v', colour:'v', pulses:true, trend:true, floor:true, rotSpeed:0.35, glow:0.75};
+const view = {fortSort:'year', musicOn:true, loopPlay:true, fortHi:true, fortOnly:false, laneFollow:true, camTravel:true, fadeLanded:true, keepYears:5, revealEnd:true, labelPlay:'until', labelScope:'all', labelMax:14, labelLinger:2, labels:'follow', lfs:LARGE ? 18 : 15, lanes:'v', colour:'v', pulses:true, trend:true, floor:true, rotSpeed:0.35, glow:0.75};
 Object.assign(view, store.get('sg.view.v2', {}));
 const state = {playing:false, cursor:Y1, autoRotate:!reduced};
 let selected = null, hovered = null;
@@ -1561,16 +1608,18 @@ function buildTrends(){
 /* ==================================================================
  *  WINDOW MANAGER
  * ================================================================== */
-const WIN_IDS = ['title','ticker','player','sources','filters','display','summary','milestones','details','key','context','landing','gapchart','fortunes','vision','outlook','deck','music','vid1','vid2'];
-const WIN_NAMES = {title:'Showcase title', ticker:'Joke ticker', player:'Play the century', sources:'Sources and further reading', filters:'Filters', display:'Display', summary:'Summary', milestones:'Milestones', details:'Details', key:'Reading the model', context:'Context', landing:'Landing and starting', gapchart:'Gap over time', fortunes:'Time to a fortune', vision:'DESNZ AI energy vision', outlook:'Can AI shrink the gap?', deck:'Ofgem presentation', music:'Music', vid1:'Countdown to Q-Day', vid2:'University Curated Cyber-attacks since 2000'};
+const WIN_IDS = ['pagetitle','title','ticker','player','sources','filters','display','summary','milestones','details','key','context','landing','gapchart','fortunes','vision','outlook','deck','music','vid1','vid2'];
+const WIN_NAMES = {pagetitle:'Page title', title:'Showcase title', ticker:'Joke ticker', player:'Play the century', sources:'Sources and further reading', filters:'Filters', display:'Display', summary:'Summary', milestones:'Milestones', details:'Details', key:'Reading the model', context:'Context', landing:'Landing and starting', gapchart:'Gap over time', fortunes:'Time to a fortune', vision:'DESNZ AI energy vision', outlook:'Can AI shrink the gap?', deck:'Ofgem presentation', music:'Music', vid1:'Countdown to Q-Day', vid2:'University Curated Cyber-attacks since 2000'};
 function defaultLayout(){
   const W = innerWidth, Hh = innerHeight, u = UI, top = Math.round(72 * u), narrow = W < 820;
   const rw = Math.min(Math.round(360 * u), W - 36), lw = Math.min(Math.round(330 * u), W - 36);
   const tickH = Math.round(66 * u), tickY = Hh - tickH - 8, bottom = tickY - 12, keyH = Math.round(160 * u), keyY = bottom - keyH;
   const vw = Math.round(W * .42), vh = Math.round(vw * 9 / 16 + 40 * u), midX = lw + 36, midW = Math.max(300, W - midX - rw - 36);
   const pw = Math.min(Math.round(560 * u), Math.round(W * .42)), ph = Math.round(250 * u);
+  const tw = Math.min(Math.round(1000 * u), W - midX - 18);
   return {
-    title:{x:midX, y:top, w:midW, h:Math.round(140 * u), fs:1, open:false},
+    pagetitle:{x:12, y:Math.round(8 * u), w:Math.min(Math.round(760 * u), W - Math.round(620 * u)), h:Math.round(58 * u), fs:1, open:true},
+    title:{x:midX + Math.round((W - midX - 18 - tw) / 2), y:top, w:tw, h:Math.round(140 * u), fs:1, open:true},
     ticker:{x:10, y:tickY, w:W - 20, h:tickH, fs:1, open:true},
     player:{x:W - pw - 18, y:Math.max(top + 140, bottom - ph), w:pw, h:ph, fs:1, open:false},
     filters:{x:18, y:top, w:lw, h:Math.max(200, keyY - top - 12), fs:1, open:false},
@@ -1657,7 +1706,7 @@ if (window.ResizeObserver) {
 const winMenu = $('winMenu');
 function buildWinMenu(){
   winMenu.innerHTML = WIN_IDS.map(id => `<button data-w="${id}"><span class="tick ${layout[id].open ? 'on' : ''}">${layout[id].open ? '✓' : ''}</span>${WIN_NAMES[id]}</button>`).join('') +
-    `<hr><button data-w="__title">${view.hideTitle ? 'Show' : 'Hide'} the page title</button><hr><button data-w="__wait">Arrange for waiting (both videos)</button><button data-w="__play">Arrange for Play the century</button><button data-w="__reset">Arrange for exploring (default)</button><button data-w="__all">Open all windows</button><hr><button data-w="__save">Save this view to a file…</button><button data-w="__load">Load a view from a file…</button>` +
+    `<hr><button data-w="__wait">Arrange for waiting (both videos)</button><button data-w="__play">Arrange for Play the century</button><button data-w="__reset">Arrange for exploring (default)</button><button data-w="__all">Open all windows</button><hr><button data-w="__save">Save this view to a file…</button><button data-w="__load">Load a view from a file…</button>` +
     `<small>Saved views remember open windows, positions, text sizes, filters, display settings, title, ticker and camera. Open one directly with index.html?view=yourfile.json. Drag a title bar to move, drag the bottom-right corner to resize, A− and A+ change text size. Double-click a title bar to restore its default place.</small>`;
 }
 buildWinMenu();
@@ -1665,7 +1714,7 @@ winMenu.addEventListener('click', e => {
   const b = e.target.closest('button'); if (!b) return;
   const w = b.dataset.w;
   if (w === '__reset') { layout = defaultLayout(); WIN_IDS.forEach(placeWin); saveLayout(); buildWinMenu(); syncVideos(); }
-  else if (w === '__title') { view.hideTitle = !view.hideTitle; store.set('sg.view.v2', view); applyHeader(); buildWinMenu(); }
+  else if (w === '__title') togglePageTitle();
   else if (w === '__save') { winMenu.classList.remove('open'); saveViewFile(); }
   else if (w === '__load') { winMenu.classList.remove('open'); $('viewFile').click(); }
   else if (w === '__wait') { layout = waitLayout(); WIN_IDS.forEach(placeWin); saveLayout(); buildWinMenu(); syncVideos(); }
@@ -1762,8 +1811,9 @@ segBind('laneSeg', 'lanes', () => { applyLanes(false); buildTrends(); if (travel
 segBind('colSeg', 'colour', () => { applyColours(); renderMilestones(); });
 function bindToggle(id, key, after){ const el = $(id); el.checked = view[key]; el.addEventListener('change', () => { view[key] = el.checked; store.set('sg.view.v2', view); after && after(); }); }
 bindToggle('pulseT', 'pulses');
-function applyHeader(){ document.body.classList.toggle('notitle', !!view.hideTitle); document.body.classList.toggle('barauto', !!view.barAuto); $('titleShowT').checked = !view.hideTitle; $('barAutoT').checked = !!view.barAuto; }
-$('titleShowT').addEventListener('change', e => { view.hideTitle = !e.target.checked; store.set('sg.view.v2', view); applyHeader(); buildWinMenu(); });
+function applyHeader(){ document.body.classList.toggle('barauto', !!view.barAuto); if (layout.pagetitle) { view.hideTitle = !layout.pagetitle.open; $('titleShowT').checked = layout.pagetitle.open; } $('barAutoT').checked = !!view.barAuto; }
+function togglePageTitle(on){ setOpen('pagetitle', on == null ? !layout.pagetitle.open : on); applyHeader(); buildWinMenu(); }
+$('titleShowT').addEventListener('change', e => togglePageTitle(e.target.checked));
 $('barAutoT').addEventListener('change', e => { view.barAuto = e.target.checked; store.set('sg.view.v2', view); applyHeader(); });
 document.addEventListener('mousemove', e => { if (view.barAuto) document.body.classList.toggle('near-top', e.clientY < 90 || winMenu.classList.contains('open')); });
 function applyLite(){ document.body.classList.toggle('lite', !!view.lite); renderer.setPixelRatio(view.lite ? 1 : Math.min(window.devicePixelRatio, 2)); renderer.setSize(innerWidth, innerHeight); if (composer) { if (composer.setPixelRatio) composer.setPixelRatio(view.lite ? 1 : Math.min(window.devicePixelRatio, 2)); composer.setSize(innerWidth, innerHeight); } }
@@ -1928,7 +1978,7 @@ document.addEventListener('keydown', e => {
   else if (e.key === ' ' && state.playing) { e.preventDefault(); togglePause(); }
   else if (e.key === 'r' || e.key === 'R') resetView();
   else if (e.key === 'h' || e.key === 'H') document.body.classList.toggle('clean');
-  else if (e.key === 't' || e.key === 'T') { view.hideTitle = !view.hideTitle; store.set('sg.view.v2', view); applyHeader(); buildWinMenu(); }
+  else if (e.key === 't' || e.key === 'T') togglePageTitle();
   else if (e.key === 'f' || e.key === 'F') $('fsBtn').click();
   else if (e.key === 'l' || e.key === 'L') { const order = ['off','peak','follow']; view.labels = order[(order.indexOf(view.labels) + 1) % 3]; syncLabelSeg(); store.set('sg.view.v2', view); }
   else if (e.key === 'Escape') { $('about').classList.remove('open'); winMenu.classList.remove('open'); selected = null; }
@@ -2240,11 +2290,14 @@ function renderFortunes(yr){
   let pool = FORTUNES.filter(x => F.fields.has(x.v));
   const allPool = pool;
   if (view.fortOnly) pool = pool.filter(x => x.ac);
-  const shown = pool.filter(x => x.f <= yr).sort((a, b) => b.f - a.f);
+  const sorters = {year:(a, b) => b.f - a.f, worth:(a, b) => (b.nw || -1) - (a.nw || -1) || b.f - a.f, speed:(a, b) => ((a.w <= yr ? a.w - a.f : 99) - (b.w <= yr ? b.w - b.f : 99)) || b.f - a.f};
+  document.querySelectorAll('#fortSortSeg button').forEach(b => b.setAttribute('aria-pressed', b.dataset.v === (view.fortSort || 'year')));
+  const shown = pool.filter(x => x.f <= yr).sort(sorters[view.fortSort] || sorters.year);
+  const chartList = pool.filter(x => x.f <= yr).sort(sorters.year);
   const S = setupCanvas($('fortCanvas'));
   if (S) {
     const {g, fs} = S, {X, Y} = axes(S, 1930, 2031, 25, 5);
-    shown.slice().reverse().forEach(x => {
+    chartList.slice().reverse().forEach(x => {
       const done = x.w <= yr, yv = done ? x.w - x.f : Math.min(yr - x.f, 25), col = FIELDS[x.v].hex;
       g.beginPath(); g.arc(X(x.f), Y(yv), fs * .34, 0, Math.PI * 2);
       if (done) { g.fillStyle = col; g.fill(); } else { g.strokeStyle = col; g.lineWidth = 1.5; g.stroke(); }
@@ -2260,9 +2313,10 @@ function renderFortunes(yr){
   const gotAll = allPool.filter(x => x.w <= yr), res = gotAll.filter(x => x.ac), recent = res.filter(x => x.f >= 2015);
   $('fortBanner').innerHTML = res.length ? `<b>${res.length} of ${gotAll.length}</b> fortunes here began in a university or research lab, typically in <b>${lagTxt(Math.round(median(res.map(x => x.w - x.f))))}</b>` + (recent.length ? `; since 2015, in <b>${lagTxt(Math.round(median(recent.map(x => x.w - x.f))))}</b>` : '') + `. <span>Researchers in this room: this could be your time.</span>` : '';
   const badge = x => (x.ac === 'uni' ? '<span class="fb uni" title="Founded out of university research">🎓 University</span>' : x.ac === 'lab' ? '<span class="fb lab" title="Founders known for research">🔬 Research</span>' : '') + (x.prize ? `<span class="fb prize" title="${x.prize}">🏅 ${x.prize}</span>` : '');
-  $('fortList').innerHTML = shown.map(x => `<div class="trow ${view.fortHi && x.ac ? 'resrow' : ''}"><b>${x.f}</b><i class="cat" style="background:${FIELDS[x.v].hex}"></i><span><strong>${x.n}</strong>, ${x.co}<em>${x.w <= yr ? `${lagTxt(x.w - x.f)}: ${(x.how.charAt(0).toLowerCase() + x.how.slice(1))}, ${x.w}` : 'building'}</em>${view.fortHi ? badge(x) : ''}</span></div>`).join('');
+  $('fortList').innerHTML = shown.map(x => `<div class="trow ${view.fortHi && x.ac ? 'resrow' : ''}"><b>${x.f}</b><i class="cat" style="background:${FIELDS[x.v].hex}"></i><span><strong>${x.n}</strong>, ${x.co}<em>${x.w <= yr ? `${lagTxt(x.w - x.f)}: ${(x.how.charAt(0).toLowerCase() + x.how.slice(1))}, ${x.w}` : 'building'}</em>${x.nw ? `<span class="nw" title="${x.nwWho}: ${x.nwBasis}. Approximate, in 2026 money; £ at $1 = £${FX_GBP}.">≈ ${fmtMoney(x.nw, '$')} | ${fmtMoney(x.nw * FX_GBP, '£')} <small>${x.nwWho}</small></span>` : ''}${view.fortHi ? badge(x) : ''}</span></div>`).join('');
 }
 $('fortHi').onclick = () => { view.fortHi = !view.fortHi; renderFortunes(); };
+$('fortSortSeg').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; view.fortSort = b.dataset.v; renderFortunes(); });
 $('fortOnly').onclick = () => { view.fortOnly = !view.fortOnly; renderFortunes(); };
 const visOpen = new Set();
 function renderVision(yr){
@@ -2355,6 +2409,7 @@ function applyTitle(){
   store.set('sg.title', titleCfg);
 }
 $('titleText').addEventListener('input', e => { titleCfg.text = e.target.textContent; store.set('sg.title', titleCfg); });
+$('pageTitle').addEventListener('keydown', e => { e.stopPropagation(); if (e.key === 'Enter') { e.preventDefault(); e.target.blur(); } });
 $('titleText').addEventListener('keydown', e => { e.stopPropagation(); if (e.key === 'Enter') { e.preventDefault(); e.target.blur(); } });
 [['tcText','color'],['tcBg','bg'],['tcAcc','accent'],['tcAlign','align']].forEach(([id, k]) => $(id).addEventListener('input', e => { titleCfg[k] = e.target.value; applyTitle(); }));
 $('tcAlpha').addEventListener('input', e => { titleCfg.alpha = +e.target.value; applyTitle(); });
@@ -2521,7 +2576,7 @@ function snapshot(name){
     camera:{pos:camera.position.toArray(), target:controls.target.toArray()}, autoRotate:state.autoRotate, musicVolume:mus.vol,
     music:{volume:mus.vol, track:mus.track}, playSpeed, loopPlay:!!view.loopPlay, visionExpanded:[...visOpen], deckFile:prefs.deckFile,
     playState:{playing:state.playing, cursor:state.cursor, paused}, cleanMode:document.body.classList.contains('clean'),
-    selected:selected ? selected.t : null, autoRotateSpeed:view.rotSpeed, appVersion:APP_VERSION};
+    selected:selected ? selected.t : null, pageTitleText:$('pageTitle').textContent, autoRotateSpeed:view.rotSpeed, appVersion:APP_VERSION};
 }
 function saveViewFile(){
   const name = (prompt('Name this view, for example “opening”, “play” or “questions”:', 'view') || '').trim();
@@ -2547,6 +2602,8 @@ function applyView(o){
   layout = {}; WIN_IDS.forEach(id => { layout[id] = Object.assign({}, d[id], (o.layout || {})[id] || {}); });
   WIN_IDS.forEach(id => { wins[id].classList.toggle('max', (o.maxed || []).includes(id)); placeWin(id); });
   saveLayout(); buildWinMenu();
+  if (o.view && o.view.hideTitle && !(o.layout && o.layout.pagetitle)) { layout.pagetitle.open = false; placeWin('pagetitle'); }
+  if (o.pageTitleText) $('pageTitle').textContent = o.pageTitleText;
   if (o.view) { Object.assign(view, o.view); store.set('sg.view.v2', view); syncDisplayUI(); }
   if (o.filters) { const f = o.filters, def = DEFAULT_FILTERS(); Object.assign(F, def, f, {fields:new Set(f.fields || FKEYS)}); }
   hidden.clear(); (o.hidden || []).forEach(t => { const it = items.find(x => x.t === t); if (it) hidden.add(it.id); });
