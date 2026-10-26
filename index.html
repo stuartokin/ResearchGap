@@ -234,6 +234,9 @@ body.lite .playerwin{background:transparent}
 .psub{font-size:1.1em;line-height:1.35;color:var(--text)}
 .psub b{font-weight:600;color:#fff}
 .psub span{font-size:.82em;color:var(--muted)}
+.ptot{font-size:.95em;color:var(--muted);line-height:1.35;text-align:center}
+.ptot b{color:#FFD166;font-weight:600;font-size:1.15em;font-variant-numeric:tabular-nums}
+.ptot span{display:block;font-size:.85em;color:var(--faint)}
 .pctrl{display:flex;align-items:center;gap:6px;width:100%;max-width:44em;flex-wrap:nowrap}
 .pctrl input[type=range]{flex:1;min-width:3em}
 .pctrl .btn{padding:6px 10px;font-size:.9em;backdrop-filter:none}
@@ -376,41 +379,57 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
 <section class="win chromeless playerwin keep" id="w-player" data-title="Play the century">
   <div class="wbody pbody">
     <div class="pyear" id="yearNum">1925</div>
+    <div class="ptot" id="playTotals"></div>
     <div class="psub" id="yearSub">Press Play to run from 1925 to 2031</div>
     <div class="pctrl"><button class="btn" id="tbPause">Pause</button><input type="range" id="scrub" min="1925" max="2032" step="0.1" value="1925" aria-label="Scrub through time"><select id="tbSpeed" class="btn" aria-label="Play speed"><option value="0.5">Slow</option><option value="1" selected>Normal</option><option value="2">Fast</option></select><label class="btn looplbl"><input type="checkbox" id="loopT"> Loop</label><button class="btn" id="tbStop">Exit</button></div>
   </div>
 </section>
 <!-- SOURCES -->
-<section class="win" id="w-sources" data-title="Sources and further reading">
+<section class="win" id="w-sources" data-title="Sources">
   <div class="wbody srcs">
-    <p class="note-s">Key sources behind recent milestones and the outlook. Links open in a new tab.</p>
+    <p class="note-s">The sources consulted for this model. Recent milestones were checked against the web sources below during development. Historical dates draw on standard references; where a date is less certain, its details card says “Dates approximate”. Links open in a new tab.</p>
     <h3>SPEN and University of Glasgow</h3>
-    <a href="https://www.gla.ac.uk/news/headline_1248646_en.html" target="_blank" rel="noopener">Strategic partnership and Cyber Defence Lab (February 2026)</a>
-    <a href="https://www.gla.ac.uk/news/headline_837214_en.html" target="_blank" rel="noopener">Predict4Resilience, Flexible Heat and Heat Balance (Strategic Innovation Fund, 2022)</a>
+    <a href="https://www.gla.ac.uk/news/headline_1248646_en.html" target="_blank" rel="noopener">University of Glasgow: strategic partnership and Cyber Defence Lab (2026)</a>
+    <a href="https://www.gla.ac.uk/news/headline_837214_en.html" target="_blank" rel="noopener">University of Glasgow: Predict4Resilience, Flexible Heat and Heat Balance (2022)</a>
     <a href="https://www.enlit.world/library/ensign-digital-twin-project-to-model-future-uk-energy-system" target="_blank" rel="noopener">ENSIGN energy system digital twin</a>
-    <h3>Policy and regulation</h3>
-    <a href="https://www.gov.uk/government/calls-for-evidence/vision-for-an-ai-enabled-clean-energy-system/vision-for-an-ai-enabled-clean-energy-system-html" target="_blank" rel="noopener">DESNZ: Vision for an AI-enabled clean energy system</a>
-    <a href="https://www.ofgem.gov.uk/consultation/long-duration-electricity-storage-window-1-minded-decisions" target="_blank" rel="noopener">Ofgem: long duration storage Window 1 minded-to decisions</a>
+    <a href="https://www.power-technology.com/news/uk-electricity-digital-twin/" target="_blank" rel="noopener">Power Technology: SPEN to develop an electricity network digital twin</a>
+    <a href="https://www.spenergynetworks.co.uk/news/pages/drones_transmission_network.aspx" target="_blank" rel="noopener">SPEN: drones for transmission tower inspection</a>
+    <a href="https://easterngreenlink1.co.uk" target="_blank" rel="noopener">Eastern Green Link 1 (SPEN and National Grid)</a>
+    <a href="https://constructionenquirer.com/2023/09/13/build-deal-for-2-5bn-eastern-green-link-1-converter-stations" target="_blank" rel="noopener">Construction Enquirer: EGL1 targeted for 2029</a>
+    <h3>Policy, regulation and law</h3>
+    <a href="https://www.gov.uk/government/calls-for-evidence/vision-for-an-ai-enabled-clean-energy-system/vision-for-an-ai-enabled-clean-energy-system-html" target="_blank" rel="noopener">DESNZ: Vision for an AI-enabled clean energy system (2026)</a>
+    <a href="https://www.ofgem.gov.uk/consultation/long-duration-electricity-storage-window-1-minded-decisions" target="_blank" rel="noopener">Ofgem: long duration electricity storage Window 1 minded-to decisions</a>
+    <a href="https://bills.parliament.uk/Bills/4035" target="_blank" rel="noopener">UK Parliament: Cyber Security and Resilience (NIS) Bill</a>
+    <a href="https://www.osborneclarke.com/insights/regulatory-outlook-june-2026-cyber-security" target="_blank" rel="noopener">Osborne Clarke: cyber security regulatory outlook (June 2026)</a>
+    <a href="https://www.6clicks.com/resources/blog/the-uks-cyber-security-and-resilience-bill-what-to-do-now" target="_blank" rel="noopener">6clicks: Cyber Security and Resilience Bill progress</a>
+    <a href="https://www.trowers.com/insights/2026/february/the-cyber-security-and-resilience-bill" target="_blank" rel="noopener">Trowers &amp; Hamlins: large load controllers under the Bill</a>
     <a href="https://www.gibsondunn.com/eu-ai-act-omnibus-agreement" target="_blank" rel="noopener">EU AI Act Digital Omnibus: postponed high-risk deadlines</a>
-    <h3>System operation and forecasting</h3>
+    <p class="note-s">Also: NCSC, <i>Timelines for migration to post-quantum cryptography</i> (2025); NIST FIPS 203–205 (2024); NCSC Cyber Assessment Framework.</p>
+    <h3>System operation, forecasting and flexibility</h3>
     <a href="https://www.neso.energy/news/first-stages-open-balancing-platform-go-live" target="_blank" rel="noopener">NESO: Open Balancing Platform goes live</a>
     <a href="https://www.neso.energy/news/volta-programme-powering-future-dispatch-tapestry-energy-moonshot-x-moonshot-factory-alphabets-innovation-lab-bring-ai-our-control-room" target="_blank" rel="noopener">NESO: Volta programme with Tapestry</a>
     <a href="https://www.ecmwf.int/node/29308" target="_blank" rel="noopener">ECMWF: AI forecasts become operational</a>
     <a href="https://new.openclimatefix.org/projects/cloud-forecasting" target="_blank" rel="noopener">Open Climate Fix: Cloudcasting</a>
-    <h3>Assets, flexibility and security</h3>
-    <a href="https://www.spenergynetworks.co.uk/news/pages/drones_transmission_network.aspx" target="_blank" rel="noopener">SPEN: drones for transmission tower inspection</a>
+    <a href="https://www.solarpowerportal.co.uk/battery-storage/drax-acquires-uk-based-ai-enabled-asset-optimisation-platform-flexitricity" target="_blank" rel="noopener">Drax acquires Flexitricity</a>
     <a href="https://transportandenergy.com/2025/09/04/national-grid-uses-ai-drone-aerial-inspection/" target="_blank" rel="noopener">National Grid: AI drone aerial inspection</a>
-    <a href="https://www.solarpowerportal.co.uk/battery-storage/drax-acquires-uk-based-ai-enabled-asset-optimisation-platform-flexitricity" target="_blank" rel="noopener">Drax acquires Flexitricity (AI optimisation)</a>
-    <h3>UK research to product</h3>
+    <h3>Storage, stability and nuclear</h3>
+    <a href="https://www.solarpowerportal.co.uk/zenobe-200mw-bess-operational-first-to-provide-stability-services-for-neso" target="_blank" rel="noopener">Zenobē Blackhillock: first battery providing stability services</a>
+    <a href="https://www.nsenergybusiness.com/analysis/blackhillock-launches-uks-first-grid-forming-battery/" target="_blank" rel="noopener">NS Energy: Blackhillock, the UK’s first grid-forming battery</a>
+    <a href="https://greatriverenergy.com/what-we-do/cambridge-energy-storage-project" target="_blank" rel="noopener">Great River Energy: Form Energy iron-air battery project</a>
+    <a href="https://www.technologyreview.com/2026/10/06/1145020/2026-climate-tech-companies-to-watch-form-energy-iron-batteries/" target="_blank" rel="noopener">MIT Technology Review: Form Energy (2026)</a>
+    <a href="https://research.senedd.wales/research-articles/new-nuclear-at-wylfa-what-happens-next/" target="_blank" rel="noopener">Senedd Research: Rolls-Royce SMR at Wylfa</a>
+    <h3>Cyber security vendors</h3>
+    <a href="https://www.securityweek.com/radiflow-launches-new-intrusion-detection-system-icsscada-networks/amp/" target="_blank" rel="noopener">SecurityWeek: Radiflow industrial intrusion detection</a>
+    <h3>Quantum and UK research to product</h3>
     <a href="https://www.nottingham.ac.uk/research/groups/spmic/research/meg-and-opm.aspx" target="_blank" rel="noopener">University of Nottingham: wearable quantum brain scanner (OPM-MEG)</a>
-    <h3>Networks, stability and cyber law</h3>
-    <a href="https://www.solarpowerportal.co.uk/zenobe-200mw-bess-operational-first-to-provide-stability-services-for-neso" target="_blank" rel="noopener">Zenobē Blackhillock: first battery to provide stability services</a>
-    <a href="https://easterngreenlink1.co.uk" target="_blank" rel="noopener">Eastern Green Link 1 (SPEN and National Grid)</a>
-    <a href="https://bills.parliament.uk/Bills/4035" target="_blank" rel="noopener">Cyber Security and Resilience (NIS) Bill: progress</a>
+    <a href="https://www.gov.uk/government/news/worlds-first-mobile-quantum-brain-scanner-being-developed-to-measure-blast-effects-on-troops" target="_blank" rel="noopener">MOD: mobile quantum brain scanner (2025)</a>
+    <p class="note-s">Also: IBM quantum roadmap (2026), treated as a target rather than a forecast.</p>
+    <h3>Founders and wealth</h3>
     <a href="https://www.scrippsnews.com/world/forbes-2026-worlds-billionaires-list-is-here-some-rankings-may-surprise-you" target="_blank" rel="noopener">Forbes 2026 World’s Billionaires (summary)</a>
-    <h3>Energy storage and nuclear</h3>
-    <a href="https://greatriverenergy.com/what-we-do/cambridge-energy-storage-project" target="_blank" rel="noopener">Form Energy iron-air battery project</a>
-    <a href="https://research.senedd.wales/research-articles/new-nuclear-at-wylfa-what-happens-next/" target="_blank" rel="noopener">Rolls-Royce SMR at Wylfa</a>
+    <a href="https://manofmany.com/culture/forbes-billionaires-list-richest-people" target="_blank" rel="noopener">Forbes 2026 list: top 10 and AI billionaires</a>
+    <p class="note-s">Other net worth figures are recent rich-list estimates; founding and listing dates come from company histories.</p>
+    <h3>Standard references for historical milestones</h3>
+    <p class="note-s">Nobel Prize citations (physics, chemistry, medicine); IEEE milestones and Engineering and Technology History; institutional histories of Bell Labs, IBM Research, Xerox PARC, CERN, DARPA, CSIRO, NPL, RAE Farnborough, the MRC Laboratory of Molecular Biology and UK Atomic Energy Authority; company histories and annual reports; regulator approval records (FDA, MHRA).</p>
   </div>
 </section>
 <!-- FILTERS -->
@@ -602,7 +621,8 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
       <li>IBM quantum roadmap (2026); vendor battery roadmaps (Toyota, Samsung SDI, CATL), treated as aspirations rather than facts.</li>
       <li>Institutional histories: Bell Labs, IBM Research, Xerox PARC, CERN, DARPA, CSIRO, RAE Farnborough, MRC Laboratory of Molecular Biology.</li>
     </ul>
-    <p class="ver">Version 6.9. Built 26 October 2026 at 09:44 GMT.</p>
+    <p><button class="btn" id="aboutSources">View all sources</button> <span class="note-s">Opens a window you can move, resize and keep open.</span></p>
+    <p class="ver">Version 7.0. Built 26 October 2026 at 10:48 GMT.</p>
     <p class="by">Stuart Okin, Director of Cyber Regulation and Emerging Technologies, Ofgem.<br>Illustrative analysis prepared for discussion. Outlook views are indicative and do not represent Ofgem policy.</p>
   </div>
 </div>
@@ -1126,7 +1146,59 @@ const DATA = [
 {v:'life',s:'industry',kind:'hist',t:'Beta blockers',r:1958,p:1964,c:'high',rw:'James Black at ICI in Cheshire designs drugs to block adrenaline receptors.',pw:'Propranolol is launched.',note:'A British discovery; Black shared the 1988 Nobel Prize.'},
 {v:'life',s:'academic',kind:'hist',t:'Cochlear implant',r:1978,p:1985,c:'high',rw:'Graeme Clark’s team at the University of Melbourne implants a multichannel device.',pw:'The multichannel cochlear implant is approved in the US.',note:'University research created a global medical device company.'},
 {v:'life',s:'academic',kind:'hist',t:'Cancer immunotherapy',r:1996,p:2011,c:'high',rw:'James Allison’s team shows that blocking CTLA-4 unleashes immune attacks on tumours.',pw:'The first checkpoint inhibitor, ipilimumab, is approved.',note:'Nobel Prize 2018.'},
-{v:'life',s:'academic',kind:'hist',t:'CAR-T cell therapy',r:1993,p:2017,c:'medium',rw:'Zelig Eshhar at the Weizmann Institute engineers chimeric antigen receptors.',pw:'The first CAR-T therapy is approved.',note:'Living drugs took nearly 25 years.'}
+{v:'life',s:'academic',kind:'hist',t:'CAR-T cell therapy',r:1993,p:2017,c:'medium',rw:'Zelig Eshhar at the Weizmann Institute engineers chimeric antigen receptors.',pw:'The first CAR-T therapy is approved.',note:'Living drugs took nearly 25 years.'},
+// ================== RESEARCH ROUND 2 ==================
+// ---------- Energy ----------
+{v:'energy',s:'government',kind:'hist',t:'Reversible pumped storage at scale',r:1959,p:1965,c:'medium',rw:'The North of Scotland Hydro-Electric Board develops a reversible pump-turbine scheme inside Ben Cruachan.',pw:'Cruachan, the world’s first large reversible pumped-storage station, opens.',note:'Still one of GB’s largest stores of electricity.'},
+{v:'energy',s:'government',kind:'hist',t:'Solar thermal power stations',r:1977,p:1984,c:'medium',rw:'Publicly funded US solar thermal research after the oil shocks.',pw:'The first commercial solar thermal power station enters service in California.',note:'Overtaken by cheaper photovoltaics.'},
+{v:'energy',s:'industry',kind:'hist',t:'Wave power to the grid',r:1998,p:2004,c:'medium',rw:'Ocean Power Delivery, an Edinburgh company, develops the Pelamis wave energy converter.',pw:'Pelamis becomes the first offshore wave machine to supply a national grid.',note:'A Scottish first; the company later failed, a reminder that physics is not the only hurdle.'},
+{v:'energy',s:'academic',kind:'hist',dv:'opt',t:'Active network management',r:2004,p:2009,c:'medium',rw:'University of Strathclyde researchers develop automatic control of generation on constrained networks.',pw:'Orkney’s active network management scheme connects extra wind without new lines.',note:'A Scottish university idea now used to speed up grid connections. Dates approximate.'},
+{v:'energy',s:'industry',kind:'hist',t:'Offshore wind HVDC connection',r:2008,p:2015,c:'medium',rw:'Developers design the first HVDC link for a far-offshore wind farm.',pw:'BorWin1 connects a North Sea wind farm to the German grid by HVDC.',note:'The model for future deep-water wind connections.'},
+
+// ---------- Computing hardware ----------
+{v:'hw',s:'industry',kind:'hist',t:'Inkjet printer',r:1977,p:1984,c:'high',rw:'Canon and HP independently develop thermal inkjet printing.',pw:'HP ThinkJet goes on sale.',note:'Affordable printing for every desk.'},
+{v:'hw',s:'academic',kind:'hist',t:'Electronic paper displays',r:1997,p:2007,c:'high',rw:'MIT Media Lab researchers develop electrophoretic electronic ink, spun out as E Ink.',pw:'The Amazon Kindle launches with an E Ink screen.',note:'Ultra-low-power displays now used for shelf labels and signage.'},
+
+// ---------- Computing software ----------
+{v:'sw',s:'industry',kind:'hist',co:'Amazon',t:'Online retail',r:1994,p:1995,c:'high',rw:'Jeff Bezos founds Cadabra, later Amazon.',pw:'Amazon.com begins selling books online.',note:'Its spare computing capacity later became Amazon Web Services.'},
+{v:'sw',s:'industry',kind:'hist',t:'Online banking',r:1980,p:1983,c:'medium',rw:'Banks experiment with home banking over the Prestel videotex service.',pw:'Bank of Scotland launches HOBS, an early UK online banking service.',note:'A Scottish first; now a major cyber target.'},
+
+// ---------- AI ----------
+{v:'ai',s:'industry',kind:'hist',t:'Body tracking without markers',r:2008,p:2010,c:'high',rw:'Microsoft Research in Cambridge, UK, develops machine learning to track body pose from depth images.',pw:'Kinect launches for Xbox.',note:'A UK research lab’s work in millions of homes within two years.'},
+{v:'ai',s:'academic',kind:'hist',t:'Autonomous AI diagnosis',r:2010,p:2018,c:'medium',rw:'University of Iowa research on automated diabetic eye disease detection.',pw:'IDx-DR becomes the first autonomous AI diagnostic system approved in the US.',note:'Regulators had to decide how to approve a machine that diagnoses alone.'},
+
+// ---------- Quantum ----------
+{v:'quantum',s:'industry',kind:'hist',t:'Scanning tunnelling microscope',r:1981,p:1987,c:'medium',rw:'Binnig and Rohrer at IBM Zurich use quantum tunnelling to image atoms.',pw:'Commercial scanning probe microscopes go on sale. Dates approximate.',note:'Nobel Prize in Physics 1986; opened up nanotechnology.'},
+{v:'quantum',s:'industry',kind:'hist',t:'Quantum cascade laser',r:1994,p:2004,c:'medium',rw:'Bell Labs demonstrates the quantum cascade laser.',pw:'Commercial quantum cascade lasers are sold for gas sensing.',note:'Used to detect methane and other gases.'},
+
+// ---------- Cyber ----------
+{v:'cyber',s:'industry',kind:'hist',t:'PGP email encryption',r:1991,p:1996,c:'high',rw:'Phil Zimmermann releases Pretty Good Privacy.',pw:'PGP Inc. sells commercial encryption products.',note:'Its author was investigated for exporting cryptography.'},
+{v:'cyber',s:'government',kind:'hist',t:'Onion routing (Tor)',r:1995,p:2002,c:'medium',rw:'The US Naval Research Laboratory develops onion routing.',pw:'The Tor anonymity network is released to the public.',note:'Protects dissidents, and hides criminal infrastructure.'},
+{v:'cyber',s:'industry',kind:'hist',t:'Fingerprint sensors on phones',r:1998,p:2013,c:'medium',rw:'Commercial research on silicon fingerprint sensors.',pw:'Fingerprint unlocking goes mainstream on smartphones.',note:'Made biometrics an everyday security control.'},
+
+// ---------- Communications ----------
+{v:'comms',s:'industry',kind:'hist',t:'Ethernet',r:1973,p:1980,c:'high',rw:'Robert Metcalfe and colleagues invent Ethernet at Xerox PARC.',pw:'3Com and others sell commercial Ethernet products.',note:'Still the basis of most wired networks, including substations.'},
+{v:'comms',s:'government',kind:'hist',t:'Data modems',r:1958,p:1962,c:'medium',rw:'Modems are developed for the US SAGE air defence network.',pw:'The Bell 103 modem goes on sale.',note:'Remote telemetry for utilities grew from this.'},
+{v:'comms',s:'government',kind:'hist',t:'Digital terrestrial television',r:1993,p:1998,c:'high',rw:'European broadcasters and governments create the DVB standards.',pw:'The UK launches the world’s first digital terrestrial television service.',note:'A UK world first that freed spectrum for mobile.'},
+{v:'comms',s:'industry',kind:'hist',t:'3G mobile data',r:1999,p:2001,c:'high',rw:'3GPP finalises the first 3G standards.',pw:'The first commercial 3G network opens in Japan.',note:'The start of the mobile internet.'},
+{v:'comms',s:'industry',kind:'hist',t:'Long-range low-power radio (LoRa)',r:2009,p:2013,c:'medium',rw:'French start-up Cycleo develops long-range spread-spectrum radio.',pw:'Semtech commercialises LoRa chips.',note:'Used for low-cost sensors on networks.'},
+
+// ---------- Materials ----------
+{v:'materials',s:'industry',kind:'hist',t:'Visible LEDs',r:1962,p:1968,c:'high',rw:'Nick Holonyak at General Electric makes the first visible-light LED.',pw:'Commercial LED indicators and displays go on sale.',note:'Half a century later, LEDs cut lighting energy use dramatically.'},
+{v:'materials',s:'industry',kind:'hist',t:'Electrochromic smart glass',r:1969,p:2003,c:'low',rw:'Satyendra Deb demonstrates electrochromic films.',pw:'Commercial dimmable smart glass for buildings goes on sale. Dates approximate.',note:'Cuts cooling energy in buildings.'},
+{v:'materials',s:'industry',kind:'hist',t:'Plant-based plastics',r:1989,p:2002,c:'medium',rw:'Cargill researches polylactic acid from corn.',pw:'NatureWorks opens commercial-scale PLA production.',note:'Renewable feedstocks for plastics.'},
+
+// ---------- Space ----------
+{v:'space',s:'government',kind:'hist',t:'Satellite search and rescue',r:1979,p:1985,c:'high',rw:'Canada, France, the US and the USSR agree to develop Cospas-Sarsat.',pw:'The satellite search and rescue system is declared operational.',note:'Cold War rivals cooperating; tens of thousands of lives saved.'},
+
+// ---------- Robotics ----------
+{v:'robotics',s:'academic',kind:'hist',t:'Autonomous mining trucks',r:1994,p:2008,c:'medium',rw:'Carnegie Mellon and Caterpillar research autonomous haulage.',pw:'Autonomous haulage trucks enter commercial mining operations.',note:'Driverless heavy vehicles arrived in mines long before roads.'},
+
+// ---------- Life sciences ----------
+{v:'life',s:'academic',kind:'hist',t:'HPV vaccine',r:1991,p:2006,c:'high',rw:'Ian Frazer and Jian Zhou at the University of Queensland make virus-like particles.',pw:'The first HPV vaccine is approved.',note:'A vaccine that prevents cancer.'},
+{v:'life',s:'academic',kind:'hist',t:'Targeted breast cancer antibody',r:1987,p:1998,c:'high',rw:'Dennis Slamon at UCLA links HER2 to aggressive breast cancer.',pw:'Herceptin is approved.',note:'Personalised medicine based on a tumour’s genetics.'},
+{v:'life',s:'academic',kind:'hist',t:'Targeted leukaemia drug',r:1993,p:2001,c:'high',rw:'Brian Druker at Oregon Health & Science University works with Ciba-Geigy on a kinase inhibitor.',pw:'Imatinib (Gleevec) is approved.',note:'Turned a deadly leukaemia into a manageable condition.'},
+{v:'life',s:'industry',kind:'hist',t:'Laser eye surgery',r:1983,p:1999,c:'medium',rw:'Researchers show excimer lasers can reshape the cornea.',pw:'LASIK is approved in the US.',note:'Sixteen years through device approval.'}
 ];
 
 const FIELDS = {
@@ -1314,7 +1386,7 @@ const FORT_RESEARCH = {'Google':['uni'], 'Cisco':['uni'], 'Genentech':['uni','La
   'Wayve':['uni'], 'Mistral AI':['lab'], 'Anthropic':['lab'], 'Safe Superintelligence':['lab'], 'Thinking Machines Lab':['lab'], 'Acorn Computers':['uni'], 'Rigetti Computing':['lab'],
   'Boston Dynamics':['uni'], 'iRobot':['uni'], 'Kiva Systems':['uni'], 'Netscape':['uni'], 'Planet':['lab'], 'Intel':['lab'], 'Hewlett-Packard':['uni'], 'Darktrace':['uni'], 'Xerography (Xerox)':['lab']};
 FORTUNES.forEach(x => { const r = FORT_RESEARCH[x.co]; if (r && !x.ac) { x.ac = r[0]; if (r[1]) x.prize = r[1]; } });
-const APP_VERSION = '6.9', APP_BUILD = '26 October 2026, 09:44 GMT';
+const APP_VERSION = '7.0', APP_BUILD = '26 October 2026, 10:48 GMT';
 // Screen-aware scaling: laptops slightly smaller, large screens larger
 const UI = (() => { const w = innerWidth; return w < 1280 ? .85 : w < 1500 ? .95 : w < 1800 ? 1.05 : w < 2300 ? 1.2 : 1.4; })();
 const LARGE = innerWidth >= 1700;
@@ -1701,7 +1773,7 @@ function buildTrends(){
  *  WINDOW MANAGER
  * ================================================================== */
 const WIN_IDS = ['pagetitle','title','ticker','player','sources','filters','display','summary','milestones','details','key','context','landing','gapchart','fortunes','vision','outlook','deck','music','vid1','vid2'];
-const WIN_NAMES = {pagetitle:'Page title', title:'Showcase title', ticker:'Joke ticker', player:'Play the century', sources:'Sources and further reading', filters:'Filters', display:'Display', summary:'Summary', milestones:'Milestones', details:'Details', key:'Reading the model', context:'Context', landing:'Landing and starting', gapchart:'Gap over time', fortunes:'Time to a fortune', vision:'DESNZ AI energy vision', outlook:'Can AI shrink the gap?', deck:'Ofgem presentation', music:'Music', vid1:'Countdown to Q-Day', vid2:'University Curated Cyber-attacks since 2000'};
+const WIN_NAMES = {pagetitle:'Page title', title:'Showcase title', ticker:'Joke ticker', player:'Play the century', sources:'Sources', filters:'Filters', display:'Display', summary:'Summary', milestones:'Milestones', details:'Details', key:'Reading the model', context:'Context', landing:'Landing and starting', gapchart:'Gap over time', fortunes:'Time to a fortune', vision:'DESNZ AI energy vision', outlook:'Can AI shrink the gap?', deck:'Ofgem presentation', music:'Music', vid1:'Countdown to Q-Day', vid2:'University Curated Cyber-attacks since 2000'};
 function defaultLayout(){
   const W = innerWidth, Hh = innerHeight, u = UI, top = Math.round(72 * u), narrow = W < 820;
   const rw = Math.min(Math.round(360 * u), W - 36), lw = Math.min(Math.round(330 * u), W - 36);
@@ -1934,6 +2006,7 @@ function refresh(){
   });
   if (selected && selected.target < 1) closeDetail();
   syncFilterUI(); buildTrends(); renderStats(); renderMilestones();
+  if (typeof yearShown !== 'undefined') yearShown = -1;
   if (typeof computeGapSeries === 'function') { computeGapSeries(); renderVision(); updateTimeWindows(true); }
 }
 
@@ -2022,6 +2095,7 @@ $('fsBtn').onclick = () => { if (!document.fullscreenElement) { document.documen
 document.addEventListener('fullscreenchange', () => { $('fsBtn').textContent = document.fullscreenElement ? 'Exit full screen' : 'Full screen'; });
 $('aboutBtn').onclick = () => $('about').classList.add('open');
 $('aboutClose').onclick = () => $('about').classList.remove('open');
+$('aboutSources').onclick = () => { $('about').classList.remove('open'); setOpen('sources', true); };
 $('about').onclick = e => { if (e.target.id === 'about') $('about').classList.remove('open'); };
 $('playBtn').onclick = () => state.playing ? stopPlay() : startPlay();
 
@@ -2195,6 +2269,14 @@ function updateLabels(){
  *  ANIMATION
  * ================================================================== */
 const clock = new THREE.Clock(), tmp = new THREE.Vector3(); let yearShown = -1;
+function updatePlayTotals(yr){
+  const pool = items.filter(shownFully);
+  const reached = pool.filter(it => it.kind === 'hist' ? it.p <= yr : it.kind === 'proj' && yr > NOW && it.p <= yr);
+  const rset = new Set(reached);
+  const research = reached.filter(it => !it.co).length, products = reached.length - research;
+  const inFlight = pool.filter(it => it.r <= yr && !rset.has(it)).length;
+  $('playTotals').innerHTML = `<b>${reached.length}</b> reached so far: ${research} research ${research === 1 ? 'breakthrough' : 'breakthroughs'}, ${products} company ${products === 1 ? 'product' : 'products'}. <b>${inFlight}</b> in progress. <span>${pool.length} in this selection.</span>`;
+}
 function frame(){
   requestAnimationFrame(frame);
   const dt = Math.min(clock.getDelta(), .05), t = clock.elapsedTime;
@@ -2214,6 +2296,7 @@ function frame(){
       if (scY) { const v = scenAt(scY, yr); $('yearSub').innerHTML = `Scenario for research starting now: <b>${fmtY(scY.base)} years</b> at the recent pace, <b>${fmtR(v.lo, v.hi)}</b> with AI and digital twins<br><span>an illustration, not a forecast</span>`; }
       else $('yearSub').innerHTML = g ? `Time taken from research to change: <b>${g.m} years</b><br><span>median of ${g.n} ${g.n === 1 ? 'arc' : 'arcs'} landing ${Math.max(Y0, yr - 9)}–${yr}${yr > NOW ? ', including expected' : ''}</span>` : `Time taken from research to change: <b>${yr - 9 <= Y0 ? 'no arcs landing yet' : 'no arcs landed in the last ten years'}</b><br><span>for this selection</span>`;
       if (document.activeElement !== $('scrub')) $('scrub').value = state.cursor;
+      updatePlayTotals(yr);
     }
   }
   updateTimeWindows(false);
