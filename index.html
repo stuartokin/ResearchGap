@@ -146,6 +146,7 @@ table.stats tr.all td{font-weight:600;color:var(--text)}
 #labels{position:fixed;inset:0;pointer-events:none;z-index:5;overflow:hidden}
 .lbl{position:absolute;left:0;top:0;font-size:var(--lfs);white-space:nowrap;color:var(--text);padding:.15em .5em .15em .4em;border-radius:.4em;background:rgba(8,19,29,.62);border-left:2px solid currentColor;will-change:transform;display:none;line-height:1.3}
 .lbl b{font-weight:500;color:#E3ECF2}
+.lbl.maj b{font-weight:600}
 #tip{position:fixed;pointer-events:none;z-index:1500;background:var(--panel-solid);border:1px solid var(--line-strong);border-radius:9px;padding:8px 11px;font-size:13px;opacity:0;transition:opacity .15s;max-width:280px}
 #tip b{display:block;font-weight:600;margin-bottom:2px}
 #tip span{color:var(--muted);font-variant-numeric:tabular-nums}
@@ -374,6 +375,7 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
     <div class="flist" id="fieldList"></div>
     <h3>Where the research began</h3>
     <div class="chips" id="srcChips"></div>
+    <label class="toggle">Major milestones only <input type="checkbox" id="majT"></label>
     <h3>Type of milestone</h3>
     <div class="chips" id="catChips"></div>
     <h3>Status</h3>
@@ -401,6 +403,16 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
       <button data-v="off">Off</button><button data-v="peak">On arcs</button><button data-v="follow">Follow lights</button>
     </div>
     <div class="slider"><label>Label size <b id="lfsV">12</b></label><input type="range" id="lfsR" min="9" max="26" value="12"></div>
+    <h3>Label presets</h3>
+    <div class="minis"><button class="mini" data-lp="story">Clean story</button><button class="mini" data-lp="highlights">Landing highlights</button><button class="mini" data-lp="major">Major milestones</button><button class="mini" data-lp="all">Everything</button></div>
+    <h3>Labels during Play the century</h3>
+    <div class="seg" id="labelPlaySeg"><button data-v="always">Always</button><button data-v="until">Until landed</button><button data-v="flash">Flash on landing</button></div>
+    <p class="note-s">Until landed: each label rides its light while the arc is drawn, then fades. Flash on landing: a label appears briefly as each arc lands.</p>
+    <div class="slider"><label>Linger after landing <b id="lingerV">2 s</b></label><input type="range" id="lingerR" min="0" max="8" step="0.5" value="2"></div>
+    <h3>Which arcs get labels</h3>
+    <div class="seg" id="labelScopeSeg"><button data-v="all">All shown arcs</button><button data-v="major">Major milestones</button></div>
+    <div class="slider"><label>Most labels on screen <b id="labelMaxV">All</b></label><input type="range" id="labelMaxR" min="3" max="60" value="60"></div>
+    <p class="note-s">When labels are limited, the newest landings and major milestones win.</p>
     <h3>Page header</h3>
     <label class="toggle">Show page title <input type="checkbox" id="titleShowT"></label>
     <label class="toggle">Hide top buttons until the mouse is near the top <input type="checkbox" id="barAutoT"></label>
@@ -531,7 +543,7 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
       <li>IBM quantum roadmap (2026); vendor battery roadmaps (Toyota, Samsung SDI, CATL), treated as aspirations rather than facts.</li>
       <li>Institutional histories: Bell Labs, IBM Research, Xerox PARC, CERN, DARPA, CSIRO, RAE Farnborough, MRC Laboratory of Molecular Biology.</li>
     </ul>
-    <p class="ver">Version 6.2. Built 26 October 2026 at 02:07 GMT.</p>
+    <p class="ver">Version 6.3. Built 26 October 2026 at 02:25 GMT.</p>
     <p class="by">Stuart Okin, Director of Cyber Regulation and Emerging Technologies, Ofgem.<br>Illustrative analysis prepared for discussion. Outlook views are indicative and do not represent Ofgem policy.</p>
   </div>
 </div>
@@ -958,6 +970,8 @@ const CONFS = {high:'High', medium:'Medium', low:'Low'};
 const CONF_LONG = {high:'High confidence', medium:'Medium confidence', low:'Low confidence'};
 const DV_TAGS = {'AI in grid control rooms':'opt','Household flexibility at scale':'demand','Quantum optimisation pilots':'opt','AI anomaly detection in OT networks':'gov','AI-discovered materials in products':'rd','AI as a scientific collaborator':'rd','Fusion power':'rd'};
 DATA.forEach(d => { if (DV_TAGS[d.t]) d.dv = DV_TAGS[d.t]; });
+const MAJOR = new Set(['Nuclear fission to grid power', 'Silicon solar cell', 'Lithium-ion battery', 'Utility-scale wind', 'Offshore wind farm', 'Pressurised water reactor', 'Smart meters at scale', 'Modern electric cars', 'Grid-scale lithium-ion storage', 'Floating offshore wind', 'Fusion power', 'AI in grid control rooms', 'Long-duration storage at scale', 'First UK small modular reactors', 'Stored-program computer', 'Transistor', 'Integrated circuit', 'Microprocessor', 'IBM PC', 'iPhone', 'EUV lithography', 'GPUs for general computing', 'World Wide Web', 'Relational database', 'Graphical interface', 'Utility and cloud computing', 'Social networking', 'Open-source operating systems', 'Android', 'Deep learning for images', 'Transformer models', 'Learning from human feedback', 'Large language model API', 'Reasoning models', 'AI data-centre GPUs', 'Agentic AI in everyday work', 'Laser', 'Atomic clock', 'Quantum computing access', 'Cryptographically relevant quantum computer', 'Fault-tolerant quantum computer', 'Machine codebreaking', 'Public-key cryptography (open)', 'Firewall', 'Encrypted web (SSL/TLS)', 'Industrial control system security', 'Post-quantum cryptography', 'AI vulnerability discovery', 'Post-quantum migration of priority systems', 'Radar', 'Television', 'Optical fibre', 'Cellular networks', 'TCP/IP', 'GSM mobile', 'Wi-Fi technology', '4G LTE', 'Nylon', 'Carbon fibre', 'Blue LED', 'Graphene', 'Neodymium magnets', 'Solid-state batteries in production cars', 'Liquid-fuelled rocket to orbit', 'Satellite navigation', 'Commercial Earth observation', 'Reusable rockets', 'Low-orbit satellite broadband', 'Industrial robot', 'Driverless cars', 'UK robotaxis', 'Penicillin', 'Recombinant DNA', 'MRI scanning', 'CT scanning', 'DNA sequencing', 'mRNA vaccines', 'CRISPR gene editing', 'Protein structure prediction']);
+DATA.forEach(d => { if (MAJOR.has(d.t)) d.major = true; });
 const VISION = {opt:'System optimisation and operation', asset:'Asset planning, operation and maintenance', demand:'End-use efficiency and demand', rd:'Energy innovation and R&D', gov:'Security, assurance and governance'};
 
 /* Context events for the time windows */
@@ -1079,7 +1093,7 @@ const FORTUNES = [
  {n:'Mira Murati and co-founders',co:'Thinking Machines Lab',v:'ai',f:2025,w:2025,how:'Private valuation',c:'medium'},
  {n:'Arthur Mensch, Guillaume Lample and Timothée Lacroix',co:'Mistral AI',v:'ai',f:2023,w:2023,how:'Private valuation',c:'medium'}
 ];
-const APP_VERSION = '6.2', APP_BUILD = '26 October 2026, 02:07 GMT';
+const APP_VERSION = '6.3', APP_BUILD = '26 October 2026, 02:25 GMT';
 const Y0 = 1925, Y1 = 2032, NOW = 2026, HORIZON = 2031.6, XS = 1.2, MID = (Y0 + Y1) / 2, H = 0.85, ZE = 28;
 const xOf = y => (y - MID) * XS;
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
@@ -1175,12 +1189,12 @@ const ACCEL = {
 const DEFAULT_FILTERS = () => ({
   fields:new Set(FKEYS), src:{academic:true,industry:true,government:true},
   kinds:{hist:true,proj:true,flight:true}, conf:{high:true,medium:true,low:true}, cats:{br:true,co:true},
-  from:1925, to:2026, gapMax:60, q:'', ghosts:true, vision:false,
+  from:1925, to:2026, gapMax:60, q:'', ghosts:true, vision:false, majorOnly:false,
   dv:{opt:true,asset:true,demand:true,rd:true,gov:true}
 });
 const F = DEFAULT_FILTERS();
 const hidden = new Set();
-const view = {labels:'off', lfs:12, lanes:'s', colour:'s', pulses:true, trend:true, floor:true, rotSpeed:0.35, glow:0.75};
+const view = {labelPlay:'always', labelScope:'all', labelMax:60, labelLinger:2, labels:'off', lfs:12, lanes:'s', colour:'s', pulses:true, trend:true, floor:true, rotSpeed:0.35, glow:0.75};
 Object.assign(view, store.get('sg.view.v2', {}));
 const state = {playing:false, cursor:Y1, autoRotate:!reduced};
 let selected = null, hovered = null;
@@ -1425,6 +1439,7 @@ function matches(it){
   if (it.r < F.from || it.r > F.to) return false;
   if (F.gapMax < 60 && it.lag > F.gapMax) return false;
   if (F.vision && !(it.dv && F.dv[it.dv])) return false;
+  if (F.majorOnly && !it.major) return false;
   if (F.q) { const q = F.q.toLowerCase(); if (!(it.t + ' ' + it.rw + ' ' + it.pw).toLowerCase().includes(q)) return false; }
   return true;
 }
@@ -1600,6 +1615,7 @@ $('fromR').addEventListener('input', e => { F.from = +e.target.value; if (F.from
 $('toR').addEventListener('input', e => { F.to = +e.target.value; if (F.to < F.from) { F.from = F.to; } refresh(); });
 $('gapR').addEventListener('input', e => { F.gapMax = +e.target.value; refresh(); });
 $('ghostT').addEventListener('change', e => { F.ghosts = e.target.checked; refresh(); });
+$('majT').addEventListener('change', e => { F.majorOnly = e.target.checked; refresh(); });
 $('visT').addEventListener('change', e => { F.vision = e.target.checked; if (F.vision) F.dv = {opt:true,asset:true,demand:true,rd:true,gov:true}; refresh(); });
 $('resetFilters').onclick = () => { Object.assign(F, DEFAULT_FILTERS()); hidden.clear(); refresh(); };
 
@@ -1613,7 +1629,7 @@ function syncFilterUI(){
   $('fromR').value = F.from; $('toR').value = F.to; $('gapR').value = F.gapMax;
   $('fromV').textContent = F.from; $('toV').textContent = F.to; $('gapV').textContent = F.gapMax >= 60 ? 'Any' : F.gapMax + ' years';
   $('ghostT').checked = F.ghosts; if ($('q').value.trim() !== F.q) $('q').value = F.q;
-  $('visT').checked = F.vision;
+  $('visT').checked = F.vision; $('majT').checked = !!F.majorOnly;
 }
 
 /* Display UI */
@@ -1624,6 +1640,15 @@ function segBind(id, key, after){
   sync(); return sync;
 }
 const syncLabelSeg = segBind('labelSeg', 'labels', () => {});
+segBind('labelPlaySeg', 'labelPlay', () => {});
+const LABEL_PRESETS = {
+  story:{labels:'follow', labelPlay:'until', labelScope:'major', labelMax:8, labelLinger:2},
+  highlights:{labels:'follow', labelPlay:'flash', labelScope:'all', labelMax:12, labelLinger:3},
+  major:{labels:'peak', labelPlay:'always', labelScope:'major', labelMax:60, labelLinger:2},
+  all:{labels:'follow', labelPlay:'always', labelScope:'all', labelMax:60, labelLinger:2}
+};
+document.querySelectorAll('[data-lp]').forEach(b => b.onclick = () => { Object.assign(view, LABEL_PRESETS[b.dataset.lp]); store.set('sg.view.v2', view); syncDisplayUI(); });
+segBind('labelScopeSeg', 'labelScope', () => {});
 segBind('laneSeg', 'lanes', () => { applyLanes(false); buildTrends(); });
 segBind('colSeg', 'colour', () => { applyColours(); renderMilestones(); });
 function bindToggle(id, key, after){ const el = $(id); el.checked = view[key]; el.addEventListener('change', () => { view[key] = el.checked; store.set('sg.view.v2', view); after && after(); }); }
@@ -1640,6 +1665,8 @@ function bindRange(id, outId, key, after, fmt){
   const el = $(id), out = $(outId); el.value = view[key]; out.textContent = fmt ? fmt(view[key]) : view[key];
   el.addEventListener('input', () => { view[key] = +el.value; out.textContent = fmt ? fmt(view[key]) : view[key]; store.set('sg.view.v2', view); after && after(); });
 }
+bindRange('labelMaxR', 'labelMaxV', 'labelMax', () => {}, v => v >= 60 ? 'All' : String(v));
+bindRange('lingerR', 'lingerV', 'labelLinger', () => {}, v => v + ' s');
 bindRange('lfsR', 'lfsV', 'lfs', () => document.documentElement.style.setProperty('--lfs', view.lfs + 'px'), v => v + 'px');
 bindRange('rotR', 'rotV', 'rotSpeed', () => { controls.autoRotateSpeed = view.rotSpeed; if (view.rotSpeed > 0 && !state.autoRotate) setAutoRotate(true); if (view.rotSpeed === 0) setAutoRotate(false); }, v => v.toFixed(2));
 bindRange('glowR', 'glowV', 'glow', () => { if (bloom) bloom.strength = view.glow; }, v => v.toFixed(2));
@@ -1831,27 +1858,78 @@ items.forEach(it => {
   labelLayer.appendChild(el); it.labelEl = el;
 });
 const lv = new THREE.Vector3();
+let lastLabelCur = null;
+function hideLabel(el){ if (el._on) { el.style.display = 'none'; el._on = false; } }
 function updateLabels(){
-  if (view.labels === 'off' || document.body.classList.contains('clean')) { labelLayer.style.display = 'none'; return; }
+  if (view.labels === 'off' || document.body.classList.contains('clean')) { labelLayer.style.display = 'none'; lastLabelCur = null; return; }
   labelLayer.style.display = '';
-  const W = innerWidth, Hh = innerHeight;
+  const W = innerWidth, Hh = innerHeight, now = performance.now(), cur = state.cursor, playing = state.playing;
+  const linger = (view.labelLinger || 0) * 1000, flashMs = Math.max(2500, linger + 1500);
+  // note the moment each arc lands (or starts, for arcs still in the lab) during play
+  if (playing && lastLabelCur != null) {
+    if (cur < lastLabelCur - .5) items.forEach(it => { it.landAt = it.startAt = 0; });
+    else items.forEach(it => {
+      const end = it.kind === 'flight' ? null : it.p;
+      if (end != null && lastLabelCur < end && cur >= end) it.landAt = now;
+      if (lastLabelCur < it.r && cur >= it.r) it.startAt = now;
+    });
+  }
+  lastLabelCur = playing ? cur : null;
+  const cands = [];
   items.forEach(it => {
     const el = it.labelEl;
-    const show = it.group.visible && it.f > .5 && it.target === 1;
-    if (!show) { if (el._on) { el.style.display = 'none'; el._on = false; } return; }
-    if (view.labels === 'follow') {
-      if (it.pulse) lv.copy(it.pulse.position); else lv.copy(it.lead);
-    } else lv.copy(it.peak);
+    let show = it.group.visible && it.f > .5 && it.target === 1;
+    if (show && view.labelScope === 'major' && !it.major) show = false;
+    let mode = view.labels, alpha = 1, prio = (it.major ? 2 : 0);
+    if (show && playing && view.labelPlay !== 'always') {
+      const end = it.kind === 'flight' ? Infinity : it.p;
+      if (view.labelPlay === 'until') {
+        if (it.kind === 'proj' && cur < NOW) show = false;
+        else if (cur < end) { mode = 'tip'; prio += 10 + (cur - it.r) / 100; }
+        else if (it.landAt && now - it.landAt < linger) { mode = 'land'; alpha = 1 - (now - it.landAt) / linger; prio += 9; }
+        else show = false;
+        if (show && it.kind === 'flight' && it.startAt && now - it.startAt > 6000) show = false;
+        if (show && it.kind === 'flight' && !it.startAt) show = false;
+      } else {
+        const t0 = it.kind === 'flight' ? it.startAt : it.landAt;
+        if (t0 && now - t0 < flashMs) { mode = 'land'; alpha = Math.min(1, (flashMs - (now - t0)) / 800); prio += 10 - (now - t0) / flashMs; }
+        else show = false;
+      }
+    } else if (show && it.kind === 'hist') prio += it.p / 10000;
+    if (!show) { hideLabel(el); return; }
+    cands.push({it, mode, alpha, prio});
+  });
+  const limit = view.labelMax >= 60 ? Infinity : view.labelMax;
+  if (cands.length > limit) { cands.sort((a, b) => b.prio - a.prio); cands.slice(limit).forEach(c => hideLabel(c.it.labelEl)); cands.length = limit; }
+  if (cands.length > 1) cands.sort((a, b) => b.prio - a.prio);
+  const placed = [], lfs = view.lfs;
+  cands.forEach(({it, mode, alpha}) => {
+    const el = it.labelEl;
+    if (mode === 'land') lv.copy(it.kind === 'flight' ? it.curve.v0 : it.curve.v2).setY(1.6);
+    else if (mode === 'tip' || mode === 'follow') { if (it.pulse) lv.copy(it.pulse.position); else lv.copy(it.lead); }
+    else lv.copy(it.peak);
     lv.y += .9; lv.add(it.group.position);
     const dist = camera.position.distanceTo(lv);
     lv.project(camera);
-    if (lv.z > 1 || lv.x < -1.1 || lv.x > 1.1 || lv.y < -1.1 || lv.y > 1.1) { if (el._on) { el.style.display = 'none'; el._on = false; } return; }
+    if (lv.z > 1 || lv.x < -1.1 || lv.x > 1.1 || lv.y < -1.1 || lv.y > 1.1) { hideLabel(el); return; }
     if (!el._on) { el.style.display = 'block'; el._on = true; }
-    const x = (lv.x * .5 + .5) * W, y = (-lv.y * .5 + .5) * Hh;
+    if (!el._w || el._lfs !== lfs) { el._w = el.offsetWidth; el._h = el.offsetHeight; el._lfs = lfs; }
+    const x = (lv.x * .5 + .5) * W;
+    let y = (-lv.y * .5 + .5) * Hh;
+    // nudge upwards until this label no longer overlaps a higher-priority one
+    const w = el._w, h = el._h + 2;
+    let tries = 0, hit = true;
+    while (hit && tries < 6) {
+      hit = placed.some(r => Math.abs(r.x - x) < (r.w + w) / 2 && Math.abs(r.y - y) < (r.h + h) / 2);
+      if (hit) { y -= h; tries++; }
+    }
+    if (hit) { hideLabel(el); return; }
+    placed.push({x, y, w, h});
     el.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) translate(-50%, -100%)`;
     const sel = selected === it ? 1 : selected ? .35 : 1;
-    el.style.opacity = (clamp(1.25 - dist / 220, .25, 1) * sel * Math.min(1, it.f)).toFixed(2);
+    el.style.opacity = (clamp(1.25 - dist / 220, .25, 1) * sel * Math.min(1, it.f) * clamp(alpha, 0, 1)).toFixed(2);
     el.style.zIndex = Math.round(1000 - dist);
+    el.classList.toggle('maj', !!it.major);
   });
 }
 
@@ -2280,10 +2358,10 @@ function saveViewFile(){
   document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 3000);
 }
 function syncDisplayUI(){
-  [['labelSeg','labels'],['laneSeg','lanes'],['colSeg','colour']].forEach(([id, k]) => $(id).querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', b.dataset.v === view[k])));
+  [['labelSeg','labels'],['labelPlaySeg','labelPlay'],['labelScopeSeg','labelScope'],['laneSeg','lanes'],['colSeg','colour']].forEach(([id, k]) => $(id).querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', b.dataset.v === view[k])));
   [['pulseT','pulses'],['trendT','trend'],['floorT','floor'],['loopD','loopPlay'],['loopT','loopPlay'],['liteT','lite']].forEach(([id, k]) => { $(id).checked = !!view[k]; });
   applyLite(); applyHeader();
-  [['lfsR','lfsV','lfs',v => v + 'px'],['rotR','rotV','rotSpeed',v => (+v).toFixed(2)],['glowR','glowV','glow',v => (+v).toFixed(2)]].forEach(([r, o, k, f]) => { $(r).value = view[k]; $(o).textContent = f(view[k]); });
+  [['labelMaxR','labelMaxV','labelMax',v => v >= 60 ? 'All' : String(v)],['lingerR','lingerV','labelLinger',v => v + ' s'],['lfsR','lfsV','lfs',v => v + 'px'],['rotR','rotV','rotSpeed',v => (+v).toFixed(2)],['glowR','glowV','glow',v => (+v).toFixed(2)]].forEach(([r, o, k, f]) => { $(r).value = view[k]; $(o).textContent = f(view[k]); });
   document.documentElement.style.setProperty('--lfs', view.lfs + 'px');
   controls.autoRotateSpeed = view.rotSpeed; if (bloom) bloom.strength = view.glow;
   applyLanes(false); applyColours(); $('floorT').dispatchEvent(new Event('change'));
