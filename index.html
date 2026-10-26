@@ -412,6 +412,10 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
     <a href="https://new.openclimatefix.org/projects/cloud-forecasting" target="_blank" rel="noopener">Open Climate Fix: Cloudcasting</a>
     <a href="https://www.solarpowerportal.co.uk/battery-storage/drax-acquires-uk-based-ai-enabled-asset-optimisation-platform-flexitricity" target="_blank" rel="noopener">Drax acquires Flexitricity</a>
     <a href="https://transportandenergy.com/2025/09/04/national-grid-uses-ai-drone-aerial-inspection/" target="_blank" rel="noopener">National Grid: AI drone aerial inspection</a>
+    <a href="https://www.electrive.com/2025/06/24/octopus-energy-and-byd-launch-uks-first-v2g-bundle" target="_blank" rel="noopener">Electrive: Octopus and BYD vehicle-to-grid bundle</a>
+    <a href="https://innovation.ukpowernetworks.co.uk/projects/satelline" target="_blank" rel="noopener">UK Power Networks: Satelline satellite and AI vegetation pilot</a>
+    <a href="https://www.aidash.com/wp-content/uploads/2021/06/Earth-Observation-and-Utility-Vegetation-Management.pdf" target="_blank" rel="noopener">AiDash: satellite AI vegetation management</a>
+    <a href="https://www.artelys.com/app/uploads/2024/04/White_paper_L2RPN_2023_.pdf" target="_blank" rel="noopener">Artelys: Learning to Run a Power Network (L2RPN) 2023</a>
     <h3>Storage, stability and nuclear</h3>
     <a href="https://www.solarpowerportal.co.uk/zenobe-200mw-bess-operational-first-to-provide-stability-services-for-neso" target="_blank" rel="noopener">Zenobē Blackhillock: first battery providing stability services</a>
     <a href="https://www.nsenergybusiness.com/analysis/blackhillock-launches-uks-first-grid-forming-battery/" target="_blank" rel="noopener">NS Energy: Blackhillock, the UK’s first grid-forming battery</a>
@@ -443,6 +447,7 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
       <button class="mini" data-preset="core">Energy, cyber and computing</button>
     </div>
     <div class="flist" id="fieldList"></div>
+    <label class="toggle">Hide tracks for unselected fields and sources <input type="checkbox" id="compactT" checked></label>
     <h3>Where the research began</h3>
     <div class="chips" id="srcChips"></div>
     <label class="toggle">Major milestones only <input type="checkbox" id="majT"></label>
@@ -622,7 +627,7 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
       <li>Institutional histories: Bell Labs, IBM Research, Xerox PARC, CERN, DARPA, CSIRO, RAE Farnborough, MRC Laboratory of Molecular Biology.</li>
     </ul>
     <p><button class="btn" id="aboutSources">View all sources</button> <span class="note-s">Opens a window you can move, resize and keep open.</span></p>
-    <p class="ver">Version 7.0. Built 26 October 2026 at 10:48 GMT.</p>
+    <p class="ver">Version 7.1. Built 26 October 2026 at 11:58 GMT.</p>
     <p class="by">Stuart Okin, Director of Cyber Regulation and Emerging Technologies, Ofgem.<br>Illustrative analysis prepared for discussion. Outlook views are indicative and do not represent Ofgem policy.</p>
   </div>
 </div>
@@ -1198,7 +1203,22 @@ const DATA = [
 {v:'life',s:'academic',kind:'hist',t:'HPV vaccine',r:1991,p:2006,c:'high',rw:'Ian Frazer and Jian Zhou at the University of Queensland make virus-like particles.',pw:'The first HPV vaccine is approved.',note:'A vaccine that prevents cancer.'},
 {v:'life',s:'academic',kind:'hist',t:'Targeted breast cancer antibody',r:1987,p:1998,c:'high',rw:'Dennis Slamon at UCLA links HER2 to aggressive breast cancer.',pw:'Herceptin is approved.',note:'Personalised medicine based on a tumour’s genetics.'},
 {v:'life',s:'academic',kind:'hist',t:'Targeted leukaemia drug',r:1993,p:2001,c:'high',rw:'Brian Druker at Oregon Health & Science University works with Ciba-Geigy on a kinase inhibitor.',pw:'Imatinib (Gleevec) is approved.',note:'Turned a deadly leukaemia into a manageable condition.'},
-{v:'life',s:'industry',kind:'hist',t:'Laser eye surgery',r:1983,p:1999,c:'medium',rw:'Researchers show excimer lasers can reshape the cornea.',pw:'LASIK is approved in the US.',note:'Sixteen years through device approval.'}
+{v:'life',s:'industry',kind:'hist',t:'Laser eye surgery',r:1983,p:1999,c:'medium',rw:'Researchers show excimer lasers can reshape the cornea.',pw:'LASIK is approved in the US.',note:'Sixteen years through device approval.'},
+// ================== DESNZ VISION: RESEARCH AND INVENTIONS BY CATEGORY ==================
+// System optimisation and operation
+{v:'energy',s:'government',kind:'proj',dv:'opt',co:'RTE and research partners',t:'Reinforcement-learning control room assistants',r:2019,p:2029,c:'low',rw:'France’s RTE and INRIA launch the Learning to Run a Power Network challenges, where AI agents operate simulated grids; a 2023 track tests AI as an operator assistant.',pw:'AI assistants suggest congestion and switching actions to control engineers, with humans deciding. Estimated.',note:'Research shows large cuts in redispatch; trust, explainability and safety cases are the gating factors.'},
+// Asset planning, operation and maintenance
+{v:'energy',s:'industry',kind:'hist',dv:'asset',co:'AiDash',t:'Satellite AI vegetation management',r:2019,p:2021,c:'medium',rw:'AiDash develops AI that reads satellite imagery to predict tree growth near power lines.',pw:'Its vegetation management system is deployed by large utilities, including National Grid in the US.',note:'Replaces some LiDAR and foot patrols with satellite monitoring.'},
+{v:'energy',s:'industry',kind:'proj',dv:'asset',co:'UK Power Networks and others',t:'Network-wide satellite AI tree management in GB',r:2023,p:2027,c:'medium',rw:'UK Power Networks’ Satelline pilot covers 400km of lines and about 3,500 spans with satellite imagery and AI.',pw:'Satellite and AI vegetation management used across whole GB distribution networks. Estimated.',note:'The pilot found the approach highly accurate; a full business case is under way.'},
+// End-use efficiency and demand
+{v:'energy',s:'academic',kind:'hist',dv:'demand',co:'Octopus Energy',t:'Vehicle-to-grid for households',r:1997,p:2024,c:'high',rw:'Willett Kempton’s team at the University of Delaware proposes using parked electric cars to support the grid.',pw:'Octopus launches the UK’s first V2G tariff; a car, bidirectional charger and tariff bundle with BYD follows in 2025.',note:'Twenty-seven years: it needed cars, chargers, standards and tariffs to line up.'},
+{v:'energy',s:'industry',kind:'proj',dv:'demand',t:'AI home energy agents',r:2023,p:2028,c:'medium',rw:'Suppliers and start-ups apply AI agents to automate household heat pumps, batteries and EV charging.',pw:'Mainstream AI agents manage household energy automatically for price and grid signals. Estimated.',note:'Raises consumer protection, cyber and data questions that Ofgem will need to address.'},
+// Energy innovation and R&D
+{v:'energy',s:'academic',kind:'hist',dv:'rd',t:'Machine learning battery lifetime prediction',r:2019,p:2021,c:'medium',rw:'Stanford, MIT and Toyota Research Institute show machine learning can predict battery life from the first few cycles.',pw:'Commercial battery analytics platforms use machine learning to forecast degradation. Dates approximate.',note:'Cuts months of testing from battery development and helps storage owners plan.'},
+{v:'energy',s:'industry',kind:'proj',dv:'rd',t:'AI-discovered electrolyser catalysts',r:2020,p:2031,c:'low',rw:'The Open Catalyst Project releases large datasets and models to search for catalysts for green hydrogen.',pw:'An electrolyser using an AI-discovered catalyst reaches the market. Estimated.',note:'Catalysts are a major cost in green hydrogen.'},
+// Security, assurance and governance
+{v:'cyber',s:'government',kind:'hist',dv:'gov',t:'AI management system standard',r:2017,p:2023,c:'high',rw:'ISO and IEC set up a joint committee on artificial intelligence standards.',pw:'ISO/IEC 42001, the first certifiable AI management system standard, is published.',note:'Gives organisations, including energy companies, an auditable framework for AI governance.'},
+{v:'cyber',s:'government',kind:'proj',dv:'gov',t:'Assured AI in operational energy decisions',r:2023,p:2029,c:'low',rw:'Regulators and system operators begin defining assurance for AI used in operations.',pw:'AI systems approved through sector assurance to act in live energy operations with human oversight. Estimated.',note:'The DESNZ vision identifies regulatory clarity and assurance as key to adoption.'}
 ];
 
 const FIELDS = {
@@ -1386,7 +1406,7 @@ const FORT_RESEARCH = {'Google':['uni'], 'Cisco':['uni'], 'Genentech':['uni','La
   'Wayve':['uni'], 'Mistral AI':['lab'], 'Anthropic':['lab'], 'Safe Superintelligence':['lab'], 'Thinking Machines Lab':['lab'], 'Acorn Computers':['uni'], 'Rigetti Computing':['lab'],
   'Boston Dynamics':['uni'], 'iRobot':['uni'], 'Kiva Systems':['uni'], 'Netscape':['uni'], 'Planet':['lab'], 'Intel':['lab'], 'Hewlett-Packard':['uni'], 'Darktrace':['uni'], 'Xerography (Xerox)':['lab']};
 FORTUNES.forEach(x => { const r = FORT_RESEARCH[x.co]; if (r && !x.ac) { x.ac = r[0]; if (r[1]) x.prize = r[1]; } });
-const APP_VERSION = '7.0', APP_BUILD = '26 October 2026, 10:48 GMT';
+const APP_VERSION = '7.1', APP_BUILD = '26 October 2026, 11:58 GMT';
 // Screen-aware scaling: laptops slightly smaller, large screens larger
 const UI = (() => { const w = innerWidth; return w < 1280 ? .85 : w < 1500 ? .95 : w < 1800 ? 1.05 : w < 2300 ? 1.2 : 1.4; })();
 const LARGE = innerWidth >= 1700;
@@ -1493,7 +1513,7 @@ const DEFAULT_FILTERS = () => ({
 });
 const F = DEFAULT_FILTERS();
 const hidden = new Set();
-const view = {fortSort:'year', musicOn:true, loopPlay:true, fortHi:true, fortOnly:false, laneFollow:true, camTravel:true, fadeLanded:true, keepYears:5, revealEnd:true, labelPlay:'until', labelScope:'all', labelMax:14, labelLinger:2, labels:'follow', lfs:LARGE ? 18 : 15, lanes:'v', colour:'v', pulses:true, trend:true, floor:true, rotSpeed:0.35, glow:0.75};
+const view = {compactLanes:true, fortSort:'year', musicOn:true, loopPlay:true, fortHi:true, fortOnly:false, laneFollow:true, camTravel:true, fadeLanded:true, keepYears:5, revealEnd:true, labelPlay:'until', labelScope:'all', labelMax:14, labelLinger:2, labels:'follow', lfs:LARGE ? 18 : 15, lanes:'v', colour:'v', pulses:true, trend:true, floor:true, rotSpeed:0.35, glow:0.75};
 Object.assign(view, store.get('sg.view.v2', {}));
 const state = {playing:false, cursor:Y1, autoRotate:!reduced};
 let selected = null, hovered = null;
@@ -1582,19 +1602,33 @@ for (let y = 1925; y <= 2031; y++) { if (y % 10) stage.add(line([new THREE.Vecto
 // lanes (two layouts)
 const laneSets = {s:new THREE.Group(), v:new THREE.Group()};
 scene.add(laneSets.s); scene.add(laneSets.v);
-function addLane(group, z, col, hex, name){
-  group.add(line([new THREE.Vector3(xOf(Y0),0,z), new THREE.Vector3(xOf(NOW),0,z)], col, 0.32));
-  group.add(line([new THREE.Vector3(xOf(NOW),0,z), new THREE.Vector3(xOf(Y1),0,z)], col, 0.12));
+function addLane(group, key, z, col, hex, name){
+  const sub = new THREE.Group(); sub.position.z = z; sub.userData.laneKey = key; group.add(sub);
+  sub.add(line([new THREE.Vector3(xOf(Y0),0,0), new THREE.Vector3(xOf(NOW),0,0)], col, 0.32));
+  sub.add(line([new THREE.Vector3(xOf(NOW),0,0), new THREE.Vector3(xOf(Y1),0,0)], col, 0.12));
   const lab = textSprite(name, {size:28, color:hex, world:group === laneSets.s ? 2.1 : 1.5, align:'right'});
-  lab.position.set(xOf(Y0) - 2, 0.4, z); group.add(lab); lab.userData.floorLabel = true; lab.userData.laneLabel = true; lab.userData.homeX = xOf(Y0) - 2;
+  lab.position.set(xOf(Y0) - 2, 0.4, 0); sub.add(lab); lab.userData.floorLabel = true; lab.userData.laneLabel = true; lab.userData.homeX = xOf(Y0) - 2;
+  return sub;
 }
 Object.keys(SRC).forEach(k => {
-  addLane(laneSets.s, SRC[k].z, SRC[k].col.getHex(), SRC[k].hex, SRC[k].name);
+  const sub = addLane(laneSets.s, k, SRC[k].z, SRC[k].col.getHex(), SRC[k].hex, SRC[k].name);
   const strip = new THREE.Mesh(new THREE.PlaneGeometry(xOf(Y1) - xOf(Y0), 3.2),
     new THREE.MeshBasicMaterial({color:SRC[k].col, transparent:true, opacity:0.035, depthWrite:false, side:THREE.DoubleSide}));
-  strip.rotation.x = -Math.PI / 2; strip.position.set(0, 0.01, SRC[k].z); laneSets.s.add(strip);
+  strip.rotation.x = -Math.PI / 2; strip.position.set(0, 0.01, 0); sub.add(strip);
 });
-FKEYS.forEach(k => addLane(laneSets.v, FIELDS[k].z, FIELDS[k].col.getHex(), FIELDS[k].hex, FIELDS[k].name));
+FKEYS.forEach(k => addLane(laneSets.v, k, FIELDS[k].z, FIELDS[k].col.getHex(), FIELDS[k].hex, FIELDS[k].name));
+/* Lane positions: hidden lanes collapse and the rest spread out to use the space */
+const LANEZ = {s:{}, v:{}};
+function computeLaneLayout(){
+  ['s','v'].forEach(mode => {
+    const all = mode === 'v' ? FKEYS : Object.keys(SRC);
+    const act = all.filter(k => !view.compactLanes || (mode === 'v' ? F.fields.has(k) : F.src[k]));
+    const n = act.length, base = mode === 'v' ? 5 : 12, span = mode === 'v' ? 50 : 24;
+    const sp = n > 1 ? Math.min(Math.max(base, span / (n - 1)), 16) : 0;
+    all.forEach(k => { const i = act.indexOf(k); LANEZ[mode][k] = i < 0 ? null : (i - (n - 1) / 2) * sp; });
+  });
+}
+function laneHidden(it){ return view.lanes === 'v' ? LANEZ.v[it.v] == null : LANEZ.s[it.s] == null; }
 
 const todayX = xOf(NOW);
 (function(){
@@ -1705,7 +1739,7 @@ const items = DATA.map((d, i) => {
 
 function itemColour(it){ return view.colour === 'v' ? FIELDS[it.v].col : SRC[it.s].col; }
 function itemHex(it){ return view.colour === 'v' ? FIELDS[it.v].hex : SRC[it.s].hex; }
-function laneZ(it){ return view.lanes === 'v' ? FIELDS[it.v].z : SRC[it.s].z; }
+function laneZ(it){ const z = view.lanes === 'v' ? LANEZ.v[it.v] : LANEZ.s[it.s]; return z == null ? (it.group ? it.group.position.z : 0) : z; }
 function applyColours(){
   items.forEach(it => {
     const col = itemColour(it);
@@ -1750,8 +1784,8 @@ function median(a){ if (!a.length) return null; const s = a.slice().sort((x,y) =
 function buildTrends(){
   while (trendGroup.children.length) { const c = trendGroup.children.pop(); if (c.geometry) c.geometry.dispose(); }
   if (!view.trend) return;
-  const lanes = view.lanes === 'v' ? FKEYS.map(k => ({key:k, z:FIELDS[k].z, col:FIELDS[k].col, test:it => it.v === k}))
-                                   : Object.keys(SRC).map(k => ({key:k, z:SRC[k].z, col:SRC[k].col, test:it => it.s === k}));
+  const lanes = view.lanes === 'v' ? FKEYS.filter(k => LANEZ.v[k] != null).map(k => ({key:k, z:LANEZ.v[k], col:FIELDS[k].col, test:it => it.v === k}))
+                                   : Object.keys(SRC).filter(k => LANEZ.s[k] != null).map(k => ({key:k, z:LANEZ.s[k], col:SRC[k].col, test:it => it.s === k}));
   lanes.forEach(L => {
     const pts = [];
     ERAS.forEach(([a, b]) => {
@@ -1919,6 +1953,7 @@ $('fromR').addEventListener('input', e => { F.from = +e.target.value; if (F.from
 $('toR').addEventListener('input', e => { F.to = +e.target.value; if (F.to < F.from) { F.from = F.to; } refresh(); });
 $('gapR').addEventListener('input', e => { F.gapMax = +e.target.value; refresh(); });
 $('ghostT').addEventListener('change', e => { F.ghosts = e.target.checked; refresh(); });
+$('compactT').addEventListener('change', e => { view.compactLanes = e.target.checked; refresh(); });
 $('majT').addEventListener('change', e => { F.majorOnly = e.target.checked; refresh(); });
 $('visT').addEventListener('change', e => { F.vision = e.target.checked; if (F.vision) F.dv = {opt:true,asset:true,demand:true,rd:true,gov:true}; refresh(); });
 $('resetFilters').onclick = () => { Object.assign(F, DEFAULT_FILTERS()); hidden.clear(); refresh(); };
@@ -1933,7 +1968,7 @@ function syncFilterUI(){
   $('fromR').value = F.from; $('toR').value = F.to; $('gapR').value = F.gapMax;
   $('fromV').textContent = F.from; $('toV').textContent = F.to; $('gapV').textContent = F.gapMax >= 60 ? 'Any' : F.gapMax + ' years';
   $('ghostT').checked = F.ghosts; if ($('q').value.trim() !== F.q) $('q').value = F.q;
-  $('visT').checked = F.vision; $('majT').checked = !!F.majorOnly;
+  $('visT').checked = F.vision; $('majT').checked = !!F.majorOnly; $('compactT').checked = view.compactLanes !== false;
 }
 
 /* Display UI */
@@ -2000,11 +2035,13 @@ floorLabels.visible = view.floor;
  *  REFRESH: targets, trends, stats, list
  * ================================================================== */
 function refresh(){
+  computeLaneLayout();
   items.forEach(it => {
     it.match = matches(it);
-    it.target = hidden.has(it.id) ? 0 : it.match ? 1 : (F.ghosts ? .06 : 0);
+    it.target = hidden.has(it.id) ? 0 : it.match ? 1 : (F.ghosts && !(view.compactLanes && laneHidden(it)) ? .06 : 0);
   });
   if (selected && selected.target < 1) closeDetail();
+  applyLanes(false);
   syncFilterUI(); buildTrends(); renderStats(); renderMilestones();
   if (typeof yearShown !== 'undefined') yearShown = -1;
   if (typeof computeGapSeries === 'function') { computeGapSeries(); renderVision(); updateTimeWindows(true); }
@@ -2323,7 +2360,13 @@ function frame(){
     controls.target.lerp(focusGoal, 1 - Math.pow(.05, dt)); if (controls.target.distanceTo(focusGoal) < .1) focusGoal = null;
   }
   const laneTravel = travelOn && state.playing && view.laneFollow !== false && !(view.revealEnd !== false && state.cursor >= Y1 - .01);
-  [laneSets.s, laneSets.v].forEach(g => g.children.forEach(c => {
+  [['s', laneSets.s], ['v', laneSets.v]].forEach(([mode, g]) => g.children.forEach(sub => {
+    if (sub.userData.laneKey == null) return;
+    const z = LANEZ[mode][sub.userData.laneKey];
+    sub.visible = z != null;
+    if (z != null) sub.position.z += (z - sub.position.z) * Math.min(1, dt * 3.5);
+  }));
+  [laneSets.s, laneSets.v].forEach(g => g.traverse(c => {
     if (!c.userData.laneLabel) return;
     const wantX = laneTravel ? controls.target.x - 18 : c.userData.homeX;
     c.position.x += (wantX - c.position.x) * Math.min(1, dt * 4);
@@ -2849,7 +2892,7 @@ setInterval(() => {
 /* ==================================================================
  *  START
  * ================================================================== */
-applyLite(); applyHeader(); applyLanes(true); applyColours(); refresh(); setAutoRotate(state.autoRotate); syncVideos(); applyTitle(); applyTicker(); syncMusic();
+applyLite(); applyHeader(); computeLaneLayout(); applyLanes(true); applyColours(); refresh(); setAutoRotate(state.autoRotate); syncVideos(); applyTitle(); applyTicker(); syncMusic();
 function startMusicIfWanted(){
   if (!view.musicOn || !music.paused) return;
   const pr = music.play();
