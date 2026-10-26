@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>The Shrinking Gap from Research to Change</title>
 <meta name="description" content="An interactive 3D model of how quickly academic, industry and government research has turned into products and change over the last century, with a five-year outlook.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%E2%9A%A1%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -28,7 +29,7 @@ button,input,select{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--proj);outline-offset:2px}
 
 /* Top bar */
-#top{position:fixed;top:calc(var(--safe-t) + 16px);left:20px;right:20px;display:flex;justify-content:space-between;align-items:center;gap:20px;pointer-events:none;z-index:50}
+#top{position:fixed;top:calc(var(--safe-t) + 16px);left:20px;right:20px;display:flex;justify-content:space-between;align-items:center;gap:20px;pointer-events:none;z-index:1000}
 #top > *{pointer-events:auto}
 #top h1{font-family:var(--serif);font-weight:400;font-size:clamp(20px,2.2vw,36px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;line-height:1.05;margin:0;letter-spacing:-.01em}
 .actions{display:flex;gap:6px;flex-wrap:nowrap;justify-content:flex-end;position:relative;flex:none}
@@ -37,7 +38,7 @@ button,input,select{font:inherit;color:inherit}
 .btn.primary{background:rgba(233,242,255,.92);color:#0A1622;border-color:transparent}
 .btn.primary:hover{background:#fff}
 .btn[aria-pressed="false"]{color:var(--muted)}
-#winMenu{position:absolute;top:calc(100% + 8px);right:0;width:250px;background:var(--panel-solid);border:1px solid var(--line-strong);border-radius:12px;padding:6px;display:none;z-index:60;box-shadow:0 18px 40px rgba(0,0,0,.4)}
+#winMenu{position:absolute;top:calc(100% + 8px);right:0;width:250px;background:var(--panel-solid);border:1px solid var(--line-strong);border-radius:12px;padding:6px;display:none;z-index:60;box-shadow:0 18px 40px rgba(0,0,0,.4);max-height:calc(100vh - 90px);overflow:auto}
 #winMenu.open{display:block}
 #winMenu button{display:flex;width:100%;align-items:center;gap:10px;background:none;border:0;padding:8px 10px;border-radius:8px;cursor:pointer;font-size:14px;text-align:left}
 #winMenu button:hover{background:rgba(255,255,255,.05)}
@@ -145,25 +146,21 @@ table.stats tr.all td{font-weight:600;color:var(--text)}
 #labels{position:fixed;inset:0;pointer-events:none;z-index:5;overflow:hidden}
 .lbl{position:absolute;left:0;top:0;font-size:var(--lfs);white-space:nowrap;color:var(--text);padding:.15em .5em .15em .4em;border-radius:.4em;background:rgba(8,19,29,.62);border-left:2px solid currentColor;will-change:transform;display:none;line-height:1.3}
 .lbl b{font-weight:500;color:#E3ECF2}
-#tip{position:fixed;pointer-events:none;z-index:70;background:var(--panel-solid);border:1px solid var(--line-strong);border-radius:9px;padding:8px 11px;font-size:13px;opacity:0;transition:opacity .15s;max-width:280px}
+#tip{position:fixed;pointer-events:none;z-index:1500;background:var(--panel-solid);border:1px solid var(--line-strong);border-radius:9px;padding:8px 11px;font-size:13px;opacity:0;transition:opacity .15s;max-width:280px}
 #tip b{display:block;font-weight:600;margin-bottom:2px}
 #tip span{color:var(--muted);font-variant-numeric:tabular-nums}
-#yearbig{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(var(--safe-b) + 96px);font-family:var(--serif);font-size:clamp(60px,9vw,128px);line-height:1;color:var(--text);opacity:0;transition:opacity .5s;pointer-events:none;z-index:4;font-variant-numeric:tabular-nums;text-shadow:0 0 40px rgba(233,242,255,.25);text-align:center}
-#yearbig.on{opacity:.9}
-#yearbig small{display:block;font-family:var(--sans);font-size:16px;color:var(--text);margin-top:8px;line-height:1.35}
-#yearbig small b{font-weight:600;color:#fff}
-#yearbig small span{font-size:12.5px;color:var(--muted)}
 #foot{position:fixed;left:20px;right:20px;bottom:calc(var(--safe-b) + 12px);display:flex;justify-content:space-between;gap:20px;font-size:12px;color:var(--faint);pointer-events:none;z-index:3}
 #foot span:last-child{text-align:right}
 
 /* About */
-#about{position:fixed;inset:0;z-index:90;background:rgba(4,10,16,.6);display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+#about{position:fixed;inset:0;z-index:2000;background:rgba(4,10,16,.6);display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
 #about.open{display:flex}
 #about .sheet{background:var(--panel-solid);border:1px solid var(--line);border-radius:16px;max-width:680px;width:100%;max-height:min(86vh,820px);overflow:auto;padding:28px 30px;position:relative}
 #about h2{font-family:var(--serif);font-weight:400;font-size:32px;margin:0 0 12px;line-height:1.1}
 #about h3{font-size:14px;font-weight:600;margin:22px 0 6px}
 #about p,#about li{font-size:14.5px;line-height:1.6;color:var(--muted);max-width:68ch}
 #about ul{padding-left:18px;margin:6px 0}
+#about .ver{font-size:13px;color:var(--faint);margin-top:18px}
 #about .by{margin-top:22px;padding-top:14px;border-top:1px solid var(--line);font-size:13.5px;color:var(--text)}
 #about .close{position:absolute;top:14px;right:14px}
 
@@ -192,13 +189,8 @@ canvas.chart{width:100%;height:11em;display:block;margin:.4em 0}
 .vrow .vt span:hover{background:rgba(255,255,255,.08)}
 .vrow .vt span.ahead{color:var(--muted);border-style:dashed;border-color:var(--line-strong)}
 .chip.vis{color:#FFF4D6;border-color:rgba(255,244,214,.4)}
-#timebar{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(var(--safe-b) + 38px);display:none;align-items:center;gap:8px;z-index:45;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:6px 8px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);width:min(660px,calc(100vw - 40px))}
-#timebar.on{display:flex}
-#timebar input{flex:1;min-width:0}
-#timebar select{padding:7px 8px}
-body.clean #timebar{opacity:.25}
 
-.win.max{left:10px!important;top:10px!important;width:calc(100vw - 20px)!important;height:calc(100vh - 20px)!important;z-index:95!important;resize:none}
+.win.max{left:10px!important;top:10px!important;width:calc(100vw - 20px)!important;height:calc(100vh - 20px)!important;z-index:990!important;resize:none}
 .vidwin .vbody{padding:0;background:#000;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .vidwin video{width:100%;height:100%;object-fit:contain;display:block;background:#000}
 .vmsg{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:.8em;padding:1.2em;text-align:center;background:rgba(8,19,29,.92);font-size:.95em;color:var(--muted)}
@@ -207,6 +199,19 @@ body.clean #timebar{opacity:.25}
 .looplbl{display:inline-flex;align-items:center;gap:6px;cursor:pointer;backdrop-filter:none}
 .looplbl input{accent-color:#E9F2FF;margin:0}
 .tickwin{max-width:none}
+body.lite .win,body.lite .btn,body.lite #timebar{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+body.lite .win{background:var(--panel-solid)}
+body.lite .playerwin{background:transparent}
+.playerwin{background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none}
+.playerwin:hover{background:rgba(13,29,43,.55)}
+.pbody{container-type:size;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;padding:.4em .8em .7em!important;text-align:center;gap:.35em}
+.pyear{font-family:var(--serif);font-size:clamp(2.5rem,min(42cqh,24cqw),12rem);line-height:.95;font-variant-numeric:tabular-nums;text-shadow:0 0 40px rgba(233,242,255,.25);flex:none}
+.psub{font-size:1.1em;line-height:1.35;color:var(--text)}
+.psub b{font-weight:600;color:#fff}
+.psub span{font-size:.82em;color:var(--muted)}
+.pctrl{display:flex;align-items:center;gap:6px;width:100%;max-width:44em;flex-wrap:nowrap}
+.pctrl input[type=range]{flex:1;min-width:3em}
+.pctrl .btn{padding:6px 10px;font-size:.9em;backdrop-filter:none}
 .chromeless{border-color:transparent;box-shadow:0 10px 30px rgba(0,0,0,.25)}
 .chromeless .wh{position:absolute;top:0;left:0;right:0;z-index:6;background:rgba(8,19,29,.88);opacity:0;transition:opacity .2s;border-radius:14px 14px 0 0}
 .chromeless:hover .wh,.chromeless:focus-within .wh{opacity:1}
@@ -247,14 +252,12 @@ a.mini{text-decoration:none;color:var(--muted)}
 .vhead{cursor:pointer}
 .vdet summary{cursor:pointer;font-size:.86em;color:var(--text);margin-top:.45em}
 .vdet .trow{font-size:.85em}
-body.tick-on #timebar{bottom:calc(var(--safe-b) + 78px)}
-body.tick-on #yearbig{bottom:calc(var(--safe-b) + 136px)}
 
 body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foot{opacity:0;pointer-events:none}
-#loading{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:22px;color:var(--muted);z-index:100;background:var(--ink);transition:opacity .8s}
+#loading{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:22px;color:var(--muted);z-index:3000;background:var(--ink);transition:opacity .8s}
 #loading.done{opacity:0;pointer-events:none}
 @media (max-width:820px){ .actions .wide{display:none} #foot span:first-child{display:none} }
-@media (prefers-reduced-motion:reduce){ .win,#yearbig,#loading{transition:none} }
+@media (prefers-reduced-motion:reduce){ .win,#loading{transition:none} }
 </style>
 </head>
 <body>
@@ -269,7 +272,7 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
     <button class="btn" id="musicBtn" aria-pressed="false">♪ Music</button>
     <button class="btn" id="winBtn" aria-haspopup="true" aria-expanded="false">Windows</button>
     <button class="btn wide" id="rotBtn" aria-pressed="true">Auto-rotate</button>
-    <button class="btn wide" id="resetBtn">Reset view</button>
+    <button class="btn wide" id="resetBtn" title="Return everything to the original defaults">Reset all</button>
     <button class="btn wide" id="fsBtn">Full screen</button>
     <button class="btn" id="aboutBtn">About</button>
     <div id="winMenu" role="menu"></div>
@@ -331,12 +334,22 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
     <audio id="music" src="mixkit-driving-ambition-32.mp3" loop preload="auto"></audio>
     <div class="row"><button class="mini" id="muPlay">Play music</button><span class="note-s" id="muName">Driving Ambition (Mixkit)</span></div>
     <div class="slider"><label>Volume <b id="muVolV">50%</b></label><input type="range" id="muVol" min="0" max="1" step="0.05" value="0.5"></div>
-    <label class="mini" style="display:inline-block;cursor:pointer">Choose another track<input type="file" accept="audio/*" id="muFile" hidden></label>
+    <div class="row" style="margin:.4em 0"><input class="search" id="muUrl" placeholder="Track file name in the repo, or a web address" aria-label="Track file name or web address"><button class="mini" id="muUrlBtn">Use</button></div>
+    <label class="mini" style="display:inline-block;cursor:pointer">Choose a track from this computer<input type="file" accept="audio/*" id="muFile" hidden></label>
+    <p class="note-s">Tracks chosen from this computer cannot be saved in a view; use a file name in the repo for that.</p>
     <p class="note-s" id="muMsg"></p>
   </div>
 </section>
 <input type="file" id="viewFile" accept="application/json,.json" hidden>
 
+<!-- PLAY THE CENTURY -->
+<section class="win chromeless playerwin keep" id="w-player" data-title="Play the century">
+  <div class="wbody pbody">
+    <div class="pyear" id="yearNum">1925</div>
+    <div class="psub" id="yearSub">Press Play to run from 1925 to 2031</div>
+    <div class="pctrl"><button class="btn" id="tbPause">Pause</button><input type="range" id="scrub" min="1925" max="2032" step="0.1" value="1925" aria-label="Scrub through time"><select id="tbSpeed" class="btn" aria-label="Play speed"><option value="0.5">Slow</option><option value="1" selected>Normal</option><option value="2">Fast</option></select><label class="btn looplbl"><input type="checkbox" id="loopT"> Loop</label><button class="btn" id="tbStop">Exit</button></div>
+  </div>
+</section>
 <!-- FILTERS -->
 <section class="win" id="w-filters" data-title="Filters">
   <div class="wbody">
@@ -386,6 +399,8 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
     <label class="toggle">Trend lines <input type="checkbox" id="trendT" checked></label>
     <label class="toggle">Floor labels <input type="checkbox" id="floorT" checked></label>
     <label class="toggle">Loop Play the century <input type="checkbox" id="loopD"></label>
+    <label class="toggle">Performance mode <input type="checkbox" id="liteT"></label>
+    <p class="note-s">Turns off glow and window blur and lowers resolution. Use it if the presentation laptop struggles.</p>
     <h3>Motion and glow</h3>
     <div class="slider"><label>Rotation speed <b id="rotV">0.35</b></label><input type="range" id="rotR" min="0" max="2" step="0.05" value="0.35"></div>
     <div class="slider"><label>Glow <b id="glowV">0.75</b></label><input type="range" id="glowR" min="0" max="1.6" step="0.05" value="0.75"></div>
@@ -461,10 +476,8 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
   <div class="vmsg" id="vid2msg"><p>Could not load <b>cae_cover_16x9.mp4</b>. Put it in the same GitHub folder as index.html, or choose the file from this computer.</p><label class="mini">Choose video file<input type="file" accept="video/*" data-for="vid2" hidden></label></div></div>
 </section>
 <div id="tip" role="tooltip"></div>
-<div id="yearbig" aria-hidden="true"><span id="yearNum">1925</span><small id="yearSub">Time taken from research to change</small></div>
-<div id="timebar"><button class="btn" id="tbPause">Pause</button><input type="range" id="scrub" min="1925" max="2032" step="0.1" value="1925" aria-label="Scrub through time"><select id="tbSpeed" class="btn" aria-label="Play speed"><option value="0.5">Slow</option><option value="1" selected>Normal</option><option value="2">Fast</option></select><label class="btn looplbl"><input type="checkbox" id="loopT"> Loop</label><button class="btn" id="tbStop">Exit</button></div>
 <footer id="foot">
-  <span>Drag to rotate, scroll to zoom, right-drag to pan. Keys: 1–9 single field, 0 all fields, P play, Space pause, L labels, R reset, H hide windows.</span>
+  <span>Drag to rotate, scroll to zoom, right-drag to pan. Keys: 1–9 single field, 0 all fields, P play, Space pause, L labels, R reset camera, H hide windows.</span>
   <span>Stuart Okin, Director of Cyber Regulation and Emerging Technologies, Ofgem</span>
 </footer>
 
@@ -500,6 +513,7 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
       <li>IBM quantum roadmap (2026); vendor battery roadmaps (Toyota, Samsung SDI, CATL), treated as aspirations rather than facts.</li>
       <li>Institutional histories: Bell Labs, IBM Research, Xerox PARC, CERN, DARPA, CSIRO, RAE Farnborough, MRC Laboratory of Molecular Biology.</li>
     </ul>
+    <p class="ver">Version 6.0. Built 26 October 2026 at 01:05 GMT.</p>
     <p class="by">Stuart Okin, Director of Cyber Regulation and Emerging Technologies, Ofgem.<br>Illustrative analysis prepared for discussion. Outlook views are indicative and do not represent Ofgem policy.</p>
   </div>
 </div>
@@ -743,7 +757,7 @@ const DATA = [
 
 // ---------- EXTRA RESEARCH: SPACE ----------
 {v:'space',s:'government',kind:'hist',t:'Electric propulsion',r:1959,p:1997,c:'medium',rw:'Kaufman at NASA builds the gridded ion thruster.',pw:'Ion thrusters used on commercial communications satellites.',note:'Nearly 40 years, then standard.'},
-{v:'space',s:'industry',kind:'hist',t:'Satellite television',r:1962,p:1976,c:'medium',rw:'Telstar relays the first transatlantic television.',pw:'Commercial satellite distribution of cable TV channels begins.',note:'Turned broadcasting into a global industry.'},
+{v:'space',s:'industry',kind:'hist',t:'Satellite television',r:1962,p:1975,c:'medium',rw:'Telstar relays the first transatlantic television.',pw:'Commercial satellite distribution of cable TV channels begins.',note:'Turned broadcasting into a global industry.'},
 
 // ---------- EXTRA RESEARCH: ROBOTICS ----------
 {v:'robotics',s:'academic',kind:'hist',t:'Robot mapping (SLAM)',r:1986,p:2015,c:'medium',rw:'Smith and Cheeseman formalise simultaneous localisation and mapping.',pw:'Visual SLAM ships in consumer home robots.',note:'Now in every autonomous vehicle and AR headset.'},
@@ -804,7 +818,7 @@ const DATA = [
 
 // ---------- Energy ----------
 {v:'energy',s:'industry',kind:'hist',co:'Vestas',t:'Commercial wind turbines',r:1978,p:1979,c:'medium',rw:'Vestas, a Danish machinery maker, begins wind turbine development.',pw:'Vestas sells its first turbines.',note:'Danish industry turned research into an export industry.'},
-{v:'energy',s:'government',kind:'hist',co:'DONG (now Ørsted)',t:'Offshore wind farm',r:1985,p:1991,c:'medium',rw:'Danish state-backed studies of offshore wind.',pw:'Vindeby, the world’s first offshore wind farm, starts generating.',note:'Now central to GB’s Clean Power 2030 plans.'},
+{v:'energy',s:'government',kind:'hist',co:'SEAS (now part of Ørsted)',t:'Offshore wind farm',r:1985,p:1991,c:'medium',rw:'Danish state-backed studies of offshore wind.',pw:'Vindeby, the world’s first offshore wind farm, starts generating.',note:'Now central to GB’s Clean Power 2030 plans.'},
 {v:'energy',s:'industry',kind:'hist',co:'Enphase',t:'Solar microinverters',r:2006,p:2008,c:'medium',rw:'Enphase is founded to put an inverter on every panel.',pw:'First microinverters ship.',note:'Power electronics, and their cyber security, at the grid edge.'},
 {v:'energy',s:'industry',kind:'hist',co:'Tesla',t:'Home and grid batteries',r:2012,p:2015,c:'medium',rw:'Tesla begins stationary storage development.',pw:'Powerwall and Powerpack launch.',note:'Brought battery storage to homes and grids at scale.'},
 {v:'energy',s:'industry',kind:'hist',co:'Octopus Energy',t:'Kraken energy platform',r:2015,p:2016,c:'medium',rw:'Octopus Energy is founded in London with its own software platform.',pw:'Kraken runs Octopus customers; later licensed to other suppliers.',note:'A UK software platform enabling smart tariffs and flexibility.',dv:'demand'},
@@ -867,7 +881,7 @@ const DATA = [
 {v:'ai',s:'academic',kind:'hist',t:'Generative adversarial networks',r:2014,p:2018,c:'medium',rw:'Goodfellow and colleagues at the University of Montréal.',pw:'Realistic synthetic image tools reach the public.',note:'And with them, deepfakes and new fraud risks.'},
 
 // ---------- Quantum ----------
-{v:'quantum',s:'government',kind:'hist',t:'Quantum dots',r:1981,p:2015,c:'medium',rw:'Ekimov observes quantum dots in glass; Brus at Bell Labs in solution.',pw:'Quantum dot displays in mass-market televisions.',note:'2023 Nobel Prize in Chemistry.'},
+{v:'quantum',s:'government',kind:'hist',t:'Quantum dots',r:1981,p:2013,c:'medium',rw:'Ekimov observes quantum dots in glass; Brus at Bell Labs in solution.',pw:'Quantum dot colour enhancement ships in consumer televisions.',note:'2023 Nobel Prize in Chemistry.'},
 
 // ---------- Cyber ----------
 {v:'cyber',s:'industry',kind:'hist',t:'Smart cards',r:1974,p:1984,c:'medium',rw:'Moreno patents the memory chip card in France.',pw:'Chip cards adopted by French banks.',note:'The basis of chip and PIN and SIM cards.'},
@@ -894,7 +908,7 @@ const DATA = [
 
 // ---------- Life sciences ----------
 {v:'life',s:'academic',kind:'hist',t:'Polio vaccine',r:1952,p:1955,c:'high',rw:'Salk develops the inactivated polio vaccine at the University of Pittsburgh.',pw:'The vaccine is licensed after a national field trial.',note:'Fast because the need was overwhelming.'},
-{v:'life',s:'industry',kind:'hist',t:'CT scanning',r:1967,p:1972,c:'high',rw:'Hounsfield at EMI in Hayes conceives computed tomography.',pw:'The first commercial CT scanner is unveiled.',note:'Funded in part by Beatles record profits; a Nobel prize.'},
+{v:'life',s:'industry',kind:'hist',t:'CT scanning',r:1967,p:1972,c:'high',rw:'Hounsfield at EMI in Hayes conceives computed tomography.',pw:'The first commercial CT scanner is unveiled.',note:'A British invention; Hounsfield shared the 1979 Nobel Prize in Medicine.'},
 {v:'life',s:'academic',kind:'hist',t:'IVF',r:1968,p:1978,c:'high',rw:'Edwards (Cambridge) and Steptoe achieve fertilisation outside the body.',pw:'First baby born through IVF, in Oldham.',note:'A British medical first.'},
 {v:'life',s:'government',kind:'hist',t:'First HIV drug',r:1985,p:1987,c:'high',rw:'US National Cancer Institute shows AZT works against HIV.',pw:'AZT is approved.',note:'Crisis compressed the timeline to two years.'},
 {v:'life',s:'academic',kind:'hist',t:'GLP-1 medicines',r:1984,p:2005,c:'high',rw:'GLP-1 hormone identified in academic research.',pw:'First GLP-1 drug approved; later used for weight loss.',note:'Twenty years, then one of the biggest drug classes in history.'},
@@ -993,18 +1007,18 @@ const FORTUNES = [
  {n:'Gil Shwed',co:'Check Point',v:'cyber',f:1993,w:1996,how:'Stock market listing',c:'high'},
  {n:'Marc Andreessen and Jim Clark',co:'Netscape',v:'sw',f:1994,w:1995,how:'Stock market listing',c:'high'},
  {n:'Elon and Kimbal Musk',co:'Zip2',v:'sw',f:1995,w:1999,how:'Sale to Compaq',c:'high'},
- {n:'Larry Page and Sergey Brin',co:'Google',v:'ai',f:1998,w:2004,how:'Stock market listing',c:'high'},
+ {n:'Larry Page and Sergey Brin',co:'Google',v:'ai',f:1998,w:1999,how:'Private valuation',c:'high'},
  {n:'Shi Zhengrong',co:'Suntech Power',v:'energy',f:2001,w:2005,how:'Stock market listing',c:'high'},
- {n:'Peter Beck',co:'Rocket Lab',v:'space',f:2006,w:2021,how:'Listing via merger',c:'medium'},
+ {n:'Peter Beck',co:'Rocket Lab',v:'space',f:2006,w:2018,how:'Private valuation',c:'medium'},
  {n:'Uğur Şahin and Özlem Türeci',co:'BioNTech',v:'life',f:2008,w:2019,how:'Stock market listing',c:'high'},
  {n:'Demis Hassabis, Shane Legg and Mustafa Suleyman',co:'DeepMind',v:'ai',f:2010,w:2014,how:'Sale to Google',c:'high'},
- {n:'Patrick and John Collison',co:'Stripe',v:'sw',f:2010,w:2016,how:'Private valuation',c:'medium'},
+ {n:'Patrick and John Collison',co:'Stripe',v:'sw',f:2010,w:2012,how:'Private valuation',c:'medium'},
  {n:'Robin Zeng',co:'CATL',v:'energy',f:2011,w:2018,how:'Stock market listing',c:'high'},
- {n:'George Kurtz and Dmitri Alperovitch',co:'CrowdStrike',v:'cyber',f:2011,w:2019,how:'Stock market listing',c:'high'},
- {n:'Eric Yuan',co:'Zoom',v:'comms',f:2011,w:2019,how:'Stock market listing',c:'high'},
- {n:'Poppy Gustafsson and co-founders',co:'Darktrace',v:'cyber',f:2013,w:2021,how:'Stock market listing',c:'high'},
+ {n:'George Kurtz and Dmitri Alperovitch',co:'CrowdStrike',v:'cyber',f:2011,w:2017,how:'Private valuation',c:'high'},
+ {n:'Eric Yuan',co:'Zoom',v:'comms',f:2011,w:2017,how:'Private valuation',c:'high'},
+ {n:'Poppy Gustafsson and co-founders',co:'Darktrace',v:'cyber',f:2013,w:2018,how:'Private valuation',c:'high'},
  {n:'Chris Monroe and Jungsang Kim',co:'IonQ',v:'quantum',f:2015,w:2021,how:'Listing via merger',c:'medium'},
- {n:'Alexandr Wang',co:'Scale AI',v:'ai',f:2016,w:2021,how:'Private valuation',c:'medium'},
+ {n:'Alexandr Wang',co:'Scale AI',v:'ai',f:2016,w:2019,how:'Private valuation',c:'medium'},
  {n:'Hasso Plattner, Dietmar Hopp and co-founders',co:'SAP',v:'sw',f:1972,w:1988,how:'Stock market listing',c:'high'},
  {n:'Seymour Cray',co:'Cray Research',v:'hw',f:1972,w:1976,how:'Stock market listing',c:'high'},
  {n:'Hermann Hauser and Chris Curry',co:'Acorn Computers',v:'hw',f:1978,w:1983,how:'Stock market listing',c:'medium'},
@@ -1028,16 +1042,16 @@ const FORTUNES = [
  {n:'Drew Houston and Arash Ferdowsi',co:'Dropbox',v:'sw',f:2007,w:2011,how:'Private valuation',c:'medium'},
  {n:'Jay Chaudhry',co:'Zscaler',v:'cyber',f:2007,w:2018,how:'Stock market listing',c:'medium'},
  {n:'Jan Koum and Brian Acton',co:'WhatsApp',v:'comms',f:2009,w:2014,how:'Sale to Facebook',c:'high'},
- {n:'Todd McKinnon and Frederic Kerrest',co:'Okta',v:'cyber',f:2009,w:2017,how:'Stock market listing',c:'medium'},
+ {n:'Todd McKinnon and Frederic Kerrest',co:'Okta',v:'cyber',f:2009,w:2015,how:'Private valuation',c:'medium'},
  {n:'Kevin Systrom and Mike Krieger',co:'Instagram',v:'sw',f:2010,w:2012,how:'Sale to Facebook',c:'high'},
- {n:'Will Marshall, Robbie Schingler and Chris Boshuizen',co:'Planet',v:'space',f:2010,w:2021,how:'Listing via merger',c:'medium'},
+ {n:'Will Marshall, Robbie Schingler and Chris Boshuizen',co:'Planet',v:'space',f:2010,w:2015,how:'Private valuation',c:'medium'},
  {n:'Chad Rigetti',co:'Rigetti Computing',v:'quantum',f:2013,w:2022,how:'Listing via merger',c:'medium'},
  {n:'Ilyas Khan',co:'Cambridge Quantum',v:'quantum',f:2014,w:2021,how:'Merger to form Quantinuum',c:'medium'},
  {n:'Greg Jackson',co:'Octopus Energy',v:'energy',f:2015,w:2020,how:'Private valuation',c:'medium'},
  {n:'Jeremy O’Brien and co-founders',co:'PsiQuantum',v:'quantum',f:2016,w:2021,how:'Private valuation',c:'medium'},
  {n:'Nigel Toon and Simon Knowles',co:'Graphcore',v:'ai',f:2016,w:2018,how:'Private valuation',c:'medium'},
  {n:'Victor Riparbelli and co-founders',co:'Synthesia',v:'ai',f:2017,w:2023,how:'Private valuation',c:'medium'},
- {n:'Alex Kendall and Amar Shah',co:'Wayve',v:'robotics',f:2017,w:2024,how:'Private valuation',c:'medium'},
+ {n:'Alex Kendall and Amar Shah',co:'Wayve',v:'robotics',f:2017,w:2022,how:'Private valuation',c:'medium'},
  {n:'Assaf Rappaport and co-founders',co:'Wiz',v:'cyber',f:2020,w:2021,how:'Private valuation',c:'medium'},
  {n:'Dario Amodei, Daniela Amodei and co-founders',co:'Anthropic',v:'ai',f:2021,w:2023,how:'Private valuation',c:'medium'},
  {n:'Mati Staniszewski and Piotr Dąbkowski',co:'ElevenLabs',v:'ai',f:2022,w:2024,how:'Private valuation',c:'medium'},
@@ -1045,8 +1059,9 @@ const FORTUNES = [
  {n:'Michael Truell and co-founders',co:'Anysphere (Cursor)',v:'ai',f:2022,w:2024,how:'Private valuation',c:'medium'},
  {n:'Ilya Sutskever, Daniel Gross and Daniel Levy',co:'Safe Superintelligence',v:'ai',f:2024,w:2024,how:'Private valuation',c:'medium'},
  {n:'Mira Murati and co-founders',co:'Thinking Machines Lab',v:'ai',f:2025,w:2025,how:'Private valuation',c:'medium'},
- {n:'Arthur Mensch, Guillaume Lample and Timothée Lacroix',co:'Mistral AI',v:'ai',f:2023,w:2025,how:'Private valuation',c:'medium'}
+ {n:'Arthur Mensch, Guillaume Lample and Timothée Lacroix',co:'Mistral AI',v:'ai',f:2023,w:2023,how:'Private valuation',c:'medium'}
 ];
+const APP_VERSION = '6.0', APP_BUILD = '26 October 2026, 01:05 GMT';
 const Y0 = 1925, Y1 = 2032, NOW = 2026, HORIZON = 2031.6, XS = 1.2, MID = (Y0 + Y1) / 2, H = 0.85, ZE = 28;
 const xOf = y => (y - MID) * XS;
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
@@ -1425,8 +1440,8 @@ function buildTrends(){
 /* ==================================================================
  *  WINDOW MANAGER
  * ================================================================== */
-const WIN_IDS = ['title','ticker','filters','display','summary','milestones','details','key','context','landing','gapchart','fortunes','vision','outlook','deck','music','vid1','vid2'];
-const WIN_NAMES = {title:'Showcase title', ticker:'Joke ticker', filters:'Filters', display:'Display', summary:'Summary', milestones:'Milestones', details:'Details', key:'Reading the model', context:'Context', landing:'Landing and starting', gapchart:'Gap over time', fortunes:'Time to a fortune', vision:'DESNZ AI energy vision', outlook:'Can AI shrink the gap?', deck:'Ofgem presentation', music:'Music', vid1:'Video: Q-Day intro', vid2:'Video: CAE cover'};
+const WIN_IDS = ['title','ticker','player','filters','display','summary','milestones','details','key','context','landing','gapchart','fortunes','vision','outlook','deck','music','vid1','vid2'];
+const WIN_NAMES = {title:'Showcase title', ticker:'Joke ticker', player:'Play the century', filters:'Filters', display:'Display', summary:'Summary', milestones:'Milestones', details:'Details', key:'Reading the model', context:'Context', landing:'Landing and starting', gapchart:'Gap over time', fortunes:'Time to a fortune', vision:'DESNZ AI energy vision', outlook:'Can AI shrink the gap?', deck:'Ofgem presentation', music:'Music', vid1:'Video: Q-Day intro', vid2:'Video: CAE cover'};
 function defaultLayout(){
   const W = innerWidth, Hh = innerHeight, top = 80, narrow = W < 820, rw = Math.min(340, W - 36), lw = Math.min(290, W - 36);
   const tickH = 58, tickY = Hh - tickH - 8, bottom = tickY - 12, keyH = 150, keyY = bottom - keyH;
@@ -1434,6 +1449,7 @@ function defaultLayout(){
   return {
     title:{x:midX, y:top, w:midW, h:112, fs:1, open:true},
     ticker:{x:10, y:tickY, w:W - 20, h:tickH, fs:1, open:true},
+    player:{x:Math.round((W - Math.min(680, W - 40)) / 2), y:Math.max(top + 140, bottom - 290), w:Math.min(680, W - 40), h:280, fs:1, open:false},
     filters:{x:18, y:top, w:lw, h:Math.max(200, keyY - top - 12), fs:1, open:!narrow},
     key:{x:18, y:keyY, w:lw, h:keyH, fs:1, open:!narrow},
     display:{x:midX, y:top + 128, w:290, h:Math.min(520, bottom - top - 128), fs:1, open:false},
@@ -1461,7 +1477,7 @@ function waitLayout(){
 function playLayout(){
   const d = defaultLayout();
   WIN_IDS.forEach(id => d[id].open = false);
-  ['context','landing','gapchart','fortunes','title','ticker'].forEach(id => d[id].open = true);
+  ['context','landing','gapchart','fortunes','title','ticker','player'].forEach(id => d[id].open = true);
   return d;
 }
 let layout = Object.assign(defaultLayout(), store.get('sg.layout.v4', {}));
@@ -1475,9 +1491,11 @@ function placeWin(id){
   el.style.left = L.x + 'px'; el.style.top = L.y + 'px'; el.style.width = L.w + 'px'; el.style.height = L.h + 'px';
   el.style.setProperty('--fs', L.fs);
   el.classList.toggle('closed', !L.open);
-  if (layout.ticker) document.body.classList.toggle('tick-on', !!layout.ticker.open);
 }
-function raise(id){ wins[id].style.zIndex = ++zTop; }
+function raise(id){
+  if (zTop > 900) { zTop = 20; WIN_IDS.slice().sort((a, b) => (+wins[a].style.zIndex || 0) - (+wins[b].style.zIndex || 0)).forEach(w => { wins[w].style.zIndex = ++zTop; }); }
+  wins[id].style.zIndex = ++zTop;
+}
 function setOpen(id, open){ layout[id].open = open; if (!open) wins[id].classList.remove('max'); placeWin(id); if (typeof syncVideos === 'function') syncVideos(); if (open) raise(id); saveLayout(); buildWinMenu(); if (open && typeof updateTimeWindows === 'function') updateTimeWindows(true); }
 WIN_IDS.forEach(id => {
   const el = $('w-' + id); wins[id] = el;
@@ -1591,6 +1609,8 @@ segBind('laneSeg', 'lanes', () => { applyLanes(false); buildTrends(); });
 segBind('colSeg', 'colour', () => { applyColours(); renderMilestones(); });
 function bindToggle(id, key, after){ const el = $(id); el.checked = view[key]; el.addEventListener('change', () => { view[key] = el.checked; store.set('sg.view.v2', view); after && after(); }); }
 bindToggle('pulseT', 'pulses');
+function applyLite(){ document.body.classList.toggle('lite', !!view.lite); renderer.setPixelRatio(view.lite ? 1 : Math.min(window.devicePixelRatio, 2)); renderer.setSize(innerWidth, innerHeight); if (composer) { if (composer.setPixelRatio) composer.setPixelRatio(view.lite ? 1 : Math.min(window.devicePixelRatio, 2)); composer.setSize(innerWidth, innerHeight); } }
+bindToggle('liteT', 'lite', applyLite);
 bindToggle('trendT', 'trend', buildTrends);
 bindToggle('floorT', 'floor', () => { floorLabels.visible = view.floor; laneSets.s.children.concat(laneSets.v.children).forEach(c => { if (c.userData.floorLabel) c.visible = view.floor; }); });
 function bindRange(id, outId, key, after, fmt){
@@ -1691,7 +1711,12 @@ function closeDetail(){ selected = null; detailBody.innerHTML = '<p class="empty
  * ================================================================== */
 function setAutoRotate(on){ state.autoRotate = on; controls.autoRotate = on && view.rotSpeed > 0; $('rotBtn').setAttribute('aria-pressed', on); }
 $('rotBtn').onclick = () => setAutoRotate(!state.autoRotate);
-$('resetBtn').onclick = resetView;
+$('resetBtn').onclick = resetAll;
+function resetAll(){
+  if (!confirm('Reset everything to the original defaults: windows, positions, text sizes, colours, filters, music and settings? Saved view files are not affected.')) return;
+  try { Object.keys(localStorage).filter(k => k.indexOf('sg.') === 0).forEach(k => localStorage.removeItem(k)); } catch (e) {}
+  location.href = location.pathname;
+}
 $('fsBtn').onclick = () => { if (!document.fullscreenElement) { document.documentElement.requestFullscreen && document.documentElement.requestFullscreen(); } else { document.exitFullscreen && document.exitFullscreen(); } };
 document.addEventListener('fullscreenchange', () => { $('fsBtn').textContent = document.fullscreenElement ? 'Exit full screen' : 'Full screen'; });
 $('aboutBtn').onclick = () => $('about').classList.add('open');
@@ -1704,18 +1729,21 @@ let camGoal = null, focusGoal = null;
 function resetView(){ camGoal = {pos:HOME.pos.clone(), target:HOME.target.clone()}; focusGoal = null; }
 controls.addEventListener('start', () => { camGoal = null; focusGoal = null; });
 
-const PLAY_SECONDS = 24; let paused = false, playSpeed = 1, endHold = 0;
-function startPlay(){ state.playing = true; paused = false; state.cursor = Y0; $('playBtn').textContent = 'Exit play'; $('yearbig').classList.add('on'); $('timebar').classList.add('on'); cursorGroup.visible = true; syncPause(); updateTimeWindows(true); }
-function stopPlay(){ state.playing = false; paused = false; state.cursor = Y1; $('playBtn').textContent = 'Play the century'; $('yearbig').classList.remove('on'); $('timebar').classList.remove('on'); cursorGroup.visible = false; updateTimeWindows(true); }
+const prefs = Object.assign({playSpeed:1}, store.get('sg.prefs', {}));
+function savePrefs(){ store.set('sg.prefs', prefs); }
+const PLAY_SECONDS = 24; let paused = false, playSpeed = prefs.playSpeed || 1, endHold = 0;
+function startPlay(){ state.playing = true; paused = false; state.cursor = Y0; $('playBtn').textContent = 'Exit play'; yearShown = -1; if (!layout.player.open) setOpen('player', true); else raise('player'); cursorGroup.visible = true; syncPause(); updateTimeWindows(true); }
+function stopPlay(){ state.playing = false; paused = false; state.cursor = Y1; $('playBtn').textContent = 'Play the century'; if (layout.player.open) setOpen('player', false); cursorGroup.visible = false; updateTimeWindows(true); }
 function syncPause(){ $('tbPause').textContent = paused ? (state.cursor >= Y1 ? 'Replay' : 'Resume') : 'Pause'; }
 function togglePause(){ if (!state.playing) { startPlay(); return; } if (paused && state.cursor >= Y1) state.cursor = Y0; paused = !paused; syncPause(); }
 $('tbPause').onclick = togglePause;
 $('tbStop').onclick = stopPlay;
+$('tbSpeed').value = String(playSpeed);
 $('loopT').checked = !!view.loopPlay;
 $('loopT').addEventListener('change', e => { view.loopPlay = e.target.checked; $('loopD').checked = view.loopPlay; store.set('sg.view.v2', view); });
 $('loopD').checked = !!view.loopPlay;
 $('loopD').addEventListener('change', e => { view.loopPlay = e.target.checked; $('loopT').checked = view.loopPlay; store.set('sg.view.v2', view); });
-$('tbSpeed').onchange = e => { playSpeed = +e.target.value; };
+$('tbSpeed').onchange = e => { playSpeed = +e.target.value; prefs.playSpeed = playSpeed; savePrefs(); };
 $('scrub').addEventListener('input', e => { if (!state.playing) startPlay(); paused = true; state.cursor = +e.target.value; syncPause(); });
 
 document.addEventListener('keydown', e => {
@@ -1817,7 +1845,7 @@ function frame(){
       $('yearNum').textContent = yr;
       const g = rollingGap(yr);
       const scY = yr > NOW ? scenario() : null;
-      if (scY) { const v = scenAt(scY, yr); $('yearSub').innerHTML = `Scenario for research starting now: <b>${fmtY(scY.base)} years</b> at the recent pace, <b>${fmtY(v.lo)}–${fmtY(v.hi)}</b> with AI and digital twins<br><span>an illustration, not a forecast</span>`; }
+      if (scY) { const v = scenAt(scY, yr); $('yearSub').innerHTML = `Scenario for research starting now: <b>${fmtY(scY.base)} years</b> at the recent pace, <b>${fmtR(v.lo, v.hi)}</b> with AI and digital twins<br><span>an illustration, not a forecast</span>`; }
       else $('yearSub').innerHTML = g ? `Time taken from research to change: <b>${g.m} years</b><br><span>median of ${g.n} ${g.n === 1 ? 'arc' : 'arcs'} landing ${Math.max(Y0, yr - 9)}–${yr}${yr > NOW ? ', including expected' : ''}</span>` : `Time taken from research to change: <b>${yr - 9 <= Y0 ? 'no arcs landing yet' : 'no arcs landed in the last ten years'}</b><br><span>for this selection</span>`;
       if (document.activeElement !== $('scrub')) $('scrub').value = state.cursor;
     }
@@ -1877,7 +1905,7 @@ function frame(){
   trendGroup.visible = !state.playing || cur >= Y1 - .5;
   dust.rotation.y += dt * .006;
   controls.update();
-  if (composer) composer.render(); else renderer.render(scene, camera);
+  if (composer && !view.lite) composer.render(); else renderer.render(scene, camera);
   updateLabels();
 }
 
@@ -1933,7 +1961,7 @@ function drawGap(c){
   }
   if (state.playing) { const cx = X(end); g.strokeStyle = 'rgba(255,255,255,.55)'; g.beginPath(); g.moveTo(cx, T); g.lineTo(cx, S.h - B); g.stroke(); }
   const yr = Math.floor(end), pt = gapSeries.find(p => p.y === yr);
-  if (yr > NOW && sc) { const v = scenAt(sc, yr); $('gapNow').textContent = `${yr} scenario: about ${fmtY(sc.base)} years at the recent pace; ${fmtY(v.lo)}–${fmtY(v.hi)} with AI and digital twins.`; }
+  if (yr > NOW && sc) { const v = scenAt(sc, yr); $('gapNow').textContent = `${yr} scenario: about ${fmtY(sc.base)} years at the recent pace; ${fmtR(v.lo, v.hi)} with AI and digital twins.`; }
   else $('gapNow').textContent = pt && pt.m != null ? `${yr}: arcs landing in the previous ten years took a median of ${pt.m} years.` : `${yr}: no arcs landing in the previous ten years for this selection.`;
 }
 function renderContext(yr){
@@ -2017,6 +2045,7 @@ if (window.ResizeObserver) { const cro = new ResizeObserver(() => { twKey = ''; 
  *  AI OUTLOOK: CAN AI AND DIGITAL TWINS SHRINK THE GAP?
  * ================================================================== */
 const fmtY = v => v < 3 ? String(Math.round(v * 10) / 10) : String(Math.round(v));
+const fmtR = (a, b) => fmtY(a) === fmtY(b) ? fmtY(a) : `${fmtY(a)}–${fmtY(b)}`;
 function recentMedianFor(test){
   let set = items.filter(it => it.kind === 'hist' && !it.co && test(it) && it.r >= 2000);
   if (set.length < 3) set = items.filter(it => it.kind === 'hist' && !it.co && test(it) && it.r >= 1990);
@@ -2034,11 +2063,11 @@ function scenario(){
 function scenAt(sc, y){ const t = clamp((y - NOW) / 5, 0, 1); return {lo:sc.base - (sc.base - sc.lo) * t, hi:sc.base - (sc.base - sc.hi) * t}; }
 function renderOutlook(){
   const sc = scenario();
-  $('olHead').textContent = sc ? `For the selected fields, research begun since 2000 has taken a median of ${fmtY(sc.base)} years to reach change. With AI and digital twins compressing discovery, design and testing, a plausible range for research starting now is ${fmtY(sc.lo)}–${fmtY(sc.hi)} years.` : 'Select at least one field to see the outlook.';
+  $('olHead').textContent = sc ? `For the selected fields, research begun since 2000 has taken a median of ${fmtY(sc.base)} years to reach change. With AI and digital twins compressing discovery, design and testing, a plausible range for research starting now is ${fmtR(sc.lo, sc.hi)} years.` : 'Select at least one field to see the outlook.';
   $('olList').innerHTML = FKEYS.filter(k => F.fields.has(k)).map(k => {
     const r = recentMedianFor(it => it.v === k && F.src[it.s]); if (!r) return '';
     const A = ACCEL[k], lo = Math.max(.5, r.m * A.lo), hi = r.m * A.hi, sc25 = v => Math.min(100, v / 25 * 100);
-    return `<div class="olrow"><div class="olh"><i style="background:${FIELDS[k].hex}"></i><b>${FIELDS[k].name}</b><span>${fmtY(r.m)} → ${fmtY(lo)}–${fmtY(hi)} years</span></div>
+    return `<div class="olrow"><div class="olh"><i style="background:${FIELDS[k].hex}"></i><b>${FIELDS[k].name}</b><span>${fmtY(r.m)} → ${fmtR(lo, hi)} years</span></div>
       <div class="olbar"><div class="b" style="width:${sc25(r.m)}%"></div><div class="a" style="left:${sc25(lo)}%;width:${Math.max(1, sc25(hi) - sc25(lo))}%"></div></div>
       <p><strong>AI speeds up:</strong> ${A.speeds}. <strong>Still limits:</strong> ${A.limits}.</p></div>`;
   }).join('');
@@ -2105,7 +2134,10 @@ if (window.ResizeObserver) new ResizeObserver(() => { kSegW = 0; }).observe(wins
  *  MUSIC
  * ================================================================== */
 const music = $('music');
-const mus = Object.assign({vol:.5}, store.get('sg.music', {}));
+const MUSIC_DEFAULT = 'mixkit-driving-ambition-32.mp3';
+const mus = Object.assign({vol:.5, track:MUSIC_DEFAULT}, store.get('sg.music', {}));
+function setTrack(t){ mus.track = t || MUSIC_DEFAULT; music.src = mus.track; $('muName').textContent = mus.track === MUSIC_DEFAULT ? 'Driving Ambition (Mixkit)' : mus.track.split('/').pop(); $('muUrl').value = mus.track === MUSIC_DEFAULT ? '' : mus.track; store.set('sg.music', mus); }
+if (mus.track !== MUSIC_DEFAULT) setTrack(mus.track);
 music.volume = mus.vol; $('muVol').value = mus.vol; $('muVolV').textContent = Math.round(mus.vol * 100) + '%';
 function syncMusic(){
   const on = !music.paused;
@@ -2123,6 +2155,8 @@ music.addEventListener('pause', syncMusic);
 music.addEventListener('error', () => { $('muMsg').textContent = 'Track not found. Upload mixkit-driving-ambition-32.mp3 next to index.html, or choose a track.'; syncMusic(); });
 $('muPlay').onclick = toggleMusic; $('musicBtn').onclick = toggleMusic;
 $('muVol').addEventListener('input', e => { mus.vol = +e.target.value; music.volume = mus.vol; $('muVolV').textContent = Math.round(mus.vol * 100) + '%'; store.set('sg.music', mus); });
+$('muUrlBtn').onclick = () => { setTrack($('muUrl').value.trim()); music.play().catch(() => {}); };
+$('muUrl').addEventListener('keydown', e => { e.stopPropagation(); if (e.key === 'Enter') $('muUrlBtn').click(); });
 $('muFile').addEventListener('change', e => {
   const f = e.target.files && e.target.files[0]; if (!f) return;
   music.src = URL.createObjectURL(f); $('muName').textContent = f.name; music.play().catch(() => {});
@@ -2147,7 +2181,8 @@ function snapshot(name){
     layout:JSON.parse(JSON.stringify(layout)), maxed:WIN_IDS.filter(id => wins[id].classList.contains('max')),
     view:Object.assign({}, view), filters:Object.assign({}, F, {fields:[...F.fields]}),
     hidden:[...hidden].map(i => items[i].t), title:Object.assign({}, titleCfg), ticker:Object.assign({}, tick),
-    camera:{pos:camera.position.toArray(), target:controls.target.toArray()}, autoRotate:state.autoRotate, musicVolume:mus.vol};
+    camera:{pos:camera.position.toArray(), target:controls.target.toArray()}, autoRotate:state.autoRotate, musicVolume:mus.vol,
+    music:{volume:mus.vol, track:mus.track}, playSpeed, loopPlay:!!view.loopPlay, visionExpanded:[...visOpen], appVersion:APP_VERSION};
 }
 function saveViewFile(){
   const name = (prompt('Name this view, for example “opening”, “play” or “questions”:', 'view') || '').trim();
@@ -2159,7 +2194,8 @@ function saveViewFile(){
 }
 function syncDisplayUI(){
   [['labelSeg','labels'],['laneSeg','lanes'],['colSeg','colour']].forEach(([id, k]) => $(id).querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', b.dataset.v === view[k])));
-  [['pulseT','pulses'],['trendT','trend'],['floorT','floor'],['loopD','loopPlay'],['loopT','loopPlay']].forEach(([id, k]) => { $(id).checked = !!view[k]; });
+  [['pulseT','pulses'],['trendT','trend'],['floorT','floor'],['loopD','loopPlay'],['loopT','loopPlay'],['liteT','lite']].forEach(([id, k]) => { $(id).checked = !!view[k]; });
+  applyLite();
   [['lfsR','lfsV','lfs',v => v + 'px'],['rotR','rotV','rotSpeed',v => (+v).toFixed(2)],['glowR','glowV','glow',v => (+v).toFixed(2)]].forEach(([r, o, k, f]) => { $(r).value = view[k]; $(o).textContent = f(view[k]); });
   document.documentElement.style.setProperty('--lfs', view.lfs + 'px');
   controls.autoRotateSpeed = view.rotSpeed; if (bloom) bloom.strength = view.glow;
@@ -2178,6 +2214,9 @@ function applyView(o){
   if (o.ticker) { Object.assign(tick, o.ticker); applyTicker(); }
   if (o.musicVolume != null) { mus.vol = o.musicVolume; music.volume = mus.vol; $('muVol').value = mus.vol; $('muVolV').textContent = Math.round(mus.vol * 100) + '%'; }
   if (o.camera) camGoal = {pos:new THREE.Vector3().fromArray(o.camera.pos), target:new THREE.Vector3().fromArray(o.camera.target)};
+  if (o.music) { mus.vol = o.music.volume != null ? o.music.volume : mus.vol; music.volume = mus.vol; $('muVol').value = mus.vol; $('muVolV').textContent = Math.round(mus.vol * 100) + '%'; if (o.music.track) setTrack(o.music.track); }
+  if (o.playSpeed) { playSpeed = o.playSpeed; prefs.playSpeed = playSpeed; savePrefs(); $('tbSpeed').value = String(playSpeed); }
+  if (o.visionExpanded) { visOpen.clear(); o.visionExpanded.forEach(k => visOpen.add(k)); }
   if (o.autoRotate != null) setAutoRotate(o.autoRotate);
   refresh(); syncVideos(); twKey = '';
 }
@@ -2211,7 +2250,7 @@ function syncVideos(){
 /* ==================================================================
  *  START
  * ================================================================== */
-applyLanes(true); applyColours(); refresh(); setAutoRotate(state.autoRotate); syncVideos(); applyTitle(); applyTicker(); syncMusic();
+applyLite(); applyLanes(true); applyColours(); refresh(); setAutoRotate(state.autoRotate); syncVideos(); applyTitle(); applyTicker(); syncMusic();
 { const vp = new URLSearchParams(location.search).get('view'); if (vp) fetch(vp).then(r => r.json()).then(applyView).catch(() => {}); }
 $('floorT').dispatchEvent(new Event('change'));
 frame();
