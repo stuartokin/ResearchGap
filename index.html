@@ -409,6 +409,7 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
     <div class="seg" id="fadeSeg"><button data-v="keep">Keep landed arcs</button><button data-v="fade">Fade landed arcs</button></div>
     <div class="slider"><label>Keep landed arcs for <b id="keepV">5 years</b></label><input type="range" id="keepR" min="0" max="20" step="1" value="5"></div>
     <label class="toggle">Reveal the whole century at the end <input type="checkbox" id="revealT" checked></label>
+    <label class="toggle">Keep lane names in view while travelling <input type="checkbox" id="laneFollowT" checked></label>
     <p class="note-s">The camera rides the time cursor: you see each arc launch, follow the ones in the air, watch them land, and leave them behind. Drag or zoom during the journey to change the angle; the camera keeps that angle as it moves.</p>
     <h3>Label presets</h3>
     <div class="minis"><button class="mini" data-lp="story">Clean story</button><button class="mini" data-lp="highlights">Landing highlights</button><button class="mini" data-lp="major">Major milestones</button><button class="mini" data-lp="all">Everything</button></div>
@@ -550,7 +551,7 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
       <li>IBM quantum roadmap (2026); vendor battery roadmaps (Toyota, Samsung SDI, CATL), treated as aspirations rather than facts.</li>
       <li>Institutional histories: Bell Labs, IBM Research, Xerox PARC, CERN, DARPA, CSIRO, RAE Farnborough, MRC Laboratory of Molecular Biology.</li>
     </ul>
-    <p class="ver">Version 6.4. Built 26 October 2026 at 02:48 GMT.</p>
+    <p class="ver">Version 6.5. Built 26 October 2026 at 03:00 GMT.</p>
     <p class="by">Stuart Okin, Director of Cyber Regulation and Emerging Technologies, Ofgem.<br>Illustrative analysis prepared for discussion. Outlook views are indicative and do not represent Ofgem policy.</p>
   </div>
 </div>
@@ -1100,7 +1101,7 @@ const FORTUNES = [
  {n:'Mira Murati and co-founders',co:'Thinking Machines Lab',v:'ai',f:2025,w:2025,how:'Private valuation',c:'medium'},
  {n:'Arthur Mensch, Guillaume Lample and Timothée Lacroix',co:'Mistral AI',v:'ai',f:2023,w:2023,how:'Private valuation',c:'medium'}
 ];
-const APP_VERSION = '6.4', APP_BUILD = '26 October 2026, 02:48 GMT';
+const APP_VERSION = '6.5', APP_BUILD = '26 October 2026, 03:00 GMT';
 const Y0 = 1925, Y1 = 2032, NOW = 2026, HORIZON = 2031.6, XS = 1.2, MID = (Y0 + Y1) / 2, H = 0.85, ZE = 28;
 const xOf = y => (y - MID) * XS;
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
@@ -1201,7 +1202,7 @@ const DEFAULT_FILTERS = () => ({
 });
 const F = DEFAULT_FILTERS();
 const hidden = new Set();
-const view = {camTravel:false, fadeLanded:false, keepYears:5, revealEnd:true, labelPlay:'always', labelScope:'all', labelMax:60, labelLinger:2, labels:'off', lfs:12, lanes:'s', colour:'s', pulses:true, trend:true, floor:true, rotSpeed:0.35, glow:0.75};
+const view = {laneFollow:true, camTravel:false, fadeLanded:false, keepYears:5, revealEnd:true, labelPlay:'always', labelScope:'all', labelMax:60, labelLinger:2, labels:'off', lfs:12, lanes:'s', colour:'s', pulses:true, trend:true, floor:true, rotSpeed:0.35, glow:0.75};
 Object.assign(view, store.get('sg.view.v2', {}));
 const state = {playing:false, cursor:Y1, autoRotate:!reduced};
 let selected = null, hovered = null;
@@ -1294,7 +1295,7 @@ function addLane(group, z, col, hex, name){
   group.add(line([new THREE.Vector3(xOf(Y0),0,z), new THREE.Vector3(xOf(NOW),0,z)], col, 0.32));
   group.add(line([new THREE.Vector3(xOf(NOW),0,z), new THREE.Vector3(xOf(Y1),0,z)], col, 0.12));
   const lab = textSprite(name, {size:28, color:hex, world:group === laneSets.s ? 2.1 : 1.5, align:'right'});
-  lab.position.set(xOf(Y0) - 2, 0.4, z); group.add(lab); lab.userData.floorLabel = true;
+  lab.position.set(xOf(Y0) - 2, 0.4, z); group.add(lab); lab.userData.floorLabel = true; lab.userData.laneLabel = true; lab.userData.homeX = xOf(Y0) - 2;
 }
 Object.keys(SRC).forEach(k => {
   addLane(laneSets.s, SRC[k].z, SRC[k].col.getHex(), SRC[k].hex, SRC[k].name);
@@ -1653,13 +1654,15 @@ function syncTravelUI(){
   document.querySelectorAll('#fadeSeg button').forEach(b => b.setAttribute('aria-pressed', (b.dataset.v === 'fade') === !!view.fadeLanded));
   $('keepR').value = view.keepYears; $('keepV').textContent = view.keepYears + (view.keepYears === 1 ? ' year' : ' years');
   $('revealT').checked = view.revealEnd !== false;
+  $('laneFollowT').checked = view.laneFollow !== false;
 }
 $('camSeg').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; view.camTravel = b.dataset.v === 'travel'; store.set('sg.view.v2', view); syncTravelUI(); if (state.playing) startTravel(); if (!view.camTravel) endTravel(); });
 $('fadeSeg').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; view.fadeLanded = b.dataset.v === 'fade'; store.set('sg.view.v2', view); syncTravelUI(); });
 $('keepR').addEventListener('input', e => { view.keepYears = +e.target.value; store.set('sg.view.v2', view); syncTravelUI(); });
+$('laneFollowT').addEventListener('change', e => { view.laneFollow = e.target.checked; store.set('sg.view.v2', view); });
 $('revealT').addEventListener('change', e => { view.revealEnd = e.target.checked; store.set('sg.view.v2', view); });
 $('travelPreset').onclick = () => {
-  Object.assign(view, {camTravel:true, fadeLanded:true, keepYears:5, revealEnd:true, labels:'follow', labelPlay:'until', labelScope:'major', labelMax:8, labelLinger:2, trend:true});
+  Object.assign(view, {laneFollow:true, floor:true, camTravel:true, fadeLanded:true, keepYears:5, revealEnd:true, labels:'follow', labelPlay:'until', labelScope:'major', labelMax:8, labelLinger:2, trend:true});
   store.set('sg.view.v2', view); syncDisplayUI();
   if (!state.playing) startPlay(); else startTravel();
 };
@@ -1672,7 +1675,7 @@ const LABEL_PRESETS = {
 };
 document.querySelectorAll('[data-lp]').forEach(b => b.onclick = () => { Object.assign(view, LABEL_PRESETS[b.dataset.lp]); store.set('sg.view.v2', view); syncDisplayUI(); });
 segBind('labelScopeSeg', 'labelScope', () => {});
-segBind('laneSeg', 'lanes', () => { applyLanes(false); buildTrends(); });
+segBind('laneSeg', 'lanes', () => { applyLanes(false); buildTrends(); if (travelOn) travelOffset.copy(travelDefaultOffset()); });
 segBind('colSeg', 'colour', () => { applyColours(); renderMilestones(); });
 function bindToggle(id, key, after){ const el = $(id); el.checked = view[key]; el.addEventListener('change', () => { view[key] = el.checked; store.set('sg.view.v2', view); after && after(); }); }
 bindToggle('pulseT', 'pulses');
@@ -1801,7 +1804,8 @@ $('playBtn').onclick = () => state.playing ? stopPlay() : startPlay();
 let camGoal = null, focusGoal = null;
 const travelOffset = new THREE.Vector3(-26, 22, 58), travelTarget = new THREE.Vector3(), travelPos = new THREE.Vector3();
 let userDragging = false, travelOn = false, travelFinale = false;
-function startTravel(){ if (!view.camTravel) return; travelOn = true; camGoal = null; focusGoal = null; controls.autoRotate = false; travelOffset.set(-26, 22, 58); }
+function travelDefaultOffset(){ return view.lanes === 'v' ? new THREE.Vector3(-30, 38, 84) : new THREE.Vector3(-26, 22, 58); }
+function startTravel(){ if (!view.camTravel) return; travelOn = true; camGoal = null; focusGoal = null; controls.autoRotate = false; travelOffset.copy(travelDefaultOffset()); }
 function endTravel(){ if (!travelOn) return; travelOn = false; setAutoRotate(state.autoRotate); camGoal = {pos:HOME.pos.clone(), target:HOME.target.clone()}; }
 controls.addEventListener('start', () => { userDragging = true; });
 controls.addEventListener('end', () => { userDragging = false; if (travelOn) travelOffset.copy(camera.position).sub(controls.target); });
@@ -2010,6 +2014,15 @@ function frame(){
   } else if (focusGoal) {
     controls.target.lerp(focusGoal, 1 - Math.pow(.05, dt)); if (controls.target.distanceTo(focusGoal) < .1) focusGoal = null;
   }
+  const laneTravel = travelOn && state.playing && view.laneFollow !== false && !(view.revealEnd !== false && state.cursor >= Y1 - .01);
+  [laneSets.s, laneSets.v].forEach(g => g.children.forEach(c => {
+    if (!c.userData.laneLabel) return;
+    const wantX = laneTravel ? controls.target.x - 18 : c.userData.homeX;
+    c.position.x += (wantX - c.position.x) * Math.min(1, dt * 4);
+    const left = laneTravel || Math.abs(c.position.x - c.userData.homeX) > 1;
+    c.center.set(left ? 0 : 1, .5);
+    if (laneTravel) c.position.y += (1.2 - c.position.y) * Math.min(1, dt * 4); else c.position.y += (.4 - c.position.y) * Math.min(1, dt * 4);
+  }));
   const cur = state.cursor;
   items.forEach(it => {
     it.f += (it.target - it.f) * Math.min(1, dt * 5);
