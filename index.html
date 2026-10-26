@@ -31,9 +31,9 @@ button,input,select{font:inherit;color:inherit}
 /* Top bar */
 #top{position:fixed;top:calc(var(--safe-t) + 16px);left:20px;right:20px;display:flex;justify-content:space-between;align-items:center;gap:20px;pointer-events:none;z-index:1000}
 #top > *{pointer-events:auto}
-#top h1{font-family:var(--serif);font-weight:400;font-size:clamp(20px,2.2vw,36px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;line-height:1.05;margin:0;letter-spacing:-.01em}
+#top h1{font-family:var(--serif);font-weight:400;font-size:clamp(20px,2.2vw,44px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;line-height:1.05;margin:0;letter-spacing:-.01em}
 .actions{display:flex;gap:6px;flex-wrap:nowrap;justify-content:flex-end;position:relative;flex:none}
-.btn{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px 13px;font-size:13.5px;font-weight:500;cursor:pointer;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:border-color .2s,background .2s;white-space:nowrap}
+.btn{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:calc(8px * var(--ui, 1)) calc(13px * var(--ui, 1));font-size:calc(13.5px * var(--ui, 1));font-weight:500;cursor:pointer;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:border-color .2s,background .2s;white-space:nowrap}
 .btn:hover{border-color:var(--line-strong)}
 .btn.primary{background:rgba(233,242,255,.92);color:#0A1622;border-color:transparent}
 .btn.primary:hover{background:#fff}
@@ -48,7 +48,7 @@ button,input,select{font:inherit;color:inherit}
 #winMenu small{display:block;color:var(--faint);font-size:12px;padding:4px 10px 6px;line-height:1.4}
 
 /* Windows */
-.win{position:fixed;--fs:1;font-size:calc(14px * var(--fs));background:var(--panel);border:1px solid var(--line);border-radius:14px;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);display:flex;flex-direction:column;resize:both;overflow:hidden;min-width:220px;min-height:96px;max-width:96vw;max-height:calc(100vh - 20px);z-index:10;box-shadow:0 12px 36px rgba(0,0,0,.25);transition:opacity .3s}
+.win{position:fixed;--fs:1;font-size:calc(14px * var(--fs) * var(--ui, 1));background:var(--panel);border:1px solid var(--line);border-radius:14px;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);display:flex;flex-direction:column;resize:both;overflow:hidden;min-width:220px;min-height:96px;max-width:96vw;max-height:calc(100vh - 20px);z-index:10;box-shadow:0 12px 36px rgba(0,0,0,.25);transition:opacity .3s}
 .win.closed{display:none}
 .wh{display:flex;align-items:center;gap:2px;padding:.45em .45em .45em .95em;cursor:move;user-select:none;-webkit-user-select:none;border-bottom:1px solid var(--line);touch-action:none;flex:none}
 .wh h2{font-size:.93em;font-weight:600;flex:1;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -200,6 +200,8 @@ canvas.chart{width:100%;height:11em;display:block;margin:.4em 0}
 .looplbl{display:inline-flex;align-items:center;gap:6px;cursor:pointer;backdrop-filter:none}
 .looplbl input{accent-color:#E9F2FF;margin:0}
 .tickwin{max-width:none}
+.srcs a{display:block;color:var(--text);text-decoration:none;padding:.35em .2em;border-top:1px solid var(--line);font-size:.92em;line-height:1.35}
+.srcs a:hover{color:#FFD166;text-decoration:underline}
 .fbanner{font-family:var(--serif);font-size:1.12em;line-height:1.35;margin:.4em 0 .2em;color:var(--text)}
 .fbanner b{color:#FFD166;font-weight:400}
 .fbanner span{display:block;font-size:.85em;color:#FFD166;margin-top:.2em;font-style:italic}
@@ -234,8 +236,8 @@ body.lite .playerwin{background:transparent}
 .chromeless:hover .wh,.chromeless:focus-within .wh{opacity:1}
 .chromeless .wbody{padding:0}
 .titlewin .tbody{display:flex;flex-direction:column;justify-content:center;padding:.5em 1.4em;position:relative;height:100%;overflow:hidden}
-.ttext{font-family:var(--serif);font-size:2.3em;line-height:1.08;outline:none;text-shadow:0 2px 18px rgba(0,0,0,.25)}
-.tbar{height:4px;width:5em;border-radius:2px;margin-bottom:.45em;flex:none}
+.ttext{font-family:var(--serif);font-size:2.9em;line-height:1.08;outline:none;text-shadow:0 2px 18px rgba(0,0,0,.25)}
+.tbar{height:5px;width:7em;border-radius:2px;margin-bottom:.45em;flex:none}
 .cfgbtn{position:absolute;right:.5em;bottom:.4em;z-index:5;opacity:0;transition:opacity .2s;font-size:.75em;background:rgba(8,19,29,.85);border:1px solid var(--line-strong);border-radius:7px;padding:.25em .6em;cursor:pointer;color:var(--text)}
 .chromeless:hover .cfgbtn{opacity:1}
 .cfg{position:absolute;right:.5em;bottom:2.2em;z-index:7;display:none;flex-wrap:wrap;gap:.6em;align-items:center;background:var(--panel-solid);border:1px solid var(--line-strong);border-radius:10px;padding:.5em .8em;font-size:.78em;color:var(--text);max-width:calc(100% - 1em)}
@@ -245,7 +247,7 @@ body.lite .playerwin{background:transparent}
 .cfg input[type=range]{width:6em}
 .cfg select{background:var(--panel-solid);color:var(--text);border:1px solid var(--line-strong);border-radius:6px;padding:.1em .3em}
 .tickwin .kbody{position:relative;overflow:hidden;display:flex;align-items:center;height:100%}
-.ktrack{display:flex;white-space:nowrap;will-change:transform;font-size:1.2em}
+.ktrack{display:flex;white-space:nowrap;will-change:transform;font-size:1.7em}
 .kseg{display:inline-flex;align-items:center;flex:none}
 .kj{padding:0 .5em}
 .ks{padding:0 .8em;font-size:1em;font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif}
@@ -367,6 +369,32 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
     <div class="pyear" id="yearNum">1925</div>
     <div class="psub" id="yearSub">Press Play to run from 1925 to 2031</div>
     <div class="pctrl"><button class="btn" id="tbPause">Pause</button><input type="range" id="scrub" min="1925" max="2032" step="0.1" value="1925" aria-label="Scrub through time"><select id="tbSpeed" class="btn" aria-label="Play speed"><option value="0.5">Slow</option><option value="1" selected>Normal</option><option value="2">Fast</option></select><label class="btn looplbl"><input type="checkbox" id="loopT"> Loop</label><button class="btn" id="tbStop">Exit</button></div>
+  </div>
+</section>
+<!-- SOURCES -->
+<section class="win" id="w-sources" data-title="Sources and further reading">
+  <div class="wbody srcs">
+    <p class="note-s">Key sources behind recent milestones and the outlook. Links open in a new tab.</p>
+    <h3>SPEN and University of Glasgow</h3>
+    <a href="https://www.gla.ac.uk/news/headline_1248646_en.html" target="_blank" rel="noopener">Strategic partnership and Cyber Defence Lab (February 2026)</a>
+    <a href="https://www.gla.ac.uk/news/headline_837214_en.html" target="_blank" rel="noopener">Predict4Resilience, Flexible Heat and Heat Balance (Strategic Innovation Fund, 2022)</a>
+    <a href="https://www.enlit.world/library/ensign-digital-twin-project-to-model-future-uk-energy-system" target="_blank" rel="noopener">ENSIGN energy system digital twin</a>
+    <h3>Policy and regulation</h3>
+    <a href="https://www.gov.uk/government/calls-for-evidence/vision-for-an-ai-enabled-clean-energy-system/vision-for-an-ai-enabled-clean-energy-system-html" target="_blank" rel="noopener">DESNZ: Vision for an AI-enabled clean energy system</a>
+    <a href="https://www.ofgem.gov.uk/consultation/long-duration-electricity-storage-window-1-minded-decisions" target="_blank" rel="noopener">Ofgem: long duration storage Window 1 minded-to decisions</a>
+    <a href="https://www.gibsondunn.com/eu-ai-act-omnibus-agreement" target="_blank" rel="noopener">EU AI Act Digital Omnibus: postponed high-risk deadlines</a>
+    <h3>System operation and forecasting</h3>
+    <a href="https://www.neso.energy/news/first-stages-open-balancing-platform-go-live" target="_blank" rel="noopener">NESO: Open Balancing Platform goes live</a>
+    <a href="https://www.neso.energy/news/volta-programme-powering-future-dispatch-tapestry-energy-moonshot-x-moonshot-factory-alphabets-innovation-lab-bring-ai-our-control-room" target="_blank" rel="noopener">NESO: Volta programme with Tapestry</a>
+    <a href="https://www.ecmwf.int/node/29308" target="_blank" rel="noopener">ECMWF: AI forecasts become operational</a>
+    <a href="https://new.openclimatefix.org/projects/cloud-forecasting" target="_blank" rel="noopener">Open Climate Fix: Cloudcasting</a>
+    <h3>Assets, flexibility and security</h3>
+    <a href="https://www.spenergynetworks.co.uk/news/pages/drones_transmission_network.aspx" target="_blank" rel="noopener">SPEN: drones for transmission tower inspection</a>
+    <a href="https://transportandenergy.com/2025/09/04/national-grid-uses-ai-drone-aerial-inspection/" target="_blank" rel="noopener">National Grid: AI drone aerial inspection</a>
+    <a href="https://www.solarpowerportal.co.uk/battery-storage/drax-acquires-uk-based-ai-enabled-asset-optimisation-platform-flexitricity" target="_blank" rel="noopener">Drax acquires Flexitricity (AI optimisation)</a>
+    <h3>Energy storage and nuclear</h3>
+    <a href="https://greatriverenergy.com/what-we-do/cambridge-energy-storage-project" target="_blank" rel="noopener">Form Energy iron-air battery project</a>
+    <a href="https://research.senedd.wales/research-articles/new-nuclear-at-wylfa-what-happens-next/" target="_blank" rel="noopener">Rolls-Royce SMR at Wylfa</a>
   </div>
 </section>
 <!-- FILTERS -->
@@ -558,7 +586,7 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
       <li>IBM quantum roadmap (2026); vendor battery roadmaps (Toyota, Samsung SDI, CATL), treated as aspirations rather than facts.</li>
       <li>Institutional histories: Bell Labs, IBM Research, Xerox PARC, CERN, DARPA, CSIRO, RAE Farnborough, MRC Laboratory of Molecular Biology.</li>
     </ul>
-    <p class="ver">Version 6.6. Built 26 October 2026 at 07:37 GMT.</p>
+    <p class="ver">Version 6.7. Built 26 October 2026 at 08:44 GMT.</p>
     <p class="by">Stuart Okin, Director of Cyber Regulation and Emerging Technologies, Ofgem.<br>Illustrative analysis prepared for discussion. Outlook views are indicative and do not represent Ofgem policy.</p>
   </div>
 </div>
@@ -981,7 +1009,12 @@ const DATA = [
 {v:'energy',s:'industry',kind:'hist',co:'Highview Power',t:'Liquid air energy storage',r:2005,p:2018,c:'medium',rw:'Highview Power is founded to develop cryogenic energy storage.',pw:'Its grid-scale demonstration plant at Pilsworth, near Manchester, operates.',note:'A larger UK plant at Carrington is under construction for long-duration storage.'},
 {v:'energy',s:'industry',kind:'hist',co:'Tesla',t:'Utility-scale battery product',r:2015,p:2019,c:'medium',rw:'Tesla launches Powerpack for commercial and utility storage.',pw:'Megapack, a containerised utility-scale battery, launches.',note:'Productised grid storage made multi-hundred-megawatt projects routine.'},
 {v:'energy',s:'industry',kind:'hist',co:'BYD',t:'Blade LFP battery',r:2017,p:2020,c:'medium',rw:'BYD develops long, thin LFP cells built directly into the pack.',pw:'The Blade battery launches in electric cars.',note:'Made safer, cheaper LFP mainstream for cars and storage.'},
-{v:'energy',s:'industry',kind:'proj',co:'Form Energy',t:'100-hour iron-air battery',r:2017,p:2027,c:'medium',rw:'Form Energy, co-founded by MIT battery scientist Yet-Ming Chiang, develops iron-air batteries.',pw:'The first commercial multi-day iron-air system is fully operational in Minnesota.',note:'First units shipped and began operating as a pilot in late 2025.'}
+{v:'energy',s:'industry',kind:'proj',co:'Form Energy',t:'100-hour iron-air battery',r:2017,p:2027,c:'medium',rw:'Form Energy, co-founded by MIT battery scientist Yet-Ming Chiang, develops iron-air batteries.',pw:'The first commercial multi-day iron-air system is fully operational in Minnesota.',note:'First units shipped and began operating as a pilot in late 2025.'},
+// ================== SPEN AND UNIVERSITY OF GLASGOW ==================
+{v:'energy',s:'academic',kind:'proj',dv:'opt',co:'University of Glasgow and SPEN',t:'Weather-driven fault forecasting',r:2022,p:2028,c:'medium',rw:'Predict4Resilience, led by Dr Jethro Browell at the University of Glasgow, combines ensemble weather forecasts with statistical models, funded through Ofgem’s Strategic Innovation Fund.',pw:'Forecasts of weather-related network faults up to two weeks ahead used routinely to prepare crews and reduce outages.',note:'University research aimed at doubling the network fault forecasting range.'},
+{v:'energy',s:'academic',kind:'proj',dv:'asset',co:'SPEN, Strathclyde, Glasgow and partners',t:'ENSIGN energy system digital twin',r:2023,p:2028,c:'medium',rw:'SPEN and the University of Strathclyde lead ENSIGN, a £10m AI-led digital twin with Glasgow, St Andrews and Heriot-Watt, funded through an EPSRC Prosperity Partnership.',pw:'A working AI digital twin used to stress-test network investments and new services before they go live.',note:'University and network operator research designed to shorten the gap from idea to network change.'},
+{v:'energy',s:'academic',kind:'proj',dv:'demand',co:'University of Glasgow and SPEN',t:'Heat flexibility and thermal storage',r:2022,p:2030,c:'low',rw:'Flexible Heat and Heat Balance, led by James Watt School of Engineering professors, study domestic heat flexibility and large-scale thermal storage.',pw:'Heat pumps and thermal stores routinely shift heating demand away from network peaks.',note:'Thermal storage is one of the lowest-cost forms of energy storage.'},
+{v:'cyber',s:'academic',kind:'proj',dv:'gov',co:'SPEN and University of Glasgow',t:'SPEN–University of Glasgow Cyber Defence Lab',r:2026,p:2028,c:'medium',rw:'A multi-year strategic partnership announced in February 2026 to build a Cyber Defence Lab and fund PhDs and graduate apprenticeships in data, cyber, digital and AI.',pw:'Joint research and skills feeding directly into network cyber defence.',note:'The partnership behind today’s showcase.'}
 ];
 
 const FIELDS = {
@@ -1043,6 +1076,7 @@ const EVENTS = [
  {y:2022,c:'energy',t:'Russia invades Ukraine and the energy price crisis; ChatGPT launches'},
  {y:2024,c:'energy',t:'NESO becomes the independent system operator; Ratcliffe, the last UK coal plant, closes; Clean Power 2030 Action Plan'},
  {y:2025,c:'energy',t:'Iberian Peninsula blackout; NCSC sets post-quantum migration timelines'},
+ {y:2026,c:'energy',t:'SP Energy Networks and the University of Glasgow launch a strategic partnership with a Cyber Defence Lab'},
  {y:2026,c:'energy',t:'DESNZ vision for an AI-enabled clean energy system; Ofgem minded-to long-duration storage awards; supervised robotaxis in London'},
  {y:2027,c:'future',t:'EU high-risk AI obligations apply from December'},
  {y:2029,c:'future',t:'IBM’s target date for a fault-tolerant quantum computer'},
@@ -1141,7 +1175,11 @@ const FORT_RESEARCH = {'Google':['uni'], 'Cisco':['uni'], 'Genentech':['uni','La
   'Wayve':['uni'], 'Mistral AI':['lab'], 'Anthropic':['lab'], 'Safe Superintelligence':['lab'], 'Thinking Machines Lab':['lab'], 'Acorn Computers':['uni'], 'Rigetti Computing':['lab'],
   'Boston Dynamics':['uni'], 'iRobot':['uni'], 'Kiva Systems':['uni'], 'Netscape':['uni'], 'Planet':['lab'], 'Intel':['lab'], 'Hewlett-Packard':['uni'], 'Darktrace':['uni'], 'Xerography (Xerox)':['lab']};
 FORTUNES.forEach(x => { const r = FORT_RESEARCH[x.co]; if (r && !x.ac) { x.ac = r[0]; if (r[1]) x.prize = r[1]; } });
-const APP_VERSION = '6.6', APP_BUILD = '26 October 2026, 07:37 GMT';
+const APP_VERSION = '6.7', APP_BUILD = '26 October 2026, 08:44 GMT';
+// Screen-aware scaling: laptops slightly smaller, large screens larger
+const UI = (() => { const w = innerWidth; return w < 1280 ? .85 : w < 1500 ? .95 : w < 1800 ? 1.05 : w < 2300 ? 1.2 : 1.4; })();
+const LARGE = innerWidth >= 1700;
+document.documentElement.style.setProperty('--ui', UI);
 const Y0 = 1925, Y1 = 2032, NOW = 2026, HORIZON = 2031.6, XS = 1.2, MID = (Y0 + Y1) / 2, H = 0.85, ZE = 28;
 const xOf = y => (y - MID) * XS;
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
@@ -1244,7 +1282,7 @@ const DEFAULT_FILTERS = () => ({
 });
 const F = DEFAULT_FILTERS();
 const hidden = new Set();
-const view = {fortHi:true, fortOnly:false, laneFollow:true, camTravel:false, fadeLanded:false, keepYears:5, revealEnd:true, labelPlay:'always', labelScope:'all', labelMax:60, labelLinger:2, labels:'off', lfs:12, lanes:'s', colour:'s', pulses:true, trend:true, floor:true, rotSpeed:0.35, glow:0.75};
+const view = {musicOn:true, loopPlay:true, fortHi:true, fortOnly:false, laneFollow:true, camTravel:true, fadeLanded:true, keepYears:5, revealEnd:true, labelPlay:'until', labelScope:'all', labelMax:14, labelLinger:2, labels:'follow', lfs:LARGE ? 18 : 15, lanes:'v', colour:'v', pulses:true, trend:true, floor:true, rotSpeed:0.35, glow:0.75};
 Object.assign(view, store.get('sg.view.v2', {}));
 const state = {playing:false, cursor:Y1, autoRotate:!reduced};
 let selected = null, hovered = null;
@@ -1523,32 +1561,35 @@ function buildTrends(){
 /* ==================================================================
  *  WINDOW MANAGER
  * ================================================================== */
-const WIN_IDS = ['title','ticker','player','filters','display','summary','milestones','details','key','context','landing','gapchart','fortunes','vision','outlook','deck','music','vid1','vid2'];
-const WIN_NAMES = {title:'Showcase title', ticker:'Joke ticker', player:'Play the century', filters:'Filters', display:'Display', summary:'Summary', milestones:'Milestones', details:'Details', key:'Reading the model', context:'Context', landing:'Landing and starting', gapchart:'Gap over time', fortunes:'Time to a fortune', vision:'DESNZ AI energy vision', outlook:'Can AI shrink the gap?', deck:'Ofgem presentation', music:'Music', vid1:'Countdown to Q-Day', vid2:'University Curated Cyber-attacks since 2000'};
+const WIN_IDS = ['title','ticker','player','sources','filters','display','summary','milestones','details','key','context','landing','gapchart','fortunes','vision','outlook','deck','music','vid1','vid2'];
+const WIN_NAMES = {title:'Showcase title', ticker:'Joke ticker', player:'Play the century', sources:'Sources and further reading', filters:'Filters', display:'Display', summary:'Summary', milestones:'Milestones', details:'Details', key:'Reading the model', context:'Context', landing:'Landing and starting', gapchart:'Gap over time', fortunes:'Time to a fortune', vision:'DESNZ AI energy vision', outlook:'Can AI shrink the gap?', deck:'Ofgem presentation', music:'Music', vid1:'Countdown to Q-Day', vid2:'University Curated Cyber-attacks since 2000'};
 function defaultLayout(){
-  const W = innerWidth, Hh = innerHeight, top = 80, narrow = W < 820, rw = Math.min(340, W - 36), lw = Math.min(290, W - 36);
-  const tickH = 58, tickY = Hh - tickH - 8, bottom = tickY - 12, keyH = 150, keyY = bottom - keyH;
-  const vw = Math.round(W * .42), vh = Math.round(vw * 9 / 16 + 40), midX = lw + 36, midW = Math.max(300, W - midX - rw - 36);
+  const W = innerWidth, Hh = innerHeight, u = UI, top = Math.round(72 * u), narrow = W < 820;
+  const rw = Math.min(Math.round(360 * u), W - 36), lw = Math.min(Math.round(330 * u), W - 36);
+  const tickH = Math.round(66 * u), tickY = Hh - tickH - 8, bottom = tickY - 12, keyH = Math.round(160 * u), keyY = bottom - keyH;
+  const vw = Math.round(W * .42), vh = Math.round(vw * 9 / 16 + 40 * u), midX = lw + 36, midW = Math.max(300, W - midX - rw - 36);
+  const pw = Math.min(Math.round(560 * u), Math.round(W * .42)), ph = Math.round(250 * u);
   return {
-    title:{x:midX, y:top, w:midW, h:112, fs:1, open:true},
+    title:{x:midX, y:top, w:midW, h:Math.round(140 * u), fs:1, open:false},
     ticker:{x:10, y:tickY, w:W - 20, h:tickH, fs:1, open:true},
-    player:{x:Math.round((W - Math.min(680, W - 40)) / 2), y:Math.max(top + 140, bottom - 290), w:Math.min(680, W - 40), h:280, fs:1, open:false},
-    filters:{x:18, y:top, w:lw, h:Math.max(200, keyY - top - 12), fs:1, open:!narrow},
-    key:{x:18, y:keyY, w:lw, h:keyH, fs:1, open:!narrow},
-    display:{x:midX, y:top + 128, w:290, h:Math.min(520, bottom - top - 128), fs:1, open:false},
-    summary:{x:W - rw - 18, y:top, w:rw, h:370, fs:1, open:!narrow},
-    details:{x:W - rw - 18, y:top + 386, w:rw, h:Math.max(200, bottom - top - 386), fs:1, open:false},
-    milestones:{x:Math.max(18, W - rw - 18 - 330), y:top + 128, w:310, h:Math.min(560, bottom - top - 128), fs:1, open:false},
-    context:{x:18, y:top, w:320, h:300, fs:1, open:false},
-    landing:{x:18, y:top + 316, w:320, h:Math.max(180, bottom - top - 316), fs:1, open:false},
-    gapchart:{x:W - rw - 18, y:top, w:rw, h:320, fs:1, open:false},
-    fortunes:{x:W - rw - 18, y:top + 336, w:rw, h:Math.max(200, bottom - top - 336), fs:1, open:false},
-    vision:{x:midX, y:top + 128, w:360, h:Math.min(560, bottom - top - 128), fs:1, open:false},
-    outlook:{x:midX + 376, y:top + 128, w:Math.max(320, W - rw - 36 - midX - 376), h:Math.min(580, bottom - top - 128), fs:1, open:false},
-    deck:{x:W - rw - 18, y:top + 386, w:rw, h:Math.round(rw * 1064 / 1912) + 100, fs:1, open:false},
-    music:{x:midX, y:Math.max(top + 128, bottom - 190), w:310, h:180, fs:1, open:false},
-    vid1:{x:Math.round(W * .06), y:top + 128, w:vw, h:vh, fs:1, open:false},
-    vid2:{x:Math.round(W * .52), y:top + 128, w:vw, h:vh, fs:1, open:false}
+    player:{x:W - pw - 18, y:Math.max(top + 140, bottom - ph), w:pw, h:ph, fs:1, open:false},
+    filters:{x:18, y:top, w:lw, h:Math.max(200, keyY - top - 12), fs:1, open:false},
+    key:{x:18, y:keyY, w:lw, h:keyH, fs:1, open:false},
+    display:{x:midX, y:top + 20, w:Math.round(320 * u), h:Math.min(Math.round(600 * u), bottom - top - 20), fs:1, open:false},
+    summary:{x:W - rw - 18, y:top, w:rw, h:Math.round(380 * u), fs:1, open:false},
+    details:{x:W - rw - 18, y:top, w:rw, h:Math.min(Math.round(420 * u), bottom - top), fs:1, open:false},
+    milestones:{x:Math.max(18, W - rw - 18 - Math.round(340 * u)), y:top, w:Math.round(330 * u), h:Math.min(Math.round(600 * u), bottom - top), fs:1, open:false},
+    context:{x:W - rw - 18, y:top, w:rw, h:Math.round(330 * u), fs:1, open:false},
+    landing:{x:18, y:top, w:lw, h:Math.max(200, bottom - top), fs:1, open:!narrow},
+    gapchart:{x:W - rw - 18, y:top, w:rw, h:Math.round(340 * u), fs:1, open:false},
+    fortunes:{x:W - rw - 18, y:top + Math.round(356 * u), w:rw, h:Math.max(200, bottom - top - Math.round(356 * u)), fs:1, open:false},
+    vision:{x:midX, y:top + 20, w:Math.round(390 * u), h:Math.min(Math.round(600 * u), bottom - top - 20), fs:1, open:false},
+    outlook:{x:midX + Math.round(406 * u), y:top + 20, w:Math.max(320, W - rw - 36 - midX - Math.round(406 * u)), h:Math.min(Math.round(620 * u), bottom - top - 20), fs:1, open:false},
+    deck:{x:W - rw - 18, y:top, w:rw, h:Math.round(rw * 1064 / 1912) + Math.round(120 * u), fs:1, open:false},
+    music:{x:midX, y:Math.max(top + 20, bottom - Math.round(200 * u)), w:Math.round(330 * u), h:Math.round(200 * u), fs:1, open:false},
+    vid1:{x:Math.round(W * .06), y:top + 20, w:vw, h:vh, fs:1, open:false},
+    vid2:{x:Math.round(W * .52), y:top + 20, w:vw, h:vh, fs:1, open:false},
+    sources:{x:midX, y:top + 20, w:Math.round(440 * u), h:Math.min(Math.round(620 * u), bottom - top - 20), fs:1, open:false}
   };
 }
 function waitLayout(){
@@ -1998,7 +2039,7 @@ function updateLabels(){
       hit = placed.some(r => Math.abs(r.x - x) < (r.w + w) / 2 && Math.abs(r.y - y) < (r.h + h) / 2);
       if (hit) { y -= h; tries++; }
     }
-    if (hit) { hideLabel(el); return; }
+    if (hit || y - h < 64 * UI) { hideLabel(el); return; }
     placed.push({x, y, w, h});
     el.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) translate(-50%, -100%)`;
     const sel = selected === it ? 1 : selected ? .35 : 1;
@@ -2043,7 +2084,7 @@ function frame(){
       controls.autoRotate = false;
       if (!userDragging) {
         const k = 1 - Math.pow(.03, dt);
-        travelTarget.set(xOf(Math.min(state.cursor, Y1)) - 8, 8, 0);
+        travelTarget.set(xOf(Math.min(state.cursor, Y1)) - 8, 4, 0);
         controls.target.lerp(travelTarget, k);
         travelPos.copy(travelTarget).add(travelOffset);
         camera.position.lerp(travelPos, k);
@@ -2301,7 +2342,7 @@ function renderOutlook(){
 /* ==================================================================
  *  SHOWCASE TITLE
  * ================================================================== */
-const TITLE_DEFAULT = {text:'SP Energy Networks & University of Glasgow Partnership Showcase', color:'#FFFFFF', bg:'#004E64', alpha:.92, accent:'#7CE04A', align:'center'};
+const TITLE_DEFAULT = {text:'SP Energy Networks & University of Glasgow Partnership Showcase', color:'#F7991C', bg:'#00512A', alpha:.96, accent:'#0AA8F5', align:'center'};
 const titleCfg = Object.assign({}, TITLE_DEFAULT, store.get('sg.title', {}));
 const hexA = (hex, a) => { const n = parseInt(hex.slice(1), 16); return `rgba(${n >> 16 & 255},${n >> 8 & 255},${n & 255},${a})`; };
 function applyTitle(){
@@ -2371,12 +2412,13 @@ function syncMusic(){
   $('musicBtn').setAttribute('aria-pressed', on); $('musicBtn').textContent = on ? '♪ Music on' : '♪ Music';
 }
 function toggleMusic(){
+  if (!music.paused) view.musicOn = false;
   if (music.paused) {
     const pr = music.play();
     if (pr && pr.catch) pr.catch(() => { $('muMsg').textContent = 'Could not play the track. Check it is in the same GitHub folder as index.html, or choose a track from this computer.'; if (!layout.music.open) setOpen('music', true); });
   } else music.pause();
 }
-music.addEventListener('play', () => { $('muMsg').textContent = ''; syncMusic(); });
+music.addEventListener('play', () => { $('muMsg').textContent = ''; view.musicOn = true; syncMusic(); });
 music.addEventListener('pause', syncMusic);
 music.addEventListener('error', () => { $('muMsg').textContent = 'Track not found. Upload mixkit-driving-ambition-32.mp3 next to index.html, or choose a track.'; syncMusic(); });
 $('muPlay').onclick = toggleMusic; $('musicBtn').onclick = toggleMusic;
@@ -2512,6 +2554,8 @@ function applyView(o){
   if (o.ticker) { Object.assign(tick, o.ticker); applyTicker(); }
   if (o.musicVolume != null) { mus.vol = o.musicVolume; music.volume = mus.vol; $('muVol').value = mus.vol; $('muVolV').textContent = Math.round(mus.vol * 100) + '%'; }
   if (o.camera) camGoal = {pos:new THREE.Vector3().fromArray(o.camera.pos), target:new THREE.Vector3().fromArray(o.camera.target)};
+  if (o.view && o.view.musicOn === false) music.pause();
+  if (o.view && o.view.musicOn) startMusicIfWanted();
   if (o.music) { mus.vol = o.music.volume != null ? o.music.volume : mus.vol; music.volume = mus.vol; $('muVol').value = mus.vol; $('muVolV').textContent = Math.round(mus.vol * 100) + '%'; if (o.music.track) setTrack(o.music.track); }
   if (o.playSpeed) { playSpeed = o.playSpeed; prefs.playSpeed = playSpeed; savePrefs(); $('tbSpeed').value = String(playSpeed); }
   if (o.deckFile) { prefs.deckFile = o.deckFile; savePrefs(); }
@@ -2574,6 +2618,16 @@ setInterval(() => {
  *  START
  * ================================================================== */
 applyLite(); applyHeader(); applyLanes(true); applyColours(); refresh(); setAutoRotate(state.autoRotate); syncVideos(); applyTitle(); applyTicker(); syncMusic();
+function startMusicIfWanted(){
+  if (!view.musicOn || !music.paused) return;
+  const pr = music.play();
+  if (pr && pr.catch) pr.catch(() => {
+    // Autoplay with sound blocked: start on the first click or key press anywhere
+    const go = () => { if (view.musicOn && music.paused) music.play().catch(() => {}); document.removeEventListener('pointerdown', go, true); document.removeEventListener('keydown', go, true); };
+    document.addEventListener('pointerdown', go, true); document.addEventListener('keydown', go, true);
+  });
+}
+if (!new URLSearchParams(location.search).get('view')) startMusicIfWanted();
 { const vp = new URLSearchParams(location.search).get('view'); if (vp) fetch(vp).then(r => r.json()).then(applyView).catch(() => {}); }
 $('floorT').dispatchEvent(new Event('change'));
 frame();
