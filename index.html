@@ -191,7 +191,7 @@ canvas.chart{width:100%;height:11em;display:block;margin:.4em 0}
 .vrow .vt span.ahead{color:var(--muted);border-style:dashed;border-color:var(--line-strong)}
 .chip.vis{color:#FFF4D6;border-color:rgba(255,244,214,.4)}
 
-.win.max{left:10px!important;top:10px!important;width:calc(100vw - 20px)!important;height:calc(100vh - 20px)!important;z-index:990!important;resize:none}
+.win.max{left:10px!important;top:calc(var(--safe-t) + 64px)!important;width:calc(100vw - 20px)!important;height:calc(100vh - var(--safe-t) - 74px)!important;z-index:990!important;resize:none}
 .vidwin .vbody{padding:0;background:#000;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .vidwin video{width:100%;height:100%;object-fit:contain;display:block;background:#000}
 .vmsg{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:.8em;padding:1.2em;text-align:center;background:rgba(8,19,29,.92);font-size:.95em;color:var(--muted)}
@@ -200,6 +200,13 @@ canvas.chart{width:100%;height:11em;display:block;margin:.4em 0}
 .looplbl{display:inline-flex;align-items:center;gap:6px;cursor:pointer;backdrop-filter:none}
 .looplbl input{accent-color:#E9F2FF;margin:0}
 .tickwin{max-width:none}
+.fbanner{font-family:var(--serif);font-size:1.12em;line-height:1.35;margin:.4em 0 .2em;color:var(--text)}
+.fbanner b{color:#FFD166;font-weight:400}
+.fbanner span{display:block;font-size:.85em;color:#FFD166;margin-top:.2em;font-style:italic}
+.fb{display:inline-block;font-style:normal;font-size:.78em;margin:.25em .35em 0 0;padding:.05em .5em;border-radius:999px;border:1px solid rgba(255,209,102,.45);color:#FFE3A3}
+.fb.prize{border-color:#FFD166;background:rgba(255,209,102,.12)}
+.trow.resrow{background:rgba(255,209,102,.05);border-radius:6px}
+.mini[aria-pressed="true"]{color:var(--text);border-color:var(--line-strong);background:rgba(233,242,255,.08)}
 body.notitle #top h1{visibility:hidden}
 body.barauto #top .actions{opacity:0;transition:opacity .25s}
 body.barauto.near-top #top .actions,body.barauto #top .actions:focus-within{opacity:1}
@@ -335,8 +342,8 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
 <section class="win" id="w-deck" data-title="Ofgem: Cyber Regulation and Emerging Technologies">
   <div class="wbody">
     <button class="deckimg" id="deckOpen" title="Present the slides"><img id="deckThumb" alt="Ofgem Cyber Regulation and Emerging Technologies overview slide"></button>
-    <div class="minis" style="margin-top:.6em"><button class="mini" id="deckView">Present slides</button><button class="mini" id="deckPptx">Open PowerPoint file</button></div>
-    <p class="note-s" id="deckMsg">Present slides works offline and fills the screen (Esc to finish). Open PowerPoint file launches the original in the PowerPoint app.</p>
+    <div class="minis" style="margin-top:.6em"><button class="mini" id="deckView">Present slides</button><button class="mini" id="deckPptx">Open in PowerPoint</button><button class="mini" id="deckDl">Save and open from the repo</button><label class="mini" style="cursor:pointer">Choose a PowerPoint file…<input type="file" id="deckPick" accept=".pptx,.ppt,.ppsx,.pps,application/vnd.openxmlformats-officedocument.presentationml.presentation,application/vnd.ms-powerpoint" hidden></label></div>
+    <p class="note-s" id="deckMsg">Present slides works offline. For animations, use one of the PowerPoint options. In Edge, tick “Always open files of this type” the first time so later files open straight in PowerPoint.</p>
     <div class="row" id="deckFileRow" style="display:none;margin-top:.4em"><input class="search" id="deckFile" aria-label="PowerPoint file name"><button class="mini" id="deckFileBtn">Use</button></div>
   </div>
 </section>
@@ -489,7 +496,7 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
 </section>
 <!-- FORTUNES -->
 <section class="win" id="w-fortunes" data-title="Time to a fortune">
-  <div class="wbody"><p class="note-s">Years from founding to the first listing, sale or private valuation that made founders multi-millionaires on paper. Hollow dots are still building. Follows the field filter. Approximate and selective.</p><canvas id="fortCanvas" class="chart"></canvas><p class="fstat" id="fortStat"></p><div class="tlist" id="fortList"></div></div>
+  <div class="wbody"><p class="note-s">Years from founding to the first listing, sale or private valuation that made founders multi-millionaires on paper. Hollow dots are still building. Follows the field filter. Approximate and selective.</p><div class="minis"><button class="mini" id="fortHi" aria-pressed="true">Highlight research founders</button><button class="mini" id="fortOnly" aria-pressed="false">Research founders only</button></div><p class="fbanner" id="fortBanner"></p><canvas id="fortCanvas" class="chart"></canvas><p class="fstat" id="fortStat"></p><div class="tlist" id="fortList"></div></div>
 </section>
 <!-- VISION -->
 <section class="win" id="w-vision" data-title="DESNZ AI energy vision">
@@ -551,7 +558,7 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
       <li>IBM quantum roadmap (2026); vendor battery roadmaps (Toyota, Samsung SDI, CATL), treated as aspirations rather than facts.</li>
       <li>Institutional histories: Bell Labs, IBM Research, Xerox PARC, CERN, DARPA, CSIRO, RAE Farnborough, MRC Laboratory of Molecular Biology.</li>
     </ul>
-    <p class="ver">Version 6.5. Built 26 October 2026 at 03:00 GMT.</p>
+    <p class="ver">Version 6.6. Built 26 October 2026 at 07:37 GMT.</p>
     <p class="by">Stuart Okin, Director of Cyber Regulation and Emerging Technologies, Ofgem.<br>Illustrative analysis prepared for discussion. Outlook views are indicative and do not represent Ofgem policy.</p>
   </div>
 </div>
@@ -958,7 +965,23 @@ const DATA = [
 {v:'quantum',s:'industry',kind:'proj',acc:true,t:'AI decoders for quantum error correction',r:2023,p:2029,c:'low',rw:'Machine-learning decoders for error-corrected qubits.',pw:'AI decoders running on fault-tolerant prototypes.',note:'AI helping to build the next computing platform.'},
 {v:'robotics',s:'industry',kind:'proj',acc:true,t:'Robot foundation models in products',r:2023,p:2027,c:'medium',rw:'Vision-language-action models trained across many robots.',pw:'General-purpose AI control in commercial robots.',note:'Simulation and AI shorten robot development.'},
 {v:'space',s:'industry',kind:'proj',acc:true,t:'AI-run satellite operations',r:2018,p:2028,c:'medium',rw:'On-board AI and autonomous constellation management.',pw:'Large constellations routinely operated autonomously.',note:'Raises new resilience and cyber questions.'},
-{v:'comms',s:'industry',kind:'proj',acc:true,t:'AI-native radio networks',r:2020,p:2030,c:'medium',rw:'AI-designed air interfaces and network optimisation research.',pw:'AI built into 6G network operation from day one.',note:'Standards cycles still set the pace.'}
+{v:'comms',s:'industry',kind:'proj',acc:true,t:'AI-native radio networks',r:2020,p:2030,c:'medium',rw:'AI-designed air interfaces and network optimisation research.',pw:'AI built into 6G network operation from day one.',note:'Standards cycles still set the pace.'},
+// ================== DESNZ VISION: INNOVATIONS ALREADY HELPING ==================
+{v:'energy',s:'government',kind:'hist',dv:'opt',co:'ECMWF',t:'AI weather forecasting goes operational',r:2022,p:2025,c:'high',rw:'Machine-learning weather models from DeepMind, NVIDIA, Huawei and ECMWF begin to rival physics-based forecasts.',pw:'ECMWF’s AIFS becomes operational, using about 1,000 times less energy per forecast.',note:'Wind, solar and demand forecasts all build on weather forecasts.'},
+{v:'energy',s:'industry',kind:'hist',dv:'opt',co:'Open Climate Fix',t:'AI cloudcasting',r:2024,p:2025,c:'medium',rw:'Open Climate Fix builds an AI model that forecasts satellite cloud imagery hours ahead; a Manchester Prize finalist.',pw:'Cloudcasting is built into its live UK solar forecast, improving accuracy by about 5%.',note:'From competition entry to live service in about a year.'},
+{v:'energy',s:'government',kind:'hist',dv:'opt',co:'NESO',t:'Open Balancing Platform',r:2019,p:2023,c:'medium',rw:'The system operator begins redesigning balancing for many small assets.',pw:'The Open Balancing Platform goes live with optimised bulk dispatch of batteries and small units.',note:'Designed to replace the legacy balancing systems by 2027.'},
+{v:'energy',s:'government',kind:'hist',dv:'demand',co:'NESO',t:'Demand Flexibility Service',r:2021,p:2022,c:'high',rw:'Trials of paying households to shift electricity use at peak times.',pw:'GB’s Demand Flexibility Service launches nationally.',note:'Turned household flexibility into a national balancing tool.'},
+{v:'energy',s:'industry',kind:'hist',dv:'demand',co:'Flexitricity',t:'AI-optimised flexibility aggregation',r:2004,p:2008,c:'medium',rw:'Flexitricity is founded in Edinburgh to aggregate flexible demand and generation.',pw:'Aggregated flexibility services begin in GB; today AI optimises and trades assets from a 24/7 control room. Dates approximate.',note:'The longest-serving GB flexibility aggregator; Drax completed its acquisition in 2026 for its AI battery trading.'},
+{v:'energy',s:'industry',kind:'hist',dv:'asset',co:'Cyberhawk',t:'Drone inspection of transmission towers',r:2008,p:2021,c:'medium',rw:'Cyberhawk, a Scottish start-up, develops drone inspection for energy assets.',pw:'SP Energy Networks replaces helicopter tower inspections with Cyberhawk drones and iHawk software.',note:'Data captured against 85 points on each tower feeds asset-health decisions.'},
+{v:'energy',s:'industry',kind:'hist',dv:'asset',co:'Keen AI and sees.ai',t:'AI drone inspection of pylons',r:2018,p:2025,c:'medium',rw:'Keen AI begins working with National Grid on AI analysis of drone imagery.',pw:'National Grid launches a centralised autonomous aerial inspection capability, using beyond-line-of-sight drones and AI.',note:'Government innovation funding helped turn early research into a commercial service.'},
+{v:'cyber',s:'government',kind:'hist',dv:'gov',co:'NCSC',t:'Cyber Assessment Framework',r:2016,p:2018,c:'high',rw:'The UK’s National Cyber Security Centre is created.',pw:'NCSC publishes the Cyber Assessment Framework, used by regulators including Ofgem under NIS.',note:'The assurance backbone for operators of essential services.'},
+{v:'cyber',s:'industry',kind:'hist',dv:'gov',co:'Radiflow',t:'OT threat detection for utilities',r:2009,p:2011,c:'medium',rw:'Radiflow is founded in Tel Aviv to secure industrial control networks.',pw:'Its industrial cyber security products launch and are deployed by utilities.',note:'One of several specialist OT security vendors serving energy networks.'},
+
+// ================== ENERGY: MORE PRODUCTS (BATTERIES AND STORAGE) ==================
+{v:'energy',s:'industry',kind:'hist',co:'Highview Power',t:'Liquid air energy storage',r:2005,p:2018,c:'medium',rw:'Highview Power is founded to develop cryogenic energy storage.',pw:'Its grid-scale demonstration plant at Pilsworth, near Manchester, operates.',note:'A larger UK plant at Carrington is under construction for long-duration storage.'},
+{v:'energy',s:'industry',kind:'hist',co:'Tesla',t:'Utility-scale battery product',r:2015,p:2019,c:'medium',rw:'Tesla launches Powerpack for commercial and utility storage.',pw:'Megapack, a containerised utility-scale battery, launches.',note:'Productised grid storage made multi-hundred-megawatt projects routine.'},
+{v:'energy',s:'industry',kind:'hist',co:'BYD',t:'Blade LFP battery',r:2017,p:2020,c:'medium',rw:'BYD develops long, thin LFP cells built directly into the pack.',pw:'The Blade battery launches in electric cars.',note:'Made safer, cheaper LFP mainstream for cars and storage.'},
+{v:'energy',s:'industry',kind:'proj',co:'Form Energy',t:'100-hour iron-air battery',r:2017,p:2027,c:'medium',rw:'Form Energy, co-founded by MIT battery scientist Yet-Ming Chiang, develops iron-air batteries.',pw:'The first commercial multi-day iron-air system is fully operational in Minnesota.',note:'First units shipped and began operating as a pilot in late 2025.'}
 ];
 
 const FIELDS = {
@@ -1099,9 +1122,26 @@ const FORTUNES = [
  {n:'Michael Truell and co-founders',co:'Anysphere (Cursor)',v:'ai',f:2022,w:2024,how:'Private valuation',c:'medium'},
  {n:'Ilya Sutskever, Daniel Gross and Daniel Levy',co:'Safe Superintelligence',v:'ai',f:2024,w:2024,how:'Private valuation',c:'medium'},
  {n:'Mira Murati and co-founders',co:'Thinking Machines Lab',v:'ai',f:2025,w:2025,how:'Private valuation',c:'medium'},
+ {n:'Geoffrey Hinton, Ilya Sutskever and Alex Krizhevsky',co:'DNNresearch',v:'ai',f:2012,w:2013,how:'Sale to Google',c:'high',ac:'uni',prize:'Nobel Prize in Physics 2024 and Turing Award 2018 (Hinton)'},
+ {n:'Andy Bechtolsheim, Vinod Khosla, Scott McNealy and Bill Joy',co:'Sun Microsystems',v:'hw',f:1982,w:1986,how:'Stock market listing',c:'high',ac:'uni'},
+ {n:'Tom Leighton and Danny Lewin',co:'Akamai',v:'sw',f:1998,w:1999,how:'Stock market listing',c:'high',ac:'uni'},
+ {n:'Henry Samueli and Henry Nicholas',co:'Broadcom',v:'hw',f:1991,w:1998,how:'Stock market listing',c:'high',ac:'uni'},
+ {n:'Diane Greene, Mendel Rosenblum and co-founders',co:'VMware',v:'sw',f:1998,w:2004,how:'Sale to EMC',c:'high',ac:'uni'},
+ {n:'David Walt and co-founders',co:'Illumina',v:'life',f:1998,w:2000,how:'Stock market listing',c:'high',ac:'uni'},
+ {n:'Andrew Hopkins',co:'Exscientia',v:'life',f:2012,w:2021,how:'Stock market listing',c:'medium',ac:'uni'},
+ {n:'Derrick Rossi, Robert Langer and co-founders',co:'Moderna',v:'life',f:2010,w:2018,how:'Stock market listing',c:'high',ac:'uni',prize:'Millennium Technology Prize 2008 (Langer)'},
+ {n:'Yet-Ming Chiang and co-founders',co:'A123 Systems',v:'energy',f:2001,w:2009,how:'Stock market listing',c:'high',ac:'uni'},
+ {n:'Yet-Ming Chiang, Mateo Jaramillo and co-founders',co:'Form Energy',v:'energy',f:2017,w:2021,how:'Private valuation',c:'medium',ac:'uni'},
+ {n:'Jagdeep Singh, Tim Holme and Fritz Prinz',co:'QuantumScape',v:'energy',f:2010,w:2020,how:'Listing via merger',c:'high',ac:'uni'},
+ {n:'Chris Ballance and Tom Harty',co:'Oxford Ionics',v:'quantum',f:2019,w:2025,how:'Sale to IonQ',c:'medium',ac:'uni'},
  {n:'Arthur Mensch, Guillaume Lample and Timothée Lacroix',co:'Mistral AI',v:'ai',f:2023,w:2023,how:'Private valuation',c:'medium'}
 ];
-const APP_VERSION = '6.5', APP_BUILD = '26 October 2026, 03:00 GMT';
+const FORT_RESEARCH = {'Google':['uni'], 'Cisco':['uni'], 'Genentech':['uni','Lasker Award 1980 (Boyer)'], 'Qualcomm':['uni','US National Medal of Technology 1994 (Jacobs)'],
+  'Oxford Nanopore':['uni'], 'BioNTech':['uni'], 'DeepMind':['lab','Nobel Prize in Chemistry 2024 (Hassabis)'], 'IonQ':['uni'], 'PsiQuantum':['uni'], 'Synthesia':['uni'],
+  'Wayve':['uni'], 'Mistral AI':['lab'], 'Anthropic':['lab'], 'Safe Superintelligence':['lab'], 'Thinking Machines Lab':['lab'], 'Acorn Computers':['uni'], 'Rigetti Computing':['lab'],
+  'Boston Dynamics':['uni'], 'iRobot':['uni'], 'Kiva Systems':['uni'], 'Netscape':['uni'], 'Planet':['lab'], 'Intel':['lab'], 'Hewlett-Packard':['uni'], 'Darktrace':['uni'], 'Xerography (Xerox)':['lab']};
+FORTUNES.forEach(x => { const r = FORT_RESEARCH[x.co]; if (r && !x.ac) { x.ac = r[0]; if (r[1]) x.prize = r[1]; } });
+const APP_VERSION = '6.6', APP_BUILD = '26 October 2026, 07:37 GMT';
 const Y0 = 1925, Y1 = 2032, NOW = 2026, HORIZON = 2031.6, XS = 1.2, MID = (Y0 + Y1) / 2, H = 0.85, ZE = 28;
 const xOf = y => (y - MID) * XS;
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
@@ -1109,8 +1149,10 @@ const lagTxt = n => n < 1 ? 'under a year' : n === 1 ? '1 year' : n + ' years';
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const $ = id => document.getElementById(id);
 const store = {
-  get(k, d){ try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
-  set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  // Always start from the app's defaults: nothing is read from or written to browser storage.
+  // Settings are saved and restored only through JSON view files.
+  get(k, d){ return d; },
+  set(k, v){}
 };
 
 const JOKES = [
@@ -1202,7 +1244,7 @@ const DEFAULT_FILTERS = () => ({
 });
 const F = DEFAULT_FILTERS();
 const hidden = new Set();
-const view = {laneFollow:true, camTravel:false, fadeLanded:false, keepYears:5, revealEnd:true, labelPlay:'always', labelScope:'all', labelMax:60, labelLinger:2, labels:'off', lfs:12, lanes:'s', colour:'s', pulses:true, trend:true, floor:true, rotSpeed:0.35, glow:0.75};
+const view = {fortHi:true, fortOnly:false, laneFollow:true, camTravel:false, fadeLanded:false, keepYears:5, revealEnd:true, labelPlay:'always', labelScope:'all', labelMax:60, labelLinger:2, labels:'off', lfs:12, lanes:'s', colour:'s', pulses:true, trend:true, floor:true, rotSpeed:0.35, glow:0.75};
 Object.assign(view, store.get('sg.view.v2', {}));
 const state = {playing:false, cursor:Y1, autoRotate:!reduced};
 let selected = null, hovered = null;
@@ -2152,7 +2194,11 @@ function renderLanding(yr){
   $('startList').innerHTML = started.length ? started.map(it => row(it.r, it, it.kind === 'flight' ? 'still in the lab' : it.p <= yr ? `landed after ${lagTxt(it.lag)}` : 'in progress')).join('') : '<p class="empty">No research in this selection began in these years.</p>';
 }
 function renderFortunes(yr){
-  const pool = FORTUNES.filter(x => F.fields.has(x.v));
+  if (yr === undefined) yr = state.playing ? Math.floor(Math.min(state.cursor, 2031)) : 2031;
+  $('fortHi').setAttribute('aria-pressed', !!view.fortHi); $('fortOnly').setAttribute('aria-pressed', !!view.fortOnly);
+  let pool = FORTUNES.filter(x => F.fields.has(x.v));
+  const allPool = pool;
+  if (view.fortOnly) pool = pool.filter(x => x.ac);
   const shown = pool.filter(x => x.f <= yr).sort((a, b) => b.f - a.f);
   const S = setupCanvas($('fortCanvas'));
   if (S) {
@@ -2161,6 +2207,7 @@ function renderFortunes(yr){
       const done = x.w <= yr, yv = done ? x.w - x.f : Math.min(yr - x.f, 25), col = FIELDS[x.v].hex;
       g.beginPath(); g.arc(X(x.f), Y(yv), fs * .34, 0, Math.PI * 2);
       if (done) { g.fillStyle = col; g.fill(); } else { g.strokeStyle = col; g.lineWidth = 1.5; g.stroke(); }
+      if (view.fortHi && x.ac) { g.beginPath(); g.arc(X(x.f), Y(yv), fs * .62, 0, Math.PI * 2); g.strokeStyle = '#FFD166'; g.lineWidth = x.prize ? 2.4 : 1.4; g.stroke(); }
     });
   }
   const med = a => a.length ? Math.round(median(a)) : null, got = pool.filter(x => x.w <= yr);
@@ -2168,8 +2215,14 @@ function renderFortunes(yr){
   const parts = eraDefs.map(([lab, a, b]) => { const m = med(got.filter(x => x.f >= a && x.f < b).map(x => x.w - x.f)); return m == null ? null : `${lagTxt(m)} for companies founded ${lab}`; }).filter(Boolean);
   const fastest = got.slice().sort((a, b) => (a.w - a.f) - (b.w - b.f) || b.f - a.f)[0];
   $('fortStat').textContent = !pool.length ? 'No examples for the selected fields.' : parts.length ? `Median time to a fortune: ${parts.join('; ')}.` + (fastest ? ` Fastest so far: ${fastest.co}, ${lagTxt(fastest.w - fastest.f)}.` : '') : 'No founders in this selection had reached a fortune by this year.';
-  $('fortList').innerHTML = shown.map(x => `<div class="trow"><b>${x.f}</b><i class="cat" style="background:${FIELDS[x.v].hex}"></i><span><strong>${x.n}</strong>, ${x.co}<em>${x.w <= yr ? `${lagTxt(x.w - x.f)}: ${x.how.toLowerCase()}, ${x.w}` : 'building'}</em></span></div>`).join('');
+  // research banner
+  const gotAll = allPool.filter(x => x.w <= yr), res = gotAll.filter(x => x.ac), recent = res.filter(x => x.f >= 2015);
+  $('fortBanner').innerHTML = res.length ? `<b>${res.length} of ${gotAll.length}</b> fortunes here began in a university or research lab, typically in <b>${lagTxt(Math.round(median(res.map(x => x.w - x.f))))}</b>` + (recent.length ? `; since 2015, in <b>${lagTxt(Math.round(median(recent.map(x => x.w - x.f))))}</b>` : '') + `. <span>Researchers in this room: this could be your time.</span>` : '';
+  const badge = x => (x.ac === 'uni' ? '<span class="fb uni" title="Founded out of university research">🎓 University</span>' : x.ac === 'lab' ? '<span class="fb lab" title="Founders known for research">🔬 Research</span>' : '') + (x.prize ? `<span class="fb prize" title="${x.prize}">🏅 ${x.prize}</span>` : '');
+  $('fortList').innerHTML = shown.map(x => `<div class="trow ${view.fortHi && x.ac ? 'resrow' : ''}"><b>${x.f}</b><i class="cat" style="background:${FIELDS[x.v].hex}"></i><span><strong>${x.n}</strong>, ${x.co}<em>${x.w <= yr ? `${lagTxt(x.w - x.f)}: ${(x.how.charAt(0).toLowerCase() + x.how.slice(1))}, ${x.w}` : 'building'}</em>${view.fortHi ? badge(x) : ''}</span></div>`).join('');
 }
+$('fortHi').onclick = () => { view.fortHi = !view.fortHi; renderFortunes(); };
+$('fortOnly').onclick = () => { view.fortOnly = !view.fortOnly; renderFortunes(); };
 const visOpen = new Set();
 function renderVision(yr){
   if (yr === undefined) yr = state.playing ? Math.floor(Math.min(state.cursor, 2031)) : 2031;
@@ -2399,6 +2452,19 @@ $('ssImg').onclick = () => showSlide(ssIdx + 1);
 $('ssClose').onclick = e => { e.stopPropagation(); closeSlides(); };
 $('ssFs').onclick = e => { e.stopPropagation(); const el = $('slideshow'); if (document.fullscreenElement) { ssFsOpened = false; document.exitFullscreen(); } else if (el.requestFullscreen) el.requestFullscreen().then(() => { ssFsOpened = true; }).catch(() => {}); };
 $('deckPptx').onclick = openPptx;
+function handToBrowser(url, name){
+  const a = document.createElement('a'); a.href = url; a.download = name; document.body.appendChild(a); a.click(); a.remove();
+  $('deckMsg').innerHTML = `“${name}” has been handed to your browser. In Edge, open the downloads panel and choose <b>Open file</b>; it opens in PowerPoint with all animations. Tick <b>Always open files of this type</b> to skip this step next time.`;
+}
+$('deckDl').onclick = async () => {
+  const name = await findDeck();
+  if (!name) { $('deckMsg').textContent = 'Could not find the PowerPoint file next to this page. Use “Choose a PowerPoint file…” instead.'; return; }
+  handToBrowser(new URL(name, location.href).href, name);
+};
+$('deckPick').addEventListener('change', e => {
+  const f = e.target.files && e.target.files[0]; if (!f) return;
+  handToBrowser(URL.createObjectURL(f), f.name); e.target.value = '';
+});
 $('deckFileBtn').onclick = () => { prefs.deckFile = $('deckFile').value.trim() || DECK_DEFAULT; savePrefs(); $('deckFileRow').style.display = 'none'; openPptx(); };
 $('deckFile').addEventListener('keydown', e => { e.stopPropagation(); if (e.key === 'Enter') $('deckFileBtn').click(); });
 
@@ -2411,7 +2477,9 @@ function snapshot(name){
     view:Object.assign({}, view), filters:Object.assign({}, F, {fields:[...F.fields]}),
     hidden:[...hidden].map(i => items[i].t), title:Object.assign({}, titleCfg), ticker:Object.assign({}, tick),
     camera:{pos:camera.position.toArray(), target:controls.target.toArray()}, autoRotate:state.autoRotate, musicVolume:mus.vol,
-    music:{volume:mus.vol, track:mus.track}, playSpeed, loopPlay:!!view.loopPlay, visionExpanded:[...visOpen], deckFile:prefs.deckFile, appVersion:APP_VERSION};
+    music:{volume:mus.vol, track:mus.track}, playSpeed, loopPlay:!!view.loopPlay, visionExpanded:[...visOpen], deckFile:prefs.deckFile,
+    playState:{playing:state.playing, cursor:state.cursor, paused}, cleanMode:document.body.classList.contains('clean'),
+    selected:selected ? selected.t : null, autoRotateSpeed:view.rotSpeed, appVersion:APP_VERSION};
 }
 function saveViewFile(){
   const name = (prompt('Name this view, for example “opening”, “play” or “questions”:', 'view') || '').trim();
@@ -2422,6 +2490,7 @@ function saveViewFile(){
   document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 3000);
 }
 function syncDisplayUI(){
+  if (typeof renderFortunes === 'function' && layout.fortunes && layout.fortunes.open) renderFortunes();
   [['labelSeg','labels'],['labelPlaySeg','labelPlay'],['labelScopeSeg','labelScope'],['laneSeg','lanes'],['colSeg','colour']].forEach(([id, k]) => $(id).querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', b.dataset.v === view[k])));
   [['pulseT','pulses'],['trendT','trend'],['floorT','floor'],['loopD','loopPlay'],['loopT','loopPlay'],['liteT','lite']].forEach(([id, k]) => { $(id).checked = !!view[k]; });
   applyLite(); applyHeader(); syncTravelUI();
@@ -2449,6 +2518,15 @@ function applyView(o){
   if (o.visionExpanded) { visOpen.clear(); o.visionExpanded.forEach(k => visOpen.add(k)); }
   if (o.autoRotate != null) setAutoRotate(o.autoRotate);
   refresh(); syncVideos(); twKey = '';
+  if (o.cleanMode != null) document.body.classList.toggle('clean', !!o.cleanMode);
+  if (o.playState) {
+    if (o.playState.playing) { if (!state.playing) startPlay(); state.cursor = o.playState.cursor != null ? o.playState.cursor : Y0; paused = !!o.playState.paused; syncPause(); yearShown = -1; }
+    else if (state.playing) stopPlay();
+  }
+  if (o.selected) { const it = items.find(x => x.t === o.selected); if (it) openDetail(it); }
+  if (o.camera && !(state.playing && view.camTravel)) camGoal = {pos:new THREE.Vector3().fromArray(o.camera.pos), target:new THREE.Vector3().fromArray(o.camera.target)};
+  if (o.autoRotate != null) setAutoRotate(o.autoRotate);
+  renderFortunes(state.playing ? Math.floor(Math.min(state.cursor, 2031)) : 2031);
 }
 $('viewFile').addEventListener('change', e => {
   const f = e.target.files && e.target.files[0]; if (!f) return;
@@ -2502,7 +2580,7 @@ frame();
 requestAnimationFrame(() => {
   $('loading').classList.add('done');
   camGoal = {pos:HOME.pos.clone(), target:HOME.target.clone()};
-  if (!reduced) setTimeout(startPlay, 700);
+  if (!reduced && !new URLSearchParams(location.search).get('view')) setTimeout(startPlay, 700);
 });
 }
 const fontsReady = (document.fonts && document.fonts.ready) ? Promise.race([document.fonts.ready, new Promise(r => setTimeout(r, 2000))]) : Promise.resolve();
