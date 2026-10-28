@@ -2,7 +2,7 @@
  "$schema": "./schema.json",
  "meta": {
   "title": "The Shrinking Gap from Research to Change",
-  "revision": 12,
+  "revision": 13,
   "version": "8.0",
   "asOf": "2026-10-28",
   "horizonYears": 10,
@@ -319,6 +319,11 @@
     "date": "2026-10-28",
     "summary": "Manual update: security mitigation guidance mapped to the NCSC CAF, Ofgem CAF Overlay, NIST, NERC CIP, IEC 62443 and ISO/IEC; first guidance updates recorded.",
     "revision": 12
+   },
+   {
+    "date": "2026-10-28",
+    "summary": "Manual update: mitigation guidance rebuilt from official sources only, with links; unverified references removed.",
+    "revision": 13
    }
   ],
   "adoptionDefinition": "Mainstream adoption: the year the technology reached widespread, routine use, roughly 10% or more of its potential market or standard practice in its sector.",
@@ -340,7 +345,7 @@
     "name": "At scale"
    }
   ],
-  "securityGuidanceNote": "AI-generated research to prompt discussion, not security advice. Framework references point to relevant parts and must be checked against current versions. Engage qualified cyber security experts, and your regulator where relevant, before acting."
+  "securityGuidanceNote": "AI-generated research to prompt discussion, not security advice. References link to the official publishers; check the current version of each. Engage qualified cyber security experts, and your regulator where relevant, before acting."
  },
  "fields": [
   {
@@ -5727,7 +5732,8 @@
    "security": {
     "expandsAttackSurface": true,
     "note": "Concentrating heavy-lift capacity in one operator creates a single point of failure for access to space. The ground systems that control autonomous recovery and flight termination are high-value cyber targets.",
-    "basis": "ai-compiled"
+    "basis": "ai-compiled",
+    "guidance": "data"
    }
   },
   {
@@ -22765,37 +22771,64 @@
     "Keep an up-to-date inventory of OT assets and their connections.",
     "Separate OT into zones with tightly controlled conduits; no direct internet routes.",
     "Control and record all remote access, especially by vendors.",
-    "Monitor OT networks for unusual behaviour and hunt for threats.",
+    "Monitor OT networks, including internal (east-west) traffic, and hunt for threats.",
     "Manage vulnerabilities and changes, with tested manual fallback and recovery."
    ],
    "refs": [
     [
-     "NCSC CAF 4.0",
-     "A3 Asset management; B4 System security; B5 Resilient networks and systems; C1 Security monitoring; D1 Response and recovery planning"
+     "NCSC CAF",
+     "A3 Asset management; B4 System security; B5 Resilient networks and systems; C1 Security monitoring; D1 Response and recovery planning",
+     "https://www.ncsc.gov.uk/collection/cyber-assessment-framework"
     ],
     [
      "Ofgem CAF Overlay (DGE)",
-     "Annex B sector expectations against the same principles; Enhanced profile expected by 2027"
+     "Annex B: sector expectations against each CAF principle",
+     "https://www.ofgem.gov.uk/sites/default/files/2024-02/NIS%20Supplementary%20Guidance%20and%20CAF%20Overlay%20for%20DGE%20Sector_TLPWhite.pdf"
     ],
     [
-     "IEC 62443",
-     "3-2 zones and conduits risk assessment; 3-3 system requirements (FR1 identification, FR5 restricted data flow, FR6 timely response)"
+     "Ofgem",
+     "NIS Security Assurance Guidance (Concept), 2025: progress towards each operator’s target CAF profile",
+     "https://www.ofgem.gov.uk/sites/default/files/2025-07/Ofgem-NIS-Security-Assurance-Guidance-Concept-for-DGE-Sector.pdf"
     ],
     [
-     "NERC CIP",
-     "CIP-005 electronic security perimeters and remote access; CIP-007 system security; CIP-010 configuration and vulnerability; CIP-015 internal network monitoring"
+     "ISA/IEC 62443",
+     "3-2 zones and conduits risk assessment; 3-3 system requirements (FR1 identification and authentication, FR5 restricted data flow)",
+     "https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards"
     ],
     [
-     "NIST",
-     "SP 800-82 Rev. 3 OT security guide; CSF 2.0 PR.IR and DE.CM"
+     "NERC CIP-005-7",
+     "Electronic security perimeters and remote access",
+     "https://www.nerc.com/pa/Stand/Reliability%20Standards/CIP-005-7.pdf"
     ],
     [
-     "ISO/IEC",
-     "27019 controls for the energy utility industry"
+     "NERC CIP-007-6",
+     "Systems security management",
+     "https://www.nerc.com/pa/Stand/Reliability%20Standards/CIP-007-6.pdf"
+    ],
+    [
+     "NERC CIP-010-4",
+     "Configuration change management and vulnerability assessments",
+     "https://www.nerc.com/pa/Stand/Reliability%20Standards/CIP-010-4.pdf"
+    ],
+    [
+     "NERC CIP-015-1",
+     "Internal network security monitoring",
+     "https://www.nerc.com/pa/Stand/Reliability%20Standards/CIP-015-1.pdf"
+    ],
+    [
+     "NIST SP 800-82 Rev. 3",
+     "Guide to operational technology security",
+     "https://csrc.nist.gov/pubs/sp/800/82/r3/final"
     ],
     [
      "IEC 62351",
-     "Security for power system communications protocols"
+     "Data and communications security for power systems",
+     "https://webstore.iec.ch/en/publication/6912"
+    ],
+    [
+     "ISO/IEC 27019",
+     "Information security controls for the energy utility industry (current edition 2024)",
+     "https://www.iso.org/standard/68091.html"
     ]
    ]
   },
@@ -22810,28 +22843,39 @@
    ],
    "refs": [
     [
-     "NCSC CAF 4.0",
-     "A4 Supply chain; B2 Identity and access control; B4 System security; C1 Security monitoring"
+     "NCSC CAF",
+     "A4 Supply chain; B2 Identity and access control; B4 System security; C1 Security monitoring",
+     "https://www.ncsc.gov.uk/collection/cyber-assessment-framework"
     ],
     [
      "Ofgem CAF Overlay (DGE)",
-     "Annex B expectations for supply chain and system security"
+     "Annex B: sector expectations, including supply chain",
+     "https://www.ofgem.gov.uk/sites/default/files/2024-02/NIS%20Supplementary%20Guidance%20and%20CAF%20Overlay%20for%20DGE%20Sector_TLPWhite.pdf"
     ],
     [
-     "ETSI",
-     "EN 303 645 baseline for consumer IoT; the UK PSTI product security regime"
+     "BSI PAS 1879:2021",
+     "Energy smart appliances: demand side response operation, including cyber security and authentication of requests",
+     "https://bsigroup.com/en-GB/insights-and-media/insights/brochures/pas-1879-energy-smart-appliances-demand-side-response-operation/"
     ],
     [
-     "BSI",
-     "PAS 1879 energy smart appliances for demand-side response"
+     "NCSC",
+     "Device security principles for manufacturers (mapped to ETSI EN 303 645)",
+     "https://www.ncsc.gov.uk/collection/device-security-principles-for-manufacturers"
+    ],
+    [
+     "UK PSTI Act 2022",
+     "Product security requirements for connectable products",
+     "https://www.legislation.gov.uk/ukpga/2022/46/notes/division/4/index.htm"
     ],
     [
      "IEC 62351",
-     "Authentication of power system communications"
+     "Securing power system communications",
+     "https://webstore.iec.ch/en/publication/6912"
     ],
     [
-     "NIST",
-     "IR 8259 IoT device cyber security; CSF 2.0 PR.AA"
+     "NIST IR 8259",
+     "Foundational cyber security activities for IoT device manufacturers",
+     "https://csrc.nist.gov/pubs/ir/8259/final"
     ]
    ]
   },
@@ -22847,32 +22891,39 @@
    ],
    "refs": [
     [
-     "NCSC CAF 4.0",
-     "4.0 adds AI-related cyber risk across the framework"
+     "NCSC CAF",
+     "Version 4.0 adds coverage of AI-related cyber risk across the framework",
+     "https://www.ncsc.gov.uk/blog-post/caf-v4-0-released-in-response-to-growing-threat"
     ],
     [
      "UK DSIT",
-     "AI Cyber Security Code of Practice (2025)"
+     "AI Cyber Security Code of Practice (2025)",
+     "https://www.gov.uk/government/publications/ai-cyber-security-code-of-practice"
     ],
     [
-     "ETSI",
-     "TS 104 223 baseline cyber security requirements for AI models and systems"
+     "ETSI TS 104 223",
+     "Baseline cyber security requirements for AI models and systems (2025)",
+     "https://etsi.org/deliver/etsi_ts/104200_104299/104223/01.01.01_60/ts_104223v010101p.pdf"
     ],
     [
-     "NCSC and partners",
-     "Guidelines for secure AI system development (2023)"
+     "NCSC",
+     "Guidelines for secure AI system development",
+     "https://www.ncsc.gov.uk/collection/guidelines-secure-ai-system-development"
     ],
     [
      "NIST",
-     "AI Risk Management Framework 1.0; AI 100-2 adversarial machine learning taxonomy"
+     "AI Risk Management Framework",
+     "https://www.nist.gov/itl/ai-risk-management-framework"
     ],
     [
-     "ISO/IEC",
-     "42001 AI management system"
+     "NIST SP 800-218A",
+     "Secure development practices for generative AI and dual-use foundation models",
+     "https://csrc.nist.gov/pubs/sp/800/218/a/final"
     ],
     [
-     "OWASP",
-     "Top 10 for large language model applications"
+     "ISO/IEC 42001",
+     "AI management system",
+     "https://www.iso.org/standard/42001"
     ]
    ]
   },
@@ -22887,24 +22938,29 @@
    ],
    "refs": [
     [
-     "NCSC CAF 4.0",
-     "B2 Identity and access control; B4 System security (4.0 adds software development and maintenance); C1 Security monitoring"
+     "NCSC CAF",
+     "B2 Identity and access control; B4 System security; C1 Security monitoring",
+     "https://www.ncsc.gov.uk/collection/cyber-assessment-framework"
     ],
     [
      "UK DSIT and NCSC",
-     "Software Security Code of Practice"
+     "Software Security Code of Practice (2025)",
+     "https://www.gov.uk/government/publications/software-security-code-of-practice"
+    ],
+    [
+     "NIST SP 800-218",
+     "Secure Software Development Framework",
+     "https://csrc.nist.gov/pubs/sp/800/218/final"
     ],
     [
      "NIST",
-     "SP 800-218 Secure Software Development Framework; CSF 2.0 PR.AA and PR.PS"
+     "Cybersecurity Framework 2.0 (PR.AA identity, PR.PS platform security)",
+     "https://www.nist.gov/cyberframework"
     ],
     [
-     "ISO/IEC",
-     "27001:2022 Annex A 5.23 cloud services, 8.8 vulnerabilities, 8.25 secure development"
-    ],
-    [
-     "NCSC",
-     "Cloud security principles"
+     "ISO/IEC 27001",
+     "Information security management systems",
+     "https://www.iso.org/popular-standards.html"
     ]
    ]
   },
@@ -22919,28 +22975,29 @@
    ],
    "refs": [
     [
-     "NCSC CAF 4.0",
-     "A4 Supply chain"
+     "NCSC CAF",
+     "A4 Supply chain",
+     "https://www.ncsc.gov.uk/collection/cyber-assessment-framework"
     ],
     [
      "Ofgem CAF Overlay (DGE)",
-     "Annex B supply chain expectations"
+     "Annex B: supply chain expectations",
+     "https://www.ofgem.gov.uk/sites/default/files/2024-02/NIS%20Supplementary%20Guidance%20and%20CAF%20Overlay%20for%20DGE%20Sector_TLPWhite.pdf"
     ],
     [
-     "NERC CIP",
-     "CIP-013 supply chain risk management"
+     "NERC CIP-013-2",
+     "Supply chain risk management",
+     "https://www.nerc.com/pa/Stand/Reliability%20Standards/CIP-013-2.pdf"
     ],
     [
-     "IEC 62443",
-     "4-1 secure product development; 4-2 component requirements"
+     "ISA/IEC 62443",
+     "4-1 secure product development; 4-2 component requirements",
+     "https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards"
     ],
     [
-     "NIST",
-     "SP 800-161 Rev. 1 cyber supply chain risk management"
-    ],
-    [
-     "ISO/IEC",
-     "27001:2022 Annex A 5.19 to 5.21 supplier relationships"
+     "NIST SP 800-161 Rev. 1",
+     "Cyber supply chain risk management",
+     "https://csrc.nist.gov/pubs/sp/800/161/r1/final"
     ]
    ]
   },
@@ -22956,23 +23013,23 @@
    "refs": [
     [
      "NCSC",
-     "Timelines for migration to post-quantum cryptography: discovery by 2028, priority migration by 2031, completion by 2035"
-    ],
-    [
-     "NCSC CAF 4.0",
-     "A3 Asset management; B3 Data security"
+     "Timelines for migration to post-quantum cryptography: a plan by 2028, early high-priority migration by 2031, completion by 2035",
+     "https://www.ncsc.gov.uk/guidance/pqc-migration-timelines"
     ],
     [
      "NIST",
-     "FIPS 203, 204 and 205 post-quantum standards"
+     "First three post-quantum cryptography standards (FIPS 203, 204 and 205)",
+     "https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards"
     ],
     [
-     "ISO/IEC",
-     "27001:2022 Annex A 8.24 use of cryptography"
+     "NCSC CAF",
+     "A3 Asset management; B3 Data security",
+     "https://www.ncsc.gov.uk/collection/cyber-assessment-framework"
     ],
     [
      "IEC 62351",
-     "Cryptographic protection of power system communications"
+     "Cryptographic protection of power system communications",
+     "https://webstore.iec.ch/en/publication/6912"
     ]
    ]
   },
@@ -22987,24 +23044,24 @@
    ],
    "refs": [
     [
-     "NCSC CAF 4.0",
-     "B5 Resilient networks and systems; A4 Supply chain"
+     "NCSC CAF",
+     "B5 Resilient networks and systems; A4 Supply chain",
+     "https://www.ncsc.gov.uk/collection/cyber-assessment-framework"
     ],
     [
-     "NERC CIP",
-     "CIP-012 communications between control centres"
+     "NERC CIP-012-1",
+     "Communications between control centres",
+     "https://www.nerc.com/pa/Stand/Reliability%20Standards/CIP-012-1.pdf"
     ],
     [
-     "UK",
-     "Telecommunications (Security) Act 2021 and its Code of Practice"
+     "UK DSIT",
+     "Telecommunications Security Code of Practice, version 1.1 (July 2026)",
+     "https://www.gov.uk/government/publications/revised-telecommunications-security-code-of-practice-2026-version-11/telecommunications-security-code-of-practice-2026-version-11"
     ],
     [
      "IEC 62351",
-     "Securing power system communications"
-    ],
-    [
-     "NIST",
-     "CSF 2.0 PR.IR infrastructure resilience"
+     "Securing power system communications",
+     "https://webstore.iec.ch/en/publication/6912"
     ]
    ]
   },
@@ -23018,16 +23075,14 @@
    ],
    "refs": [
     [
-     "NCSC CAF 4.0",
-     "B5 Resilient networks and systems"
+     "NCSC CAF",
+     "B5 Resilient networks and systems",
+     "https://www.ncsc.gov.uk/collection/cyber-assessment-framework"
     ],
     [
-     "NIST",
-     "IR 8323 foundational PNT profile for applying the Cybersecurity Framework"
-    ],
-    [
-     "IEC 61850",
-     "Time synchronisation requirements for substation systems"
+     "NIST IR 8323 Rev. 1",
+     "Foundational PNT profile: applying the Cybersecurity Framework to positioning, navigation and timing",
+     "https://csrc.nist.gov/publications/detail/nistir/8323/rev-1/final"
     ]
    ]
   },
@@ -23041,20 +23096,29 @@
    ],
    "refs": [
     [
-     "NCSC CAF 4.0",
-     "B4 System security; B5 Resilient networks and systems"
+     "NCSC CAF",
+     "B4 System security; B5 Resilient networks and systems",
+     "https://www.ncsc.gov.uk/collection/cyber-assessment-framework"
     ],
     [
-     "UNECE",
-     "R155 cyber security and R156 software updates for vehicles"
+     "UN Regulation No. 155",
+     "Cyber security and cyber security management systems for vehicles",
+     "https://unece.org/transport/documents/2021/03/standards/un-regulation-no-155-cyber-security-and-cyber-security"
     ],
     [
-     "ISO/SAE",
-     "21434 road vehicle cyber security engineering"
+     "UN Regulation No. 156",
+     "Software updates and software update management systems",
+     "https://unece.org/transport/documents/2021/03/standards/un-regulation-no-156-software-update-and-software-update"
     ],
     [
-     "IEC 62443",
-     "For industrial robots and their control systems"
+     "ISO/SAE 21434",
+     "Road vehicles: cyber security engineering",
+     "https://www.iso.org/standard/70918.html"
+    ],
+    [
+     "ISA/IEC 62443",
+     "For industrial robots and their control systems",
+     "https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards"
     ]
    ]
   },
@@ -23064,20 +23128,19 @@
    "measures": [
     "Build security into device design and maintain it for the device lifetime.",
     "Segment clinical devices on hospital networks.",
-    "Plan for safe operation when connectivity or software fails."
+    "Plan for safe operation when connectivity or software fails.",
+    "Check the requirements of the relevant medical device regulator."
    ],
    "refs": [
     [
-     "IEC",
-     "81001-5-1 health software security lifecycle"
+     "NCSC",
+     "Device security principles for manufacturers",
+     "https://www.ncsc.gov.uk/collection/device-security-principles-for-manufacturers"
     ],
     [
-     "US FDA",
-     "Premarket cyber security guidance for medical devices"
-    ],
-    [
-     "NHS",
-     "Data Security and Protection Toolkit"
+     "NIST IR 8259",
+     "Foundational cyber security activities for connected device manufacturers",
+     "https://csrc.nist.gov/pubs/ir/8259/final"
     ]
    ]
   },
@@ -23091,16 +23154,19 @@
    ],
    "refs": [
     [
-     "NCSC CAF 4.0",
-     "A4 Supply chain; B3 Data security"
-    ],
-    [
-     "ISO/IEC",
-     "27001:2022 Annex A 5.23 cloud services and 8.24 cryptography"
+     "NCSC CAF",
+     "A4 Supply chain; B3 Data security",
+     "https://www.ncsc.gov.uk/collection/cyber-assessment-framework"
     ],
     [
      "NIST",
-     "CSF 2.0 PR.DS data security"
+     "Cybersecurity Framework 2.0 (PR.DS data security)",
+     "https://www.nist.gov/cyberframework"
+    ],
+    [
+     "ISO/IEC 27001",
+     "Information security management systems",
+     "https://www.iso.org/popular-standards.html"
     ]
    ]
   }
@@ -23110,8 +23176,8 @@
    "date": "2025-08-06",
    "framework": "NCSC CAF",
    "title": "Cyber Assessment Framework 4.0 released",
-   "summary": "Adds understanding of attacker methods and motivations, software development and maintenance, stronger security monitoring and threat hunting, and AI-related risk throughout.",
-   "url": "https://www.ncsc.gov.uk/collection/cyber-assessment-framework",
+   "summary": "Adds understanding of attacker methods and motivations, software development, updated security monitoring and threat hunting, and AI-related cyber risk across the framework.",
+   "url": "https://www.ncsc.gov.uk/blog-post/caf-v4-0-released-in-response-to-growing-threat",
    "added": "2026-10-28",
    "by": "initial-build"
   },
@@ -23119,7 +23185,7 @@
    "date": "2025-04-30",
    "framework": "Ofgem",
    "title": "NIS Security Assurance Guidance (Concept) for Downstream Gas and Electricity",
-   "summary": "Sets out how Ofgem will engage operators to assess maturity and progress towards their target CAF profile, read alongside the CAF Overlay.",
+   "summary": "How Ofgem will engage operators to assess security maturity and progress towards their target CAF profile, read alongside the CAF Overlay.",
    "url": "https://www.ofgem.gov.uk/sites/default/files/2025-07/Ofgem-NIS-Security-Assurance-Guidance-Concept-for-DGE-Sector.pdf",
    "added": "2026-10-28",
    "by": "initial-build"
@@ -23128,8 +23194,62 @@
    "date": "2023-08-01",
    "framework": "Ofgem",
    "title": "NIS Supplementary Guidance and CAF Overlay for the DGE sector",
-   "summary": "Sector-specific expectations against each CAF principle (Annex B), with an Enhanced profile that operators are working towards by 2027.",
+   "summary": "Sector-specific expectations against each CAF principle for downstream gas and electricity operators (Annex B).",
    "url": "https://www.ofgem.gov.uk/sites/default/files/2024-02/NIS%20Supplementary%20Guidance%20and%20CAF%20Overlay%20for%20DGE%20Sector_TLPWhite.pdf",
+   "added": "2026-10-28",
+   "by": "initial-build"
+  },
+  {
+   "date": "2025-03-20",
+   "framework": "NCSC",
+   "title": "Timelines for migration to post-quantum cryptography",
+   "summary": "Target dates: an initial plan by 2028, early high-priority migration by 2031 and completion by 2035.",
+   "url": "https://www.ncsc.gov.uk/guidance/pqc-migration-timelines",
+   "added": "2026-10-28",
+   "by": "initial-build"
+  },
+  {
+   "date": "2025-06-26",
+   "framework": "NERC CIP",
+   "title": "FERC approves CIP-015-1 internal network security monitoring",
+   "summary": "Requires monitoring of network traffic inside electronic security perimeters for high and medium impact systems; FERC directed NERC to extend its scope.",
+   "url": "https://www.federalregister.gov/documents/2025/07/02/2025-12309/critical-infrastructure-protection-reliability-standard-cip-015-1-cyber-security-internal-network",
+   "added": "2026-10-28",
+   "by": "initial-build"
+  },
+  {
+   "date": "2025-01-31",
+   "framework": "UK DSIT",
+   "title": "AI Cyber Security Code of Practice",
+   "summary": "Voluntary baseline security principles for AI systems, submitted to ETSI as the basis of TS 104 223.",
+   "url": "https://www.gov.uk/government/publications/ai-cyber-security-code-of-practice",
+   "added": "2026-10-28",
+   "by": "initial-build"
+  },
+  {
+   "date": "2025-04-01",
+   "framework": "ETSI",
+   "title": "TS 104 223 baseline cyber security requirements for AI models and systems",
+   "summary": "An international baseline for securing AI, developed from the UK Code of Practice.",
+   "url": "https://etsi.org/deliver/etsi_ts/104200_104299/104223/01.01.01_60/ts_104223v010101p.pdf",
+   "added": "2026-10-28",
+   "by": "initial-build"
+  },
+  {
+   "date": "2025-05-07",
+   "framework": "UK DSIT and NCSC",
+   "title": "Software Security Code of Practice",
+   "summary": "Principles software vendors are expected to meet for secure development, deployment and maintenance.",
+   "url": "https://www.gov.uk/government/publications/software-security-code-of-practice",
+   "added": "2026-10-28",
+   "by": "initial-build"
+  },
+  {
+   "date": "2026-07-14",
+   "framework": "UK DSIT",
+   "title": "Telecommunications Security Code of Practice, version 1.1",
+   "summary": "Revised guidance for public telecoms providers on meeting the Telecommunications (Security) Act duties.",
+   "url": "https://www.gov.uk/government/publications/revised-telecommunications-security-code-of-practice-2026-version-11/telecommunications-security-code-of-practice-2026-version-11",
    "added": "2026-10-28",
    "by": "initial-build"
   }
