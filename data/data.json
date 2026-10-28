@@ -2,7 +2,7 @@
  "$schema": "./schema.json",
  "meta": {
   "title": "The Shrinking Gap from Research to Change",
-  "revision": 10,
+  "revision": 11,
   "version": "8.0",
   "asOf": "2026-10-28",
   "horizonYears": 10,
@@ -10,7 +10,7 @@
   "author": "Stuart Okin",
   "maintainedBy": "AI agents using Claude (Anthropic), without human review",
   "disclaimer": "Personal project by Stuart Okin, not affiliated with or endorsed by any employer. Data is compiled and maintained by AI agents without human review and may contain errors. Outlook years are AI estimates, not forecasts.",
-  "lastAgentRun": "2026-10-28T17:54Z",
+  "lastAgentRun": "2026-10-28T21:46Z",
   "changelog": [
    {
     "date": "2026-10-28",
@@ -240,6 +240,80 @@
     "date": "2026-10-28",
     "summary": "Manual update: readiness stages, GB status, attack-surface notes and forecast records added.",
     "revision": 10
+   },
+   {
+    "date": "2026-10-28",
+    "time": "21:46",
+    "revision": 11,
+    "summary": "1 added, 47 corrected, 0 outlook re-estimated, 1 disputed, 0 broken links.",
+    "stats": {
+     "milestones": 461,
+     "sourceCited": 95,
+     "aiCompiled": 288,
+     "aiEstimate": 78,
+     "adoptionKnown": 71,
+     "landed": 363,
+     "regionKnown": 461
+    },
+    "usage": {
+     "calls": 15,
+     "inputTokens": 2506490,
+     "outputTokens": 109606,
+     "searches": 124,
+     "model": "claude-opus-5-5"
+    },
+    "deepAudit": true,
+    "details": [
+     "added: mandatory-c2pa-style-provenance-in-ai-media-connecticut",
+     "exascale-supercomputing: source added",
+     "arm-processors-in-laptops: sub-field devices → chips",
+     "arm-processors-in-laptops: readiness commercial → scale",
+     "hydrogen-fuel-cell-power: source added",
+     "hydrogen-fuel-cell-power: source added",
+     "advanced-gas-cooled-reactor: source added",
+     "advanced-gas-cooled-reactor: source added",
+     "advanced-gas-cooled-reactor: readiness commercial → scale",
+     "learning-smart-thermostat: source added",
+     "learning-smart-thermostat: readiness commercial → scale",
+     "learning-smart-thermostat: GB status unknown → deployed",
+     "enhanced-geothermal-power: source added",
+     "computer-mouse: source added",
+     "laser-printer: readiness commercial → scale",
+     "charge-coupled-device-ccd: source added",
+     "charge-coupled-device-ccd: company updated",
+     "charge-coupled-device-ccd: source added",
+     "charge-coupled-device-ccd: tags added",
+     "cmos-image-sensor: source added",
+     "cmos-image-sensor: company updated",
+     "cmos-image-sensor: adoption year none → 2004 (source-cited)",
+     "cmos-image-sensor: readiness commercial → scale",
+     "usb: source added",
+     "usb: readiness commercial → scale",
+     "3d-nand-flash: readiness commercial → scale",
+     "basic-programming: readiness commercial → scale",
+     "hypertext: sub-field apps → web",
+     "natural-sounding-ai-voices: readiness commercial → scale",
+     "quantum-hall-resistance-standard: readiness commercial → scale",
+     "captcha: readiness commercial → scale",
+     "trusted-platform-module: sub-field identity → crypto",
+     "trusted-platform-module: readiness commercial → scale",
+     "end-to-end-encrypted-messaging: readiness commercial → scale",
+     "text-messaging-sms: sub-field mobile → messaging",
+     "fibre-to-the-home: readiness commercial → scale",
+     "software-defined-networking: readiness commercial → scale",
+     "software-defined-networking: tags added",
+     "ai-in-grid-control-rooms: readiness research → pilot",
+     "ai-in-grid-control-rooms: GB status planned → trial",
+     "long-duration-storage-at-scale: readiness research → commercial",
+     "high-na-euv-in-volume-production: readiness research → commercial",
+     "agent-interoperability-standards: readiness research → scale",
+     "fault-tolerant-quantum-computer: tags added",
+     "post-quantum-migration-of-priority-systems: readiness research → commercial",
+     "sodium-ion-grid-storage-at-scale: readiness research → commercial",
+     "consumer-drones: readiness commercial → scale",
+     "f-crowdstrike: net worth 4 → 7.3",
+     "disputed: f-catl"
+    ]
    }
   ],
   "adoptionDefinition": "Mainstream adoption: the year the technology reached widespread, routine use, roughly 10% or more of its potential market or standard practice in its sector.",
@@ -687,7 +761,8 @@
    },
    "gb": {
     "status": "deployed",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "Nuclear provides firm low-carbon baseload on the GB grid. Ageing AGR closures and new capacity (Hinkley Point C, Sizewell C, SMRs) shape GB adequacy and inertia."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -737,7 +812,8 @@
    },
    "gb": {
     "status": "unknown",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "HVDC carries GB's interconnectors and offshore wind links (e.g. Western Link, Eastern Green Link). It is central to moving Scottish and offshore wind south and easing constraints."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -1033,7 +1109,8 @@
    },
    "gb": {
     "status": "not-yet",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "STEP at West Burton aims to show fusion electricity around 2040. It has no near-term effect on GB network planning."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -1079,7 +1156,8 @@
    },
    "gb": {
     "status": "planned",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "Higher-efficiency modules would raise output per rooftop and per hectare, adding to distributed solar on GB distribution networks. Oxford PV is a UK-origin company."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -1142,12 +1220,14 @@
    ],
    "subfield": "ops",
    "readiness": {
-    "stage": "research",
-    "basis": "ai-estimate"
+    "stage": "pilot",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "gb": {
-    "status": "planned",
-    "basis": "ai-estimate"
+    "status": "trial",
+    "basis": "ai-estimate",
+    "note": "NESO is building AI decision support on the Open Balancing Platform to cut balancing and constraint costs as renewable variability grows."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -1197,7 +1277,8 @@
    },
    "gb": {
     "status": "trial",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "Aggregated EVs, heat pumps and home batteries can defer distribution reinforcement and relieve constraints. Both DSO flexibility markets and NESO DFS are growing."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -1246,7 +1327,8 @@
    },
    "gb": {
     "status": "unknown",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "Grid-forming has been an optional GB Grid Code capability since 2022 and is used in stability pathfinder projects. Making it standard would replace inertia and fault infeed lost as synchronous plant closes."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -1305,12 +1387,14 @@
    ],
    "subfield": "storage",
    "readiness": {
-    "stage": "research",
-    "basis": "ai-estimate"
+    "stage": "commercial",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "gb": {
     "status": "planned",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "Cap and floor support for 7.6 GW of 8–22 hour storage will help cut renewable curtailment and support security of supply on a Clean Power 2030 grid."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -1374,7 +1458,8 @@
    },
    "gb": {
     "status": "planned",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "Three 470 MWe units at Wylfa would add about 1.4 GW of firm low-carbon capacity in North Wales, which needs transmission reinforcement and could serve AI growth-zone demand."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -1422,7 +1507,8 @@
    },
    "gb": {
     "status": "unknown",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "NESO has worked with Phasecraft on quantum-enhanced optimisation for network planning and operations problems. This could speed up hard planning and siting calculations."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -1857,8 +1943,9 @@
    ],
    "subfield": "fab",
    "readiness": {
-    "stage": "research",
-    "basis": "ai-estimate"
+    "stage": "commercial",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -2463,8 +2550,9 @@
    ],
    "subfield": "ai-tools",
    "readiness": {
-    "stage": "research",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "forecast": {
     "estimatedYear": 2027,
@@ -3067,7 +3155,8 @@
    },
    "gb": {
     "status": "unknown",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "UK groups (e.g. Edinburgh) already use Co-Scientist. It could speed up R&D on materials, storage and grid optimisation that matters for GB networks."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -3456,7 +3545,10 @@
     "estimatedYear": 2029,
     "estimatedOn": "2026-10-27",
     "revisions": []
-   }
+   },
+   "tags": [
+    "cryptography"
+   ]
   },
   {
    "id": "quantum-navigation-in-service",
@@ -3975,8 +4067,9 @@
    ],
    "subfield": "crypto",
    "readiness": {
-    "stage": "research",
-    "basis": "ai-estimate"
+    "stage": "commercial",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "forecast": {
     "estimatedYear": 2031,
@@ -4136,7 +4229,8 @@
    },
    "gb": {
     "status": "unknown",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "GB DNOs and the ESO/NESO face NIS and CAF requirements to monitor OT; ML anomaly detection helps protect SCADA and substation automation as the grid digitalises."
    },
    "forecast": {
     "estimatedYear": 2029,
@@ -4949,6 +5043,11 @@
    "readiness": {
     "stage": "commercial",
     "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Software-steered antennas are an extra firmware and control interface, but they add little attack surface compared with conventional terminals.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -5063,6 +5162,11 @@
     "estimatedYear": 2028,
     "estimatedOn": "2026-10-27",
     "revisions": []
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Battery chemistry; no new digital attack surface.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -5095,13 +5199,19 @@
    ],
    "subfield": "energy-mat",
    "readiness": {
-    "stage": "research",
-    "basis": "ai-estimate"
+    "stage": "commercial",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "forecast": {
     "estimatedYear": 2027,
     "estimatedOn": "2026-10-27",
     "revisions": []
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Same BMS and inverter controls as lithium-ion BESS; no extra attack surface from the chemistry itself.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -5145,6 +5255,11 @@
     "estimatedYear": 2028,
     "estimatedOn": "2026-10-27",
     "revisions": []
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Materials technology; no digital attack surface.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -5182,12 +5297,18 @@
    },
    "gb": {
     "status": "unknown",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "Could speed up new battery, PV and grid materials. It is an R&D lever rather than something on networks now."
    },
    "forecast": {
     "estimatedYear": 2029,
     "estimatedOn": "2026-10-27",
     "revisions": []
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Research tool; little direct attack surface, though model and data integrity matter.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -5526,6 +5647,11 @@
     "estimatedYear": 2028,
     "estimatedOn": "2026-10-27",
     "revisions": []
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Concentrating heavy-lift capacity in one operator creates a single point of failure for access to space. The ground systems that control autonomous recovery and flight termination are high-value cyber targets.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -5825,8 +5951,9 @@
    ],
    "subfield": "drones",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -14015,10 +14142,10 @@
    "confidence": "high",
    "note": "The scale needed for high-resolution climate, grid and materials simulation.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -14034,7 +14161,15 @@
     "expandsAttackSurface": true,
     "note": "Concentrates valuable data and workloads, making it a high-value target.",
     "basis": "ai-compiled"
-   }
+   },
+   "refs": [
+    {
+     "label": "ORNL – Frontier",
+     "url": "https://www.olcf.ornl.gov/olcf-resources/compute-systems/frontier/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "arm-processors-in-laptops",
@@ -14057,17 +14192,18 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
    "tags": [
     "semiconductors"
    ],
-   "subfield": "devices",
+   "subfield": "chips",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -14095,10 +14231,10 @@
     "major": true
    },
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -14114,13 +14250,28 @@
    },
    "gb": {
     "status": "deployed",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "Hydrogen fuel cells are being trialled in GB for backup and off-grid power. They could provide flexible, low-carbon generation if hydrogen supply grows."
    },
    "security": {
     "expandsAttackSurface": true,
     "note": "Plant control systems add operational technology exposure.",
     "basis": "ai-compiled"
-   }
+   },
+   "refs": [
+    {
+     "label": "Marshall Group – Bacon fuel cell 1959",
+     "url": "https://marshallgroup.com/en-us/news-stories/giant-leap-sparked-by-small-step-in-marshall-hangar",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "ETHW – Bacon's Fuel Cell",
+     "url": "https://ethw.org/Bacon's_Fuel_Cell",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "advanced-gas-cooled-reactor",
@@ -14139,10 +14290,10 @@
    "confidence": "high",
    "note": "The backbone of Scotland’s nuclear generation for decades.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -14151,18 +14302,34 @@
    ],
    "subfield": "nuclear",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "gb": {
     "status": "deployed",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "The AGR fleet has provided GB baseload for decades. As it retires, a firm low-carbon capacity gap opens that the grid must plan for."
    },
    "security": {
     "expandsAttackSurface": true,
     "note": "Digital instrumentation and control adds safety-critical cyber exposure.",
     "basis": "ai-compiled"
-   }
+   },
+   "refs": [
+    {
+     "label": "Pask & Hall 1979 – Hinkley Point B commissioning",
+     "url": "https://www.osti.gov/etdeweb/biblio/5750885",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "Windscale AGR",
+     "url": "https://en.wikipedia.org/wiki/Windscale_Advanced_Gas_Cooled_Reactor",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "vanadium-flow-battery",
@@ -14184,7 +14351,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "other",
@@ -14198,7 +14365,8 @@
    },
    "gb": {
     "status": "deployed",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "A few GB projects exist, such as the Energy Superhub Oxford hybrid. Long-duration storage could help GB manage wind variability and constrained networks."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -14225,10 +14393,10 @@
    "company": "Nest",
    "desnz": "demand",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -14237,18 +14405,28 @@
    ],
    "subfield": "demand",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "gb": {
-    "status": "unknown",
-    "basis": "ai-estimate"
+    "status": "deployed",
+    "basis": "ai-estimate",
+    "note": "Smart thermostats are widely sold in GB. They make heating load flexible for demand-side response and for operating with heat pumps."
    },
    "security": {
     "expandsAttackSurface": true,
     "note": "Puts many remotely controllable devices at the grid edge, where coordinated misuse could move demand at scale.",
     "basis": "ai-compiled"
-   }
+   },
+   "refs": [
+    {
+     "label": "Academy of Achievement – Tony Fadell",
+     "url": "https://achievement.org/achiever/tony-fadell/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "enhanced-geothermal-power",
@@ -14268,10 +14446,10 @@
    "note": "Firm, clean power using techniques borrowed from another industry.",
    "company": "Fervo Energy",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -14285,13 +14463,22 @@
    },
    "gb": {
     "status": "unknown",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "GB has limited high-temperature resource (United Downs in Cornwall is conventional deep geothermal). EGS could add firm low-carbon power if the technique transfers."
    },
    "security": {
     "expandsAttackSurface": true,
     "note": "Plant control systems add operational technology exposure.",
     "basis": "ai-compiled"
-   }
+   },
+   "refs": [
+    {
+     "label": "InnovationMap – Fervo founded 2017",
+     "url": "https://houston.innovationmap.com/tag/project-red",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "computer-mouse",
@@ -14313,10 +14500,10 @@
     "major": true
    },
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "adoption": {
@@ -14334,7 +14521,15 @@
     "expandsAttackSurface": true,
     "note": "Adds connected endpoints that need patching and secure configuration.",
     "basis": "ai-compiled"
-   }
+   },
+   "refs": [
+    {
+     "label": "Centre for Computing History – mouse",
+     "url": "https://www.computinghistory.org.uk/det/613/the-history-of-the-computer-mouse/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "laser-printer",
@@ -14356,14 +14551,15 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
    "subfield": "devices",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -14391,10 +14587,10 @@
     "major": true
    },
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "adoption": {
@@ -14412,7 +14608,26 @@
     "expandsAttackSurface": true,
     "note": "Adds connected endpoints that need patching and secure configuration.",
     "basis": "ai-compiled"
-   }
+   },
+   "refs": [
+    {
+     "label": "IEEE Milestone: CCD, 1969",
+     "url": "https://ethw.org/Milestones:Charge-Coupled_Device,_1969",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "Camera-wiki: CCD",
+     "url": "https://camera-wiki.org/wiki/CCD",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ],
+   "company": "Fairchild Semiconductor",
+   "tags": [
+    "semiconductors",
+    "computer-vision"
+   ]
   },
   {
    "id": "cmos-image-sensor",
@@ -14431,10 +14646,10 @@
    "confidence": "medium",
    "note": "Now in every phone camera, and in drone inspection cameras.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "us",
@@ -14444,13 +14659,36 @@
    ],
    "subfield": "devices",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "security": {
     "expandsAttackSurface": true,
     "note": "Adds connected endpoints that need patching and secure configuration.",
     "basis": "ai-compiled"
+   },
+   "refs": [
+    {
+     "label": "NASA Spinoff 2010",
+     "url": "https://spinoff.nasa.gov/Spinoff2010/cg_3.html",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ],
+   "company": "Photobit",
+   "adoption": {
+    "year": 2004,
+    "what": "Reached mainstream use.",
+    "basis": "source-cited",
+    "refs": [
+     {
+      "label": "https://www.tel.com/museum/exhibition/principle/cmos.html",
+      "url": "https://www.tel.com/museum/exhibition/principle/cmos.html",
+      "status": "ok",
+      "checked": "2026-10-28"
+     }
+    ]
    }
   },
   {
@@ -14470,10 +14708,10 @@
    "confidence": "high",
    "note": "A standard that made plug-and-play normal, and a common attack route.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -14482,14 +14720,23 @@
    ],
    "subfield": "devices",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "security": {
     "expandsAttackSurface": true,
     "note": "Adds connected endpoints that need patching and secure configuration.",
     "basis": "ai-compiled"
-   }
+   },
+   "refs": [
+    {
+     "label": "How-To Geek: 25 years of USB",
+     "url": "https://www.howtogeek.com/709208/25-years-of-making-connections-with-usb-after-three-attempts/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "3d-nand-flash",
@@ -14511,7 +14758,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "asia",
@@ -14520,8 +14767,9 @@
    ],
    "subfield": "memory",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "security": {
     "expandsAttackSurface": false,
@@ -14549,7 +14797,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -14587,14 +14835,15 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
    "subfield": "dev",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -14625,7 +14874,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "adoption": {
@@ -14637,7 +14886,7 @@
    "tags": [
     "networks"
    ],
-   "subfield": "apps",
+   "subfield": "web",
    "readiness": {
     "stage": "scale",
     "basis": "ai-estimate"
@@ -14973,7 +15222,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "adoption": {
@@ -15016,7 +15265,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -15025,8 +15274,9 @@
    ],
    "subfield": "language",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -15054,7 +15304,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "uk",
@@ -15092,7 +15342,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "europe",
@@ -15101,8 +15351,9 @@
    ],
    "subfield": "sensing",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "security": {
     "expandsAttackSurface": false,
@@ -15130,7 +15381,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -15170,7 +15421,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -15255,7 +15506,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "asia",
@@ -15293,7 +15544,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "us",
@@ -15323,7 +15574,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -15332,8 +15583,9 @@
    ],
    "subfield": "identity",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    }
   },
   {
@@ -15356,17 +15608,18 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "us",
    "tags": [
     "semiconductors"
    ],
-   "subfield": "identity",
+   "subfield": "crypto",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    }
   },
   {
@@ -15389,7 +15642,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -15422,7 +15675,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -15431,8 +15684,9 @@
    ],
    "subfield": "crypto",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    }
   },
   {
@@ -15455,7 +15709,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -15485,7 +15739,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -15523,7 +15777,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "adoption": {
@@ -15535,7 +15789,7 @@
    "tags": [
     "networks"
    ],
-   "subfield": "mobile",
+   "subfield": "messaging",
    "readiness": {
     "stage": "scale",
     "basis": "ai-estimate"
@@ -15566,7 +15820,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -15575,8 +15829,9 @@
    ],
    "subfield": "fibre",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -15605,7 +15860,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -15643,20 +15898,24 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
    "subfield": "internet",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "security": {
     "expandsAttackSurface": true,
     "note": "Connects systems to the internet and to each other, the root of most remote attacks.",
     "basis": "ai-compiled"
-   }
+   },
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "li-fi-light-communication",
@@ -20309,6 +20568,70 @@
     "note": "Prompt injection, data leakage and misuse at scale are new kinds of risk.",
     "basis": "ai-compiled"
    }
+  },
+  {
+   "id": "mandatory-c2pa-style-provenance-in-ai-media-connecticut",
+   "field": "ai",
+   "origin": "government",
+   "status": "landed",
+   "title": "Mandatory C2PA-style provenance in AI media (Connecticut)",
+   "research": {
+    "year": 2021,
+    "what": "Industry coalition C2PA developed a cryptographically signed, tamper-evident metadata standard recording the origin and edit history of digital media. Origin: Coalition for Content Provenance and Authenticity (C2PA), formed 2021 by Adobe, Microsoft and others; the year comes from background knowledge, not from the sources cited here"
+   },
+   "change": {
+    "year": 2026,
+    "what": "From 1 October 2026, Connecticut SB 5 requires generative AI providers with over one million monthly users to embed tamper-resistant, machine-readable provenance data in the audio, image and video their systems create or alter, citing C2PA-type methods."
+   },
+   "confidence": "medium",
+   "note": "One of the first binding US rules to require provenance embedding at the point of generation for AI media, which turns the C2PA standard from voluntary practice into a legal duty.",
+   "flags": {
+    "aiDriven": true,
+    "policy": true
+   },
+   "refs": [
+    {
+     "label": "Sidley Data Matters: Connecticut SB5 provenance obligations from 1 Oct 2026",
+     "url": "https://datamatters.sidley.com/2026/08/21/trending-issues-in-state-ai-regulation-as-seen-through-connecticuts-omnibus-ai-law-sb5/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "Freshfields: Synthetic content provenance effective 1 Oct 2026, consistent with C2PA",
+     "url": "https://www.freshfields.com/en/our-thinking/blogs/a-fresh-take/connecticut-poised-to-enact-one-of-the-nations-most-comprehensive-ai-laws-102mrpv",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "Kilpatrick Townsend: SB 5 signed, references C2PA",
+     "url": "https://ktslaw.com/insights/alert/2026/6/connecticut-enacts-new-ai-legislation-what-businesses-need-to-know-about-sb-5",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ],
+   "subfield": "vision",
+   "region": "us",
+   "tags": [
+    "regulation",
+    "ai-models",
+    "cryptography"
+   ],
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Signed provenance metadata helps detect deepfakes and fraud, but it can be stripped or forged if signing keys or tooling are compromised.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28",
+    "approximate": false
+   }
   }
  ],
  "founders": [
@@ -20729,6 +21052,12 @@
     "who": "Uğur Şahin",
     "basis": "peak (2021), inflation-adjusted",
     "asOf": "2026-10-27"
+   },
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
    }
   },
   {
@@ -20741,7 +21070,13 @@
    "how": "Sale to Google",
    "confidence": "high",
    "research": "lab",
-   "prize": "Nobel Prize in Chemistry 2024 (Hassabis)"
+   "prize": "Nobel Prize in Chemistry 2024 (Hassabis)",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
+   }
   },
   {
    "id": "f-stripe",
@@ -20757,6 +21092,12 @@
     "who": "Patrick Collison",
     "basis": "estimate",
     "asOf": "2026-10-27"
+   },
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
    }
   },
   {
@@ -20773,6 +21114,13 @@
     "who": "Robin Zeng",
     "basis": "estimate",
     "asOf": "2026-10-27"
+   },
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28",
+    "qaNote": "Founded 2011 confirmed. 2018 matches the CATL listing. Net worth sources disagree: Forbes 2026 list $53.2B (1 Mar), Forbes $57.8B as of 15 July (via VnExpress), and Wikipedia citing Forbes/Bloomberg $63.0B (undated 2026). The stored $60B sits inside this range, and I found no dated current figure. N"
    }
   },
   {
@@ -20785,10 +21133,20 @@
    "how": "Private valuation",
    "confidence": "high",
    "netWorth": {
-    "usdBn": 4,
+    "usdBn": 7.3,
     "who": "George Kurtz",
-    "basis": "estimate",
-    "asOf": "2026-10-27"
+    "basis": "Forbes 2026 Billionaires list, George Kurtz",
+    "asOf": "2026-10-28",
+    "source": {
+     "label": "Forbes 2026 Billionaires list, George Kurtz",
+     "url": "https://www.phoenixnewtimes.com/news/richest-arizona-billionaires-list-forbes-2026-21543736/"
+    }
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
    }
   },
   {
@@ -20805,6 +21163,12 @@
     "who": "Eric Yuan",
     "basis": "estimate",
     "asOf": "2026-10-27"
+   },
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
    }
   },
   {
@@ -20816,7 +21180,13 @@
    "fortuneYear": 2018,
    "how": "Private valuation",
    "confidence": "high",
-   "research": "university"
+   "research": "university",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
+   }
   },
   {
    "id": "f-ionq",
@@ -20827,7 +21197,13 @@
    "fortuneYear": 2021,
    "how": "Listing via merger",
    "confidence": "medium",
-   "research": "university"
+   "research": "university",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
+   }
   },
   {
    "id": "f-scale-ai",
@@ -20843,6 +21219,12 @@
     "who": "Alexandr Wang",
     "basis": "estimate",
     "asOf": "2026-10-27"
+   },
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
    }
   },
   {
@@ -20859,6 +21241,12 @@
     "who": "Hasso Plattner",
     "basis": "estimate",
     "asOf": "2026-10-27"
+   },
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
    }
   },
   {
@@ -20869,7 +21257,13 @@
    "founded": 1972,
    "fortuneYear": 1976,
    "how": "Stock market listing",
-   "confidence": "high"
+   "confidence": "high",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
+   }
   },
   {
    "id": "f-acorn-computers",
@@ -20880,7 +21274,13 @@
    "fortuneYear": 1983,
    "how": "Stock market listing",
    "confidence": "medium",
-   "research": "university"
+   "research": "university",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
+   }
   },
   {
    "id": "f-adobe",
@@ -20890,7 +21290,13 @@
    "founded": 1982,
    "fortuneYear": 1986,
    "how": "Stock market listing",
-   "confidence": "high"
+   "confidence": "high",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
+   }
   },
   {
    "id": "f-cisco",
@@ -20901,7 +21307,13 @@
    "fortuneYear": 1990,
    "how": "Stock market listing",
    "confidence": "high",
-   "research": "university"
+   "research": "university",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
+   }
   },
   {
    "id": "f-tsmc",
@@ -20911,7 +21323,13 @@
    "founded": 1987,
    "fortuneYear": 1994,
    "how": "Stock market listing",
-   "confidence": "medium"
+   "confidence": "medium",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
+   }
   },
   {
    "id": "f-boston-dynamics",
@@ -20922,7 +21340,13 @@
    "fortuneYear": 2013,
    "how": "Sale to Google",
    "confidence": "medium",
-   "research": "university"
+   "research": "university",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
+   }
   },
   {
    "id": "f-salesforce",
@@ -20938,6 +21362,12 @@
     "who": "Marc Benioff",
     "basis": "estimate",
     "asOf": "2026-10-27"
+   },
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
    }
   },
   {
@@ -20954,6 +21384,12 @@
     "who": "Ken Xie",
     "basis": "estimate",
     "asOf": "2026-10-27"
+   },
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
    }
   },
   {
@@ -20964,7 +21400,13 @@
    "founded": 2003,
    "fortuneYear": 2005,
    "how": "Sale to eBay",
-   "confidence": "high"
+   "confidence": "high",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
+   }
   },
   {
    "id": "f-kiva-systems",
@@ -20975,7 +21417,13 @@
    "fortuneYear": 2012,
    "how": "Sale to Amazon",
    "confidence": "high",
-   "research": "university"
+   "research": "university",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
+   }
   },
   {
    "id": "f-splunk",
