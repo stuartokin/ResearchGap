@@ -2,7 +2,7 @@
  "$schema": "./schema.json",
  "meta": {
   "title": "The Shrinking Gap from Research to Change",
-  "revision": 2,
+  "revision": 3,
   "version": "8.0",
   "asOf": "2026-10-28",
   "horizonYears": 10,
@@ -10,7 +10,7 @@
   "author": "Stuart Okin",
   "maintainedBy": "AI agents using Claude (Anthropic), without human review",
   "disclaimer": "Personal project by Stuart Okin, not affiliated with or endorsed by any employer. Data is compiled and maintained by AI agents without human review and may contain errors. Outlook years are AI estimates, not forecasts.",
-  "lastAgentRun": "2026-10-28T06:18Z",
+  "lastAgentRun": "2026-10-28T06:45Z",
   "changelog": [
    {
     "date": "2026-10-28",
@@ -29,6 +29,19 @@
      "long-duration-storage-at-scale: source added",
      "first-uk-small-modular-reactors: source added",
      "stored-program-computer: source added"
+    ]
+   },
+   {
+    "date": "2026-10-28",
+    "summary": "1 added, 6 corrected, 0 outlook re-estimated, 0 disputed, 1 broken links.",
+    "details": [
+     "added: First approved PROTAC protein degrader (vepdegestrant)",
+     "eu-high-risk-ai-rules-apply: source added",
+     "quantum-key-distribution: source added",
+     "zero-trust: source added",
+     "post-quantum-cryptography: source added",
+     "ai-vulnerability-discovery: source added",
+     "post-quantum-migration-of-priority-systems: source added"
     ]
    }
   ]
@@ -1259,7 +1272,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -1283,7 +1296,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -1307,7 +1320,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -1331,7 +1344,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -1355,7 +1368,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -1382,7 +1395,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -1409,7 +1422,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -1436,7 +1449,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -1460,7 +1473,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -1487,7 +1500,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -1514,7 +1527,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -1538,7 +1551,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -1563,15 +1576,25 @@
    },
    "basis": {
     "label": "EU AI Act Digital Omnibus: postponed high-risk deadlines",
-    "url": "https://www.gibsondunn.com/eu-ai-act-omnibus-agreement"
+    "url": "https://www.gibsondunn.com/eu-ai-act-omnibus-agreement",
+    "status": "ok",
+    "checked": "2026-10-28"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "refs": [
+    {
+     "label": "https://govern365.ai/blogs/eu-ai-act-digital-omnibus-timeline/",
+     "url": "https://govern365.ai/blogs/eu-ai-act-digital-omnibus-timeline/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "ai-as-a-scientific-collaborator",
@@ -1594,7 +1617,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -1621,7 +1644,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -1648,7 +1671,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -1669,12 +1692,20 @@
    "confidence": "medium",
    "note": "Real but niche; national security agencies favour post-quantum cryptography.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "refs": [
+    {
+     "label": "https://www.lightreading.com/cable-technology/magiq-demos-quantum-cryptography",
+     "url": "https://www.lightreading.com/cable-technology/magiq-demos-quantum-cryptography",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "quantum-annealing",
@@ -1696,7 +1727,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -1723,7 +1754,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -1747,7 +1778,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -1774,7 +1805,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -1802,7 +1833,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -1833,7 +1864,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -1861,7 +1892,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -1888,7 +1919,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -1912,7 +1943,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -1939,7 +1970,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -1963,7 +1994,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -1987,7 +2018,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -2013,15 +2044,18 @@
    "refs": [
     {
      "label": "Avolio: firewall history (first commercial firewall, 1991)",
-     "url": "https://avolio.com/?p=969"
+     "url": "https://avolio.com/?p=969",
+     "status": "broken",
+     "checked": "2026-10-28"
     }
    ],
    "provenance": {
-    "verification": "source-cited",
+    "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
-    "approximate": false
+    "lastChecked": "2026-10-28",
+    "approximate": false,
+    "qaNote": "All cited links are broken; downgraded until a new source is found."
    }
   },
   {
@@ -2047,7 +2081,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -2071,7 +2105,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -2092,12 +2126,20 @@
    "confidence": "medium",
    "note": "Now embedded in government guidance worldwide.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "refs": [
+    {
+     "label": "https://cloud.google.com/learn/what-is-zero-trust",
+     "url": "https://cloud.google.com/learn/what-is-zero-trust",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "post-quantum-cryptography",
@@ -2119,12 +2161,20 @@
     "major": true
    },
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "refs": [
+    {
+     "label": "https://quantumtimeline.org/milestones/2024-nist-pqc-standards/",
+     "url": "https://quantumtimeline.org/milestones/2024-nist-pqc-standards/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "ai-vulnerability-discovery",
@@ -2146,12 +2196,20 @@
     "major": true
    },
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "refs": [
+    {
+     "label": "https://www.darpa.mil/news/2025/aixcc-results",
+     "url": "https://www.darpa.mil/news/2025/aixcc-results",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "post-quantum-migration-of-priority-systems",
@@ -2181,9 +2239,17 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "refs": [
+    {
+     "label": "https://www.ncsc.gov.uk/collection/ncsc-annual-review-2025/chapter-03-keeping-pace-with-evolving-technology/migrating-to-post-quantum-cryptography",
+     "url": "https://www.ncsc.gov.uk/collection/ncsc-annual-review-2025/chapter-03-keeping-pace-with-evolving-technology/migrating-to-post-quantum-cryptography",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "ai-agents-in-security-operations",
@@ -2205,7 +2271,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -2229,7 +2295,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -2253,7 +2319,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -2278,7 +2344,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -11971,6 +12037,56 @@
     {
      "label": "Land Line Media – FMCSA exemption gives driverless trucks a green light",
      "url": "https://landline.media/fmcsa-exemption-gives-driverless-trucks-a-green-light/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ],
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28",
+    "approximate": false
+   }
+  },
+  {
+   "id": "first-approved-protac-protein-degrader-vepdegestrant",
+   "field": "life",
+   "origin": "academic",
+   "status": "landed",
+   "title": "First approved PROTAC protein degrader (vepdegestrant)",
+   "research": {
+    "year": 2001,
+    "what": "The PROTAC concept was introduced as a way to tag a chosen protein for destruction by recruiting an E3 ubiquitin ligase to it. Origin: Original PROTAC proof-of-concept (Sakamoto, Crews and colleagues, PNAS, 2001); a 2026 ACS editorial dates the concept to about a quarter century earlier; Arvinas was founded on the technology in 2013"
+   },
+   "change": {
+    "year": 2026,
+    "what": "The US FDA approved Veppanu (vepdegestrant) on 1 May 2026 for ESR1-mutated ER+/HER2- advanced breast cancer, the first approval of any PROTAC, with a companion diagnostic."
+   },
+   "confidence": "medium",
+   "note": "It validates targeted protein degradation as a drug modality, moving from lab concept to a marketed medicine in about 25 years. The approval predates the 21-day window, but commentary on it is still appearing.",
+   "refs": [
+    {
+     "label": "Arvinas press release on FDA approval of Veppanu",
+     "url": "https://ir.arvinas.com/news-releases/news-release-details/arvinas-announces-fda-approval-veppanu-vepdegestrant-treatment",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "AJMC: FDA approves vepdegestrant",
+     "url": "https://www.ajmc.com/view/fda-approves-vepdegestrant-for-esr1-mutated-er-positive-her2-negative-advanced-breast-cancer",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "Nature Reviews Drug Discovery: First PROTAC gains FDA approval",
+     "url": "https://www.nature.com/articles/d41573-026-00078-6",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "J Med Chem editorial: FDA approval of the first-ever PROTAC",
+     "url": "https://pubs.acs.org/jmcmar/article/69/14/16135/5230935/FDA-Approval-of-the-First-Ever-PROTAC",
      "status": "ok",
      "checked": "2026-10-28"
     }
