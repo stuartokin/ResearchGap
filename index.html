@@ -247,6 +247,11 @@ body.nouni .lbl .uni{display:none}
 .tickwin{max-width:none;min-height:36px}
 #disc{position:fixed;left:14px;bottom:calc(var(--safe-b) + 90px);z-index:1300;max-width:min(460px,calc(100vw - 28px));background:rgba(8,19,29,.94);border:1px solid var(--line-strong);border-radius:12px;padding:10px 12px;font-size:13px;line-height:1.45;color:var(--text);box-shadow:0 10px 30px rgba(0,0,0,.4);transition:opacity .5s}
 #disc.gone{opacity:0;pointer-events:none}
+#disc{transition:opacity 1.6s ease}
+#disc .dmeta,.aboutmeta{font-size:12.5px;color:var(--muted);margin-bottom:6px;line-height:1.45}
+#disc .dmeta b,.aboutmeta b{color:var(--text);font-weight:600}
+.stale{color:#F2B84B!important}
+.cite{font-size:13px;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:8px;padding:8px 10px;color:var(--text)}
 #disc button{background:none;border:1px solid var(--line-strong);color:var(--text);border-radius:7px;padding:2px 8px;margin-left:6px;cursor:pointer;font-size:12px}
 #nogl{position:fixed;inset:0;z-index:2900;display:none;align-items:center;justify-content:center;background:var(--ink);text-align:center;padding:24px}
 #nogl.on{display:flex}#nogl h2{font-family:var(--serif);font-weight:400;font-size:32px;margin:0 0 8px}#nogl p{color:var(--muted);max-width:40ch;margin:0 auto}
@@ -729,7 +734,7 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
 </section>
 <div id="countdown" aria-hidden="true"><div id="cdNum">3</div><div id="cdSub">Play the century</div></div>
 <div id="thanks" role="dialog" aria-modal="true" aria-label="Thank you"><div class="tybox"><div class="ty1">Thank you for your time</div><div class="ty2">Any questions?</div><div class="ty3">Stuart Okin</div></div></div>
-<div id="disc" role="status"><b>AI-maintained data.</b> This personal project’s data is compiled by AI agents without human review and may contain errors. <button id="discAbout">About</button><button id="discX" aria-label="Dismiss">✕</button></div>
+<div id="disc" role="status"><div class="dmeta" id="discMeta"></div><b>AI-maintained data.</b> This personal project’s data is compiled by AI agents without human review and may contain errors. <button id="discAbout">About</button><button id="discX" aria-label="Dismiss">✕</button></div>
 <div id="nogl" role="alert"><div><h2>3D view unavailable</h2><p>This device or browser can’t show the 3D model. Try a recent version of Chrome, Edge, Safari or Firefox on a laptop or desktop.</p></div></div>
 <div id="tip" role="tooltip"></div>
 <footer id="foot">
@@ -743,6 +748,7 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
     <h2 id="aboutTitle">About this model</h2>
     <p class="disc"><b>Personal project.</b> Built by Stuart Okin in a personal capacity; not affiliated with or endorsed by any employer. <b>AI-maintained data.</b> The dataset is compiled and kept up to date by AI agents using Claude (Anthropic), without human review, so it may contain errors. Outlook years are AI estimates, not forecasts. Check anything important against the cited sources.</p>
     <h3>Data status</h3>
+    <p class="aboutmeta" id="aboutMeta"></p>
     <div id="dataStatus" class="dstat"></div>
     <h3>What the model shows</h3>
     <p>Each arc traces one breakthrough from the first published or demonstrated research to its first commercial product, operational use or binding change. Lanes group arcs by where the research began (universities, industry labs, or government and publicly funded labs) or by field. The height of each arc is the gap in years. “Today” is the date the data was last updated, and the outlook always runs ten years beyond it.</p>
@@ -771,6 +777,8 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
       <li>Music: “Driving Ambition” from <a href="https://mixkit.co" target="_blank" rel="noopener">Mixkit</a>, under the Mixkit free licence.</li>
       <li>Data compiled and maintained with Claude, by Anthropic. Facts belong to their cited sources; descriptions are paraphrased. “Further reading” links point to Wikipedia.</li>
     </ul>
+    <h3>How to cite</h3>
+    <p class="cite" id="citeLine"></p>
     <p class="ver" id="verLine"></p>
     <p class="by">Stuart Okin. A personal project, not affiliated with or endorsed by any employer.</p>
   </div>
@@ -2904,7 +2912,7 @@ const FORTUNES = DB.founders.map(f => {
 });
 const fmtMoney = (bn, sym) => bn >= 1000 ? `${sym}${(bn / 1000).toFixed(1)}tn` : bn >= 1 ? `${sym}${bn >= 100 ? Math.round(bn) : Math.round(bn * 10) / 10}bn` : `${sym}${Math.round(bn * 1000)}m`;
 const DATA_AS_OF = DB.meta.asOf;
-const APP_VERSION = '8.0', APP_BUILD = '';
+const APP_VERSION = '8.1', APP_BUILD = '';
 // Screen-aware scaling: laptops slightly smaller, large screens larger
 const UI = (() => { const w = innerWidth; return w < 1280 ? .85 : w < 1500 ? .95 : w < 1800 ? 1.05 : w < 2300 ? 1.2 : 1.4; })();
 const LARGE = innerWidth >= 1700;
@@ -4637,6 +4645,16 @@ setInterval(() => {
 $('scrub').min = Y0; $('scrub').max = Y1; $('fromR').min = $('toR').min = Y0; $('fromR').max = $('toR').max = YEND; $('toR').value = YEND; $('toV').textContent = YEND;
 $('yearSub').textContent = `Press Play to run from ${Y0} to ${YEND}`;
 $('verLine').textContent = `App version ${APP_VERSION}. Data revision ${DB.meta.revision}, as of ${DATA_AS_OF}.`;
+(function updateNotice(){
+  const ukDate = iso => new Date(iso.slice(0, 10) + 'T12:00:00Z').toLocaleDateString('en-GB', {day:'numeric', month:'long', year:'numeric'});
+  const last = (DB.meta.lastAgentRun || DATA_AS_OF).slice(0, 10);
+  const days = Math.floor((Date.now() - new Date(last + 'T12:00:00Z').getTime()) / 86400000);
+  const ago = days < 1 ? 'today' : days === 1 ? 'yesterday' : days < 14 ? `${days} days ago` : days < 60 ? `${Math.round(days / 7)} weeks ago` : `${Math.round(days / 30)} months ago`;
+  const stale = days > 30;
+  const line = `${stale ? '<span class="stale">⚠ ' : ''}Data last updated <b>${ukDate(last)}</b> (${ago})${stale ? '; weekly updates may have paused</span>' : ''}. Data revision ${DB.meta.revision}. App version ${APP_VERSION}. Created by <b>Stuart Okin</b>.`;
+  $('discMeta').innerHTML = line; $('aboutMeta').innerHTML = line;
+  $('citeLine').textContent = `Okin, S. (${DATA_AS_OF.slice(0, 4)}) The Shrinking Gap from Research to Change. Interactive model, version ${APP_VERSION}, data revision ${DB.meta.revision} (updated ${ukDate(last)}). ${location.protocol.indexOf('http') === 0 ? location.origin + location.pathname : ''}`.trim();
+})();
 (function dataStatus(){
   const ms = DB.milestones, c = v => ms.filter(m => m.provenance.verification === v).length;
   $('dataStatus').innerHTML = `<div><b>${ms.length}</b><span>milestones</span></div><div><b>${c('source-cited')}</b><span>source-cited</span></div><div><b>${c('ai-compiled')}</b><span>AI-compiled</span></div><div><b>${c('ai-estimate')}</b><span>AI estimates</span></div><div><b>${DATA_AS_OF}</b><span>data as of</span></div><div><b>${DB.meta.lastAgentRun ? DB.meta.lastAgentRun.slice(0, 10) : 'Not yet'}</b><span>last agent run</span></div>`;
