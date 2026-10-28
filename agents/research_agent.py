@@ -32,6 +32,11 @@ SUBMIT = {
         'desnz': {'enum': ['opt', 'asset', 'demand', 'rd', 'gov', 'none'], 'description': 'DESNZ AI energy vision area if clearly relevant to energy, else none'},
         'ai_driven': {'type': 'boolean'},
         'subfield': {'type': 'string', 'description': 'Sub-field id chosen from the list given for this field'},
+        'field': {'type': 'string', 'description': 'Field id (only needed for vision-area searches)'},
+        'readiness': {'enum': ['research', 'pilot', 'commercial', 'scale'], 'description': 'Research, pilot or demonstration, first commercial use, or at scale'},
+        'gb_status': {'enum': ['deployed', 'trial', 'planned', 'not-yet', 'unknown'], 'description': 'Is it deployed, trialled or planned in Great Britain?'},
+        'expands_attack_surface': {'type': 'boolean', 'description': 'Does it add new ways to attack systems, such as connected devices, remote control or AI agents?'},
+        'security_note': {'type': 'string', 'description': 'One sentence on its cyber security implications'},
         'region': {'enum': ['uk', 'us', 'europe', 'asia', 'other', 'global'], 'description': 'Where the research began: uk, us, europe (rest of Europe), asia, other (rest of world) or global (many countries)'},
         'tags': {'type': 'array', 'maxItems': 4, 'items': {'type': 'string'}, 'description': 'Topic tags chosen only from the provided vocabulary'},
         'is_policy': {'type': 'boolean', 'description': 'True if the change is a law, regulation or mandate taking effect rather than a product or deployment'},
@@ -48,8 +53,10 @@ def run():
     db = load_db(); cfg = CONFIG['research']; pub = CONFIG['publish']
     as_of = int(db['meta']['asOf'][:4]); horizon = as_of + db['meta']['horizonYears']
     pending = load_pending(); accepted = 0; report = []
-    for f in db['fields'][:cfg['fieldsPerRun']]:
+    vision_runs = [{'id': fid, 'name': fname, 'subfields': next((x.get('subfields', []) for x in db['fields'] if x['id'] == fid), []), 'vision': a} for a in (db.get('visionAreas', []) if cfg.get('visionSearches', True) else []) for fid, fname in [('energy', 'Energy')]]
+    for f in list(db['fields'][:cfg['fieldsPerRun']]) + vision_runs:
         if accepted >= pub['maxAdditionsPerRun']: break
+        va = f.get('vision')
         existing = [m['title'] for m in db['milestones']]   # every field, so cross-field duplicates are visible
         field_guide = '; '.join(f"{x['id']}: {x['name']}" for x in db['fields'])
         vocab = ', '.join(db.get('tagVocabulary', []))
@@ -58,7 +65,10 @@ def run():
         system = ('You are a careful research analyst maintaining a dataset of how long research takes to become real-world change. '
                   'A milestone needs a research origin (first credible publication, patent or demonstration) and a change '
                   '(first commercial sale, operational deployment, or binding rule taking effect).')
-        prompt = (f"Field: {f['name']} (id {f['id']}). All fields: {field_guide}. Only return items that belong to {f['name']}; if an item fits another field better, leave it out.\n"
+        if va: prompt0 = (f"DESNZ AI energy vision area: {va['name']}. Search specifically for technologies that help this area of the UK's clean energy system, "
+                          "including AI for network operation, asset health, flexibility and demand, energy innovation, and security and assurance. Set desnz to this area's id ('" + va['id'] + "'). ")
+        else: prompt0 = ''
+        prompt = prompt0 + (f"Field: {f['name']} (id {f['id']}). All fields: {field_guide}. Only return items that belong to {f['name']}; if an item fits another field better, leave it out.\n"
                   "WHAT QUALIFIES: a specific technology whose research origin can be identified (a named paper, patent, lab demonstration or programme, with its year) "
                   "and which has now reached real-world change: first commercial sale, first operational deployment, or a binding rule that requires or enables that specific technology. "
                   "WHAT DOES NOT QUALIFY: chemical or product bans and restrictions, exemptions and waivers, funding or investment announcements, procurement deals, partnerships, "
@@ -74,18 +84,27 @@ def run():
             why = check(db, f['id'], c, as_of, horizon, cfg['minSources'])
             if why:
                 report.append(f"rejected [{f['id']}] {c.get('title')}: {why}"); continue
+            fields_by_id = {x['id']: x for x in db['fields']}
+            fld = c.get('field') if f.get('vision') and c.get('field') in fields_by_id else f['id']
+            if fld != f['id']:
+                ids2 = [x['id'] for x in fields_by_id[fld].get('subfields', [])]
+                c['subfield'] = c.get('subfield') if c.get('subfield') in ids2 else (ids2[-1] if ids2 else None)
             pending.append({
-              'id': new_id(db, c['title']), 'field': f['id'], 'origin': c['origin'], 'status': c['status'], 'title': c['title'][:90],
+              'id': new_id(db, c['title']), 'field': fld, 'origin': c['origin'], 'status': c['status'], 'title': c['title'][:90],
               'research': {'year': c['research_year'], 'what': (c['research_what'] + (' Origin: ' + c['research_origin'] if c.get('research_origin') and c['research_origin'] not in c['research_what'] else ''))[:600]},
               'change': {'year': c['change_year'], 'what': c['change_what'][:600]},
               'confidence': c['confidence'], 'note': c['note'][:600],
               **({'company': c['company'][:80]} if c.get('company') else {}),
-              **({'desnz': c['desnz']} if c.get('desnz') and c['desnz'] != 'none' else {}),
+              **({'desnz': c['desnz']} if c.get('desnz') and c['desnz'] != 'none' else ({'desnz': f['vision']['id']} if f.get('vision') else {})),
               **({'flags': {k: True for k, v in (('aiDriven', c.get('ai_driven')), ('policy', c.get('is_policy'))) if v}} if (c.get('ai_driven') or c.get('is_policy')) else {}),
               'refs': [{'label': s['label'][:200], 'url': s['url'], 'status': 'ok', 'checked': TODAY} for s in c['sources'][:4]],
-              'subfield': c.get('subfield') if c.get('subfield') in sub_ids else (sub_ids[-1] if sub_ids else None),
+              'subfield': (lambda ids: c.get('subfield') if c.get('subfield') in ids else (ids[-1] if ids else None))([x['id'] for x in fields_by_id[fld].get('subfields', [])]),
               **({'region': c['region']} if c.get('region') in ('uk', 'us', 'europe', 'asia', 'other', 'global') else {'region': 'unknown'}),
               **({'tags': [t for t in c.get('tags', []) if t in db.get('tagVocabulary', [])][:4]} if any(t in db.get('tagVocabulary', []) for t in c.get('tags', [])) else {}),
+              'readiness': {'stage': c.get('readiness') if c.get('readiness') in ('research', 'pilot', 'commercial', 'scale') else ('commercial' if c['status'] == 'landed' else 'research'), 'basis': 'ai-estimate'},
+              **({'gb': {'status': c.get('gb_status') if c.get('gb_status') in ('deployed', 'trial', 'planned', 'not-yet', 'unknown') else 'unknown', 'basis': 'ai-estimate'}} if (f['id'] == 'energy' or c.get('desnz') not in (None, 'none')) else {}),
+              **({'security': {'expandsAttackSurface': bool(c.get('expands_attack_surface')), 'note': c['security_note'][:300], 'basis': 'ai-compiled'}} if c.get('security_note') and f['id'] != 'cyber' else {}),
+              **({'forecast': {'estimatedYear': c['change_year'], 'estimatedOn': TODAY, 'revisions': []}} if c['status'] == 'outlook' else {}),
               'evidence_terms': c['evidence_terms'][:6], 'proposed': TODAY, 'attempts': 0
             })
             accepted += 1

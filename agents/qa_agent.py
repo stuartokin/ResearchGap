@@ -22,7 +22,7 @@ REVIEW = {'name': 'submit_review', 'description': 'Submit the review of each rec
     'id': {'type': 'string'}, 'verdict': {'enum': ['ok', 'correct', 'dispute']}, 'reason': {'type': 'string'},
     'corrections': {'type': 'array', 'items': CORR},
     'adoption_estimate': {'type': 'object', 'properties': {'year': {'type': 'integer'}, 'what': {'type': 'string'}, 'confidence': {'enum': ['high', 'medium', 'low']}}, 'description': 'Only for landed records with no adoption year: when it reached mainstream use'},
-    'classification': {'type': 'object', 'properties': {'field': {'type': 'string'}, 'subfield': {'type': 'string'}, 'region': {'enum': ['uk', 'us', 'europe', 'asia', 'other', 'global']}, 'tags': {'type': 'array', 'items': {'type': 'string'}}, 'desnz': {'enum': ['opt', 'asset', 'demand', 'rd', 'gov', 'none']}, 'major': {'type': 'boolean'},
+    'classification': {'type': 'object', 'properties': {'field': {'type': 'string'}, 'subfield': {'type': 'string'}, 'readiness': {'enum': ['research', 'pilot', 'commercial', 'scale']}, 'gb_status': {'enum': ['deployed', 'trial', 'planned', 'not-yet', 'unknown']}, 'gb_note': {'type': 'string'}, 'security_note': {'type': 'string'}, 'expands_attack_surface': {'type': 'boolean'}, 'region': {'enum': ['uk', 'us', 'europe', 'asia', 'other', 'global']}, 'tags': {'type': 'array', 'items': {'type': 'string'}}, 'desnz': {'enum': ['opt', 'asset', 'demand', 'rd', 'gov', 'none']}, 'major': {'type': 'boolean'},
       'confidence': {'enum': ['high', 'medium', 'low']}, 'reason': {'type': 'string'}}},
     're_estimate_year': {'type': 'integer', 'description': 'For an outlook whose year has passed and has not landed: a new estimated year'}}}}}}}
 PENDING_TOOL = {'name': 'submit_decisions', 'description': 'Decide on each candidate.', 'input_schema': {'type': 'object', 'required': ['decisions'], 'properties': {'decisions': {'type': 'array', 'items': {
@@ -89,7 +89,7 @@ def run():
                   f"For any record marked outlook_year_passed, find out whether it has now landed (give the change year with an evidence quote) or give re_estimate_year (no later than {horizon}). "
                   f"Where a record has no working source, find one and add it with path add_ref and an evidence quote mentioning it; this is a priority. "
                   f"{db['meta'].get('adoptionDefinition', '')} If a landed record has no adoption year, give adoption_estimate; if you find a source stating when it reached mainstream use, propose path adoption.year with an evidence quote. "
-                  f"If region is unknown give classification.region (uk, us, europe, asia, other, global). Check the sub-field and give classification.subfield if it is wrong (sub-fields per field: {'; '.join(f['id'] + ': ' + ', '.join(x['id'] for x in f.get('subfields', [])) for f in db['fields'])}). If tags are empty give classification.tags from: {', '.join(db.get('tagVocabulary', []))}.\n{json.dumps(brief, ensure_ascii=False)}")
+                  f"If region is unknown give classification.region (uk, us, europe, asia, other, global). Check the sub-field and give classification.subfield if it is wrong (sub-fields per field: {'; '.join(f['id'] + ': ' + ', '.join(x['id'] for x in f.get('subfields', [])) for f in db['fields'])}). Check the readiness stage (research, pilot, commercial, scale) and, for energy or vision-linked records, gb_status and a short gb_note on why it matters for GB networks. If a technology record has no security note, give security_note and expands_attack_surface. If tags are empty give classification.tags from: {', '.join(db.get('tagVocabulary', []))}.\n{json.dumps(brief, ensure_ascii=False)}")
         out = call_claude(SYSTEM, prompt, REVIEW, max_searches=min(10, cfg['searchesPerReview'] * len(group))) or {'reviews': []}
         byid = {m['id']: m for m in group}
         for rv in out.get('reviews', []):
@@ -110,6 +110,14 @@ def run():
             subs_ok = [x['id'] for f in db['fields'] if f['id'] == m['field'] for x in f.get('subfields', [])]
             if cl.get('confidence') == 'high' and cl.get('subfield') in subs_ok and cl['subfield'] != m.get('subfield'):
                 corrected.append(f"{m['id']}: sub-field {m.get('subfield')} → {cl['subfield']}"); m['subfield'] = cl['subfield']
+            if cl.get('confidence') == 'high' and cl.get('readiness') and cl['readiness'] != (m.get('readiness') or {}).get('stage'):
+                corrected.append(f"{m['id']}: readiness {(m.get('readiness') or {}).get('stage')} → {cl['readiness']}"); m['readiness'] = {'stage': cl['readiness'], 'basis': 'ai-estimate', 'checked': TODAY}
+            if cl.get('confidence') == 'high' and (m['field'] == 'energy' or m.get('desnz')) and cl.get('gb_status') and cl['gb_status'] != (m.get('gb') or {}).get('status'):
+                corrected.append(f"{m['id']}: GB status {(m.get('gb') or {}).get('status')} → {cl['gb_status']}"); m['gb'] = {**(m.get('gb') or {}), 'status': cl['gb_status'], 'basis': 'ai-estimate'}
+            if cl.get('gb_note') and (m['field'] == 'energy' or m.get('desnz')) and not (m.get('gb') or {}).get('note'):
+                m.setdefault('gb', {'status': 'unknown', 'basis': 'ai-estimate'})['note'] = cl['gb_note'][:240]
+            if cl.get('security_note') and not m.get('security') and m['field'] != 'cyber' and not (m.get('flags') or {}).get('policy'):
+                m['security'] = {'expandsAttackSurface': bool(cl.get('expands_attack_surface')), 'note': cl['security_note'][:300], 'basis': 'ai-compiled'}
             if cl.get('confidence') == 'high' and cl.get('tags') and not m.get('tags'):
                 tg = [t for t in cl['tags'] if t in db.get('tagVocabulary', [])][:4]
                 if tg: m['tags'] = tg; corrected.append(f"{m['id']}: tags added")
@@ -127,6 +135,7 @@ def run():
             if m in overdue and m['status'] == 'outlook' and m['change']['year'] <= as_of:
                 ny = rv.get('re_estimate_year')
                 ny = ny if isinstance(ny, int) and as_of < ny <= horizon else min(horizon, as_of + 2)
+                m.setdefault('forecast', {'estimatedYear': m['change']['year'], 'estimatedOn': db['meta'].get('asOf', TODAY), 'revisions': []})['revisions'].append({'year': ny, 'on': TODAY})
                 m['change']['year'] = ny; m['provenance']['verification'] = 'ai-estimate'; m['provenance']['approximate'] = True
                 m['provenance']['qaNote'] = f'Outlook year passed without confirmation; re-estimated on {TODAY}.'
                 reestimated.append(f"{m['id']} → {ny}")
@@ -255,7 +264,9 @@ def apply_correction(m, c, cfg, as_of):
     if path == 'status' and val == 'landed' and m['status'] == 'outlook':
         yr = next((int(y) for y in __import__('re').findall(r'\b(19\d\d|20\d\d)\b', quote) if int(y) <= as_of), None)
         if not yr or yr < m['research']['year']: return None
+        if m.get('forecast'): m['forecast'].update({'actualYear': yr, 'resolvedOn': TODAY})
         m['status'] = 'landed'; m['change']['year'] = yr; m.pop('basis', None)
+        if (m.get('readiness') or {}).get('stage') in (None, 'research', 'pilot'): m['readiness'] = {'stage': 'commercial', 'basis': 'ai-estimate'}
         m.setdefault('refs', []).append({'label': (c.get('label') or url)[:200], 'url': url, 'status': 'ok', 'checked': TODAY})
         m['provenance']['verification'] = 'source-cited'
         return f"{m['id']}: confirmed landed in {yr}"

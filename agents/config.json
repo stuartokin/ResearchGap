@@ -6,7 +6,8 @@
     "fieldsPerRun": 11,
     "searchesPerField": 4,
     "maxProposalsPerField": 3,
-    "minSources": 2
+    "minSources": 2,
+    "visionSearches": true
   },
   "qa": {
     "auditBatchSize": 40,
@@ -43,7 +44,7 @@
   ],
   "founders": {
     "_note": "Fortune research and net worth audits run monthly with the deep audit (first Monday). Set weekly to true to run them every week.",
-    "weekly": true,
+    "weekly": false,
     "auditBatchSize": 20,
     "maxNewPerRun": 3,
     "maxNetWorthChangeFactor": 3,
