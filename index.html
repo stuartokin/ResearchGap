@@ -607,7 +607,7 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions{opacity:0;point
     <div class="pyear" id="yearNum">1925</div>
     <div class="ptot" id="playTotals"></div>
     <div class="psub" id="yearSub">Press Play to run from 1925 to 2036</div>
-    <div class="pctrl"><button class="btn" id="tbPause">Pause</button><input type="range" id="scrub" min="1925" max="2037" step="0.1" value="1925" aria-label="Scrub through time"><select id="tbSpeed" class="btn" aria-label="Play speed"><option value="0.5">Slow</option><option value="1" selected>Normal</option><option value="2">Fast</option></select><label class="btn looplbl"><input type="checkbox" id="loopT"> Loop</label><button class="btn" id="tbStop">Exit</button></div>
+    <div class="pctrl"><button class="btn" id="tbPause">Pause</button><input type="range" id="scrub" min="1925" max="2037" step="0.1" value="1925" aria-label="Scrub through time"><select id="tbSpeed" class="btn" aria-label="Play speed"><option value="0.25">Very slow</option><option value="0.5">Slow</option><option value="1" selected>Normal</option><option value="2">Fast</option></select><label class="btn looplbl"><input type="checkbox" id="loopT"> Loop</label><button class="btn" id="tbStop">Exit</button></div>
   </div>
 </section>
 <!-- SOURCES -->
@@ -759,6 +759,7 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions{opacity:0;point
       <label class="toggle">Show page title <input type="checkbox" id="titleShowT"></label>
       <label class="toggle">Hide top buttons until the mouse is near <input type="checkbox" id="barAutoT"></label>
       <label class="toggle">Show the thank-you icon (Q key) <input type="checkbox" id="thanksIconT" checked></label>
+      <label class="toggle">Open new windows in free space <input type="checkbox" id="smartPlaceT" checked></label>
       <label class="toggle">Keep window positions when the screen size changes <input type="checkbox" id="keepPosT" checked></label>
       <label class="toggle">Fit windows to this screen when loading a saved view <input type="checkbox" id="fitLoadT" checked></label>
       <button class="mini" id="copyLinkBtn">Copy a link to this view</button>
@@ -3048,7 +3049,7 @@ const FORTUNES = DB.founders.map(f => {
 });
 const fmtMoney = (bn, sym) => bn >= 1000 ? `${sym}${(bn / 1000).toFixed(1)}tn` : bn >= 1 ? `${sym}${bn >= 100 ? Math.round(bn) : Math.round(bn * 10) / 10}bn` : `${sym}${Math.round(bn * 1000)}m`;
 const DATA_AS_OF = DB.meta.asOf;
-const APP_VERSION = '8.8', APP_BUILD = '';
+const APP_VERSION = '8.9', APP_BUILD = '';
 // Screen-aware scaling: laptops slightly smaller, large screens larger
 const UI = (() => { const w = innerWidth; return w < 1280 ? .85 : w < 1500 ? .95 : w < 1800 ? 1.05 : w < 2300 ? 1.2 : 1.4; })();
 const LARGE = innerWidth >= 1700;
@@ -3084,7 +3085,7 @@ const DEFAULT_FILTERS = () => ({
 });
 const F = DEFAULT_FILTERS();
 const hidden = new Set();
-const view = {panels:{}, preset:'explore', menuGroups:{}, subLanes:true, adoption:true, palette:'standard', conclusion:true, playFrom:null, playTo:null, gapMetric:'first', statsRows:'src', statsRange:true, markSmall:true, smallN:5, survival:true, keepWinPos:true, fitOnLoad:true, chgFlag:'new', chgScope:'all', chgSince:'30', chgAnnounce:true, countdown:true, thanksIcon:true, majBright:true, uniHi:true, audSpot:true, audPause:true, statsBy:'landed', statsLive:true, gapBuild:true, compactLanes:true, fortSort:'year', musicOn:false, loopPlay:true, fortHi:true, fortOnly:false, laneFollow:true, camTravel:true, fadeLanded:true, keepYears:5, revealEnd:true, labelPlay:'until', labelScope:'all', labelMax:14, labelLinger:2, labels:'follow', lfs:LARGE ? 18 : 15, lanes:'v', colour:'v', pulses:true, trend:true, floor:true, rotSpeed:0.35, glow:0.75};
+const view = {smartPlace:true, panels:{}, preset:'explore', menuGroups:{}, subLanes:true, adoption:true, palette:'standard', conclusion:true, playFrom:null, playTo:null, gapMetric:'first', statsRows:'src', statsRange:true, markSmall:true, smallN:5, survival:true, keepWinPos:true, fitOnLoad:true, chgFlag:'new', chgScope:'all', chgSince:'30', chgAnnounce:true, countdown:true, thanksIcon:true, majBright:true, uniHi:true, audSpot:true, audPause:true, statsBy:'landed', statsLive:true, gapBuild:true, compactLanes:true, fortSort:'year', musicOn:false, loopPlay:true, fortHi:true, fortOnly:false, laneFollow:true, camTravel:true, fadeLanded:true, keepYears:5, revealEnd:true, labelPlay:'until', labelScope:'all', labelMax:14, labelLinger:2, labels:'follow', lfs:LARGE ? 18 : 15, lanes:'v', colour:'v', pulses:true, trend:true, floor:true, rotSpeed:0.35, glow:0.75};
 Object.assign(view, store.get('sg.view.v2', {}));
 if (MOBILE) Object.assign(view, {lite:true, labels:'peak', labelScope:'major', labelMax:6, lfs:12, camTravel:false, fadeLanded:false, pulses:true, glow:0});
 const state = {playing:false, cursor:Y1, autoRotate:!reduced && !(MOBILE && innerWidth < innerHeight)};
@@ -3533,6 +3534,23 @@ function winRect(L, W, H, fit){
   return {x:Math.round(x), y:Math.round(y), w:Math.round(w), h:Math.round(h)};
 }
 function commitWin(id){ const L = layout[id], r = winRect(L); Object.assign(L, r, {sw:innerWidth, sh:innerHeight}); }
+/* Find free space for a window being opened: least overlap with open windows and the centre of the model, nearest its usual place */
+function smartPlace(id){
+  if (['toolbar', 'footer', 'ticker', 'pagetitle', 'title', 'player'].includes(id) || !wins[id] || wins[id].classList.contains('max')) return;
+  const L = layout[id], W = innerWidth, H = innerHeight, r0 = winRect(L), w = r0.w, h = r0.h;
+  const others = WIN_IDS.filter(o => o !== id && layout[o].open && o !== 'footer').map(o => wins[o].getBoundingClientRect()).filter(o => o.width > 0);
+  const tb = wins.toolbar.getBoundingClientRect(), top = layout.toolbar.open ? Math.max(8, Math.min(tb.bottom + 8, H * .3)) : 8;
+  const model = {left:W * .3, top:H * .22, right:W * .7, bottom:H * .78};
+  const ovl = (R, o) => Math.max(0, Math.min(R.right, o.right) - Math.max(R.left, o.left)) * Math.max(0, Math.min(R.bottom, o.bottom) - Math.max(R.top, o.top));
+  const score = (x, y) => { const R = {left:x, top:y, right:x + w, bottom:y + h}; let a = 0; others.forEach(o => { a += ovl(R, o); }); return a + ovl(R, model) * .35; };
+  const cur = score(r0.x, r0.y); if (cur < 1) return;
+  let best = {s:cur, x:r0.x, y:r0.y, d:0};
+  for (let y = top; y <= H - h - 8; y += 16) for (let x = 8; x <= W - w - 8; x += 16) {
+    const sc = score(x, y), d = Math.hypot(x - r0.x, y - r0.y);
+    if (sc < best.s - 1 || (Math.abs(sc - best.s) <= 1 && d < best.d)) best = {s:sc, x, y, d};
+  }
+  if (best.s < cur - 1) Object.assign(L, {x:best.x, y:best.y, sw:W, sh:H});
+}
 function placeWin(id){
   const el = wins[id], L = layout[id];
   if (view.keepWinPos === false) { Object.assign(L, winRect(L), {sw:innerWidth, sh:innerHeight}); }
@@ -3546,7 +3564,7 @@ function raise(id){
   if (zTop > 900) { zTop = 20; WIN_IDS.slice().sort((a, b) => (+wins[a].style.zIndex || 0) - (+wins[b].style.zIndex || 0)).forEach(w => { wins[w].style.zIndex = ++zTop; }); }
   wins[id].style.zIndex = ++zTop;
 }
-function setOpen(id, open){ layout[id].open = open; if (open) setTimeout(() => { if (id === 'findings') renderFindings(); if (id === 'quality') renderQuality(); if (id === 'table') renderTable(); }, 0); if (!open) wins[id].classList.remove('max'); placeWin(id); if (typeof syncVideos === 'function') syncVideos(); if (open) raise(id); saveLayout(); buildWinMenu(); if (open && typeof updateTimeWindows === 'function') updateTimeWindows(true); }
+function setOpen(id, open){ const wasOpen = layout[id].open; layout[id].open = open; if (open && !wasOpen && view.smartPlace !== false) smartPlace(id); if (open) setTimeout(() => { if (id === 'findings') renderFindings(); if (id === 'quality') renderQuality(); if (id === 'table') renderTable(); }, 0); if (!open) wins[id].classList.remove('max'); placeWin(id); if (typeof syncVideos === 'function') syncVideos(); if (open) raise(id); saveLayout(); buildWinMenu(); if (open && typeof updateTimeWindows === 'function') updateTimeWindows(true); }
 WIN_IDS.forEach(id => {
   const el = $('w-' + id); wins[id] = el;
   const head = document.createElement('div'); head.className = 'wh';
@@ -3637,12 +3655,16 @@ function arrangeLayout(name){
       set('outlook', 12, mid + g, wb * .58, bot - mid - g); set('fortunes', 12 + wb * .58 + g, mid + g, wb - wb * .58, bot - mid - g);
     }
   } else if (name === 'desnz') {
-    if (cls === 'phone') set('vision', 6, top, W - 12, H - top - 8);
+    if (cls === 'phone') { set('player', 6, H - ph - 8, W - 12, ph); set('vision', 6, top, W - 12, H - ph - 24 - top); }
     else {
       const vw = cls === 'tablet' ? (W - 24 - g) * .55 : Math.min(620, W * .34), xr = 12 + vw + g, wr = cls === 'tablet' ? W - xr - 12 : Rw, xrr = cls === 'tablet' ? xr : W - wr - 12;
-      stack(['vision'], 12, vw, top, bot, [1]);
+      if (cls === 'tablet') { stack(['vision'], 12, vw, top, bot - ph - g, [1]); set('player', 12, bot - ph, vw, ph); }
+      else {
+        stack(['vision'], 12, vw, top, bot, [1]);
+        const cw = xrr - g - xr, pw2 = Math.min(d.player.w, cw); set('player', xr + (cw - pw2) / 2, bot - ph, pw2, ph);
+        const w0 = Math.min(460, cw), h0 = Math.min(380, (bot - top - ph - g) * .6); set('details', xr + (cw - w0) / 2, bot - ph - g - h0, w0, h0, false);
+      }
       stack(['outlook', 'changes'], xrr, wr, top, bot, [.5, .5]);
-      if (cls !== 'tablet') { const x0 = xr, w0 = Math.min(460, xrr - g - x0), h0 = Math.min(380, (bot - top) * .5); set('details', x0 + (xrr - g - x0 - w0) / 2, bot - h0, w0, h0, false); }
     }
   } else {   // exploring (the default)
     if (cls === 'phone') set('findings', 6, top, W - 12, Math.min(H - top - 8, H * .62));
@@ -3661,7 +3683,15 @@ function applyPreset(name){
   layout = arrangeLayout(name); WIN_IDS.forEach(placeWin); saveLayout(); syncVideos();
   if (name === 'desnz') { view.preDesnzFields = [...F.fields]; F.fields = new Set(FKEYS.filter(k => items.some(it => it.v === k && it.dv && !it.removed))); F.vision = true; view.chgScope = 'desnz'; $('chgDesnzT').checked = true; syncChgUI(); applyChangeFlags(); refresh(); renderChanges(); }
   else if (wasDesnz) { F.fields = new Set((view.preDesnzFields || FKEYS).filter(k => FIELDS[k])); delete view.preDesnzFields; F.vision = false; view.chgScope = 'all'; $('chgDesnzT').checked = false; syncChgUI(); applyChangeFlags(); refresh(); renderChanges(); }
-  if ((name === 'analysis' || name === 'desnz') && state.playing) stopPlay();
+  if (name === 'analysis' && state.playing) stopPlay();
+  if (name === 'desnz') {   // a slow loop from 1980; your own range and speed come back when you leave
+    if (!view.preDesnzPlay) view.preDesnzPlay = {from:view.playFrom, to:view.playTo, speed:playSpeed, loop:view.loopPlay};
+    view.playFrom = 1980; view.playTo = null; playSpeed = .25; $('tbSpeed').value = '0.25'; view.loopPlay = true;
+    syncPlayRangeUI(); syncDisplayUI(); cancelCountdown(); if (state.playing) stopPlay(); startPlay();
+  } else if (wasDesnz && view.preDesnzPlay) {
+    const pp = view.preDesnzPlay; view.playFrom = pp.from; view.playTo = pp.to; playSpeed = pp.speed || 1; $('tbSpeed').value = String(playSpeed); view.loopPlay = pp.loop; delete view.preDesnzPlay;
+    syncPlayRangeUI(); syncDisplayUI();
+  }
   $('spot').classList.remove('on', 'concl', 'chg');
   setTimeout(() => { renderStats(); if (layout.findings.open) renderFindings(); if (layout.outlook.open) renderOutlook(); if (layout.fortunes.open) renderFortunes(); twKey = ''; updateTimeWindows(true); }, 80);
   if (name === 'wait') { tick.mode = 'both'; applyTicker(); buildTicker();
@@ -4533,6 +4563,11 @@ $('tkBg').addEventListener('input', e => { tick.bg = e.target.value; applyTicker
 $('tkAlpha').addEventListener('input', e => { tick.alpha = +e.target.value; applyTicker(); });
 $('tkPause').onclick = () => { tick.paused = !tick.paused; applyTicker(); };
 $('tickCfgBtn').onclick = () => $('tickCfg').classList.toggle('on');
+/* Colours and Settings panels close when you click or tap anywhere else, or press Escape */
+document.addEventListener('pointerdown', e => {
+  [['titleCfg', 'titleCfgBtn'], ['tickCfg', 'tickCfgBtn']].forEach(([pn, bn]) => { const P = $(pn), B = $(bn); if (P.classList.contains('on') && !P.contains(e.target) && !B.contains(e.target)) P.classList.remove('on'); });
+}, true);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { $('titleCfg').classList.remove('on'); $('tickCfg').classList.remove('on'); } });
 addEventListener('resize', () => { kSegW = 0; });
 if (window.ResizeObserver) new ResizeObserver(() => { kSegW = 0; }).observe(wins.ticker);
 
@@ -4798,6 +4833,7 @@ $('chgFlagSeg').addEventListener('click', e => { const b = e.target.closest('but
 $('chgScopeSeg').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; view.chgScope = b.dataset.v; syncChgUI(); applyChangeFlags(); });
 $('chgSinceS').addEventListener('change', e => { view.chgSince = e.target.value; applyChangeFlags(); });
 $('chgAnnounceT').addEventListener('change', e => { view.chgAnnounce = e.target.checked; });
+$('smartPlaceT').addEventListener('change', e => { view.smartPlace = e.target.checked; });
 $('keepPosT').addEventListener('change', e => { view.keepWinPos = e.target.checked; WIN_IDS.forEach(placeWin); });
 $('fitLoadT').addEventListener('change', e => { view.fitOnLoad = e.target.checked; });
 /* ---------- Search in the Details window ---------- */
@@ -5163,6 +5199,7 @@ const HELP = {
   titleShowT:'Shows or hides the page title in the top-left corner (T key).',
   barAutoT:'Hides the toolbar buttons until the mouse moves near them.',
   thanksIconT:'Shows the speech-bubble button that opens the thank-you screen (Q key).',
+  smartPlaceT:'When you open a window, it is placed in free space where possible, without covering other windows or the centre of the model.',
   keepPosT:'Windows keep their distance from the nearest edges when the screen size changes, such as leaving full screen.',
   fitLoadT:'When opening a view saved on a different screen size, brings every window fully into view.',
   copyLinkBtn:'Copies a web link that reopens this view with your filters and key settings.',
@@ -5293,6 +5330,7 @@ function syncDisplayUI(){
   if ((view.palette || 'standard') !== (window.__pal || 'standard')) applyPalette();
   syncPlayRangeUI();
   if (typeof syncPanels === 'function') syncPanels();
+  $('smartPlaceT').checked = view.smartPlace !== false;
   $('keepPosT').checked = view.keepWinPos !== false; $('fitLoadT').checked = view.fitOnLoad !== false;
   $('countdownT').checked = view.countdown !== false; $('thanksIconT').checked = view.thanksIcon !== false; document.body.classList.toggle('nothanks', view.thanksIcon === false);
   $('gapBuildT').checked = view.gapBuild !== false; $('statsLiveT').checked = view.statsLive !== false; $('compactT').checked = view.compactLanes !== false;
