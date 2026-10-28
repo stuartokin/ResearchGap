@@ -36,6 +36,19 @@ def main(path='data/data.json'):
         if m['status'] == 'outlook':
             if p > horizon: errors.append(f'{mid}: outlook year {p} beyond the horizon {horizon}')
             if p <= as_of: warnings.append(f'{mid}: outlook year {p} has passed; QA should confirm or re-estimate')
+        ad = m.get('adoption')
+        if ad:
+            if m['status'] == 'in-lab': errors.append(f'{mid}: in-lab milestone cannot have an adoption year')
+            elif ad['year'] < p: errors.append(f"{mid}: adoption {ad['year']} before first product {p}")
+            elif ad['year'] > horizon: errors.append(f"{mid}: adoption {ad['year']} beyond the horizon {horizon}")
+        subs = {x['id'] for f in db['fields'] if f['id'] == m['field'] for x in f.get('subfields', [])}
+        if m.get('subfield') and subs and m['subfield'] not in subs: errors.append(f"{mid}: sub-field {m['subfield']} is not defined for {m['field']}")
+        if m.get('tags') and db.get('tagVocabulary') and any(t not in db['tagVocabulary'] for t in m['tags']): errors.append(f'{mid}: tag outside the vocabulary')
+        st = (m.get('readiness') or {}).get('stage')
+        if st and st not in ('research', 'pilot', 'commercial', 'scale'): errors.append(f'{mid}: unknown readiness stage {st}')
+        if m.get('gb') and m['gb'].get('status') not in ('deployed', 'trial', 'planned', 'not-yet', 'unknown'): errors.append(f'{mid}: unknown GB status')
+        fc = m.get('forecast')
+        if fc and not isinstance(fc.get('estimatedYear'), int): errors.append(f'{mid}: forecast needs an estimated year')
         if m['status'] == 'in-lab' and p <= horizon: warnings.append(f'{mid}: in-lab target {p} falls inside the horizon')
         if m['provenance']['verification'] == 'source-cited' and not any((x.get('url') for x in m.get('refs', []) + ([m['basis']] if m.get('basis') else []))):
             errors.append(f'{mid}: marked source-cited but has no source URL')
@@ -47,6 +60,12 @@ def main(path='data/data.json'):
         if f['field'] not in fields: errors.append(f'{f["id"]}: unknown field')
     for w in warnings[:40]: print('WARN ', w)
     for e in errors: print('ERROR', e)
+    OFFICIAL_REF = ('ncsc.gov.uk', 'gov.uk', 'nist.gov', 'nerc.com', 'federalregister.gov', 'iso.org', 'isa.org', 'iec.ch', 'etsi.org', 'unece.org', 'bsigroup.com')
+    for gd in db.get('securityGuidance', []):
+        for ref in gd.get('refs', []):
+            url = ref[2] if len(ref) > 2 else ''
+            host = url.split('/')[2].lower() if url.startswith('https://') and len(url.split('/')) > 2 else ''
+            if not host or not any(host == o or host.endswith('.' + o) for o in OFFICIAL_REF): errors.append(f"mitigation {gd['id']}: reference '{ref[0]}' must link to an official source (got {url or 'no link'})")
     print(f"{len(db['milestones'])} milestones, {len(db['founders'])} founders: {len(errors)} errors, {len(warnings)} warnings")
     return 1 if errors else 0
 
