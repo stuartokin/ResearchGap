@@ -10,7 +10,7 @@
   "author": "Stuart Okin",
   "maintainedBy": "AI agents using Claude (Anthropic), without human review",
   "disclaimer": "Personal project by Stuart Okin, not affiliated with or endorsed by any employer. Data is compiled and maintained by AI agents without human review and may contain errors. Outlook years are AI estimates, not forecasts.",
-  "lastAgentRun": "2026-10-28T14:17Z",
+  "lastAgentRun": "2026-10-28T13:53Z",
   "changelog": [
    {
     "date": "2026-10-28",
@@ -116,58 +116,8 @@
    },
    {
     "date": "2026-10-28",
-    "time": "14:17",
-    "revision": 7,
-    "summary": "4 added, 26 corrected, 0 outlook re-estimated, 0 disputed, 0 broken links.",
-    "stats": {
-     "milestones": 459,
-     "sourceCited": 75,
-     "aiCompiled": 306,
-     "aiEstimate": 78,
-     "adoptionKnown": 69,
-     "landed": 361,
-     "regionKnown": 458
-    },
-    "usage": {
-     "calls": 14,
-     "inputTokens": 2162194,
-     "outputTokens": 83344,
-     "searches": 117,
-     "model": "claude-opus-5-5"
-    },
-    "deepAudit": true,
-    "details": [
-     "added: mandatory-provenance-data-for-ai-generated-media",
-     "added: zero-knowledge-age-proofs-in-eu-age-verification-app",
-     "added: commercial-leo-navigation-xona-pulsar",
-     "added: hollow-core-optical-fibre-in-live-networks",
-     "spinning-lidar: tags added",
-     "dna-sequencing: source added",
-     "statins: source added",
-     "statins: tags added",
-     "next-generation-sequencing: source added",
-     "postscript-and-desktop-publishing: source added",
-     "microsoft-windows: source added",
-     "microsoft-windows: adoption estimate 1990",
-     "social-networking: source added",
-     "social-networking: tags added",
-     "online-video-sharing: tags added",
-     "microblogging: source added",
-     "microblogging: tags added",
-     "music-streaming: source added",
-     "music-streaming: tags added",
-     "mobile-photo-sharing: source added",
-     "workplace-messaging: source added",
-     "ibm-system-360: source added",
-     "cray-1-supercomputer: source added",
-     "cray-1-supercomputer: source added",
-     "cray-1-supercomputer: source added",
-     "next-generation-firewall: tags added",
-     "hardware-security-keys: tags added",
-     "cloud-delivered-security: tags added",
-     "superconducting-quantum-cloud: tags added",
-     "power-networks-demonstration-centre: tags added"
-    ]
+    "summary": "Manual update: sub-fields added for every field and milestone.",
+    "revision": 7
    }
   ],
   "adoptionDefinition": "Mainstream adoption: the year the technology reached widespread, routine use, roughly 10% or more of its potential market or standard practice in its sector."
@@ -176,57 +126,331 @@
   {
    "id": "energy",
    "name": "Energy",
-   "colour": "#F7C04A"
+   "colour": "#F7C04A",
+   "subfields": [
+    {
+     "id": "nuclear",
+     "name": "Nuclear and fusion"
+    },
+    {
+     "id": "storage",
+     "name": "Storage"
+    },
+    {
+     "id": "fuels",
+     "name": "Hydrogen and fuels"
+    },
+    {
+     "id": "renewables",
+     "name": "Renewable generation"
+    },
+    {
+     "id": "demand",
+     "name": "Flexibility and demand"
+    },
+    {
+     "id": "ops",
+     "name": "Operations and forecasting"
+    },
+    {
+     "id": "grids",
+     "name": "Grids and networks"
+    }
+   ]
   },
   {
    "id": "hw",
    "name": "Computing hardware",
-   "colour": "#5AB0FF"
+   "colour": "#5AB0FF",
+   "subfields": [
+    {
+     "id": "fab",
+     "name": "Chip manufacturing"
+    },
+    {
+     "id": "memory",
+     "name": "Memory and storage"
+    },
+    {
+     "id": "compute",
+     "name": "Data centres and accelerators"
+    },
+    {
+     "id": "devices",
+     "name": "Devices and peripherals"
+    },
+    {
+     "id": "chips",
+     "name": "Processors and semiconductors"
+    }
+   ]
   },
   {
    "id": "sw",
    "name": "Computing software",
-   "colour": "#7FE3F0"
+   "colour": "#7FE3F0",
+   "subfields": [
+    {
+     "id": "ai-tools",
+     "name": "AI in software"
+    },
+    {
+     "id": "dev",
+     "name": "Programming and developer tools"
+    },
+    {
+     "id": "data",
+     "name": "Databases and data"
+    },
+    {
+     "id": "web",
+     "name": "Web and online services"
+    },
+    {
+     "id": "cloud",
+     "name": "Cloud and platforms"
+    },
+    {
+     "id": "apps",
+     "name": "Applications"
+    }
+   ]
   },
   {
    "id": "ai",
    "name": "Artificial intelligence",
-   "colour": "#C08BFF"
+   "colour": "#C08BFF",
+   "subfields": [
+    {
+     "id": "vision",
+     "name": "Vision"
+    },
+    {
+     "id": "language",
+     "name": "Language and speech"
+    },
+    {
+     "id": "agents",
+     "name": "Agents and automation"
+    },
+    {
+     "id": "science",
+     "name": "AI for science and industry"
+    },
+    {
+     "id": "methods",
+     "name": "Core methods and hardware"
+    }
+   ]
   },
   {
    "id": "quantum",
    "name": "Quantum",
-   "colour": "#FF7AC8"
+   "colour": "#FF7AC8",
+   "subfields": [
+    {
+     "id": "comms",
+     "name": "Quantum communication"
+    },
+    {
+     "id": "sensing",
+     "name": "Sensing, timing and metrology"
+    },
+    {
+     "id": "computing",
+     "name": "Quantum computing"
+    },
+    {
+     "id": "devices",
+     "name": "Quantum devices and lasers"
+    }
+   ]
   },
   {
    "id": "cyber",
    "name": "Cyber security",
-   "colour": "#FF6B6B"
+   "colour": "#FF6B6B",
+   "subfields": [
+    {
+     "id": "crypto",
+     "name": "Cryptography"
+    },
+    {
+     "id": "ot",
+     "name": "Industrial and OT security"
+    },
+    {
+     "id": "identity",
+     "name": "Identity and access"
+    },
+    {
+     "id": "governance",
+     "name": "Regulation and standards"
+    },
+    {
+     "id": "ops",
+     "name": "Security operations and AI defence"
+    },
+    {
+     "id": "network",
+     "name": "Network and endpoint security"
+    }
+   ]
   },
   {
    "id": "comms",
    "name": "Communications",
-   "colour": "#6BE39A"
+   "colour": "#6BE39A",
+   "subfields": [
+    {
+     "id": "satellite",
+     "name": "Satellite"
+    },
+    {
+     "id": "mobile",
+     "name": "Mobile"
+    },
+    {
+     "id": "broadcast",
+     "name": "Radio and television"
+    },
+    {
+     "id": "fibre",
+     "name": "Fibre and broadband"
+    },
+    {
+     "id": "messaging",
+     "name": "Messaging and collaboration"
+    },
+    {
+     "id": "internet",
+     "name": "Internet and networking"
+    }
+   ]
   },
   {
    "id": "materials",
    "name": "Materials science",
-   "colour": "#E8A07A"
+   "colour": "#E8A07A",
+   "subfields": [
+    {
+     "id": "energy-mat",
+     "name": "Energy materials"
+    },
+    {
+     "id": "electronic",
+     "name": "Electronic and optical materials"
+    },
+    {
+     "id": "nano",
+     "name": "Nanomaterials and 2D"
+    },
+    {
+     "id": "composites",
+     "name": "Composites and advanced fibres"
+    },
+    {
+     "id": "construction",
+     "name": "Construction materials"
+    },
+    {
+     "id": "polymers",
+     "name": "Polymers and plastics"
+    }
+   ]
   },
   {
    "id": "space",
    "name": "Space",
-   "colour": "#9FB4FF"
+   "colour": "#9FB4FF",
+   "subfields": [
+    {
+     "id": "human",
+     "name": "Human spaceflight"
+    },
+    {
+     "id": "eo",
+     "name": "Earth observation"
+    },
+    {
+     "id": "nav",
+     "name": "Navigation and timing"
+    },
+    {
+     "id": "satcom",
+     "name": "Satellite communications"
+    },
+    {
+     "id": "in-space",
+     "name": "In-space services and manufacturing"
+    },
+    {
+     "id": "launch",
+     "name": "Launch"
+    }
+   ]
   },
   {
    "id": "robotics",
    "name": "Robotics & autonomy",
-   "colour": "#B5E35A"
+   "colour": "#B5E35A",
+   "subfields": [
+    {
+     "id": "vehicles",
+     "name": "Autonomous vehicles"
+    },
+    {
+     "id": "drones",
+     "name": "Drones"
+    },
+    {
+     "id": "humanoids",
+     "name": "Humanoids and robot AI"
+    },
+    {
+     "id": "field",
+     "name": "Inspection and field robots"
+    },
+    {
+     "id": "service",
+     "name": "Service, home and medical robots"
+    },
+    {
+     "id": "industrial",
+     "name": "Industrial robots"
+    }
+   ]
   },
   {
    "id": "life",
    "name": "Life sciences",
-   "colour": "#4FD1B0"
+   "colour": "#4FD1B0",
+   "subfields": [
+    {
+     "id": "vaccines",
+     "name": "Vaccines"
+    },
+    {
+     "id": "genetics",
+     "name": "Genetics and gene therapy"
+    },
+    {
+     "id": "imaging",
+     "name": "Diagnostics and imaging"
+    },
+    {
+     "id": "devices",
+     "name": "Medical devices"
+    },
+    {
+     "id": "ai-bio",
+     "name": "Computational biology and AI"
+    },
+    {
+     "id": "medicines",
+     "name": "Medicines"
+    }
+   ]
   }
  ],
  "origins": [
@@ -315,7 +539,8 @@
    "tags": [
     "grid",
     "nuclear"
-   ]
+   ],
+   "subfield": "nuclear"
   },
   {
    "id": "hvdc-transmission",
@@ -351,7 +576,8 @@
    "region": "europe",
    "tags": [
     "grid"
-   ]
+   ],
+   "subfield": "grids"
   },
   {
    "id": "silicon-solar-cell",
@@ -388,7 +614,8 @@
    "tags": [
     "solar",
     "space"
-   ]
+   ],
+   "subfield": "renewables"
   },
   {
    "id": "utility-scale-wind",
@@ -424,7 +651,8 @@
    "region": "us",
    "tags": [
     "wind"
-   ]
+   ],
+   "subfield": "renewables"
   },
   {
    "id": "lithium-ion-battery",
@@ -461,7 +689,8 @@
    "tags": [
     "storage",
     "grid"
-   ]
+   ],
+   "subfield": "storage"
   },
   {
    "id": "high-temperature-superconducting-cable",
@@ -489,7 +718,8 @@
    "region": "us",
    "tags": [
     "grid"
-   ]
+   ],
+   "subfield": "grids"
   },
   {
    "id": "perovskite-solar",
@@ -517,7 +747,8 @@
    "region": "asia",
    "tags": [
     "solar"
-   ]
+   ],
+   "subfield": "renewables"
   },
   {
    "id": "fusion-power",
@@ -563,7 +794,8 @@
    "region": "europe",
    "tags": [
     "nuclear"
-   ]
+   ],
+   "subfield": "nuclear"
   },
   {
    "id": "tandem-solar-at-volume",
@@ -595,7 +827,8 @@
    "region": "uk",
    "tags": [
     "solar"
-   ]
+   ],
+   "subfield": "renewables"
   },
   {
    "id": "ai-in-grid-control-rooms",
@@ -644,7 +877,8 @@
     "solar",
     "wind",
     "ai-models"
-   ]
+   ],
+   "subfield": "ops"
   },
   {
    "id": "household-flexibility-at-scale",
@@ -675,7 +909,8 @@
     "storage",
     "grid",
     "heat"
-   ]
+   ],
+   "subfield": "demand"
   },
   {
    "id": "grid-forming-inverters-as-standard",
@@ -705,7 +940,8 @@
     "storage",
     "grid",
     "regulation"
-   ]
+   ],
+   "subfield": "storage"
   },
   {
    "id": "long-duration-storage-at-scale",
@@ -750,7 +986,8 @@
    "region": "uk",
    "tags": [
     "storage"
-   ]
+   ],
+   "subfield": "storage"
   },
   {
    "id": "first-uk-small-modular-reactors",
@@ -795,7 +1032,8 @@
    "region": "uk",
    "tags": [
     "nuclear"
-   ]
+   ],
+   "subfield": "nuclear"
   },
   {
    "id": "quantum-optimisation-pilots",
@@ -824,7 +1062,8 @@
    "region": "global",
    "tags": [
     "grid"
-   ]
+   ],
+   "subfield": "ops"
   },
   {
    "id": "stored-program-computer",
@@ -865,7 +1104,8 @@
     "what": "Computers in widespread use by large businesses and governments.",
     "basis": "ai-estimate"
    },
-   "region": "uk"
+   "region": "uk",
+   "subfield": "chips"
   },
   {
    "id": "transistor",
@@ -901,7 +1141,8 @@
    "region": "us",
    "tags": [
     "semiconductors"
-   ]
+   ],
+   "subfield": "chips"
   },
   {
    "id": "integrated-circuit",
@@ -938,7 +1179,8 @@
    "tags": [
     "semiconductors",
     "space"
-   ]
+   ],
+   "subfield": "chips"
   },
   {
    "id": "mosfet",
@@ -966,7 +1208,8 @@
    "region": "us",
    "tags": [
     "semiconductors"
-   ]
+   ],
+   "subfield": "chips"
   },
   {
    "id": "dram",
@@ -994,7 +1237,8 @@
    "region": "us",
    "tags": [
     "semiconductors"
-   ]
+   ],
+   "subfield": "memory"
   },
   {
    "id": "flash-memory",
@@ -1022,7 +1266,8 @@
    "region": "asia",
    "tags": [
     "semiconductors"
-   ]
+   ],
+   "subfield": "memory"
   },
   {
    "id": "giant-magnetoresistance",
@@ -1050,7 +1295,8 @@
    "region": "europe",
    "tags": [
     "materials"
-   ]
+   ],
+   "subfield": "memory"
   },
   {
    "id": "euv-lithography",
@@ -1086,7 +1332,8 @@
    "region": "us",
    "tags": [
     "semiconductors"
-   ]
+   ],
+   "subfield": "fab"
   },
   {
    "id": "gpus-for-general-computing",
@@ -1123,7 +1370,8 @@
    "tags": [
     "semiconductors",
     "ai-models"
-   ]
+   ],
+   "subfield": "compute"
   },
   {
    "id": "high-na-euv-in-volume-production",
@@ -1155,7 +1403,8 @@
    "region": "europe",
    "tags": [
     "semiconductors"
-   ]
+   ],
+   "subfield": "fab"
   },
   {
    "id": "optical-interconnects-in-ai-data-centres",
@@ -1183,7 +1432,8 @@
    "region": "us",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "compute"
   },
   {
    "id": "chiplet-ecosystems",
@@ -1212,7 +1462,8 @@
    "tags": [
     "semiconductors",
     "regulation"
-   ]
+   ],
+   "subfield": "fab"
   },
   {
    "id": "neuromorphic-chips-at-the-edge",
@@ -1241,7 +1492,8 @@
    "tags": [
     "semiconductors",
     "ai-models"
-   ]
+   ],
+   "subfield": "devices"
   },
   {
    "id": "high-level-programming-languages",
@@ -1266,7 +1518,8 @@
     "lastChecked": "2026-10-28",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "dev"
   },
   {
    "id": "time-sharing",
@@ -1291,7 +1544,8 @@
     "lastChecked": "2026-10-28",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "apps"
   },
   {
    "id": "object-oriented-programming",
@@ -1316,7 +1570,8 @@
     "lastChecked": "2026-10-28",
     "approximate": false
    },
-   "region": "europe"
+   "region": "europe",
+   "subfield": "dev"
   },
   {
    "id": "unix",
@@ -1341,7 +1596,8 @@
     "lastChecked": "2026-10-28",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "apps"
   },
   {
    "id": "relational-database",
@@ -1374,7 +1630,8 @@
     "what": "Relational databases become the standard for business data.",
     "basis": "ai-estimate"
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "data"
   },
   {
    "id": "graphical-interface",
@@ -1407,7 +1664,8 @@
     "what": "Graphical interfaces become standard on personal computers.",
     "basis": "ai-estimate"
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "apps"
   },
   {
    "id": "world-wide-web",
@@ -1443,7 +1701,8 @@
    "region": "europe",
    "tags": [
     "networks"
-   ]
+   ],
+   "subfield": "web"
   },
   {
    "id": "open-source-operating-systems",
@@ -1476,7 +1735,8 @@
     "what": "Linux runs most of the world’s web servers.",
     "basis": "ai-estimate"
    },
-   "region": "europe"
+   "region": "europe",
+   "subfield": "cloud"
   },
   {
    "id": "virtualisation-on-pcs",
@@ -1501,7 +1761,8 @@
     "lastChecked": "2026-10-28",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "cloud"
   },
   {
    "id": "large-scale-data-processing",
@@ -1526,7 +1787,8 @@
     "lastChecked": "2026-10-28",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "data"
   },
   {
    "id": "ai-writes-most-new-code",
@@ -1554,7 +1816,8 @@
    "region": "us",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "ai-tools"
   },
   {
    "id": "agent-interoperability-standards",
@@ -1586,7 +1849,8 @@
    "tags": [
     "ai-models",
     "regulation"
-   ]
+   ],
+   "subfield": "ai-tools"
   },
   {
    "id": "memory-safe-languages-by-default",
@@ -1611,7 +1875,8 @@
     "lastChecked": "2026-10-28",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "dev"
   },
   {
    "id": "ai-assisted-formal-verification",
@@ -1639,7 +1904,8 @@
    "region": "global",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "ai-tools"
   },
   {
    "id": "expert-systems",
@@ -1667,7 +1933,8 @@
    "region": "us",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "science"
   },
   {
    "id": "statistical-speech-recognition",
@@ -1695,7 +1962,8 @@
    "region": "us",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "language"
   },
   {
    "id": "neural-networks-in-products",
@@ -1723,7 +1991,8 @@
    "region": "us",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "methods"
   },
   {
    "id": "deep-learning-for-images",
@@ -1759,7 +2028,8 @@
    "region": "other",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "vision"
   },
   {
    "id": "transformer-models",
@@ -1795,7 +2065,8 @@
    "region": "us",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "language"
   },
   {
    "id": "learning-from-human-feedback",
@@ -1831,7 +2102,8 @@
    "region": "us",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "language"
   },
   {
    "id": "diffusion-image-generation",
@@ -1860,7 +2132,8 @@
    "tags": [
     "nuclear",
     "ai-models"
-   ]
+   ],
+   "subfield": "vision"
   },
   {
    "id": "reasoning-models",
@@ -1891,7 +2164,8 @@
    "region": "us",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "language"
   },
   {
    "id": "agentic-ai-in-everyday-work",
@@ -1922,7 +2196,8 @@
    "region": "us",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "agents"
   },
   {
    "id": "on-device-ai-as-default",
@@ -1950,7 +2225,8 @@
    "region": "us",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "methods"
   },
   {
    "id": "eu-high-risk-ai-rules-apply",
@@ -1996,7 +2272,8 @@
    "tags": [
     "ai-models",
     "regulation"
-   ]
+   ],
+   "subfield": "methods"
   },
   {
    "id": "ai-as-a-scientific-collaborator",
@@ -2025,7 +2302,8 @@
    "region": "global",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "science"
   },
   {
    "id": "atomic-clock",
@@ -2061,7 +2339,8 @@
    "region": "us",
    "tags": [
     "grid"
-   ]
+   ],
+   "subfield": "sensing"
   },
   {
    "id": "laser",
@@ -2094,7 +2373,8 @@
     "what": "Lasers appear in everyday products such as barcode scanners and CD players.",
     "basis": "ai-estimate"
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "devices"
   },
   {
    "id": "quantum-key-distribution",
@@ -2130,7 +2410,8 @@
    "region": "us",
    "tags": [
     "cryptography"
-   ]
+   ],
+   "subfield": "comms"
   },
   {
    "id": "quantum-annealing",
@@ -2155,7 +2436,8 @@
     "lastChecked": "2026-10-28",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "computing"
   },
   {
    "id": "quantum-computing-access",
@@ -2186,7 +2468,8 @@
    "region": "asia",
    "tags": [
     "semiconductors"
-   ]
+   ],
+   "subfield": "computing"
   },
   {
    "id": "quantum-gravimeter",
@@ -2211,7 +2494,8 @@
     "lastChecked": "2026-10-28",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "sensing"
   },
   {
    "id": "cryptographically-relevant-quantum-computer",
@@ -2242,7 +2526,8 @@
    "region": "us",
    "tags": [
     "cryptography"
-   ]
+   ],
+   "subfield": "comms"
   },
   {
    "id": "verified-quantum-advantage",
@@ -2271,7 +2556,8 @@
     "lastChecked": "2026-10-28",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "computing"
   },
   {
    "id": "fault-tolerant-quantum-computer",
@@ -2303,7 +2589,8 @@
     "lastChecked": "2026-10-28",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "computing"
   },
   {
    "id": "quantum-navigation-in-service",
@@ -2335,7 +2622,8 @@
    "region": "uk",
    "tags": [
     "space"
-   ]
+   ],
+   "subfield": "sensing"
   },
   {
    "id": "machine-codebreaking",
@@ -2363,7 +2651,8 @@
     "lastChecked": "2026-10-28",
     "approximate": false
    },
-   "region": "uk"
+   "region": "uk",
+   "subfield": "crypto"
   },
   {
    "id": "public-key-cryptography-secret",
@@ -2391,7 +2680,8 @@
    "region": "uk",
    "tags": [
     "cryptography"
-   ]
+   ],
+   "subfield": "crypto"
   },
   {
    "id": "public-key-cryptography-open",
@@ -2427,7 +2717,8 @@
    "region": "us",
    "tags": [
     "cryptography"
-   ]
+   ],
+   "subfield": "crypto"
   },
   {
    "id": "antivirus",
@@ -2452,7 +2743,8 @@
     "lastChecked": "2026-10-28",
     "approximate": false
    },
-   "region": "europe"
+   "region": "europe",
+   "subfield": "network"
   },
   {
    "id": "intrusion-detection",
@@ -2477,7 +2769,8 @@
     "lastChecked": "2026-10-28",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "ops"
   },
   {
    "id": "firewall",
@@ -2522,7 +2815,8 @@
    "region": "us",
    "tags": [
     "networks"
-   ]
+   ],
+   "subfield": "network"
   },
   {
    "id": "industrial-control-system-security",
@@ -2555,7 +2849,8 @@
     "what": "Security monitoring becomes common practice in critical infrastructure networks.",
     "basis": "ai-estimate"
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "ot"
   },
   {
    "id": "homomorphic-encryption",
@@ -2583,7 +2878,8 @@
    "region": "us",
    "tags": [
     "cryptography"
-   ]
+   ],
+   "subfield": "crypto"
   },
   {
    "id": "zero-trust",
@@ -2616,7 +2912,8 @@
      "checked": "2026-10-28"
     }
    ],
-   "region": "us"
+   "region": "us",
+   "subfield": "network"
   },
   {
    "id": "post-quantum-cryptography",
@@ -2661,7 +2958,8 @@
    "tags": [
     "cryptography",
     "regulation"
-   ]
+   ],
+   "subfield": "crypto"
   },
   {
    "id": "ai-vulnerability-discovery",
@@ -2701,7 +2999,8 @@
    "tags": [
     "ai-models",
     "robots"
-   ]
+   ],
+   "subfield": "ops"
   },
   {
    "id": "post-quantum-migration-of-priority-systems",
@@ -2746,7 +3045,8 @@
    "tags": [
     "cryptography",
     "regulation"
-   ]
+   ],
+   "subfield": "crypto"
   },
   {
    "id": "ai-agents-in-security-operations",
@@ -2774,7 +3074,8 @@
    "region": "us",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "ops"
   },
   {
    "id": "exploit-windows-collapse",
@@ -2802,7 +3103,8 @@
    "region": "global",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "governance"
   },
   {
    "id": "automated-vulnerability-repair",
@@ -2832,7 +3134,8 @@
     "ai-models",
     "robots",
     "regulation"
-   ]
+   ],
+   "subfield": "ops"
   },
   {
    "id": "ai-anomaly-detection-in-ot-networks",
@@ -2862,7 +3165,8 @@
    "tags": [
     "ai-models",
     "regulation"
-   ]
+   ],
+   "subfield": "ot"
   },
   {
    "id": "television",
@@ -2895,7 +3199,8 @@
     "what": "Most UK households have a television.",
     "basis": "ai-estimate"
    },
-   "region": "uk"
+   "region": "uk",
+   "subfield": "broadcast"
   },
   {
    "id": "radar",
@@ -2936,7 +3241,8 @@
     "what": "Radar becomes standard in military and civil aviation.",
     "basis": "ai-estimate"
    },
-   "region": "uk"
+   "region": "uk",
+   "subfield": "internet"
   },
   {
    "id": "cellular-networks",
@@ -2972,7 +3278,8 @@
    "region": "us",
    "tags": [
     "networks"
-   ]
+   ],
+   "subfield": "mobile"
   },
   {
    "id": "communications-satellites",
@@ -3000,7 +3307,8 @@
    "region": "us",
    "tags": [
     "space"
-   ]
+   ],
+   "subfield": "satellite"
   },
   {
    "id": "ldpc-error-correcting-codes",
@@ -3030,7 +3338,8 @@
     "networks",
     "space",
     "regulation"
-   ]
+   ],
+   "subfield": "satellite"
   },
   {
    "id": "optical-fibre",
@@ -3067,7 +3376,8 @@
    "tags": [
     "networks",
     "materials"
-   ]
+   ],
+   "subfield": "fibre"
   },
   {
    "id": "wi-fi-technology",
@@ -3103,7 +3413,8 @@
    "region": "other",
    "tags": [
     "networks"
-   ]
+   ],
+   "subfield": "internet"
   },
   {
    "id": "mimo-wireless",
@@ -3140,7 +3451,8 @@
    "tags": [
     "semiconductors",
     "networks"
-   ]
+   ],
+   "subfield": "internet"
   },
   {
    "id": "massive-mimo",
@@ -3169,7 +3481,8 @@
    "tags": [
     "networks",
     "regulation"
-   ]
+   ],
+   "subfield": "mobile"
   },
   {
    "id": "satellite-direct-to-phones",
@@ -3198,7 +3511,8 @@
    "tags": [
     "space",
     "regulation"
-   ]
+   ],
+   "subfield": "satellite"
   },
   {
    "id": "first-6g-networks",
@@ -3231,7 +3545,8 @@
    "tags": [
     "ai-models",
     "networks"
-   ]
+   ],
+   "subfield": "mobile"
   },
   {
    "id": "polyethylene",
@@ -3259,7 +3574,8 @@
    "region": "uk",
    "tags": [
     "materials"
-   ]
+   ],
+   "subfield": "construction"
   },
   {
    "id": "nylon",
@@ -3292,7 +3608,8 @@
     "what": "Nylon is widely used in clothing and consumer goods.",
     "basis": "ai-estimate"
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "polymers"
   },
   {
    "id": "ptfe-teflon",
@@ -3317,7 +3634,8 @@
     "lastChecked": "2026-10-28",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "polymers"
   },
   {
    "id": "carbon-fibre",
@@ -3354,7 +3672,8 @@
    "tags": [
     "networks",
     "materials"
-   ]
+   ],
+   "subfield": "composites"
   },
   {
    "id": "kevlar",
@@ -3382,7 +3701,8 @@
    "region": "us",
    "tags": [
     "networks"
-   ]
+   ],
+   "subfield": "composites"
   },
   {
    "id": "stable-liquid-crystals",
@@ -3407,7 +3727,8 @@
     "lastChecked": "2026-10-28",
     "approximate": false
    },
-   "region": "uk"
+   "region": "uk",
+   "subfield": "electronic"
   },
   {
    "id": "blue-led",
@@ -3440,7 +3761,8 @@
     "what": "LED lighting becomes mainstream in homes and streets.",
     "basis": "ai-estimate"
    },
-   "region": "asia"
+   "region": "asia",
+   "subfield": "electronic"
   },
   {
    "id": "metal-organic-frameworks",
@@ -3468,7 +3790,8 @@
    "region": "us",
    "tags": [
     "storage"
-   ]
+   ],
+   "subfield": "electronic"
   },
   {
    "id": "metamaterials",
@@ -3504,7 +3827,8 @@
    "region": "uk",
    "tags": [
     "space"
-   ]
+   ],
+   "subfield": "polymers"
   },
   {
    "id": "graphene",
@@ -3535,7 +3859,8 @@
    "region": "uk",
    "tags": [
     "materials"
-   ]
+   ],
+   "subfield": "nano"
   },
   {
    "id": "sodium-ion-batteries",
@@ -3563,7 +3888,8 @@
    "region": "asia",
    "tags": [
     "storage"
-   ]
+   ],
+   "subfield": "energy-mat"
   },
   {
    "id": "solid-state-batteries-in-production-cars",
@@ -3598,7 +3924,8 @@
    "region": "asia",
    "tags": [
     "storage"
-   ]
+   ],
+   "subfield": "energy-mat"
   },
   {
    "id": "sodium-ion-grid-storage-at-scale",
@@ -3627,7 +3954,8 @@
    "tags": [
     "storage",
     "grid"
-   ]
+   ],
+   "subfield": "energy-mat"
   },
   {
    "id": "mofs-for-carbon-capture",
@@ -3660,7 +3988,8 @@
      "checked": "2026-10-28"
     }
    ],
-   "region": "other"
+   "region": "other",
+   "subfield": "energy-mat"
   },
   {
    "id": "ai-discovered-materials-in-products",
@@ -3689,7 +4018,8 @@
    "region": "us",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "polymers"
   },
   {
    "id": "liquid-fuelled-rocket-to-orbit",
@@ -3725,7 +4055,8 @@
    "region": "us",
    "tags": [
     "space"
-   ]
+   ],
+   "subfield": "launch"
   },
   {
    "id": "commercial-earth-observation",
@@ -3761,7 +4092,8 @@
    "region": "us",
    "tags": [
     "space"
-   ]
+   ],
+   "subfield": "eo"
   },
   {
    "id": "satellite-navigation",
@@ -3798,7 +4130,8 @@
    "tags": [
     "grid",
     "space"
-   ]
+   ],
+   "subfield": "nav"
   },
   {
    "id": "reusable-rockets",
@@ -3834,7 +4167,8 @@
    "region": "us",
    "tags": [
     "space"
-   ]
+   ],
+   "subfield": "launch"
   },
   {
    "id": "cubesats",
@@ -3863,7 +4197,8 @@
    "tags": [
     "space",
     "regulation"
-   ]
+   ],
+   "subfield": "eo"
   },
   {
    "id": "low-orbit-satellite-broadband",
@@ -3895,7 +4230,8 @@
    "tags": [
     "networks",
     "space"
-   ]
+   ],
+   "subfield": "satcom"
   },
   {
    "id": "in-orbit-satellite-servicing",
@@ -3932,7 +4268,8 @@
    "tags": [
     "space",
     "robots"
-   ]
+   ],
+   "subfield": "in-space"
   },
   {
    "id": "fully-reusable-heavy-launch",
@@ -3957,7 +4294,8 @@
     "lastChecked": "2026-10-28",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "launch"
   },
   {
    "id": "in-orbit-refuelling",
@@ -3994,7 +4332,8 @@
    "tags": [
     "space",
     "robots"
-   ]
+   ],
+   "subfield": "in-space"
   },
   {
    "id": "space-based-solar-power-demonstration",
@@ -4023,7 +4362,8 @@
    "tags": [
     "solar",
     "space"
-   ]
+   ],
+   "subfield": "in-space"
   },
   {
    "id": "industrial-robot",
@@ -4059,7 +4399,8 @@
    "region": "us",
    "tags": [
     "robots"
-   ]
+   ],
+   "subfield": "industrial"
   },
   {
    "id": "home-robots",
@@ -4087,7 +4428,8 @@
    "region": "us",
    "tags": [
     "robots"
-   ]
+   ],
+   "subfield": "service"
   },
   {
    "id": "surgical-robots",
@@ -4116,7 +4458,8 @@
    "tags": [
     "robots",
     "regulation"
-   ]
+   ],
+   "subfield": "service"
   },
   {
    "id": "driverless-cars",
@@ -4147,7 +4490,8 @@
    "region": "us",
    "tags": [
     "robots"
-   ]
+   ],
+   "subfield": "vehicles"
   },
   {
    "id": "consumer-drones",
@@ -4183,7 +4527,8 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
-   ]
+   ],
+   "subfield": "drones"
   },
   {
    "id": "uk-robotaxis",
@@ -4228,7 +4573,8 @@
     "ai-models",
     "robots",
     "regulation"
-   ]
+   ],
+   "subfield": "vehicles"
   },
   {
    "id": "fully-driverless-rides-in-london",
@@ -4261,7 +4607,8 @@
    "tags": [
     "robots",
     "regulation"
-   ]
+   ],
+   "subfield": "vehicles"
   },
   {
    "id": "humanoid-robots-at-work",
@@ -4293,7 +4640,8 @@
    ],
    "flags": {
     "disputed": true
-   }
+   },
+   "subfield": "humanoids"
   },
   {
    "id": "routine-beyond-sight-drone-inspection",
@@ -4323,7 +4671,8 @@
     "grid",
     "space",
     "robots"
-   ]
+   ],
+   "subfield": "drones"
   },
   {
    "id": "penicillin",
@@ -4367,7 +4716,8 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
-   ]
+   ],
+   "subfield": "medicines"
   },
   {
    "id": "recombinant-dna",
@@ -4412,7 +4762,8 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
-   ]
+   ],
+   "subfield": "genetics"
   },
   {
    "id": "mri-scanning",
@@ -4457,7 +4808,8 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
-   ]
+   ],
+   "subfield": "imaging"
   },
   {
    "id": "monoclonal-antibodies",
@@ -4493,7 +4845,8 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
-   ]
+   ],
+   "subfield": "medicines"
   },
   {
    "id": "pcr",
@@ -4526,7 +4879,8 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
-   ]
+   ],
+   "subfield": "genetics"
   },
   {
    "id": "genome-sequencing-to-consumers",
@@ -4563,7 +4917,8 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
-   ]
+   ],
+   "subfield": "genetics"
   },
   {
    "id": "mrna-vaccines",
@@ -4607,7 +4962,8 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
-   ]
+   ],
+   "subfield": "vaccines"
   },
   {
    "id": "crispr-gene-editing",
@@ -4648,7 +5004,8 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
-   ]
+   ],
+   "subfield": "genetics"
   },
   {
    "id": "protein-structure-prediction",
@@ -4692,7 +5049,8 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
-   ]
+   ],
+   "subfield": "ai-bio"
   },
   {
    "id": "ai-discovered-medicines",
@@ -4721,7 +5079,8 @@
    "tags": [
     "ai-models",
     "medicine"
-   ]
+   ],
+   "subfield": "ai-bio"
   },
   {
    "id": "in-body-gene-editing",
@@ -4750,7 +5109,8 @@
    "tags": [
     "medicine",
     "genetics"
-   ]
+   ],
+   "subfield": "genetics"
   },
   {
    "id": "computer-weather-forecasting",
@@ -4780,7 +5140,8 @@
    "tags": [
     "solar",
     "wind"
-   ]
+   ],
+   "subfield": "ops"
   },
   {
    "id": "power-system-state-estimation",
@@ -4809,7 +5170,8 @@
    "region": "us",
    "tags": [
     "grid"
-   ]
+   ],
+   "subfield": "ops"
   },
   {
    "id": "synchrophasor-measurement",
@@ -4839,7 +5201,8 @@
    "tags": [
     "grid",
     "ai-models"
-   ]
+   ],
+   "subfield": "grids"
   },
   {
    "id": "wind-power-forecasting",
@@ -4869,7 +5232,8 @@
    "tags": [
     "wind",
     "ai-models"
-   ]
+   ],
+   "subfield": "renewables"
   },
   {
    "id": "wind-turbine-predictive-maintenance",
@@ -4907,7 +5271,8 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
-   ]
+   ],
+   "subfield": "renewables"
   },
   {
    "id": "ai-data-centre-cooling",
@@ -4944,7 +5309,8 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
-   ]
+   ],
+   "subfield": "ops"
   },
   {
    "id": "smart-ev-charging",
@@ -4973,7 +5339,8 @@
    "region": "global",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "demand"
   },
   {
    "id": "machine-learning-solar-nowcasting",
@@ -5003,7 +5370,8 @@
    "tags": [
     "solar",
     "ai-models"
-   ]
+   ],
+   "subfield": "renewables"
   },
   {
    "id": "a-largely-self-running-energy-system",
@@ -5032,7 +5400,8 @@
    "region": "uk",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "ops"
   },
   {
    "id": "ai-predictive-maintenance-across-networks",
@@ -5061,7 +5430,8 @@
    "region": "global",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "ops"
   },
   {
    "id": "self-updating-network-digital-twins",
@@ -5087,7 +5457,8 @@
     "lastChecked": "2026-10-28",
     "approximate": false
    },
-   "region": "uk"
+   "region": "uk",
+   "subfield": "ops"
   },
   {
    "id": "ai-assurance-for-energy",
@@ -5125,7 +5496,8 @@
    "region": "uk",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "ops"
   },
   {
    "id": "ai-for-clean-energy-strategy",
@@ -5163,7 +5535,8 @@
    "region": "uk",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "ops"
   },
   {
    "id": "machine-speed-flexibility-markets",
@@ -5195,7 +5568,8 @@
    "region": "uk",
    "tags": [
     "grid"
-   ]
+   ],
+   "subfield": "demand"
   },
   {
    "id": "ai-plasma-control-for-fusion",
@@ -5225,7 +5599,8 @@
    "tags": [
     "nuclear",
     "ai-models"
-   ]
+   ],
+   "subfield": "nuclear"
   },
   {
    "id": "combined-cycle-gas-turbine",
@@ -5253,7 +5628,8 @@
    "region": "us",
    "tags": [
     "wind"
-   ]
+   ],
+   "subfield": "fuels"
   },
   {
    "id": "grid-scale-lithium-ion-storage",
@@ -5290,7 +5666,8 @@
    "tags": [
     "storage",
     "grid"
-   ]
+   ],
+   "subfield": "storage"
   },
   {
    "id": "magnetic-core-memory",
@@ -5318,7 +5695,8 @@
    "region": "us",
    "tags": [
     "materials"
-   ]
+   ],
+   "subfield": "memory"
   },
   {
    "id": "hard-disk-drive",
@@ -5346,7 +5724,8 @@
    "region": "us",
    "tags": [
     "storage"
-   ]
+   ],
+   "subfield": "memory"
   },
   {
    "id": "cmos-logic",
@@ -5374,7 +5753,8 @@
    "region": "us",
    "tags": [
     "semiconductors"
-   ]
+   ],
+   "subfield": "devices"
   },
   {
    "id": "microprocessor",
@@ -5410,7 +5790,8 @@
    "region": "us",
    "tags": [
     "semiconductors"
-   ]
+   ],
+   "subfield": "chips"
   },
   {
    "id": "risc-processors",
@@ -5438,7 +5819,8 @@
    "region": "us",
    "tags": [
     "semiconductors"
-   ]
+   ],
+   "subfield": "chips"
   },
   {
    "id": "finfet-transistors",
@@ -5467,7 +5849,8 @@
    "tags": [
     "semiconductors",
     "regulation"
-   ]
+   ],
+   "subfield": "chips"
   },
   {
    "id": "utility-and-cloud-computing",
@@ -5503,7 +5886,8 @@
    "region": "us",
    "tags": [
     "networks"
-   ]
+   ],
+   "subfield": "cloud"
   },
   {
    "id": "blockchain",
@@ -5528,7 +5912,8 @@
     "lastChecked": "2026-10-28",
     "approximate": false
    },
-   "region": "global"
+   "region": "global",
+   "subfield": "apps"
   },
   {
    "id": "web-search-ranking",
@@ -5556,7 +5941,8 @@
    "region": "us",
    "tags": [
     "networks"
-   ]
+   ],
+   "subfield": "data"
   },
   {
    "id": "statistical-machine-translation",
@@ -5584,7 +5970,8 @@
    "region": "us",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "language"
   },
   {
    "id": "recommender-systems",
@@ -5612,7 +5999,8 @@
    "region": "us",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "methods"
   },
   {
    "id": "lstm-networks",
@@ -5641,7 +6029,8 @@
    "tags": [
     "semiconductors",
     "ai-models"
-   ]
+   ],
+   "subfield": "language"
   },
   {
    "id": "voice-assistants",
@@ -5669,7 +6058,8 @@
    "region": "us",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "language"
   },
   {
    "id": "squid-magnetometers",
@@ -5697,7 +6087,8 @@
    "region": "us",
    "tags": [
     "materials"
-   ]
+   ],
+   "subfield": "sensing"
   },
   {
    "id": "trapped-ion-quantum-computing",
@@ -5722,7 +6113,8 @@
     "lastChecked": "2026-10-28",
     "approximate": false
    },
-   "region": "europe"
+   "region": "europe",
+   "subfield": "computing"
   },
   {
    "id": "data-encryption-standard",
@@ -5751,7 +6143,8 @@
    "tags": [
     "cryptography",
     "regulation"
-   ]
+   ],
+   "subfield": "crypto"
   },
   {
    "id": "aes-encryption",
@@ -5780,7 +6173,8 @@
    "tags": [
     "cryptography",
     "regulation"
-   ]
+   ],
+   "subfield": "crypto"
   },
   {
    "id": "passkeys",
@@ -5808,7 +6202,8 @@
    "region": "us",
    "tags": [
     "cryptography"
-   ]
+   ],
+   "subfield": "identity"
   },
   {
    "id": "packet-switching",
@@ -5836,7 +6231,8 @@
    "region": "uk",
    "tags": [
     "networks"
-   ]
+   ],
+   "subfield": "mobile"
   },
   {
    "id": "tcp-ip",
@@ -5872,7 +6268,8 @@
    "region": "us",
    "tags": [
     "networks"
-   ]
+   ],
+   "subfield": "internet"
   },
   {
    "id": "gsm-mobile",
@@ -5909,7 +6306,8 @@
    "tags": [
     "networks",
     "regulation"
-   ]
+   ],
+   "subfield": "mobile"
   },
   {
    "id": "bluetooth",
@@ -5937,7 +6335,8 @@
    "region": "europe",
    "tags": [
     "networks"
-   ]
+   ],
+   "subfield": "mobile"
   },
   {
    "id": "shape-memory-alloy",
@@ -5965,7 +6364,8 @@
    "region": "us",
    "tags": [
     "materials"
-   ]
+   ],
+   "subfield": "composites"
   },
   {
    "id": "strengthened-glass",
@@ -5993,7 +6393,8 @@
    "region": "us",
    "tags": [
     "materials"
-   ]
+   ],
+   "subfield": "electronic"
   },
   {
    "id": "neodymium-magnets",
@@ -6030,7 +6431,8 @@
    "tags": [
     "wind",
     "materials"
-   ]
+   ],
+   "subfield": "energy-mat"
   },
   {
    "id": "electric-propulsion",
@@ -6059,7 +6461,8 @@
    "tags": [
     "space",
     "regulation"
-   ]
+   ],
+   "subfield": "satcom"
   },
   {
    "id": "satellite-television",
@@ -6087,7 +6490,8 @@
    "region": "us",
    "tags": [
     "space"
-   ]
+   ],
+   "subfield": "satcom"
   },
   {
    "id": "robot-mapping-slam",
@@ -6115,7 +6519,8 @@
    "region": "other",
    "tags": [
     "robots"
-   ]
+   ],
+   "subfield": "service"
   },
   {
    "id": "warehouse-robots",
@@ -6144,7 +6549,8 @@
    "tags": [
     "networks",
     "robots"
-   ]
+   ],
+   "subfield": "service"
   },
   {
    "id": "spinning-lidar",
@@ -6166,14 +6572,11 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "region": "us",
-   "tags": [
-    "robots",
-    "computer-vision"
-   ]
+   "subfield": "industrial"
   },
   {
    "id": "dna-sequencing",
@@ -6195,10 +6598,10 @@
     "major": true
    },
    "provenance": {
-    "verification": "source-cited",
+    "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "adoption": {
@@ -6210,14 +6613,7 @@
    "tags": [
     "genetics"
    ],
-   "refs": [
-    {
-     "label": "Wikipedia: Sanger sequencing",
-     "url": "https://en.wikipedia.org/wiki/Sanger_sequencing",
-     "status": "ok",
-     "checked": "2026-10-28"
-    }
-   ]
+   "subfield": "genetics"
   },
   {
    "id": "statins",
@@ -6236,24 +6632,14 @@
    "confidence": "high",
    "note": "Typical of medicines: about 14 years.",
    "provenance": {
-    "verification": "source-cited",
+    "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "region": "asia",
-   "refs": [
-    {
-     "label": "Lasker Foundation: Statins",
-     "url": "https://laskerfoundation.org/winners/statins-for-lowering-ldl-and-decreasing-heart-attacks/",
-     "status": "ok",
-     "checked": "2026-10-28"
-    }
-   ],
-   "tags": [
-    "medicine"
-   ]
+   "subfield": "medicines"
   },
   {
    "id": "next-generation-sequencing",
@@ -6272,24 +6658,17 @@
    "confidence": "high",
    "note": "A UK invention that cut genome costs a million-fold.",
    "provenance": {
-    "verification": "source-cited",
+    "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "region": "uk",
    "tags": [
     "genetics"
    ],
-   "refs": [
-    {
-     "label": "Cambridge Enterprise: Solexa case study",
-     "url": "https://www.enterprise.cam.ac.uk/case-studies/solexa-second-generation-genetic-sequencing/",
-     "status": "ok",
-     "checked": "2026-10-28"
-    }
-   ]
+   "subfield": "genetics"
   },
   {
    "id": "sap-enterprise-software",
@@ -6312,10 +6691,11 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "apps"
   },
   {
    "id": "electronic-spreadsheet",
@@ -6338,10 +6718,11 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "data"
   },
   {
    "id": "postscript-and-desktop-publishing",
@@ -6361,21 +6742,14 @@
    "note": "Another PARC idea commercialised by people who left PARC.",
    "company": "Adobe",
    "provenance": {
-    "verification": "source-cited",
+    "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "region": "us",
-   "refs": [
-    {
-     "label": "Computer History Museum: John Warnock",
-     "url": "https://computerhistory.org/profile/john-warnock/",
-     "status": "ok",
-     "checked": "2026-10-28"
-    }
-   ]
+   "subfield": "dev"
   },
   {
    "id": "microsoft-windows",
@@ -6395,26 +6769,14 @@
    "note": "Popularised graphical computing on IBM-compatible PCs.",
    "company": "Microsoft",
    "provenance": {
-    "verification": "source-cited",
+    "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "region": "us",
-   "refs": [
-    {
-     "label": "SoftwareKeep: Windows OS history",
-     "url": "https://softwarekeep.com/blogs/news/history-of-windows-operating-system",
-     "status": "ok",
-     "checked": "2026-10-28"
-    }
-   ],
-   "adoption": {
-    "year": 1990,
-    "what": "Windows 3.0 makes Windows the mainstream PC graphical interface.",
-    "basis": "ai-estimate"
-   }
+   "subfield": "apps"
   },
   {
    "id": "software-as-a-service",
@@ -6437,13 +6799,14 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "region": "us",
    "tags": [
     "networks"
-   ]
+   ],
+   "subfield": "cloud"
   },
   {
    "id": "social-networking",
@@ -6466,10 +6829,10 @@
     "major": true
    },
    "provenance": {
-    "verification": "source-cited",
+    "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "adoption": {
@@ -6478,17 +6841,7 @@
     "basis": "ai-estimate"
    },
    "region": "us",
-   "refs": [
-    {
-     "label": "Wikipedia: Facebook",
-     "url": "https://en.wikipedia.org/wiki/Facebook",
-     "status": "ok",
-     "checked": "2026-10-28"
-    }
-   ],
-   "tags": [
-    "networks"
-   ]
+   "subfield": "web"
   },
   {
    "id": "online-video-sharing",
@@ -6511,13 +6864,11 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "region": "us",
-   "tags": [
-    "networks"
-   ]
+   "subfield": "web"
   },
   {
    "id": "microblogging",
@@ -6537,24 +6888,14 @@
    "note": "From internal hack to public product in months.",
    "company": "Twitter",
    "provenance": {
-    "verification": "source-cited",
+    "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "region": "us",
-   "refs": [
-    {
-     "label": "History.com: Twitter launches",
-     "url": "https://www.history.com/this-day-in-history/july-15/twitter-launches",
-     "status": "ok",
-     "checked": "2026-10-28"
-    }
-   ],
-   "tags": [
-    "networks"
-   ]
+   "subfield": "web"
   },
   {
    "id": "music-streaming",
@@ -6574,24 +6915,14 @@
    "note": "Licensing, not technology, set the pace.",
    "company": "Spotify",
    "provenance": {
-    "verification": "source-cited",
+    "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "region": "europe",
-   "refs": [
-    {
-     "label": "99founder: Spotify profile",
-     "url": "https://99founder.com/articles/spotify.html",
-     "status": "ok",
-     "checked": "2026-10-28"
-    }
-   ],
-   "tags": [
-    "networks"
-   ]
+   "subfield": "apps"
   },
   {
    "id": "mobile-photo-sharing",
@@ -6611,24 +6942,17 @@
    "note": "Sold to Facebook for $1bn 18 months later.",
    "company": "Instagram",
    "provenance": {
-    "verification": "source-cited",
+    "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "region": "us",
    "tags": [
     "networks"
    ],
-   "refs": [
-    {
-     "label": "Wikipedia: Timeline of Instagram",
-     "url": "https://en.wikipedia.org/wiki/Timeline_of_Instagram",
-     "status": "ok",
-     "checked": "2026-10-28"
-    }
-   ]
+   "subfield": "web"
   },
   {
    "id": "workplace-messaging",
@@ -6648,21 +6972,14 @@
    "note": "A side project that outgrew the main product.",
    "company": "Slack",
    "provenance": {
-    "verification": "source-cited",
+    "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "region": "us",
-   "refs": [
-    {
-     "label": "Wikipedia: Stewart Butterfield",
-     "url": "https://en.wikipedia.org/wiki/Stewart_Butterfield",
-     "status": "ok",
-     "checked": "2026-10-28"
-    }
-   ]
+   "subfield": "web"
   },
   {
    "id": "ibm-system-360",
@@ -6682,21 +6999,14 @@
    "note": "Created the idea of a compatible computer architecture.",
    "company": "IBM",
    "provenance": {
-    "verification": "source-cited",
+    "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "region": "us",
-   "refs": [
-    {
-     "label": "Invention & Technology: The Ancient History of System/360",
-     "url": "https://www.inventionandtech.com/node/85435",
-     "status": "ok",
-     "checked": "2026-10-28"
-    }
-   ]
+   "subfield": "compute"
   },
   {
    "id": "cray-1-supercomputer",
@@ -6716,36 +7026,17 @@
    "note": "Supercomputers later became essential to weather and grid modelling.",
    "company": "Cray Research",
    "provenance": {
-    "verification": "source-cited",
+    "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "region": "us",
    "tags": [
     "grid"
    ],
-   "refs": [
-    {
-     "label": "Computer History Museum – Cray-1 30th anniversary",
-     "url": "https://computerhistory.org/events/cray1-supercomputer-30th-anniversary-eventcelebrating/",
-     "status": "ok",
-     "checked": "2026-10-28"
-    },
-    {
-     "label": "Centre for Computing History – first Cray-1A delivered",
-     "url": "https://www.computinghistory.org.uk/det/8605/Cray-Research-delivers-the-first-Cray-1A/",
-     "status": "ok",
-     "checked": "2026-10-28"
-    },
-    {
-     "label": "Wikipedia – Supercomputer (Cray Research founded 1972)",
-     "url": "https://en.wikipedia.org/wiki/Supercomputer",
-     "status": "ok",
-     "checked": "2026-10-28"
-    }
-   ]
+   "subfield": "compute"
   },
   {
    "id": "apple-ii-personal-computer",
@@ -6768,10 +7059,11 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "devices"
   },
   {
    "id": "ibm-pc",
@@ -6797,7 +7089,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "adoption": {
@@ -6805,7 +7097,8 @@
     "what": "PCs are common in offices and many homes.",
     "basis": "ai-estimate"
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "devices"
   },
   {
    "id": "pure-play-chip-foundry",
@@ -6828,13 +7121,14 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "region": "asia",
    "tags": [
     "semiconductors"
-   ]
+   ],
+   "subfield": "chips"
   },
   {
    "id": "graphics-processing-unit",
@@ -6857,14 +7151,15 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "region": "us",
    "tags": [
     "semiconductors",
     "ai-models"
-   ]
+   ],
+   "subfield": "compute"
   },
   {
    "id": "iphone",
@@ -6890,7 +7185,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "adoption": {
@@ -6898,7 +7193,8 @@
     "what": "Most UK adults own a smartphone.",
     "basis": "ai-estimate"
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "devices"
   },
   {
    "id": "raspberry-pi",
@@ -6921,10 +7217,11 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "uk"
+   "region": "uk",
+   "subfield": "devices"
   },
   {
    "id": "ai-data-centre-gpus",
@@ -6950,7 +7247,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "adoption": {
@@ -6962,7 +7259,8 @@
    "tags": [
     "semiconductors",
     "ai-models"
-   ]
+   ],
+   "subfield": "methods"
   },
   {
    "id": "tensor-processing-unit",
@@ -6985,14 +7283,15 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "region": "us",
    "tags": [
     "semiconductors",
     "ai-models"
-   ]
+   ],
+   "subfield": "science"
   },
   {
    "id": "graphcore-ipu",
@@ -7015,14 +7314,15 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "region": "uk",
    "tags": [
     "semiconductors",
     "ai-models"
-   ]
+   ],
+   "subfield": "methods"
   },
   {
    "id": "wafer-scale-ai-chip",
@@ -7045,14 +7345,15 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "region": "us",
    "tags": [
     "semiconductors",
     "ai-models"
-   ]
+   ],
+   "subfield": "methods"
   },
   {
    "id": "large-language-model-api",
@@ -7078,7 +7379,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "adoption": {
@@ -7089,7 +7390,8 @@
    "region": "us",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "language"
   },
   {
    "id": "claude-assistant",
@@ -7112,13 +7414,14 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "region": "us",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "agents"
   },
   {
    "id": "open-weight-european-models",
@@ -7141,13 +7444,14 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "region": "europe",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "methods"
   },
   {
    "id": "ai-voice-generation",
@@ -7170,13 +7474,14 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "region": "europe",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "language"
   },
   {
    "id": "ai-coding-editor-cursor",
@@ -7199,13 +7504,14 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "region": "us",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "agents"
   },
   {
    "id": "stateful-inspection-firewall",
@@ -7228,10 +7534,11 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "other"
+   "region": "other",
+   "subfield": "network"
   },
   {
    "id": "security-appliances-on-custom-chips",
@@ -7254,13 +7561,14 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "region": "us",
    "tags": [
     "semiconductors"
-   ]
+   ],
+   "subfield": "network"
   },
   {
    "id": "machine-data-analytics-siem",
@@ -7283,10 +7591,11 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "ot"
   },
   {
    "id": "next-generation-firewall",
@@ -7309,13 +7618,11 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "region": "us",
-   "tags": [
-    "networks"
-   ]
+   "subfield": "network"
   },
   {
    "id": "hardware-security-keys",
@@ -7338,13 +7645,11 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "region": "europe",
-   "tags": [
-    "cryptography"
-   ]
+   "subfield": "identity"
   },
   {
    "id": "cloud-delivered-security",
@@ -7367,13 +7672,11 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "region": "us",
-   "tags": [
-    "networks"
-   ]
+   "subfield": "network"
   },
   {
    "id": "cloud-identity",
@@ -7396,10 +7699,11 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "identity"
   },
   {
    "id": "cloud-endpoint-protection",
@@ -7422,10 +7726,11 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "network"
   },
   {
    "id": "ai-threat-detection",
@@ -7448,13 +7753,14 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "region": "uk",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "ops"
   },
   {
    "id": "ot-security-platform",
@@ -7478,10 +7784,11 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "ot"
   },
   {
    "id": "cloud-security-posture",
@@ -7504,10 +7811,11 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "other"
+   "region": "other",
+   "subfield": "network"
   },
   {
    "id": "commercial-wind-turbines",
@@ -7530,13 +7838,14 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "region": "europe",
    "tags": [
     "wind"
-   ]
+   ],
+   "subfield": "renewables"
   },
   {
    "id": "offshore-wind-farm",
@@ -7562,7 +7871,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "adoption": {
@@ -7573,7 +7882,8 @@
    "region": "europe",
    "tags": [
     "wind"
-   ]
+   ],
+   "subfield": "renewables"
   },
   {
    "id": "solar-microinverters",
@@ -7596,14 +7906,15 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "region": "us",
    "tags": [
     "grid",
     "solar"
-   ]
+   ],
+   "subfield": "renewables"
   },
   {
    "id": "home-and-grid-batteries",
@@ -7626,14 +7937,15 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "region": "us",
    "tags": [
     "storage",
     "grid"
-   ]
+   ],
+   "subfield": "storage"
   },
   {
    "id": "kraken-energy-platform",
@@ -7657,13 +7969,14 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "region": "uk",
    "tags": [
     "grid"
-   ]
+   ],
+   "subfield": "demand"
   },
   {
    "id": "superconducting-quantum-cloud",
@@ -7686,13 +7999,11 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "region": "us",
-   "tags": [
-    "semiconductors"
-   ]
+   "subfield": "computing"
   },
   {
    "id": "trapped-ion-commercial-systems",
@@ -7715,10 +8026,11 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "uk"
+   "region": "uk",
+   "subfield": "computing"
   },
   {
    "id": "uk-quantum-computing-service",
@@ -7744,7 +8056,8 @@
     "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "uk"
+   "region": "uk",
+   "subfield": "computing"
   },
   {
    "id": "photonic-fault-tolerant-quantum-computer",
@@ -7770,7 +8083,8 @@
     "lastChecked": "2026-10-28",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "computing"
   },
   {
    "id": "multi-protocol-router",
@@ -7799,7 +8113,8 @@
    "region": "us",
    "tags": [
     "networks"
-   ]
+   ],
+   "subfield": "internet"
   },
   {
    "id": "cdma-mobile-networks",
@@ -7828,7 +8143,8 @@
    "region": "us",
    "tags": [
     "networks"
-   ]
+   ],
+   "subfield": "mobile"
   },
   {
    "id": "internet-voice-calls",
@@ -7857,7 +8173,8 @@
    "region": "europe",
    "tags": [
     "networks"
-   ]
+   ],
+   "subfield": "internet"
   },
   {
    "id": "mobile-messaging",
@@ -7886,7 +8203,8 @@
    "region": "us",
    "tags": [
     "networks"
-   ]
+   ],
+   "subfield": "mobile"
   },
   {
    "id": "video-meetings",
@@ -7912,7 +8230,8 @@
     "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "messaging"
   },
   {
    "id": "small-commercial-satellites",
@@ -7941,7 +8260,8 @@
    "region": "uk",
    "tags": [
     "space"
-   ]
+   ],
+   "subfield": "launch"
   },
   {
    "id": "private-orbital-rocket",
@@ -7970,7 +8290,8 @@
    "region": "us",
    "tags": [
     "space"
-   ]
+   ],
+   "subfield": "launch"
   },
   {
    "id": "small-satellite-launcher",
@@ -7999,7 +8320,8 @@
    "region": "other",
    "tags": [
     "space"
-   ]
+   ],
+   "subfield": "launch"
   },
   {
    "id": "legged-robots",
@@ -8029,7 +8351,8 @@
    "tags": [
     "grid",
     "robots"
-   ]
+   ],
+   "subfield": "field"
   },
   {
    "id": "dji-camera-drones",
@@ -8058,7 +8381,8 @@
    "region": "asia",
    "tags": [
     "robots"
-   ]
+   ],
+   "subfield": "drones"
   },
   {
    "id": "automated-grocery-warehouses",
@@ -8089,7 +8413,8 @@
     "storage",
     "grid",
     "robots"
-   ]
+   ],
+   "subfield": "service"
   },
   {
    "id": "repositionable-adhesive-post-it",
@@ -8115,7 +8440,8 @@
     "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "polymers"
   },
   {
    "id": "expanded-ptfe-gore-tex",
@@ -8141,7 +8467,8 @@
     "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "polymers"
   },
   {
    "id": "ultra-strong-polyethylene-fibre",
@@ -8170,7 +8497,8 @@
    "region": "europe",
    "tags": [
     "networks"
-   ]
+   ],
+   "subfield": "composites"
   },
   {
    "id": "nanopore-sequencing",
@@ -8199,7 +8527,8 @@
    "region": "uk",
    "tags": [
     "genetics"
-   ]
+   ],
+   "subfield": "genetics"
   },
   {
    "id": "pressurised-water-reactor",
@@ -8235,7 +8564,8 @@
    "region": "us",
    "tags": [
     "nuclear"
-   ]
+   ],
+   "subfield": "nuclear"
   },
   {
    "id": "smart-meters-at-scale",
@@ -8273,7 +8603,8 @@
    "tags": [
     "grid",
     "ai-models"
-   ]
+   ],
+   "subfield": "demand"
   },
   {
    "id": "voltage-source-hvdc",
@@ -8302,7 +8633,8 @@
    "tags": [
     "grid",
     "wind"
-   ]
+   ],
+   "subfield": "grids"
   },
   {
    "id": "carbon-capture-and-storage",
@@ -8330,7 +8662,8 @@
    "region": "europe",
    "tags": [
     "storage"
-   ]
+   ],
+   "subfield": "storage"
   },
   {
    "id": "lithium-iron-phosphate-batteries",
@@ -8359,7 +8692,8 @@
    "tags": [
     "storage",
     "grid"
-   ]
+   ],
+   "subfield": "storage"
   },
   {
    "id": "modern-electric-cars",
@@ -8396,7 +8730,8 @@
    "tags": [
     "storage",
     "grid"
-   ]
+   ],
+   "subfield": "storage"
   },
   {
    "id": "tidal-stream-power",
@@ -8425,7 +8760,8 @@
    "tags": [
     "grid",
     "wind"
-   ]
+   ],
+   "subfield": "renewables"
   },
   {
    "id": "floating-offshore-wind",
@@ -8456,7 +8792,8 @@
    "region": "europe",
    "tags": [
     "wind"
-   ]
+   ],
+   "subfield": "renewables"
   },
   {
    "id": "capacitive-touchscreen",
@@ -8481,7 +8818,8 @@
     "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "europe"
+   "region": "europe",
+   "subfield": "devices"
   },
   {
    "id": "compact-disc",
@@ -8509,7 +8847,8 @@
    "region": "europe",
    "tags": [
     "regulation"
-   ]
+   ],
+   "subfield": "memory"
   },
   {
    "id": "high-bandwidth-memory",
@@ -8538,7 +8877,8 @@
    "tags": [
     "semiconductors",
     "ai-models"
-   ]
+   ],
+   "subfield": "memory"
   },
   {
    "id": "ai-designed-chip-layouts",
@@ -8567,7 +8907,8 @@
    "tags": [
     "semiconductors",
     "ai-models"
-   ]
+   ],
+   "subfield": "compute"
   },
   {
    "id": "email",
@@ -8592,7 +8933,8 @@
     "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "apps"
   },
   {
    "id": "java-and-portable-code",
@@ -8617,7 +8959,8 @@
     "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "dev"
   },
   {
    "id": "android",
@@ -8650,7 +8993,8 @@
     "what": "Android becomes the world’s most-used smartphone system.",
     "basis": "ai-estimate"
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "cloud"
   },
   {
    "id": "containers-and-kubernetes",
@@ -8675,7 +9019,8 @@
     "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "dev"
   },
   {
    "id": "face-detection-in-cameras",
@@ -8704,7 +9049,8 @@
    "tags": [
     "ai-models",
     "computer-vision"
-   ]
+   ],
+   "subfield": "vision"
   },
   {
    "id": "generative-adversarial-networks",
@@ -8732,7 +9078,8 @@
    "region": "other",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "vision"
   },
   {
    "id": "quantum-dots",
@@ -8760,7 +9107,8 @@
    "region": "us",
    "tags": [
     "materials"
-   ]
+   ],
+   "subfield": "devices"
   },
   {
    "id": "smart-cards",
@@ -8788,7 +9136,8 @@
    "region": "europe",
    "tags": [
     "semiconductors"
-   ]
+   ],
+   "subfield": "identity"
   },
   {
    "id": "kerberos-authentication",
@@ -8813,7 +9162,8 @@
     "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "identity"
   },
   {
    "id": "encrypted-web-ssl-tls",
@@ -8850,7 +9200,8 @@
    "tags": [
     "cryptography",
     "networks"
-   ]
+   ],
+   "subfield": "crypto"
   },
   {
    "id": "erbium-doped-fibre-amplifier",
@@ -8878,7 +9229,8 @@
    "region": "uk",
    "tags": [
     "networks"
-   ]
+   ],
+   "subfield": "fibre"
   },
   {
    "id": "broadband-over-phone-lines-dsl",
@@ -8906,7 +9258,8 @@
    "region": "us",
    "tags": [
     "networks"
-   ]
+   ],
+   "subfield": "mobile"
   },
   {
    "id": "4g-lte",
@@ -8942,7 +9295,8 @@
    "region": "global",
    "tags": [
     "networks"
-   ]
+   ],
+   "subfield": "mobile"
   },
   {
    "id": "float-glass",
@@ -8970,7 +9324,8 @@
    "region": "uk",
    "tags": [
     "materials"
-   ]
+   ],
+   "subfield": "electronic"
   },
   {
    "id": "3d-printing",
@@ -8999,7 +9354,8 @@
    "tags": [
     "wind",
     "semiconductors"
-   ]
+   ],
+   "subfield": "polymers"
   },
   {
    "id": "silicon-carbide-power-devices",
@@ -9027,7 +9383,8 @@
    "region": "us",
    "tags": [
     "grid"
-   ]
+   ],
+   "subfield": "electronic"
   },
   {
    "id": "weather-satellites",
@@ -9055,7 +9412,8 @@
    "region": "us",
    "tags": [
     "space"
-   ]
+   ],
+   "subfield": "eo"
   },
   {
    "id": "satellite-radar-imaging",
@@ -9083,7 +9441,8 @@
    "region": "us",
    "tags": [
     "space"
-   ]
+   ],
+   "subfield": "eo"
   },
   {
    "id": "collaborative-robots",
@@ -9112,7 +9471,8 @@
    "region": "europe",
    "tags": [
     "robots"
-   ]
+   ],
+   "subfield": "industrial"
   },
   {
    "id": "legged-inspection-robots",
@@ -9142,7 +9502,8 @@
    "tags": [
     "grid",
     "robots"
-   ]
+   ],
+   "subfield": "field"
   },
   {
    "id": "polio-vaccine",
@@ -9170,7 +9531,8 @@
    "region": "us",
    "tags": [
     "medicine"
-   ]
+   ],
+   "subfield": "vaccines"
   },
   {
    "id": "ct-scanning",
@@ -9206,7 +9568,8 @@
    "region": "uk",
    "tags": [
     "medicine"
-   ]
+   ],
+   "subfield": "imaging"
   },
   {
    "id": "ivf",
@@ -9231,7 +9594,8 @@
     "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "uk"
+   "region": "uk",
+   "subfield": "medicines"
   },
   {
    "id": "first-hiv-drug",
@@ -9259,7 +9623,8 @@
    "region": "us",
    "tags": [
     "medicine"
-   ]
+   ],
+   "subfield": "medicines"
   },
   {
    "id": "glp-1-medicines",
@@ -9287,7 +9652,8 @@
    "region": "europe",
    "tags": [
     "medicine"
-   ]
+   ],
+   "subfield": "medicines"
   },
   {
    "id": "ai-discovered-battery-electrolyte-in-cells",
@@ -9325,7 +9691,8 @@
     "storage",
     "hydrogen",
     "ai-models"
-   ]
+   ],
+   "subfield": "storage"
   },
   {
    "id": "digital-twin-grid-connection-studies",
@@ -9357,7 +9724,8 @@
    "region": "uk",
    "tags": [
     "grid"
-   ]
+   ],
+   "subfield": "ops"
   },
   {
    "id": "autonomous-materials-labs-in-industry",
@@ -9389,7 +9757,8 @@
    "tags": [
     "ai-models",
     "robots"
-   ]
+   ],
+   "subfield": "polymers"
   },
   {
    "id": "ai-decoders-for-quantum-error-correction",
@@ -9420,7 +9789,8 @@
    "region": "uk",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "computing"
   },
   {
    "id": "robot-foundation-models-in-products",
@@ -9452,7 +9822,8 @@
    "tags": [
     "ai-models",
     "robots"
-   ]
+   ],
+   "subfield": "humanoids"
   },
   {
    "id": "ai-run-satellite-operations",
@@ -9485,7 +9856,8 @@
     "ai-models",
     "space",
     "robots"
-   ]
+   ],
+   "subfield": "launch"
   },
   {
    "id": "ai-native-radio-networks",
@@ -9517,7 +9889,8 @@
    "tags": [
     "ai-models",
     "networks"
-   ]
+   ],
+   "subfield": "broadcast"
   },
   {
    "id": "ai-weather-forecasting-goes-operational",
@@ -9557,7 +9930,8 @@
     "solar",
     "wind",
     "ai-models"
-   ]
+   ],
+   "subfield": "ops"
   },
   {
    "id": "ai-cloudcasting",
@@ -9598,7 +9972,8 @@
     "solar",
     "ai-models",
     "space"
-   ]
+   ],
+   "subfield": "ops"
   },
   {
    "id": "open-balancing-platform",
@@ -9637,7 +10012,8 @@
    "tags": [
     "storage",
     "grid"
-   ]
+   ],
+   "subfield": "storage"
   },
   {
    "id": "demand-flexibility-service",
@@ -9673,7 +10049,8 @@
    "region": "uk",
    "tags": [
     "grid"
-   ]
+   ],
+   "subfield": "demand"
   },
   {
    "id": "ai-optimised-flexibility-aggregation",
@@ -9713,7 +10090,8 @@
     "storage",
     "grid",
     "ai-models"
-   ]
+   ],
+   "subfield": "demand"
   },
   {
    "id": "drone-inspection-of-transmission-towers",
@@ -9753,7 +10131,8 @@
    "tags": [
     "grid",
     "robots"
-   ]
+   ],
+   "subfield": "ops"
   },
   {
    "id": "ai-drone-inspection-of-pylons",
@@ -9793,7 +10172,8 @@
     "grid",
     "ai-models",
     "robots"
-   ]
+   ],
+   "subfield": "ops"
   },
   {
    "id": "cyber-assessment-framework",
@@ -9826,7 +10206,8 @@
     "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "uk"
+   "region": "uk",
+   "subfield": "governance"
   },
   {
    "id": "ot-threat-detection-for-utilities",
@@ -9861,7 +10242,8 @@
     "lastChecked": "2026-10-28",
     "approximate": false
    },
-   "region": "other"
+   "region": "other",
+   "subfield": "ot"
   },
   {
    "id": "liquid-air-energy-storage",
@@ -9891,7 +10273,8 @@
    "tags": [
     "storage",
     "grid"
-   ]
+   ],
+   "subfield": "storage"
   },
   {
    "id": "utility-scale-battery-product",
@@ -9921,7 +10304,8 @@
    "tags": [
     "storage",
     "grid"
-   ]
+   ],
+   "subfield": "storage"
   },
   {
    "id": "blade-lfp-battery",
@@ -9950,7 +10334,8 @@
    "region": "asia",
    "tags": [
     "storage"
-   ]
+   ],
+   "subfield": "storage"
   },
   {
    "id": "100-hour-iron-air-battery",
@@ -9985,7 +10370,8 @@
    "region": "us",
    "tags": [
     "storage"
-   ]
+   ],
+   "subfield": "storage"
   },
   {
    "id": "weather-driven-fault-forecasting",
@@ -10021,7 +10407,8 @@
     "lastChecked": "2026-10-28",
     "approximate": false
    },
-   "region": "uk"
+   "region": "uk",
+   "subfield": "ops"
   },
   {
    "id": "ensign-energy-system-digital-twin",
@@ -10061,7 +10448,8 @@
    "tags": [
     "grid",
     "ai-models"
-   ]
+   ],
+   "subfield": "ops"
   },
   {
    "id": "heat-flexibility-and-thermal-storage",
@@ -10102,7 +10490,8 @@
     "storage",
     "grid",
     "heat"
-   ]
+   ],
+   "subfield": "storage"
   },
   {
    "id": "spen-university-of-glasgow-cyber-defence-lab",
@@ -10142,7 +10531,8 @@
    "region": "uk",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "ops"
   },
   {
    "id": "grid-forming-battery-stability-services",
@@ -10180,7 +10570,8 @@
    "tags": [
     "storage",
     "grid"
-   ]
+   ],
+   "subfield": "storage"
   },
   {
    "id": "eastern-green-link-1-subsea-hvdc",
@@ -10215,7 +10606,8 @@
    "region": "uk",
    "tags": [
     "grid"
-   ]
+   ],
+   "subfield": "grids"
   },
   {
    "id": "cyber-security-and-resilience-act-in-force",
@@ -10255,7 +10647,8 @@
    "region": "uk",
    "tags": [
     "regulation"
-   ]
+   ],
+   "subfield": "governance"
   },
   {
    "id": "exascale-supercomputing",
@@ -10283,7 +10676,8 @@
    "region": "us",
    "tags": [
     "grid"
-   ]
+   ],
+   "subfield": "compute"
   },
   {
    "id": "arm-processors-in-laptops",
@@ -10312,7 +10706,8 @@
    "region": "us",
    "tags": [
     "semiconductors"
-   ]
+   ],
+   "subfield": "devices"
   },
   {
    "id": "hydrogen-fuel-cell-power",
@@ -10345,7 +10740,8 @@
     "grid",
     "hydrogen",
     "space"
-   ]
+   ],
+   "subfield": "fuels"
   },
   {
    "id": "advanced-gas-cooled-reactor",
@@ -10373,7 +10769,8 @@
    "region": "uk",
    "tags": [
     "nuclear"
-   ]
+   ],
+   "subfield": "nuclear"
   },
   {
    "id": "vanadium-flow-battery",
@@ -10401,7 +10798,8 @@
    "region": "other",
    "tags": [
     "storage"
-   ]
+   ],
+   "subfield": "storage"
   },
   {
    "id": "learning-smart-thermostat",
@@ -10431,7 +10829,8 @@
    "region": "us",
    "tags": [
     "heat"
-   ]
+   ],
+   "subfield": "demand"
   },
   {
    "id": "enhanced-geothermal-power",
@@ -10460,7 +10859,8 @@
    "region": "us",
    "tags": [
     "grid"
-   ]
+   ],
+   "subfield": "fuels"
   },
   {
    "id": "computer-mouse",
@@ -10493,7 +10893,8 @@
     "what": "A mouse comes with every PC.",
     "basis": "ai-estimate"
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "devices"
   },
   {
    "id": "laser-printer",
@@ -10518,7 +10919,8 @@
     "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "devices"
   },
   {
    "id": "charge-coupled-device-ccd",
@@ -10551,7 +10953,8 @@
     "what": "Digital cameras outsell film cameras.",
     "basis": "ai-estimate"
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "devices"
   },
   {
    "id": "cmos-image-sensor",
@@ -10580,7 +10983,8 @@
    "tags": [
     "semiconductors",
     "robots"
-   ]
+   ],
+   "subfield": "devices"
   },
   {
    "id": "usb",
@@ -10608,7 +11012,8 @@
    "region": "us",
    "tags": [
     "regulation"
-   ]
+   ],
+   "subfield": "devices"
   },
   {
    "id": "3d-nand-flash",
@@ -10636,7 +11041,8 @@
    "region": "asia",
    "tags": [
     "storage"
-   ]
+   ],
+   "subfield": "memory"
   },
   {
    "id": "risc-v-open-chip-architecture",
@@ -10664,7 +11070,8 @@
    "region": "us",
    "tags": [
     "semiconductors"
-   ]
+   ],
+   "subfield": "chips"
   },
   {
    "id": "basic-programming",
@@ -10689,7 +11096,8 @@
     "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "dev"
   },
   {
    "id": "hypertext",
@@ -10725,7 +11133,8 @@
    "region": "us",
    "tags": [
     "networks"
-   ]
+   ],
+   "subfield": "apps"
   },
   {
    "id": "wikis",
@@ -10750,7 +11159,8 @@
     "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "web"
   },
   {
    "id": "online-maps",
@@ -10779,7 +11189,8 @@
    "region": "us",
    "tags": [
     "networks"
-   ]
+   ],
+   "subfield": "web"
   },
   {
    "id": "distributed-version-control",
@@ -10805,7 +11216,8 @@
     "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "dev"
   },
   {
    "id": "machine-learning-frameworks",
@@ -10833,7 +11245,8 @@
    "region": "other",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "dev"
   },
   {
    "id": "optical-character-recognition",
@@ -10861,7 +11274,8 @@
    "region": "us",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "vision"
   },
   {
    "id": "industrial-machine-vision",
@@ -10891,7 +11305,8 @@
    "tags": [
     "ai-models",
     "computer-vision"
-   ]
+   ],
+   "subfield": "vision"
   },
   {
    "id": "neural-network-fraud-detection",
@@ -10919,7 +11334,8 @@
    "region": "us",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "science"
   },
   {
    "id": "machine-learning-spam-filters",
@@ -10947,7 +11363,8 @@
    "region": "us",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "methods"
   },
   {
    "id": "neural-machine-translation",
@@ -10983,7 +11400,8 @@
    "region": "us",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "language"
   },
   {
    "id": "natural-sounding-ai-voices",
@@ -11011,7 +11429,8 @@
    "region": "uk",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "language"
   },
   {
    "id": "josephson-voltage-standard",
@@ -11039,7 +11458,8 @@
    "region": "uk",
    "tags": [
     "regulation"
-   ]
+   ],
+   "subfield": "sensing"
   },
   {
    "id": "quantum-hall-resistance-standard",
@@ -11067,7 +11487,8 @@
    "region": "europe",
    "tags": [
     "regulation"
-   ]
+   ],
+   "subfield": "sensing"
   },
   {
    "id": "chip-scale-atomic-clock",
@@ -11097,7 +11518,8 @@
     "grid",
     "semiconductors",
     "space"
-   ]
+   ],
+   "subfield": "sensing"
   },
   {
    "id": "neutral-atom-quantum-computers",
@@ -11122,7 +11544,8 @@
     "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "computing"
   },
   {
    "id": "wearable-quantum-brain-scanner",
@@ -11161,7 +11584,8 @@
     "storage",
     "medicine",
     "materials"
-   ]
+   ],
+   "subfield": "sensing"
   },
   {
    "id": "quantum-secured-metro-network",
@@ -11190,7 +11614,8 @@
    "region": "asia",
    "tags": [
     "cryptography"
-   ]
+   ],
+   "subfield": "comms"
   },
   {
    "id": "two-factor-authentication-tokens",
@@ -11215,7 +11640,8 @@
     "lastChecked": "2026-10-27",
     "approximate": true
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "identity"
   },
   {
    "id": "captcha",
@@ -11243,7 +11669,8 @@
    "region": "us",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "identity"
   },
   {
    "id": "trusted-platform-module",
@@ -11271,7 +11698,8 @@
    "region": "us",
    "tags": [
     "semiconductors"
-   ]
+   ],
+   "subfield": "identity"
   },
   {
    "id": "differential-privacy",
@@ -11299,7 +11727,8 @@
    "region": "us",
    "tags": [
     "grid"
-   ]
+   ],
+   "subfield": "network"
   },
   {
    "id": "end-to-end-encrypted-messaging",
@@ -11327,7 +11756,8 @@
    "region": "us",
    "tags": [
     "cryptography"
-   ]
+   ],
+   "subfield": "crypto"
   },
   {
    "id": "hardware-memory-tagging",
@@ -11352,7 +11782,8 @@
     "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "uk"
+   "region": "uk",
+   "subfield": "network"
   },
   {
    "id": "microwave-radio-relay",
@@ -11377,7 +11808,8 @@
     "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "broadcast"
   },
   {
    "id": "text-messaging-sms",
@@ -11413,7 +11845,8 @@
    "region": "uk",
    "tags": [
     "networks"
-   ]
+   ],
+   "subfield": "mobile"
   },
   {
    "id": "fibre-to-the-home",
@@ -11441,7 +11874,8 @@
    "region": "uk",
    "tags": [
     "networks"
-   ]
+   ],
+   "subfield": "fibre"
   },
   {
    "id": "global-satellite-phones",
@@ -11470,7 +11904,8 @@
    "region": "us",
    "tags": [
     "space"
-   ]
+   ],
+   "subfield": "satellite"
   },
   {
    "id": "software-defined-networking",
@@ -11495,7 +11930,8 @@
     "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "internet"
   },
   {
    "id": "li-fi-light-communication",
@@ -11521,7 +11957,8 @@
     "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "uk"
+   "region": "uk",
+   "subfield": "internet"
   },
   {
    "id": "polyester-fibre",
@@ -11549,7 +11986,8 @@
    "region": "uk",
    "tags": [
     "networks"
-   ]
+   ],
+   "subfield": "polymers"
   },
   {
    "id": "polycarbonate",
@@ -11577,7 +12015,8 @@
    "region": "europe",
    "tags": [
     "materials"
-   ]
+   ],
+   "subfield": "polymers"
   },
   {
    "id": "superglue",
@@ -11602,7 +12041,8 @@
     "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "polymers"
   },
   {
    "id": "oled-displays",
@@ -11638,7 +12078,8 @@
    "region": "us",
    "tags": [
     "materials"
-   ]
+   ],
+   "subfield": "electronic"
   },
   {
    "id": "gallium-nitride-power-transistors",
@@ -11666,7 +12107,8 @@
    "region": "us",
    "tags": [
     "semiconductors"
-   ]
+   ],
+   "subfield": "electronic"
   },
   {
    "id": "aerogel-insulation",
@@ -11691,7 +12133,8 @@
     "lastChecked": "2026-10-27",
     "approximate": true
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "nano"
   },
   {
    "id": "self-healing-concrete",
@@ -11716,7 +12159,8 @@
     "lastChecked": "2026-10-27",
     "approximate": true
    },
-   "region": "europe"
+   "region": "europe",
+   "subfield": "construction"
   },
   {
    "id": "commercial-cargo-to-the-space-station",
@@ -11744,7 +12188,8 @@
    "region": "us",
    "tags": [
     "space"
-   ]
+   ],
+   "subfield": "human"
   },
   {
    "id": "commercial-crew-spaceflight",
@@ -11775,7 +12220,8 @@
    "region": "us",
    "tags": [
     "space"
-   ]
+   ],
+   "subfield": "human"
   },
   {
    "id": "suborbital-space-tourism",
@@ -11803,7 +12249,8 @@
    "region": "us",
    "tags": [
     "space"
-   ]
+   ],
+   "subfield": "human"
   },
   {
    "id": "radar-microsatellites",
@@ -11832,7 +12279,8 @@
    "region": "europe",
    "tags": [
     "space"
-   ]
+   ],
+   "subfield": "eo"
   },
   {
    "id": "methane-detecting-satellites",
@@ -11861,7 +12309,8 @@
    "region": "other",
    "tags": [
     "space"
-   ]
+   ],
+   "subfield": "eo"
   },
   {
    "id": "laser-links-between-satellites",
@@ -11890,7 +12339,8 @@
    "tags": [
     "networks",
     "space"
-   ]
+   ],
+   "subfield": "satcom"
   },
   {
    "id": "underwater-robots-rovs",
@@ -11918,7 +12368,8 @@
    "region": "us",
    "tags": [
     "robots"
-   ]
+   ],
+   "subfield": "field"
   },
   {
    "id": "robotic-milking",
@@ -11946,7 +12397,8 @@
    "region": "europe",
    "tags": [
     "robots"
-   ]
+   ],
+   "subfield": "service"
   },
   {
    "id": "robotic-lawn-mowers",
@@ -11975,7 +12427,8 @@
    "tags": [
     "solar",
     "robots"
-   ]
+   ],
+   "subfield": "service"
   },
   {
    "id": "powered-exoskeletons",
@@ -12000,7 +12453,8 @@
     "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "service"
   },
   {
    "id": "sidewalk-delivery-robots",
@@ -12029,7 +12483,8 @@
    "region": "uk",
    "tags": [
     "robots"
-   ]
+   ],
+   "subfield": "service"
   },
   {
    "id": "streptomycin",
@@ -12054,7 +12509,8 @@
     "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "medicines"
   },
   {
    "id": "medical-ultrasound",
@@ -12090,7 +12546,8 @@
    "region": "uk",
    "tags": [
     "medicine"
-   ]
+   ],
+   "subfield": "imaging"
   },
   {
    "id": "contraceptive-pill",
@@ -12115,7 +12572,8 @@
     "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "medicines"
   },
   {
    "id": "implantable-pacemaker",
@@ -12140,7 +12598,8 @@
     "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "europe"
+   "region": "europe",
+   "subfield": "devices"
   },
   {
    "id": "beta-blockers",
@@ -12168,7 +12627,8 @@
    "region": "uk",
    "tags": [
     "medicine"
-   ]
+   ],
+   "subfield": "medicines"
   },
   {
    "id": "cochlear-implant",
@@ -12193,7 +12653,8 @@
     "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "other"
+   "region": "other",
+   "subfield": "devices"
   },
   {
    "id": "cancer-immunotherapy",
@@ -12229,7 +12690,8 @@
    "region": "us",
    "tags": [
     "medicine"
-   ]
+   ],
+   "subfield": "medicines"
   },
   {
    "id": "car-t-cell-therapy",
@@ -12257,7 +12719,8 @@
    "region": "other",
    "tags": [
     "medicine"
-   ]
+   ],
+   "subfield": "genetics"
   },
   {
    "id": "reversible-pumped-storage-at-scale",
@@ -12286,7 +12749,8 @@
    "tags": [
     "storage",
     "wind"
-   ]
+   ],
+   "subfield": "storage"
   },
   {
    "id": "solar-thermal-power-stations",
@@ -12314,7 +12778,8 @@
    "region": "us",
    "tags": [
     "solar"
-   ]
+   ],
+   "subfield": "renewables"
   },
   {
    "id": "wave-power-to-the-grid",
@@ -12342,7 +12807,8 @@
    "region": "uk",
    "tags": [
     "grid"
-   ]
+   ],
+   "subfield": "renewables"
   },
   {
    "id": "active-network-management",
@@ -12380,7 +12846,8 @@
    "tags": [
     "grid",
     "wind"
-   ]
+   ],
+   "subfield": "renewables"
   },
   {
    "id": "offshore-wind-hvdc-connection",
@@ -12409,7 +12876,8 @@
    "tags": [
     "grid",
     "wind"
-   ]
+   ],
+   "subfield": "renewables"
   },
   {
    "id": "inkjet-printer",
@@ -12434,7 +12902,8 @@
     "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "asia"
+   "region": "asia",
+   "subfield": "devices"
   },
   {
    "id": "electronic-paper-displays",
@@ -12459,7 +12928,8 @@
     "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "devices"
   },
   {
    "id": "online-retail",
@@ -12488,7 +12958,8 @@
    "region": "us",
    "tags": [
     "networks"
-   ]
+   ],
+   "subfield": "web"
   },
   {
    "id": "online-banking",
@@ -12513,7 +12984,8 @@
     "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "uk"
+   "region": "uk",
+   "subfield": "web"
   },
   {
    "id": "body-tracking-without-markers",
@@ -12541,7 +13013,8 @@
    "region": "us",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "vision"
   },
   {
    "id": "autonomous-ai-diagnosis",
@@ -12570,7 +13043,8 @@
    "tags": [
     "ai-models",
     "robots"
-   ]
+   ],
+   "subfield": "agents"
   },
   {
    "id": "scanning-tunnelling-microscope",
@@ -12598,7 +13072,8 @@
    "region": "us",
    "tags": [
     "medicine"
-   ]
+   ],
+   "subfield": "devices"
   },
   {
    "id": "quantum-cascade-laser",
@@ -12623,7 +13098,8 @@
     "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "sensing"
   },
   {
    "id": "pgp-email-encryption",
@@ -12651,7 +13127,8 @@
    "region": "us",
    "tags": [
     "cryptography"
-   ]
+   ],
+   "subfield": "crypto"
   },
   {
    "id": "onion-routing-tor",
@@ -12676,7 +13153,8 @@
     "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "network"
   },
   {
    "id": "fingerprint-sensors-on-phones",
@@ -12701,7 +13179,8 @@
     "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "identity"
   },
   {
    "id": "ethernet",
@@ -12729,7 +13208,8 @@
    "region": "us",
    "tags": [
     "grid"
-   ]
+   ],
+   "subfield": "internet"
   },
   {
    "id": "data-modems",
@@ -12754,7 +13234,8 @@
     "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "internet"
   },
   {
    "id": "digital-terrestrial-television",
@@ -12783,7 +13264,8 @@
    "tags": [
     "networks",
     "regulation"
-   ]
+   ],
+   "subfield": "broadcast"
   },
   {
    "id": "3g-mobile-data",
@@ -12812,7 +13294,8 @@
    "tags": [
     "networks",
     "regulation"
-   ]
+   ],
+   "subfield": "mobile"
   },
   {
    "id": "long-range-low-power-radio-lora",
@@ -12840,7 +13323,8 @@
    "region": "europe",
    "tags": [
     "semiconductors"
-   ]
+   ],
+   "subfield": "mobile"
   },
   {
    "id": "visible-leds",
@@ -12865,7 +13349,8 @@
     "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "electronic"
   },
   {
    "id": "electrochromic-smart-glass",
@@ -12893,7 +13378,8 @@
    "region": "us",
    "tags": [
     "materials"
-   ]
+   ],
+   "subfield": "electronic"
   },
   {
    "id": "plant-based-plastics",
@@ -12921,7 +13407,8 @@
    "region": "us",
    "tags": [
     "materials"
-   ]
+   ],
+   "subfield": "polymers"
   },
   {
    "id": "satellite-search-and-rescue",
@@ -12949,7 +13436,8 @@
    "region": "other",
    "tags": [
     "space"
-   ]
+   ],
+   "subfield": "launch"
   },
   {
    "id": "autonomous-mining-trucks",
@@ -12977,7 +13465,8 @@
    "region": "us",
    "tags": [
     "robots"
-   ]
+   ],
+   "subfield": "vehicles"
   },
   {
    "id": "hpv-vaccine",
@@ -13005,7 +13494,8 @@
    "region": "other",
    "tags": [
     "medicine"
-   ]
+   ],
+   "subfield": "vaccines"
   },
   {
    "id": "targeted-breast-cancer-antibody",
@@ -13034,7 +13524,8 @@
    "tags": [
     "medicine",
     "genetics"
-   ]
+   ],
+   "subfield": "medicines"
   },
   {
    "id": "targeted-leukaemia-drug",
@@ -13062,7 +13553,8 @@
    "region": "us",
    "tags": [
     "medicine"
-   ]
+   ],
+   "subfield": "medicines"
   },
   {
    "id": "laser-eye-surgery",
@@ -13087,7 +13579,8 @@
     "lastChecked": "2026-10-27",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "subfield": "devices"
   },
   {
    "id": "reinforcement-learning-control-room-assistants",
@@ -13123,7 +13616,8 @@
    "region": "europe",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "ops"
   },
   {
    "id": "satellite-ai-vegetation-management",
@@ -13163,7 +13657,8 @@
     "grid",
     "ai-models",
     "space"
-   ]
+   ],
+   "subfield": "ops"
   },
   {
    "id": "network-wide-satellite-ai-tree-management-in-gb",
@@ -13201,7 +13696,8 @@
     "grid",
     "ai-models",
     "space"
-   ]
+   ],
+   "subfield": "ops"
   },
   {
    "id": "vehicle-to-grid-for-households",
@@ -13240,7 +13736,8 @@
    "tags": [
     "grid",
     "regulation"
-   ]
+   ],
+   "subfield": "demand"
   },
   {
    "id": "ai-home-energy-agents",
@@ -13272,7 +13769,8 @@
     "grid",
     "heat",
     "ai-models"
-   ]
+   ],
+   "subfield": "ops"
   },
   {
    "id": "machine-learning-battery-lifetime-prediction",
@@ -13302,7 +13800,8 @@
    "tags": [
     "storage",
     "ai-models"
-   ]
+   ],
+   "subfield": "storage"
   },
   {
    "id": "ai-discovered-electrolyser-catalysts",
@@ -13332,7 +13831,8 @@
    "tags": [
     "hydrogen",
     "ai-models"
-   ]
+   ],
+   "subfield": "fuels"
   },
   {
    "id": "ai-management-system-standard",
@@ -13362,7 +13862,8 @@
    "tags": [
     "ai-models",
     "regulation"
-   ]
+   ],
+   "subfield": "governance"
   },
   {
    "id": "assured-ai-in-operational-energy-decisions",
@@ -13394,7 +13895,8 @@
    "region": "uk",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "ops"
   },
   {
    "id": "first-power-from-a-uk-small-modular-reactor",
@@ -13430,7 +13932,8 @@
    "tags": [
     "grid",
     "nuclear"
-   ]
+   ],
+   "subfield": "nuclear"
   },
   {
    "id": "ai-wind-farm-control-as-standard",
@@ -13464,7 +13967,8 @@
     "wind",
     "ai-models",
     "regulation"
-   ]
+   ],
+   "subfield": "renewables"
   },
   {
    "id": "ai-led-network-planning",
@@ -13497,7 +14001,8 @@
    "tags": [
     "grid",
     "ai-models"
-   ]
+   ],
+   "subfield": "ops"
   },
   {
    "id": "digital-substations-across-gb",
@@ -13526,7 +14031,8 @@
    "tags": [
     "grid",
     "regulation"
-   ]
+   ],
+   "subfield": "grids"
   },
   {
    "id": "multi-day-iron-air-storage-in-gb",
@@ -13554,7 +14060,8 @@
    "region": "us",
    "tags": [
     "storage"
-   ]
+   ],
+   "subfield": "storage"
   },
   {
    "id": "ai-designs-whole-chips",
@@ -13586,7 +14093,8 @@
    "tags": [
     "semiconductors",
     "ai-models"
-   ]
+   ],
+   "subfield": "chips"
   },
   {
    "id": "2d-material-transistors",
@@ -13608,13 +14116,14 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": true
    },
    "region": "global",
    "tags": [
     "semiconductors"
-   ]
+   ],
+   "subfield": "fab"
   },
   {
    "id": "photonic-ai-accelerators-in-data-centres",
@@ -13639,14 +14148,15 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": true
    },
    "region": "us",
    "tags": [
     "semiconductors",
     "ai-models"
-   ]
+   ],
+   "subfield": "compute"
   },
   {
    "id": "autonomous-software-engineering",
@@ -13671,14 +14181,15 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": true
    },
    "region": "us",
    "tags": [
     "ai-models",
     "robots"
-   ]
+   ],
+   "subfield": "ai-tools"
   },
   {
    "id": "ai-research-scientists",
@@ -13703,13 +14214,14 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": true
    },
    "region": "global",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "science"
   },
   {
    "id": "certified-ai-in-safety-critical-systems",
@@ -13734,13 +14246,14 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": true
    },
    "region": "global",
    "tags": [
     "ai-models"
-   ]
+   ],
+   "subfield": "science"
   },
   {
    "id": "useful-quantum-chemistry-simulation",
@@ -13765,14 +14278,15 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": true
    },
    "region": "global",
    "tags": [
     "storage",
     "ai-models"
-   ]
+   ],
+   "subfield": "computing"
   },
   {
    "id": "optical-clocks-for-national-timing",
@@ -13794,14 +14308,15 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": true
    },
    "region": "global",
    "tags": [
     "grid",
     "space"
-   ]
+   ],
+   "subfield": "sensing"
   },
   {
    "id": "post-quantum-migration-complete",
@@ -13831,14 +14346,15 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "region": "uk",
    "tags": [
     "cryptography",
     "regulation"
-   ]
+   ],
+   "subfield": "crypto"
   },
   {
    "id": "autonomous-cyber-defence-in-ot",
@@ -13864,14 +14380,15 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": true
    },
    "region": "global",
    "tags": [
     "ai-models",
     "robots"
-   ]
+   ],
+   "subfield": "ot"
   },
   {
    "id": "quantum-network-links-between-cities",
@@ -13893,10 +14410,11 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": true
    },
-   "region": "uk"
+   "region": "uk",
+   "subfield": "internet"
   },
   {
    "id": "ai-designed-battery-chemistry-in-mass-market-cars",
@@ -13921,14 +14439,15 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": true
    },
    "region": "global",
    "tags": [
     "storage",
     "ai-models"
-   ]
+   ],
+   "subfield": "energy-mat"
   },
   {
    "id": "recyclable-wind-turbine-blades-at-scale",
@@ -13950,14 +14469,15 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": true
    },
    "region": "europe",
    "tags": [
     "wind",
     "regulation"
-   ]
+   ],
+   "subfield": "composites"
   },
   {
    "id": "commercial-space-stations",
@@ -13983,13 +14503,14 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": true
    },
    "region": "us",
    "tags": [
     "space"
-   ]
+   ],
+   "subfield": "human"
   },
   {
    "id": "in-orbit-manufacturing",
@@ -14014,7 +14535,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": true
    },
    "region": "us",
@@ -14023,7 +14544,8 @@
     "ai-models",
     "space",
     "robots"
-   ]
+   ],
+   "subfield": "in-space"
   },
   {
    "id": "robots-doing-routine-network-field-work",
@@ -14048,14 +14570,15 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": true
    },
    "region": "uk",
    "tags": [
     "grid",
     "robots"
-   ]
+   ],
+   "subfield": "field"
   },
   {
    "id": "driverless-freight-on-uk-motorways",
@@ -14077,14 +14600,15 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": true
    },
    "region": "uk",
    "tags": [
     "robots",
     "regulation"
-   ]
+   ],
+   "subfield": "vehicles"
   },
   {
    "id": "ai-discovered-antibiotic-approved",
@@ -14109,14 +14633,15 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": true
    },
    "region": "us",
    "tags": [
     "ai-models",
     "medicine"
-   ]
+   ],
+   "subfield": "ai-bio"
   },
   {
    "id": "ai-virtual-cell-models-in-drug-trials",
@@ -14141,14 +14666,15 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": true
    },
    "region": "us",
    "tags": [
     "ai-models",
     "medicine"
-   ]
+   ],
+   "subfield": "ai-bio"
   },
   {
    "id": "power-networks-demonstration-centre",
@@ -14173,22 +14699,18 @@
    "refs": [
     {
      "label": "University of Strathclyde: PNDC",
-     "url": "https://www.strath.ac.uk/research/powernetworksdemonstrationcentre/",
-     "status": "ok",
-     "checked": "2026-10-28"
+     "url": "https://www.strath.ac.uk/research/powernetworksdemonstrationcentre/"
     }
    ],
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": false
    },
    "region": "uk",
-   "tags": [
-    "grid"
-   ]
+   "subfield": "grids"
   },
   {
    "id": "quantum-timing-and-navigation-for-infrastructure",
@@ -14212,21 +14734,20 @@
    },
    "basis": {
     "label": "University of Glasgow: new quantum hubs (2024)",
-    "url": "https://www.gla.ac.uk/news/headline_1094846_en.html",
-    "status": "ok",
-    "checked": "2026-10-28"
+    "url": "https://www.gla.ac.uk/news/headline_1094846_en.html"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": true
    },
    "region": "uk",
    "tags": [
     "space"
-   ]
+   ],
+   "subfield": "sensing"
   },
   {
    "id": "quantum-cameras-that-see-gas-leaks",
@@ -14250,18 +14771,17 @@
    },
    "basis": {
     "label": "University of Glasgow: new quantum hubs (2024)",
-    "url": "https://www.gla.ac.uk/news/headline_1094846_en.html",
-    "status": "ok",
-    "checked": "2026-10-28"
+    "url": "https://www.gla.ac.uk/news/headline_1094846_en.html"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-27",
     "approximate": true
    },
-   "region": "uk"
+   "region": "uk",
+   "subfield": "sensing"
   },
   {
    "id": "microsoft-maia-300-in-house-ai-inference-chip",
@@ -14316,7 +14836,8 @@
    "tags": [
     "semiconductors",
     "ai-models"
-   ]
+   ],
+   "subfield": "compute"
   },
   {
    "id": "post-quantum-cryptography-migration-mandates",
@@ -14375,7 +14896,8 @@
    ],
    "flags": {
     "hidden": true
-   }
+   },
+   "subfield": "data"
   },
   {
    "id": "first-commercial-upper-6ghz-mobile-network-uae",
@@ -14429,7 +14951,8 @@
    "region": "asia",
    "tags": [
     "networks"
-   ]
+   ],
+   "subfield": "mobile"
   },
   {
    "id": "eu-pfhxa-restriction-hits-textiles-food-paper-cosmetics",
@@ -14484,7 +15007,8 @@
    "region": "europe",
    "flags": {
     "hidden": true
-   }
+   },
+   "subfield": "electronic"
   },
   {
    "id": "us-exemption-for-driverless-truck-warning-beacons",
@@ -14536,7 +15060,8 @@
    ],
    "flags": {
     "hidden": true
-   }
+   },
+   "subfield": "vehicles"
   },
   {
    "id": "first-approved-protac-protein-degrader-vepdegestrant",
@@ -14591,7 +15116,8 @@
    "tags": [
     "medicine",
     "genetics"
-   ]
+   ],
+   "subfield": "imaging"
   },
   {
    "id": "bepirovirsen-first-antisense-drug-for-hepatitis-b",
@@ -14641,7 +15167,13 @@
     "added": "2026-10-28",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "subfield": "medicines",
+   "region": "us",
+   "tags": [
+    "medicine",
+    "genetics"
+   ]
   },
   {
    "id": "plastic-free-moulded-pulp-fibre-bottles-pulpex",
@@ -14696,7 +15228,8 @@
     "added": "2026-10-28",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "subfield": "polymers"
   },
   {
    "id": "size-adjustable-pediatric-heart-valve-autus",
@@ -14751,237 +15284,8 @@
     "added": "2026-10-28",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
-  },
-  {
-   "id": "mandatory-provenance-data-for-ai-generated-media",
-   "field": "ai",
-   "origin": "industry",
-   "status": "landed",
-   "title": "Mandatory provenance data for AI-generated media",
-   "research": {
-    "year": 2021,
-    "what": "An industry coalition created a cryptographically signed metadata standard that records where digital content came from and how it was edited, so AI-generated media can be identified. Origin: Coalition for Content Provenance and Authenticity (C2PA) content credentials specification, coalition formed 2021 (founding year from general knowledge; the sources retrieved name C2PA but do not give the year)"
    },
-   "change": {
-    "year": 2026,
-    "what": "From 1 October 2026, Connecticut's CART Act requires generative AI providers with more than one million monthly users to embed tamper-resistant provenance data in AI-generated audio, image and video, where commercially and technically reasonable. Sources point to C2PA as the reference approach."
-   },
-   "confidence": "medium",
-   "note": "Takes AI content provenance from a voluntary industry standard to a binding state requirement in the US. California's AI Transparency Act, operative 2 August 2026, came first, so the milestone year is 2026 either way.",
-   "company": "Coalition for Content Provenance and Authenticity (C2PA)",
-   "flags": {
-    "aiDriven": true,
-    "policy": true
-   },
-   "refs": [
-    {
-     "label": "Davis Polk – Connecticut's AI legislation Part 2: synthetic content transparency",
-     "url": "https://www.davispolk.com/insights/client-update/connecticut-s-ai-legislation-part-2-frontier-models-and-synthetic-content",
-     "status": "ok",
-     "checked": "2026-10-28"
-    },
-    {
-     "label": "Kilpatrick Townsend – Connecticut SB 5, references C2PA",
-     "url": "https://ktslaw.com/insights/alert/2026/6/connecticut-enacts-new-ai-legislation-what-businesses-need-to-know-about-sb-5",
-     "status": "ok",
-     "checked": "2026-10-28"
-    },
-    {
-     "label": "Freshfields – provenance data consistent with C2PA, effective 1 Oct 2026",
-     "url": "https://www.freshfields.com/en/our-thinking/blogs/a-fresh-take/connecticut-poised-to-enact-one-of-the-nations-most-comprehensive-ai-laws-102mrpv",
-     "status": "ok",
-     "checked": "2026-10-28"
-    },
-    {
-     "label": "Vorp Labs – California AI Transparency Act operative 2 Aug 2026",
-     "url": "https://vorplabs.com/ai-regulatory-updates/united-states",
-     "status": "ok",
-     "checked": "2026-10-28"
-    }
-   ],
-   "region": "us",
-   "tags": [
-    "regulation",
-    "ai-models"
-   ],
-   "provenance": {
-    "verification": "source-cited",
-    "addedBy": "research-agent",
-    "added": "2026-10-28",
-    "lastChecked": "2026-10-28",
-    "approximate": false
-   }
-  },
-  {
-   "id": "zero-knowledge-age-proofs-in-eu-age-verification-app",
-   "field": "cyber",
-   "origin": "government",
-   "status": "landed",
-   "title": "Zero-knowledge age proofs in EU age verification app",
-   "research": {
-    "year": 2001,
-    "what": "Anonymous credential schemes built on zero-knowledge proofs let a user prove a single attribute, such as being over 18, without revealing any other identity data. Origin: Anonymous credential schemes of Brands (2000) and Camenisch & Lysyanskaya (2001), building on zero-knowledge proofs; cited as foundations of age-assurance cryptography"
-   },
-   "change": {
-    "year": 2026,
-    "what": "The European Commission's age verification 'mini wallet' now sets zero-knowledge proofs as the required way to present proof of age. National pilots are live, with Denmark launching in June 2026, and member states have been asked to make it available by the end of 2026."
-   },
-   "confidence": "medium",
-   "note": "This is the first government-backed rollout of zero-knowledge anonymous credentials for online age checks across several countries. It shows privacy-preserving cryptography moving from research into national-scale use.",
-   "refs": [
-    {
-     "label": "European Commission: Blueprint for an age verification solution",
-     "url": "https://digital-strategy.ec.europa.eu/en/factpages/blueprint-age-verification-solution-help-protect-minors-online",
-     "status": "ok",
-     "checked": "2026-10-28"
-    },
-    {
-     "label": "EU Age Verification Blueprint technical portal (ZKP mandatory, August 2026)",
-     "url": "https://ageverification.dev/",
-     "status": "ok",
-     "checked": "2026-10-28"
-    },
-    {
-     "label": "anoni.net: Spec v1.1.0 requires zero-knowledge proofs (Sept 2026)",
-     "url": "https://anoni.net/news/en/2026/09/eu-age-verification-blueprint/",
-     "status": "ok",
-     "checked": "2026-10-28"
-    },
-    {
-     "label": "Didit: EU age verification app status by country, Oct 2026",
-     "url": "https://didit.me/blog/eu-age-verification-app/",
-     "status": "ok",
-     "checked": "2026-10-28"
-    }
-   ],
-   "region": "europe",
-   "tags": [
-    "cryptography",
-    "regulation"
-   ],
-   "provenance": {
-    "verification": "source-cited",
-    "addedBy": "research-agent",
-    "added": "2026-10-28",
-    "lastChecked": "2026-10-28",
-    "approximate": false
-   }
-  },
-  {
-   "id": "commercial-leo-navigation-xona-pulsar",
-   "field": "space",
-   "origin": "industry",
-   "status": "outlook",
-   "title": "Commercial LEO navigation (Xona Pulsar)",
-   "research": {
-    "year": 2022,
-    "what": "Xona's Huginn demonstrator, launched in May 2022, was the first commercially funded low-Earth-orbit navigation mission. It went on to show centimetre-level positioning using Xona's patented distributed atomic-clock architecture. Origin: Xona Space Systems Huginn LEO PNT demonstration satellite, SpaceX Transporter-5, May 2022 (team from Stanford GPS Research Lab)"
-   },
-   "change": {
-    "year": 2027,
-    "what": "Six production Pulsar navigation satellites launched on SpaceX Bandwagon-5 on 20 October 2026, and full commercial positioning, navigation and timing service is due to start in 2027."
-   },
-   "confidence": "medium",
-   "note": "This is the first privately run satellite navigation constellation, broadcasting from low orbit in the GPS band with authenticated signals that resist jamming. The FCC has authorised the full constellation of more than 250 satellites.",
-   "refs": [
-    {
-     "label": "SatNews: Bandwagon-5 deployment; commercial services in 2027",
-     "url": "https://satnews.com/2026/10/22/xona-space-systems-secures-250m-series-d-at-2-45b-valuation-to-scale-pulsar-pnt-fleet/",
-     "status": "ok",
-     "checked": "2026-10-28"
-    },
-    {
-     "label": "SpaceNews: Xona launches six satellites (Oct 20, 2026)",
-     "url": "https://spacenews.com/xona-launches-six-satellites-to-begin-commercial-navigation-service/",
-     "status": "ok",
-     "checked": "2026-10-28"
-    },
-    {
-     "label": "Payload: initial operations early 2027",
-     "url": "https://payloadspace.com/xona-clears-final-regulatory-hurdle-for-pnt-constellation/",
-     "status": "ok",
-     "checked": "2026-10-28"
-    },
-    {
-     "label": "Via Satellite: Huginn first commercially funded LEO PNT mission, launched May 2022",
-     "url": "https://www.satellitetoday.com/imagery-and-sensing/2023/05/31/xona-broadcasts-demo-pnt-signals-certifies-constellation-simulator-with-spirent/",
-     "status": "ok",
-     "checked": "2026-10-28"
-    }
-   ],
-   "region": "us",
-   "tags": [
-    "space"
-   ],
-   "provenance": {
-    "verification": "source-cited",
-    "addedBy": "research-agent",
-    "added": "2026-10-28",
-    "lastChecked": "2026-10-28",
-    "approximate": false
-   },
-   "basis": {
-    "label": "SatNews: Bandwagon-5 deployment; commercial services in 2027",
-    "url": "https://satnews.com/2026/10/22/xona-space-systems-secures-250m-series-d-at-2-45b-valuation-to-scale-pulsar-pnt-fleet/",
-    "status": "ok",
-    "checked": "2026-10-28"
-   }
-  },
-  {
-   "id": "hollow-core-optical-fibre-in-live-networks",
-   "field": "comms",
-   "origin": "academic",
-   "status": "landed",
-   "title": "Hollow-core optical fibre in live networks",
-   "research": {
-    "year": 2014,
-    "what": "University of Southampton researchers proposed the nested antiresonant nodeless hollow-core fibre design, in which light travels mainly through air rather than glass. Origin: F. Poletti, 'Nested antiresonant nodeless hollow core fiber', Optics Express 22(20), 2014 (University of Southampton Optoelectronics Research Centre)"
-   },
-   "change": {
-    "year": 2023,
-    "what": "Microsoft, after buying Southampton spin-out Lumenisity, began running antiresonant hollow-core fibre with live traffic across several Azure regions, with over 1,200 km installed and plans for 15,000 km more."
-   },
-   "confidence": "medium",
-   "note": "It is the first basic change to long-haul optical fibre design in decades, cutting latency by about a third, and it has moved from lab records into hyperscale production networks.",
-   "company": "Microsoft (Lumenisity)",
-   "refs": [
-    {
-     "label": "DCD: Microsoft ramps up hollow core fiber production (deployed across Azure regions since 2023)",
-     "url": "https://www.datacenterdynamics.com/en/news/microsoft-ramps-up-hollow-core-fiber-production-with-corning-heraeus-partnerships/",
-     "status": "ok",
-     "checked": "2026-10-28"
-    },
-    {
-     "label": "Meticulous Research: Southampton origin, Lumenisity spin-out, Azure deployment since 2023",
-     "url": "https://www.meticulousresearch.com/product/hollow-core-fiber-market-6956",
-     "status": "ok",
-     "checked": "2026-10-28"
-    },
-    {
-     "label": "arXiv 2606.23511: production HCF deployments over 1,200 km; Poletti 2014 NANF reference",
-     "url": "https://arxiv.org/html/2606.23511v1",
-     "status": "ok",
-     "checked": "2026-10-28"
-    },
-    {
-     "label": "MapYourTech: NANF concept by Poletti and commercial milestones",
-     "url": "https://mapyourtech.com/hollow-core-fiber-fundamentals-advantages-and-the-road-ahead/",
-     "status": "ok",
-     "checked": "2026-10-28"
-    }
-   ],
-   "region": "uk",
-   "tags": [
-    "networks"
-   ],
-   "provenance": {
-    "verification": "source-cited",
-    "addedBy": "research-agent",
-    "added": "2026-10-28",
-    "lastChecked": "2026-10-28",
-    "approximate": false
-   }
+   "subfield": "devices"
   }
  ],
  "founders": [
