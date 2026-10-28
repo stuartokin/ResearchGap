@@ -11,17 +11,18 @@ Rules enforced in code (the model only proposes):
   - Outlook records whose year has passed are confirmed as landed (with evidence) or re-estimated.
 """
 import sys, json, copy
-from common import (load_db, save_db, load_pending, save_pending, call_claude, fetch_text, link_ok, quote_in, evidence_in, log_change, CONFIG, TODAY)
+from common import (DEEP, load_db, save_db, load_pending, save_pending, call_claude, fetch_text, link_ok, quote_in, evidence_in, log_change, CONFIG, TODAY)
 
 CORR = {'type': 'object', 'required': ['path', 'value', 'evidence_url', 'evidence_quote'], 'properties': {
-  'path': {'enum': ['research.year', 'change.year', 'research.what', 'change.what', 'note', 'company', 'status', 'add_ref']},
+  'path': {'enum': ['research.year', 'change.year', 'research.what', 'change.what', 'note', 'company', 'status', 'add_ref', 'adoption.year']},
   'value': {'type': ['string', 'integer']}, 'evidence_url': {'type': 'string'}, 'label': {'type': 'string'},
   'evidence_quote': {'type': 'string', 'description': 'A short passage copied exactly from the evidence page that supports the change'}}}
 REVIEW = {'name': 'submit_review', 'description': 'Submit the review of each record.', 'input_schema': {'type': 'object', 'required': ['reviews'], 'properties': {'reviews': {'type': 'array', 'items': {
   'type': 'object', 'required': ['id', 'verdict'], 'properties': {
     'id': {'type': 'string'}, 'verdict': {'enum': ['ok', 'correct', 'dispute']}, 'reason': {'type': 'string'},
     'corrections': {'type': 'array', 'items': CORR},
-    'classification': {'type': 'object', 'properties': {'field': {'type': 'string'}, 'desnz': {'enum': ['opt', 'asset', 'demand', 'rd', 'gov', 'none']}, 'major': {'type': 'boolean'},
+    'adoption_estimate': {'type': 'object', 'properties': {'year': {'type': 'integer'}, 'what': {'type': 'string'}, 'confidence': {'enum': ['high', 'medium', 'low']}}, 'description': 'Only for landed records with no adoption year: when it reached mainstream use'},
+    'classification': {'type': 'object', 'properties': {'field': {'type': 'string'}, 'region': {'enum': ['uk', 'us', 'europe', 'asia', 'other', 'global']}, 'tags': {'type': 'array', 'items': {'type': 'string'}}, 'desnz': {'enum': ['opt', 'asset', 'demand', 'rd', 'gov', 'none']}, 'major': {'type': 'boolean'},
       'confidence': {'enum': ['high', 'medium', 'low']}, 'reason': {'type': 'string'}}},
     're_estimate_year': {'type': 'integer', 'description': 'For an outlook whose year has passed and has not landed: a new estimated year'}}}}}}}
 PENDING_TOOL = {'name': 'submit_decisions', 'description': 'Decide on each candidate.', 'input_schema': {'type': 'object', 'required': ['decisions'], 'properties': {'decisions': {'type': 'array', 'items': {
@@ -62,7 +63,11 @@ def run():
     live = [m for m in db['milestones'] if not (m.get('flags') or {}).get('hidden')]
     overdue = [m for m in live if m['status'] == 'outlook' and m['change']['year'] <= as_of]
     rest = sorted([m for m in live if m not in overdue], key=lambda m: m['provenance'].get('lastChecked', '1900-01-01'))
-    batch = (overdue + rest)[:cfg['auditBatchSize']]
+    # sources first for AI-compiled records with no working link; then the least recently checked
+    unsourced = [m for m in rest if m['provenance']['verification'] == 'ai-compiled' and not any(r.get('url') and r.get('status') != 'broken' for r in m.get('refs', []))]
+    others = [m for m in rest if m not in unsourced]
+    size = cfg.get('deepAuditBatchSize', cfg['auditBatchSize']) if DEEP else cfg['auditBatchSize']
+    batch = (overdue + unsourced[:size // 2] + others)[:size]
     # deterministic link checks first
     for m in batch:
         for ref in m.get('refs', []) + ([m['basis']] if m.get('basis') else []):
@@ -77,11 +82,14 @@ def run():
     for i in range(0, len(batch), 8):
         group = batch[i:i + 8]
         brief = [{'id': m['id'], 'title': m['title'], 'field': m['field'], 'status': m['status'], 'research': m['research'], 'change': m['change'], 'company': m.get('company'),
-                  'desnz': m.get('desnz'), 'major': bool((m.get('flags') or {}).get('major')), 'refs': m.get('refs', []), 'outlook_year_passed': m in overdue} for m in group]
+                  'desnz': m.get('desnz'), 'major': bool((m.get('flags') or {}).get('major')), 'refs': m.get('refs', []), 'outlook_year_passed': m in overdue,
+                  'adoption': m.get('adoption'), 'region': m.get('region', 'unknown'), 'tags': m.get('tags', [])} for m in group]
         prompt = (f"Today is {TODAY}. Review these records. Check the research year and description, the change year and description, the field "
                   f"({', '.join(sorted(fields))}), the DESNZ AI energy vision area (opt, asset, demand, rd, gov or none) and whether it is a major milestone. "
                   f"For any record marked outlook_year_passed, find out whether it has now landed (give the change year with an evidence quote) or give re_estimate_year (no later than {horizon}). "
-                  f"Where a record has no working source, you may add one with path add_ref and an evidence quote mentioning it.\n{json.dumps(brief, ensure_ascii=False)}")
+                  f"Where a record has no working source, find one and add it with path add_ref and an evidence quote mentioning it; this is a priority. "
+                  f"{db['meta'].get('adoptionDefinition', '')} If a landed record has no adoption year, give adoption_estimate; if you find a source stating when it reached mainstream use, propose path adoption.year with an evidence quote. "
+                  f"If region is unknown give classification.region (uk, us, europe, asia, other, global). If tags are empty give classification.tags from: {', '.join(db.get('tagVocabulary', []))}.\n{json.dumps(brief, ensure_ascii=False)}")
         out = call_claude(SYSTEM, prompt, REVIEW, max_searches=min(10, cfg['searchesPerReview'] * len(group))) or {'reviews': []}
         byid = {m['id']: m for m in group}
         for rv in out.get('reviews', []):
@@ -92,7 +100,16 @@ def run():
                 if budget <= 0: break
                 msg = apply_correction(m, c, cfg, as_of)
                 if msg: corrected.append(msg); budget -= 1
+            ae = rv.get('adoption_estimate') or {}
+            if m['status'] == 'landed' and not m.get('adoption') and ae.get('confidence') == 'high' and isinstance(ae.get('year'), int) and m['change']['year'] <= ae['year'] <= as_of + db['meta']['horizonYears'] and budget > 0:
+                m['adoption'] = {'year': ae['year'], 'what': (ae.get('what') or 'Reached mainstream use.')[:300], 'basis': 'ai-estimate'}
+                corrected.append(f"{m['id']}: adoption estimate {ae['year']}"); budget -= 1
             cl = rv.get('classification') or {}
+            if cl.get('confidence') == 'high' and cl.get('region') in ('uk', 'us', 'europe', 'asia', 'other', 'global') and m.get('region', 'unknown') == 'unknown':
+                m['region'] = cl['region']; corrected.append(f"{m['id']}: region → {cl['region']}")
+            if cl.get('confidence') == 'high' and cl.get('tags') and not m.get('tags'):
+                tg = [t for t in cl['tags'] if t in db.get('tagVocabulary', [])][:4]
+                if tg: m['tags'] = tg; corrected.append(f"{m['id']}: tags added")
             if cl.get('confidence') == 'high' and budget > 0:
                 if cl.get('field') in fields and cl['field'] != m['field']:
                     corrected.append(f"{m['id']}: field {m['field']} → {cl['field']}"); m['field'] = cl['field']; budget -= 1
@@ -129,6 +146,15 @@ def apply_correction(m, c, cfg, as_of):
     if not url.startswith('http'): return None
     code, text = fetch_text(url)
     if not (200 <= code < 400 and quote_in(text, quote)): return None          # evidence must really be on the page
+    if path == 'adoption.year':
+        try: val = int(val)
+        except Exception: return None
+        if str(val) not in quote or val < m['change']['year'] or m['status'] == 'in-lab': return None
+        old = (m.get('adoption') or {}).get('year')
+        if old and abs(val - old) > cfg['maxYearShift']: return None
+        m['adoption'] = {'year': val, 'what': (m.get('adoption') or {}).get('what') or 'Reached mainstream use.', 'basis': 'source-cited',
+                         'refs': [{'label': (c.get('label') or url)[:200], 'url': url, 'status': 'ok', 'checked': TODAY}]}
+        return f"{m['id']}: adoption year {old or 'none'} → {val} (source-cited)"
     if path in ('research.year', 'change.year'):
         try: val = int(val)
         except Exception: return None

@@ -13,10 +13,32 @@
     "searchesPerReview": 3,
     "maxCorrectionsPerRun": 15,
     "maxYearShift": 10,
-    "pendingMaxAttempts": 4
+    "pendingMaxAttempts": 4,
+    "deepAuditBatchSize": 100
   },
   "publish": {
     "maxAdditionsPerRun": 10,
     "minTitleSimilarityForDuplicate": 0.82
-  }
+  },
+  "deepModel": "claude-opus-5-5",
+  "pricing": {
+    "_note": "Optional. Set USD prices per million tokens for your models (see the Claude pricing page) to show estimated cost per run in the app. Leave null to show token counts only.",
+    "claude-sonnet-5-5": {
+      "inputPerMTok": null,
+      "outputPerMTok": null
+    },
+    "claude-opus-5-5": {
+      "inputPerMTok": null,
+      "outputPerMTok": null
+    },
+    "webSearchPer1000": null
+  },
+  "regions": [
+    "uk",
+    "us",
+    "europe",
+    "asia",
+    "other",
+    "global"
+  ]
 }
