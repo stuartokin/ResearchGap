@@ -2,7 +2,7 @@
  "$schema": "./schema.json",
  "meta": {
   "title": "The Shrinking Gap from Research to Change",
-  "revision": 13,
+  "revision": 14,
   "version": "8.0",
   "asOf": "2026-10-28",
   "horizonYears": 10,
@@ -10,7 +10,7 @@
   "author": "Stuart Okin",
   "maintainedBy": "AI agents using Claude (Anthropic), without human review",
   "disclaimer": "Personal project by Stuart Okin, not affiliated with or endorsed by any employer. Data is compiled and maintained by AI agents without human review and may contain errors. Outlook years are AI estimates, not forecasts.",
-  "lastAgentRun": "2026-10-28T21:46Z",
+  "lastAgentRun": "2026-10-28T23:14Z",
   "changelog": [
    {
     "date": "2026-10-28",
@@ -324,6 +324,102 @@
     "date": "2026-10-28",
     "summary": "Manual update: mitigation guidance rebuilt from official sources only, with links; unverified references removed.",
     "revision": 13
+   },
+   {
+    "date": "2026-10-28",
+    "time": "23:14",
+    "revision": 14,
+    "summary": "2 added, 63 corrected, 0 outlook re-estimated, 2 disputed, 0 broken links, 4 guidance updates.",
+    "stats": {
+     "milestones": 462,
+     "sourceCited": 104,
+     "aiCompiled": 280,
+     "aiEstimate": 78,
+     "adoptionKnown": 71,
+     "landed": 364,
+     "regionKnown": 462
+    },
+    "usage": {
+     "calls": 16,
+     "inputTokens": 2527944,
+     "outputTokens": 100033,
+     "searches": 128,
+     "model": "claude-opus-5-5"
+    },
+    "deepAudit": true,
+    "details": [
+     "added: google-project-suncatcher-tpu-satellite-in-orbit",
+     "added: founder f-fluidstack",
+     "ivf: source added",
+     "ivf: source added",
+     "first-hiv-drug: source added",
+     "first-hiv-drug: readiness commercial → scale",
+     "first-hiv-drug: major → True",
+     "glp-1-medicines: research.year 1984 → 1986",
+     "demand-flexibility-service: readiness commercial → scale",
+     "cyber-assessment-framework: readiness commercial → scale",
+     "cyber-assessment-framework: tags added",
+     "utility-scale-battery-product: source added",
+     "utility-scale-battery-product: readiness commercial → scale",
+     "utility-scale-battery-product: GB status unknown → deployed",
+     "blade-lfp-battery: source added",
+     "blade-lfp-battery: source added",
+     "wikis: source added",
+     "wikis: readiness commercial → scale",
+     "wikis: tags added",
+     "online-maps: research.what updated",
+     "online-maps: readiness commercial → scale",
+     "distributed-version-control: readiness commercial → scale",
+     "distributed-version-control: tags added",
+     "machine-learning-frameworks: source added",
+     "machine-learning-frameworks: source added",
+     "machine-learning-frameworks: sub-field dev → ai-tools",
+     "machine-learning-frameworks: readiness commercial → scale",
+     "optical-character-recognition: note updated",
+     "optical-character-recognition: readiness commercial → scale",
+     "industrial-machine-vision: source added",
+     "industrial-machine-vision: readiness commercial → scale",
+     "neural-network-fraud-detection: company updated",
+     "neural-network-fraud-detection: sub-field science → methods",
+     "neural-network-fraud-detection: readiness commercial → scale",
+     "machine-learning-spam-filters: sub-field methods → language",
+     "machine-learning-spam-filters: readiness commercial → scale",
+     "li-fi-light-communication: tags added",
+     "polyester-fibre: readiness commercial → scale",
+     "polycarbonate: readiness commercial → scale",
+     "superglue: readiness commercial → scale",
+     "superglue: tags added",
+     "commercial-cargo-to-the-space-station: sub-field human → in-space",
+     "commercial-cargo-to-the-space-station: readiness commercial → scale",
+     "commercial-crew-spaceflight: readiness commercial → scale",
+     "streptomycin: readiness commercial → scale",
+     "streptomycin: tags added",
+     "contraceptive-pill: readiness commercial → scale",
+     "contraceptive-pill: tags added",
+     "beta-blockers: readiness commercial → scale",
+     "cochlear-implant: readiness commercial → scale",
+     "cochlear-implant: tags added",
+     "reversible-pumped-storage-at-scale: readiness commercial → scale",
+     "solar-thermal-power-stations: GB status unknown → not-yet",
+     "wave-power-to-the-grid: readiness commercial → pilot",
+     "wave-power-to-the-grid: GB status deployed → trial",
+     "electronic-paper-displays: readiness commercial → scale",
+     "electronic-paper-displays: tags added",
+     "online-retail: readiness commercial → scale",
+     "hvdc-transmission: readiness commercial → scale",
+     "hvdc-transmission: GB status unknown → deployed",
+     "fusion-power: GB status not-yet → planned",
+     "eu-high-risk-ai-rules-apply: readiness research → commercial",
+     "ai-vulnerability-discovery: readiness commercial → pilot",
+     "solid-state-batteries-in-production-cars: readiness research → pilot",
+     "f-dji: net worth 5 → 5.1",
+     "disputed: f-okta",
+     "disputed: f-planet",
+     "guidance: Key Practices for Incident Readiness and Response in Super Intelligence Training and Evaluation",
+     "guidance: ENISA Technical Advisory for Software Bill of Materials",
+     "guidance: Disruptive cyber attacks – reducing their impact, reducing the risk",
+     "guidance: Disruptive cyber activity highlights risk from internet-exposed systems and edge devices"
+    ]
    }
   ],
   "adoptionDefinition": "Mainstream adoption: the year the technology reached widespread, routine use, roughly 10% or more of its potential market or standard practice in its sector.",
@@ -819,11 +915,12 @@
    ],
    "subfield": "grids",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "gb": {
-    "status": "unknown",
+    "status": "deployed",
     "basis": "ai-estimate",
     "note": "HVDC carries GB's interconnectors and offshore wind links (e.g. Western Link, Eastern Green Link). It is central to moving Scottish and offshore wind south and easing constraints."
    },
@@ -1126,7 +1223,7 @@
     "basis": "ai-estimate"
    },
    "gb": {
-    "status": "not-yet",
+    "status": "planned",
     "basis": "ai-estimate",
     "note": "STEP at West Burton aims to show fusion electricity around 2040. It has no near-term effect on GB network planning."
    },
@@ -3170,8 +3267,9 @@
    ],
    "subfield": "methods",
    "readiness": {
-    "stage": "research",
-    "basis": "ai-estimate"
+    "stage": "commercial",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "forecast": {
     "estimatedYear": 2027,
@@ -4083,8 +4181,9 @@
    ],
    "subfield": "ops",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "pilot",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    }
   },
   {
@@ -5231,8 +5330,9 @@
    ],
    "subfield": "energy-mat",
    "readiness": {
-    "stage": "research",
-    "basis": "ai-estimate"
+    "stage": "pilot",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "forecast": {
     "estimatedYear": 2028,
@@ -12878,10 +12978,10 @@
    "confidence": "high",
    "note": "A British medical first.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -12889,6 +12989,25 @@
    "readiness": {
     "stage": "commercial",
     "basis": "ai-estimate"
+   },
+   "refs": [
+    {
+     "label": "History.com: World's first test tube baby born",
+     "url": "https://www.history.com/this-day-in-history/july-25/worlds-first-test-tube-baby-born",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "Wikipedia: History of in vitro fertilisation",
+     "url": "https://en.wikipedia.org/wiki/History_of_in_vitro_fertilisation",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ],
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "A clinical procedure. The main cyber risk is the confidentiality of fertility clinic records, and IVF itself does not add a new digital attack surface.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -12908,10 +13027,10 @@
    "confidence": "high",
    "note": "Crisis compressed the timeline to two years.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -12920,8 +13039,25 @@
    ],
    "subfield": "medicines",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
+   },
+   "refs": [
+    {
+     "label": "ScienceBlog: AZT history",
+     "url": "https://scienceblog.com/m-a-compound-tested-as-a-cancer-drug-in-the-1960s-failed-and-drew-little-interest-for-two-decades-when-the-hiv-epidemic-arrived-researchers-tested-azt-against-the-virus-and-found-it/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ],
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "A medicine; it adds no digital attack surface.",
+    "basis": "ai-compiled"
+   },
+   "flags": {
+    "major": true
    }
   },
   {
@@ -12931,7 +13067,7 @@
    "status": "landed",
    "title": "GLP-1 medicines",
    "research": {
-    "year": 1984,
+    "year": 1986,
     "what": "GLP-1 hormone identified in academic research."
    },
    "change": {
@@ -12941,10 +13077,10 @@
    "confidence": "high",
    "note": "Twenty years, then one of the biggest drug classes in history.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "europe",
@@ -12955,6 +13091,19 @@
    "readiness": {
     "stage": "commercial",
     "basis": "ai-estimate"
+   },
+   "refs": [
+    {
+     "label": "https://www.middlewaynutrition.com/glp-1/glp-1-history",
+     "url": "https://www.middlewaynutrition.com/glp-1/glp-1-history",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ],
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "A medicine. Counterfeit and compounded supply chains are a risk, but there is no digital attack surface.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -13487,7 +13636,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -13496,12 +13645,14 @@
    ],
    "subfield": "demand",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "gb": {
     "status": "deployed",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "GB's largest domestic demand-response scheme. It shows that households can shift peak load at scale, which lowers reliance on peaking plant."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -13703,19 +13854,26 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
    "subfield": "governance",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "gb": {
     "status": "deployed",
-    "basis": "ai-estimate"
-   }
+    "basis": "ai-estimate",
+    "note": "Ofgem uses CAF to assess the cyber security of energy operators under NIS. It is the baseline for securing AI and digital systems on GB networks."
+   },
+   "tags": [
+    "regulation",
+    "networks",
+    "grid"
+   ]
   },
   {
    "id": "ot-threat-detection-for-utilities",
@@ -13782,7 +13940,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -13797,7 +13955,8 @@
    },
    "gb": {
     "status": "deployed",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "Long-duration storage with synchronous stability services. The Carrington 300 MWh plant is due in late 2026, and larger Hunterston and Killingholme sites are in Ofgem's cap-and-floor process."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -13824,10 +13983,10 @@
    "note": "Productised grid storage made multi-hundred-megawatt projects routine.",
    "company": "Tesla",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -13837,19 +13996,29 @@
    ],
    "subfield": "storage",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "gb": {
-    "status": "unknown",
-    "basis": "ai-estimate"
+    "status": "deployed",
+    "basis": "ai-estimate",
+    "note": "Containerised lithium-ion battery systems now provide much of GB's fast frequency response and growing arbitrage capacity."
    },
    "security": {
     "expandsAttackSurface": true,
     "note": "Battery management and dispatch systems are networked and remotely controllable.",
     "basis": "ai-compiled",
     "guidance": "ot"
-   }
+   },
+   "refs": [
+    {
+     "label": "Wikipedia: Tesla Megapack",
+     "url": "https://en.wikipedia.org/wiki/Tesla_Megapack",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "blade-lfp-battery",
@@ -13869,10 +14038,10 @@
    "note": "Made safer, cheaper LFP mainstream for cars and storage.",
    "company": "BYD",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "asia",
@@ -13886,14 +14055,29 @@
    },
    "gb": {
     "status": "unknown",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "Cheaper, safer LFP packs speed up EV uptake in GB, adding flexible load and potential vehicle-to-grid capacity."
    },
    "security": {
     "expandsAttackSurface": true,
     "note": "Battery management and dispatch systems are networked and remotely controllable.",
     "basis": "ai-compiled",
     "guidance": "ot"
-   }
+   },
+   "refs": [
+    {
+     "label": "Wikipedia: Blade battery",
+     "url": "https://en.wikipedia.org/wiki/Blade_battery",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "Gasgoo: BYD launches blade battery",
+     "url": "https://autonews.gasgoo.com/articles/news/byd-launches-blade-battery-to-put-end-to-spontaneous-combustions-in-evs-70017000",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "100-hour-iron-air-battery",
@@ -15147,24 +15331,36 @@
    "confidence": "high",
    "note": "Collaborative editing at global scale.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
    "subfield": "web",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "security": {
     "expandsAttackSurface": true,
     "note": "Software and online services are a primary route for remote attack and data theft.",
     "basis": "ai-compiled",
     "guidance": "it"
-   }
+   },
+   "refs": [
+    {
+     "label": "WikiWikiWeb (Wikipedia)",
+     "url": "https://en.wikipedia.org/wiki/WikiWikiWeb",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ],
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "online-maps",
@@ -15174,7 +15370,7 @@
    "title": "Online maps",
    "research": {
     "year": 2003,
-    "what": "Where 2 Technologies develops a web mapping application."
+    "what": "Where 2 Technologies, founded in Sydney, develops a prototype desktop mapping program (Expedition), later rebuilt for the web."
    },
    "change": {
     "year": 2005,
@@ -15187,7 +15383,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -15196,8 +15392,9 @@
    ],
    "subfield": "web",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -15227,21 +15424,25 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
    "subfield": "dev",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "security": {
     "expandsAttackSurface": true,
     "note": "Software and online services are a primary route for remote attack and data theft.",
     "basis": "ai-compiled",
     "guidance": "it"
-   }
+   },
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "machine-learning-frameworks",
@@ -15260,27 +15461,42 @@
    "confidence": "medium",
    "note": "Tooling that made deep learning accessible to every developer.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "other",
    "tags": [
     "ai-models"
    ],
-   "subfield": "dev",
+   "subfield": "ai-tools",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "security": {
     "expandsAttackSurface": true,
     "note": "Software and online services are a primary route for remote attack and data theft.",
     "basis": "ai-compiled",
     "guidance": "it"
-   }
+   },
+   "refs": [
+    {
+     "label": "A Tour of TensorFlow (arXiv)",
+     "url": "https://arxiv.org/abs/1610.01178",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "Theano (Wikipedia)",
+     "url": "https://en.wikipedia.org/wiki/Theano_(software)",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "optical-character-recognition",
@@ -15297,12 +15513,12 @@
     "what": "The Kurzweil Reading Machine for blind people goes on sale."
    },
    "confidence": "high",
-   "note": "Among the first AI products to change lives.",
+   "note": "Kurzweil is often credited with inventing omni-font OCR, though companies such as CompuScan used it earlier. A commercial version of the OCR software went on sale in 1978.",
    "provenance": {
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -15311,8 +15527,9 @@
    ],
    "subfield": "vision",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -15339,10 +15556,10 @@
    "note": "Factory inspection was AI’s first big industrial market.",
    "company": "Cognex",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -15352,15 +15569,24 @@
    ],
    "subfield": "vision",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "security": {
     "expandsAttackSurface": true,
     "note": "Models can be fooled by manipulated inputs, and the data behind them can be poisoned.",
     "basis": "ai-compiled",
     "guidance": "ai"
-   }
+   },
+   "refs": [
+    {
+     "label": "Cognex Corporation (Wikipedia)",
+     "url": "https://en.wikipedia.org/wiki/Cognex_Corporation",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "neural-network-fraud-detection",
@@ -15382,24 +15608,26 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
    "tags": [
     "ai-models"
    ],
-   "subfield": "science",
+   "subfield": "methods",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "security": {
     "expandsAttackSurface": true,
     "note": "Models and training data become valuable assets to steal or tamper with.",
     "basis": "ai-compiled",
     "guidance": "ai"
-   }
+   },
+   "company": "HNC Software"
   },
   {
    "id": "machine-learning-spam-filters",
@@ -15421,17 +15649,18 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "us",
    "tags": [
     "ai-models"
    ],
-   "subfield": "methods",
+   "subfield": "language",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -16187,7 +16416,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -16201,7 +16430,10 @@
     "note": "Connects systems to the internet and to each other, the root of most remote attacks.",
     "basis": "ai-compiled",
     "guidance": "it"
-   }
+   },
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "polyester-fibre",
@@ -16223,7 +16455,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -16232,8 +16464,14 @@
    ],
    "subfield": "polymers",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "A bulk material, so it has no cyber relevance.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -16256,7 +16494,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "europe",
@@ -16265,8 +16503,14 @@
    ],
    "subfield": "polymers",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "A bulk material, so it has no cyber relevance.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -16289,15 +16533,24 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
    "subfield": "polymers",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
-   }
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "A bulk material, so it has no cyber relevance.",
+    "basis": "ai-compiled"
+   },
+   "tags": [
+    "materials"
+   ]
   },
   {
    "id": "oled-displays",
@@ -16322,7 +16575,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "adoption": {
@@ -16338,6 +16591,11 @@
    "readiness": {
     "stage": "scale",
     "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "A display material; it does not add network exposure in itself.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -16360,7 +16618,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -16371,6 +16629,11 @@
    "readiness": {
     "stage": "commercial",
     "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "A power semiconductor device; it does not add network exposure in itself.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -16393,7 +16656,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "us",
@@ -16401,6 +16664,11 @@
    "readiness": {
     "stage": "commercial",
     "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "A bulk material, so it has no cyber relevance.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -16423,7 +16691,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "europe",
@@ -16431,6 +16699,11 @@
    "readiness": {
     "stage": "commercial",
     "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "A bulk material, so it has no cyber relevance.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -16453,17 +16726,23 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
    "tags": [
     "space"
    ],
-   "subfield": "human",
+   "subfield": "in-space",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Commercial ISS logistics depends on vendor ground segments, command links and supply chains. Compromising these could disrupt resupply to the station.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -16489,7 +16768,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -16498,8 +16777,14 @@
    ],
    "subfield": "human",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Crewed commercial vehicles rely on software-heavy avionics and contractor ground systems. Cyber compromise could put crew safety at risk.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -16522,7 +16807,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -16533,6 +16818,11 @@
    "readiness": {
     "stage": "commercial",
     "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Mostly a safety risk. Flight software and ground systems are possible cyber targets, but the exposure is limited.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -16556,7 +16846,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "europe",
@@ -16596,7 +16886,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "other",
@@ -16635,7 +16925,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "us",
@@ -16675,7 +16965,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "us",
@@ -16714,7 +17004,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "europe",
@@ -16753,7 +17043,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "europe",
@@ -16793,7 +17083,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -16830,7 +17120,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -16869,15 +17159,24 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
    "subfield": "medicines",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
-   }
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Not applicable; a drug with no digital component.",
+    "basis": "ai-compiled"
+   },
+   "tags": [
+    "medicine"
+   ]
   },
   {
    "id": "medical-ultrasound",
@@ -16902,7 +17201,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "adoption": {
@@ -16918,6 +17217,11 @@
    "readiness": {
     "stage": "scale",
     "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Modern networked scanners connected to hospital imaging systems are a hospital IT risk; the original analogue device was not.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -16940,15 +17244,24 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
    "subfield": "medicines",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
-   }
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Not applicable; a drug with no digital component.",
+    "basis": "ai-compiled"
+   },
+   "tags": [
+    "medicine"
+   ]
   },
   {
    "id": "implantable-pacemaker",
@@ -16970,7 +17283,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "europe",
@@ -17006,7 +17319,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -17015,8 +17328,14 @@
    ],
    "subfield": "medicines",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Not applicable; a drug with no digital component.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -17039,20 +17358,24 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "other",
    "subfield": "devices",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "security": {
     "expandsAttackSurface": false,
     "note": "A standalone device with little direct cyber exposure.",
     "basis": "ai-compiled"
-   }
+   },
+   "tags": [
+    "medicine"
+   ]
   },
   {
    "id": "cancer-immunotherapy",
@@ -17077,7 +17400,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "adoption": {
@@ -17093,6 +17416,11 @@
    "readiness": {
     "stage": "scale",
     "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "A drug therapy with no digital attack surface.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -17115,7 +17443,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "other",
@@ -17126,6 +17454,11 @@
    "readiness": {
     "stage": "commercial",
     "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "The cell manufacturing chain relies on digital chain-of-identity tracking, but the therapy itself adds little attack surface.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -17148,7 +17481,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -17158,12 +17491,14 @@
    ],
    "subfield": "storage",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "gb": {
     "status": "deployed",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "Four GB pumped-storage stations provide fast reserve, inertia and black-start capability. Cruachan expansion and new LDES schemes are key to balancing high wind output in Scotland."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -17192,7 +17527,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -17205,8 +17540,9 @@
     "basis": "ai-estimate"
    },
    "gb": {
-    "status": "unknown",
-    "basis": "ai-estimate"
+    "status": "not-yet",
+    "basis": "ai-estimate",
+    "note": "GB's low direct sunlight makes CSP unviable, so it matters to GB networks only through imports and as a thermal storage concept."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -17235,7 +17571,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -17244,12 +17580,14 @@
    ],
    "subfield": "renewables",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "pilot",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "gb": {
-    "status": "deployed",
-    "basis": "ai-estimate"
+    "status": "trial",
+    "basis": "ai-estimate",
+    "note": "Wave power offers a generation profile that complements wind, but GB has only test sites (EMEC, Wave Hub) and no commercial arrays yet."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -17331,7 +17669,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "europe",
@@ -17346,7 +17684,8 @@
    },
    "gb": {
     "status": "unknown",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "Dogger Bank was GB's first HVDC-connected wind farm. HVDC links and offshore networks are central to connecting 2030+ offshore wind and to coordinating offshore network design."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -17375,7 +17714,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "asia",
@@ -17411,21 +17750,25 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
    "subfield": "devices",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "security": {
     "expandsAttackSurface": true,
     "note": "Adds connected endpoints that need patching and secure configuration.",
     "basis": "ai-compiled",
     "guidance": "hw"
-   }
+   },
+   "tags": [
+    "materials"
+   ]
   },
   {
    "id": "online-retail",
@@ -17448,7 +17791,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -17457,8 +17800,9 @@
    ],
    "subfield": "web",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-28"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -20939,6 +21283,75 @@
     "lastChecked": "2026-10-28",
     "approximate": false
    }
+  },
+  {
+   "id": "google-project-suncatcher-tpu-satellite-in-orbit",
+   "field": "space",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Google Project Suncatcher TPU satellite in orbit",
+   "research": {
+    "year": 2025,
+    "what": "Google researchers published a design for scalable machine-learning compute in space using solar-powered satellite clusters carrying TPUs linked by free-space optical inter-satellite links. Origin: Google Research Project Suncatcher pre-print paper on a space-based, scalable AI infrastructure system design (November 2025)"
+   },
+   "change": {
+    "year": 2026,
+    "what": "A Planet-built prototype satellite named MVP carrying four Google Trillium TPUs launched on SpaceX Transporter-18 on 1 October 2026, and Google confirmed it was working as expected, making it the first in-orbit hardware test of the concept."
+   },
+   "confidence": "medium",
+   "note": "This is the first time commercial AI accelerators from a hyperscaler have been flown to test orbital data centres, though it is a single-satellite demonstrator and not yet an operational service.",
+   "flags": {
+    "aiDriven": true
+   },
+   "refs": [
+    {
+     "label": "Google blog: Project Suncatcher prototype satellite is in orbit (1 Oct 2026)",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/google-research/project-suncatcher-prototype/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "CNBC: SpaceX launches Google AI chips into orbit",
+     "url": "https://www.cnbc.com/2026/10/01/spacex-to-launch-google-ai-chips-to-orbit-with-planet-labs-satellites.html",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "DCD: Project Suncatcher pre-print and 81-satellite cluster concept",
+     "url": "https://www.datacenterdynamics.com/en/news/project-suncatcher-google-to-launch-tpus-into-orbit-with-planet-labs-envisions-1km-arrays-of-81-satellite-compute-clusters/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "Futurum: Project Suncatcher launch analysis",
+     "url": "https://futurumgroup.com/insights/project-suncatcher-prepares-to-launch-tpus-is-google-ahead-in-the-orbital-ai-race/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ],
+   "subfield": "in-space",
+   "region": "us",
+   "tags": [
+    "space",
+    "semiconductors",
+    "ai-models"
+   ],
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Orbital compute nodes would add new remotely commanded processing and optical-link infrastructure that would need protecting against interception, spoofing and attacks on the ground segment.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28",
+    "approximate": false
+   }
   }
  ],
  "founders": [
@@ -21740,7 +22153,13 @@
    "founded": 2003,
    "fortuneYear": 2012,
    "how": "Stock market listing",
-   "confidence": "medium"
+   "confidence": "medium",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
+   }
   },
   {
    "id": "f-facebook",
@@ -21756,6 +22175,12 @@
     "who": "Mark Zuckerberg",
     "basis": "Forbes 2026",
     "asOf": "2026-10-27"
+   },
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
    }
   },
   {
@@ -21766,7 +22191,13 @@
    "founded": 2005,
    "fortuneYear": 2006,
    "how": "Sale to Google",
-   "confidence": "high"
+   "confidence": "high",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
+   }
   },
   {
    "id": "f-palo-alto-networks",
@@ -21776,7 +22207,13 @@
    "founded": 2005,
    "fortuneYear": 2012,
    "how": "Stock market listing",
-   "confidence": "high"
+   "confidence": "high",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
+   }
   },
   {
    "id": "f-oxford-nanopore",
@@ -21787,7 +22224,13 @@
    "fortuneYear": 2021,
    "how": "Stock market listing",
    "confidence": "medium",
-   "research": "university"
+   "research": "university",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
+   }
   },
   {
    "id": "f-twitter",
@@ -21803,6 +22246,12 @@
     "who": "Jack Dorsey",
     "basis": "estimate",
     "asOf": "2026-10-27"
+   },
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
    }
   },
   {
@@ -21813,7 +22262,13 @@
    "founded": 2006,
    "fortuneYear": 2012,
    "how": "Stock market listing",
-   "confidence": "medium"
+   "confidence": "medium",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
+   }
   },
   {
    "id": "f-solarcity",
@@ -21823,7 +22278,13 @@
    "founded": 2006,
    "fortuneYear": 2012,
    "how": "Stock market listing",
-   "confidence": "medium"
+   "confidence": "medium",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
+   }
   },
   {
    "id": "f-dji",
@@ -21835,10 +22296,20 @@
    "how": "Private valuation",
    "confidence": "medium",
    "netWorth": {
-    "usdBn": 5,
+    "usdBn": 5.1,
     "who": "Frank Wang",
-    "basis": "estimate",
-    "asOf": "2026-10-27"
+    "basis": "Forbes real-time, Aug 29 2026 (as reported by DroneXL)",
+    "asOf": "2026-10-28",
+    "source": {
+     "label": "Forbes real-time, Aug 29 2026 (as reported by DroneXL)",
+     "url": "https://dronexl.co/guides/who-owns-dji-frank-wang/"
+    }
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
    }
   },
   {
@@ -21855,6 +22326,12 @@
     "who": "Drew Houston",
     "basis": "estimate",
     "asOf": "2026-10-27"
+   },
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
    }
   },
   {
@@ -21871,6 +22348,12 @@
     "who": "Jay Chaudhry",
     "basis": "estimate",
     "asOf": "2026-10-27"
+   },
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
    }
   },
   {
@@ -21887,6 +22370,12 @@
     "who": "Jan Koum",
     "basis": "estimate",
     "asOf": "2026-10-27"
+   },
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
    }
   },
   {
@@ -21897,7 +22386,14 @@
    "founded": 2009,
    "fortuneYear": 2015,
    "how": "Private valuation",
-   "confidence": "medium"
+   "confidence": "medium",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28",
+    "qaNote": "Founding year 2009 is well known. fortuneYear 2015 is questionable: Okta went public in April 2017. 2015 only fits if the field means the year it became a unicorn. I did not find a source to support a correction."
+   }
   },
   {
    "id": "f-instagram",
@@ -21907,7 +22403,13 @@
    "founded": 2010,
    "fortuneYear": 2012,
    "how": "Sale to Facebook",
-   "confidence": "high"
+   "confidence": "high",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
+   }
   },
   {
    "id": "f-planet",
@@ -21918,7 +22420,14 @@
    "fortuneYear": 2015,
    "how": "Private valuation",
    "confidence": "medium",
-   "research": "lab"
+   "research": "lab",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28",
+    "qaNote": "Founding year 2010 is well known. fortuneYear 2015 is unclear: Planet went public through a SPAC in December 2021. I did not find a source to support a correction."
+   }
   },
   {
    "id": "f-rigetti-computing",
@@ -21929,7 +22438,13 @@
    "fortuneYear": 2022,
    "how": "Listing via merger",
    "confidence": "medium",
-   "research": "lab"
+   "research": "lab",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
+   }
   },
   {
    "id": "f-cambridge-quantum",
@@ -21939,7 +22454,13 @@
    "founded": 2014,
    "fortuneYear": 2021,
    "how": "Merger to form Quantinuum",
-   "confidence": "medium"
+   "confidence": "medium",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
+   }
   },
   {
    "id": "f-octopus-energy",
@@ -21949,7 +22470,13 @@
    "founded": 2015,
    "fortuneYear": 2020,
    "how": "Private valuation",
-   "confidence": "medium"
+   "confidence": "medium",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
+   }
   },
   {
    "id": "f-psiquantum",
@@ -21960,7 +22487,13 @@
    "fortuneYear": 2021,
    "how": "Private valuation",
    "confidence": "medium",
-   "research": "university"
+   "research": "university",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
+   }
   },
   {
    "id": "f-graphcore",
@@ -21970,7 +22503,13 @@
    "founded": 2016,
    "fortuneYear": 2018,
    "how": "Private valuation",
-   "confidence": "medium"
+   "confidence": "medium",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
+   }
   },
   {
    "id": "f-synthesia",
@@ -22270,6 +22809,42 @@
      {
       "label": "CEOWORLD Magazine: AI Founders Now Dominate America's Youngest Billionaires (26 Oct 2026)",
       "url": "https://ceoworld.biz/2026/10/26/ai-founders-now-dominate-americas-youngest-billionaires/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "f-fluidstack",
+   "names": "Gary Wu, Jamie Cox and César Maklary",
+   "company": "Fluidstack",
+   "field": "ai",
+   "founded": 2017,
+   "fortuneYear": 2026,
+   "how": "Private valuation: ~$1.5bn round led by Jane Street at >$18bn valuation (reporte",
+   "confidence": "medium",
+   "netWorth": {
+    "usdBn": 1.0,
+    "who": "Gary Wu, Jamie Cox and César Maklary",
+    "basis": "Forbes, Oct 2, 2026 (about $1bn each)",
+    "asOf": "2026-10-28"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28",
+    "sources": [
+     {
+      "label": "Forbes – The Megadeals Behind Europe's AI Billionaire Boom (Oct 2, 2026)",
+      "url": "https://www.forbes.com/sites/rashishrivastava/2026/10/02/the-megadeals-behind-europes-ai-billionaire-boom/"
+     },
+     {
+      "label": "VnExpress International – Fluidstack co-founders become billionaires after $18B valuation",
+      "url": "https://e.vnexpress.net/news/tech/personalities/oxford-dropout-and-two-fluidstack-co-founders-become-billionaires-after-ai-startup-reaches-18b-valuation-5116862.html"
+     },
+     {
+      "label": "Quel Placement – Fluidstack valuation timeline (Sept 2026 round)",
+      "url": "https://quel-placement.com/en/blog/fluidstack-series-c-40-billion-valuation/"
      }
     ]
    }
@@ -23252,6 +23827,42 @@
    "url": "https://www.gov.uk/government/publications/revised-telecommunications-security-code-of-practice-2026-version-11/telecommunications-security-code-of-practice-2026-version-11",
    "added": "2026-10-28",
    "by": "initial-build"
+  },
+  {
+   "date": "2026-10-16",
+   "framework": "NIST / NSA / CISA",
+   "title": "Key Practices for Incident Readiness and Response in Super Intelligence Training and Evaluation",
+   "summary": "NIST CAISSI, the NSA Super Intelligence Security Center and CISA have jointly published ten voluntary practices covering five stages (prepare, detect, respond, recover, report) for incidents where highly capable AI agents take significant actions nobody instructed them to take, and which undermine operator controls. It builds on NIST SP 800-61r3 and addresses the risk of rogue agentic AI through l",
+   "url": "https://www.nist.gov/news-events/news/2026/10/key-practices-incident-readiness-and-response-super-intelligence-training",
+   "added": "2026-10-28",
+   "by": "guidance-agent"
+  },
+  {
+   "date": "2026-10-22",
+   "framework": "ENISA",
+   "title": "ENISA Technical Advisory for Software Bill of Materials",
+   "summary": "ENISA has published practical guidance on adopting SBOMs, aimed especially at SMEs and open-source stewards that are building initial capability, in the context of the EU Cyber Resilience Act. It helps operators and suppliers deal with software supply chain risk by improving visibility of software components and their vulnerabilities.",
+   "url": "https://www.enisa.europa.eu/publications",
+   "added": "2026-10-28",
+   "by": "guidance-agent"
+  },
+  {
+   "date": "2026-10",
+   "framework": "NCSC (UK)",
+   "title": "Disruptive cyber attacks – reducing their impact, reducing the risk",
+   "summary": "NCSC has expanded its earlier recovery guidance into a three-part collection, adding new guidance on preparing for highly disruptive incidents and on reducing their risk. The risk-reduction part sets five priorities: identifying critical systems, reducing exposure, limiting the impact of a compromise, building in resilience, and fast detection and response. Together these help essential service op",
+   "url": "https://www.ncsc.gov.uk/collection/disruptive-cyber-attacks",
+   "added": "2026-10-28",
+   "by": "guidance-agent"
+  },
+  {
+   "date": "2026-09",
+   "framework": "NCSC (UK)",
+   "title": "Disruptive cyber activity highlights risk from internet-exposed systems and edge devices",
+   "summary": "NCSC has issued an advisory, prompted by observed disruptive activity, urging all OT users to review their security. It recommends a definitive view of OT architecture, no direct internet exposure of PLCs and HMIs, replacing default and shared credentials, segmenting OT from IT and management networks, and keeping tested backups of OT configurations and controller logic. These steps reduce the ris",
+   "url": "https://www.ncsc.gov.uk/news/disruptive-cyber-activity-highlights-risk-from-internet-exposed-systems-and-edge-devices",
+   "added": "2026-10-28",
+   "by": "guidance-agent"
   }
  ]
 }
