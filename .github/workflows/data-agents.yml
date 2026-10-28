@@ -55,6 +55,10 @@ jobs:
         working-directory: agents
         run: python qa_agent.py
 
+      - name: Guidance agent (new and updated security guidance, CAF and Ofgem first)
+        working-directory: agents
+        run: python guidance_agent.py
+
       - name: Gate 1 - schema and data rules
         run: python tools/validate.py
 
