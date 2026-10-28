@@ -1,0 +1,8 @@
+{
+  "app": "the-shrinking-gap",
+  "version": 1,
+  "name": "SPEN and University of Glasgow showcase",
+  "title": {"text": "SP Energy Networks & University of Glasgow Partnership Showcase", "color": "#F7991C", "bg": "#00512A", "alpha": 0.96, "accent": "#0AA8F5", "align": "center", "visible": true},
+  "layout": {"title": {"open": true}, "pagetitle": {"open": true}, "ticker": {"open": true}, "landing": {"open": true}},
+  "view": {"musicOn": true}
+}

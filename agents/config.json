@@ -1,0 +1,22 @@
+{
+  "model": "claude-sonnet-5-5",
+  "maxTokens": 8000,
+  "research": {
+    "lookbackDays": 21,
+    "fieldsPerRun": 11,
+    "searchesPerField": 4,
+    "maxProposalsPerField": 3,
+    "minSources": 2
+  },
+  "qa": {
+    "auditBatchSize": 40,
+    "searchesPerReview": 3,
+    "maxCorrectionsPerRun": 15,
+    "maxYearShift": 10,
+    "pendingMaxAttempts": 4
+  },
+  "publish": {
+    "maxAdditionsPerRun": 10,
+    "minTitleSimilarityForDuplicate": 0.82
+  }
+}
