@@ -2,7 +2,7 @@
  "$schema": "./schema.json",
  "meta": {
   "title": "The Shrinking Gap from Research to Change",
-  "revision": 3,
+  "revision": 4,
   "version": "8.0",
   "asOf": "2026-10-28",
   "horizonYears": 10,
@@ -10,7 +10,7 @@
   "author": "Stuart Okin",
   "maintainedBy": "AI agents using Claude (Anthropic), without human review",
   "disclaimer": "Personal project by Stuart Okin, not affiliated with or endorsed by any employer. Data is compiled and maintained by AI agents without human review and may contain errors. Outlook years are AI estimates, not forecasts.",
-  "lastAgentRun": "2026-10-28T06:45Z",
+  "lastAgentRun": "2026-10-28T07:16Z",
   "changelog": [
    {
     "date": "2026-10-28",
@@ -42,6 +42,21 @@
      "post-quantum-cryptography: source added",
      "ai-vulnerability-discovery: source added",
      "post-quantum-migration-of-priority-systems: source added"
+    ]
+   },
+   {
+    "date": "2026-10-28",
+    "time": "07:16",
+    "revision": 4,
+    "summary": "0 added, 7 corrected, 0 outlook re-estimated, 0 disputed, 0 broken links.",
+    "details": [
+     "radar: source added",
+     "mimo-wireless: source added",
+     "massive-mimo: change.what updated",
+     "metamaterials: source added",
+     "mofs-for-carbon-capture: source added",
+     "in-orbit-satellite-servicing: source added",
+     "in-orbit-refuelling: source added"
     ]
    }
   ]
@@ -2371,7 +2386,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -2395,12 +2410,20 @@
     "major": true
    },
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "refs": [
+    {
+     "label": "https://en.wikipedia.org/wiki/Chain_Home",
+     "url": "https://en.wikipedia.org/wiki/Chain_Home",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "cellular-networks",
@@ -2425,7 +2448,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -2449,7 +2472,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -2473,7 +2496,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -2500,7 +2523,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -2527,7 +2550,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -2548,12 +2571,20 @@
    "confidence": "medium",
    "note": "Behind every modern Wi-Fi and mobile network.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "refs": [
+    {
+     "label": "https://www.comsoc.org/node/20051",
+     "url": "https://www.comsoc.org/node/20051",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "massive-mimo",
@@ -2567,7 +2598,7 @@
    },
    "change": {
     "year": 2019,
-    "what": "First commercial 5G networks use massive MIMO."
+    "what": "SoftBank in Japan launches the first commercial Massive MIMO service on its 4G/pre-5G network; it later becomes standard in 5G."
    },
    "confidence": "medium",
    "note": "Standards cycles set the pace for telecoms.",
@@ -2575,7 +2606,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -2599,7 +2630,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -2627,7 +2658,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -2651,7 +2682,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -2678,7 +2709,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -2702,7 +2733,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -2729,7 +2760,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -2753,7 +2784,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -2777,7 +2808,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -2804,7 +2835,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -2828,7 +2859,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -2849,12 +2880,20 @@
    "confidence": "medium",
    "note": "Theory first, engineering second.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "refs": [
+    {
+     "label": "https://www.microwavejournal.com/articles/28062-kymeta-announces-commercial-release-of-ku-band-metamaterial-antenna-and-satellite-data-service",
+     "url": "https://www.microwavejournal.com/articles/28062-kymeta-announces-commercial-release-of-ku-band-metamaterial-antenna-and-satellite-data-service",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "graphene",
@@ -2879,7 +2918,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -2903,7 +2942,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -2934,7 +2973,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -2958,7 +2997,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -2982,9 +3021,17 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "refs": [
+    {
+     "label": "https://www.basf.com/global/en/media/news-releases/2023/10/p-23-327",
+     "url": "https://www.basf.com/global/en/media/news-releases/2023/10/p-23-327",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "ai-discovered-materials-in-products",
@@ -3007,7 +3054,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -3034,7 +3081,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -3061,7 +3108,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -3088,7 +3135,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -3115,7 +3162,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -3139,7 +3186,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -3166,7 +3213,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -3187,12 +3234,20 @@
    "confidence": "medium",
    "note": "Space is becoming maintainable infrastructure.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "refs": [
+    {
+     "label": "https://www.spacebandits.io/post/what-is-satellite-refuelling-and-how-close-are-we-to-solving-it",
+     "url": "https://www.spacebandits.io/post/what-is-satellite-refuelling-and-how-close-are-we-to-solving-it",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "fully-reusable-heavy-launch",
@@ -3214,7 +3269,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -3238,9 +3293,17 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "refs": [
+    {
+     "label": "https://www.spacebandits.io/post/what-is-satellite-refuelling-and-how-close-are-we-to-solving-it",
+     "url": "https://www.spacebandits.io/post/what-is-satellite-refuelling-and-how-close-are-we-to-solving-it",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "space-based-solar-power-demonstration",
@@ -3262,7 +3325,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -3289,7 +3352,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -3313,7 +3376,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -3337,7 +3400,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -3364,7 +3427,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },

@@ -1,1 +1,54 @@
-[]
+[
+ {
+  "id": "bepirovirsen-first-antisense-drug-for-hepatitis-b",
+  "field": "life",
+  "origin": "industry",
+  "status": "landed",
+  "title": "Bepirovirsen: first antisense drug for hepatitis B",
+  "research": {
+   "year": 2022,
+   "what": "Ionis's antisense oligonucleotide bepirovirsen, partnered with GSK, showed functional-cure responses in chronic hepatitis B in a Phase 2b study. Origin: Ionis antisense hepatitis B programme (bepirovirsen); earliest sourced milestone is Phase 2b data, Nov 2022. The preclinical origin is earlier but not sourced here."
+  },
+  "change": {
+   "year": 2026,
+   "what": "The FDA approved Hibsago (bepirovirsen) on 20 Oct 2026, the first antisense oligonucleotide for chronic hepatitis B, alongside an FDA-authorised HBsAg companion test."
+  },
+  "confidence": "low",
+  "note": "It is the first approved therapy built around a functional-cure endpoint for hepatitis B, with 19% functional cure in pooled Phase 3 trials. The research-origin year is understated, so the lag is uncertain.",
+  "refs": [
+   {
+    "label": "GSK press release: Hibsago approved in the US",
+    "url": "https://www.gsk.com/en-gb/media/press-releases/hibsago-bepirovirsen-approved-in-the-us-for-the-treatment-of-chronic-hepatitis-b-chb/",
+    "status": "ok",
+    "checked": "2026-10-28"
+   },
+   {
+    "label": "BioSpace: GSK, Ionis win FDA nod for hepatitis B functional cure",
+    "url": "https://www.biospace.com/fda/gsk-ionis-win-fda-nod-for-hepatitis-b-functional-cure-that-controls-virus-after-treatment",
+    "status": "ok",
+    "checked": "2026-10-28"
+   },
+   {
+    "label": "Contagion Live: FDA approves first antisense therapy for chronic hepatitis B",
+    "url": "https://www.contagionlive.com/view/fda-approves-hibsago-first-antisense-therapy-chronic-hepatitis-b",
+    "status": "ok",
+    "checked": "2026-10-28"
+   },
+   {
+    "label": "Drugs.com: Hibsago FDA approval history",
+    "url": "https://www.drugs.com/history/hibsago.html",
+    "status": "ok",
+    "checked": "2026-10-28"
+   }
+  ],
+  "evidence_terms": [
+   "bepirovirsen",
+   "Hibsago",
+   "Ionis",
+   "GSK",
+   "antisense"
+  ],
+  "proposed": "2026-10-28",
+  "attempts": 1
+ }
+]
