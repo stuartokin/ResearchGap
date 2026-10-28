@@ -49,5 +49,10 @@
     "maxNewPerRun": 3,
     "maxNetWorthChangeFactor": 3,
     "searches": 6
+  },
+  "guidance": {
+    "lookbackDays": 45,
+    "searches": 8,
+    "maxUpdatesPerRun": 5
   }
 }
