@@ -14,7 +14,7 @@ import sys, json, difflib
 from common import load_db, save_db, call_claude, fetch_text, log_change, CONFIG, TODAY
 
 OFFICIAL = ('ncsc.gov.uk', 'ofgem.gov.uk', 'gov.uk', 'nist.gov', 'nerc.com', 'ferc.gov', 'iec.ch', 'isa.org', 'iso.org', 'etsi.org', 'enisa.europa.eu',
-            'europa.eu', 'cisa.gov', 'energy.gov', 'cyber.gov.au', 'cyber.gc.ca', 'bsigroup.com', 'bsi.bund.de', 'ssi.gouv.fr', 'neso.energy', 'owasp.org')
+            'europa.eu', 'cisa.gov', 'federalregister.gov', 'unece.org', 'legislation.gov.uk', 'energy.gov', 'cyber.gov.au', 'cyber.gc.ca', 'bsigroup.com', 'bsi.bund.de', 'ssi.gouv.fr', 'neso.energy', 'owasp.org')
 SUBMIT = {'name': 'submit_guidance', 'description': 'Submit new or updated security guidance found.', 'input_schema': {'type': 'object', 'required': ['updates'], 'properties': {'updates': {'type': 'array', 'maxItems': 8, 'items': {
   'type': 'object', 'required': ['framework', 'title', 'date', 'summary', 'url', 'evidence_terms'],
   'properties': {'framework': {'type': 'string', 'description': 'For example NCSC CAF, Ofgem, NIST, NERC CIP, IEC 62443, ISO/IEC, ETSI'},
