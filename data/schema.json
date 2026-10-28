@@ -127,6 +127,16 @@
           "colour": {
             "type": "string",
             "pattern": "^#[0-9A-Fa-f]{6}$"
+          },
+          "subfields": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "name"
+              ]
+            }
           }
         }
       }
@@ -365,6 +375,10 @@
               "type": "string",
               "pattern": "^[a-z0-9-]+$"
             }
+          },
+          "subfield": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
           }
         }
       }
