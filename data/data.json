@@ -2,7 +2,7 @@
  "$schema": "./schema.json",
  "meta": {
   "title": "The Shrinking Gap from Research to Change",
-  "revision": 8,
+  "revision": 9,
   "version": "8.0",
   "asOf": "2026-10-28",
   "horizonYears": 10,
@@ -10,7 +10,7 @@
   "author": "Stuart Okin",
   "maintainedBy": "AI agents using Claude (Anthropic), without human review",
   "disclaimer": "Personal project by Stuart Okin, not affiliated with or endorsed by any employer. Data is compiled and maintained by AI agents without human review and may contain errors. Outlook years are AI estimates, not forecasts.",
-  "lastAgentRun": "2026-10-28T14:43Z",
+  "lastAgentRun": "2026-10-28T17:54Z",
   "changelog": [
    {
     "date": "2026-10-28",
@@ -179,6 +179,61 @@
      "cloud-delivered-security: tags added",
      "superconducting-quantum-cloud: tags added",
      "stored-program-computer: sub-field chips → compute"
+    ]
+   },
+   {
+    "date": "2026-10-28",
+    "time": "17:54",
+    "revision": 9,
+    "summary": "2 added, 28 corrected, 0 outlook re-estimated, 0 disputed, 0 broken links.",
+    "stats": {
+     "milestones": 460,
+     "sourceCited": 85,
+     "aiCompiled": 297,
+     "aiEstimate": 78,
+     "adoptionKnown": 70,
+     "landed": 362,
+     "regionKnown": 460
+    },
+    "usage": {
+     "calls": 16,
+     "inputTokens": 2518745,
+     "outputTokens": 91276,
+     "searches": 128,
+     "model": "claude-opus-5-5"
+    },
+    "deepAudit": true,
+    "details": [
+     "added: statistical-watermarking-of-ai-generated-text",
+     "added: founder f-cognition",
+     "uk-quantum-computing-service: source added",
+     "multi-protocol-router: source added",
+     "cdma-mobile-networks: source added",
+     "cdma-mobile-networks: adoption year none → 1997 (source-cited)",
+     "cdma-mobile-networks: major → True",
+     "internet-voice-calls: research.year 2003 → 2002",
+     "mobile-messaging: sub-field mobile → messaging",
+     "video-meetings: adoption year none → 2020 (source-cited)",
+     "video-meetings: sub-field messaging → internet",
+     "video-meetings: tags added",
+     "small-commercial-satellites: source added",
+     "private-orbital-rocket: source added",
+     "private-orbital-rocket: major → True",
+     "legged-robots: source added",
+     "dji-camera-drones: source added",
+     "automated-grocery-warehouses: change.year 2014 → 2016",
+     "automated-grocery-warehouses: change.what updated",
+     "automated-grocery-warehouses: source added",
+     "repositionable-adhesive-post-it: tags added",
+     "expanded-ptfe-gore-tex: tags added",
+     "ultra-strong-polyethylene-fibre: sub-field composites → polymers",
+     "containers-and-kubernetes: sub-field dev → cloud",
+     "broadband-over-phone-lines-dsl: sub-field mobile → internet",
+     "float-glass: sub-field electronic → construction",
+     "cryptographically-relevant-quantum-computer: sub-field comms → computing",
+     "zero-trust: sub-field network → identity",
+     "zero-trust: tags added",
+     "f-rocket-lab: fortuneYear 2018 → 2021"
     ]
    }
   ],
@@ -2589,7 +2644,7 @@
    "tags": [
     "cryptography"
    ],
-   "subfield": "comms"
+   "subfield": "computing"
   },
   {
    "id": "verified-quantum-advantage",
@@ -2975,7 +3030,10 @@
     }
    ],
    "region": "us",
-   "subfield": "network"
+   "subfield": "identity",
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "post-quantum-cryptography",
@@ -8252,14 +8310,22 @@
    "note": "A UK university spin-out reaching customers in four years.",
    "company": "Oxford Quantum Circuits",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
-   "subfield": "computing"
+   "subfield": "computing",
+   "refs": [
+    {
+     "label": "The Quantum Insider, 7 July 2021",
+     "url": "https://thequantuminsider.com/2021/07/07/oqc-delivers-the-uks-first-quantum-computing-as-a-service/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "photonic-fault-tolerant-quantum-computer",
@@ -8306,17 +8372,25 @@
    "note": "University networking research became the internet’s backbone vendor.",
    "company": "Cisco",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
    "tags": [
     "networks"
    ],
-   "subfield": "internet"
+   "subfield": "internet",
+   "refs": [
+    {
+     "label": "Cisco Innovation Timeline",
+     "url": "https://newsroom.cisco.com/c/r/newsroom/en/us/interactive/cisco-innovation-timeline.html",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "cdma-mobile-networks",
@@ -8336,17 +8410,41 @@
    "note": "Standards fights took a decade.",
    "company": "Qualcomm",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
    "tags": [
     "networks"
    ],
-   "subfield": "mobile"
+   "subfield": "mobile",
+   "refs": [
+    {
+     "label": "Telecompaper, 13 Nov 1995",
+     "url": "https://www.telecompaper.com/news/qualcomm-supplies-hutchison-with-phones--69187",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ],
+   "adoption": {
+    "year": 1997,
+    "what": "Reached mainstream use.",
+    "basis": "source-cited",
+    "refs": [
+     {
+      "label": "https://www.allpcb.com/allelectrohub/history-of-mobile-communications",
+      "url": "https://www.allpcb.com/allelectrohub/history-of-mobile-communications",
+      "status": "ok",
+      "checked": "2026-10-28"
+     }
+    ]
+   },
+   "flags": {
+    "major": true
+   }
   },
   {
    "id": "internet-voice-calls",
@@ -8355,7 +8453,7 @@
    "status": "landed",
    "title": "Internet voice calls",
    "research": {
-    "year": 2003,
+    "year": 2002,
     "what": "Skype is built by Estonian engineers for Zennström and Friis."
    },
    "change": {
@@ -8366,17 +8464,25 @@
    "note": "Disrupted international telephony within two years.",
    "company": "Skype",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "europe",
    "tags": [
     "networks"
    ],
-   "subfield": "internet"
+   "subfield": "internet",
+   "refs": [
+    {
+     "label": "http://www.computer-timeline.com/timeline/niklas-zennstrom-and-janus-friis-skype/",
+     "url": "http://www.computer-timeline.com/timeline/niklas-zennstrom-and-janus-friis-skype/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "mobile-messaging",
@@ -8399,14 +8505,14 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
    "tags": [
     "networks"
    ],
-   "subfield": "mobile"
+   "subfield": "messaging"
   },
   {
    "id": "video-meetings",
@@ -8429,11 +8535,27 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
-   "subfield": "messaging"
+   "subfield": "internet",
+   "adoption": {
+    "year": 2020,
+    "what": "Reached mainstream use.",
+    "basis": "source-cited",
+    "refs": [
+     {
+      "label": "https://www.caltech.edu/campus-life-events/calendar/a-conversation-with-zoom-founder-and-ceo-eric-s-yuan-89668",
+      "url": "https://www.caltech.edu/campus-life-events/calendar/a-conversation-with-zoom-founder-and-ceo-eric-s-yuan-89668",
+      "status": "ok",
+      "checked": "2026-10-28"
+     }
+    ]
+   },
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "small-commercial-satellites",
@@ -8453,17 +8575,25 @@
    "note": "A UK university pioneered low-cost satellites.",
    "company": "Surrey Satellite Technology",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
    "tags": [
     "space"
    ],
-   "subfield": "launch"
+   "subfield": "launch",
+   "refs": [
+    {
+     "label": "SSTL, 30 years of space innovation",
+     "url": "https://www.sstl.co.uk/media-hub/latest-news/2015/sstl-celebrates-30-years-of-space-innovation",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "private-orbital-rocket",
@@ -8483,17 +8613,28 @@
    "note": "Commercial launch reshaped the whole space sector.",
    "company": "SpaceX",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
    "tags": [
     "space"
    ],
-   "subfield": "launch"
+   "subfield": "launch",
+   "refs": [
+    {
+     "label": "Falcon 1 (Wikipedia)",
+     "url": "https://en.wikipedia.org/wiki/Falcon_1",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ],
+   "flags": {
+    "major": true
+   }
   },
   {
    "id": "small-satellite-launcher",
@@ -8516,7 +8657,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "other",
@@ -8543,10 +8684,10 @@
    "note": "Nearly 30 years, now used for substation and plant inspection.",
    "company": "Boston Dynamics",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -8554,7 +8695,15 @@
     "grid",
     "robots"
    ],
-   "subfield": "field"
+   "subfield": "field",
+   "refs": [
+    {
+     "label": "Boston Globe: Spot on sale; company founded 1992",
+     "url": "https://www.bostonglobe.com/2020/06/16/business/boston-dynamics-turns-spot-robot-loose/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "dji-camera-drones",
@@ -8574,17 +8723,25 @@
    "note": "Now common in network inspection, with supply chain security questions.",
    "company": "DJI",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "asia",
    "tags": [
     "robots"
    ],
-   "subfield": "drones"
+   "subfield": "drones",
+   "refs": [
+    {
+     "label": "DroneXL: DJI timeline",
+     "url": "https://dronexl.co/guides/who-owns-dji-frank-wang/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "automated-grocery-warehouses",
@@ -8597,17 +8754,17 @@
     "what": "Ocado develops its grid-based robotic storage system."
    },
    "change": {
-    "year": 2014,
-    "what": "Robot grid warehouse operations begin. Dates approximate."
+    "year": 2016,
+    "what": "Ocado's Andover fulfilment centre, its first robot-grid warehouse, goes into operation."
    },
    "confidence": "low",
    "note": "A UK company that now licenses its robotics.",
    "company": "Ocado",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "uk",
@@ -8616,7 +8773,21 @@
     "grid",
     "robots"
    ],
-   "subfield": "service"
+   "subfield": "service",
+   "refs": [
+    {
+     "label": "https://newatlas.com/video-tour-ocado-automated-warehouse-andover/54568/",
+     "url": "https://newatlas.com/video-tour-ocado-automated-warehouse-andover/54568/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "New Atlas: Ocado Andover fulfilment centre",
+     "url": "https://newatlas.com/video-tour-ocado-automated-warehouse-andover/54568/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "repositionable-adhesive-post-it",
@@ -8639,11 +8810,14 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
-   "subfield": "polymers"
+   "subfield": "polymers",
+   "tags": [
+    "materials"
+   ]
   },
   {
    "id": "expanded-ptfe-gore-tex",
@@ -8666,11 +8840,14 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
-   "subfield": "polymers"
+   "subfield": "polymers",
+   "tags": [
+    "materials"
+   ]
   },
   {
    "id": "ultra-strong-polyethylene-fibre",
@@ -8693,14 +8870,14 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "europe",
    "tags": [
     "networks"
    ],
-   "subfield": "composites"
+   "subfield": "polymers"
   },
   {
    "id": "nanopore-sequencing",
@@ -8723,7 +8900,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -8755,7 +8932,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "adoption": {
@@ -8793,7 +8970,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "adoption": {
@@ -8828,7 +9005,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "europe",
@@ -8858,7 +9035,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "europe",
@@ -8887,7 +9064,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -8920,7 +9097,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "adoption": {
@@ -8955,7 +9132,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -8988,7 +9165,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "europe",
@@ -9017,7 +9194,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "europe",
@@ -9043,7 +9220,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "europe",
@@ -9072,7 +9249,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "asia",
@@ -9102,7 +9279,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -9132,7 +9309,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -9158,7 +9335,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -9187,7 +9364,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "adoption": {
@@ -9218,11 +9395,11 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
-   "subfield": "dev"
+   "subfield": "cloud"
   },
   {
    "id": "face-detection-in-cameras",
@@ -9244,7 +9421,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -9274,7 +9451,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "other",
@@ -9303,7 +9480,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -9332,7 +9509,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "europe",
@@ -9361,7 +9538,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -9390,7 +9567,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "adoption": {
@@ -9425,7 +9602,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -9454,14 +9631,14 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
    "tags": [
     "networks"
    ],
-   "subfield": "mobile"
+   "subfield": "internet"
   },
   {
    "id": "4g-lte",
@@ -9486,7 +9663,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "adoption": {
@@ -9520,14 +9697,14 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
    "tags": [
     "materials"
    ],
-   "subfield": "electronic"
+   "subfield": "construction"
   },
   {
    "id": "3d-printing",
@@ -9549,7 +9726,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -9579,7 +9756,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -9608,7 +9785,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -9637,7 +9814,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -9667,7 +9844,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "europe",
@@ -9697,7 +9874,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -9727,7 +9904,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -9759,7 +9936,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "adoption": {
@@ -15711,6 +15888,60 @@
     "lastChecked": "2026-10-28",
     "approximate": false
    }
+  },
+  {
+   "id": "statistical-watermarking-of-ai-generated-text",
+   "field": "ai",
+   "origin": "academic",
+   "status": "landed",
+   "title": "Statistical watermarking of AI-generated text",
+   "research": {
+    "year": 2023,
+    "what": "Researchers showed that a language model's word choices could be nudged in a statistically detectable way, so that its text carries an invisible watermark without noticeably hurting quality. Origin: Kirchenbauer et al., 'A Watermark for Large Language Models' (University of Maryland, ICML 2023). This attribution is from background knowledge; neither retrieved source names it."
+   },
+   "change": {
+    "year": 2024,
+    "what": "Google DeepMind began watermarking Gemini text output with SynthID in 2024. On 5 October 2026 OpenAI announced its textGrain statistical watermark for eligible ChatGPT and Codex text in the EU, with opt-in for API customers worldwide, after EU AI Act Article 50 marking duties became applicable on 2 August 2026."
+   },
+   "confidence": "medium",
+   "note": "Invisible text watermarks have gone from a research idea to a tool that major AI providers use to meet the EU AI Act's machine-readable marking duty.",
+   "company": "OpenAI; Google DeepMind",
+   "flags": {
+    "aiDriven": true
+   },
+   "refs": [
+    {
+     "label": "CSA research note: OpenAI textGrain, watermarking text under the EU AI Act",
+     "url": "https://labs.cloudsecurityalliance.org/research/csa-research-note-eu-ai-act-text-watermarking-20261009-csa-s/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "Wikipedia: Text watermarking (SynthID since 2024, EU AI Act, Claude watermark)",
+     "url": "https://en.wikipedia.org/wiki/Text_watermarking",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "EU AI Act Article 50 watermark mandate analysis",
+     "url": "https://archivemacropolo.org/analysis/eu-ai-act-article-50-watermarking-mandate",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ],
+   "subfield": "language",
+   "region": "us",
+   "tags": [
+    "ai-models",
+    "regulation"
+   ],
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28",
+    "approximate": false
+   }
   }
  ],
  "founders": [
@@ -15723,7 +15954,13 @@
    "fortuneYear": 1960,
    "how": "Royalties after the Xerox 914 copier",
    "confidence": "medium",
-   "research": "lab"
+   "research": "lab",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
+   }
   },
   {
    "id": "f-hewlett-packard",
@@ -15734,7 +15971,13 @@
    "fortuneYear": 1957,
    "how": "Stock market listing",
    "confidence": "high",
-   "research": "university"
+   "research": "university",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
+   }
   },
   {
    "id": "f-sony",
@@ -15744,7 +15987,13 @@
    "founded": 1946,
    "fortuneYear": 1958,
    "how": "Tokyo stock market listing",
-   "confidence": "medium"
+   "confidence": "medium",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
+   }
   },
   {
    "id": "f-digital-equipment-corporation",
@@ -15754,7 +16003,13 @@
    "founded": 1957,
    "fortuneYear": 1966,
    "how": "Stock market listing",
-   "confidence": "high"
+   "confidence": "high",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
+   }
   },
   {
    "id": "f-intel",
@@ -15771,6 +16026,12 @@
     "who": "Gordon Moore",
     "basis": "at death (2023), inflation-adjusted",
     "asOf": "2026-10-27"
+   },
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
    }
   },
   {
@@ -15787,6 +16048,12 @@
     "who": "Bill Gates",
     "basis": "Forbes 2026",
     "asOf": "2026-10-27"
+   },
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
    }
   },
   {
@@ -15803,6 +16070,12 @@
     "who": "Steve Jobs",
     "basis": "at death (2011), inflation-adjusted",
     "asOf": "2026-10-27"
+   },
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
    }
   },
   {
@@ -15815,7 +16088,13 @@
    "how": "Stock market listing",
    "confidence": "high",
    "research": "university",
-   "prize": "Lasker Award 1980 (Boyer)"
+   "prize": "Lasker Award 1980 (Boyer)",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
+   }
   },
   {
    "id": "f-oracle",
@@ -15831,6 +16110,12 @@
     "who": "Larry Ellison",
     "basis": "Forbes 2026",
     "asOf": "2026-10-27"
+   },
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
    }
   },
   {
@@ -15847,6 +16132,12 @@
     "who": "Michael Dell",
     "basis": "estimate",
     "asOf": "2026-10-27"
+   },
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
    }
   },
   {
@@ -15865,6 +16156,12 @@
     "who": "Irwin Jacobs",
     "basis": "estimate",
     "asOf": "2026-10-27"
+   },
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
    }
   },
   {
@@ -15875,7 +16172,13 @@
    "founded": 1990,
    "fortuneYear": 1998,
    "how": "Stock market listing",
-   "confidence": "medium"
+   "confidence": "medium",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
+   }
   },
   {
    "id": "f-irobot",
@@ -15886,7 +16189,13 @@
    "fortuneYear": 2005,
    "how": "Stock market listing",
    "confidence": "high",
-   "research": "university"
+   "research": "university",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
+   }
   },
   {
    "id": "f-nvidia",
@@ -15902,6 +16211,12 @@
     "who": "Jensen Huang",
     "basis": "Forbes 2026",
     "asOf": "2026-10-27"
+   },
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
    }
   },
   {
@@ -15918,6 +16233,12 @@
     "who": "Gil Shwed",
     "basis": "estimate",
     "asOf": "2026-10-27"
+   },
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
    }
   },
   {
@@ -15935,6 +16256,12 @@
     "who": "Marc Andreessen",
     "basis": "estimate",
     "asOf": "2026-10-27"
+   },
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
    }
   },
   {
@@ -15951,6 +16278,12 @@
     "who": "Elon Musk",
     "basis": "Forbes 2026",
     "asOf": "2026-10-27"
+   },
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
    }
   },
   {
@@ -15968,6 +16301,12 @@
     "who": "Larry Page",
     "basis": "Forbes 2026",
     "asOf": "2026-10-27"
+   },
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
    }
   },
   {
@@ -15984,6 +16323,12 @@
     "who": "Shi Zhengrong",
     "basis": "peak (2006), inflation-adjusted",
     "asOf": "2026-10-27"
+   },
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
    }
   },
   {
@@ -15992,9 +16337,15 @@
    "company": "Rocket Lab",
    "field": "space",
    "founded": 2006,
-   "fortuneYear": 2018,
+   "fortuneYear": 2021,
    "how": "Private valuation",
-   "confidence": "medium"
+   "confidence": "medium",
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "initial-build",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28"
+   }
   },
   {
    "id": "f-biontech",
@@ -16767,6 +17118,38 @@
     "who": "Arthur Mensch",
     "basis": "estimate",
     "asOf": "2026-10-27"
+   }
+  },
+  {
+   "id": "f-cognition",
+   "names": "Steven Hao and co-founders",
+   "company": "Cognition",
+   "field": "ai",
+   "founded": 2023,
+   "fortuneYear": 2026,
+   "how": "Private funding round: $2bn raised at a $48bn valuation",
+   "confidence": "medium",
+   "netWorth": {
+    "usdBn": 5.8,
+    "who": "Steven Hao and co-founders",
+    "basis": "Forbes 400 2026, as reported by CEOWORLD Magazine, 26 Oct 2026",
+    "asOf": "2026-10-28"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28",
+    "sources": [
+     {
+      "label": "Quartz: Youngest billionaires in America are mostly AI founders (Oct 2026)",
+      "url": "https://qz.com/youngest-billionaires-america-ai-2026"
+     },
+     {
+      "label": "CEOWORLD Magazine: AI Founders Now Dominate America's Youngest Billionaires (26 Oct 2026)",
+      "url": "https://ceoworld.biz/2026/10/26/ai-founders-now-dominate-americas-youngest-billionaires/"
+     }
+    ]
    }
   }
  ],
