@@ -2,15 +2,36 @@
  "$schema": "./schema.json",
  "meta": {
   "title": "The Shrinking Gap from Research to Change",
-  "revision": 1,
+  "revision": 2,
   "version": "8.0",
-  "asOf": "2026-10-27",
+  "asOf": "2026-10-28",
   "horizonYears": 10,
   "startYear": 1925,
   "author": "Stuart Okin",
   "maintainedBy": "AI agents using Claude (Anthropic), without human review",
   "disclaimer": "Personal project by Stuart Okin, not affiliated with or endorsed by any employer. Data is compiled and maintained by AI agents without human review and may contain errors. Outlook years are AI estimates, not forecasts.",
-  "lastAgentRun": null
+  "lastAgentRun": "2026-10-28T06:18Z",
+  "changelog": [
+   {
+    "date": "2026-10-28",
+    "summary": "5 added, 8 corrected, 0 outlook re-estimated, 0 disputed, 0 broken links.",
+    "details": [
+     "added: Microsoft Maia 300 in-house AI inference chip",
+     "added: Post-quantum cryptography migration mandates",
+     "added: First commercial Upper 6GHz mobile network (UAE)",
+     "added: EU PFHxA restriction hits textiles, food paper, cosmetics",
+     "added: US exemption for driverless-truck warning beacons",
+     "nuclear-fission-to-grid-power: source added",
+     "hvdc-transmission: source added",
+     "fusion-power: change.year 2050 → 2040",
+     "fusion-power: source added",
+     "ai-in-grid-control-rooms: source added",
+     "long-duration-storage-at-scale: source added",
+     "first-uk-small-modular-reactors: source added",
+     "stored-program-computer: source added"
+    ]
+   }
+  ]
  },
  "fields": [
   {
@@ -132,12 +153,20 @@
     "major": true
    },
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "refs": [
+    {
+     "label": "https://www.euronuclear.org/glossary/calder-hall/",
+     "url": "https://www.euronuclear.org/glossary/calder-hall/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "hvdc-transmission",
@@ -156,12 +185,20 @@
    "confidence": "medium",
    "note": "A long engineering road from valve research to a dependable link.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "refs": [
+    {
+     "label": "https://ieeemilestones.ethw.org/Milestone-Proposal:Gotland_HVDC_Link",
+     "url": "https://ieeemilestones.ethw.org/Milestone-Proposal:Gotland_HVDC_Link",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "silicon-solar-cell",
@@ -186,7 +223,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -213,7 +250,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -240,7 +277,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -264,7 +301,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -288,7 +325,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -303,7 +340,7 @@
     "what": "JET, a European publicly funded tokamak at Culham, produces first plasma."
    },
    "change": {
-    "year": 2050,
+    "year": 2040,
     "what": "Not yet landed. UK STEP targets a prototype plant around 2040."
    },
    "confidence": "low",
@@ -313,12 +350,26 @@
     "major": true
    },
    "provenance": {
-    "verification": "ai-estimate",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "refs": [
+    {
+     "label": "https://stepfusion.com/why-fusion/",
+     "url": "https://stepfusion.com/why-fusion/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "https://stepfusion.com/why-fusion/",
+     "url": "https://stepfusion.com/why-fusion/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "tandem-solar-at-volume",
@@ -344,7 +395,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -370,15 +421,25 @@
    },
    "basis": {
     "label": "NESO: Volta programme",
-    "url": "https://www.neso.energy/news/volta-programme-powering-future-dispatch-tapestry-energy-moonshot-x-moonshot-factory-alphabets-innovation-lab-bring-ai-our-control-room"
+    "url": "https://www.neso.energy/news/volta-programme-powering-future-dispatch-tapestry-energy-moonshot-x-moonshot-factory-alphabets-innovation-lab-bring-ai-our-control-room",
+    "status": "ok",
+    "checked": "2026-10-28"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "refs": [
+    {
+     "label": "https://www.neso.energy/news/volta-programme-powering-future-dispatch-tapestry-energy-moonshot-x-moonshot-factory-alphabets-innovation-lab-bring-ai-our-control-room",
+     "url": "https://www.neso.energy/news/volta-programme-powering-future-dispatch-tapestry-energy-moonshot-x-moonshot-factory-alphabets-innovation-lab-bring-ai-our-control-room",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "household-flexibility-at-scale",
@@ -401,7 +462,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -425,7 +486,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -450,15 +511,25 @@
    },
    "basis": {
     "label": "Ofgem: long duration storage Window 1 minded-to decisions",
-    "url": "https://www.ofgem.gov.uk/consultation/long-duration-electricity-storage-window-1-minded-decisions"
+    "url": "https://www.ofgem.gov.uk/consultation/long-duration-electricity-storage-window-1-minded-decisions",
+    "status": "ok",
+    "checked": "2026-10-28"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "refs": [
+    {
+     "label": "https://www.ofgem.gov.uk/energy-regulation/low-carbon/long-duration-electricity-storage",
+     "url": "https://www.ofgem.gov.uk/energy-regulation/low-carbon/long-duration-electricity-storage",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "first-uk-small-modular-reactors",
@@ -481,15 +552,25 @@
    },
    "basis": {
     "label": "Senedd Research: Rolls-Royce SMR at Wylfa",
-    "url": "https://research.senedd.wales/research-articles/new-nuclear-at-wylfa-what-happens-next/"
+    "url": "https://research.senedd.wales/research-articles/new-nuclear-at-wylfa-what-happens-next/",
+    "status": "ok",
+    "checked": "2026-10-28"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "refs": [
+    {
+     "label": "https://www.powermag.com/uk-confirms-wylfa-as-launch-site-for-first-nuclear-smr-fleet/",
+     "url": "https://www.powermag.com/uk-confirms-wylfa-as-launch-site-for-first-nuclear-smr-fleet/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "quantum-optimisation-pilots",
@@ -512,7 +593,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -536,12 +617,20 @@
     "major": true
    },
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "refs": [
+    {
+     "label": "https://www.manchester.ac.uk/about/news/the-moment-computing-became-real/",
+     "url": "https://www.manchester.ac.uk/about/news/the-moment-computing-became-real/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "transistor",
@@ -566,7 +655,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -593,7 +682,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -617,7 +706,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -641,7 +730,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -665,7 +754,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -689,7 +778,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -716,7 +805,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -743,7 +832,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -771,7 +860,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -795,7 +884,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -819,7 +908,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -843,7 +932,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -867,7 +956,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -891,7 +980,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -915,7 +1004,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -939,7 +1028,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -966,7 +1055,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -993,7 +1082,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -1020,7 +1109,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -1047,7 +1136,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -1071,7 +1160,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -1095,7 +1184,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -1119,7 +1208,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -1146,7 +1235,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    }
   },
@@ -11648,6 +11737,250 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
+   }
+  },
+  {
+   "id": "microsoft-maia-300-in-house-ai-inference-chip",
+   "field": "hw",
+   "origin": "industry",
+   "status": "outlook",
+   "title": "Microsoft Maia 300 in-house AI inference chip",
+   "research": {
+    "year": 2023,
+    "what": "Microsoft revealed its first in-house Azure Maia AI accelerator (Maia 100) in 2023, starting a multi-generation custom silicon programme (year taken from my own background knowledge, not from the retrieved sources; the sources only describe Maia 100 as a 2023 pilot part)."
+   },
+   "change": {
+    "year": 2027,
+    "what": "Microsoft unveiled Maia 300 on 12 Oct 2026 and said production deployments begin in 2027, scaling to multi-gigawatt use as the main inference system for its own services."
+   },
+   "confidence": "medium",
+   "note": "It marks a hyperscaler moving from supplementary custom chips to a primary in-house inference platform, but it is an announcement only and has not shipped.",
+   "refs": [
+    {
+     "label": "Unite.AI: Microsoft announces Maia 300",
+     "url": "https://www.unite.ai/microsoft-announces-maia-300-ai-chip-multi-gigawatt-azure-scale-up/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "Computerworld: Microsoft unveils Maia 300 AI chip",
+     "url": "https://www.computerworld.com/article/4234722/microsoft-unveils-new-maia-300-ai-chip.html",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "The Next Web: Maia 300 will run its AI services from 2027",
+     "url": "https://thenextweb.com/news/microsoft-maia-300-ai-chip-2027",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ],
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28",
+    "approximate": false
+   },
+   "basis": {
+    "label": "Unite.AI: Microsoft announces Maia 300",
+    "url": "https://www.unite.ai/microsoft-announces-maia-300-ai-chip-multi-gigawatt-azure-scale-up/",
+    "status": "ok",
+    "checked": "2026-10-28"
+   }
+  },
+  {
+   "id": "post-quantum-cryptography-migration-mandates",
+   "field": "sw",
+   "origin": "government",
+   "status": "outlook",
+   "title": "Post-quantum cryptography migration mandates",
+   "research": {
+    "year": 1994,
+    "what": "Shor's quantum algorithm showed that widely used public-key cryptography could be broken by a large quantum computer. This prompted the search for quantum-resistant replacements, which NIST standardised in 2024."
+   },
+   "change": {
+    "year": 2030,
+    "what": "NIST's final IR 8547 roadmap (27 Oct 2026) and the NSA's 1 Oct 2026 announcement under EO 14412 set deadlines. New national security systems must support quantum-resistant algorithms from 2027, legacy systems are phased out by 2030, and key establishment must be migrated by end-2030."
+   },
+   "confidence": "medium",
+   "note": "Turns two decades of cryptography research into dated, binding migration deadlines for federal and national-security software. The 2030 date is a published target.",
+   "refs": [
+    {
+     "label": "NSA press release, 1 Oct 2026",
+     "url": "https://www.nsa.gov/Press-Room/Press-Releases-Statements/Press-Release-View/Article/4615285/nsa-announces-post-quantum-cryptography-measures-to-safeguard-national-security/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "NIST news on transition report",
+     "url": "https://www.nist.gov/news-events/news/2026/10/nist-report-provides-guidelines-transition-post-quantum-cryptography",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "Quantum Computing Report on NIST IR 8547",
+     "url": "https://quantumcomputingreport.com/nist-releases-final-ir-8547-establishing-definitive-post-quantum-cryptography-transition-timeline-and-deprecation-schedules",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ],
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28",
+    "approximate": false
+   },
+   "basis": {
+    "label": "NSA press release, 1 Oct 2026",
+    "url": "https://www.nsa.gov/Press-Room/Press-Releases-Statements/Press-Release-View/Article/4615285/nsa-announces-post-quantum-cryptography-measures-to-safeguard-national-security/",
+    "status": "ok",
+    "checked": "2026-10-28"
+   }
+  },
+  {
+   "id": "first-commercial-upper-6ghz-mobile-network-uae",
+   "field": "comms",
+   "origin": "industry",
+   "status": "landed",
+   "title": "First commercial Upper 6GHz mobile network (UAE)",
+   "research": {
+    "year": 2025,
+    "what": "e& UAE with Huawei and partners completed field trials of Upper 6GHz (U6GHz) reaching 10 Gbps speeds, building on the 2023 WRC-23 consensus on the band."
+   },
+   "change": {
+    "year": 2026,
+    "what": "e& UAE (late Sept 2026) and du (mid-Oct 2026) launched the first commercial U6GHz 5G-Advanced services, with du using commercial customer equipment on its live network."
+   },
+   "confidence": "medium",
+   "note": "This is the first live commercial use of the upper 6 GHz band for mobile, and it prepares mid-band spectrum for 6G. The du launch fell inside the 21-day window, and the e& launch came about a month before.",
+   "refs": [
+    {
+     "label": "Gulf Business: du world-first U6GHz on live network",
+     "url": "https://gulfbusiness.com/en/2026/telecoms/du-brings-world-first-u6ghz-connectivity-to-customers-on-live-network/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "Zawya: e& UAE launches world's first commercial U6GHz network",
+     "url": "https://www.zawya.com/en/press-release/companies-news/e-uae-launches-worlds-first-commercial-u6ghz-network-1391294",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "Gulf Business: UAE pioneers world's first commercial U6GHz network",
+     "url": "https://gulfbusiness.com/en/2026/brand-view/10gbps-speeds-incoming-uae-pioneers-worlds-first-commercial-u6ghz-network/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "Telecom Review Asia: TRS 2026 U6GHz launch ceremony",
+     "url": "https://www.telecomreviewasia.com/news/featured-articles/30572-tech-intelligence-beyond-mobility-trs-2026-concludes-landmark-20th-edition/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ],
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28",
+    "approximate": false
+   }
+  },
+  {
+   "id": "eu-pfhxa-restriction-hits-textiles-food-paper-cosmetics",
+   "field": "materials",
+   "origin": "government",
+   "status": "landed",
+   "title": "EU PFHxA restriction hits textiles, food paper, cosmetics",
+   "research": {
+    "year": 2019,
+    "what": "Germany filed a REACH Annex XV dossier with ECHA on 20 December 2019. It proposed limiting PFHxA, its salts and related substances, which are used in textile, paper and foam treatments."
+   },
+   "change": {
+    "year": 2026,
+    "what": "Under Regulation (EU) 2024/2462, concentration limits became binding on 10 October 2026. They cover consumer clothing and footwear, food-contact paper and board, consumer mixtures and cosmetics. The limits are 25 ppb for PFHxA and its salts and 1,000 ppb for related substances."
+   },
+   "confidence": "high",
+   "note": "This is a binding change to the fluorinated surface-treatment chemistry used in repellent materials and coatings. It took about 6.8 years from dossier to the main application phase.",
+   "refs": [
+    {
+     "label": "EUR-Lex: Commission Regulation (EU) 2024/2462",
+     "url": "https://eur-lex.europa.eu/eli/reg/2024/2462/oj",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "Packaging Journal: PFAS limits for food-contact paper and board since 10 Oct 2026",
+     "url": "https://packaging-journal.de/en/pfas-has-now-banned-what-applies-to-paper-and-cardboard-from-now-on/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "Textiles Resources: EU bans PFHxA in garments from October 10",
+     "url": "https://www.textilesresources.com/news/eu-pfhxa-restrictions-on-textiles/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "Fieldfisher: PFAS regulation in the UK and EU, autumn 2026",
+     "url": "https://www.fieldfisher.com/en/insights/pfas-uk-regulatory-snapshot",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ],
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28",
+    "approximate": false
+   }
+  },
+  {
+   "id": "us-exemption-for-driverless-truck-warning-beacons",
+   "field": "robotics",
+   "origin": "government",
+   "status": "landed",
+   "title": "US exemption for driverless-truck warning beacons",
+   "research": {
+    "year": 2023,
+    "what": "Aurora filed a data-backed request asking the US motor carrier regulator to let driverless trucks use cab-mounted warning beacons in place of roadside triangles."
+   },
+   "change": {
+    "year": 2026,
+    "what": "FMCSA granted a five-year exemption that took effect on 7 October 2026. It covers Aurora and other Level 4 carriers that notify the agency first."
+   },
+   "confidence": "medium",
+   "note": "This removes a long-standing federal obstacle to truly driverless heavy trucks, because no human is on board to place triangles.",
+   "refs": [
+    {
+     "label": "TheTrucker – FMCSA clears way for driverless trucks to replace warning triangles with beacons",
+     "url": "https://www.thetrucker.com/trucking-news/equipment-tech/fmcsa-clears-way-for-driverless-trucks-to-replace-warning-triangles-with-flashing-beacons",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "FreightWaves – AV truck fleets win 5-year exemption on warning beacons",
+     "url": "https://www.freightwaves.com/news/fmcsa-aurora-warning-beacon-exemption-five-year",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "Land Line Media – FMCSA exemption gives driverless trucks a green light",
+     "url": "https://landline.media/fmcsa-exemption-gives-driverless-trucks-a-green-light/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ],
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28",
+    "approximate": false
    }
   }
  ],
