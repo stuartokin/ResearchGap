@@ -120,5 +120,7 @@ def call_claude(system, prompt, submit_tool, max_searches=5, max_turns=8):
 # ---------- change log ----------
 def log_change(db, summary, details=None):
     meta = db['meta']
-    meta.setdefault('changelog', []).append({'date': TODAY, 'summary': summary, **({'details': details[:40]} if details else {})})
+    now = dt.datetime.now(dt.timezone.utc)
+    meta.setdefault('changelog', []).append({'date': TODAY, 'time': now.strftime('%H:%M'), 'revision': meta.get('revision'),
+                                             'summary': summary, **({'details': details[:80]} if details else {})})
     meta['changelog'] = meta['changelog'][-60:]

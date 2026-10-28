@@ -49,7 +49,7 @@ def run():
                 rec = {k: v for k, v in c.items() if k not in ('evidence_terms', 'proposed', 'attempts')}
                 rec['provenance'] = {'verification': 'source-cited', 'addedBy': 'research-agent', 'added': TODAY, 'lastChecked': TODAY, 'approximate': False}
                 if rec['status'] == 'outlook': rec['basis'] = rec['refs'][0]
-                db['milestones'].append(rec); added.append(rec['title'])
+                db['milestones'].append(rec); added.append(rec['id'])   # stable ID, shown by title in the app
             elif d and d['decision'] == 'reject':
                 notes.append(f"rejected candidate {c['title']}: {d.get('reason', '')[:120]}")
             else:
