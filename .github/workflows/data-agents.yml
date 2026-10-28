@@ -66,5 +66,6 @@ jobs:
           REV=$(python -c "import json;print(json.load(open('data/data.json'))['meta']['revision'])")
           SUMMARY=$(python -c "import json;print(json.load(open('data/data.json'))['meta']['changelog'][-1]['summary'])")
           git commit -m "Data revision ${REV}: ${SUMMARY}"
-          git tag "data-r${REV}"
-          git push --follow-tags
+          git tag -a "data-r${REV}" -m "Data revision ${REV}: ${SUMMARY}"
+          git push origin main
+          git push origin "data-r${REV}"
