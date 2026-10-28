@@ -2,7 +2,7 @@
  "$schema": "./schema.json",
  "meta": {
   "title": "The Shrinking Gap from Research to Change",
-  "revision": 4,
+  "revision": 5,
   "version": "8.0",
   "asOf": "2026-10-28",
   "horizonYears": 10,
@@ -58,8 +58,19 @@
      "in-orbit-satellite-servicing: source added",
      "in-orbit-refuelling: source added"
     ]
+   },
+   {
+    "date": "2026-10-28",
+    "summary": "Manual update: adoption estimates for 68 major milestones, regions and topic tags added; 3 regulatory items hidden.",
+    "revision": 5,
+    "details": [
+     "post-quantum-cryptography-migration-mandates: hidden (out of scope)",
+     "eu-pfhxa-restriction-hits-textiles-food-paper-cosmetics: hidden (out of scope)",
+     "us-exemption-for-driverless-truck-warning-beacons: hidden (out of scope)"
+    ]
    }
-  ]
+  ],
+  "adoptionDefinition": "Mainstream adoption: the year the technology reached widespread, routine use, roughly 10% or more of its potential market or standard practice in its sector."
  },
  "fields": [
   {
@@ -194,6 +205,16 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
+   ],
+   "adoption": {
+    "year": 1970,
+    "what": "Nuclear supplies a significant share of electricity in leading economies.",
+    "basis": "ai-estimate"
+   },
+   "region": "europe",
+   "tags": [
+    "grid",
+    "nuclear"
    ]
   },
   {
@@ -226,6 +247,10 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
+   ],
+   "region": "europe",
+   "tags": [
+    "grid"
    ]
   },
   {
@@ -253,7 +278,17 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 2015,
+    "what": "Solar becomes a mainstream source of new power capacity worldwide.",
+    "basis": "ai-estimate"
+   },
+   "region": "us",
+   "tags": [
+    "solar",
+    "space"
+   ]
   },
   {
    "id": "utility-scale-wind",
@@ -280,7 +315,16 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 2008,
+    "what": "Wind becomes a mainstream share of new power capacity in Europe and the US.",
+    "basis": "ai-estimate"
+   },
+   "region": "us",
+   "tags": [
+    "wind"
+   ]
   },
   {
    "id": "lithium-ion-battery",
@@ -307,7 +351,17 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 1998,
+    "what": "Lithium-ion becomes the standard battery in laptops and mobile phones.",
+    "basis": "ai-estimate"
+   },
+   "region": "uk",
+   "tags": [
+    "storage",
+    "grid"
+   ]
   },
   {
    "id": "high-temperature-superconducting-cable",
@@ -331,7 +385,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "grid"
+   ]
   },
   {
    "id": "perovskite-solar",
@@ -355,7 +413,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "asia",
+   "tags": [
+    "solar"
+   ]
   },
   {
    "id": "fusion-power",
@@ -397,6 +459,10 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
+   ],
+   "region": "europe",
+   "tags": [
+    "nuclear"
    ]
   },
   {
@@ -425,7 +491,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "solar"
+   ]
   },
   {
    "id": "ai-in-grid-control-rooms",
@@ -467,6 +537,13 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
+   ],
+   "region": "uk",
+   "tags": [
+    "grid",
+    "solar",
+    "wind",
+    "ai-models"
    ]
   },
   {
@@ -492,7 +569,13 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "storage",
+    "grid",
+    "heat"
+   ]
   },
   {
    "id": "grid-forming-inverters-as-standard",
@@ -516,7 +599,13 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "global",
+   "tags": [
+    "storage",
+    "grid",
+    "regulation"
+   ]
   },
   {
    "id": "long-duration-storage-at-scale",
@@ -557,6 +646,10 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
+   ],
+   "region": "uk",
+   "tags": [
+    "storage"
    ]
   },
   {
@@ -598,6 +691,10 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
+   ],
+   "region": "uk",
+   "tags": [
+    "nuclear"
    ]
   },
   {
@@ -623,7 +720,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "global",
+   "tags": [
+    "grid"
+   ]
   },
   {
    "id": "stored-program-computer",
@@ -658,7 +759,13 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
-   ]
+   ],
+   "adoption": {
+    "year": 1965,
+    "what": "Computers in widespread use by large businesses and governments.",
+    "basis": "ai-estimate"
+   },
+   "region": "uk"
   },
   {
    "id": "transistor",
@@ -685,7 +792,16 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 1960,
+    "what": "Transistors replace valves in most new electronics.",
+    "basis": "ai-estimate"
+   },
+   "region": "us",
+   "tags": [
+    "semiconductors"
+   ]
   },
   {
    "id": "integrated-circuit",
@@ -712,7 +828,17 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 1970,
+    "what": "Integrated circuits become standard in computers and electronics.",
+    "basis": "ai-estimate"
+   },
+   "region": "us",
+   "tags": [
+    "semiconductors",
+    "space"
+   ]
   },
   {
    "id": "mosfet",
@@ -736,7 +862,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "semiconductors"
+   ]
   },
   {
    "id": "dram",
@@ -760,7 +890,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "semiconductors"
+   ]
   },
   {
    "id": "flash-memory",
@@ -784,7 +918,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "asia",
+   "tags": [
+    "semiconductors"
+   ]
   },
   {
    "id": "giant-magnetoresistance",
@@ -808,7 +946,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "europe",
+   "tags": [
+    "materials"
+   ]
   },
   {
    "id": "euv-lithography",
@@ -835,7 +977,16 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 2023,
+    "what": "EUV is used for most leading-edge chip production.",
+    "basis": "ai-estimate"
+   },
+   "region": "us",
+   "tags": [
+    "semiconductors"
+   ]
   },
   {
    "id": "gpus-for-general-computing",
@@ -862,7 +1013,17 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 2016,
+    "what": "GPUs become standard for scientific and AI computing.",
+    "basis": "ai-estimate"
+   },
+   "region": "us",
+   "tags": [
+    "semiconductors",
+    "ai-models"
+   ]
   },
   {
    "id": "high-na-euv-in-volume-production",
@@ -890,7 +1051,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "europe",
+   "tags": [
+    "semiconductors"
+   ]
   },
   {
    "id": "optical-interconnects-in-ai-data-centres",
@@ -914,7 +1079,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "chiplet-ecosystems",
@@ -938,7 +1107,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "semiconductors",
+    "regulation"
+   ]
   },
   {
    "id": "neuromorphic-chips-at-the-edge",
@@ -962,7 +1136,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "semiconductors",
+    "ai-models"
+   ]
   },
   {
    "id": "high-level-programming-languages",
@@ -986,7 +1165,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "time-sharing",
@@ -1010,7 +1190,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "object-oriented-programming",
@@ -1034,7 +1215,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "europe"
   },
   {
    "id": "unix",
@@ -1058,7 +1240,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "relational-database",
@@ -1085,7 +1268,13 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 1990,
+    "what": "Relational databases become the standard for business data.",
+    "basis": "ai-estimate"
+   },
+   "region": "us"
   },
   {
    "id": "graphical-interface",
@@ -1112,7 +1301,13 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 1995,
+    "what": "Graphical interfaces become standard on personal computers.",
+    "basis": "ai-estimate"
+   },
+   "region": "us"
   },
   {
    "id": "world-wide-web",
@@ -1139,7 +1334,16 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 2001,
+    "what": "Most UK and US households use the web.",
+    "basis": "ai-estimate"
+   },
+   "region": "europe",
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "open-source-operating-systems",
@@ -1166,7 +1370,13 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 2005,
+    "what": "Linux runs most of the world’s web servers.",
+    "basis": "ai-estimate"
+   },
+   "region": "europe"
   },
   {
    "id": "virtualisation-on-pcs",
@@ -1190,7 +1400,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "large-scale-data-processing",
@@ -1214,7 +1425,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "ai-writes-most-new-code",
@@ -1238,7 +1450,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "agent-interoperability-standards",
@@ -1265,7 +1481,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "ai-models",
+    "regulation"
+   ]
   },
   {
    "id": "memory-safe-languages-by-default",
@@ -1289,7 +1510,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "ai-assisted-formal-verification",
@@ -1313,7 +1535,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "global",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "expert-systems",
@@ -1337,7 +1563,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "statistical-speech-recognition",
@@ -1361,7 +1591,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "neural-networks-in-products",
@@ -1385,7 +1619,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "deep-learning-for-images",
@@ -1412,7 +1650,16 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 2017,
+    "what": "Deep learning becomes standard in image recognition products.",
+    "basis": "ai-estimate"
+   },
+   "region": "other",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "transformer-models",
@@ -1439,7 +1686,16 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 2023,
+    "what": "Transformer models power everyday products used by hundreds of millions of people.",
+    "basis": "ai-estimate"
+   },
+   "region": "us",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "learning-from-human-feedback",
@@ -1466,7 +1722,16 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 2023,
+    "what": "Used to train most widely deployed AI assistants.",
+    "basis": "ai-estimate"
+   },
+   "region": "us",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "diffusion-image-generation",
@@ -1490,7 +1755,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "nuclear",
+    "ai-models"
+   ]
   },
   {
    "id": "reasoning-models",
@@ -1517,7 +1787,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "agentic-ai-in-everyday-work",
@@ -1544,7 +1818,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "on-device-ai-as-default",
@@ -1568,7 +1846,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "eu-high-risk-ai-rules-apply",
@@ -1609,6 +1891,11 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
+   ],
+   "region": "europe",
+   "tags": [
+    "ai-models",
+    "regulation"
    ]
   },
   {
@@ -1634,7 +1921,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "global",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "atomic-clock",
@@ -1661,7 +1952,16 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 1967,
+    "what": "Atomic time defines the SI second and underpins national time services.",
+    "basis": "ai-estimate"
+   },
+   "region": "us",
+   "tags": [
+    "grid"
+   ]
   },
   {
    "id": "laser",
@@ -1688,7 +1988,13 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 1980,
+    "what": "Lasers appear in everyday products such as barcode scanners and CD players.",
+    "basis": "ai-estimate"
+   },
+   "region": "us"
   },
   {
    "id": "quantum-key-distribution",
@@ -1720,6 +2026,10 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
+   ],
+   "region": "us",
+   "tags": [
+    "cryptography"
    ]
   },
   {
@@ -1744,7 +2054,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "quantum-computing-access",
@@ -1771,7 +2082,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "asia",
+   "tags": [
+    "semiconductors"
+   ]
   },
   {
    "id": "quantum-gravimeter",
@@ -1795,7 +2110,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "cryptographically-relevant-quantum-computer",
@@ -1822,7 +2138,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "cryptography"
+   ]
   },
   {
    "id": "verified-quantum-advantage",
@@ -1850,7 +2170,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "fault-tolerant-quantum-computer",
@@ -1881,7 +2202,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "quantum-navigation-in-service",
@@ -1909,7 +2231,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "space"
+   ]
   },
   {
    "id": "machine-codebreaking",
@@ -1936,7 +2262,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "uk"
   },
   {
    "id": "public-key-cryptography-secret",
@@ -1960,7 +2287,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "cryptography"
+   ]
   },
   {
    "id": "public-key-cryptography-open",
@@ -1987,7 +2318,16 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 2000,
+    "what": "Public-key encryption secures most web commerce.",
+    "basis": "ai-estimate"
+   },
+   "region": "us",
+   "tags": [
+    "cryptography"
+   ]
   },
   {
    "id": "antivirus",
@@ -2011,7 +2351,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "europe"
   },
   {
    "id": "intrusion-detection",
@@ -2035,7 +2376,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "firewall",
@@ -2071,7 +2413,16 @@
     "lastChecked": "2026-10-28",
     "approximate": false,
     "qaNote": "All cited links are broken; downgraded until a new source is found."
-   }
+   },
+   "adoption": {
+    "year": 1998,
+    "what": "Firewalls become standard for business networks.",
+    "basis": "ai-estimate"
+   },
+   "region": "us",
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "industrial-control-system-security",
@@ -2098,7 +2449,13 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 2020,
+    "what": "Security monitoring becomes common practice in critical infrastructure networks.",
+    "basis": "ai-estimate"
+   },
+   "region": "us"
   },
   {
    "id": "homomorphic-encryption",
@@ -2122,7 +2479,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "cryptography"
+   ]
   },
   {
    "id": "zero-trust",
@@ -2154,7 +2515,8 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
-   ]
+   ],
+   "region": "us"
   },
   {
    "id": "post-quantum-cryptography",
@@ -2189,6 +2551,16 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
+   ],
+   "adoption": {
+    "year": 2025,
+    "what": "Hybrid post-quantum key exchange protects a large share of web traffic.",
+    "basis": "ai-estimate"
+   },
+   "region": "us",
+   "tags": [
+    "cryptography",
+    "regulation"
    ]
   },
   {
@@ -2224,6 +2596,11 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
+   ],
+   "region": "us",
+   "tags": [
+    "ai-models",
+    "robots"
    ]
   },
   {
@@ -2264,6 +2641,11 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
+   ],
+   "region": "uk",
+   "tags": [
+    "cryptography",
+    "regulation"
    ]
   },
   {
@@ -2288,7 +2670,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "exploit-windows-collapse",
@@ -2312,7 +2698,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "global",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "automated-vulnerability-repair",
@@ -2336,7 +2726,13 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "ai-models",
+    "robots",
+    "regulation"
+   ]
   },
   {
    "id": "ai-anomaly-detection-in-ot-networks",
@@ -2361,7 +2757,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "global",
+   "tags": [
+    "ai-models",
+    "regulation"
+   ]
   },
   {
    "id": "television",
@@ -2388,7 +2789,13 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 1958,
+    "what": "Most UK households have a television.",
+    "basis": "ai-estimate"
+   },
+   "region": "uk"
   },
   {
    "id": "radar",
@@ -2423,7 +2830,13 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
-   ]
+   ],
+   "adoption": {
+    "year": 1945,
+    "what": "Radar becomes standard in military and civil aviation.",
+    "basis": "ai-estimate"
+   },
+   "region": "uk"
   },
   {
    "id": "cellular-networks",
@@ -2450,7 +2863,16 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 1995,
+    "what": "Mobile phones are widely owned in leading economies.",
+    "basis": "ai-estimate"
+   },
+   "region": "us",
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "communications-satellites",
@@ -2474,7 +2896,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "space"
+   ]
   },
   {
    "id": "ldpc-error-correcting-codes",
@@ -2498,7 +2924,13 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "networks",
+    "space",
+    "regulation"
+   ]
   },
   {
    "id": "optical-fibre",
@@ -2525,7 +2957,17 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 1990,
+    "what": "Fibre carries most long-distance telecoms traffic.",
+    "basis": "ai-estimate"
+   },
+   "region": "uk",
+   "tags": [
+    "networks",
+    "materials"
+   ]
   },
   {
    "id": "wi-fi-technology",
@@ -2552,7 +2994,16 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 2008,
+    "what": "Wi-Fi becomes standard in homes and laptops.",
+    "basis": "ai-estimate"
+   },
+   "region": "other",
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "mimo-wireless",
@@ -2584,6 +3035,11 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
+   ],
+   "region": "us",
+   "tags": [
+    "semiconductors",
+    "networks"
    ]
   },
   {
@@ -2608,7 +3064,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "networks",
+    "regulation"
+   ]
   },
   {
    "id": "satellite-direct-to-phones",
@@ -2632,7 +3093,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "space",
+    "regulation"
+   ]
   },
   {
    "id": "first-6g-networks",
@@ -2660,7 +3126,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "global",
+   "tags": [
+    "ai-models",
+    "networks"
+   ]
   },
   {
    "id": "polyethylene",
@@ -2684,7 +3155,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "materials"
+   ]
   },
   {
    "id": "nylon",
@@ -2711,7 +3186,13 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 1945,
+    "what": "Nylon is widely used in clothing and consumer goods.",
+    "basis": "ai-estimate"
+   },
+   "region": "us"
   },
   {
    "id": "ptfe-teflon",
@@ -2735,7 +3216,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "carbon-fibre",
@@ -2762,7 +3244,17 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 2011,
+    "what": "Carbon fibre enters mainstream airliner structures.",
+    "basis": "ai-estimate"
+   },
+   "region": "uk",
+   "tags": [
+    "networks",
+    "materials"
+   ]
   },
   {
    "id": "kevlar",
@@ -2786,7 +3278,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "stable-liquid-crystals",
@@ -2810,7 +3306,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "uk"
   },
   {
    "id": "blue-led",
@@ -2837,7 +3334,13 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 2015,
+    "what": "LED lighting becomes mainstream in homes and streets.",
+    "basis": "ai-estimate"
+   },
+   "region": "asia"
   },
   {
    "id": "metal-organic-frameworks",
@@ -2861,7 +3364,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "storage"
+   ]
   },
   {
    "id": "metamaterials",
@@ -2893,6 +3400,10 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
+   ],
+   "region": "uk",
+   "tags": [
+    "space"
    ]
   },
   {
@@ -2920,7 +3431,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "materials"
+   ]
   },
   {
    "id": "sodium-ion-batteries",
@@ -2944,7 +3459,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "asia",
+   "tags": [
+    "storage"
+   ]
   },
   {
    "id": "solid-state-batteries-in-production-cars",
@@ -2975,7 +3494,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "asia",
+   "tags": [
+    "storage"
+   ]
   },
   {
    "id": "sodium-ion-grid-storage-at-scale",
@@ -2999,7 +3522,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "asia",
+   "tags": [
+    "storage",
+    "grid"
+   ]
   },
   {
    "id": "mofs-for-carbon-capture",
@@ -3031,7 +3559,8 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
-   ]
+   ],
+   "region": "other"
   },
   {
    "id": "ai-discovered-materials-in-products",
@@ -3056,7 +3585,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "liquid-fuelled-rocket-to-orbit",
@@ -3083,7 +3616,16 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 1970,
+    "what": "Routine satellite launches for communications and weather.",
+    "basis": "ai-estimate"
+   },
+   "region": "us",
+   "tags": [
+    "space"
+   ]
   },
   {
    "id": "commercial-earth-observation",
@@ -3110,7 +3652,16 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 2005,
+    "what": "Satellite imagery enters everyday use through online maps.",
+    "basis": "ai-estimate"
+   },
+   "region": "us",
+   "tags": [
+    "space"
+   ]
   },
   {
    "id": "satellite-navigation",
@@ -3137,7 +3688,17 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 2008,
+    "what": "Satellite navigation becomes standard in cars and smartphones.",
+    "basis": "ai-estimate"
+   },
+   "region": "us",
+   "tags": [
+    "grid",
+    "space"
+   ]
   },
   {
    "id": "reusable-rockets",
@@ -3164,7 +3725,16 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 2021,
+    "what": "Most launches to orbit use reusable boosters.",
+    "basis": "ai-estimate"
+   },
+   "region": "us",
+   "tags": [
+    "space"
+   ]
   },
   {
    "id": "cubesats",
@@ -3188,7 +3758,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "space",
+    "regulation"
+   ]
   },
   {
    "id": "low-orbit-satellite-broadband",
@@ -3215,7 +3790,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "networks",
+    "space"
+   ]
   },
   {
    "id": "in-orbit-satellite-servicing",
@@ -3247,6 +3827,11 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
+   ],
+   "region": "us",
+   "tags": [
+    "space",
+    "robots"
    ]
   },
   {
@@ -3271,7 +3856,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "in-orbit-refuelling",
@@ -3303,6 +3889,11 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
+   ],
+   "region": "us",
+   "tags": [
+    "space",
+    "robots"
    ]
   },
   {
@@ -3327,7 +3918,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "solar",
+    "space"
+   ]
   },
   {
    "id": "industrial-robot",
@@ -3354,7 +3950,16 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 1985,
+    "what": "Robots become standard on car production lines.",
+    "basis": "ai-estimate"
+   },
+   "region": "us",
+   "tags": [
+    "robots"
+   ]
   },
   {
    "id": "home-robots",
@@ -3378,7 +3983,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "robots"
+   ]
   },
   {
    "id": "surgical-robots",
@@ -3402,7 +4011,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "robots",
+    "regulation"
+   ]
   },
   {
    "id": "driverless-cars",
@@ -3429,7 +4043,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "robots"
+   ]
   },
   {
    "id": "consumer-drones",
@@ -3453,7 +4071,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "asia",
+   "tags": [
+    "robots"
+   ]
   },
   {
    "id": "uk-robotaxis",
@@ -3486,7 +4108,13 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "ai-models",
+    "robots",
+    "regulation"
+   ]
   },
   {
    "id": "fully-driverless-rides-in-london",
@@ -3514,7 +4142,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "robots",
+    "regulation"
+   ]
   },
   {
    "id": "humanoid-robots-at-work",
@@ -3538,7 +4171,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "robots"
+   ]
   },
   {
    "id": "routine-beyond-sight-drone-inspection",
@@ -3562,7 +4199,13 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "global",
+   "tags": [
+    "grid",
+    "space",
+    "robots"
+   ]
   },
   {
    "id": "penicillin",
@@ -3589,7 +4232,16 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 1946,
+    "what": "Penicillin becomes widely available for civilian use.",
+    "basis": "ai-estimate"
+   },
+   "region": "uk",
+   "tags": [
+    "medicine"
+   ]
   },
   {
    "id": "recombinant-dna",
@@ -3616,7 +4268,17 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 1990,
+    "what": "Recombinant medicines such as insulin become standard treatments.",
+    "basis": "ai-estimate"
+   },
+   "region": "us",
+   "tags": [
+    "medicine",
+    "genetics"
+   ]
   },
   {
    "id": "mri-scanning",
@@ -3643,7 +4305,17 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 1990,
+    "what": "MRI becomes standard in hospitals.",
+    "basis": "ai-estimate"
+   },
+   "region": "uk",
+   "tags": [
+    "medicine",
+    "materials"
+   ]
   },
   {
    "id": "monoclonal-antibodies",
@@ -3667,7 +4339,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "medicine"
+   ]
   },
   {
    "id": "pcr",
@@ -3691,7 +4367,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "genome-sequencing-to-consumers",
@@ -3715,7 +4392,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "regulation",
+    "genetics"
+   ]
   },
   {
    "id": "mrna-vaccines",
@@ -3742,7 +4424,16 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 2021,
+    "what": "Billions of doses are given worldwide.",
+    "basis": "ai-estimate"
+   },
+   "region": "us",
+   "tags": [
+    "medicine"
+   ]
   },
   {
    "id": "crispr-gene-editing",
@@ -3769,7 +4460,13 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "medicine",
+    "regulation",
+    "genetics"
+   ]
   },
   {
    "id": "protein-structure-prediction",
@@ -3796,7 +4493,16 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 2022,
+    "what": "Predicted structures are used routinely by most biology labs.",
+    "basis": "ai-estimate"
+   },
+   "region": "uk",
+   "tags": [
+    "genetics"
+   ]
   },
   {
    "id": "ai-discovered-medicines",
@@ -3820,7 +4526,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "global",
+   "tags": [
+    "ai-models",
+    "medicine"
+   ]
   },
   {
    "id": "in-body-gene-editing",
@@ -3844,7 +4555,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "medicine",
+    "genetics"
+   ]
   },
   {
    "id": "computer-weather-forecasting",
@@ -3869,7 +4585,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "solar",
+    "wind"
+   ]
   },
   {
    "id": "power-system-state-estimation",
@@ -3894,7 +4615,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "grid"
+   ]
   },
   {
    "id": "synchrophasor-measurement",
@@ -3919,7 +4644,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "grid",
+    "ai-models"
+   ]
   },
   {
    "id": "wind-power-forecasting",
@@ -3944,7 +4674,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "europe",
+   "tags": [
+    "wind",
+    "ai-models"
+   ]
   },
   {
    "id": "wind-turbine-predictive-maintenance",
@@ -3969,7 +4704,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "europe",
+   "tags": [
+    "wind",
+    "ai-models"
+   ]
   },
   {
    "id": "ai-data-centre-cooling",
@@ -3994,7 +4734,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "smart-ev-charging",
@@ -4019,7 +4763,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "global",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "machine-learning-solar-nowcasting",
@@ -4044,7 +4792,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "solar",
+    "ai-models"
+   ]
   },
   {
    "id": "a-largely-self-running-energy-system",
@@ -4069,7 +4822,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "ai-predictive-maintenance-across-networks",
@@ -4094,7 +4851,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "global",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "self-updating-network-digital-twins",
@@ -4119,7 +4880,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk"
   },
   {
    "id": "ai-assurance-for-energy",
@@ -4151,7 +4913,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "ai-for-clean-energy-strategy",
@@ -4183,7 +4949,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "machine-speed-flexibility-markets",
@@ -4211,7 +4981,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "grid"
+   ]
   },
   {
    "id": "ai-plasma-control-for-fusion",
@@ -4236,7 +5010,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "nuclear",
+    "ai-models"
+   ]
   },
   {
    "id": "combined-cycle-gas-turbine",
@@ -4260,7 +5039,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "us",
+   "tags": [
+    "wind"
+   ]
   },
   {
    "id": "grid-scale-lithium-ion-storage",
@@ -4287,7 +5070,17 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 2022,
+    "what": "Batteries become a mainstream part of new grid capacity in GB, the US and Australia.",
+    "basis": "ai-estimate"
+   },
+   "region": "global",
+   "tags": [
+    "storage",
+    "grid"
+   ]
   },
   {
    "id": "magnetic-core-memory",
@@ -4311,7 +5104,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "materials"
+   ]
   },
   {
    "id": "hard-disk-drive",
@@ -4335,7 +5132,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "storage"
+   ]
   },
   {
    "id": "cmos-logic",
@@ -4359,7 +5160,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "semiconductors"
+   ]
   },
   {
    "id": "microprocessor",
@@ -4386,7 +5191,16 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 1980,
+    "what": "Microprocessors are in most new electronics and computers.",
+    "basis": "ai-estimate"
+   },
+   "region": "us",
+   "tags": [
+    "semiconductors"
+   ]
   },
   {
    "id": "risc-processors",
@@ -4410,7 +5224,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "semiconductors"
+   ]
   },
   {
    "id": "finfet-transistors",
@@ -4434,7 +5252,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "semiconductors",
+    "regulation"
+   ]
   },
   {
    "id": "utility-and-cloud-computing",
@@ -4461,7 +5284,16 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 2015,
+    "what": "Most businesses use cloud services.",
+    "basis": "ai-estimate"
+   },
+   "region": "us",
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "blockchain",
@@ -4485,7 +5317,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "global"
   },
   {
    "id": "web-search-ranking",
@@ -4509,7 +5342,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "statistical-machine-translation",
@@ -4533,7 +5370,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "recommender-systems",
@@ -4557,7 +5398,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "lstm-networks",
@@ -4581,7 +5426,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "europe",
+   "tags": [
+    "semiconductors",
+    "ai-models"
+   ]
   },
   {
    "id": "voice-assistants",
@@ -4605,7 +5455,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "squid-magnetometers",
@@ -4629,7 +5483,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "us",
+   "tags": [
+    "materials"
+   ]
   },
   {
    "id": "trapped-ion-quantum-computing",
@@ -4653,7 +5511,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "europe"
   },
   {
    "id": "data-encryption-standard",
@@ -4677,7 +5536,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "cryptography",
+    "regulation"
+   ]
   },
   {
    "id": "aes-encryption",
@@ -4701,7 +5565,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "europe",
+   "tags": [
+    "cryptography",
+    "regulation"
+   ]
   },
   {
    "id": "passkeys",
@@ -4725,7 +5594,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "cryptography"
+   ]
   },
   {
    "id": "packet-switching",
@@ -4749,7 +5622,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "tcp-ip",
@@ -4776,7 +5653,16 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 1995,
+    "what": "Internet protocols carry most data traffic.",
+    "basis": "ai-estimate"
+   },
+   "region": "us",
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "gsm-mobile",
@@ -4803,7 +5689,17 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 1998,
+    "what": "GSM becomes the world’s dominant mobile standard.",
+    "basis": "ai-estimate"
+   },
+   "region": "europe",
+   "tags": [
+    "networks",
+    "regulation"
+   ]
   },
   {
    "id": "bluetooth",
@@ -4827,7 +5723,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "europe"
   },
   {
    "id": "shape-memory-alloy",
@@ -4851,7 +5748,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "us",
+   "tags": [
+    "materials"
+   ]
   },
   {
    "id": "strengthened-glass",
@@ -4875,7 +5776,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "materials"
+   ]
   },
   {
    "id": "neodymium-magnets",
@@ -4902,7 +5807,17 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 1995,
+    "what": "Standard magnets in hard drives, motors and later wind turbines.",
+    "basis": "ai-estimate"
+   },
+   "region": "asia",
+   "tags": [
+    "wind",
+    "materials"
+   ]
   },
   {
    "id": "electric-propulsion",
@@ -4926,7 +5841,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "space",
+    "regulation"
+   ]
   },
   {
    "id": "satellite-television",
@@ -4950,7 +5870,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "space"
+   ]
   },
   {
    "id": "robot-mapping-slam",
@@ -4974,7 +5898,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "other",
+   "tags": [
+    "robots"
+   ]
   },
   {
    "id": "warehouse-robots",
@@ -4998,7 +5926,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "networks",
+    "robots"
+   ]
   },
   {
    "id": "spinning-lidar",
@@ -5022,7 +5955,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "dna-sequencing",
@@ -5049,7 +5983,16 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 2010,
+    "what": "Sequencing becomes routine in research and clinical genetics.",
+    "basis": "ai-estimate"
+   },
+   "region": "uk",
+   "tags": [
+    "genetics"
+   ]
   },
   {
    "id": "statins",
@@ -5073,7 +6016,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "asia"
   },
   {
    "id": "next-generation-sequencing",
@@ -5097,7 +6041,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "genetics"
+   ]
   },
   {
    "id": "sap-enterprise-software",
@@ -5122,7 +6070,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "electronic-spreadsheet",
@@ -5147,7 +6096,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "postscript-and-desktop-publishing",
@@ -5172,7 +6122,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "microsoft-windows",
@@ -5197,7 +6148,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "software-as-a-service",
@@ -5222,7 +6174,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "social-networking",
@@ -5250,7 +6206,13 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 2010,
+    "what": "Most internet users are on social networks.",
+    "basis": "ai-estimate"
+   },
+   "region": "us"
   },
   {
    "id": "online-video-sharing",
@@ -5275,7 +6237,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "microblogging",
@@ -5300,7 +6263,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "music-streaming",
@@ -5325,7 +6289,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "europe"
   },
   {
    "id": "mobile-photo-sharing",
@@ -5350,7 +6315,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "workplace-messaging",
@@ -5375,7 +6344,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "ibm-system-360",
@@ -5400,7 +6370,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "cray-1-supercomputer",
@@ -5425,7 +6396,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "grid"
+   ]
   },
   {
    "id": "apple-ii-personal-computer",
@@ -5450,7 +6425,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "ibm-pc",
@@ -5478,7 +6454,13 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 1990,
+    "what": "PCs are common in offices and many homes.",
+    "basis": "ai-estimate"
+   },
+   "region": "us"
   },
   {
    "id": "pure-play-chip-foundry",
@@ -5503,7 +6485,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "asia",
+   "tags": [
+    "semiconductors"
+   ]
   },
   {
    "id": "graphics-processing-unit",
@@ -5528,7 +6514,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "semiconductors",
+    "ai-models"
+   ]
   },
   {
    "id": "iphone",
@@ -5556,7 +6547,13 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 2012,
+    "what": "Most UK adults own a smartphone.",
+    "basis": "ai-estimate"
+   },
+   "region": "us"
   },
   {
    "id": "raspberry-pi",
@@ -5581,7 +6578,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk"
   },
   {
    "id": "ai-data-centre-gpus",
@@ -5609,7 +6607,17 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 2023,
+    "what": "GPUs dominate AI data centre investment.",
+    "basis": "ai-estimate"
+   },
+   "region": "us",
+   "tags": [
+    "semiconductors",
+    "ai-models"
+   ]
   },
   {
    "id": "tensor-processing-unit",
@@ -5634,7 +6642,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "semiconductors",
+    "ai-models"
+   ]
   },
   {
    "id": "graphcore-ipu",
@@ -5659,7 +6672,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "semiconductors",
+    "ai-models"
+   ]
   },
   {
    "id": "wafer-scale-ai-chip",
@@ -5684,7 +6702,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "semiconductors",
+    "ai-models"
+   ]
   },
   {
    "id": "large-language-model-api",
@@ -5712,7 +6735,16 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 2023,
+    "what": "Language model APIs are used widely by businesses.",
+    "basis": "ai-estimate"
+   },
+   "region": "us",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "claude-assistant",
@@ -5737,7 +6769,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "open-weight-european-models",
@@ -5762,7 +6798,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "europe",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "ai-voice-generation",
@@ -5787,7 +6827,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "europe",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "ai-coding-editor-cursor",
@@ -5812,7 +6856,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "stateful-inspection-firewall",
@@ -5837,7 +6885,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "other"
   },
   {
    "id": "security-appliances-on-custom-chips",
@@ -5862,7 +6911,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "semiconductors"
+   ]
   },
   {
    "id": "machine-data-analytics-siem",
@@ -5887,7 +6940,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "next-generation-firewall",
@@ -5912,7 +6966,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "hardware-security-keys",
@@ -5937,7 +6992,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "europe"
   },
   {
    "id": "cloud-delivered-security",
@@ -5962,7 +7018,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "cloud-identity",
@@ -5987,7 +7044,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "cloud-endpoint-protection",
@@ -6012,7 +7070,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "ai-threat-detection",
@@ -6037,7 +7096,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "ot-security-platform",
@@ -6063,7 +7126,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "cloud-security-posture",
@@ -6088,7 +7152,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "other"
   },
   {
    "id": "commercial-wind-turbines",
@@ -6113,7 +7178,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "europe",
+   "tags": [
+    "wind"
+   ]
   },
   {
    "id": "offshore-wind-farm",
@@ -6141,7 +7210,16 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 2015,
+    "what": "Offshore wind supplies a major share of UK electricity.",
+    "basis": "ai-estimate"
+   },
+   "region": "europe",
+   "tags": [
+    "wind"
+   ]
   },
   {
    "id": "solar-microinverters",
@@ -6166,7 +7244,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "grid",
+    "solar"
+   ]
   },
   {
    "id": "home-and-grid-batteries",
@@ -6191,7 +7274,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "storage",
+    "grid"
+   ]
   },
   {
    "id": "kraken-energy-platform",
@@ -6217,7 +7305,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "grid"
+   ]
   },
   {
    "id": "superconducting-quantum-cloud",
@@ -6242,7 +7334,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "trapped-ion-commercial-systems",
@@ -6267,7 +7360,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk"
   },
   {
    "id": "uk-quantum-computing-service",
@@ -6292,7 +7386,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk"
   },
   {
    "id": "photonic-fault-tolerant-quantum-computer",
@@ -6317,7 +7412,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "multi-protocol-router",
@@ -6342,7 +7438,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "cdma-mobile-networks",
@@ -6367,7 +7467,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "internet-voice-calls",
@@ -6392,7 +7496,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "europe",
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "mobile-messaging",
@@ -6417,7 +7525,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "video-meetings",
@@ -6442,7 +7554,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "small-commercial-satellites",
@@ -6467,7 +7580,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "space"
+   ]
   },
   {
    "id": "private-orbital-rocket",
@@ -6492,7 +7609,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "space"
+   ]
   },
   {
    "id": "small-satellite-launcher",
@@ -6517,7 +7638,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "other",
+   "tags": [
+    "space"
+   ]
   },
   {
    "id": "legged-robots",
@@ -6542,7 +7667,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "grid",
+    "robots"
+   ]
   },
   {
    "id": "dji-camera-drones",
@@ -6567,7 +7697,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "asia",
+   "tags": [
+    "robots"
+   ]
   },
   {
    "id": "automated-grocery-warehouses",
@@ -6592,7 +7726,13 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "storage",
+    "grid",
+    "robots"
+   ]
   },
   {
    "id": "repositionable-adhesive-post-it",
@@ -6617,7 +7757,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "expanded-ptfe-gore-tex",
@@ -6642,7 +7783,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "ultra-strong-polyethylene-fibre",
@@ -6667,7 +7809,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "europe",
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "nanopore-sequencing",
@@ -6692,7 +7838,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "genetics"
+   ]
   },
   {
    "id": "pressurised-water-reactor",
@@ -6719,7 +7869,16 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 1975,
+    "what": "PWRs become the most common reactor type worldwide.",
+    "basis": "ai-estimate"
+   },
+   "region": "us",
+   "tags": [
+    "nuclear"
+   ]
   },
   {
    "id": "smart-meters-at-scale",
@@ -6747,7 +7906,17 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 2020,
+    "what": "Smart meters are in most homes in GB, Italy and Sweden.",
+    "basis": "ai-estimate"
+   },
+   "region": "europe",
+   "tags": [
+    "grid",
+    "ai-models"
+   ]
   },
   {
    "id": "voltage-source-hvdc",
@@ -6771,7 +7940,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "europe",
+   "tags": [
+    "grid",
+    "wind"
+   ]
   },
   {
    "id": "carbon-capture-and-storage",
@@ -6795,7 +7969,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "europe",
+   "tags": [
+    "storage"
+   ]
   },
   {
    "id": "lithium-iron-phosphate-batteries",
@@ -6819,7 +7997,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "storage",
+    "grid"
+   ]
   },
   {
    "id": "modern-electric-cars",
@@ -6846,7 +8029,17 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 2021,
+    "what": "Electric cars pass 10% of new car sales in the UK and Europe.",
+    "basis": "ai-estimate"
+   },
+   "region": "us",
+   "tags": [
+    "storage",
+    "grid"
+   ]
   },
   {
    "id": "tidal-stream-power",
@@ -6870,7 +8063,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "grid",
+    "wind"
+   ]
   },
   {
    "id": "floating-offshore-wind",
@@ -6897,7 +8095,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "europe",
+   "tags": [
+    "wind"
+   ]
   },
   {
    "id": "capacitive-touchscreen",
@@ -6921,7 +8123,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "europe"
   },
   {
    "id": "compact-disc",
@@ -6945,7 +8148,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "europe",
+   "tags": [
+    "regulation"
+   ]
   },
   {
    "id": "high-bandwidth-memory",
@@ -6969,7 +8176,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "asia",
+   "tags": [
+    "semiconductors",
+    "ai-models"
+   ]
   },
   {
    "id": "ai-designed-chip-layouts",
@@ -6993,7 +8205,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "semiconductors",
+    "ai-models"
+   ]
   },
   {
    "id": "email",
@@ -7017,7 +8234,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "java-and-portable-code",
@@ -7041,7 +8259,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "android",
@@ -7068,7 +8287,13 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 2012,
+    "what": "Android becomes the world’s most-used smartphone system.",
+    "basis": "ai-estimate"
+   },
+   "region": "us"
   },
   {
    "id": "containers-and-kubernetes",
@@ -7092,7 +8317,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "face-detection-in-cameras",
@@ -7116,7 +8342,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "ai-models",
+    "computer-vision"
+   ]
   },
   {
    "id": "generative-adversarial-networks",
@@ -7140,7 +8371,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "other",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "quantum-dots",
@@ -7164,7 +8399,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "materials"
+   ]
   },
   {
    "id": "smart-cards",
@@ -7188,7 +8427,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "europe",
+   "tags": [
+    "semiconductors"
+   ]
   },
   {
    "id": "kerberos-authentication",
@@ -7212,7 +8455,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "encrypted-web-ssl-tls",
@@ -7239,7 +8483,17 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 2017,
+    "what": "Most web traffic is encrypted.",
+    "basis": "ai-estimate"
+   },
+   "region": "us",
+   "tags": [
+    "cryptography",
+    "networks"
+   ]
   },
   {
    "id": "erbium-doped-fibre-amplifier",
@@ -7263,7 +8517,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "broadband-over-phone-lines-dsl",
@@ -7287,7 +8545,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "4g-lte",
@@ -7314,7 +8576,16 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 2015,
+    "what": "4G becomes the main mobile standard in leading markets.",
+    "basis": "ai-estimate"
+   },
+   "region": "global",
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "float-glass",
@@ -7338,7 +8609,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "materials"
+   ]
   },
   {
    "id": "3d-printing",
@@ -7362,7 +8637,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "wind",
+    "semiconductors"
+   ]
   },
   {
    "id": "silicon-carbide-power-devices",
@@ -7386,7 +8666,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "grid"
+   ]
   },
   {
    "id": "weather-satellites",
@@ -7410,7 +8694,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "space"
+   ]
   },
   {
    "id": "satellite-radar-imaging",
@@ -7434,7 +8722,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "space"
+   ]
   },
   {
    "id": "collaborative-robots",
@@ -7459,7 +8751,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "europe",
+   "tags": [
+    "robots"
+   ]
   },
   {
    "id": "legged-inspection-robots",
@@ -7484,7 +8780,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "grid",
+    "robots"
+   ]
   },
   {
    "id": "polio-vaccine",
@@ -7508,7 +8809,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "medicine"
+   ]
   },
   {
    "id": "ct-scanning",
@@ -7535,7 +8840,16 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 1980,
+    "what": "CT becomes standard in hospitals.",
+    "basis": "ai-estimate"
+   },
+   "region": "uk",
+   "tags": [
+    "medicine"
+   ]
   },
   {
    "id": "ivf",
@@ -7559,7 +8873,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk"
   },
   {
    "id": "first-hiv-drug",
@@ -7583,7 +8898,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "medicine"
+   ]
   },
   {
    "id": "glp-1-medicines",
@@ -7607,7 +8926,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "europe",
+   "tags": [
+    "medicine"
+   ]
   },
   {
    "id": "ai-discovered-battery-electrolyte-in-cells",
@@ -7639,7 +8962,13 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "storage",
+    "hydrogen",
+    "ai-models"
+   ]
   },
   {
    "id": "digital-twin-grid-connection-studies",
@@ -7667,7 +8996,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "grid"
+   ]
   },
   {
    "id": "autonomous-materials-labs-in-industry",
@@ -7694,7 +9027,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "global",
+   "tags": [
+    "ai-models",
+    "robots"
+   ]
   },
   {
    "id": "ai-decoders-for-quantum-error-correction",
@@ -7721,7 +9059,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "robot-foundation-models-in-products",
@@ -7748,7 +9090,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "ai-models",
+    "robots"
+   ]
   },
   {
    "id": "ai-run-satellite-operations",
@@ -7775,7 +9122,13 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "global",
+   "tags": [
+    "ai-models",
+    "space",
+    "robots"
+   ]
   },
   {
    "id": "ai-native-radio-networks",
@@ -7802,7 +9155,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "global",
+   "tags": [
+    "ai-models",
+    "networks"
+   ]
   },
   {
    "id": "ai-weather-forecasting-goes-operational",
@@ -7834,7 +9192,13 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "solar",
+    "wind",
+    "ai-models"
+   ]
   },
   {
    "id": "ai-cloudcasting",
@@ -7866,7 +9230,13 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "solar",
+    "ai-models",
+    "space"
+   ]
   },
   {
    "id": "open-balancing-platform",
@@ -7898,7 +9268,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "storage",
+    "grid"
+   ]
   },
   {
    "id": "demand-flexibility-service",
@@ -7930,7 +9305,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "grid"
+   ]
   },
   {
    "id": "ai-optimised-flexibility-aggregation",
@@ -7962,7 +9341,13 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "storage",
+    "grid",
+    "ai-models"
+   ]
   },
   {
    "id": "drone-inspection-of-transmission-towers",
@@ -7994,7 +9379,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "grid",
+    "robots"
+   ]
   },
   {
    "id": "ai-drone-inspection-of-pylons",
@@ -8026,7 +9416,13 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "grid",
+    "ai-models",
+    "robots"
+   ]
   },
   {
    "id": "cyber-assessment-framework",
@@ -8058,7 +9454,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk"
   },
   {
    "id": "ot-threat-detection-for-utilities",
@@ -8090,7 +9487,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "other"
   },
   {
    "id": "liquid-air-energy-storage",
@@ -8115,7 +9513,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "storage",
+    "grid"
+   ]
   },
   {
    "id": "utility-scale-battery-product",
@@ -8140,7 +9543,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "storage",
+    "grid"
+   ]
   },
   {
    "id": "blade-lfp-battery",
@@ -8165,7 +9573,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "asia",
+   "tags": [
+    "storage"
+   ]
   },
   {
    "id": "100-hour-iron-air-battery",
@@ -8194,7 +9606,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "storage"
+   ]
   },
   {
    "id": "weather-driven-fault-forecasting",
@@ -8227,7 +9643,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk"
   },
   {
    "id": "ensign-energy-system-digital-twin",
@@ -8260,7 +9677,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "grid",
+    "ai-models"
+   ]
   },
   {
    "id": "heat-flexibility-and-thermal-storage",
@@ -8293,7 +9715,13 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "storage",
+    "grid",
+    "heat"
+   ]
   },
   {
    "id": "spen-university-of-glasgow-cyber-defence-lab",
@@ -8327,7 +9755,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "grid-forming-battery-stability-services",
@@ -8358,7 +9790,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "storage",
+    "grid"
+   ]
   },
   {
    "id": "eastern-green-link-1-subsea-hvdc",
@@ -8387,7 +9824,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "grid"
+   ]
   },
   {
    "id": "cyber-security-and-resilience-act-in-force",
@@ -8420,7 +9861,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "regulation"
+   ]
   },
   {
    "id": "exascale-supercomputing",
@@ -8444,7 +9889,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "grid"
+   ]
   },
   {
    "id": "arm-processors-in-laptops",
@@ -8469,7 +9918,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "semiconductors"
+   ]
   },
   {
    "id": "hydrogen-fuel-cell-power",
@@ -8496,7 +9949,13 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "grid",
+    "hydrogen",
+    "space"
+   ]
   },
   {
    "id": "advanced-gas-cooled-reactor",
@@ -8520,7 +9979,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "nuclear"
+   ]
   },
   {
    "id": "vanadium-flow-battery",
@@ -8544,7 +10007,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "other",
+   "tags": [
+    "storage"
+   ]
   },
   {
    "id": "learning-smart-thermostat",
@@ -8570,7 +10037,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "heat"
+   ]
   },
   {
    "id": "enhanced-geothermal-power",
@@ -8595,7 +10066,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "grid"
+   ]
   },
   {
    "id": "computer-mouse",
@@ -8622,7 +10097,13 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 1995,
+    "what": "A mouse comes with every PC.",
+    "basis": "ai-estimate"
+   },
+   "region": "us"
   },
   {
    "id": "laser-printer",
@@ -8646,7 +10127,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "charge-coupled-device-ccd",
@@ -8673,7 +10155,13 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 2003,
+    "what": "Digital cameras outsell film cameras.",
+    "basis": "ai-estimate"
+   },
+   "region": "us"
   },
   {
    "id": "cmos-image-sensor",
@@ -8697,7 +10185,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "us",
+   "tags": [
+    "semiconductors",
+    "robots"
+   ]
   },
   {
    "id": "usb",
@@ -8721,7 +10214,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "regulation"
+   ]
   },
   {
    "id": "3d-nand-flash",
@@ -8745,7 +10242,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "asia",
+   "tags": [
+    "storage"
+   ]
   },
   {
    "id": "risc-v-open-chip-architecture",
@@ -8769,7 +10270,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "semiconductors"
+   ]
   },
   {
    "id": "basic-programming",
@@ -8793,7 +10298,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "hypertext",
@@ -8820,7 +10326,16 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 1997,
+    "what": "Hypertext becomes an everyday experience through the web.",
+    "basis": "ai-estimate"
+   },
+   "region": "us",
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "wikis",
@@ -8844,7 +10359,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "online-maps",
@@ -8869,7 +10385,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "distributed-version-control",
@@ -8894,7 +10414,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "machine-learning-frameworks",
@@ -8918,7 +10439,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "other",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "optical-character-recognition",
@@ -8942,7 +10467,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "industrial-machine-vision",
@@ -8967,7 +10496,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "ai-models",
+    "computer-vision"
+   ]
   },
   {
    "id": "neural-network-fraud-detection",
@@ -8991,7 +10525,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "machine-learning-spam-filters",
@@ -9015,7 +10553,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "us",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "neural-machine-translation",
@@ -9042,7 +10584,16 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 2017,
+    "what": "Neural translation becomes standard across major services.",
+    "basis": "ai-estimate"
+   },
+   "region": "us",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "natural-sounding-ai-voices",
@@ -9066,7 +10617,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "josephson-voltage-standard",
@@ -9090,7 +10645,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "regulation"
+   ]
   },
   {
    "id": "quantum-hall-resistance-standard",
@@ -9114,7 +10673,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "europe",
+   "tags": [
+    "regulation"
+   ]
   },
   {
    "id": "chip-scale-atomic-clock",
@@ -9138,7 +10701,13 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "grid",
+    "semiconductors",
+    "space"
+   ]
   },
   {
    "id": "neutral-atom-quantum-computers",
@@ -9162,7 +10731,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "wearable-quantum-brain-scanner",
@@ -9193,7 +10763,13 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "storage",
+    "medicine",
+    "materials"
+   ]
   },
   {
    "id": "quantum-secured-metro-network",
@@ -9218,7 +10794,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "asia",
+   "tags": [
+    "cryptography"
+   ]
   },
   {
    "id": "two-factor-authentication-tokens",
@@ -9242,7 +10822,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "us"
   },
   {
    "id": "captcha",
@@ -9266,7 +10847,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "trusted-platform-module",
@@ -9290,7 +10875,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "us",
+   "tags": [
+    "semiconductors"
+   ]
   },
   {
    "id": "differential-privacy",
@@ -9314,7 +10903,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "grid"
+   ]
   },
   {
    "id": "end-to-end-encrypted-messaging",
@@ -9338,7 +10931,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "cryptography"
+   ]
   },
   {
    "id": "hardware-memory-tagging",
@@ -9362,7 +10959,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk"
   },
   {
    "id": "microwave-radio-relay",
@@ -9386,7 +10984,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "text-messaging-sms",
@@ -9413,7 +11012,16 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 1999,
+    "what": "Texting becomes mainstream in the UK.",
+    "basis": "ai-estimate"
+   },
+   "region": "uk",
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "fibre-to-the-home",
@@ -9437,7 +11045,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "global-satellite-phones",
@@ -9462,7 +11074,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "space"
+   ]
   },
   {
    "id": "software-defined-networking",
@@ -9486,7 +11102,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "li-fi-light-communication",
@@ -9511,7 +11128,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk"
   },
   {
    "id": "polyester-fibre",
@@ -9535,7 +11153,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "polycarbonate",
@@ -9559,7 +11181,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "europe",
+   "tags": [
+    "materials"
+   ]
   },
   {
    "id": "superglue",
@@ -9583,7 +11209,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "oled-displays",
@@ -9610,7 +11237,16 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 2017,
+    "what": "OLED screens become standard on flagship phones.",
+    "basis": "ai-estimate"
+   },
+   "region": "us",
+   "tags": [
+    "materials"
+   ]
   },
   {
    "id": "gallium-nitride-power-transistors",
@@ -9634,7 +11270,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "semiconductors"
+   ]
   },
   {
    "id": "aerogel-insulation",
@@ -9658,7 +11298,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "us"
   },
   {
    "id": "self-healing-concrete",
@@ -9682,7 +11323,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "europe"
   },
   {
    "id": "commercial-cargo-to-the-space-station",
@@ -9706,7 +11348,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "space"
+   ]
   },
   {
    "id": "commercial-crew-spaceflight",
@@ -9733,7 +11379,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "space"
+   ]
   },
   {
    "id": "suborbital-space-tourism",
@@ -9757,7 +11407,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "space"
+   ]
   },
   {
    "id": "radar-microsatellites",
@@ -9782,7 +11436,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "europe",
+   "tags": [
+    "space"
+   ]
   },
   {
    "id": "methane-detecting-satellites",
@@ -9807,7 +11465,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "other",
+   "tags": [
+    "space"
+   ]
   },
   {
    "id": "laser-links-between-satellites",
@@ -9831,7 +11493,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "us",
+   "tags": [
+    "networks",
+    "space"
+   ]
   },
   {
    "id": "underwater-robots-rovs",
@@ -9855,7 +11522,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "us",
+   "tags": [
+    "robots"
+   ]
   },
   {
    "id": "robotic-milking",
@@ -9879,7 +11550,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "europe",
+   "tags": [
+    "robots"
+   ]
   },
   {
    "id": "robotic-lawn-mowers",
@@ -9903,7 +11578,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "europe",
+   "tags": [
+    "solar",
+    "robots"
+   ]
   },
   {
    "id": "powered-exoskeletons",
@@ -9927,7 +11607,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "sidewalk-delivery-robots",
@@ -9952,7 +11633,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "robots"
+   ]
   },
   {
    "id": "streptomycin",
@@ -9976,7 +11661,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "medical-ultrasound",
@@ -10003,7 +11689,16 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 1975,
+    "what": "Ultrasound becomes routine in pregnancy care.",
+    "basis": "ai-estimate"
+   },
+   "region": "uk",
+   "tags": [
+    "medicine"
+   ]
   },
   {
    "id": "contraceptive-pill",
@@ -10027,7 +11722,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "implantable-pacemaker",
@@ -10051,7 +11747,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "europe"
   },
   {
    "id": "beta-blockers",
@@ -10075,7 +11772,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "medicine"
+   ]
   },
   {
    "id": "cochlear-implant",
@@ -10099,7 +11800,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "other"
   },
   {
    "id": "cancer-immunotherapy",
@@ -10126,7 +11828,16 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "adoption": {
+    "year": 2018,
+    "what": "Checkpoint inhibitors become a standard treatment for several cancers.",
+    "basis": "ai-estimate"
+   },
+   "region": "us",
+   "tags": [
+    "medicine"
+   ]
   },
   {
    "id": "car-t-cell-therapy",
@@ -10150,7 +11861,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "other",
+   "tags": [
+    "medicine"
+   ]
   },
   {
    "id": "reversible-pumped-storage-at-scale",
@@ -10174,7 +11889,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "storage",
+    "wind"
+   ]
   },
   {
    "id": "solar-thermal-power-stations",
@@ -10198,7 +11918,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "solar"
+   ]
   },
   {
    "id": "wave-power-to-the-grid",
@@ -10222,7 +11946,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "grid"
+   ]
   },
   {
    "id": "active-network-management",
@@ -10253,7 +11981,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "grid",
+    "wind"
+   ]
   },
   {
    "id": "offshore-wind-hvdc-connection",
@@ -10277,7 +12010,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "europe",
+   "tags": [
+    "grid",
+    "wind"
+   ]
   },
   {
    "id": "inkjet-printer",
@@ -10301,7 +12039,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "asia"
   },
   {
    "id": "electronic-paper-displays",
@@ -10325,7 +12064,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "online-retail",
@@ -10350,7 +12090,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "online-banking",
@@ -10374,7 +12118,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk"
   },
   {
    "id": "body-tracking-without-markers",
@@ -10398,7 +12143,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "autonomous-ai-diagnosis",
@@ -10422,7 +12171,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "ai-models",
+    "robots"
+   ]
   },
   {
    "id": "scanning-tunnelling-microscope",
@@ -10446,7 +12200,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "us",
+   "tags": [
+    "medicine"
+   ]
   },
   {
    "id": "quantum-cascade-laser",
@@ -10470,7 +12228,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "pgp-email-encryption",
@@ -10494,7 +12253,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "cryptography"
+   ]
   },
   {
    "id": "onion-routing-tor",
@@ -10518,7 +12281,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "fingerprint-sensors-on-phones",
@@ -10542,7 +12306,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "ethernet",
@@ -10566,7 +12331,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "grid"
+   ]
   },
   {
    "id": "data-modems",
@@ -10590,7 +12359,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "digital-terrestrial-television",
@@ -10614,7 +12384,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "europe",
+   "tags": [
+    "networks",
+    "regulation"
+   ]
   },
   {
    "id": "3g-mobile-data",
@@ -10638,7 +12413,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "asia",
+   "tags": [
+    "networks",
+    "regulation"
+   ]
   },
   {
    "id": "long-range-low-power-radio-lora",
@@ -10662,7 +12442,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "europe",
+   "tags": [
+    "semiconductors"
+   ]
   },
   {
    "id": "visible-leds",
@@ -10686,7 +12470,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "electrochromic-smart-glass",
@@ -10710,7 +12495,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "us",
+   "tags": [
+    "materials"
+   ]
   },
   {
    "id": "plant-based-plastics",
@@ -10734,7 +12523,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "materials"
+   ]
   },
   {
    "id": "satellite-search-and-rescue",
@@ -10758,7 +12551,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "other",
+   "tags": [
+    "space"
+   ]
   },
   {
    "id": "autonomous-mining-trucks",
@@ -10782,7 +12579,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "robots"
+   ]
   },
   {
    "id": "hpv-vaccine",
@@ -10806,7 +12607,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "other",
+   "tags": [
+    "medicine"
+   ]
   },
   {
    "id": "targeted-breast-cancer-antibody",
@@ -10830,7 +12635,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "medicine",
+    "genetics"
+   ]
   },
   {
    "id": "targeted-leukaemia-drug",
@@ -10854,7 +12664,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "medicine"
+   ]
   },
   {
    "id": "laser-eye-surgery",
@@ -10878,7 +12692,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us"
   },
   {
    "id": "reinforcement-learning-control-room-assistants",
@@ -10908,7 +12723,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "europe",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "satellite-ai-vegetation-management",
@@ -10940,7 +12759,13 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "grid",
+    "ai-models",
+    "space"
+   ]
   },
   {
    "id": "network-wide-satellite-ai-tree-management-in-gb",
@@ -10970,7 +12795,13 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "grid",
+    "ai-models",
+    "space"
+   ]
   },
   {
    "id": "vehicle-to-grid-for-households",
@@ -11002,7 +12833,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "grid",
+    "regulation"
+   ]
   },
   {
    "id": "ai-home-energy-agents",
@@ -11027,7 +12863,14 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "storage",
+    "grid",
+    "heat",
+    "ai-models"
+   ]
   },
   {
    "id": "machine-learning-battery-lifetime-prediction",
@@ -11052,7 +12895,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "us",
+   "tags": [
+    "storage",
+    "ai-models"
+   ]
   },
   {
    "id": "ai-discovered-electrolyser-catalysts",
@@ -11077,7 +12925,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "us",
+   "tags": [
+    "hydrogen",
+    "ai-models"
+   ]
   },
   {
    "id": "ai-management-system-standard",
@@ -11102,7 +12955,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "global",
+   "tags": [
+    "ai-models",
+    "regulation"
+   ]
   },
   {
    "id": "assured-ai-in-operational-energy-decisions",
@@ -11130,7 +12988,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "first-power-from-a-uk-small-modular-reactor",
@@ -11159,7 +13021,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "grid",
+    "nuclear"
+   ]
   },
   {
    "id": "ai-wind-farm-control-as-standard",
@@ -11187,7 +13054,13 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "us",
+   "tags": [
+    "wind",
+    "ai-models",
+    "regulation"
+   ]
   },
   {
    "id": "ai-led-network-planning",
@@ -11215,7 +13088,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "grid",
+    "ai-models"
+   ]
   },
   {
    "id": "digital-substations-across-gb",
@@ -11239,7 +13117,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "grid",
+    "regulation"
+   ]
   },
   {
    "id": "multi-day-iron-air-storage-in-gb",
@@ -11263,7 +13146,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "us",
+   "tags": [
+    "storage"
+   ]
   },
   {
    "id": "ai-designs-whole-chips",
@@ -11290,7 +13177,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "us",
+   "tags": [
+    "semiconductors",
+    "ai-models"
+   ]
   },
   {
    "id": "2d-material-transistors",
@@ -11314,7 +13206,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "global",
+   "tags": [
+    "semiconductors"
+   ]
   },
   {
    "id": "photonic-ai-accelerators-in-data-centres",
@@ -11341,7 +13237,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "us",
+   "tags": [
+    "semiconductors",
+    "ai-models"
+   ]
   },
   {
    "id": "autonomous-software-engineering",
@@ -11368,7 +13269,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "us",
+   "tags": [
+    "ai-models",
+    "robots"
+   ]
   },
   {
    "id": "ai-research-scientists",
@@ -11395,7 +13301,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "global",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "certified-ai-in-safety-critical-systems",
@@ -11422,7 +13332,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "global",
+   "tags": [
+    "ai-models"
+   ]
   },
   {
    "id": "useful-quantum-chemistry-simulation",
@@ -11449,7 +13363,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "global",
+   "tags": [
+    "storage",
+    "ai-models"
+   ]
   },
   {
    "id": "optical-clocks-for-national-timing",
@@ -11473,7 +13392,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "global",
+   "tags": [
+    "grid",
+    "space"
+   ]
   },
   {
    "id": "post-quantum-migration-complete",
@@ -11505,7 +13429,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "cryptography",
+    "regulation"
+   ]
   },
   {
    "id": "autonomous-cyber-defence-in-ot",
@@ -11533,7 +13462,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "global",
+   "tags": [
+    "ai-models",
+    "robots"
+   ]
   },
   {
    "id": "quantum-network-links-between-cities",
@@ -11557,7 +13491,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "uk"
   },
   {
    "id": "ai-designed-battery-chemistry-in-mass-market-cars",
@@ -11584,7 +13519,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "global",
+   "tags": [
+    "storage",
+    "ai-models"
+   ]
   },
   {
    "id": "recyclable-wind-turbine-blades-at-scale",
@@ -11608,7 +13548,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "europe",
+   "tags": [
+    "wind",
+    "regulation"
+   ]
   },
   {
    "id": "commercial-space-stations",
@@ -11636,7 +13581,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "us",
+   "tags": [
+    "space"
+   ]
   },
   {
    "id": "in-orbit-manufacturing",
@@ -11663,7 +13612,14 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "us",
+   "tags": [
+    "semiconductors",
+    "ai-models",
+    "space",
+    "robots"
+   ]
   },
   {
    "id": "robots-doing-routine-network-field-work",
@@ -11690,7 +13646,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "grid",
+    "robots"
+   ]
   },
   {
    "id": "driverless-freight-on-uk-motorways",
@@ -11714,7 +13675,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "robots",
+    "regulation"
+   ]
   },
   {
    "id": "ai-discovered-antibiotic-approved",
@@ -11741,7 +13707,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "us",
+   "tags": [
+    "ai-models",
+    "medicine"
+   ]
   },
   {
    "id": "ai-virtual-cell-models-in-drug-trials",
@@ -11768,7 +13739,12 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "us",
+   "tags": [
+    "ai-models",
+    "medicine"
+   ]
   },
   {
    "id": "power-networks-demonstration-centre",
@@ -11802,7 +13778,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": false
-   }
+   },
+   "region": "uk"
   },
   {
    "id": "quantum-timing-and-navigation-for-infrastructure",
@@ -11834,7 +13811,11 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "uk",
+   "tags": [
+    "space"
+   ]
   },
   {
    "id": "quantum-cameras-that-see-gas-leaks",
@@ -11866,7 +13847,8 @@
     "added": "2026-10-27",
     "lastChecked": "2026-10-27",
     "approximate": true
-   }
+   },
+   "region": "uk"
   },
   {
    "id": "microsoft-maia-300-in-house-ai-inference-chip",
@@ -11916,7 +13898,12 @@
     "url": "https://www.unite.ai/microsoft-announces-maia-300-ai-chip-multi-gigawatt-azure-scale-up/",
     "status": "ok",
     "checked": "2026-10-28"
-   }
+   },
+   "region": "us",
+   "tags": [
+    "semiconductors",
+    "ai-models"
+   ]
   },
   {
    "id": "post-quantum-cryptography-migration-mandates",
@@ -11959,13 +13946,22 @@
     "addedBy": "research-agent",
     "added": "2026-10-28",
     "lastChecked": "2026-10-28",
-    "approximate": false
+    "approximate": false,
+    "qaNote": "Hidden: a regulation without a specific research origin, outside the scope of the model."
    },
    "basis": {
     "label": "NSA press release, 1 Oct 2026",
     "url": "https://www.nsa.gov/Press-Room/Press-Releases-Statements/Press-Release-View/Article/4615285/nsa-announces-post-quantum-cryptography-measures-to-safeguard-national-security/",
     "status": "ok",
     "checked": "2026-10-28"
+   },
+   "region": "us",
+   "tags": [
+    "cryptography",
+    "regulation"
+   ],
+   "flags": {
+    "hidden": true
    }
   },
   {
@@ -12016,7 +14012,11 @@
     "added": "2026-10-28",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "asia",
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "eu-pfhxa-restriction-hits-textiles-food-paper-cosmetics",
@@ -12065,7 +14065,12 @@
     "addedBy": "research-agent",
     "added": "2026-10-28",
     "lastChecked": "2026-10-28",
-    "approximate": false
+    "approximate": false,
+    "qaNote": "Hidden: a regulation without a specific research origin, outside the scope of the model."
+   },
+   "region": "europe",
+   "flags": {
+    "hidden": true
    }
   },
   {
@@ -12109,7 +14114,15 @@
     "addedBy": "research-agent",
     "added": "2026-10-28",
     "lastChecked": "2026-10-28",
-    "approximate": false
+    "approximate": false,
+    "qaNote": "Hidden: a regulation without a specific research origin, outside the scope of the model."
+   },
+   "region": "us",
+   "tags": [
+    "robots"
+   ],
+   "flags": {
+    "hidden": true
    }
   },
   {
@@ -12160,7 +14173,12 @@
     "added": "2026-10-28",
     "lastChecked": "2026-10-28",
     "approximate": false
-   }
+   },
+   "region": "us",
+   "tags": [
+    "medicine",
+    "genetics"
+   ]
   }
  ],
  "founders": [
@@ -13657,5 +15675,55 @@
    "alpha": 0.9,
    "paused": false
   }
- }
+ },
+ "regions": [
+  {
+   "id": "uk",
+   "name": "United Kingdom"
+  },
+  {
+   "id": "us",
+   "name": "United States"
+  },
+  {
+   "id": "europe",
+   "name": "Rest of Europe"
+  },
+  {
+   "id": "asia",
+   "name": "Asia"
+  },
+  {
+   "id": "other",
+   "name": "Rest of the world"
+  },
+  {
+   "id": "global",
+   "name": "Many countries"
+  },
+  {
+   "id": "unknown",
+   "name": "Not yet known"
+  }
+ ],
+ "tagVocabulary": [
+  "storage",
+  "grid",
+  "solar",
+  "wind",
+  "nuclear",
+  "hydrogen",
+  "heat",
+  "semiconductors",
+  "ai-models",
+  "computer-vision",
+  "cryptography",
+  "networks",
+  "space",
+  "medicine",
+  "genetics",
+  "robots",
+  "materials",
+  "regulation"
+ ]
 }
