@@ -6,9 +6,15 @@ on:
   schedule:
     - cron: '0 6 * * 1'
   workflow_dispatch:
+    inputs:
+      deep:
+        description: 'Run the deeper audit (stronger model, bigger batch)'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: data-agents
@@ -34,8 +40,12 @@ jobs:
 
       - name: Install tools
         run: |
-          pip install anthropic requests beautifulsoup4 jsonschema playwright
+          pip install -r requirements.txt
           python -m playwright install --with-deps chromium
+
+      - name: Monthly deeper audit (first Monday of each month, or on request)
+        run: |
+          if [ "$(date -u +%d)" -le 7 ] || [ "${{ github.event.inputs.deep }}" = "true" ]; then echo "QA_DEEP=1" >> "$GITHUB_ENV"; echo "Deep audit this run."; fi
 
       - name: Research agent (proposes candidates only)
         working-directory: agents
@@ -58,6 +68,7 @@ jobs:
         run: python tools/smoke_test.py
 
       - name: Publish (only reached if every gate passed)
+        id: publish
         run: |
           git config user.name  "shrinking-gap-data-agent"
           git config user.email "data-agent@users.noreply.github.com"
@@ -69,3 +80,14 @@ jobs:
           git tag -a "data-r${REV}" -m "Data revision ${REV}: ${SUMMARY}"
           git push origin main
           git push origin "data-r${REV}"
+          echo "published=1" >> "$GITHUB_OUTPUT"
+          echo "rev=${REV}" >> "$GITHUB_OUTPUT"
+
+      - name: Weekly digest (a GitHub issue, which also emails you)
+        if: steps.publish.outputs.published == '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python tools/digest.py > digest.md
+          gh label create data-update --color 5FD8FF --description "Weekly data agent digest" --force || true
+          gh issue create --title "Data revision ${{ steps.publish.outputs.rev }}: $(head -1 digest.md | tr -d '*')" --body-file digest.md --label data-update
