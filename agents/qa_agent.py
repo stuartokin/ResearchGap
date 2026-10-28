@@ -116,7 +116,8 @@ def run():
     # ---------- 3. publish ----------
     db['meta']['asOf'] = TODAY
     db['meta']['revision'] += 1
-    db['meta']['lastAgentRun'] = TODAY + 'T' + __import__('datetime').datetime.utcnow().strftime('%H:%MZ')
+    import datetime as _dt
+    db['meta']['lastAgentRun'] = TODAY + 'T' + _dt.datetime.now(_dt.timezone.utc).strftime('%H:%MZ')
     summary = f"{len(added)} added, {len(corrected)} corrected, {len(reestimated)} outlook re-estimated, {len(disputed)} disputed, {len(broken)} broken links."
     log_change(db, summary, [f'added: {t}' for t in added] + corrected + [f're-estimated: {x}' for x in reestimated] + [f'disputed: {x}' for x in disputed])
     save_db(db)
