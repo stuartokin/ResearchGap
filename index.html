@@ -295,6 +295,10 @@ label.dim{opacity:.45}
 .prange{display:flex;gap:.6em;align-items:flex-end;flex-wrap:wrap;margin:.3em 0 .5em}
 .prange .af{flex:1;min-width:6em}
 .chip.tag{color:var(--muted)}
+.tclamp .tlead{color:inherit}
+.infob{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;width:1.3em;height:1.3em;border-radius:50%;border:1px solid rgba(168,216,255,.55);color:#A8D8FF;font:italic 700 .82em/1 Georgia,'Times New Roman',serif;margin-left:.4em;vertical-align:.08em}
+.infob:hover,.infob:focus-visible{background:rgba(168,216,255,.18);outline:2px solid rgba(168,216,255,.35);outline-offset:1px}
+.infob.on{background:rgba(168,216,255,.22)}
 .rtools{display:flex;gap:8px;align-items:flex-end;justify-content:space-between;flex-wrap:wrap}
 .rarea{border:1px solid var(--line);border-radius:10px;padding:.6em .7em;margin:.5em 0;background:rgba(255,255,255,.02)}
 .rhead{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}.rhead span{color:var(--faint);font-size:.85em}
@@ -789,6 +793,7 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions{opacity:0;point
       <label class="toggle">Show page title <input type="checkbox" id="titleShowT"></label>
       <label class="toggle">Hide top buttons until the mouse is near <input type="checkbox" id="barAutoT"></label>
       <label class="toggle">Show the thank-you icon (Q key) <input type="checkbox" id="thanksIconT" checked></label>
+      <label class="toggle">Show full descriptions in windows <input type="checkbox" id="fullTextT"></label>
       <label class="toggle">Highlight a window when it opens <input type="checkbox" id="flashNewT" checked></label>
       <label class="toggle">Open new windows in free space <input type="checkbox" id="smartPlaceT" checked></label>
       <label class="toggle">Keep window positions when the screen size changes <input type="checkbox" id="keepPosT" checked></label>
@@ -3085,7 +3090,7 @@ const FORTUNES = DB.founders.map(f => {
 });
 const fmtMoney = (bn, sym) => bn >= 1000 ? `${sym}${(bn / 1000).toFixed(1)}tn` : bn >= 1 ? `${sym}${bn >= 100 ? Math.round(bn) : Math.round(bn * 10) / 10}bn` : `${sym}${Math.round(bn * 1000)}m`;
 const DATA_AS_OF = DB.meta.asOf;
-const APP_VERSION = '9.2', APP_BUILD = '';
+const APP_VERSION = '9.3', APP_BUILD = '';
 // Screen-aware scaling: laptops slightly smaller, large screens larger
 const UI = (() => { const w = innerWidth; return w < 1280 ? .85 : w < 1500 ? .95 : w < 1800 ? 1.05 : w < 2300 ? 1.2 : 1.4; })();
 const LARGE = innerWidth >= 1700;
@@ -3121,7 +3126,7 @@ const DEFAULT_FILTERS = () => ({
 });
 const F = DEFAULT_FILTERS();
 const hidden = new Set();
-const view = {flashNew:true, radarSince:'review', radarSeenRev:(() => { try { const v = store.get('sg.radarSeen', null); return v == null ? null : v; } catch (e) { return null; } })(), smartPlace:true, panels:{}, preset:'explore', menuGroups:{}, subLanes:true, adoption:true, palette:'standard', conclusion:true, playFrom:null, playTo:null, gapMetric:'first', statsRows:'src', statsRange:true, markSmall:true, smallN:5, survival:true, keepWinPos:true, fitOnLoad:true, chgFlag:'new', chgScope:'all', chgSince:'30', chgAnnounce:true, countdown:true, thanksIcon:true, majBright:true, uniHi:true, audSpot:true, audPause:true, statsBy:'landed', statsLive:true, gapBuild:true, compactLanes:true, fortSort:'year', musicOn:false, loopPlay:true, fortHi:true, fortOnly:false, laneFollow:true, camTravel:true, fadeLanded:true, keepYears:5, revealEnd:true, labelPlay:'until', labelScope:'all', labelMax:14, labelLinger:2, labels:'follow', lfs:LARGE ? 18 : 15, lanes:'v', colour:'v', pulses:true, trend:true, floor:true, rotSpeed:0.35, glow:0.75};
+const view = {fullText:false, flashNew:true, radarSince:'review', radarSeenRev:(() => { try { const v = store.get('sg.radarSeen', null); return v == null ? null : v; } catch (e) { return null; } })(), smartPlace:true, panels:{}, preset:'explore', menuGroups:{}, subLanes:true, adoption:true, palette:'standard', conclusion:true, playFrom:null, playTo:null, gapMetric:'first', statsRows:'src', statsRange:true, markSmall:true, smallN:5, survival:true, keepWinPos:true, fitOnLoad:true, chgFlag:'new', chgScope:'all', chgSince:'30', chgAnnounce:true, countdown:true, thanksIcon:true, majBright:true, uniHi:true, audSpot:true, audPause:true, statsBy:'landed', statsLive:true, gapBuild:true, compactLanes:true, fortSort:'year', musicOn:false, loopPlay:true, fortHi:true, fortOnly:false, laneFollow:true, camTravel:true, fadeLanded:true, keepYears:5, revealEnd:true, labelPlay:'until', labelScope:'all', labelMax:14, labelLinger:2, labels:'follow', lfs:LARGE ? 18 : 15, lanes:'v', colour:'v', pulses:true, trend:true, floor:true, rotSpeed:0.35, glow:0.75};
 Object.assign(view, store.get('sg.view.v2', {}));
 if (MOBILE) Object.assign(view, {lite:true, labels:'peak', labelScope:'major', labelMax:6, lfs:12, camTravel:false, fadeLanded:false, pulses:true, glow:0});
 const state = {playing:false, cursor:Y1, autoRotate:!reduced && !(MOBILE && innerWidth < innerHeight)};
@@ -5250,6 +5255,7 @@ const HELP = {
   titleShowT:'Shows or hides the page title in the top-left corner (T key).',
   barAutoT:'Hides the toolbar buttons until the mouse moves near them.',
   thanksIconT:'Shows the speech-bubble button that opens the thank-you screen (Q key).',
+  fullTextT:'Long explanations in windows show their first few words and an i button for the rest. Switch this on to always show the full text.',
   flashNewT:'A newly opened window glows briefly and comes to the front, so it is easy to spot on a busy screen.',
   smartPlaceT:'When you open a window, it is placed in free space where possible, without covering other windows or the centre of the model.',
   keepPosT:'Windows keep their distance from the nearest edges when the screen size changes, such as leaving full screen.',
@@ -5474,6 +5480,34 @@ async function generateDesnzSlide(){
 }
 
 /* ==================================================================
+ *  SHORT DESCRIPTIONS: long explanatory text shows its first few words and an (i) button for the rest
+ * ================================================================== */
+const CLAMP_SEL = '.wbody p.note-s, #w-outlook .wbody p:not(.insight):not(.fbanner):not(.note-s)';
+const clampFull = new WeakMap();
+function clampText(el){
+  if (view.fullText || el.closest('.cfg, #detailBody, .faqi') || el.querySelector(':scope > .infob')) return;
+  const txt = el.textContent.replace(/\s+/g, ' ').trim(); if (txt.length < 100) return;
+  clampFull.set(el, el.innerHTML);
+  const lead = txt.split(' ').slice(0, 8).join(' ').replace(/[,;:.–-]+$/, '');
+  el.classList.add('tclamp'); el.classList.remove('topen');
+  el.innerHTML = `<span class="tlead">${esc(lead)}…</span><button class="infob" type="button" aria-expanded="false" title="Read the full text" aria-label="Read the full text">i</button>`;
+}
+function clampAll(){ document.querySelectorAll(CLAMP_SEL).forEach(clampText); }
+function unclampAll(){ document.querySelectorAll('.tclamp').forEach(el => { if (clampFull.has(el)) el.innerHTML = clampFull.get(el); el.classList.remove('tclamp', 'topen'); }); }
+document.addEventListener('click', e => {
+  const b = e.target.closest('.infob'); if (!b) return;
+  e.preventDefault(); e.stopPropagation();
+  const el = b.parentElement;
+  if (b.getAttribute('aria-expanded') !== 'true') {
+    el.innerHTML = clampFull.get(el) + ' <button class="infob on" type="button" aria-expanded="true" title="Show less" aria-label="Show less">i</button>';
+    el.classList.add('topen');
+  } else { el.innerHTML = clampFull.get(el); el.classList.remove('topen'); clampText(el); }
+}, true);
+let clampTimer = 0;
+new MutationObserver(() => { if (!clampTimer) clampTimer = setTimeout(() => { clampTimer = 0; clampAll(); }, 100); }).observe(document.body, {childList:true, subtree:true});   // throttled, so a steady stream of updates cannot starve it
+$('fullTextT').addEventListener('change', e => { view.fullText = e.target.checked; if (view.fullText) unclampAll(); else clampAll(); });
+
+/* ==================================================================
  *  SAVED VIEWS (JSON)
  * ================================================================== */
 function snapshot(name){
@@ -5505,6 +5539,7 @@ function syncDisplayUI(){
   if ((view.palette || 'standard') !== (window.__pal || 'standard')) applyPalette();
   syncPlayRangeUI();
   if (typeof syncPanels === 'function') syncPanels();
+  $('fullTextT').checked = !!view.fullText; if (typeof clampAll === 'function') { if (view.fullText) unclampAll(); else clampAll(); }
   $('smartPlaceT').checked = view.smartPlace !== false; $('flashNewT').checked = view.flashNew !== false;
   $('keepPosT').checked = view.keepWinPos !== false; $('fitLoadT').checked = view.fitOnLoad !== false;
   $('countdownT').checked = view.countdown !== false; $('thanksIconT').checked = view.thanksIcon !== false; document.body.classList.toggle('nothanks', view.thanksIcon === false);
@@ -5837,7 +5872,7 @@ $('verLine').textContent = `App version ${APP_VERSION}. Data revision ${DB.meta.
 $('discX').onclick = () => $('disc').classList.add('gone');
 $('discAbout').onclick = () => { $('disc').classList.add('gone'); $('about').classList.add('open'); };
 setTimeout(() => $('disc').classList.add('gone'), 12000);
-buildFieldList(); fillAudFields(); refresh(); syncChgUI(); applyChangeFlags(); renderChanges(); syncPlayRangeUI(); buildTicker(); attachHelp(); buildFaq(); syncPanels();
+buildFieldList(); fillAudFields(); refresh(); syncChgUI(); applyChangeFlags(); renderChanges(); syncPlayRangeUI(); buildTicker(); attachHelp(); buildFaq(); syncPanels(); clampAll();
 [['title', 'titleCfgBtn'], ['ticker', 'tickCfgBtn']].forEach(([w, b]) => { const h = wins[w].querySelector('.wh'), btn = $(b); if (h && btn) { h.insertBefore(btn, h.querySelector('button')); btn.classList.add('inhead'); } }); applyLite(); applyHeader(); computeLaneLayout(); applyLanes(true); applyColours(); refresh(); setAutoRotate(state.autoRotate); syncVideos(); applyTitle(); applyTicker(); syncMusic();
 function startMusicIfWanted(){
   if (!view.musicOn || !music.paused) return;
