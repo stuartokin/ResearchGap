@@ -2,7 +2,7 @@
  "$schema": "./schema.json",
  "meta": {
   "title": "The Shrinking Gap from Research to Change",
-  "revision": 5,
+  "revision": 6,
   "version": "8.0",
   "asOf": "2026-10-28",
   "horizonYears": 10,
@@ -10,7 +10,7 @@
   "author": "Stuart Okin",
   "maintainedBy": "AI agents using Claude (Anthropic), without human review",
   "disclaimer": "Personal project by Stuart Okin, not affiliated with or endorsed by any employer. Data is compiled and maintained by AI agents without human review and may contain errors. Outlook years are AI estimates, not forecasts.",
-  "lastAgentRun": "2026-10-28T07:16Z",
+  "lastAgentRun": "2026-10-28T13:53Z",
   "changelog": [
    {
     "date": "2026-10-28",
@@ -67,6 +67,51 @@
      "post-quantum-cryptography-migration-mandates: hidden (out of scope)",
      "eu-pfhxa-restriction-hits-textiles-food-paper-cosmetics: hidden (out of scope)",
      "us-exemption-for-driverless-truck-warning-beacons: hidden (out of scope)"
+    ]
+   },
+   {
+    "date": "2026-10-28",
+    "time": "13:53",
+    "revision": 6,
+    "summary": "3 added, 16 corrected, 0 outlook re-estimated, 1 disputed, 3 broken links.",
+    "stats": {
+     "milestones": 455,
+     "sourceCited": 59,
+     "aiCompiled": 318,
+     "aiEstimate": 78,
+     "adoptionKnown": 68,
+     "landed": 358,
+     "regionKnown": 454
+    },
+    "usage": {
+     "calls": 14,
+     "inputTokens": 2280762,
+     "outputTokens": 85979,
+     "searches": 125,
+     "model": "claude-opus-5-5"
+    },
+    "deepAudit": true,
+    "details": [
+     "added: bepirovirsen-first-antisense-drug-for-hepatitis-b",
+     "added: plastic-free-moulded-pulp-fibre-bottles-pulpex",
+     "added: size-adjustable-pediatric-heart-valve-autus",
+     "consumer-drones: source added",
+     "uk-robotaxis: source added",
+     "penicillin: source added",
+     "recombinant-dna: source added",
+     "mri-scanning: source added",
+     "monoclonal-antibodies: source added",
+     "pcr: source added",
+     "genome-sequencing-to-consumers: source added",
+     "mrna-vaccines: source added",
+     "crispr-gene-editing: source added",
+     "protein-structure-prediction: source added",
+     "computer-weather-forecasting: note updated",
+     "wind-power-forecasting: change.what updated",
+     "wind-turbine-predictive-maintenance: source added",
+     "ai-data-centre-cooling: source added",
+     "bluetooth: tags added",
+     "disputed: humanoid-robots-at-work"
     ]
    }
   ],
@@ -4066,15 +4111,23 @@
    "confidence": "medium",
    "note": "Dates approximate. Cheap phone sensors did the rest.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "asia",
    "tags": [
     "robots"
+   ],
+   "refs": [
+    {
+     "label": "DJI press release: Phantom launch (7 Jan 2013)",
+     "url": "https://www.dji.com/newsroom/news/dji-launches-industry-best-easiest-to-fly-quadcopter-for-consumer-use",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
    ]
   },
   {
@@ -4100,13 +4153,19 @@
     {
      "label": "Wayve and Uber London service announcements (2026)",
      "url": null
+    },
+    {
+     "label": "Wikipedia: Wayve",
+     "url": "https://en.wikipedia.org/wiki/Wayve",
+     "status": "ok",
+     "checked": "2026-10-28"
     }
    ],
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -4140,7 +4199,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -4169,13 +4228,17 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
-    "approximate": false
+    "lastChecked": "2026-10-28",
+    "approximate": false,
+    "qaNote": "The change as written ('paid humanoid deployments in warehouses and factories, in small numbers') already happened in 2024. Agility's Digit has worked under a multi-year Robots-as-a-Service contract at GXO since June 2024, and other paying customers include Schaeffler and Toyota Canada. GXO is expanding to two more sites in 2027. Either mark this record landed in 2024, or reword the outlook to sca"
    },
    "region": "us",
    "tags": [
     "robots"
-   ]
+   ],
+   "flags": {
+    "disputed": true
+   }
   },
   {
    "id": "routine-beyond-sight-drone-inspection",
@@ -4197,7 +4260,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "global",
@@ -4227,10 +4290,10 @@
     "major": true
    },
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "adoption": {
@@ -4241,6 +4304,14 @@
    "region": "uk",
    "tags": [
     "medicine"
+   ],
+   "refs": [
+    {
+     "label": "CDC Emerging Infectious Diseases: The Discovery of Penicillin (2017)",
+     "url": "https://wwwnc.cdc.gov/eid/article/23/5/16-1556_article",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
    ]
   },
   {
@@ -4263,10 +4334,10 @@
     "major": true
    },
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "adoption": {
@@ -4278,6 +4349,14 @@
    "tags": [
     "medicine",
     "genetics"
+   ],
+   "refs": [
+    {
+     "label": "Science History Institute: Herbert W. Boyer and Stanley N. Cohen",
+     "url": "https://www.sciencehistory.org/education/scientific-biographies/herbert-w-boyer-and-stanley-n-cohen/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
    ]
   },
   {
@@ -4300,10 +4379,10 @@
     "major": true
    },
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "adoption": {
@@ -4315,6 +4394,14 @@
    "tags": [
     "medicine",
     "materials"
+   ],
+   "refs": [
+    {
+     "label": "FONAR company history",
+     "url": "https://www.fonar.com/history.html",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
    ]
   },
   {
@@ -4334,15 +4421,23 @@
    "confidence": "high",
    "note": "Not patented, which some still debate.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
    "tags": [
     "medicine"
+   ],
+   "refs": [
+    {
+     "label": "An (2017), Protein & Cell: 'Magic Bullets' special issue on therapeutic antibodies",
+     "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5777979/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
    ]
   },
   {
@@ -4362,13 +4457,21 @@
    "confidence": "high",
    "note": "Lab tools move faster than medicines.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
-   "region": "us"
+   "region": "us",
+   "refs": [
+    {
+     "label": "Thermo Fisher: PCR thermal cycler history",
+     "url": "https://commerce.thermofisher.com/us/en/home/life-science/cloning/cloning-learning-center/invitrogen-school-of-molecular-biology/pcr-education/pcr-thermal-cyclers.html",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "genome-sequencing-to-consumers",
@@ -4387,16 +4490,24 @@
    "confidence": "high",
    "note": "Sequencing costs fell faster than Moore’s law.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
    "tags": [
     "regulation",
     "genetics"
+   ],
+   "refs": [
+    {
+     "label": "Stanford GSB case study: 23andMe (2017)",
+     "url": "https://gsb.stanford.edu/faculty-research/case-studies/23andme",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
    ]
   },
   {
@@ -4419,10 +4530,10 @@
     "major": true
    },
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "adoption": {
@@ -4433,6 +4544,14 @@
    "region": "us",
    "tags": [
     "medicine"
+   ],
+   "refs": [
+    {
+     "label": "Nobel Prize facts: Karikó",
+     "url": "https://www.nobelprize.org/prizes/medicine/2023/kariko/facts/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
    ]
   },
   {
@@ -4455,10 +4574,10 @@
     "major": true
    },
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -4466,6 +4585,14 @@
     "medicine",
     "regulation",
     "genetics"
+   ],
+   "refs": [
+    {
+     "label": "HLK: Casgevy world's first CRISPR approval",
+     "url": "https://www.hlk-ip.com/news-and-insights/casgevy-worlds-first-approval-of-a-crispr-cas9-gene-editing-therapy/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
    ]
   },
   {
@@ -4488,10 +4615,10 @@
     "major": true
    },
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "adoption": {
@@ -4502,6 +4629,14 @@
    "region": "uk",
    "tags": [
     "genetics"
+   ],
+   "refs": [
+    {
+     "label": "EMBL: AlphaFold Nobel and database history",
+     "url": "https://www.embl.org/news/science-technology/alphafold-wins-nobel-prize-chemistry-2024/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
    ]
   },
   {
@@ -4524,7 +4659,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "global",
@@ -4553,7 +4688,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -4577,13 +4712,13 @@
     "what": "Operational numerical weather prediction begins."
    },
    "confidence": "medium",
-   "note": "Every wind and solar forecast in today’s control rooms rests on this.",
+   "note": "Sweden (Rossby's group at SMHI) produced an operational numerical forecast in 1954; US operational NWP began in 1955 under the JNWPU.",
    "desnz": "opt",
    "provenance": {
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -4613,7 +4748,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -4642,7 +4777,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -4663,7 +4798,7 @@
    },
    "change": {
     "year": 1996,
-    "what": "Wind power forecasts used operationally by utilities. Dates approximate."
+    "what": "DTU's Wind Power Prediction Tool (WPPT) enters operational use in Elsam/Eltra control rooms in western Denmark."
    },
    "confidence": "medium",
    "note": "Forecasting was the first job machine learning did for renewables.",
@@ -4672,7 +4807,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "europe",
@@ -4699,16 +4834,24 @@
    "note": "One of the vision’s near-term areas, already common in generation.",
    "desnz": "asset",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "europe",
    "tags": [
     "wind",
     "ai-models"
+   ],
+   "refs": [
+    {
+     "label": "CORDIS: Providing Predictive Maintenance for Wind Turbines Over Cloud (2015)",
+     "url": "https://cordis.europa.eu/project/id/673137",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
    ]
   },
   {
@@ -4729,15 +4872,23 @@
    "note": "An early proof that AI can cut end-use energy at scale.",
    "desnz": "demand",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
    "tags": [
     "ai-models"
+   ],
+   "refs": [
+    {
+     "label": "ACHR News, Aug 2016",
+     "url": "https://www.achrnews.com/articles/133132-machine-learning-reduces-google-data-center-cooling-bill-by-40",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
    ]
   },
   {
@@ -4761,7 +4912,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "global",
@@ -4790,7 +4941,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -4820,7 +4971,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -4849,7 +5000,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "global",
@@ -4878,7 +5029,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk"
@@ -4905,13 +5056,15 @@
    },
    "basis": {
     "label": "DESNZ: Vision for an AI-enabled clean energy system",
-    "url": "https://www.gov.uk/government/calls-for-evidence/vision-for-an-ai-enabled-clean-energy-system/vision-for-an-ai-enabled-clean-energy-system-html"
+    "url": "https://www.gov.uk/government/calls-for-evidence/vision-for-an-ai-enabled-clean-energy-system/vision-for-an-ai-enabled-clean-energy-system-html",
+    "status": "ok",
+    "checked": "2026-10-28"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -4941,13 +5094,15 @@
    },
    "basis": {
     "label": "DESNZ: Vision for an AI-enabled clean energy system",
-    "url": "https://www.gov.uk/government/calls-for-evidence/vision-for-an-ai-enabled-clean-energy-system/vision-for-an-ai-enabled-clean-energy-system-html"
+    "url": "https://www.gov.uk/government/calls-for-evidence/vision-for-an-ai-enabled-clean-energy-system/vision-for-an-ai-enabled-clean-energy-system-html",
+    "status": "ok",
+    "checked": "2026-10-28"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -4979,7 +5134,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -5008,7 +5163,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -5037,7 +5192,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "us",
@@ -5068,7 +5223,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "adoption": {
@@ -5102,7 +5257,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -5130,7 +5285,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -5158,7 +5313,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -5189,7 +5344,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "adoption": {
@@ -5222,7 +5377,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -5250,7 +5405,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -5282,7 +5437,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "adoption": {
@@ -5315,7 +5470,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "global"
@@ -5340,7 +5495,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -5368,7 +5523,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -5396,7 +5551,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -5424,7 +5579,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "europe",
@@ -5453,7 +5608,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -5481,7 +5636,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "us",
@@ -5509,7 +5664,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "europe"
@@ -5534,7 +5689,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -5563,7 +5718,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "europe",
@@ -5592,7 +5747,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -5620,7 +5775,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -5651,7 +5806,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "adoption": {
@@ -5687,7 +5842,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "adoption": {
@@ -5721,10 +5876,13 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
-   "region": "europe"
+   "region": "europe",
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "shape-memory-alloy",
@@ -5746,7 +5904,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "us",
@@ -5774,7 +5932,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -5805,7 +5963,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "adoption": {
@@ -5839,7 +5997,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -5868,7 +6026,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -5896,7 +6054,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "other",
@@ -5924,7 +6082,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -7410,7 +7568,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us"
@@ -8960,7 +9118,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -8994,7 +9152,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -9025,7 +9183,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "global",
@@ -9057,7 +9215,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -9088,7 +9246,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -9120,7 +9278,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "global",
@@ -9153,7 +9311,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "global",
@@ -9183,14 +9341,16 @@
    "refs": [
     {
      "label": "ECMWF: AI forecasts become operational",
-     "url": "https://www.ecmwf.int/node/29308"
+     "url": "https://www.ecmwf.int/node/29308",
+     "status": "ok",
+     "checked": "2026-10-28"
     }
    ],
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -9221,15 +9381,18 @@
    "refs": [
     {
      "label": "Open Climate Fix: Cloudcasting",
-     "url": "https://new.openclimatefix.org/projects/cloud-forecasting"
+     "url": "https://new.openclimatefix.org/projects/cloud-forecasting",
+     "status": "broken",
+     "checked": "2026-10-28"
     }
    ],
    "provenance": {
-    "verification": "source-cited",
+    "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
-    "approximate": false
+    "lastChecked": "2026-10-28",
+    "approximate": false,
+    "qaNote": "All cited links are broken; downgraded until a new source is found."
    },
    "region": "uk",
    "tags": [
@@ -9259,14 +9422,16 @@
    "refs": [
     {
      "label": "NESO: Open Balancing Platform goes live",
-     "url": "https://www.neso.energy/news/first-stages-open-balancing-platform-go-live"
+     "url": "https://www.neso.energy/news/first-stages-open-balancing-platform-go-live",
+     "status": "ok",
+     "checked": "2026-10-28"
     }
    ],
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -9332,14 +9497,16 @@
    "refs": [
     {
      "label": "Flexitricity: the past, present and future of flexibility",
-     "url": "https://flexitricity.com/more/blog/the-past-present-and-future-of-energy-flexibility/"
+     "url": "https://flexitricity.com/more/blog/the-past-present-and-future-of-energy-flexibility/",
+     "status": "ok",
+     "checked": "2026-10-28"
     }
    ],
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -9370,15 +9537,18 @@
    "refs": [
     {
      "label": "SP Energy Networks: drones on the transmission network",
-     "url": "https://www.spenergynetworks.co.uk/news/pages/drones_transmission_network.aspx"
+     "url": "https://www.spenergynetworks.co.uk/news/pages/drones_transmission_network.aspx",
+     "status": "broken",
+     "checked": "2026-10-28"
     }
    ],
    "provenance": {
-    "verification": "source-cited",
+    "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
-    "approximate": false
+    "lastChecked": "2026-10-28",
+    "approximate": false,
+    "qaNote": "All cited links are broken; downgraded until a new source is found."
    },
    "region": "uk",
    "tags": [
@@ -9407,14 +9577,16 @@
    "refs": [
     {
      "label": "Transport & Energy: National Grid AI drone inspection",
-     "url": "https://transportandenergy.com/2025/09/04/national-grid-uses-ai-drone-aerial-inspection/"
+     "url": "https://transportandenergy.com/2025/09/04/national-grid-uses-ai-drone-aerial-inspection/",
+     "status": "ok",
+     "checked": "2026-10-28"
     }
    ],
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -9478,14 +9650,16 @@
    "refs": [
     {
      "label": "SecurityWeek: Radiflow intrusion detection",
-     "url": "https://www.securityweek.com/radiflow-launches-new-intrusion-detection-system-icsscada-networks/amp/"
+     "url": "https://www.securityweek.com/radiflow-launches-new-intrusion-detection-system-icsscada-networks/amp/",
+     "status": "ok",
+     "checked": "2026-10-28"
     }
    ],
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "other"
@@ -9598,13 +9772,15 @@
    "company": "Form Energy",
    "basis": {
     "label": "Great River Energy: Cambridge energy storage project",
-    "url": "https://greatriverenergy.com/what-we-do/cambridge-energy-storage-project"
+    "url": "https://greatriverenergy.com/what-we-do/cambridge-energy-storage-project",
+    "status": "ok",
+    "checked": "2026-10-28"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -9635,13 +9811,15 @@
    },
    "basis": {
     "label": "University of Glasgow: Strategic Innovation Fund projects",
-    "url": "https://www.gla.ac.uk/news/headline_837214_en.html"
+    "url": "https://www.gla.ac.uk/news/headline_837214_en.html",
+    "status": "ok",
+    "checked": "2026-10-28"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk"
@@ -9669,13 +9847,15 @@
    },
    "basis": {
     "label": "Enlit: ENSIGN digital twin project",
-    "url": "https://www.enlit.world/library/ensign-digital-twin-project-to-model-future-uk-energy-system"
+    "url": "https://www.enlit.world/library/ensign-digital-twin-project-to-model-future-uk-energy-system",
+    "status": "ok",
+    "checked": "2026-10-28"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -9707,13 +9887,15 @@
    },
    "basis": {
     "label": "University of Glasgow: Strategic Innovation Fund projects",
-    "url": "https://www.gla.ac.uk/news/headline_837214_en.html"
+    "url": "https://www.gla.ac.uk/news/headline_837214_en.html",
+    "status": "ok",
+    "checked": "2026-10-28"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -9747,13 +9929,15 @@
    },
    "basis": {
     "label": "University of Glasgow: SPEN strategic partnership",
-    "url": "https://www.gla.ac.uk/news/headline_1248646_en.html"
+    "url": "https://www.gla.ac.uk/news/headline_1248646_en.html",
+    "status": "ok",
+    "checked": "2026-10-28"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -9781,14 +9965,16 @@
    "refs": [
     {
      "label": "Solar Power Portal: Zenobē Blackhillock",
-     "url": "https://www.solarpowerportal.co.uk/zenobe-200mw-bess-operational-first-to-provide-stability-services-for-neso"
+     "url": "https://www.solarpowerportal.co.uk/zenobe-200mw-bess-operational-first-to-provide-stability-services-for-neso",
+     "status": "ok",
+     "checked": "2026-10-28"
     }
    ],
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -9816,13 +10002,15 @@
    "company": "SP Energy Networks and National Grid",
    "basis": {
     "label": "Construction Enquirer: EGL1 targeted for 2029",
-    "url": "https://constructionenquirer.com/2023/09/13/build-deal-for-2-5bn-eastern-green-link-1-converter-stations"
+    "url": "https://constructionenquirer.com/2023/09/13/build-deal-for-2-5bn-eastern-green-link-1-converter-stations",
+    "status": "ok",
+    "checked": "2026-10-28"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -9853,14 +10041,17 @@
    },
    "basis": {
     "label": "UK Parliament: Cyber Security and Resilience (NIS) Bill",
-    "url": "https://bills.parliament.uk/Bills/4035"
+    "url": "https://bills.parliament.uk/Bills/4035",
+    "status": "broken",
+    "checked": "2026-10-28"
    },
    "provenance": {
-    "verification": "source-cited",
+    "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
-    "approximate": false
+    "lastChecked": "2026-10-28",
+    "approximate": false,
+    "qaNote": "All cited links are broken; downgraded until a new source is found."
    },
    "region": "uk",
    "tags": [
@@ -10754,14 +10945,16 @@
    "refs": [
     {
      "label": "University of Nottingham: OPM-MEG",
-     "url": "https://www.nottingham.ac.uk/research/groups/spmic/research/meg-and-opm.aspx"
+     "url": "https://www.nottingham.ac.uk/research/groups/spmic/research/meg-and-opm.aspx",
+     "status": "ok",
+     "checked": "2026-10-28"
     }
    ],
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -11972,14 +12165,16 @@
    "refs": [
     {
      "label": "University of Strathclyde REF impact case study",
-     "url": "https://results2021.ref.ac.uk/impact/submissions/6b98e262-ec7f-434e-a9af-108419c779b6/impact"
+     "url": "https://results2021.ref.ac.uk/impact/submissions/6b98e262-ec7f-434e-a9af-108419c779b6/impact",
+     "status": "ok",
+     "checked": "2026-10-28"
     }
    ],
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -12715,13 +12910,15 @@
    "desnz": "opt",
    "basis": {
     "label": "Artelys: L2RPN 2023 white paper",
-    "url": "https://www.artelys.com/app/uploads/2024/04/White_paper_L2RPN_2023_.pdf"
+    "url": "https://www.artelys.com/app/uploads/2024/04/White_paper_L2RPN_2023_.pdf",
+    "status": "ok",
+    "checked": "2026-10-28"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "europe",
@@ -12750,14 +12947,16 @@
    "refs": [
     {
      "label": "AiDash: satellite AI vegetation management",
-     "url": "https://www.aidash.com/wp-content/uploads/2021/06/Earth-Observation-and-Utility-Vegetation-Management.pdf"
+     "url": "https://www.aidash.com/wp-content/uploads/2021/06/Earth-Observation-and-Utility-Vegetation-Management.pdf",
+     "status": "ok",
+     "checked": "2026-10-28"
     }
    ],
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -12787,13 +12986,15 @@
    "desnz": "asset",
    "basis": {
     "label": "UK Power Networks: Satelline pilot",
-    "url": "https://innovation.ukpowernetworks.co.uk/projects/satelline"
+    "url": "https://innovation.ukpowernetworks.co.uk/projects/satelline",
+    "status": "ok",
+    "checked": "2026-10-28"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "uk",
@@ -12824,14 +13025,16 @@
    "refs": [
     {
      "label": "Electrive: Octopus and BYD V2G bundle",
-     "url": "https://www.electrive.com/2025/06/24/octopus-energy-and-byd-launch-uks-first-v2g-bundle"
+     "url": "https://www.electrive.com/2025/06/24/octopus-energy-and-byd-launch-uks-first-v2g-bundle",
+     "status": "ok",
+     "checked": "2026-10-28"
     }
    ],
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -12861,7 +13064,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "uk",
@@ -12923,7 +13126,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "us",
@@ -12986,7 +13189,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "uk",
@@ -13013,13 +13216,15 @@
    "company": "Rolls-Royce SMR",
    "basis": {
     "label": "Senedd Research: Rolls-Royce SMR at Wylfa",
-    "url": "https://research.senedd.wales/research-articles/new-nuclear-at-wylfa-what-happens-next/"
+    "url": "https://research.senedd.wales/research-articles/new-nuclear-at-wylfa-what-happens-next/",
+    "status": "ok",
+    "checked": "2026-10-28"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "uk",
@@ -13052,7 +13257,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "us",
@@ -13086,7 +13291,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "uk",
@@ -13115,7 +13320,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "uk",
@@ -13144,7 +13349,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "us",
@@ -13175,7 +13380,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "us",
@@ -14179,6 +14384,166 @@
     "medicine",
     "genetics"
    ]
+  },
+  {
+   "id": "bepirovirsen-first-antisense-drug-for-hepatitis-b",
+   "field": "life",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Bepirovirsen: first antisense drug for hepatitis B",
+   "research": {
+    "year": 2022,
+    "what": "Ionis's antisense oligonucleotide bepirovirsen, partnered with GSK, showed functional-cure responses in chronic hepatitis B in a Phase 2b study. Origin: Ionis antisense hepatitis B programme (bepirovirsen); earliest sourced milestone is Phase 2b data, Nov 2022. The preclinical origin is earlier but not sourced here."
+   },
+   "change": {
+    "year": 2026,
+    "what": "The FDA approved Hibsago (bepirovirsen) on 20 Oct 2026, the first antisense oligonucleotide for chronic hepatitis B, alongside an FDA-authorised HBsAg companion test."
+   },
+   "confidence": "low",
+   "note": "It is the first approved therapy built around a functional-cure endpoint for hepatitis B, with 19% functional cure in pooled Phase 3 trials. The research-origin year is understated, so the lag is uncertain.",
+   "refs": [
+    {
+     "label": "GSK press release: Hibsago approved in the US",
+     "url": "https://www.gsk.com/en-gb/media/press-releases/hibsago-bepirovirsen-approved-in-the-us-for-the-treatment-of-chronic-hepatitis-b-chb/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "BioSpace: GSK, Ionis win FDA nod for hepatitis B functional cure",
+     "url": "https://www.biospace.com/fda/gsk-ionis-win-fda-nod-for-hepatitis-b-functional-cure-that-controls-virus-after-treatment",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "Contagion Live: FDA approves first antisense therapy for chronic hepatitis B",
+     "url": "https://www.contagionlive.com/view/fda-approves-hibsago-first-antisense-therapy-chronic-hepatitis-b",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "Drugs.com: Hibsago FDA approval history",
+     "url": "https://www.drugs.com/history/hibsago.html",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ],
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28",
+    "approximate": false
+   }
+  },
+  {
+   "id": "plastic-free-moulded-pulp-fibre-bottles-pulpex",
+   "field": "materials",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Plastic-free moulded-pulp fibre bottles (Pulpex)",
+   "research": {
+    "year": 2020,
+    "what": "Diageo and Pilot Lite set up Pulpex to develop a patented single-mould bottle made from wood pulp with no plastic in it, cured in microwave ovens and lined on the inside with a barrier coating. Origin: Pulpex Limited unveiled its patented paper-based bottle technology with Diageo and Pilot Lite, July 2020 (piloted at Sawston, UK)"
+   },
+   "change": {
+    "year": 2026,
+    "what": "Pulpex opened its first commercial fibre-bottle plant near Glasgow on 8 October 2026, with capacity for up to 40 million bottles a year and launch customers including smol and Purely Scottish."
+   },
+   "confidence": "medium",
+   "note": "The technology has moved from pilot production to industrial manufacture of recyclable bottles that can replace PET and glass, with more than 90% of first-year capacity already committed.",
+   "company": "Pulpex",
+   "refs": [
+    {
+     "label": "Yahoo Finance / PR Newswire: Pulpex opens first commercial fibre bottle facility",
+     "url": "https://finance.yahoo.com/technology/articles/pulpex-opens-first-commercial-fibre-060000328.html",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "Packaging Insights: Pulpex opens first commercial fiber bottle plant",
+     "url": "https://www.packaginginsights.com/news/pulpex-commercial-fiber-bottle-plant.html",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "Packaging Europe: Pulpex first commercial facility",
+     "url": "https://www.packagingeurope.com/pulpex-opens-first-commercial-facility-for-paper-bottle-manufacturing/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "Diageo 2020 press release creating Pulpex",
+     "url": "https://www.diageo.com/en/news-and-media/press-releases/2020/diageo-announces-creation-of-worlds-first-ever-100-plastic-free-paper-based-spirits-bottle",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ],
+   "region": "uk",
+   "tags": [
+    "materials"
+   ],
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28",
+    "approximate": false
+   }
+  },
+  {
+   "id": "size-adjustable-pediatric-heart-valve-autus",
+   "field": "life",
+   "origin": "academic",
+   "status": "landed",
+   "title": "Size-adjustable pediatric heart valve (Autus)",
+   "research": {
+    "year": 2020,
+    "what": "Boston Children's Hospital researchers designed a pulmonary valve with polymer leaflets that can be widened by balloon catheter as a child grows, and showed it working in lab tests, simulations and growing lambs. Origin: Hofferberth, del Nido et al., Science Translational Medicine paper, Boston Children's Hospital (published Feb 2020; lab work started 2016)"
+   },
+   "change": {
+    "year": 2026,
+    "what": "On 1 October 2026 the FDA approved the Autus Size-Adjustable Valve (now owned by Edwards Lifesciences). It is the first heart valve that can be expanded after implant and the first approved valve with polymer leaflets."
+   },
+   "confidence": "high",
+   "note": "It could spare children with congenital heart disease several repeat open-heart valve replacements before they reach adulthood.",
+   "company": "Edwards Lifesciences",
+   "refs": [
+    {
+     "label": "FDA press release, 1 Oct 2026",
+     "url": "https://www.fda.gov/news-events/press-announcements/fda-approves-first-heart-valve-designed-grow-children",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "Medical Design & Outsourcing on Autus approval",
+     "url": "https://www.medicaldesignandoutsourcing.com/autus-heart-valve-pediatric-devices-regulatory-eskandian/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "Boston Children's Answers: FDA approves Autus Valve",
+     "url": "https://answers.childrenshospital.org/pulmonary-replacement-valve/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "Science Translational Medicine 2020 study coverage",
+     "url": "https://kidswithheart.org/news/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ],
+   "region": "us",
+   "tags": [
+    "medicine"
+   ],
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28",
+    "approximate": false
+   }
   }
  ],
  "founders": [
