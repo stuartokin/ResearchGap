@@ -29,6 +29,16 @@ def load_db():
 def save_db(db):
     DATA.write_text(json.dumps(db, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
 
+PENDING_F = ROOT / 'data' / 'pending_founders.json'
+def load_pending_founders():
+    return json.loads(PENDING_F.read_text(encoding='utf-8')) if PENDING_F.exists() else []
+def save_pending_founders(items):
+    PENDING_F.write_text(json.dumps(items, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
+def founder_runs():
+    """Founder research and audits run monthly with the deep audit, unless config asks for weekly."""
+    fc = CONFIG.get('founders', {})
+    return DEEP or fc.get('weekly', False)
+
 def load_pending():
     return json.loads(PENDING.read_text(encoding='utf-8')) if PENDING.exists() else []
 

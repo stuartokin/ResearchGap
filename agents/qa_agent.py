@@ -11,7 +11,7 @@ Rules enforced in code (the model only proposes):
   - Outlook records whose year has passed are confirmed as landed (with evidence) or re-estimated.
 """
 import sys, json, copy
-from common import (DEEP, load_db, save_db, load_pending, save_pending, call_claude, fetch_text, link_ok, quote_in, evidence_in, log_change, CONFIG, TODAY)
+from common import (load_pending_founders, save_pending_founders, founder_runs, slug, DEEP, load_db, save_db, load_pending, save_pending, call_claude, fetch_text, link_ok, quote_in, evidence_in, log_change, CONFIG, TODAY)
 
 CORR = {'type': 'object', 'required': ['path', 'value', 'evidence_url', 'evidence_quote'], 'properties': {
   'path': {'enum': ['research.year', 'change.year', 'research.what', 'change.what', 'note', 'company', 'status', 'add_ref', 'adoption.year']},
@@ -135,7 +135,48 @@ def run():
                 m['provenance']['qaNote'] = (rv.get('reason') or 'Disputed by the QA agent.')[:400]
                 disputed.append(m['id'])
 
-    # ---------- 3. publish ----------
+    # ---------- 3. fortunes: confirm new founders and audit net worths (monthly by default) ----------
+    if founder_runs():
+        fc = CONFIG.get('founders', {})
+        pend = load_pending_founders(); keepf = []
+        if pend:
+            out = call_claude(SYSTEM, f"Independently verify each founder fortune. Confirm only if the company, founders, founding year and fortune year are right.\n{json.dumps([{k: p[k] for k in ('company', 'names', 'founded', 'fortuneYear', 'how', 'sources') if k in p} for p in pend], ensure_ascii=False)}",
+                              {**PENDING_TOOL, 'input_schema': {'type': 'object', 'required': ['decisions'], 'properties': {'decisions': {'type': 'array', 'items': {'type': 'object', 'required': ['id', 'decision', 'reason'], 'properties': {'id': {'type': 'string', 'description': 'The company name'}, 'decision': {'enum': ['confirm', 'reject', 'unsure']}, 'reason': {'type': 'string'}}}}}}},
+                              max_searches=min(10, 3 * len(pend))) or {'decisions': []}
+            dec = {d['id'].lower(): d for d in out.get('decisions', [])}
+            used = {f['id'] for f in db['founders']}
+            for pf in pend:
+                d = dec.get(pf['company'].lower())
+                if d and d['decision'] == 'confirm':
+                    fid = 'f-' + slug(pf['company']); k = 2
+                    while fid in used: fid = f"f-{slug(pf['company'])}-{k}"; k += 1
+                    used.add(fid)
+                    rec = {'id': fid, **{k2: v for k2, v in pf.items() if k2 not in ('proposed', 'attempts', 'sources')}, 'provenance': {'verification': 'source-cited', 'addedBy': 'research-agent', 'added': TODAY, 'lastChecked': TODAY, 'sources': pf.get('sources', [])}}
+                    db['founders'].append(rec); added.append('founder ' + fid)
+                elif d and d['decision'] == 'reject': notes.append(f"rejected fortune {pf['company']}: {d.get('reason', '')[:100]}")
+                else:
+                    pf['attempts'] = pf.get('attempts', 0) + 1
+                    if pf['attempts'] < cfg['pendingMaxAttempts']: keepf.append(pf)
+            save_pending_founders(keepf)
+        # audit the founders checked longest ago
+        fb = sorted(db['founders'], key=lambda f: (f.get('provenance') or {}).get('lastChecked', '1900-01-01'))[:fc.get('auditBatchSize', 20)]
+        brief = [{'id': f['id'], 'names': f['names'], 'company': f['company'], 'founded': f['founded'], 'fortuneYear': f['fortuneYear'], 'netWorth': f.get('netWorth')} for f in fb]
+        out = call_claude(SYSTEM, f"Today is {TODAY}. For each founder record, check the founding year and fortune year, and find the latest published net worth (Forbes or Bloomberg Billionaires Index preferred) for the person named in netWorth.who. "
+                                  f"Propose corrections only with an exact quote from the page that contains the new figure or year. Use path netWorth.usdBn (value in US$ billions), founded or fortuneYear.\n{json.dumps(brief, ensure_ascii=False)}",
+                          REVIEW_F, max_searches=min(12, 2 * len(fb))) or {'reviews': []}
+        byid = {f['id']: f for f in fb}; fcount = 0
+        for rv in out.get('reviews', []):
+            f = byid.get(rv.get('id'))
+            if not f: continue
+            f.setdefault('provenance', {'verification': 'ai-compiled', 'addedBy': 'initial-build', 'added': db['meta'].get('asOf', TODAY)})['lastChecked'] = TODAY
+            for c in rv.get('corrections', []) or []:
+                if fcount >= fc.get('auditBatchSize', 20): break
+                msg = apply_founder_correction(f, c, cfg, fc, as_of)
+                if msg: corrected.append(msg); fcount += 1
+            if rv.get('verdict') == 'dispute':
+                f['provenance']['qaNote'] = (rv.get('reason') or 'Disputed by the QA agent.')[:300]; disputed.append(f['id'])
+
+    # ---------- 4. publish ----------
     db['meta']['asOf'] = TODAY
     db['meta']['revision'] += 1
     import datetime as _dt
@@ -145,6 +186,40 @@ def run():
     save_db(db)
     print(summary)
     for line in notes + broken[:20]: print(' ', line)
+
+REVIEW_F = {'name': 'submit_founder_review', 'description': 'Submit the review of each founder record.', 'input_schema': {'type': 'object', 'required': ['reviews'], 'properties': {'reviews': {'type': 'array', 'items': {
+  'type': 'object', 'required': ['id', 'verdict'], 'properties': {'id': {'type': 'string'}, 'verdict': {'enum': ['ok', 'correct', 'dispute']}, 'reason': {'type': 'string'},
+    'corrections': {'type': 'array', 'items': {'type': 'object', 'required': ['path', 'value', 'evidence_url', 'evidence_quote'], 'properties': {
+      'path': {'enum': ['netWorth.usdBn', 'founded', 'fortuneYear']}, 'value': {'type': 'number'}, 'evidence_url': {'type': 'string'}, 'label': {'type': 'string'},
+      'evidence_quote': {'type': 'string', 'description': 'A short passage copied exactly from the page that contains the new figure or year'}}}}}}}}}}
+
+def apply_founder_correction(f, c, cfg, fc, as_of):
+    url, quote, path = c.get('evidence_url', ''), c.get('evidence_quote', ''), c.get('path')
+    if not url.startswith('http'): return None
+    code, text = fetch_text(url)
+    if not (200 <= code < 400 and quote_in(text, quote)): return None
+    if path == 'netWorth.usdBn':
+        try: val = round(float(c['value']), 1)
+        except Exception: return None
+        if not (0 < val < 5000): return None
+        digits = __import__('re').sub(r'\D', '', str(int(val)))
+        if digits not in __import__('re').sub(r'[^0-9]', '', quote) or not __import__('re').search(r'billion|bn', quote, __import__('re').I): return None
+        old = (f.get('netWorth') or {}).get('usdBn')
+        if old is not None and abs(val - old) < .05: return None
+        if old and not (1 / fc.get('maxNetWorthChangeFactor', 3) <= val / old <= fc.get('maxNetWorthChangeFactor', 3)): return None
+        nw = f.get('netWorth') or {'who': f['names']}
+        nw.update({'usdBn': val, 'basis': (c.get('label') or url.split('/')[2])[:160], 'asOf': TODAY, 'source': {'label': (c.get('label') or url)[:200], 'url': url}})
+        f['netWorth'] = nw; f['provenance']['verification'] = 'source-cited'
+        return f"{f['id']}: net worth {old if old is not None else 'none'} → {val}"
+    if path in ('founded', 'fortuneYear'):
+        try: val = int(c['value'])
+        except Exception: return None
+        old = f[path]
+        if val == old or str(val) not in quote or abs(val - old) > cfg['maxYearShift'] or val > as_of: return None
+        if (path == 'founded' and val > f['fortuneYear']) or (path == 'fortuneYear' and val < f['founded']): return None
+        f[path] = val; f['provenance']['verification'] = 'source-cited'
+        return f"{f['id']}: {path} {old} → {val}"
+    return None
 
 def apply_correction(m, c, cfg, as_of):
     url, quote, path, val = c.get('evidence_url', ''), c.get('evidence_quote', ''), c.get('path'), c.get('value')

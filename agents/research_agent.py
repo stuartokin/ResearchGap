@@ -11,7 +11,8 @@ Hard checks (code, not the model):
   4. At most `maxProposalsPerField` per field and `maxAdditionsPerRun` overall.
 """
 import sys, json, re
-from common import (load_db, load_pending, save_pending, call_claude, fetch_text, evidence_in, is_duplicate, new_id, CONFIG, TODAY)
+from common import norm, TODAY
+from common import (load_pending_founders, save_pending_founders, founder_runs, slug, load_db, load_pending, save_pending, call_claude, fetch_text, evidence_in, is_duplicate, new_id, CONFIG, TODAY)
 
 SUBMIT = {
   'name': 'submit_candidates',
@@ -91,6 +92,7 @@ def run():
             report.append(f"pending  [{f['id']}] {c['title']}")
             if accepted >= pub['maxAdditionsPerRun']: break
     save_pending(pending)
+    if founder_runs(): report += research_founders(db)
     print('\n'.join(report) or 'No candidates this run.')
     print(f'{accepted} candidates queued for QA.')
 
@@ -120,6 +122,53 @@ def check(db, field, c, as_of, horizon, min_sources):
         if 200 <= code < 400 and evidence_in(text, c.get('evidence_terms', []), [p if c['status'] == 'landed' else None]): good += 1
     if good < min_sources: return f'only {good} source(s) confirmed the key facts'
     return None
+
+SUBMIT_F = {
+  'name': 'submit_fortunes', 'description': 'Submit founders who have recently made a fortune from a technology company.',
+  'input_schema': {'type': 'object', 'required': ['founders'], 'properties': {'founders': {'type': 'array', 'maxItems': 5, 'items': {
+    'type': 'object', 'required': ['names', 'company', 'field', 'founded', 'fortune_year', 'how', 'sources', 'evidence_terms'],
+    'properties': {
+      'names': {'type': 'string', 'description': 'Founder names, for example "Jane Smith and co-founders"'},
+      'company': {'type': 'string'}, 'field': {'type': 'string', 'description': 'Field id from the list given'},
+      'founded': {'type': 'integer'}, 'fortune_year': {'type': 'integer', 'description': 'Year of the listing, sale or valuation that made the founders very rich'},
+      'how': {'type': 'string', 'description': 'Listing, acquisition or private valuation, in a few words'},
+      'research': {'enum': ['university', 'lab', 'none'], 'description': 'Did the founding technology come from university or lab research?'},
+      'net_worth_usd_bn': {'type': 'number'}, 'net_worth_source': {'type': 'string', 'description': 'Publication and date for the net worth figure'},
+      'sources': {'type': 'array', 'minItems': 2, 'items': {'type': 'object', 'required': ['url', 'label'], 'properties': {'url': {'type': 'string'}, 'label': {'type': 'string'}}}},
+      'evidence_terms': {'type': 'array', 'minItems': 1, 'items': {'type': 'string'}}}}}}}
+}
+def research_founders(db):
+    fc = CONFIG.get('founders', {}); report = []
+    as_of = int(db['meta']['asOf'][:4]); fields = {f['id'] for f in db['fields']}
+    pend = load_pending_founders()
+    known = {norm(f['company']) for f in db['founders']} | {norm(p['company']) for p in pend}
+    system = 'You are a careful analyst tracking founders who become very rich from technology companies.'
+    prompt = (f"Today is {TODAY}. Search for technology founders who, in roughly the last 60 days, became very wealthy (a net worth of about $1bn or more) through a stock-market listing, acquisition or private valuation. "
+              f"Fields: {'; '.join(f['id'] + ': ' + f['name'] for f in db['fields'])}. Do not include these companies: {json.dumps(sorted({f['company'] for f in db['founders']}))}. "
+              "Each must be supported by two independent sources that name the company and the year. Return them via submit_fortunes, or an empty list.")
+    out = call_claude(system, prompt, SUBMIT_F, max_searches=fc.get('searches', 6)) or {'founders': []}
+    added = 0
+    for c in out.get('founders', []):
+        if added >= fc.get('maxNewPerRun', 3): break
+        why = None
+        if norm(c.get('company', '')) in known: why = 'already in the data'
+        elif c.get('field') not in fields: why = 'unknown field'
+        elif not (isinstance(c.get('founded'), int) and isinstance(c.get('fortune_year'), int)) or c['fortune_year'] < c['founded'] or c['fortune_year'] > as_of: why = 'invalid years'
+        else:
+            srcs = [x for x in c.get('sources', []) if x.get('url', '').startswith('http')]
+            if len({x['url'].split('/')[2] for x in srcs}) < 2: why = 'fewer than two independent sources'
+            else:
+                good = sum(1 for x in srcs if (lambda r: 200 <= r[0] < 400 and evidence_in(r[1], [c['company']] + c.get('evidence_terms', []), [c['fortune_year']]))(fetch_text(x['url'])))
+                if good < 2: why = f'only {good} source(s) confirmed the company and year'
+        if why: report.append(f"rejected fortune {c.get('company')}: {why}"); continue
+        rec = {'names': c['names'][:120], 'company': c['company'][:80], 'field': c['field'], 'founded': c['founded'], 'fortuneYear': c['fortune_year'], 'how': c['how'][:80], 'confidence': 'medium',
+               'sources': [{'label': x['label'][:200], 'url': x['url']} for x in c['sources'][:3]], 'proposed': TODAY, 'attempts': 0}
+        if c.get('research') in ('university', 'lab'): rec['research'] = c['research']
+        if isinstance(c.get('net_worth_usd_bn'), (int, float)) and 0 < c['net_worth_usd_bn'] < 5000:
+            rec['netWorth'] = {'usdBn': round(float(c['net_worth_usd_bn']), 1), 'who': c['names'][:120], 'basis': (c.get('net_worth_source') or 'Reported estimate')[:160], 'asOf': TODAY}
+        pend.append(rec); known.add(norm(c['company'])); added += 1; report.append(f"pending fortune {c['company']}")
+    save_pending_founders(pend)
+    return report
 
 if __name__ == '__main__':
     sys.exit(run())
