@@ -43,7 +43,7 @@
   ],
   "founders": {
     "_note": "Fortune research and net worth audits run monthly with the deep audit (first Monday). Set weekly to true to run them every week.",
-    "weekly": false,
+    "weekly": true,
     "auditBatchSize": 20,
     "maxNewPerRun": 3,
     "maxNetWorthChangeFactor": 3,
