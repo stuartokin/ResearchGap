@@ -2,7 +2,7 @@
  "$schema": "./schema.json",
  "meta": {
   "title": "The Shrinking Gap from Research to Change",
-  "revision": 7,
+  "revision": 8,
   "version": "8.0",
   "asOf": "2026-10-28",
   "horizonYears": 10,
@@ -10,7 +10,7 @@
   "author": "Stuart Okin",
   "maintainedBy": "AI agents using Claude (Anthropic), without human review",
   "disclaimer": "Personal project by Stuart Okin, not affiliated with or endorsed by any employer. Data is compiled and maintained by AI agents without human review and may contain errors. Outlook years are AI estimates, not forecasts.",
-  "lastAgentRun": "2026-10-28T13:53Z",
+  "lastAgentRun": "2026-10-28T14:43Z",
   "changelog": [
    {
     "date": "2026-10-28",
@@ -118,6 +118,68 @@
     "date": "2026-10-28",
     "summary": "Manual update: sub-fields added for every field and milestone.",
     "revision": 7
+   },
+   {
+    "date": "2026-10-28",
+    "time": "14:43",
+    "revision": 8,
+    "summary": "4 added, 33 corrected, 0 outlook re-estimated, 0 disputed, 0 broken links.",
+    "stats": {
+     "milestones": 459,
+     "sourceCited": 75,
+     "aiCompiled": 306,
+     "aiEstimate": 78,
+     "adoptionKnown": 68,
+     "landed": 361,
+     "regionKnown": 459
+    },
+    "usage": {
+     "calls": 14,
+     "inputTokens": 2246186,
+     "outputTokens": 79234,
+     "searches": 119,
+     "model": "claude-opus-5-5"
+    },
+    "deepAudit": true,
+    "details": [
+     "added: google-open-source-coral-npu-in-commercial-edge-chips",
+     "added: spatial-dataflow-processor-in-volume-electron-e1",
+     "added: merkle-tree-certificates-for-post-quantum-https",
+     "added: orca-t-tregzi-regulatory-t-cell-transplant-therapy",
+     "spinning-lidar: sub-field industrial → vehicles",
+     "spinning-lidar: tags added",
+     "dna-sequencing: source added",
+     "dna-sequencing: source added",
+     "statins: source added",
+     "statins: tags added",
+     "next-generation-sequencing: source added",
+     "next-generation-sequencing: company updated",
+     "sap-enterprise-software: source added",
+     "sap-enterprise-software: source added",
+     "electronic-spreadsheet: source added",
+     "electronic-spreadsheet: sub-field data → apps",
+     "postscript-and-desktop-publishing: source added",
+     "postscript-and-desktop-publishing: sub-field dev → apps",
+     "microsoft-windows: source added",
+     "software-as-a-service: source added",
+     "social-networking: source added",
+     "social-networking: tags added",
+     "microblogging: source added",
+     "microblogging: tags added",
+     "music-streaming: source added",
+     "mobile-photo-sharing: sub-field web → apps",
+     "workplace-messaging: source added",
+     "ibm-pc: tags added",
+     "graphics-processing-unit: sub-field compute → chips",
+     "iphone: tags added",
+     "claude-assistant: sub-field agents → language",
+     "open-weight-european-models: sub-field methods → language",
+     "next-generation-firewall: tags added",
+     "hardware-security-keys: tags added",
+     "cloud-delivered-security: tags added",
+     "superconducting-quantum-cloud: tags added",
+     "stored-program-computer: sub-field chips → compute"
+    ]
    }
   ],
   "adoptionDefinition": "Mainstream adoption: the year the technology reached widespread, routine use, roughly 10% or more of its potential market or standard practice in its sector."
@@ -1105,7 +1167,7 @@
     "basis": "ai-estimate"
    },
    "region": "uk",
-   "subfield": "chips"
+   "subfield": "compute"
   },
   {
    "id": "transistor",
@@ -6572,11 +6634,15 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
-   "subfield": "industrial"
+   "subfield": "vehicles",
+   "tags": [
+    "robots",
+    "computer-vision"
+   ]
   },
   {
    "id": "dna-sequencing",
@@ -6598,10 +6664,10 @@
     "major": true
    },
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "adoption": {
@@ -6613,7 +6679,21 @@
    "tags": [
     "genetics"
    ],
-   "subfield": "genetics"
+   "subfield": "genetics",
+   "refs": [
+    {
+     "label": "Wikipedia: Sanger sequencing",
+     "url": "https://en.wikipedia.org/wiki/Sanger_sequencing",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "History of genome sequencing",
+     "url": "https://the-odin.com/blogs/blog/from-3-billion-to-599-the-complete-history-of-genome-sequencing",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "statins",
@@ -6632,14 +6712,25 @@
    "confidence": "high",
    "note": "Typical of medicines: about 14 years.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "asia",
-   "subfield": "medicines"
+   "subfield": "medicines",
+   "refs": [
+    {
+     "label": "Lasker Foundation: Getting to the Heart of Cardiovascular Disease",
+     "url": "https://laskerfoundation.org/getting-to-the-heart-of-cardiovascular-disease/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ],
+   "tags": [
+    "medicine"
+   ]
   },
   {
    "id": "next-generation-sequencing",
@@ -6658,17 +6749,26 @@
    "confidence": "high",
    "note": "A UK invention that cut genome costs a million-fold.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
    "tags": [
     "genetics"
    ],
-   "subfield": "genetics"
+   "subfield": "genetics",
+   "refs": [
+    {
+     "label": "Cambridge Enterprise: Solexa case study",
+     "url": "https://www.enterprise.cam.ac.uk/case-studies/solexa-second-generation-genetic-sequencing/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ],
+   "company": "Solexa (acquired by Illumina)"
   },
   {
    "id": "sap-enterprise-software",
@@ -6688,14 +6788,28 @@
    "note": "Industry-led: built from customer projects rather than lab research.",
    "company": "SAP",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
-   "subfield": "apps"
+   "subfield": "apps",
+   "refs": [
+    {
+     "label": "Wikipedia: SAP",
+     "url": "https://en.wikipedia.org/wiki/SAP",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "SAP's History",
+     "url": "https://www.sap-ps.net/sap-history",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "electronic-spreadsheet",
@@ -6715,14 +6829,22 @@
    "note": "The first “killer app” that sold personal computers.",
    "company": "VisiCalc",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
-   "subfield": "data"
+   "subfield": "apps",
+   "refs": [
+    {
+     "label": "Computer Timeline: Dan Bricklin",
+     "url": "http://www.computer-timeline.com/timeline/dan-bricklin/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "postscript-and-desktop-publishing",
@@ -6742,14 +6864,22 @@
    "note": "Another PARC idea commercialised by people who left PARC.",
    "company": "Adobe",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
-   "subfield": "dev"
+   "subfield": "apps",
+   "refs": [
+    {
+     "label": "Computer History Museum: Charles M. Geschke",
+     "url": "https://computerhistory.org/profile/charles-m-geschke/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "microsoft-windows",
@@ -6769,14 +6899,22 @@
    "note": "Popularised graphical computing on IBM-compatible PCs.",
    "company": "Microsoft",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
-   "subfield": "apps"
+   "subfield": "apps",
+   "refs": [
+    {
+     "label": "SoftwareKeep: Windows OS history",
+     "url": "https://softwarekeep.com/blogs/news/history-of-windows-operating-system",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "software-as-a-service",
@@ -6796,17 +6934,25 @@
    "note": "Turned software from a licence into a subscription.",
    "company": "Salesforce",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
    "tags": [
     "networks"
    ],
-   "subfield": "cloud"
+   "subfield": "cloud",
+   "refs": [
+    {
+     "label": "Reference for Business: History of salesforce.com",
+     "url": "https://www.referenceforbusiness.com/history2/84/salesforce-com-Inc.html",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "social-networking",
@@ -6829,10 +6975,10 @@
     "major": true
    },
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "adoption": {
@@ -6841,7 +6987,18 @@
     "basis": "ai-estimate"
    },
    "region": "us",
-   "subfield": "web"
+   "subfield": "web",
+   "refs": [
+    {
+     "label": "First Versions: Facebook",
+     "url": "https://www.firstversions.com/2015/04/facebook.html",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ],
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "online-video-sharing",
@@ -6864,7 +7021,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -6888,14 +7045,25 @@
    "note": "From internal hack to public product in months.",
    "company": "Twitter",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
-   "subfield": "web"
+   "subfield": "web",
+   "refs": [
+    {
+     "label": "History.com: Twitter launches",
+     "url": "https://www.history.com/this-day-in-history/july-15/twitter-launches",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ],
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "music-streaming",
@@ -6915,14 +7083,22 @@
    "note": "Licensing, not technology, set the pace.",
    "company": "Spotify",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "europe",
-   "subfield": "apps"
+   "subfield": "apps",
+   "refs": [
+    {
+     "label": "99founder: Spotify profile",
+     "url": "https://99founder.com/articles/spotify.html",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "mobile-photo-sharing",
@@ -6945,14 +7121,14 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
    "tags": [
     "networks"
    ],
-   "subfield": "web"
+   "subfield": "apps"
   },
   {
    "id": "workplace-messaging",
@@ -6972,14 +7148,22 @@
    "note": "A side project that outgrew the main product.",
    "company": "Slack",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
-   "subfield": "web"
+   "subfield": "web",
+   "refs": [
+    {
+     "label": "Wikipedia: Stewart Butterfield",
+     "url": "https://en.wikipedia.org/wiki/Stewart_Butterfield",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ]
   },
   {
    "id": "ibm-system-360",
@@ -7002,7 +7186,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -7029,7 +7213,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -7059,7 +7243,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -7089,7 +7273,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "adoption": {
@@ -7098,7 +7282,10 @@
     "basis": "ai-estimate"
    },
    "region": "us",
-   "subfield": "devices"
+   "subfield": "devices",
+   "tags": [
+    "semiconductors"
+   ]
   },
   {
    "id": "pure-play-chip-foundry",
@@ -7121,7 +7308,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "asia",
@@ -7151,7 +7338,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -7159,7 +7346,7 @@
     "semiconductors",
     "ai-models"
    ],
-   "subfield": "compute"
+   "subfield": "chips"
   },
   {
    "id": "iphone",
@@ -7185,7 +7372,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "adoption": {
@@ -7194,7 +7381,10 @@
     "basis": "ai-estimate"
    },
    "region": "us",
-   "subfield": "devices"
+   "subfield": "devices",
+   "tags": [
+    "semiconductors"
+   ]
   },
   {
    "id": "raspberry-pi",
@@ -7217,7 +7407,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -7247,7 +7437,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "adoption": {
@@ -7283,7 +7473,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -7314,7 +7504,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -7345,7 +7535,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -7379,7 +7569,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "adoption": {
@@ -7414,14 +7604,14 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
    "tags": [
     "ai-models"
    ],
-   "subfield": "agents"
+   "subfield": "language"
   },
   {
    "id": "open-weight-european-models",
@@ -7444,14 +7634,14 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "europe",
    "tags": [
     "ai-models"
    ],
-   "subfield": "methods"
+   "subfield": "language"
   },
   {
    "id": "ai-voice-generation",
@@ -7474,7 +7664,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "europe",
@@ -7504,7 +7694,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -7534,7 +7724,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "other",
@@ -7561,7 +7751,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -7591,7 +7781,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -7618,11 +7808,14 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
-   "subfield": "network"
+   "subfield": "network",
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "hardware-security-keys",
@@ -7645,11 +7838,14 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "europe",
-   "subfield": "identity"
+   "subfield": "identity",
+   "tags": [
+    "cryptography"
+   ]
   },
   {
    "id": "cloud-delivered-security",
@@ -7672,11 +7868,14 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
-   "subfield": "network"
+   "subfield": "network",
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "cloud-identity",
@@ -7699,7 +7898,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -7726,7 +7925,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -7753,7 +7952,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -7784,7 +7983,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -7811,7 +8010,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "other",
@@ -7838,7 +8037,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "europe",
@@ -7871,7 +8070,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "adoption": {
@@ -7906,7 +8105,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -7937,7 +8136,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
@@ -7969,7 +8168,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -7999,11 +8198,14 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "us",
-   "subfield": "computing"
+   "subfield": "computing",
+   "tags": [
+    "semiconductors"
+   ]
   },
   {
    "id": "trapped-ion-commercial-systems",
@@ -8026,7 +8228,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -14116,7 +14318,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "global",
@@ -14148,7 +14350,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "us",
@@ -14181,7 +14383,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "us",
@@ -14214,7 +14416,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "global",
@@ -14246,7 +14448,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "global",
@@ -14278,7 +14480,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "global",
@@ -14308,7 +14510,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "global",
@@ -14346,7 +14548,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -14380,7 +14582,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "global",
@@ -14410,7 +14612,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "uk",
@@ -14439,7 +14641,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "global",
@@ -14469,7 +14671,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "europe",
@@ -14503,7 +14705,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "us",
@@ -14535,7 +14737,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "us",
@@ -14570,7 +14772,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "uk",
@@ -14600,7 +14802,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "uk",
@@ -14633,7 +14835,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "us",
@@ -14666,7 +14868,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "us",
@@ -14699,14 +14901,16 @@
    "refs": [
     {
      "label": "University of Strathclyde: PNDC",
-     "url": "https://www.strath.ac.uk/research/powernetworksdemonstrationcentre/"
+     "url": "https://www.strath.ac.uk/research/powernetworksdemonstrationcentre/",
+     "status": "ok",
+     "checked": "2026-10-28"
     }
    ],
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": false
    },
    "region": "uk",
@@ -14734,13 +14938,15 @@
    },
    "basis": {
     "label": "University of Glasgow: new quantum hubs (2024)",
-    "url": "https://www.gla.ac.uk/news/headline_1094846_en.html"
+    "url": "https://www.gla.ac.uk/news/headline_1094846_en.html",
+    "status": "ok",
+    "checked": "2026-10-28"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "uk",
@@ -14771,13 +14977,15 @@
    },
    "basis": {
     "label": "University of Glasgow: new quantum hubs (2024)",
-    "url": "https://www.gla.ac.uk/news/headline_1094846_en.html"
+    "url": "https://www.gla.ac.uk/news/headline_1094846_en.html",
+    "status": "ok",
+    "checked": "2026-10-28"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-28",
     "approximate": true
    },
    "region": "uk",
@@ -15286,6 +15494,223 @@
     "approximate": false
    },
    "subfield": "devices"
+  },
+  {
+   "id": "google-open-source-coral-npu-in-commercial-edge-chips",
+   "field": "hw",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Google open-source Coral NPU in commercial edge chips",
+   "research": {
+    "year": 2025,
+    "what": "Google Research released Coral NPU, an open-source, royalty-free neural processing unit design for ultra-low-power edge AI devices. Origin: Google Research Coral NPU open-source IP announcement, 15 October 2025"
+   },
+   "change": {
+    "year": 2026,
+    "what": "Synaptics launched the Astra SR200 family of AI microcontrollers built around the Coral NPU and put a Coralboard development board on sale through DigiKey."
+   },
+   "confidence": "medium",
+   "note": "This is the first commercial chip family from an established vendor built on an open-source NPU design, which suggests edge AI silicon may be moving towards shared accelerator IP; however, the SR200 parts are still at the sampling stage.",
+   "refs": [
+    {
+     "label": "TechRepublic: Synaptics Astra SR200 AI chips",
+     "url": "https://www.techrepublic.com/article/news-synaptics-astra-sr200-google-coral-npu/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "XenoSpectrum: Synaptics Astra SR200 built on Google's Coral NPU",
+     "url": "https://xenospectrum.com/en/synaptics-sr200-coral-edge-ai/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "TokenPost: Synaptics adds Google's Coral NPU to three edge processors",
+     "url": "https://www.tokenpost.com/news/technology/35935",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "Synaptics press release, 20 Oct 2026",
+     "url": "https://www.globenewswire.com/news-release/2026/10/20/3384402/35894/en/synaptics-launches-the-xmcu-era-with-the-astra-sr200-series-of-multimodal-edge-ai-processors.html",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ],
+   "subfield": "chips",
+   "region": "us",
+   "tags": [
+    "semiconductors",
+    "ai-models"
+   ],
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28",
+    "approximate": false
+   }
+  },
+  {
+   "id": "spatial-dataflow-processor-in-volume-electron-e1",
+   "field": "hw",
+   "origin": "academic",
+   "status": "landed",
+   "title": "Spatial dataflow processor in volume (Electron E1)",
+   "research": {
+    "year": 2016,
+    "what": "Carnegie Mellon researchers Brandon Lucia, Nathan Beckmann and Graham Gobieski began research into energy-minimal computing, which led to a programmable spatial dataflow architecture called Fabric. Origin: Carnegie Mellon University energy-minimal computing research led by Lucia and Beckmann. Sources say it began almost 10 years ago, so the year is approximate."
+   },
+   "change": {
+    "year": 2026,
+    "what": "Efficient Computer said its Electron E1 general-purpose dataflow processor had entered volume production and was shipping to customers in physical AI, space and defence, and wearables."
+   },
+   "confidence": "medium",
+   "note": "Dataflow architectures have been studied in academia for decades with little commercial uptake, so a general-purpose dataflow chip in volume production would be a notable first, though the shipping and efficiency figures are the company's own claims.",
+   "refs": [
+    {
+     "label": "Converge Digest: Efficient Computer Series B",
+     "url": "https://convergedigest.com/efficient-computer-97m-series-b-data-center-fabric/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "Tech Funding News: Efficient Computer",
+     "url": "https://techfundingnews.com/efficient-computer-raises-97m-at-650m-valuation-to-cut-ais-power-bill-from-robots-to-data-centres/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "Unite.AI: Efficient Computer Series B",
+     "url": "https://www.unite.ai/efficient-computer-raises-97m-plus-series-b-at-650m-valuation-to-scale-processors/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ],
+   "subfield": "chips",
+   "region": "us",
+   "tags": [
+    "semiconductors"
+   ],
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28",
+    "approximate": false
+   }
+  },
+  {
+   "id": "merkle-tree-certificates-for-post-quantum-https",
+   "field": "cyber",
+   "origin": "industry",
+   "status": "outlook",
+   "title": "Merkle Tree Certificates for post-quantum HTTPS",
+   "research": {
+    "year": 2023,
+    "what": "Google and Cloudflare engineers proposed Merkle Tree Certificates, which build Certificate Transparency logging into certificate issuance so that HTTPS authentication can use large post-quantum signatures with little extra overhead. Origin: IETF Internet-Draft draft-davidben-tls-merkle-tree-certs (Benjamin, O'Brien, Westerbaan, Valenta, Valsorda), first published 2023; now the IETF PLANTS working-group draft, revision -07 dated 7 October 2026"
+   },
+   "change": {
+    "year": 2027,
+    "what": "Google plans to launch a Chrome Quantum-resistant Root Store that accepts only Merkle Tree Certificates in Q3 2027, after bootstrapping public MTCs with Certificate Transparency log operators in Q1 2027; test-root-store instructions were updated in October 2026."
+   },
+   "confidence": "medium",
+   "note": "Chrome has said it will not put post-quantum X.509 certificates in its public root store, so MTCs are likely to become the main way the web PKI gets quantum-resistant authentication.",
+   "refs": [
+    {
+     "label": "Mallory: Chrome introduces Merkle Tree Certificates (Q3 2027 root store plan)",
+     "url": "https://mallory.ai/stories/019ca230-feea-791f-b21c-44b3a8082a7e",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "Chrome Quantum-resistant Root Program testing instructions (updated 16 Oct 2026)",
+     "url": "https://googlechrome.github.io/chromerootprogram/cqrp/testing/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "IETF draft-ietf-plants-merkle-tree-certs-07",
+     "url": "https://datatracker.ietf.org/doc/draft-ietf-plants-merkle-tree-certs/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "Post-quantum certificates for public TLS: status as of 20 Oct 2026",
+     "url": "https://hidekazu-konishi.com/entry/post_quantum_certificates_for_public_tls.html",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ],
+   "subfield": "crypto",
+   "region": "us",
+   "tags": [
+    "cryptography",
+    "networks"
+   ],
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28",
+    "approximate": false
+   },
+   "basis": {
+    "label": "Mallory: Chrome introduces Merkle Tree Certificates (Q3 2027 root store plan)",
+    "url": "https://mallory.ai/stories/019ca230-feea-791f-b21c-44b3a8082a7e",
+    "status": "ok",
+    "checked": "2026-10-28"
+   }
+  },
+  {
+   "id": "orca-t-tregzi-regulatory-t-cell-transplant-therapy",
+   "field": "life",
+   "origin": "academic",
+   "status": "landed",
+   "title": "Orca-T (Tregzi) regulatory T-cell transplant therapy",
+   "research": {
+    "year": 2003,
+    "what": "Stanford researchers led by Robert Negrin showed that regulatory T cells could be built into a donor stem cell graft to protect healthy tissue from graft-versus-host disease. Origin: Treg/GVHD research in Robert Negrin's lab at Stanford, first published more than 20 years ago (early 2000s, about 2003)"
+   },
+   "change": {
+    "year": 2026,
+    "what": "The FDA approved Orca Bio's Tregzi (Orca-T) in mid-2026 as the first regulatory T-cell therapy, and Stanford gave the world's first commercial infusion outside a clinical trial in October 2026."
+   },
+   "confidence": "medium",
+   "note": "It is the first approved cell therapy based on regulatory T cells, giving a precision-engineered option for blood cancer stem cell transplants.",
+   "company": "Orca Bio",
+   "refs": [
+    {
+     "label": "Stanford Medicine: Stanford-developed therapy treats first patient after FDA approval (Oct 2026)",
+     "url": "https://med.stanford.edu/cancer/about/news/stanford-developed-therapy-treats-first-patient-after-fda-approv1.html",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "MedCity News: Orca Bio cell therapy gets landmark FDA nod",
+     "url": "https://medcitynews.com/2026/07/orca-bio-treg-cell-therapy-tregzi-blood-cancer-leukemia-graft-versus-host-disease-gvhd/",
+     "status": "ok",
+     "checked": "2026-10-28"
+    },
+    {
+     "label": "Fierce Pharma: Orca Bio takes commercial leap with FDA approval for Tregzi",
+     "url": "https://www.fiercepharma.com/pharma/fda-approves-orca-bio-cell-therapy-tregzi-blood-cancer-transplants",
+     "status": "ok",
+     "checked": "2026-10-28"
+    }
+   ],
+   "subfield": "medicines",
+   "region": "us",
+   "tags": [
+    "medicine"
+   ],
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-28",
+    "lastChecked": "2026-10-28",
+    "approximate": false
+   }
   }
  ],
  "founders": [
