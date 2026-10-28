@@ -289,6 +289,23 @@ label.dim{opacity:.45}
 .prange{display:flex;gap:.6em;align-items:flex-end;flex-wrap:wrap;margin:.3em 0 .5em}
 .prange .af{flex:1;min-width:6em}
 .chip.tag{color:var(--muted)}
+.ptools{display:flex;justify-content:space-between;gap:8px;margin:.5em 0}.ptiny{width:auto!important;padding:5px 10px!important;margin:0!important;font-size:.85em}
+.psec{border:1px solid var(--line);border-radius:10px;margin:.45em 0;background:rgba(255,255,255,.02)}
+.psec>summary{cursor:pointer;padding:.55em .7em;font-weight:600;list-style:none;display:flex;align-items:center;gap:.5em}
+.psec>summary::-webkit-details-marker{display:none}
+.psec>summary::before{content:'▸';color:var(--muted);width:1em}.psec[open]>summary::before{content:'▾'}
+.psec>*:not(summary){margin-left:.7em;margin-right:.7em}.psec[open]{padding-bottom:.5em}
+.psec h4{font-size:.78em;letter-spacing:.05em;text-transform:uppercase;color:var(--faint);margin:.7em .7em .3em;font-weight:500}
+.pfoot{margin-top:.6em}
+[data-help]{cursor:help}[data-help] input,[data-help] select,[data-help] button{cursor:pointer}
+.faqtools{display:flex;gap:8px;align-items:center;margin:.4em 0 .6em}
+.faqg{border:1px solid var(--line);border-radius:10px;margin:.4em 0;padding:0 .8em}
+.faqg>summary{cursor:pointer;padding:.55em 0;font-weight:600}.faqg>summary span{font-weight:400;color:var(--faint);font-size:.85em;margin-left:.3em}
+.faqi{padding:.35em 0 .5em;border-top:1px solid var(--line)}.faqi b{display:block}.faqi p{margin:.2em 0 0;color:var(--muted)}
+.cfgbtn.inhead{position:static!important;opacity:1!important;margin:0 4px 0 auto;padding:2px 9px;font-size:12px}
+.kn{cursor:pointer;text-decoration:underline;text-decoration-color:rgba(255,255,255,.3);text-underline-offset:3px}.kn:hover{text-decoration-color:currentColor}
+.ks.kb{opacity:.8}
+.lbl.chg-new,.lbl.chg-upd{pointer-events:auto;cursor:pointer}
 .subbox{margin:.3em 0 .6em;padding:.5em .6em;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.03)}
 .subbox .chips{margin-top:.4em}
 #spot.concl{border-color:#FFD166;background:rgba(26,20,6,.88);box-shadow:0 0 60px rgba(255,209,102,.4);max-width:min(1100px,90vw)}
@@ -479,7 +496,7 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions{opacity:0;point
     <button class="btn wide" id="rotBtn" aria-pressed="true">Auto-rotate</button>
     <button class="btn wide" id="resetBtn" title="Return everything to the original defaults">Reset all</button>
     <button class="btn wide" id="fsBtn">Full screen</button>
-    <button class="btn" id="aboutBtn">About</button>
+    <button class="btn" id="aboutBtn">Help</button>
   </div></div>
 </section>
 
@@ -501,11 +518,12 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions{opacity:0;point
   </div>
 </section>
 <!-- JOKE TICKER -->
-<section class="win chromeless tickwin keep" id="w-ticker" data-title="Joke ticker">
+<section class="win chromeless tickwin keep" id="w-ticker" data-title="Ticker">
   <div class="wbody kbody">
     <div class="ktrack" id="ktrack"></div>
     <button class="cfgbtn" id="tickCfgBtn">Settings</button>
     <div class="cfg kcfg" id="tickCfg">
+      <label>Show <select id="tkMode"><option value="jokes">Jokes only</option><option value="both">News and jokes</option><option value="news">News only</option></select></label>
       <label>Speed <input type="range" id="tkSpeed" min="10" max="300" step="5"> <b id="tkSpeedV"></b></label>
       <button class="mini" id="tkPause">Pause</button>
       <label>Text <input type="color" id="tkText"></label>
@@ -648,113 +666,103 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions{opacity:0;point
 <section class="win" id="w-filters" data-title="Filters">
   <div class="wbody">
     <input class="search" id="q" type="search" placeholder="Search milestones" aria-label="Search milestones">
-    <h3>Fields</h3>
-    <div class="minis">
-      <button class="mini" data-preset="all">All</button>
-      <button class="mini" data-preset="none">None</button>
-      <button class="mini" data-preset="core">Energy, cyber and computing</button>
-    </div>
-    <div class="flist" id="fieldList"></div>
-    <label class="toggle">Hide tracks for unselected fields and sources <input type="checkbox" id="compactT" checked></label>
-    <div class="subbox"><label class="toggle">Show sub-field tracks when one field is selected <input type="checkbox" id="subLanesT" checked></label>
-    <p class="note-s" id="subHint">Select a single field (use “Only”) to see and filter its sub-fields.</p><div class="chips" id="subChips"></div></div>
-    <h3>Where the research began</h3>
-    <div class="chips" id="srcChips"></div>
-    <h3>Country or region of the research</h3>
-    <div class="chips" id="regionChips"></div>
-    <label class="toggle">Major milestones only <input type="checkbox" id="majT"></label>
-    <label class="toggle">University projects only <input type="checkbox" id="uniOnlyT"></label>
-    <h3>Type of milestone</h3>
-    <div class="chips" id="catChips"></div>
-    <h3>Status</h3>
-    <div class="chips" id="kindChips"></div>
-    <h3>Confidence</h3>
-    <div class="chips" id="confChips"></div>
-    <h3>Verification</h3>
-    <div class="chips" id="verChips"></div>
-    <h3>Topics</h3>
-    <p class="note-s">Pick topics to show only those; with none picked, everything shows.</p>
-    <div class="chips" id="tagChips"></div>
-    <h3>Research began</h3>
-    <div class="slider"><label>From <b id="fromV">1925</b></label><input type="range" id="fromR" min="1925" max="2036" value="1925"></div>
-    <div class="slider"><label>To <b id="toV">2036</b></label><input type="range" id="toR" min="1925" max="2036" value="2036"></div>
-    <div class="slider"><label>Longest gap shown <b id="gapV">Any</b></label><input type="range" id="gapR" min="1" max="60" value="60"></div>
-    <h3>DESNZ AI energy vision</h3>
-    <label class="toggle">Only arcs linked to the vision <input type="checkbox" id="visT"></label>
-    <p class="note-s">Diamonds mark arcs that have helped, or could help, deliver the September 2026 vision. The vision window breaks them down by area.</p>
-    <h3>Display of filtered arcs</h3>
-    <label class="toggle">Show filtered-out arcs faintly <input type="checkbox" id="ghostT" checked></label>
-    <button class="wide-btn" id="resetFilters">Reset all filters</button>
+    <div class="ptools"><button class="mini" data-pexp="filters">Expand all</button><button class="wide-btn ptiny" id="resetFilters">Reset all filters</button></div>
+    <details class="psec" data-sec="fields"><summary>Fields and sub-fields</summary>
+      <div class="minis"><button class="mini" data-preset="all">All</button><button class="mini" data-preset="none">None</button><button class="mini" data-preset="core">Energy, cyber and computing</button></div>
+      <div class="flist" id="fieldList"></div>
+      <label class="toggle">Hide tracks for unselected fields and sources <input type="checkbox" id="compactT" checked></label>
+      <div class="subbox"><label class="toggle">Show sub-field tracks when one field is selected <input type="checkbox" id="subLanesT" checked></label>
+      <p class="note-s" id="subHint">Select a single field (use “Only”) to see and filter its sub-fields.</p><div class="chips" id="subChips"></div></div>
+    </details>
+    <details class="psec" data-sec="origin"><summary>Where the research began</summary>
+      <h4>Type of organisation</h4><div class="chips" id="srcChips"></div>
+      <h4>Country or region</h4><div class="chips" id="regionChips"></div>
+      <label class="toggle">University projects only <input type="checkbox" id="uniOnlyT"></label>
+    </details>
+    <details class="psec" data-sec="type"><summary>Type and status</summary>
+      <h4>Type of milestone</h4><div class="chips" id="catChips"></div>
+      <h4>Status</h4><div class="chips" id="kindChips"></div>
+      <label class="toggle">Major milestones only <input type="checkbox" id="majT"></label>
+    </details>
+    <details class="psec" data-sec="trust"><summary>Confidence and verification</summary>
+      <h4>Confidence in the dates</h4><div class="chips" id="confChips"></div>
+      <h4>How it was checked</h4><div class="chips" id="verChips"></div>
+    </details>
+    <details class="psec" data-sec="topics"><summary>Topics</summary>
+      <p class="note-s">Pick topics to show only those; with none picked, everything shows.</p>
+      <div class="chips" id="tagChips"></div>
+    </details>
+    <details class="psec" data-sec="years"><summary>Years and gaps</summary>
+      <div class="slider"><label>Research began from <b id="fromV">1925</b></label><input type="range" id="fromR" min="1925" max="2036" value="1925"></div>
+      <div class="slider"><label>Research began to <b id="toV">2036</b></label><input type="range" id="toR" min="1925" max="2036" value="2036"></div>
+      <div class="slider"><label>Longest gap shown <b id="gapV">Any</b></label><input type="range" id="gapR" min="1" max="60" value="60"></div>
+    </details>
+    <details class="psec" data-sec="desnz"><summary>DESNZ AI energy vision</summary>
+      <label class="toggle">Only arcs linked to the vision <input type="checkbox" id="visT"></label>
+      <p class="note-s">Diamonds mark arcs that have helped, or could help, deliver the September 2026 vision. The vision window breaks them down by area.</p>
+    </details>
+    <label class="toggle pfoot">Show filtered-out arcs faintly <input type="checkbox" id="ghostT" checked></label>
   </div>
 </section>
 
 <!-- DISPLAY -->
 <section class="win" id="w-display" data-title="Display">
   <div class="wbody">
-    <h3>Labels in the model</h3>
-    <div class="seg" id="labelSeg">
-      <button data-v="off">Off</button><button data-v="peak">On arcs</button><button data-v="follow">Follow lights</button>
-    </div>
-    <div class="slider"><label>Label size <b id="lfsV">12</b></label><input type="range" id="lfsR" min="9" max="26" value="12"></div>
-    <h3>Travel through time</h3>
-    <button class="wide-btn" id="travelPreset" style="margin:.1em 0 .6em">Set up a time-travel journey</button>
-    <div class="seg" id="camSeg"><button data-v="fixed">Camera fixed</button><button data-v="travel">Camera travels with time</button></div>
-    <div class="seg" id="fadeSeg"><button data-v="keep">Keep landed arcs</button><button data-v="fade">Fade landed arcs</button></div>
-    <div class="slider"><label>Keep landed arcs for <b id="keepV">5 years</b></label><input type="range" id="keepR" min="0" max="20" step="1" value="5"></div>
-    <label class="toggle">Reveal the whole century at the end <input type="checkbox" id="revealT" checked></label>
-    <label class="toggle">Keep lane names in view while travelling <input type="checkbox" id="laneFollowT" checked></label>
-    <p class="note-s">The camera rides the time cursor: you see each arc launch, follow the ones in the air, watch them land, and leave them behind. Drag or zoom during the journey to change the angle; the camera keeps that angle as it moves.</p>
-    <label class="toggle">Major milestones in brighter, bolder labels <input type="checkbox" id="majBrightT" checked></label>
-    <h3>Label presets</h3>
-    <div class="minis"><button class="mini" data-lp="story">Clean story</button><button class="mini" data-lp="highlights">Landing highlights</button><button class="mini" data-lp="major">Major milestones</button><button class="mini" data-lp="all">Everything</button></div>
-    <h3>Labels during Play the century</h3>
-    <div class="seg" id="labelPlaySeg"><button data-v="always">Always</button><button data-v="until">Until landed</button><button data-v="flash">Flash on landing</button></div>
-    <p class="note-s">Until landed: each label rides its light while the arc is drawn, then fades. Flash on landing: a label appears briefly as each arc lands.</p>
-    <div class="slider"><label>Linger after landing <b id="lingerV">2 s</b></label><input type="range" id="lingerR" min="0" max="8" step="0.5" value="2"></div>
-    <h3>Which arcs get labels</h3>
-    <div class="seg" id="labelScopeSeg"><button data-v="all">All shown arcs</button><button data-v="major">Major milestones</button></div>
-    <div class="slider"><label>Most labels on screen <b id="labelMaxV">All</b></label><input type="range" id="labelMaxR" min="3" max="60" value="60"></div>
-    <p class="note-s">When labels are limited, the newest landings and major milestones win.</p>
-    <h3>Play</h3>
-    <div class="prange"><label class="af">From<select id="playFromS" aria-label="Play from"></select></label><label class="af">To<select id="playToS" aria-label="Play to"></select></label><button class="mini" id="playCentury">Whole century</button></div>
-    <label class="toggle">Show the conclusion when Play ends <input type="checkbox" id="conclT" checked></label>
-    <h3>Arcs and colours</h3>
-    <label class="toggle">Show adoption arcs (first product to mainstream use) <input type="checkbox" id="adoptT" checked></label>
-    <label class="af" style="margin:.4em 0">Colours<select id="paletteS"><option value="standard">Standard</option><option value="cb">Colour-blind safe</option></select></label>
-    <h3>Sharing</h3>
-    <button class="mini" id="copyLinkBtn">Copy a link to this view</button>
-    <p class="note-s">The link keeps your filters, play range, measure and key display settings. Keys: ] next milestone, [ previous.</p>
-    <h3>Windows</h3>
-    <label class="toggle">Keep window positions when the screen size changes <input type="checkbox" id="keepPosT" checked></label>
-    <label class="toggle">Fit windows to this screen when loading a saved view <input type="checkbox" id="fitLoadT" checked></label>
-    <p class="note-s">Press M to show or hide the toolbar. Drag the ⋮⋮ grip to move the toolbar or footer.</p>
-    <h3>Data changes</h3>
-    <div class="seg" id="chgFlagSeg" aria-label="Highlight data changes"><button data-v="off">Off</button><button data-v="new">New only</button><button data-v="all">All changes</button></div>
-    <div class="seg" id="chgScopeSeg" aria-label="Which changes"><button data-v="all">All areas</button><button data-v="desnz">DESNZ vision only</button></div>
-    <label class="af" style="margin:.4em 0">Changes from<select id="chgSinceS"><option value="last">The latest agent run</option><option value="30">The last 30 days</option><option value="90">The last 90 days</option><option value="0">All agent runs</option></select></label>
-    <label class="toggle">Announce changes as Play reaches them <input type="checkbox" id="chgAnnounceT" checked></label>
-    <h3>Presenting</h3>
-    <label class="toggle">Countdown from 3 before Play <input type="checkbox" id="countdownT" checked></label>
-    <label class="toggle">Show the thank-you icon (Q key) <input type="checkbox" id="thanksIconT" checked></label>
-    <h3>Highlights</h3>
-    <label class="toggle">Highlight ongoing university projects <input type="checkbox" id="uniHiT" checked></label>
-    <h3>Page header</h3>
-    <label class="toggle">Show page title <input type="checkbox" id="titleShowT"></label>
-    <label class="toggle">Hide top buttons until the mouse is near the top <input type="checkbox" id="barAutoT"></label>
-    <h3>Arrange lanes by</h3>
-    <div class="seg" id="laneSeg"><button data-v="s">Research source</button><button data-v="v">Field</button></div>
-    <h3>Colour arcs by</h3>
-    <div class="seg" id="colSeg"><button data-v="s">Research source</button><button data-v="v">Field</button></div>
-    <h3>Layers</h3>
-    <label class="toggle">Moving lights <input type="checkbox" id="pulseT" checked></label>
-    <label class="toggle">Trend lines <input type="checkbox" id="trendT" checked></label>
-    <label class="toggle">Floor labels <input type="checkbox" id="floorT" checked></label>
-    <label class="toggle">Loop Play the century <input type="checkbox" id="loopD"></label>
-    <label class="toggle">Performance mode <input type="checkbox" id="liteT"></label>
-    <p class="note-s">Turns off glow and window blur and lowers resolution. Use it if the presentation laptop struggles.</p>
-    <h3>Motion and glow</h3>
-    <div class="slider"><label>Rotation speed <b id="rotV">0.35</b></label><input type="range" id="rotR" min="0" max="2" step="0.05" value="0.35"></div>
-    <div class="slider"><label>Glow <b id="glowV">0.75</b></label><input type="range" id="glowR" min="0" max="1.6" step="0.05" value="0.75"></div>
+    <div class="ptools"><button class="mini" data-pexp="display">Expand all</button></div>
+    <details class="psec" data-sec="labels"><summary>Labels</summary>
+      <div class="minis"><button class="mini" data-lp="story">Clean story</button><button class="mini" data-lp="highlights">Landing highlights</button><button class="mini" data-lp="major">Major milestones</button><button class="mini" data-lp="all">Everything</button></div>
+      <div class="seg" id="labelSeg"><button data-v="off">Off</button><button data-v="peak">On arcs</button><button data-v="follow">Follow lights</button></div>
+      <div class="seg" id="labelScopeSeg"><button data-v="all">All shown arcs</button><button data-v="major">Major milestones</button></div>
+      <div class="slider"><label>Label size <b id="lfsV">12</b></label><input type="range" id="lfsR" min="9" max="26" value="12"></div>
+      <div class="slider"><label>Most labels on screen <b id="labelMaxV">All</b></label><input type="range" id="labelMaxR" min="3" max="60" value="60"></div>
+      <label class="toggle">Major milestones in brighter, bolder labels <input type="checkbox" id="majBrightT" checked></label>
+    </details>
+    <details class="psec" data-sec="play"><summary>Play the century</summary>
+      <div class="prange"><label class="af">From<select id="playFromS" aria-label="Play from"></select></label><label class="af">To<select id="playToS" aria-label="Play to"></select></label><button class="mini" id="playCentury">Whole century</button></div>
+      <label class="toggle">Loop Play the century <input type="checkbox" id="loopD"></label>
+      <label class="toggle">Countdown from 3 before Play <input type="checkbox" id="countdownT" checked></label>
+      <label class="toggle">Show the conclusion when Play ends <input type="checkbox" id="conclT" checked></label>
+      <h4>Labels during Play</h4>
+      <div class="seg" id="labelPlaySeg"><button data-v="always">Always</button><button data-v="until">Until landed</button><button data-v="flash">Flash on landing</button></div>
+      <div class="slider"><label>Linger after landing <b id="lingerV">2 s</b></label><input type="range" id="lingerR" min="0" max="8" step="0.5" value="2"></div>
+    </details>
+    <details class="psec" data-sec="travel"><summary>Travel through time</summary>
+      <button class="wide-btn" id="travelPreset" style="margin:.1em 0 .6em">Set up a time-travel journey</button>
+      <div class="seg" id="camSeg"><button data-v="fixed">Camera fixed</button><button data-v="travel">Camera travels with time</button></div>
+      <div class="seg" id="fadeSeg"><button data-v="keep">Keep landed arcs</button><button data-v="fade">Fade landed arcs</button></div>
+      <div class="slider"><label>Keep landed arcs for <b id="keepV">5 years</b></label><input type="range" id="keepR" min="0" max="20" step="1" value="5"></div>
+      <label class="toggle">Reveal the whole century at the end <input type="checkbox" id="revealT" checked></label>
+      <label class="toggle">Keep lane names in view while travelling <input type="checkbox" id="laneFollowT" checked></label>
+    </details>
+    <details class="psec" data-sec="arcs"><summary>Arcs, lanes and colours</summary>
+      <h4>Arrange lanes by</h4><div class="seg" id="laneSeg"><button data-v="s">Research source</button><button data-v="v">Field</button></div>
+      <h4>Colour arcs by</h4><div class="seg" id="colSeg"><button data-v="s">Research source</button><button data-v="v">Field</button></div>
+      <label class="af" style="margin:.4em 0">Palette<select id="paletteS"><option value="standard">Standard</option><option value="cb">Colour-blind safe</option></select></label>
+      <label class="toggle">Show adoption arcs (first product to mainstream use) <input type="checkbox" id="adoptT" checked></label>
+      <label class="toggle">Highlight ongoing university projects <input type="checkbox" id="uniHiT" checked></label>
+      <label class="toggle">Moving lights <input type="checkbox" id="pulseT" checked></label>
+      <label class="toggle">Trend lines <input type="checkbox" id="trendT" checked></label>
+      <label class="toggle">Floor labels <input type="checkbox" id="floorT" checked></label>
+    </details>
+    <details class="psec" data-sec="changes"><summary>Data changes</summary>
+      <div class="seg" id="chgFlagSeg" aria-label="Highlight data changes"><button data-v="off">Off</button><button data-v="new">New only</button><button data-v="all">All changes</button></div>
+      <div class="seg" id="chgScopeSeg" aria-label="Which changes"><button data-v="all">All areas</button><button data-v="desnz">DESNZ vision only</button></div>
+      <label class="af" style="margin:.4em 0">Changes from<select id="chgSinceS"><option value="last">The latest agent run</option><option value="30">The last 30 days</option><option value="90">The last 90 days</option><option value="0">All agent runs</option></select></label>
+      <label class="toggle">Announce changes as Play reaches them <input type="checkbox" id="chgAnnounceT" checked></label>
+    </details>
+    <details class="psec" data-sec="motion"><summary>Motion and performance</summary>
+      <div class="slider"><label>Rotation speed <b id="rotV">0.35</b></label><input type="range" id="rotR" min="0" max="2" step="0.05" value="0.35"></div>
+      <div class="slider"><label>Glow <b id="glowV">0.75</b></label><input type="range" id="glowR" min="0" max="1.6" step="0.05" value="0.75"></div>
+      <label class="toggle">Performance mode <input type="checkbox" id="liteT"></label>
+    </details>
+    <details class="psec" data-sec="present"><summary>Presenting, windows and sharing</summary>
+      <label class="toggle">Show page title <input type="checkbox" id="titleShowT"></label>
+      <label class="toggle">Hide top buttons until the mouse is near <input type="checkbox" id="barAutoT"></label>
+      <label class="toggle">Show the thank-you icon (Q key) <input type="checkbox" id="thanksIconT" checked></label>
+      <label class="toggle">Keep window positions when the screen size changes <input type="checkbox" id="keepPosT" checked></label>
+      <label class="toggle">Fit windows to this screen when loading a saved view <input type="checkbox" id="fitLoadT" checked></label>
+      <button class="mini" id="copyLinkBtn">Copy a link to this view</button>
+    </details>
   </div>
 </section>
 
@@ -864,7 +872,10 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions{opacity:0;point
 <div id="about" role="dialog" aria-modal="true" aria-labelledby="aboutTitle">
   <div class="sheet">
     <button class="btn close" id="aboutClose">Close</button>
-    <h2 id="aboutTitle">About this model</h2>
+    <h2 id="aboutTitle">Help</h2>
+    <div class="faqtools"><input id="faqQ" class="search" placeholder="Search help" aria-label="Search help"></div>
+    <div id="faq"></div>
+    <h2 style="margin-top:1.2em">About this model</h2>
     <p class="disc"><b>Personal project.</b> Built by Stuart Okin in a personal capacity; not affiliated with or endorsed by any employer. <b>AI-maintained data.</b> The dataset is compiled and kept up to date by AI agents using Claude (Anthropic), without human review, so it may contain errors. Outlook years are AI estimates, not forecasts. Check anything important against the cited sources.</p>
     <h3>Data status</h3>
     <p class="aboutmeta" id="aboutMeta"></p>
@@ -3037,7 +3048,7 @@ const FORTUNES = DB.founders.map(f => {
 });
 const fmtMoney = (bn, sym) => bn >= 1000 ? `${sym}${(bn / 1000).toFixed(1)}tn` : bn >= 1 ? `${sym}${bn >= 100 ? Math.round(bn) : Math.round(bn * 10) / 10}bn` : `${sym}${Math.round(bn * 1000)}m`;
 const DATA_AS_OF = DB.meta.asOf;
-const APP_VERSION = '8.7', APP_BUILD = '';
+const APP_VERSION = '8.8', APP_BUILD = '';
 // Screen-aware scaling: laptops slightly smaller, large screens larger
 const UI = (() => { const w = innerWidth; return w < 1280 ? .85 : w < 1500 ? .95 : w < 1800 ? 1.05 : w < 2300 ? 1.2 : 1.4; })();
 const LARGE = innerWidth >= 1700;
@@ -3073,7 +3084,7 @@ const DEFAULT_FILTERS = () => ({
 });
 const F = DEFAULT_FILTERS();
 const hidden = new Set();
-const view = {preset:'explore', menuGroups:{}, subLanes:true, adoption:true, palette:'standard', conclusion:true, playFrom:null, playTo:null, gapMetric:'first', statsRows:'src', statsRange:true, markSmall:true, smallN:5, survival:true, keepWinPos:true, fitOnLoad:true, chgFlag:'all', chgScope:'all', chgSince:'30', chgAnnounce:true, countdown:true, thanksIcon:true, majBright:true, uniHi:true, audSpot:true, audPause:true, statsBy:'landed', statsLive:true, gapBuild:true, compactLanes:true, fortSort:'year', musicOn:false, loopPlay:true, fortHi:true, fortOnly:false, laneFollow:true, camTravel:true, fadeLanded:true, keepYears:5, revealEnd:true, labelPlay:'until', labelScope:'all', labelMax:14, labelLinger:2, labels:'follow', lfs:LARGE ? 18 : 15, lanes:'v', colour:'v', pulses:true, trend:true, floor:true, rotSpeed:0.35, glow:0.75};
+const view = {panels:{}, preset:'explore', menuGroups:{}, subLanes:true, adoption:true, palette:'standard', conclusion:true, playFrom:null, playTo:null, gapMetric:'first', statsRows:'src', statsRange:true, markSmall:true, smallN:5, survival:true, keepWinPos:true, fitOnLoad:true, chgFlag:'new', chgScope:'all', chgSince:'30', chgAnnounce:true, countdown:true, thanksIcon:true, majBright:true, uniHi:true, audSpot:true, audPause:true, statsBy:'landed', statsLive:true, gapBuild:true, compactLanes:true, fortSort:'year', musicOn:false, loopPlay:true, fortHi:true, fortOnly:false, laneFollow:true, camTravel:true, fadeLanded:true, keepYears:5, revealEnd:true, labelPlay:'until', labelScope:'all', labelMax:14, labelLinger:2, labels:'follow', lfs:LARGE ? 18 : 15, lanes:'v', colour:'v', pulses:true, trend:true, floor:true, rotSpeed:0.35, glow:0.75};
 Object.assign(view, store.get('sg.view.v2', {}));
 if (MOBILE) Object.assign(view, {lite:true, labels:'peak', labelScope:'major', labelMax:6, lfs:12, camTravel:false, fadeLanded:false, pulses:true, glow:0});
 const state = {playing:false, cursor:Y1, autoRotate:!reduced && !(MOBILE && innerWidth < innerHeight)};
@@ -3424,13 +3435,13 @@ function buildTrends(){
  *  WINDOW MANAGER
  * ================================================================== */
 const WIN_IDS = ['toolbar','footer','findings','quality','table','changes','audience','pagetitle','title','ticker','player','sources','filters','display','summary','milestones','details','key','context','landing','gapchart','fortunes','vision','outlook','report','music','vid1','vid2'];
-const WIN_NAMES = {toolbar:'Toolbar', footer:'Footer', findings:'Key findings', quality:'Data quality', table:'Table of milestones', changes:'Data changes', audience:'Your milestones', pagetitle:'Page title', title:'Showcase title', ticker:'Joke ticker', player:'Play the century', sources:'Sources', filters:'Filters', display:'Display', summary:'Summary', milestones:'Milestones', details:'Details', key:'Reading the model', context:'Context', landing:'Landing and starting', gapchart:'Gap over time', fortunes:'Time to a fortune', vision:'DESNZ AI energy vision', outlook:'Can AI shrink the gap?', music:'Music', report:'PowerPoint report', vid1:'Countdown to Q-Day', vid2:'University Curated Cyber-attacks since 2000'};
+const WIN_NAMES = {toolbar:'Toolbar', footer:'Footer', findings:'Key findings', quality:'Data quality', table:'Table of milestones', changes:'Data changes', audience:'Your milestones', pagetitle:'Page title', title:'Showcase title', ticker:'Ticker', player:'Play the century', sources:'Sources', filters:'Filters', display:'Display', summary:'Summary', milestones:'Milestones', details:'Details', key:'Reading the model', context:'Context', landing:'Landing and starting', gapchart:'Gap over time', fortunes:'Time to a fortune', vision:'DESNZ AI energy vision', outlook:'Can AI shrink the gap?', music:'Music', report:'PowerPoint report', vid1:'Countdown to Q-Day', vid2:'University Curated Cyber-attacks since 2000'};
 function defaultLayout(){
   const W = innerWidth, H = innerHeight, Hh = innerHeight, u = UI, narrow = W < 820; let top = Math.round(72 * u);
   const rw = Math.min(Math.round(360 * u), W - 36), lw = Math.min(Math.round(330 * u), W - 36);
   const footH = Math.round(26 * u), tickH = Math.round(66 * u), tickY = Hh - footH - tickH - 10, bottom = tickY - 12;
   const btns = [...document.querySelectorAll('#top .actions > button')].filter(b => b.offsetWidth), tbNat = btns.reduce((a, b) => a + b.offsetWidth, 0) + 8 * Math.max(0, btns.length - 1) + 40;
-  const tbW = Math.min(tbNat + 24, W - 16), tbRows = Math.max(1, Math.ceil((tbNat + 48) / (W - 16))), tbH = tbRows * Math.round(42 * u) + 12;
+  const tbW = Math.min(tbNat + 56, W - 16), tbRows = Math.max(1, Math.ceil((tbNat + 72) / (W - 16))), tbH = tbRows * Math.round(42 * u) + 12;
   // if the page title and toolbar don't fit side by side, the title drops below the toolbar
   const titleRow = W - tbW - 52 < 320, ptH = Math.round(58 * u);
   const ptY = titleRow ? Math.round(6 * u) + tbH + 6 : Math.round(8 * u);
@@ -3619,8 +3630,12 @@ function arrangeLayout(name){
     }
   } else if (name === 'analysis') {
     if (cls === 'phone') set('findings', 6, top, W - 12, H - top - 8);
-    else if (cls === 'tablet') { const cw = (W - 24 - g) / 2; stack(['summary'], 12, cw, top, bot, [1]); stack(['gapchart', 'outlook'], 12 + cw + g, cw, top, bot, [.5, .5]); }
-    else { const cw = (W - 24 - 2 * g) / 3; stack(['findings'], 12, cw, top, bot, [1]); stack(['summary'], 12 + cw + g, cw, top, bot, [1]); stack(['gapchart', 'outlook'], 12 + 2 * (cw + g), cw, top, bot, [.5, .5]); }
+    else if (cls === 'tablet') { const cw = (W - 24 - g) / 2, mid = top + (bot - top) * .56; set('findings', 12, top, cw, mid - top); set('summary', 12 + cw + g, top, cw, mid - top); set('gapchart', 12, mid + g, cw, bot - mid - g); set('outlook', 12 + cw + g, mid + g, cw, bot - mid - g); }
+    else {
+      const mid = top + (bot - top) * .55, ww = W - 24 - 2 * g, w1 = ww * .3, w2 = ww * .4, w3 = ww - w1 - w2, wb = W - 24 - g;
+      set('findings', 12, top, w1, mid - top); set('summary', 12 + w1 + g, top, w2, mid - top); set('gapchart', 12 + w1 + w2 + 2 * g, top, w3, mid - top);
+      set('outlook', 12, mid + g, wb * .58, bot - mid - g); set('fortunes', 12 + wb * .58 + g, mid + g, wb - wb * .58, bot - mid - g);
+    }
   } else if (name === 'desnz') {
     if (cls === 'phone') set('vision', 6, top, W - 12, H - top - 8);
     else {
@@ -3642,11 +3657,15 @@ function arrangeLayout(name){
 }
 function applyPreset(name){
   const wasDesnz = view.preset === 'desnz';
-  view.preset = name;
+  view.preset = name; view.chgFlag = 'new'; syncChgUI(); applyChangeFlags();
   layout = arrangeLayout(name); WIN_IDS.forEach(placeWin); saveLayout(); syncVideos();
-  if (name === 'desnz') { F.vision = true; view.chgScope = 'desnz'; $('chgDesnzT').checked = true; syncChgUI(); applyChangeFlags(); refresh(); renderChanges(); }
-  else if (wasDesnz) { F.vision = false; view.chgScope = 'all'; $('chgDesnzT').checked = false; syncChgUI(); applyChangeFlags(); refresh(); renderChanges(); }
-  if (name === 'wait') { view.loopPlay = true; syncDisplayUI(); if (!state.playing) { cancelCountdown(); startPlay(); } setAutoRotate(true); }
+  if (name === 'desnz') { view.preDesnzFields = [...F.fields]; F.fields = new Set(FKEYS.filter(k => items.some(it => it.v === k && it.dv && !it.removed))); F.vision = true; view.chgScope = 'desnz'; $('chgDesnzT').checked = true; syncChgUI(); applyChangeFlags(); refresh(); renderChanges(); }
+  else if (wasDesnz) { F.fields = new Set((view.preDesnzFields || FKEYS).filter(k => FIELDS[k])); delete view.preDesnzFields; F.vision = false; view.chgScope = 'all'; $('chgDesnzT').checked = false; syncChgUI(); applyChangeFlags(); refresh(); renderChanges(); }
+  if ((name === 'analysis' || name === 'desnz') && state.playing) stopPlay();
+  $('spot').classList.remove('on', 'concl', 'chg');
+  setTimeout(() => { renderStats(); if (layout.findings.open) renderFindings(); if (layout.outlook.open) renderOutlook(); if (layout.fortunes.open) renderFortunes(); twKey = ''; updateTimeWindows(true); }, 80);
+  if (name === 'wait') { tick.mode = 'both'; applyTicker(); buildTicker();
+    view.loopPlay = true; syncDisplayUI(); if (!state.playing) { cancelCountdown(); startPlay(); } setAutoRotate(true); }
   if (name === 'play') updateTimeWindows(true);
   buildWinMenu();
 }
@@ -3686,7 +3705,7 @@ winMenu.addEventListener('click', e => {
   if (b.dataset.g) { view.menuGroups = view.menuGroups || {}; view.menuGroups[b.dataset.g] = !view.menuGroups[b.dataset.g]; buildWinMenu(); return; }
   if (b.dataset.x === 'all') { const any = WIN_GROUPS.some(([g]) => view.menuGroups[g]); WIN_GROUPS.concat([['other']]).forEach(([g]) => { view.menuGroups[g] = !any; }); buildWinMenu(); return; }
   const w = b.dataset.w;
-  if (w && w.startsWith('__p_')) { applyPreset(w.slice(4)); return; }
+  if (w && w.startsWith('__p_')) { applyPreset(w.slice(4)); winMenu.classList.remove('open'); $('winBtn').setAttribute('aria-expanded', false); return; }
   if (w === '__reset') applyPreset('explore');
   else if (w === '__title') togglePageTitle();
   else if (w === '__link') { winMenu.classList.remove('open'); copyLink(); }
@@ -4480,17 +4499,25 @@ const TICK_DEFAULT = Object.assign({}, DB.defaults.ticker);
 const tick = Object.assign({}, TICK_DEFAULT, store.get('sg.ticker', {}));
 const ktrack = $('ktrack');
 let kx = 0, kSegW = 0;
-(function buildTicker(){
-  const order = JOKES.map((j, i) => i).sort(() => Math.random() - .5);
+function buildTicker(){
   const FACES = ['😄','😂','🤣','😉','😜','😆','😁','🙃','😏','🤭','😅','🤦','😝','😊','🥁'];
-  const html = order.map(i => `<span class="kj">${JOKES[i]}</span><span class="ks">${FACES[Math.floor(Math.random() * FACES.length)]}</span>`).join('');
-  ktrack.innerHTML = `<span class="kseg">${html}</span><span class="kseg" aria-hidden="true">${html}</span>`;
-})();
+  const jokes = JOKES.map((j, i) => i).sort(() => Math.random() - .5).map(i => `<span class="kj">${JOKES[i]}</span><span class="ks">${FACES[Math.floor(Math.random() * FACES.length)]}</span>`);
+  const news = CHANGES.map((c, i) => [c, i]).filter(([c]) => c.type === 'added').slice(0, 15)
+    .map(([c, i]) => `<span class="kn" data-ci="${i}" title="Open the details">New: ${esc(c.title)}${c.it ? ', ' + fieldName(c.it.v) : c.fo ? ', Time to a fortune' : ''}, ${ukDay(c.date)}</span><span class="ks kb">•</span>`);
+  const mode = tick.mode || 'jokes'; let parts;
+  if (mode === 'news') parts = news.length ? news : ['<span class="kj">No new milestones yet; the data agents run every week.</span><span class="ks kb">•</span>'];
+  else if (mode === 'both' && news.length) { parts = []; let n = 0; jokes.forEach((j, k) => { parts.push(j); if (k % 2 === 1) parts.push(news[n++ % news.length]); }); }
+  else parts = jokes;
+  const html = parts.join('');
+  ktrack.innerHTML = `<span class="kseg">${html}</span><span class="kseg" aria-hidden="true">${html}</span>`; kSegW = 0; kx = 0;
+}
+ktrack.addEventListener('click', e => { const n = e.target.closest('.kn'); if (!n) return; const c = CHANGES[+n.dataset.ci]; if (!c) return; if (c.it) { hidden.delete(c.it.id); openDetail(c.it); } else if (c.fo) { setOpen('fortunes', true); raise('fortunes'); } });
+$('tkMode').addEventListener('change', e => { tick.mode = e.target.value; applyTicker(); buildTicker(); });
 function measureTicker(){ const s = ktrack.firstElementChild; kSegW = s ? s.offsetWidth : 0; }
 function applyTicker(){
   wins.ticker.style.background = hexA(tick.bg, tick.alpha); ktrack.style.color = tick.color;
   $('tkSpeed').value = tick.speed; $('tkSpeedV').textContent = tick.speed; $('tkText').value = tick.color; $('tkBg').value = tick.bg; $('tkAlpha').value = tick.alpha;
-  $('tkPause').textContent = tick.paused ? 'Resume' : 'Pause';
+  $('tkPause').textContent = tick.paused ? 'Resume' : 'Pause'; $('tkMode').value = tick.mode || 'jokes';
   store.set('sg.ticker', tick); kSegW = 0;
 }
 function tickStep(dt){
@@ -5075,6 +5102,166 @@ chipGroup($('regionChips'), () => F.regions, REGIONS);
 chipGroup($('verChips'), () => F.ver, VERS);
 chipGroup($('tagChips'), () => F.tags, TAGS);
 /* ==================================================================
+ *  HELP: one source for hover tips, press-and-hold on touch screens, and the FAQ in Help
+ * ================================================================== */
+const HELP = {
+  // Filters
+  q:'Type words to show only milestones whose title, company or descriptions contain them.',
+  fieldList:'Tick fields to show them. “Only” shows just that field; with a single field you can split it into sub-field tracks.',
+  compactT:'Removes the tracks of fields or sources you have deselected, so the remaining tracks spread out to use the space.',
+  subLanesT:'When exactly one field is selected, gives each of its sub-fields its own track and shade of colour.',
+  subChips:'Show or hide individual sub-fields of the selected field. Counts show how many milestones each holds.',
+  srcChips:'Where the research began: universities, industry labs, or government and publicly funded labs.',
+  regionChips:'The country or region where the research began. “Many countries” marks work with no single origin.',
+  uniOnlyT:'Shows only ongoing university projects, marked with a gold ring.',
+  catChips:'Research breakthroughs run from first research to first use. Company products run from founding to first release.',
+  kindChips:'Landed: already reached real-world use. Next ten years: AI estimates. Still in the lab: no reliable date yet.',
+  majT:'Shows only the landmark milestones, such as the transistor, the web and mRNA vaccines.',
+  confChips:'How confident the dates are. Low-confidence records are often approximate or contested.',
+  verChips:'Source-cited records link to a checked source; AI-compiled ones come from standard references; AI estimates are forward-looking guesses.',
+  tagChips:'Topics cut across fields, such as storage, grid or cryptography. Pick some to show only those.',
+  fromR:'Shows milestones whose research began in or after this year.',
+  toR:'Shows milestones whose research began in or before this year.',
+  gapR:'Hides milestones whose gap from research to change is longer than this.',
+  visT:'Shows only milestones linked to an area of the DESNZ AI energy vision.',
+  ghostT:'Keeps filtered-out arcs as faint outlines, for context.',
+  resetFilters:'Puts every filter back to its default.',
+  // Display
+  labelSeg:'Off hides labels. On arcs puts each label at the top of its arc. Follow lights moves labels with the travelling lights.',
+  labelScopeSeg:'Label every shown arc, or only major milestones.',
+  lfsR:'Text size of the labels in the model.',
+  labelMaxR:'Caps how many labels show at once. The newest landings and major milestones win.',
+  majBrightT:'Makes major milestone labels brighter and bolder than the rest.',
+  playFromS:'The year Play starts from. The button title changes to match.',
+  playToS:'The year Play stops at. “Whole century” resets both years.',
+  loopD:'Starts Play again from the beginning when it reaches the end.',
+  countdownT:'Shows a 3, 2, 1 countdown before Play starts.',
+  conclT:'Shows the headline finding in a banner when Play reaches the end.',
+  labelPlaySeg:'During Play: keep labels on, show each label until its arc lands, or flash a label as each arc lands.',
+  lingerR:'How long a label stays after its arc lands during Play.',
+  travelPreset:'One click to set the camera travelling with time, with labels and fading tuned for a journey.',
+  camSeg:'Keep the camera still, or let it ride along the timeline as Play runs.',
+  fadeSeg:'Keep landed arcs on screen, or fade them after a few years to reduce clutter.',
+  keepR:'How many years landed arcs stay before fading, when fading is on.',
+  revealT:'At the end of a journey, pulls the camera back to show the whole century.',
+  laneFollowT:'Keeps track names next to the camera while it travels.',
+  laneSeg:'Arrange tracks by where the research began, or by field.',
+  colSeg:'Colour arcs by where the research began, or by field.',
+  paletteS:'Colour-blind safe uses a palette that stays distinct for the common types of colour blindness.',
+  adoptT:'Shows a second, thinner arc from first product to mainstream adoption.',
+  uniHiT:'Marks ongoing university projects with a gold ring and a mortarboard on the label.',
+  pulseT:'Lights that travel along arcs as they are drawn.',
+  trendT:'Lines joining the median gap in each era for each track.',
+  floorT:'Year and track names on the floor of the model.',
+  chgFlagSeg:'Highlight milestones the data agents have added (New only) or added and corrected (All changes).',
+  chgScopeSeg:'Highlight changes everywhere, or only those linked to the DESNZ vision.',
+  chgSinceS:'How far back highlighted changes go.',
+  chgAnnounceT:'Shows a banner when Play reaches the year of a changed milestone.',
+  rotR:'How fast the model turns when auto-rotate is on.',
+  glowR:'Strength of the glow around arcs and lights.',
+  liteT:'Turns off glow and window blur and lowers resolution. Use it on slower laptops.',
+  titleShowT:'Shows or hides the page title in the top-left corner (T key).',
+  barAutoT:'Hides the toolbar buttons until the mouse moves near them.',
+  thanksIconT:'Shows the speech-bubble button that opens the thank-you screen (Q key).',
+  keepPosT:'Windows keep their distance from the nearest edges when the screen size changes, such as leaving full screen.',
+  fitLoadT:'When opening a view saved on a different screen size, brings every window fully into view.',
+  copyLinkBtn:'Copies a web link that reopens this view with your filters and key settings.',
+  // Toolbar
+  playBtn:'Plays the timeline from the first year to the last (or your chosen range). P key.',
+  thanksBtn:'Opens the thank-you and questions screen. Q key.',
+  ideasBtn:'Add your own milestones by hand, with an icon, description and source.',
+  musicBtn:'Starts or stops the background music.',
+  winBtn:'Open, close and arrange windows, or save and load a view.',
+  rotBtn:'Turns the model slowly. Drag the model to look around.',
+  resetBtn:'Reloads the app with its default settings.',
+  fsBtn:'Uses the whole screen.',
+  aboutBtn:'Help, frequently asked questions and information about the data.'
+};
+const FAQ_EXTRA = [
+  ['Getting started', [
+    ['What am I looking at?', 'Each arc is one breakthrough. It rises from the year the research began and lands when it first reached real-world use. A thinner arc carries on to mainstream adoption. The height of an arc is the gap in years.'],
+    ['How do I explore?', 'Drag to rotate, scroll or pinch to zoom, right-drag to pan. Click an arc or label for its details. Use Filters to narrow the view and Windows to open more panels.'],
+    ['What are arrangements?', 'Ready-made window layouts under Windows: Exploring (the default), Play the century, Waiting (a kiosk mode with videos and the ticker), Analysis and DESNZ AI vision. Each adapts to phones, tablets, laptops and large screens.']]],
+  ['Windows', [
+    ['Key findings', 'The headline numbers and a chart by field. Follows your filters.'],
+    ['Summary', 'Median years from research to change in a table. Choose the measure, group by the year a milestone landed or the year research began, and show rows by source, field or region. With one field selected, rows show its sub-fields.'],
+    ['Gap over time', 'The median gap for milestones landing in each preceding ten years, with a scenario beyond today.'],
+    ['Can AI shrink the gap?', 'For each field, the recent gap and a plausible range with AI and digital twins. Scenario assumptions, not forecasts.'],
+    ['Time to a fortune', 'How long founders took to make a fortune, with net worths and their dates. Refreshed monthly by the agents.'],
+    ['DESNZ AI energy vision', 'Milestones grouped by the five areas of the vision, with what is already helping, what is still to land and recent data changes.'],
+    ['Data changes', 'Every change the data agents have made, newest first, with search and filters.'],
+    ['Data quality', 'How much of the data is source-cited, coverage of adoption years and regions, and agent costs.'],
+    ['Table of milestones', 'Every milestone in a sortable table. Click a heading to sort and a row to open it.'],
+    ['Your milestones', 'Add your own milestones by hand. They appear as bright arcs and can be saved to a file.'],
+    ['PowerPoint report', 'Creates a three-slide report with editable charts from your current filters.'],
+    ['Ticker', 'A scrolling line of news (new milestones, click one to open it), jokes, or both. Choose in its Settings.']]],
+  ['Data and agents', [
+    ['Where does the data come from?', 'Two AI agents run every week. One looks for new breakthroughs and products; the other independently checks them and re-checks older records before anything is published.'],
+    ['How reliable is it?', 'New items need two independent sources that the code reads itself, and corrections need quoted evidence. Every record shows whether it is source-cited, AI-compiled or an AI estimate. It may still contain errors.'],
+    ['What do NEW and UPDATED mean?', 'Badges on labels for milestones the agents added or corrected recently. Click a highlighted label to open its details. Choose what is highlighted in Display, Data changes.']]],
+  ['Saving and sharing', [
+    ['How do I save my layout?', 'Windows, then “Save this view to a file”. It keeps windows, positions, filters and settings. Load it again from the same menu, or open index.html?view=yourfile.json.'],
+    ['How do I share a view?', 'Display, Presenting, “Copy a link to this view”, or the same option in Windows.']]],
+  ['Keyboard shortcuts', [
+    ['Keys', 'P play, Space pause, ] and [ next and previous milestone, 1–9 a single field, 0 all fields, L labels, M toolbar, T page title, Q thank you, R reset camera, H hide windows, Escape close overlays.']]]
+];
+function helpLabel(id){
+  const el = $(id); if (!el) return id;
+  const row = el.closest('.toggle, .slider, .af') || el;
+  const t = (row.querySelector('label') || row).textContent.replace(/\s+/g, ' ').trim();
+  return t.replace(/\s*\d+(\.\d+)?\s*(s|years)?\s*$/, '').replace(/ Any$| All$/, '') || id;
+}
+function attachHelp(){
+  Object.entries(HELP).forEach(([id, txt]) => {
+    const el = $(id); if (!el) return;
+    const row = el.closest('.toggle, .slider, .af, .prange') || el;
+    row.dataset.help = txt; if (!row.title) row.title = txt;
+    if (el !== row && !el.title) el.title = txt;
+  });
+  document.querySelectorAll('#winMenu [data-w]').forEach(b => { const id = b.dataset.w; if (WIN_NAMES[id]) { const f = FAQ_EXTRA[1][1].find(x => x[0] === WIN_NAMES[id]); if (f) b.title = f[1]; } });
+}
+/* press and hold on touch screens shows the help text */
+let holdTimer = 0, holdFired = false;
+document.addEventListener('pointerdown', e => {
+  if (e.pointerType !== 'touch') return;
+  const row = e.target.closest('[data-help], [title]'); if (!row) return;
+  holdFired = false; clearTimeout(holdTimer);
+  holdTimer = setTimeout(() => { holdFired = true; toast(row.dataset.help || row.title); }, 550);
+}, true);
+['pointerup', 'pointercancel', 'pointermove'].forEach(ev => document.addEventListener(ev, e => { if (ev !== 'pointermove' || Math.abs(e.movementX) + Math.abs(e.movementY) > 6) clearTimeout(holdTimer); }, true));
+document.addEventListener('click', e => { if (holdFired) { holdFired = false; e.preventDefault(); e.stopPropagation(); } }, true);
+/* the FAQ in Help */
+function buildFaq(){
+  const groups = [['Filters', 'w-filters'], ['Display', 'w-display'], ['Toolbar', 'w-toolbar']].map(([name, win]) => [name, Object.entries(HELP).filter(([id]) => $(id) && $(id).closest('#' + win)).map(([id, txt]) => [helpLabel(id), txt])]);
+  const all = FAQ_EXTRA.slice(0, 2).concat(groups).concat(FAQ_EXTRA.slice(2));
+  $('faq').innerHTML = all.map(([g, list]) => `<details class="faqg"><summary>${g} <span>${list.length}</span></summary>${list.map(([q, a]) => `<div class="faqi"><b>${esc(q)}</b><p>${esc(a)}</p></div>`).join('')}</details>`).join('');
+}
+$('faqQ').addEventListener('input', () => {
+  const q = $('faqQ').value.trim().toLowerCase();
+  document.querySelectorAll('#faq .faqg').forEach(g => {
+    let any = false;
+    g.querySelectorAll('.faqi').forEach(i => { const hit = !q || i.textContent.toLowerCase().includes(q); i.style.display = hit ? '' : 'none'; any = any || hit; });
+    g.style.display = any ? '' : 'none'; g.open = !!q && any;
+  });
+});
+$('faqQ').addEventListener('keydown', e => e.stopPropagation());
+/* collapsible sections in Filters and Display, remembered in saved views */
+function syncPanels(){
+  view.panels = view.panels || {};
+  ['filters', 'display'].forEach(w => {
+    const st = view.panels[w] || {}, secs = wins[w].querySelectorAll('.psec');
+    secs.forEach((d, i) => { const want = st[d.dataset.sec] != null ? st[d.dataset.sec] : i === 0; if (d.open !== want) d.open = want; });
+    const anyClosed = [...secs].some(d => !d.open);
+    const b = wins[w].querySelector('[data-pexp]'); if (b) b.textContent = anyClosed ? 'Expand all' : 'Collapse all';
+  });
+}
+['filters', 'display'].forEach(w => {
+  wins[w].querySelectorAll('.psec').forEach(d => d.addEventListener('toggle', () => { view.panels = view.panels || {}; view.panels[w] = view.panels[w] || {}; view.panels[w][d.dataset.sec] = d.open; const secs = wins[w].querySelectorAll('.psec'); wins[w].querySelector('[data-pexp]').textContent = [...secs].some(x => !x.open) ? 'Expand all' : 'Collapse all'; }));
+  wins[w].querySelector('[data-pexp]').addEventListener('click', () => { const secs = [...wins[w].querySelectorAll('.psec')], open = secs.some(d => !d.open); view.panels = view.panels || {}; view.panels[w] = {}; secs.forEach(d => { d.open = open; view.panels[w][d.dataset.sec] = open; }); syncPanels(); });
+});
+
+labelLayer.addEventListener('click', e => { const l = e.target.closest('.lbl.chg-new, .lbl.chg-upd'); if (l && l._it) { hidden.delete(l._it.id); openDetail(l._it); } });
+/* ==================================================================
  *  SAVED VIEWS (JSON)
  * ================================================================== */
 function snapshot(name){
@@ -5105,6 +5292,7 @@ function syncDisplayUI(){
   $('adoptT').checked = view.adoption !== false; $('conclT').checked = view.conclusion !== false; $('paletteS').value = view.palette || 'standard';
   if ((view.palette || 'standard') !== (window.__pal || 'standard')) applyPalette();
   syncPlayRangeUI();
+  if (typeof syncPanels === 'function') syncPanels();
   $('keepPosT').checked = view.keepWinPos !== false; $('fitLoadT').checked = view.fitOnLoad !== false;
   $('countdownT').checked = view.countdown !== false; $('thanksIconT').checked = view.thanksIcon !== false; document.body.classList.toggle('nothanks', view.thanksIcon === false);
   $('gapBuildT').checked = view.gapBuild !== false; $('statsLiveT').checked = view.statsLive !== false; $('compactT').checked = view.compactLanes !== false;
@@ -5137,7 +5325,7 @@ function applyView(o){
   if (o.filters) { const f = o.filters, def = DEFAULT_FILTERS(); Object.assign(F, def, f, {fields:new Set(f.fields || FKEYS)}); }
   hidden.clear(); (o.hidden || []).forEach(t => { const it = items.find(x => x.uid === t || x.t === t); if (it) hidden.add(it.id); });
   if (o.title) { Object.assign(titleCfg, o.title); applyTitle(); }
-  if (o.ticker) { Object.assign(tick, o.ticker); applyTicker(); }
+  if (o.ticker) { Object.assign(tick, o.ticker); applyTicker(); buildTicker(); }
   if (o.musicVolume != null) { mus.vol = o.musicVolume; music.volume = mus.vol; $('muVol').value = mus.vol; $('muVolV').textContent = Math.round(mus.vol * 100) + '%'; }
   if (o.camera) camGoal = {pos:new THREE.Vector3().fromArray(o.camera.pos), target:new THREE.Vector3().fromArray(o.camera.target)};
   if (o.view && o.view.musicOn === false) music.pause();
@@ -5203,7 +5391,7 @@ function ensureField(name){
 function makeLabel(it){
   const el = document.createElement('div'); el.className = 'lbl';
   el.innerHTML = `${it.uni ? '<span class="uni">🎓</span>' : ''}${it.aud ? iconHtml(it.icon, it.iconImg) + ' ' : ''}<b>${it.t}</b>`; el.style.color = itemHex(it);
-  labelLayer.appendChild(el); it.labelEl = el;
+  labelLayer.appendChild(el); it.labelEl = el; el._it = it;
 }
 function fillAudFields(){
   const cur = $('audField').value;
@@ -5389,9 +5577,18 @@ setInterval(() => {
 ['vid1','vid2'].forEach(id => {
   const v = $(id), msg = $(id + 'msg');
   v.addEventListener('ended', () => { v.currentTime = 0; v.play().catch(() => {}); });
-  v.addEventListener('stalled', () => { if (layout[id] && layout[id].open) setTimeout(() => { if (v.readyState < 3) { v.load(); v.play().catch(() => {}); } }, 3000); });
-  v.addEventListener('error', () => msg.classList.add('on'));
-  v.addEventListener('loadeddata', () => msg.classList.remove('on'));
+  v.addEventListener('stalled', () => { if (layout[id] && layout[id].open && !v._stallT) v._stallT = setTimeout(() => { v._stallT = 0; if (v.readyState < 2 && !v.paused) v.play().catch(() => {}); }, 8000); });
+  // A playback error is usually temporary (a network hiccup on a larger file): check the file exists and retry before asking for it
+  v.addEventListener('error', () => {
+    const src = v.getAttribute('src') || '', tries = (v._tries = (v._tries || 0) + 1), code = v.error ? v.error.code : 0;
+    const give = why => { msg.classList.add('on'); msg.title = `Video ${why} (attempt ${tries}).`; };
+    if (!src || src.startsWith('blob:')) return give(`error ${code}`);
+    fetch(src, {method:'HEAD', cache:'no-store'}).then(r => {
+      if (r.ok && tries <= 4) setTimeout(() => { v.load(); if (layout[id] && layout[id].open) v.play().catch(() => {}); }, 1500 * tries);
+      else give(r.ok ? `error ${code}` : `not found (${r.status})`);
+    }).catch(() => { if (tries <= 4) setTimeout(() => { v.load(); }, 2000 * tries); else give('could not be reached'); });
+  });
+  v.addEventListener('loadeddata', () => { msg.classList.remove('on'); v._tries = 0; });
   msg.querySelector('input').addEventListener('change', e => {
     const f = e.target.files && e.target.files[0]; if (!f) return;
     v.src = URL.createObjectURL(f); msg.classList.remove('on'); v.load(); syncVideos();
@@ -5427,7 +5624,8 @@ $('verLine').textContent = `App version ${APP_VERSION}. Data revision ${DB.meta.
 $('discX').onclick = () => $('disc').classList.add('gone');
 $('discAbout').onclick = () => { $('disc').classList.add('gone'); $('about').classList.add('open'); };
 setTimeout(() => $('disc').classList.add('gone'), 12000);
-buildFieldList(); fillAudFields(); refresh(); syncChgUI(); applyChangeFlags(); renderChanges(); syncPlayRangeUI(); applyLite(); applyHeader(); computeLaneLayout(); applyLanes(true); applyColours(); refresh(); setAutoRotate(state.autoRotate); syncVideos(); applyTitle(); applyTicker(); syncMusic();
+buildFieldList(); fillAudFields(); refresh(); syncChgUI(); applyChangeFlags(); renderChanges(); syncPlayRangeUI(); buildTicker(); attachHelp(); buildFaq(); syncPanels();
+[['title', 'titleCfgBtn'], ['ticker', 'tickCfgBtn']].forEach(([w, b]) => { const h = wins[w].querySelector('.wh'), btn = $(b); if (h && btn) { h.insertBefore(btn, h.querySelector('button')); btn.classList.add('inhead'); } }); applyLite(); applyHeader(); computeLaneLayout(); applyLanes(true); applyColours(); refresh(); setAutoRotate(state.autoRotate); syncVideos(); applyTitle(); applyTicker(); syncMusic();
 function startMusicIfWanted(){
   if (!view.musicOn || !music.paused) return;
   const pr = music.play();
