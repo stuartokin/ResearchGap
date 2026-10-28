@@ -22,7 +22,7 @@ REVIEW = {'name': 'submit_review', 'description': 'Submit the review of each rec
     'id': {'type': 'string'}, 'verdict': {'enum': ['ok', 'correct', 'dispute']}, 'reason': {'type': 'string'},
     'corrections': {'type': 'array', 'items': CORR},
     'adoption_estimate': {'type': 'object', 'properties': {'year': {'type': 'integer'}, 'what': {'type': 'string'}, 'confidence': {'enum': ['high', 'medium', 'low']}}, 'description': 'Only for landed records with no adoption year: when it reached mainstream use'},
-    'classification': {'type': 'object', 'properties': {'field': {'type': 'string'}, 'region': {'enum': ['uk', 'us', 'europe', 'asia', 'other', 'global']}, 'tags': {'type': 'array', 'items': {'type': 'string'}}, 'desnz': {'enum': ['opt', 'asset', 'demand', 'rd', 'gov', 'none']}, 'major': {'type': 'boolean'},
+    'classification': {'type': 'object', 'properties': {'field': {'type': 'string'}, 'subfield': {'type': 'string'}, 'region': {'enum': ['uk', 'us', 'europe', 'asia', 'other', 'global']}, 'tags': {'type': 'array', 'items': {'type': 'string'}}, 'desnz': {'enum': ['opt', 'asset', 'demand', 'rd', 'gov', 'none']}, 'major': {'type': 'boolean'},
       'confidence': {'enum': ['high', 'medium', 'low']}, 'reason': {'type': 'string'}}},
     're_estimate_year': {'type': 'integer', 'description': 'For an outlook whose year has passed and has not landed: a new estimated year'}}}}}}}
 PENDING_TOOL = {'name': 'submit_decisions', 'description': 'Decide on each candidate.', 'input_schema': {'type': 'object', 'required': ['decisions'], 'properties': {'decisions': {'type': 'array', 'items': {
@@ -89,7 +89,7 @@ def run():
                   f"For any record marked outlook_year_passed, find out whether it has now landed (give the change year with an evidence quote) or give re_estimate_year (no later than {horizon}). "
                   f"Where a record has no working source, find one and add it with path add_ref and an evidence quote mentioning it; this is a priority. "
                   f"{db['meta'].get('adoptionDefinition', '')} If a landed record has no adoption year, give adoption_estimate; if you find a source stating when it reached mainstream use, propose path adoption.year with an evidence quote. "
-                  f"If region is unknown give classification.region (uk, us, europe, asia, other, global). If tags are empty give classification.tags from: {', '.join(db.get('tagVocabulary', []))}.\n{json.dumps(brief, ensure_ascii=False)}")
+                  f"If region is unknown give classification.region (uk, us, europe, asia, other, global). Check the sub-field and give classification.subfield if it is wrong (sub-fields per field: {'; '.join(f['id'] + ': ' + ', '.join(x['id'] for x in f.get('subfields', [])) for f in db['fields'])}). If tags are empty give classification.tags from: {', '.join(db.get('tagVocabulary', []))}.\n{json.dumps(brief, ensure_ascii=False)}")
         out = call_claude(SYSTEM, prompt, REVIEW, max_searches=min(10, cfg['searchesPerReview'] * len(group))) or {'reviews': []}
         byid = {m['id']: m for m in group}
         for rv in out.get('reviews', []):
@@ -107,12 +107,17 @@ def run():
             cl = rv.get('classification') or {}
             if cl.get('confidence') == 'high' and cl.get('region') in ('uk', 'us', 'europe', 'asia', 'other', 'global') and m.get('region', 'unknown') == 'unknown':
                 m['region'] = cl['region']; corrected.append(f"{m['id']}: region → {cl['region']}")
+            subs_ok = [x['id'] for f in db['fields'] if f['id'] == m['field'] for x in f.get('subfields', [])]
+            if cl.get('confidence') == 'high' and cl.get('subfield') in subs_ok and cl['subfield'] != m.get('subfield'):
+                corrected.append(f"{m['id']}: sub-field {m.get('subfield')} → {cl['subfield']}"); m['subfield'] = cl['subfield']
             if cl.get('confidence') == 'high' and cl.get('tags') and not m.get('tags'):
                 tg = [t for t in cl['tags'] if t in db.get('tagVocabulary', [])][:4]
                 if tg: m['tags'] = tg; corrected.append(f"{m['id']}: tags added")
             if cl.get('confidence') == 'high' and budget > 0:
                 if cl.get('field') in fields and cl['field'] != m['field']:
                     corrected.append(f"{m['id']}: field {m['field']} → {cl['field']}"); m['field'] = cl['field']; budget -= 1
+                    subs_new = [x['id'] for f in db['fields'] if f['id'] == m['field'] for x in f.get('subfields', [])]
+                    if subs_new and m.get('subfield') not in subs_new: m['subfield'] = cl.get('subfield') if cl.get('subfield') in subs_new else subs_new[-1]
                 if 'desnz' in cl and (cl['desnz'] or 'none') != (m.get('desnz') or 'none'):
                     if cl['desnz'] == 'none': m.pop('desnz', None)
                     else: m['desnz'] = cl['desnz']

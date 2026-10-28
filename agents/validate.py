@@ -41,6 +41,8 @@ def main(path='data/data.json'):
             if m['status'] == 'in-lab': errors.append(f'{mid}: in-lab milestone cannot have an adoption year')
             elif ad['year'] < p: errors.append(f"{mid}: adoption {ad['year']} before first product {p}")
             elif ad['year'] > horizon: errors.append(f"{mid}: adoption {ad['year']} beyond the horizon {horizon}")
+        subs = {x['id'] for f in db['fields'] if f['id'] == m['field'] for x in f.get('subfields', [])}
+        if m.get('subfield') and subs and m['subfield'] not in subs: errors.append(f"{mid}: sub-field {m['subfield']} is not defined for {m['field']}")
         if m.get('tags') and db.get('tagVocabulary') and any(t not in db['tagVocabulary'] for t in m['tags']): errors.append(f'{mid}: tag outside the vocabulary')
         if m['status'] == 'in-lab' and p <= horizon: warnings.append(f'{mid}: in-lab target {p} falls inside the horizon')
         if m['provenance']['verification'] == 'source-cited' and not any((x.get('url') for x in m.get('refs', []) + ([m['basis']] if m.get('basis') else []))):

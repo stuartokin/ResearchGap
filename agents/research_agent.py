@@ -30,6 +30,7 @@ SUBMIT = {
         'company': {'type': 'string'},
         'desnz': {'enum': ['opt', 'asset', 'demand', 'rd', 'gov', 'none'], 'description': 'DESNZ AI energy vision area if clearly relevant to energy, else none'},
         'ai_driven': {'type': 'boolean'},
+        'subfield': {'type': 'string', 'description': 'Sub-field id chosen from the list given for this field'},
         'region': {'enum': ['uk', 'us', 'europe', 'asia', 'other', 'global'], 'description': 'Where the research began: uk, us, europe (rest of Europe), asia, other (rest of world) or global (many countries)'},
         'tags': {'type': 'array', 'maxItems': 4, 'items': {'type': 'string'}, 'description': 'Topic tags chosen only from the provided vocabulary'},
         'is_policy': {'type': 'boolean', 'description': 'True if the change is a law, regulation or mandate taking effect rather than a product or deployment'},
@@ -51,6 +52,8 @@ def run():
         existing = [m['title'] for m in db['milestones']]   # every field, so cross-field duplicates are visible
         field_guide = '; '.join(f"{x['id']}: {x['name']}" for x in db['fields'])
         vocab = ', '.join(db.get('tagVocabulary', []))
+        subs = f.get('subfields', []); sub_ids = [x['id'] for x in subs]
+        sub_guide = '; '.join(f"{x['id']}: {x['name']}" for x in subs)
         system = ('You are a careful research analyst maintaining a dataset of how long research takes to become real-world change. '
                   'A milestone needs a research origin (first credible publication, patent or demonstration) and a change '
                   '(first commercial sale, operational deployment, or binding rule taking effect).')
@@ -62,7 +65,7 @@ def run():
                   f"Search for announcements in roughly the last {cfg['lookbackDays']} days of: a research breakthrough reaching its first real-world use, "
                   f"a significant new product with a traceable research origin, or a binding rule that requires a specific technology. Today is {TODAY}.\n"
                   f"Only include items that are significant and verifiable from at least two independent sources. Outlook items need a published target year no later than {horizon}.\n"
-                  f"Topic tags must come from this list: {vocab}. Give the region where the research began.\n"
+                  f"Topic tags must come from this list: {vocab}. Give the region where the research began. Sub-field must be one of: {sub_guide}.\n"
                   f"These milestones already exist in any field; do not propose them or close variants of them: {json.dumps(existing, ensure_ascii=False)}\n"
                   f"Return at most {cfg['maxProposalsPerField']} candidates via submit_candidates. Return an empty list if nothing qualifies.")
         out = call_claude(system, prompt, SUBMIT, max_searches=cfg['searchesPerField']) or {'candidates': []}
@@ -79,6 +82,7 @@ def run():
               **({'desnz': c['desnz']} if c.get('desnz') and c['desnz'] != 'none' else {}),
               **({'flags': {k: True for k, v in (('aiDriven', c.get('ai_driven')), ('policy', c.get('is_policy'))) if v}} if (c.get('ai_driven') or c.get('is_policy')) else {}),
               'refs': [{'label': s['label'][:200], 'url': s['url'], 'status': 'ok', 'checked': TODAY} for s in c['sources'][:4]],
+              'subfield': c.get('subfield') if c.get('subfield') in sub_ids else (sub_ids[-1] if sub_ids else None),
               **({'region': c['region']} if c.get('region') in ('uk', 'us', 'europe', 'asia', 'other', 'global') else {'region': 'unknown'}),
               **({'tags': [t for t in c.get('tags', []) if t in db.get('tagVocabulary', [])][:4]} if any(t in db.get('tagVocabulary', []) for t in c.get('tags', [])) else {}),
               'evidence_terms': c['evidence_terms'][:6], 'proposed': TODAY, 'attempts': 0
