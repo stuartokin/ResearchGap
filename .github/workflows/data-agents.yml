@@ -91,3 +91,12 @@ jobs:
           python tools/digest.py > digest.md
           gh label create data-update --color 5FD8FF --description "Weekly data agent digest" --force || true
           gh issue create --title "Data revision ${{ steps.publish.outputs.rev }}: $(head -1 digest.md | tr -d '*')" --body-file digest.md --label data-update
+
+      - name: Monthly DESNZ vision digest (with the deep audit)
+        if: steps.publish.outputs.published == '1' && env.QA_DEEP == '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python tools/digest.py --desnz > desnz.md
+          gh label create desnz --color F2D38A --description "Monthly DESNZ vision digest" --force || true
+          gh issue create --title "DESNZ vision monthly: $(date -u +%B\ %Y)" --body-file desnz.md --label desnz
