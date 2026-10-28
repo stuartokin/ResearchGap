@@ -4,6 +4,14 @@ An interactive 3D model of how long research takes to become real-world change, 
 
 *A personal project by Stuart Okin, not affiliated with or endorsed by any employer. The data is maintained by AI agents without human review and may contain errors. Outlook years are AI estimates, not forecasts.*
 
+## How this works, in plain English
+
+- **What you are looking at.** Each arc is one breakthrough: it rises when the research began and lands when it first reached real-world use. A second, thinner arc carries on to mainstream adoption. The height of an arc is the gap in years.
+- **Where the data comes from.** Two AI agents run every week. One searches for new breakthroughs and products in each field. The other independently checks them, and re-checks older records, before anything is published.
+- **How errors are kept out without a human reviewer.** New items need two independent sources that the code fetches and reads itself. A correction is only applied if its quoted evidence really appears on the source page. Nothing is ever deleted, every change is logged and can be undone, and each record shows whether it is source-cited, AI-compiled or an AI estimate.
+- **What it cannot tell you.** It only contains ideas that succeeded, dates are often approximate, and outlook years are estimates, not forecasts.
+- **Licences.** Code: MIT (`LICENSE`). Data: CC BY 4.0 (`DATA-LICENSE.md`). Third-party components: `ATTRIBUTION.md`.
+
 ## How it fits together
 
 | Path | What it is |
@@ -12,6 +20,8 @@ An interactive 3D model of how long research takes to become real-world change, 
 | `data/data.json` | The dataset: milestones, founders, events, outlook assumptions and default settings. The single source of truth. |
 | `data/schema.json` | The formal definition of valid data, used as a publishing gate. |
 | `data/pending.json` | Candidates found by the research agent, awaiting independent QA. |
+| `requirements.txt` | Fixed versions of the Python packages the agents use. |
+| `tools/digest.py` | Writes the weekly digest issue. |
 | `views/*.json` | Your own overlays: layout, settings, titles and ideas. Open with `index.html?view=views/name.json`. |
 | `agents/` | The research agent, the QA agent, shared guardrails and limits (`config.json`). |
 | `tools/` | `validate.py` (schema and data rules), `change_guard.py`, `build.py` (embeds the data snapshot), `smoke_test.py`. |
@@ -27,6 +37,9 @@ Every Monday at 06:00 UTC (or on demand from the Actions tab):
 2. **QA agent** independently confirms or rejects each candidate, then audits a rotating batch of 40 existing records: links, dates, descriptions, field, DESNZ vision area and major-milestone status. It re-checks outlook items whose year has passed.
 3. **Gates**: schema and data rules, a change guard, a rebuild, and a headless browser test.
 4. **Publish**: only if every gate passes, the new data is committed and tagged (`data-r2`, `data-r3`, …). GitHub Pages then serves it.
+5. **Digest**: a GitHub issue summarises the run, which also emails you.
+
+On the first Monday of each month (or when you tick *deep* on a manual run) the QA agent uses the stronger model and a bigger batch. To see estimated costs in the app, add your model prices under `pricing` in `agents/config.json`; the Claude Console always shows the exact charge.
 
 ### Guardrails (enforced in code, not left to the model)
 
