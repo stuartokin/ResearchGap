@@ -46,7 +46,18 @@ button,input,select{font:inherit;color:inherit}
 .btn.primary{background:rgba(233,242,255,.92);color:#0A1622;border-color:transparent}
 .btn.primary:hover{background:#fff}
 .btn[aria-pressed="false"]{color:var(--muted)}
-#winMenu{position:fixed;top:60px;right:16px;overflow:auto;max-height:calc(100vh - 80px);width:250px;background:var(--panel-solid);border:1px solid var(--line-strong);border-radius:12px;padding:6px;display:none;z-index:1600;box-shadow:0 18px 40px rgba(0,0,0,.4);max-height:calc(100vh - 90px);overflow:auto}
+#winMenu .wmh{display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin:6px 8px 4px}
+#winMenu .wmall{all:unset;cursor:pointer;font-size:11px;color:#A8D8FF;text-transform:none;letter-spacing:0}
+#winMenu .wmpre{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin:0 4px 6px}
+#winMenu .wmpre button{display:block;text-align:left;padding:7px 9px;border:1px solid var(--line);border-radius:8px;white-space:normal;line-height:1.25}
+#winMenu .wmpre button b{display:block;font-weight:600}
+#winMenu .wmpre button span{display:block;font-size:11px;color:var(--faint)}
+#winMenu .wmpre button.cur{border-color:#FFD166;background:rgba(255,209,102,.1)}
+#winMenu .wmg{display:flex;align-items:center;gap:6px;width:100%;font-weight:600}
+#winMenu .wmg .car{width:1em;color:var(--muted)}
+#winMenu .wmg .cnt{margin-left:auto;font-weight:400;font-size:11px;color:var(--faint)}
+#winMenu .wmitems{padding-left:14px;border-left:1px solid var(--line);margin:0 0 4px 12px}
+#winMenu{min-width:300px;position:fixed;top:60px;right:16px;overflow:auto;max-height:calc(100vh - 80px);width:250px;background:var(--panel-solid);border:1px solid var(--line-strong);border-radius:12px;padding:6px;display:none;z-index:1600;box-shadow:0 18px 40px rgba(0,0,0,.4);max-height:calc(100vh - 90px);overflow:auto}
 #winMenu.open{display:block}
 #winMenu button{display:flex;width:100%;align-items:center;gap:10px;background:none;border:0;padding:8px 10px;border-radius:8px;cursor:pointer;font-size:14px;text-align:left}
 #winMenu button:hover{background:rgba(255,255,255,.05)}
@@ -3020,12 +3031,13 @@ const FORTUNES = DB.founders.map(f => {
   const x = {fid:f.id, n:f.names, co:f.company, v:f.field, f:f.founded, w:f.fortuneYear, how:f.how, c:f.confidence};
   if (f.research) x.ac = f.research === 'university' ? 'uni' : 'lab';
   if (f.prize) x.prize = f.prize;
-  if (f.netWorth) { x.nw = f.netWorth.usdBn; x.nwWho = f.netWorth.who; x.nwBasis = f.netWorth.basis + (f.netWorth.asOf ? ', as of ' + f.netWorth.asOf : ''); }
+  if (f.netWorth) { x.nw = f.netWorth.usdBn; x.nwWho = f.netWorth.who; x.nwAsOf = f.netWorth.asOf; x.nwBasis = f.netWorth.basis + (f.netWorth.asOf ? ', as of ' + f.netWorth.asOf : '') + (f.netWorth.source && f.netWorth.source.label && f.netWorth.source.label !== f.netWorth.basis ? ` (${f.netWorth.source.label})` : ''); }
+  x.checked = f.provenance && f.provenance.lastChecked; x.fver = f.provenance ? f.provenance.verification : 'ai-compiled';
   return x;
 });
 const fmtMoney = (bn, sym) => bn >= 1000 ? `${sym}${(bn / 1000).toFixed(1)}tn` : bn >= 1 ? `${sym}${bn >= 100 ? Math.round(bn) : Math.round(bn * 10) / 10}bn` : `${sym}${Math.round(bn * 1000)}m`;
 const DATA_AS_OF = DB.meta.asOf;
-const APP_VERSION = '8.6', APP_BUILD = '';
+const APP_VERSION = '8.7', APP_BUILD = '';
 // Screen-aware scaling: laptops slightly smaller, large screens larger
 const UI = (() => { const w = innerWidth; return w < 1280 ? .85 : w < 1500 ? .95 : w < 1800 ? 1.05 : w < 2300 ? 1.2 : 1.4; })();
 const LARGE = innerWidth >= 1700;
@@ -3061,7 +3073,7 @@ const DEFAULT_FILTERS = () => ({
 });
 const F = DEFAULT_FILTERS();
 const hidden = new Set();
-const view = {subLanes:true, adoption:true, palette:'standard', conclusion:true, playFrom:null, playTo:null, gapMetric:'first', statsRows:'src', statsRange:true, markSmall:true, smallN:5, survival:true, keepWinPos:true, fitOnLoad:true, chgFlag:'all', chgScope:'all', chgSince:'30', chgAnnounce:true, countdown:true, thanksIcon:true, majBright:true, uniHi:true, audSpot:true, audPause:true, statsBy:'landed', statsLive:true, gapBuild:true, compactLanes:true, fortSort:'year', musicOn:false, loopPlay:true, fortHi:true, fortOnly:false, laneFollow:true, camTravel:true, fadeLanded:true, keepYears:5, revealEnd:true, labelPlay:'until', labelScope:'all', labelMax:14, labelLinger:2, labels:'follow', lfs:LARGE ? 18 : 15, lanes:'v', colour:'v', pulses:true, trend:true, floor:true, rotSpeed:0.35, glow:0.75};
+const view = {preset:'explore', menuGroups:{}, subLanes:true, adoption:true, palette:'standard', conclusion:true, playFrom:null, playTo:null, gapMetric:'first', statsRows:'src', statsRange:true, markSmall:true, smallN:5, survival:true, keepWinPos:true, fitOnLoad:true, chgFlag:'all', chgScope:'all', chgSince:'30', chgAnnounce:true, countdown:true, thanksIcon:true, majBright:true, uniHi:true, audSpot:true, audPause:true, statsBy:'landed', statsLive:true, gapBuild:true, compactLanes:true, fortSort:'year', musicOn:false, loopPlay:true, fortHi:true, fortOnly:false, laneFollow:true, camTravel:true, fadeLanded:true, keepYears:5, revealEnd:true, labelPlay:'until', labelScope:'all', labelMax:14, labelLinger:2, labels:'follow', lfs:LARGE ? 18 : 15, lanes:'v', colour:'v', pulses:true, trend:true, floor:true, rotSpeed:0.35, glow:0.75};
 Object.assign(view, store.get('sg.view.v2', {}));
 if (MOBILE) Object.assign(view, {lite:true, labels:'peak', labelScope:'major', labelMax:6, lfs:12, camTravel:false, fadeLanded:false, pulses:true, glow:0});
 const state = {playing:false, cursor:Y1, autoRotate:!reduced && !(MOBILE && innerWidth < innerHeight)};
@@ -3489,7 +3501,7 @@ function playLayout(){
   Object.assign(d.landing, {y:top + ch + 14, h:tot - ch - 14});
   return d;
 }
-let layout = Object.assign(defaultLayout(), store.get('sg.layout.v4', {}));
+let layout = Object.assign(arrangeLayout('explore'), store.get('sg.layout.v4', {}));
 let zTop = 20;
 const wins = {};
 function saveLayout(){ store.set('sg.layout.v4', layout); }
@@ -3559,22 +3571,129 @@ if (window.ResizeObserver) {
   WIN_IDS.forEach(id => ro.observe(wins[id]));
 }
 const winMenu = $('winMenu');
+/* ==================================================================
+ *  ARRANGEMENTS: five presets that adapt to phone, tablet, laptop and large screens without overlapping
+ * ================================================================== */
+function screenClass(){ const W = innerWidth; return MOBILE ? 'phone' : (W < 1180 || (matchMedia('(pointer: coarse)').matches && W < 1400)) ? 'tablet' : W < 1700 ? 'laptop' : 'large'; }
+function arrangeLayout(name){
+  const d = defaultLayout(), W = innerWidth, H = innerHeight, g = 12, cls = screenClass();
+  WIN_IDS.forEach(id => { d[id].open = false; d[id].sw = W; d[id].sh = H; });
+  d.toolbar.open = true; d.footer.open = cls !== 'phone'; d.pagetitle.open = cls !== 'phone';
+  const top = Math.max(d.pagetitle.open ? d.pagetitle.y + d.pagetitle.h : 0, d.toolbar.y + d.toolbar.h) + g;
+  let bot = (d.footer.open ? d.footer.y : H) - g;
+  const set = (id, x, y, w, h, open = true) => Object.assign(d[id], {x:Math.round(x), y:Math.round(y), w:Math.round(w), h:Math.round(h), open});
+  const stack = (ids, x, w, y0, y1, fr, opens) => { const tot = y1 - y0 - g * (ids.length - 1); let y = y0; ids.forEach((id, i) => { const h = tot * fr[i]; set(id, x, y, w, h, opens ? opens[i] : true); y += h + g; }); };
+  const L = cls === 'large' ? Math.min(460, W * .24) : cls === 'laptop' ? Math.min(360, W * .25) : Math.min(320, W * .32);
+  const Rw = cls === 'large' ? Math.min(560, W * .28) : cls === 'laptop' ? Math.min(400, W * .28) : Math.min(340, W * .36);
+  const xL = 12, xR = W - Rw - 12, xC = xL + L + g, wC = xR - g - xC, ph = d.player.h;
+  const pw = Math.min(d.player.w, Math.max(300, wC));
+  if (name === 'wait') {
+    const th = d.ticker.h;
+    if (cls === 'phone') {
+      set('ticker', 6, H - th - 8, W - 12, th);
+      if (W > H) {   // landscape phone: video and Play side by side above the ticker
+        const hw = (W - 18) / 2, vh = Math.min(hw * 9 / 16 + 34, H - th - top - 20);
+        const tbBottom = wins.toolbar ? Math.max(top, wins.toolbar.getBoundingClientRect().bottom + 8) : top, ph2 = Math.min(ph, H - th - 16 - tbBottom);
+        set('vid1', 6, tbBottom, Math.min(hw, (Math.min(vh, H - th - 16 - tbBottom) - 34) * 16 / 9), Math.min(vh, H - th - 16 - tbBottom)); set('player', 12 + hw, H - th - 8 - ph2 - 8, hw, ph2);
+      } else {
+        set('player', 6, H - th - 16 - ph, W - 12, ph);
+        set('vid1', 6, top, W - 12, Math.min((W - 12) * 9 / 16 + 34, H - th - ph - top - 30));
+      }
+    } else {
+      set('ticker', 12, bot - th, W - 24, th); bot -= th + g;
+      const vmax = cls === 'tablet' ? Math.min(W * .34, 360) : cls === 'laptop' ? Math.min(W * .25, 420) : Math.min(W * .23, 540);
+      let vh = vmax * 9 / 16 + 34; if (2 * vh + g > bot - top) vh = (bot - top - g) / 2;
+      const vw = Math.min(vmax, (vh - 34) * 16 / 9);
+      set('vid1', W - vw - 12, top, vw, vh); set('vid2', W - vw - 12, top + vh + g, vw, vh);
+      const cx0 = cls === 'tablet' ? 12 : xC, cw = W - vw - 24 - g - cx0;
+      if (cls !== 'tablet') stack(['landing'], xL, L, top, bot, [1]);
+      const tw = Math.min(cw, d.title.w); set('title', cx0 + (cw - tw) / 2, top, tw, d.title.h);
+      const pwi = Math.min(d.player.w, cw); set('player', cx0 + (cw - pwi) / 2, bot - ph, pwi, ph);
+    }
+  } else if (name === 'play') {
+    if (cls === 'phone') set('player', 6, H - ph - 8, W - 12, ph);
+    else {
+      if (cls === 'tablet') { stack(['landing'], xL, L, top, bot, [1]); stack(['gapchart'], xR, Rw, top, bot, [1]); }
+      else { stack(['context', 'landing'], xL, L, top, bot, [.38, .62]); stack(['gapchart', 'fortunes'], xR, Rw, top, bot, [.45, .55]); }
+      set('player', xC + (wC - Math.min(pw, wC)) / 2, bot - ph, Math.min(pw, wC), ph);
+    }
+  } else if (name === 'analysis') {
+    if (cls === 'phone') set('findings', 6, top, W - 12, H - top - 8);
+    else if (cls === 'tablet') { const cw = (W - 24 - g) / 2; stack(['summary'], 12, cw, top, bot, [1]); stack(['gapchart', 'outlook'], 12 + cw + g, cw, top, bot, [.5, .5]); }
+    else { const cw = (W - 24 - 2 * g) / 3; stack(['findings'], 12, cw, top, bot, [1]); stack(['summary'], 12 + cw + g, cw, top, bot, [1]); stack(['gapchart', 'outlook'], 12 + 2 * (cw + g), cw, top, bot, [.5, .5]); }
+  } else if (name === 'desnz') {
+    if (cls === 'phone') set('vision', 6, top, W - 12, H - top - 8);
+    else {
+      const vw = cls === 'tablet' ? (W - 24 - g) * .55 : Math.min(620, W * .34), xr = 12 + vw + g, wr = cls === 'tablet' ? W - xr - 12 : Rw, xrr = cls === 'tablet' ? xr : W - wr - 12;
+      stack(['vision'], 12, vw, top, bot, [1]);
+      stack(['outlook', 'changes'], xrr, wr, top, bot, [.5, .5]);
+      if (cls !== 'tablet') { const x0 = xr, w0 = Math.min(460, xrr - g - x0), h0 = Math.min(380, (bot - top) * .5); set('details', x0 + (xrr - g - x0 - w0) / 2, bot - h0, w0, h0, false); }
+    }
+  } else {   // exploring (the default)
+    if (cls === 'phone') set('findings', 6, top, W - 12, Math.min(H - top - 8, H * .62));
+    else {
+      stack(['filters'], xL, L, top, bot, [1]);
+      if (cls === 'tablet') { stack(['findings'], xR, Rw, top, bot, [1]); set('details', xR, top, Rw, bot - top, false); }
+      else stack(['findings', 'details'], xR, Rw, top, bot, [.42, .58], [true, false]);
+      set('player', xC + (wC - Math.min(pw, wC)) / 2, bot - ph, Math.min(pw, wC), ph, false);
+    }
+  }
+  return d;
+}
+function applyPreset(name){
+  const wasDesnz = view.preset === 'desnz';
+  view.preset = name;
+  layout = arrangeLayout(name); WIN_IDS.forEach(placeWin); saveLayout(); syncVideos();
+  if (name === 'desnz') { F.vision = true; view.chgScope = 'desnz'; $('chgDesnzT').checked = true; syncChgUI(); applyChangeFlags(); refresh(); renderChanges(); }
+  else if (wasDesnz) { F.vision = false; view.chgScope = 'all'; $('chgDesnzT').checked = false; syncChgUI(); applyChangeFlags(); refresh(); renderChanges(); }
+  if (name === 'wait') { view.loopPlay = true; syncDisplayUI(); if (!state.playing) { cancelCountdown(); startPlay(); } setAutoRotate(true); }
+  if (name === 'play') updateTimeWindows(true);
+  buildWinMenu();
+}
+/* ==================================================================
+ *  WINDOWS MENU: arrangements, then windows in collapsible groups
+ * ================================================================== */
+const WIN_GROUPS = [
+  ['present', 'Presenting', ['toolbar', 'footer', 'pagetitle', 'title', 'ticker', 'player', 'music', 'vid1', 'vid2']],
+  ['insight', 'Insights', ['findings', 'summary', 'gapchart', 'outlook', 'fortunes', 'vision']],
+  ['explore', 'Explore', ['filters', 'display', 'milestones', 'details', 'table', 'key', 'context', 'landing', 'sources']],
+  ['data', 'Data and agents', ['changes', 'quality', 'audience']],
+  ['share', 'Share and export', ['report']]
+];
+const PRESETS = [['explore', 'Exploring', 'The default: filters and key findings'], ['play', 'Play the century', 'Timeline windows around the model'], ['wait', 'Waiting (kiosk)', 'Both videos, joke ticker, plays on a loop'], ['analysis', 'Analysis', 'Findings, summary and charts side by side'], ['desnz', 'DESNZ AI vision', 'Vision areas, outlook and data changes']];
 function buildWinMenu(){
-  winMenu.innerHTML = WIN_IDS.map(id => `<button data-w="${id}"><span class="tick ${layout[id].open ? 'on' : ''}">${layout[id].open ? '✓' : ''}</span>${WIN_NAMES[id]}</button>`).join('') +
-    `<hr><button data-w="__wait">Arrange for waiting (both videos)</button><button data-w="__play">Arrange for Play the century</button><button data-w="__reset">Arrange for exploring (default)</button><button data-w="__all">Open all windows</button><button data-w="__link">Copy a link to this view</button><hr><button data-w="__save">Save this view to a file…</button><button data-w="__load">Load a view from a file…</button>` +
-    `<small>Saved views remember open windows, positions, text sizes, filters, display settings, title, ticker and camera. Open one directly with index.html?view=yourfile.json. Drag a title bar to move, drag the bottom-right corner to resize, A− and A+ change text size. Double-click a title bar to restore its default place.</small>`;
+  view.menuGroups = view.menuGroups || {};
+  const item = id => `<button data-w="${id}"><span class="tick ${layout[id].open ? 'on' : ''}">${layout[id].open ? '✓' : ''}</span>${WIN_NAMES[id]}</button>`;
+  let h = '<div class="wmh">Arrange for</div><div class="wmpre">' + PRESETS.map(([k, n, t]) => `<button data-w="__p_${k}" class="${view.preset === k ? 'cur' : ''}" title="${t}"><b>${n}</b><span>${t}</span></button>`).join('') + '</div>';
+  const any = WIN_GROUPS.some(([g]) => view.menuGroups[g]);
+  h += `<div class="wmh">Windows<button class="wmall" data-x="all">${any ? 'Collapse all' : 'Expand all'}</button></div>`;
+  const listed = new Set(), groups = WIN_GROUPS.map(x => [x[0], x[1], x[2].filter(id => WIN_IDS.includes(id))]);
+  groups.forEach(([, , ids]) => ids.forEach(id => listed.add(id)));
+  const rest = WIN_IDS.filter(id => !listed.has(id)); if (rest.length) groups.push(['other', 'Other', rest]);
+  groups.forEach(([g, name, ids]) => {
+    const open = ids.filter(id => layout[id].open).length, ex = !!view.menuGroups[g];
+    h += `<button class="wmg" data-g="${g}" aria-expanded="${ex}"><span class="car">${ex ? '▾' : '▸'}</span>${name}<span class="cnt">${open} of ${ids.length} open</span></button>`;
+    if (ex) h += '<div class="wmitems">' + ids.map(item).join('') + '</div>';
+  });
+  h += '<hr><button data-w="__all">Open all windows</button><button data-w="__link">Copy a link to this view</button><button data-w="__save">Save this view to a file…</button><button data-w="__load">Load a view from a file…</button>' +
+    '<small>Saved views remember windows, positions, text sizes, filters and display settings. Open one with index.html?view=yourfile.json. Drag a title bar to move a window, its corner to resize, A− and A+ for text size; double-click a title bar to restore its place.</small>';
+  winMenu.innerHTML = h;
 }
 buildWinMenu();
 winMenu.addEventListener('click', e => {
+  e.stopPropagation();   // the menu is rebuilt on each click; keep it open
   const b = e.target.closest('button'); if (!b) return;
+  if (b.dataset.g) { view.menuGroups = view.menuGroups || {}; view.menuGroups[b.dataset.g] = !view.menuGroups[b.dataset.g]; buildWinMenu(); return; }
+  if (b.dataset.x === 'all') { const any = WIN_GROUPS.some(([g]) => view.menuGroups[g]); WIN_GROUPS.concat([['other']]).forEach(([g]) => { view.menuGroups[g] = !any; }); buildWinMenu(); return; }
   const w = b.dataset.w;
-  if (w === '__reset') { layout = defaultLayout(); WIN_IDS.forEach(placeWin); saveLayout(); buildWinMenu(); syncVideos(); }
+  if (w && w.startsWith('__p_')) { applyPreset(w.slice(4)); return; }
+  if (w === '__reset') applyPreset('explore');
   else if (w === '__title') togglePageTitle();
   else if (w === '__link') { winMenu.classList.remove('open'); copyLink(); }
   else if (w === '__save') { winMenu.classList.remove('open'); saveViewFile(); }
   else if (w === '__load') { winMenu.classList.remove('open'); $('viewFile').click(); }
-  else if (w === '__wait') { layout = waitLayout(); WIN_IDS.forEach(placeWin); saveLayout(); buildWinMenu(); syncVideos(); }
-  else if (w === '__play') { layout = playLayout(); WIN_IDS.forEach(placeWin); saveLayout(); buildWinMenu(); updateTimeWindows(true); }
+  else if (w === '__wait') applyPreset('wait');
+  else if (w === '__play') applyPreset('play');
   else if (w === '__all') { WIN_IDS.forEach(id => { layout[id].open = true; placeWin(id); }); saveLayout(); buildWinMenu(); syncVideos(); }
   else setOpen(w, !layout[w].open);
 });
@@ -4540,6 +4659,9 @@ const CHG_TYPES = {added:{label:'Added', short:'NEW', cls:'add'}, corrected:{lab
 const fieldName = k => (FIELDS[k] && FIELDS[k].name) || k;
 function parseChange(d){
   let m;
+  if ((m = d.match(/^added: founder (f-[a-z0-9-]+)/))) return {type:'added', key:m[1], founder:true, text:'New fortune added to Time to a fortune'};
+  if ((m = d.match(/^(f-[a-z0-9-]+): net worth (\S+) → ([\d.]+)/))) return {type:'corrected', key:m[1], founder:true, text:m[2] === 'none' ? `Net worth added: $${Math.round(+m[3])}bn` : `Net worth $${Math.round(+m[2])}bn → $${Math.round(+m[3])}bn`};
+  if ((m = d.match(/^(f-[a-z0-9-]+): (founded|fortuneYear) (\d{4}) → (\d{4})/))) return {type:'corrected', key:m[1], founder:true, text:`${m[2] === 'founded' ? 'Founding year' : 'Fortune year'} ${m[3]} → ${m[4]}`};
   if ((m = d.match(/^added: (.+)$/))) return {type:'added', key:m[1], text:''};
   if ((m = d.match(/^re-estimated: ([a-z0-9-]+) → (\d{4})/))) return {type:'reestimated', key:m[1], text:`Outlook year re-estimated to ${m[2]}`};
   if ((m = d.match(/^disputed: (.+)$/))) return {type:'disputed', key:m[1], text:'Marked as disputed by the QA agent'};
@@ -4561,8 +4683,8 @@ const CHANGES = [];
     const time = e.time || (lastRun.slice(0, 10) === e.date && idx === log.length - 1 ? lastRun.slice(11, 16) : '');
     (e.details || []).forEach(d => {
       const c = parseChange(d); if (!c) return;
-      const it = items.find(x => x.uid === c.key || x.t === c.key);
-      CHANGES.push(Object.assign(c, {it, title:it ? it.t : c.key, date:e.date, time, rev:e.revision || '', summary:e.summary, run:idx}));
+      const it = c.founder ? null : items.find(x => x.uid === c.key || x.t === c.key), fo = c.founder ? FORTUNES.find(x => x.fid === c.key) : null;
+      CHANGES.push(Object.assign(c, {it, fo, title:it ? it.t : fo ? `${fo.co} (${fo.n})` : c.key, date:e.date, time, rev:e.revision || '', summary:e.summary, run:idx}));
     });
   });
   CHANGES.reverse();
@@ -4622,8 +4744,8 @@ $('chgQ').addEventListener('input', renderChanges); $('chgQ').addEventListener('
 $('chgDesnzT').addEventListener('change', renderChanges);
 function chgRow(c, i){
   const ty = CHG_TYPES[c.type], it = c.it;
-  const meta = [c.text, it ? fieldName(it.v) : null, it && it.dv ? 'DESNZ: ' + VISION[it.dv] : null].filter(Boolean).join(', ');
-  return `<div class="trow chgrow" data-ci="${i}"><span class="chgb ${ty.cls}">${ty.label}</span><span>${it ? `<a href="#" data-ci="${i}">${esc(c.title)}</a>` : esc(c.title)}<em>${esc(meta)}</em></span></div>`;
+  const meta = [c.text, it ? fieldName(it.v) : c.fo ? 'Time to a fortune' : null, it && it.dv ? 'DESNZ: ' + VISION[it.dv] : null].filter(Boolean).join(', ');
+  return `<div class="trow chgrow" data-ci="${i}"><span class="chgb ${ty.cls}">${ty.label}</span><span>${it || c.fo ? `<a href="#" data-ci="${i}">${esc(c.title)}</a>` : esc(c.title)}<em>${esc(meta)}</em></span></div>`;
 }
 function renderChanges(){
   const q = $('chgQ').value.trim().toLowerCase(), desnz = $('chgDesnzT').checked;
@@ -4638,7 +4760,7 @@ function renderChanges(){
   $('chgList').innerHTML = html;
   $('chgCount').textContent = `${list.length} of ${CHANGES.length} changes`;
 }
-$('chgList').addEventListener('click', e => { const a = e.target.closest('[data-ci]'); if (!a) return; e.preventDefault(); const c = CHANGES[+a.dataset.ci]; if (c && c.it) { hidden.delete(c.it.id); openDetail(c.it); } });
+$('chgList').addEventListener('click', e => { const a = e.target.closest('[data-ci]'); if (!a) return; e.preventDefault(); const c = CHANGES[+a.dataset.ci]; if (c && c.it) { hidden.delete(c.it.id); openDetail(c.it); } else if (c && c.fo) { setOpen('fortunes', true); raise('fortunes'); } });
 /* ---------- Display settings for changes ---------- */
 function syncChgUI(){
   document.querySelectorAll('#chgFlagSeg button').forEach(b => b.setAttribute('aria-pressed', b.dataset.v === view.chgFlag));
@@ -4903,6 +5025,9 @@ function renderQuality(){
     const f = ms.filter(it => it.v === k), l = f.filter(it => it.kind === 'hist');
     return `<tr><td><i style="background:${FIELDS[k].hex}"></i>${FIELDS[k].name}</td><td>${f.length}</td><td>${Math.round(f.filter(it => it.ver === 'source-cited').length / Math.max(1, f.length) * 100)}%</td><td>${Math.round(l.filter(it => it.adopt).length / Math.max(1, l.length) * 100)}%</td></tr>`;
   }).join('') + '</table>';
+  const fw = FORTUNES.filter(x => x.nw), dates = fw.map(x => x.nwAsOf).filter(Boolean).sort();
+  html += `<h3>Time to a fortune (${FORTUNES.length} founders)</h3><div class="kbars">` + bar('Net worth source-cited', FORTUNES.filter(x => x.fver === 'source-cited').length, FORTUNES.length, '#7FD6A0') + bar('Checked by the agents', FORTUNES.filter(x => x.checked).length, FORTUNES.length, '#5FD8FF') + '</div>' +
+    `<p class="note-s">${dates.length ? `Net worths dated ${dates[0]} to ${dates[dates.length - 1]}. ` : ''}The agents refresh founders monthly, with the deep audit on the first Monday.</p>`;
   const runs = (DB.meta.changelog || []).filter(e => e.stats);
   if (runs.length) {
     const vals = runs.map(e => e.stats.sourceCited / Math.max(1, e.stats.milestones) * 100), mn = Math.min(...vals) - 2, mx = Math.max(...vals) + 2;

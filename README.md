@@ -39,6 +39,8 @@ Every Monday at 06:00 UTC (or on demand from the Actions tab):
 4. **Publish**: only if every gate passes, the new data is committed and tagged (`data-r2`, `data-r3`, …). GitHub Pages then serves it.
 5. **Digest**: a GitHub issue summarises the run, which also emails you.
 
+Time to a fortune is refreshed monthly with the deep audit: the research agent looks for new fortunes (two sources, independent QA), and the QA agent updates net worths only from a dated source whose quoted text contains the new figure, with jumps of more than threefold refused. Set `founders.weekly` in `agents/config.json` to run it every week.
+
 On the first Monday of each month (or when you tick *deep* on a manual run) the QA agent uses the stronger model and a bigger batch. To see estimated costs in the app, add your model prices under `pricing` in `agents/config.json`; the Claude Console always shows the exact charge.
 
 ### Guardrails (enforced in code, not left to the model)
