@@ -33,7 +33,11 @@ button,input,select{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--proj);outline-offset:2px}
 
 /* Top bar */
-#top{position:fixed;top:calc(var(--safe-t) + 16px);left:20px;right:20px;display:flex;justify-content:flex-end;align-items:center;gap:20px;pointer-events:none;z-index:1000}
+#top{padding:5px 6px 5px 26px;overflow:hidden}
+#top .actions{display:flex;flex-wrap:wrap;justify-content:flex-end;align-content:flex-start;gap:8px}
+.win.toolwin{background:transparent;border-color:transparent;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;min-height:0;min-width:120px;height:auto!important;resize:horizontal;z-index:1000}
+.toolwin:hover{background:rgba(8,19,29,.35)}
+.toolwin .btn{font-size:calc(13.5px * var(--fs))}
 #top > *{pointer-events:auto}
 #top h1{font-family:var(--serif);font-weight:400;font-size:clamp(20px,2.2vw,44px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;line-height:1.05;margin:0;letter-spacing:-.01em}
 .actions{display:flex;gap:6px;flex-wrap:nowrap;justify-content:flex-end;position:relative;flex:none}
@@ -42,7 +46,7 @@ button,input,select{font:inherit;color:inherit}
 .btn.primary{background:rgba(233,242,255,.92);color:#0A1622;border-color:transparent}
 .btn.primary:hover{background:#fff}
 .btn[aria-pressed="false"]{color:var(--muted)}
-#winMenu{position:absolute;top:calc(100% + 8px);right:0;width:250px;background:var(--panel-solid);border:1px solid var(--line-strong);border-radius:12px;padding:6px;display:none;z-index:60;box-shadow:0 18px 40px rgba(0,0,0,.4);max-height:calc(100vh - 90px);overflow:auto}
+#winMenu{position:fixed;top:60px;right:16px;overflow:auto;max-height:calc(100vh - 80px);width:250px;background:var(--panel-solid);border:1px solid var(--line-strong);border-radius:12px;padding:6px;display:none;z-index:1600;box-shadow:0 18px 40px rgba(0,0,0,.4);max-height:calc(100vh - 90px);overflow:auto}
 #winMenu.open{display:block}
 #winMenu button{display:flex;width:100%;align-items:center;gap:10px;background:none;border:0;padding:8px 10px;border-radius:8px;cursor:pointer;font-size:14px;text-align:left}
 #winMenu button:hover{background:rgba(255,255,255,.05)}
@@ -162,7 +166,9 @@ table.stats tr.all td{font-weight:600;color:var(--text)}
 #tip{position:fixed;pointer-events:none;z-index:1500;background:var(--panel-solid);border:1px solid var(--line-strong);border-radius:9px;padding:8px 11px;font-size:13px;opacity:0;transition:opacity .15s;max-width:280px}
 #tip b{display:block;font-weight:600;margin-bottom:2px}
 #tip span{color:var(--muted);font-variant-numeric:tabular-nums}
-#foot{position:fixed;left:20px;right:20px;bottom:calc(var(--safe-b) + 12px);display:flex;justify-content:space-between;gap:20px;font-size:12px;color:var(--faint);pointer-events:none;z-index:3}
+.win.footwin{min-height:0;background:transparent;border-color:transparent;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;min-height:22px;z-index:9}
+.footwin:hover{background:rgba(8,19,29,.45)}
+#foot{display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:calc(12px * var(--fs));color:var(--faint);padding:3px 10px 3px 26px;height:100%;overflow:hidden}
 #foot span:last-child{text-align:right}
 
 /* About */
@@ -250,7 +256,7 @@ body.nouni .lbl .uni{display:none}
 .lbl.chg-new::before,.lbl.chg-upd::before{display:inline-block;font:700 .62em/1 var(--sans);letter-spacing:.06em;padding:.25em .45em;border-radius:5px;margin-right:.45em;vertical-align:.15em}
 .lbl.chg-new::before{content:'NEW';background:#5FD8FF;color:#04202c}
 .lbl.chg-upd::before{content:'UPDATED';background:rgba(95,216,255,.18);color:#BDEFFF;border:1px solid rgba(95,216,255,.6)}
-.chgb{font-style:normal;font-size:.72em;font-weight:600;padding:.15em .45em;border-radius:5px;white-space:nowrap;border:1px solid var(--line-strong);color:var(--text)}
+.chgb{display:inline-block;line-height:1.3;font-style:normal;font-size:.72em;font-weight:600;padding:.15em .45em;border-radius:5px;white-space:nowrap;border:1px solid var(--line-strong);color:var(--text)}
 .chgb.add{background:#5FD8FF;color:#04202c;border-color:#5FD8FF}.chgb.cor,.chgb.src,.chgb.lan{color:#BDEFFF;border-color:rgba(95,216,255,.6)}.chgb.est{color:#F2D38A;border-color:rgba(242,211,138,.5)}.chgb.dis{color:#FF9B9B;border-color:rgba(255,155,155,.5)}
 .chgtag{font-style:normal;font-size:.62em;font-weight:700;letter-spacing:.05em;padding:.1em .35em;border-radius:4px;margin-right:.4em;vertical-align:.15em;background:rgba(95,216,255,.18);color:#BDEFFF}
 .chgtag.add{background:#5FD8FF;color:#04202c}.chgtag.dis{background:rgba(255,155,155,.2);color:#FF9B9B}
@@ -283,10 +289,8 @@ body.nouni .lbl .uni{display:none}
 .chip.disputed{color:#FF9B9B;border-color:rgba(255,155,155,.5)}
 @media (max-width:820px){
   #thanksBtn,#ideasBtn,#musicBtn{display:none}
-  #top{left:8px;right:8px;top:calc(var(--safe-t) + 8px)}
   .btn{padding:6px 9px;font-size:12.5px}
   #disc{bottom:auto;top:calc(var(--safe-t) + 58px)}
-  #foot{display:none!important}
 }
 #finale{position:fixed;inset:0;z-index:2650;display:none;align-items:center;justify-content:center;background:rgba(4,10,16,.5);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);cursor:pointer}
 #finale.on{display:flex}
@@ -365,6 +369,13 @@ body.lite .playerwin{background:transparent}
 .chromeless .wh{position:absolute;top:0;left:0;right:0;z-index:6;background:rgba(8,19,29,.88);opacity:0;transition:opacity .2s;border-radius:14px 14px 0 0}
 .chromeless:hover .wh,.chromeless:focus-within .wh{opacity:1}
 .chromeless .wbody{padding:0}
+.gripwin .wh{right:auto;bottom:0;width:20px;display:flex;align-items:center;gap:2px;padding:0 2px;border-radius:12px 0 0 12px;opacity:.5;background:rgba(8,19,29,.75);cursor:grab;overflow:hidden;white-space:nowrap}
+.gripwin .wh::before{content:'⋮⋮';font-size:12px;color:var(--muted);letter-spacing:-2px;padding:0 4px 0 2px}
+.gripwin .wh h2,.gripwin .wh button[data-a="max"]{display:none}
+.gripwin .wh button{display:none}
+.gripwin .wh:hover,.gripwin .wh:focus-within{width:auto;opacity:1}
+.gripwin .wh:hover button,.gripwin .wh:focus-within button{display:inline-flex}
+.gripwin:hover .wh{opacity:.9}
 .titlewin .tbody{display:flex;flex-direction:column;justify-content:center;padding:.5em 1.4em;position:relative;height:100%;overflow:hidden}
 .ttext{font-family:var(--serif);font-size:2.9em;line-height:1.08;outline:none;text-shadow:0 2px 18px rgba(0,0,0,.25)}
 .tbar{height:5px;width:7em;border-radius:2px;margin-bottom:.45em;flex:none}
@@ -402,7 +413,7 @@ a.mini{text-decoration:none;color:var(--muted)}
 .vdet summary{cursor:pointer;font-size:.86em;color:var(--text);margin-top:.45em}
 .vdet .trow{font-size:.85em}
 
-body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foot{opacity:0;pointer-events:none}
+body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions{opacity:0;pointer-events:none}
 #loading{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:22px;color:var(--muted);z-index:3000;background:var(--ink);transition:opacity .8s}
 #loading.done{opacity:0;pointer-events:none}
 @media (max-width:820px){ .actions .wide{display:none} #foot span:first-child{display:none} }
@@ -414,20 +425,19 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
 <div id="scene" aria-label="Interactive 3D chart. Drag to rotate, scroll to zoom."></div>
 <div id="labels" aria-hidden="true"></div>
 
-<header id="top">
-  <div class="actions">
+<section class="win chromeless keep gripwin toolwin" id="w-toolbar" data-title="Toolbar">
+  <div class="wbody" id="top"><div class="actions">
     <button class="btn primary" id="playBtn">Play the century</button>
     <button class="btn" id="thanksBtn" title="Thank you and questions (Q)" aria-label="Show the thank you message">💬</button>
-    <button class="btn" id="ideasBtn" title="Add ideas from the room">💡 Ideas</button>
+    <button class="btn" id="ideasBtn" title="Add your own milestones by hand">✚ Add</button>
     <button class="btn" id="musicBtn" aria-pressed="false">♪ Music</button>
     <button class="btn" id="winBtn" aria-haspopup="true" aria-expanded="false">Windows</button>
     <button class="btn wide" id="rotBtn" aria-pressed="true">Auto-rotate</button>
     <button class="btn wide" id="resetBtn" title="Return everything to the original defaults">Reset all</button>
     <button class="btn wide" id="fsBtn">Full screen</button>
     <button class="btn" id="aboutBtn">About</button>
-    <div id="winMenu" role="menu"></div>
-  </div>
-</header>
+  </div></div>
+</section>
 
 <!-- SHOWCASE TITLE -->
 <section class="win chromeless titlewin keep" id="w-title" data-title="Showcase title">
@@ -496,11 +506,11 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
 </section>
 <input type="file" id="viewFile" accept="application/json,.json" hidden>
 
-<!-- AUDIENCE IDEAS -->
-<section class="win audwin" id="w-audience" data-title="Ideas from the room">
+<!-- YOUR MILESTONES (added by hand) -->
+<section class="win audwin" id="w-audience" data-title="Your milestones">
   <div class="wbody">
     <div class="audform">
-      <label class="af wide">Idea<input id="audName" class="search" placeholder="e.g. AI that predicts cable faults" maxlength="80"></label>
+      <label class="af wide">Milestone<input id="audName" class="search" placeholder="e.g. AI that predicts cable faults" maxlength="80"></label>
       <label class="af">Field<select id="audField"></select></label>
       <label class="af" id="audNewWrap" style="display:none">New field name<input id="audNew" class="search" placeholder="e.g. Hydrogen" maxlength="30"></label>
       <label class="af">Starts in<select id="audSrc"><option value="academic">University</option><option value="industry">Industry</option><option value="government">Government</option></select></label>
@@ -518,9 +528,9 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
     <button class="audadd" id="audAdd">Add to the model</button>
     <p class="note-s" id="audMsg"></p>
     <div class="tlist" id="audList"></div>
-    <div class="minis" style="margin-top:.6em"><button class="mini" id="audSave">Save ideas…</button><label class="mini" style="cursor:pointer">Load ideas…<input type="file" id="audLoad" accept="application/json,.json" hidden></label><button class="mini" id="audClear">Clear all</button></div>
-    <label class="toggle">Spotlight ideas (bright arcs and big labels) <input type="checkbox" id="audSpotT" checked></label>
-    <label class="toggle">Pause Play briefly when an idea starts or lands <input type="checkbox" id="audPauseT" checked></label>
+    <div class="minis" style="margin-top:.6em"><button class="mini" id="audSave">Save my milestones…</button><label class="mini" style="cursor:pointer">Load my milestones…<input type="file" id="audLoad" accept="application/json,.json" hidden></label><button class="mini" id="audClear">Clear all</button></div>
+    <label class="toggle">Spotlight your milestones (bright arcs and big labels) <input type="checkbox" id="audSpotT" checked></label>
+    <label class="toggle">Pause Play briefly when one of your milestones starts or lands <input type="checkbox" id="audPauseT" checked></label>
   </div>
 </section>
 <div id="spot" aria-live="polite"><b id="spotT"></b><span id="spotS"></span></div>
@@ -652,6 +662,10 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
     <div class="seg" id="labelScopeSeg"><button data-v="all">All shown arcs</button><button data-v="major">Major milestones</button></div>
     <div class="slider"><label>Most labels on screen <b id="labelMaxV">All</b></label><input type="range" id="labelMaxR" min="3" max="60" value="60"></div>
     <p class="note-s">When labels are limited, the newest landings and major milestones win.</p>
+    <h3>Windows</h3>
+    <label class="toggle">Keep window positions when the screen size changes <input type="checkbox" id="keepPosT" checked></label>
+    <label class="toggle">Fit windows to this screen when loading a saved view <input type="checkbox" id="fitLoadT" checked></label>
+    <p class="note-s">Press M to show or hide the toolbar. Drag the ⋮⋮ grip to move the toolbar or footer.</p>
     <h3>Data changes</h3>
     <div class="seg" id="chgFlagSeg" aria-label="Highlight data changes"><button data-v="off">Off</button><button data-v="new">New only</button><button data-v="all">All changes</button></div>
     <div class="seg" id="chgScopeSeg" aria-label="Which changes"><button data-v="all">All areas</button><button data-v="desnz">DESNZ vision only</button></div>
@@ -767,11 +781,14 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions,body.clean #foo
 <div id="thanks" role="dialog" aria-modal="true" aria-label="Thank you"><div class="tybox"><div class="ty1">Thank you for your time</div><div class="ty2">Any questions?</div><div class="ty3">Stuart Okin</div></div></div>
 <div id="disc" role="status"><div class="dmeta" id="discMeta"></div><b>AI-maintained data.</b> This personal project’s data is compiled by AI agents without human review and may contain errors. <button id="discAbout">About</button><button id="discX" aria-label="Dismiss">✕</button></div>
 <div id="nogl" role="alert"><div><h2>3D view unavailable</h2><p>This device or browser can’t show the 3D model. Try a recent version of Chrome, Edge, Safari or Firefox on a laptop or desktop.</p></div></div>
+<div id="winMenu" role="menu"></div>
 <div id="tip" role="tooltip"></div>
-<footer id="foot">
-  <span>Drag to rotate, scroll to zoom, right-drag to pan. Keys: 1–9 single field, 0 all fields, P play, Space pause, L labels, T page title, Q thank you, R reset camera, H hide windows.</span>
-  <span>Stuart Okin, personal project. AI-maintained data; may contain errors.</span>
-</footer>
+<section class="win chromeless gripwin footwin" id="w-footer" data-title="Footer">
+  <div class="wbody" id="foot">
+    <span>Drag to rotate, scroll to zoom, right-drag to pan. Keys: 1–9 single field, 0 all fields, P play, Space pause, L labels, T page title, M toolbar, Q thank you, R reset camera, H hide windows.</span>
+    <span>Stuart Okin, personal project. AI-maintained data; may contain errors.</span>
+  </div>
+</section>
 
 <div id="about" role="dialog" aria-modal="true" aria-labelledby="aboutTitle">
   <div class="sheet">
@@ -2943,7 +2960,7 @@ const FORTUNES = DB.founders.map(f => {
 });
 const fmtMoney = (bn, sym) => bn >= 1000 ? `${sym}${(bn / 1000).toFixed(1)}tn` : bn >= 1 ? `${sym}${bn >= 100 ? Math.round(bn) : Math.round(bn * 10) / 10}bn` : `${sym}${Math.round(bn * 1000)}m`;
 const DATA_AS_OF = DB.meta.asOf;
-const APP_VERSION = '8.3', APP_BUILD = '';
+const APP_VERSION = '8.4', APP_BUILD = '';
 // Screen-aware scaling: laptops slightly smaller, large screens larger
 const UI = (() => { const w = innerWidth; return w < 1280 ? .85 : w < 1500 ? .95 : w < 1800 ? 1.05 : w < 2300 ? 1.2 : 1.4; })();
 const LARGE = innerWidth >= 1700;
@@ -2978,7 +2995,7 @@ const DEFAULT_FILTERS = () => ({
 });
 const F = DEFAULT_FILTERS();
 const hidden = new Set();
-const view = {chgFlag:'all', chgScope:'all', chgSince:'30', chgAnnounce:true, countdown:true, thanksIcon:true, majBright:true, uniHi:true, audSpot:true, audPause:true, statsBy:'landed', statsLive:true, gapBuild:true, compactLanes:true, fortSort:'year', musicOn:false, loopPlay:true, fortHi:true, fortOnly:false, laneFollow:true, camTravel:true, fadeLanded:true, keepYears:5, revealEnd:true, labelPlay:'until', labelScope:'all', labelMax:14, labelLinger:2, labels:'follow', lfs:LARGE ? 18 : 15, lanes:'v', colour:'v', pulses:true, trend:true, floor:true, rotSpeed:0.35, glow:0.75};
+const view = {keepWinPos:true, fitOnLoad:true, chgFlag:'all', chgScope:'all', chgSince:'30', chgAnnounce:true, countdown:true, thanksIcon:true, majBright:true, uniHi:true, audSpot:true, audPause:true, statsBy:'landed', statsLive:true, gapBuild:true, compactLanes:true, fortSort:'year', musicOn:false, loopPlay:true, fortHi:true, fortOnly:false, laneFollow:true, camTravel:true, fadeLanded:true, keepYears:5, revealEnd:true, labelPlay:'until', labelScope:'all', labelMax:14, labelLinger:2, labels:'follow', lfs:LARGE ? 18 : 15, lanes:'v', colour:'v', pulses:true, trend:true, floor:true, rotSpeed:0.35, glow:0.75};
 Object.assign(view, store.get('sg.view.v2', {}));
 if (MOBILE) Object.assign(view, {lite:true, labels:'peak', labelScope:'major', labelMax:6, lfs:12, camTravel:false, fadeLanded:false, pulses:true, glow:0});
 const state = {playing:false, cursor:Y1, autoRotate:!reduced && !(MOBILE && innerWidth < innerHeight)};
@@ -3286,24 +3303,38 @@ function buildTrends(){
 /* ==================================================================
  *  WINDOW MANAGER
  * ================================================================== */
-const WIN_IDS = ['changes','audience','pagetitle','title','ticker','player','sources','filters','display','summary','milestones','details','key','context','landing','gapchart','fortunes','vision','outlook','report','music','vid1','vid2'];
-const WIN_NAMES = {changes:'Data changes', audience:'Ideas from the room', pagetitle:'Page title', title:'Showcase title', ticker:'Joke ticker', player:'Play the century', sources:'Sources', filters:'Filters', display:'Display', summary:'Summary', milestones:'Milestones', details:'Details', key:'Reading the model', context:'Context', landing:'Landing and starting', gapchart:'Gap over time', fortunes:'Time to a fortune', vision:'DESNZ AI energy vision', outlook:'Can AI shrink the gap?', music:'Music', report:'PowerPoint report', vid1:'Countdown to Q-Day', vid2:'University Curated Cyber-attacks since 2000'};
+const WIN_IDS = ['toolbar','footer','changes','audience','pagetitle','title','ticker','player','sources','filters','display','summary','milestones','details','key','context','landing','gapchart','fortunes','vision','outlook','report','music','vid1','vid2'];
+const WIN_NAMES = {toolbar:'Toolbar', footer:'Footer', changes:'Data changes', audience:'Your milestones', pagetitle:'Page title', title:'Showcase title', ticker:'Joke ticker', player:'Play the century', sources:'Sources', filters:'Filters', display:'Display', summary:'Summary', milestones:'Milestones', details:'Details', key:'Reading the model', context:'Context', landing:'Landing and starting', gapchart:'Gap over time', fortunes:'Time to a fortune', vision:'DESNZ AI energy vision', outlook:'Can AI shrink the gap?', music:'Music', report:'PowerPoint report', vid1:'Countdown to Q-Day', vid2:'University Curated Cyber-attacks since 2000'};
 function defaultLayout(){
-  const W = innerWidth, H = innerHeight, Hh = innerHeight, u = UI, top = Math.round(72 * u), narrow = W < 820;
+  const W = innerWidth, H = innerHeight, Hh = innerHeight, u = UI, narrow = W < 820; let top = Math.round(72 * u);
   const rw = Math.min(Math.round(360 * u), W - 36), lw = Math.min(Math.round(330 * u), W - 36);
-  const tickH = Math.round(66 * u), tickY = Hh - tickH - 8, bottom = tickY - 12, keyH = Math.round(160 * u), keyY = bottom - keyH;
+  const footH = Math.round(26 * u), tickH = Math.round(66 * u), tickY = Hh - footH - tickH - 10, bottom = tickY - 12;
+  const btns = [...document.querySelectorAll('#top .actions > button')].filter(b => b.offsetWidth), tbNat = btns.reduce((a, b) => a + b.offsetWidth, 0) + 8 * Math.max(0, btns.length - 1) + 40;
+  const tbW = Math.min(tbNat + 24, W - 16), tbRows = Math.max(1, Math.ceil((tbNat + 48) / (W - 16))), tbH = tbRows * Math.round(42 * u) + 12;
+  // if the page title and toolbar don't fit side by side, the title drops below the toolbar
+  const titleRow = W - tbW - 52 < 320, ptH = Math.round(58 * u);
+  const ptY = titleRow ? Math.round(6 * u) + tbH + 6 : Math.round(8 * u);
+  const ptW = titleRow ? Math.min(Math.round(760 * u), W - 24) : Math.max(260, Math.min(Math.round(760 * u), W - tbW - 40));
+  top = Math.max(top, (titleRow ? ptY + ptH : Math.round(6 * u) + tbH) + 10);
+  const keyH = Math.round(160 * u), keyY = bottom - keyH;
   const vw = Math.round(W * .42), vh = Math.round(vw * 9 / 16 + 40 * u), midX = lw + 36, midW = Math.max(300, W - midX - rw - 36);
   const pw = Math.min(Math.round(560 * u), Math.round(W * .42)), ph = Math.round(250 * u);
   const tw = Math.min(Math.round(1000 * u), W - midX - 18);
   if (MOBILE) {
-    const o = {}; const all = ['changes','audience','pagetitle','title','ticker','player','sources','report','filters','display','summary','milestones','details','key','context','landing','gapchart','fortunes','vision','outlook','music','vid1','vid2'];
-    all.forEach(id => { o[id] = {x:6, y:Math.round(H * .18), w:W - 12, h:Math.round(H * .6), fs:.9, open:false}; });
+    const o = {}; const all = ['toolbar','footer','changes','audience','pagetitle','title','ticker','player','sources','report','filters','display','summary','milestones','details','key','context','landing','gapchart','fortunes','vision','outlook','music','vid1','vid2'];
+    const y0 = Math.max(Math.round(H * .18), tbH + 14);
+    all.forEach(id => { o[id] = {x:6, y:y0, w:W - 12, h:Math.min(Math.round(H * .6), H - y0 - 8), fs:.9, open:false}; });
     o.player = {x:6, y:H - 196, w:W - 12, h:188, fs:.85, open:false};
+    o.toolbar = {x:6, y:6, w:W - 12, h:tbH, fs:1, open:true};
+    o.footer = {x:6, y:H - footH - 4, w:W - 12, h:footH, fs:.9, open:false};
+    Object.values(o).forEach(L => { L.sw = W; L.sh = H; });
     return o;
   }
-  return {
+  const o = {
+    toolbar:{x:W - tbW - 8, y:Math.round(6 * u), w:tbW, h:tbH, fs:1, open:true},
+    footer:{x:10, y:Hh - footH - 4, w:W - 20, h:footH, fs:1, open:true},
     audience:{x:Math.max(18, W - Math.round(420 * u) - 18), y:top, w:Math.round(420 * u), h:Math.min(Math.round(680 * u), bottom - top), fs:1, open:false},
-    pagetitle:{x:12, y:Math.round(8 * u), w:Math.max(260, Math.min(Math.round(760 * u), W - (document.querySelector('#top .actions') ? document.querySelector('#top .actions').getBoundingClientRect().width : 700) - 60)), h:Math.round(58 * u), fs:1, open:true},
+    pagetitle:{x:12, y:ptY, w:ptW, h:ptH, fs:1, open:true},
     title:{x:midX + Math.round((W - midX - 18 - tw) / 2), y:top, w:tw, h:Math.round(140 * u), fs:1, open:false},
     ticker:{x:10, y:tickY, w:W - 20, h:tickH, fs:1, open:true},
     player:{x:W - pw - 18, y:Math.max(top + 140, bottom - ph), w:pw, h:ph, fs:1, open:false},
@@ -3326,17 +3357,21 @@ function defaultLayout(){
     vid2:{x:Math.round(W * .52), y:top + 20, w:vw, h:vh, fs:1, open:false},
     sources:{x:midX, y:top + 20, w:Math.round(440 * u), h:Math.min(Math.round(620 * u), bottom - top - 20), fs:1, open:false}
   };
+  Object.values(o).forEach(L => { L.sw = W; L.sh = H; });
+  return o;
 }
 function waitLayout(){
   const d = defaultLayout();
   WIN_IDS.forEach(id => d[id].open = false);
-  ['vid1','vid2','title','ticker'].forEach(id => d[id].open = true);
+  if (MOBILE) { ['vid1','toolbar'].forEach(id => d[id].open = true); return d; }
+  ['vid1','vid2','title','ticker','toolbar','footer'].forEach(id => d[id].open = true);
   return d;
 }
 function playLayout(){
   const d = defaultLayout();
   WIN_IDS.forEach(id => d[id].open = false);
-  ['context','landing','gapchart','fortunes','title','ticker','player'].forEach(id => d[id].open = true);
+  if (MOBILE) { ['player','toolbar'].forEach(id => d[id].open = true); return d; }
+  ['context','landing','gapchart','fortunes','title','ticker','player','toolbar','footer'].forEach(id => d[id].open = true);
   const top = d.landing.y, tot = d.landing.h, ch = Math.round(tot * .4);
   Object.assign(d.context, {x:d.landing.x, y:top, w:d.landing.w, h:ch});
   Object.assign(d.landing, {y:top + ch + 14, h:tot - ch - 14});
@@ -3346,11 +3381,29 @@ let layout = Object.assign(defaultLayout(), store.get('sg.layout.v4', {}));
 let zTop = 20;
 const wins = {};
 function saveLayout(){ store.set('sg.layout.v4', layout); }
+/* Where a window should appear on the current screen. With "keep positions" on, a window keeps its distance
+   from the nearest edges when the screen size changes (for example leaving full screen), and its saved position
+   is never overwritten, so it returns exactly when the screen size does. */
+function winRect(L, W, H, fit){
+  W = W || innerWidth; H = H || innerHeight;
+  let x = L.x, y = L.y, w = L.w, h = L.h;
+  const sw = L.sw || W, sh = L.sh || H;
+  if (view.keepWinPos !== false || fit) {
+    if (x + w / 2 > sw / 2) x += W - sw;
+    if (y + h / 2 > sh / 2) y += H - sh;
+  }
+  w = Math.min(w, W - 8); h = Math.min(h, H - 8);
+  if (fit) { x = clamp(x, 4, W - w - 4); y = clamp(y, 4, H - h - 4); }
+  else { x = clamp(x, -w + 80, W - 80); y = clamp(y, 0, H - 40); }
+  return {x:Math.round(x), y:Math.round(y), w:Math.round(w), h:Math.round(h)};
+}
+function commitWin(id){ const L = layout[id], r = winRect(L); Object.assign(L, r, {sw:innerWidth, sh:innerHeight}); }
 function placeWin(id){
   const el = wins[id], L = layout[id];
-  L.w = Math.min(L.w, innerWidth - 8); L.h = Math.min(L.h, innerHeight - 8);
-  L.x = clamp(L.x, -L.w + 80, innerWidth - 80); L.y = clamp(L.y, 0, innerHeight - 40);
-  el.style.left = L.x + 'px'; el.style.top = L.y + 'px'; el.style.width = L.w + 'px'; el.style.height = L.h + 'px';
+  if (view.keepWinPos === false) { Object.assign(L, winRect(L), {sw:innerWidth, sh:innerHeight}); }
+  const r = winRect(L);
+  el._setW = r.w; el._setH = r.h;
+  el.style.left = r.x + 'px'; el.style.top = r.y + 'px'; el.style.width = r.w + 'px'; el.style.height = r.h + 'px';
   el.style.setProperty('--fs', L.fs);
   el.classList.toggle('closed', !L.open);
 }
@@ -3368,12 +3421,12 @@ WIN_IDS.forEach(id => {
     const a = e.target.dataset && e.target.dataset.a; if (!a) return;
     if (a === 'x') setOpen(id, false);
     if (a === 'max') { const on = el.classList.toggle('max'); raise(id); e.target.textContent = on ? '⤡' : '⤢'; twKey = ''; }
-    if (a === 'up' || a === 'dn') { const old = layout[id].fs, nf = Math.round(clamp(old + (a === 'up' ? .1 : -.1), .7, 2.2) * 10) / 10, k = nf / old; layout[id].fs = nf; layout[id].w = Math.max(220, layout[id].w * k); layout[id].h = Math.max(96, layout[id].h * k); if (layout[id].x + layout[id].w > innerWidth - 8) layout[id].x = Math.max(8, innerWidth - 8 - layout[id].w); if (layout[id].y + layout[id].h > innerHeight - 8) layout[id].y = Math.max(8, innerHeight - 8 - layout[id].h); placeWin(id); saveLayout(); updateTimeWindows(true); }
+    if (a === 'up' || a === 'dn') { commitWin(id); const old = layout[id].fs, nf = Math.round(clamp(old + (a === 'up' ? .1 : -.1), .7, 2.2) * 10) / 10, k = nf / old; layout[id].fs = nf; layout[id].w = Math.max(220, layout[id].w * k); layout[id].h = Math.max(96, layout[id].h * k); if (layout[id].x + layout[id].w > innerWidth - 8) layout[id].x = Math.max(8, innerWidth - 8 - layout[id].w); if (layout[id].y + layout[id].h > innerHeight - 8) layout[id].y = Math.max(8, innerHeight - 8 - layout[id].h); placeWin(id); saveLayout(); updateTimeWindows(true); }
   });
   let drag = null;
   head.addEventListener('pointerdown', e => {
     if (e.target.tagName === 'BUTTON' || el.classList.contains('max')) return;
-    raise(id); drag = {dx:e.clientX - layout[id].x, dy:e.clientY - layout[id].y}; head.setPointerCapture(e.pointerId);
+    raise(id); commitWin(id); drag = {dx:e.clientX - layout[id].x, dy:e.clientY - layout[id].y}; head.setPointerCapture(e.pointerId);
   });
   head.addEventListener('pointermove', e => { if (!drag) return; layout[id].x = e.clientX - drag.dx; layout[id].y = e.clientY - drag.dy; placeWin(id); });
   head.addEventListener('pointerup', () => { if (drag) { drag = null; saveLayout(); } });
@@ -3386,7 +3439,8 @@ if (window.ResizeObserver) {
     entries.forEach(en => {
       const id = en.target.id.slice(2), el = en.target;
       if (el.classList.contains('closed') || el.classList.contains('max')) return;
-      layout[id].w = el.offsetWidth; layout[id].h = el.offsetHeight;
+      if (Math.abs(el.offsetWidth - (el._setW || 0)) <= 2 && Math.abs(el.offsetHeight - (el._setH || 0)) <= 2) return;   // our own placement, not a user resize
+      commitWin(id); layout[id].w = el.offsetWidth; layout[id].h = el.offsetHeight; el._setW = el.offsetWidth; el._setH = el.offsetHeight;
     });
     clearTimeout(ro.t); ro.t = setTimeout(saveLayout, 300);
   });
@@ -3411,7 +3465,13 @@ winMenu.addEventListener('click', e => {
   else if (w === '__all') { WIN_IDS.forEach(id => { layout[id].open = true; placeWin(id); }); saveLayout(); buildWinMenu(); syncVideos(); }
   else setOpen(w, !layout[w].open);
 });
-$('winBtn').onclick = e => { e.stopPropagation(); const o = winMenu.classList.toggle('open'); $('winBtn').setAttribute('aria-expanded', o); };
+function positionWinMenu(){
+  const r = $('winBtn').getBoundingClientRect(), below = innerHeight - r.bottom, above = r.top;
+  winMenu.style.right = Math.max(8, innerWidth - r.right) + 'px'; winMenu.style.left = 'auto';
+  if (below >= 260 || below >= above) { winMenu.style.top = (r.bottom + 8) + 'px'; winMenu.style.bottom = 'auto'; winMenu.style.maxHeight = (below - 24) + 'px'; }
+  else { winMenu.style.bottom = (innerHeight - r.top + 8) + 'px'; winMenu.style.top = 'auto'; winMenu.style.maxHeight = (above - 24) + 'px'; }
+}
+$('winBtn').onclick = e => { e.stopPropagation(); positionWinMenu(); const o = winMenu.classList.toggle('open'); $('winBtn').setAttribute('aria-expanded', o); };
 document.addEventListener('click', e => { if (!winMenu.contains(e.target) && e.target.id !== 'winBtn') { winMenu.classList.remove('open'); $('winBtn').setAttribute('aria-expanded', false); } });
 
 /* ==================================================================
@@ -3511,7 +3571,7 @@ function applyHeader(){ document.body.classList.toggle('barauto', !!view.barAuto
 function togglePageTitle(on){ setOpen('pagetitle', on == null ? !layout.pagetitle.open : on); applyHeader(); buildWinMenu(); }
 $('titleShowT').addEventListener('change', e => togglePageTitle(e.target.checked));
 $('barAutoT').addEventListener('change', e => { view.barAuto = e.target.checked; store.set('sg.view.v2', view); applyHeader(); });
-document.addEventListener('mousemove', e => { if (view.barAuto) document.body.classList.toggle('near-top', e.clientY < 90 || winMenu.classList.contains('open')); });
+document.addEventListener('mousemove', e => { if (!view.barAuto) return; const r = wins.toolbar.getBoundingClientRect(); document.body.classList.toggle('near-top', (e.clientX > r.left - 60 && e.clientX < r.right + 60 && e.clientY > r.top - 60 && e.clientY < r.bottom + 60) || winMenu.classList.contains('open')); });
 function applyLite(){ document.body.classList.toggle('lite', !!view.lite); renderer.setPixelRatio(view.lite ? 1 : Math.min(window.devicePixelRatio, 2)); renderer.setSize(innerWidth, innerHeight); if (composer) { if (composer.setPixelRatio) composer.setPixelRatio(view.lite ? 1 : Math.min(window.devicePixelRatio, 2)); composer.setSize(innerWidth, innerHeight); } }
 bindToggle('liteT', 'lite', applyLite);
 bindToggle('trendT', 'trend', buildTrends);
@@ -3603,13 +3663,13 @@ function openDetail(it){
     : it.kind === 'proj' ? `<strong>~${it.lag}</strong><span>years, if it lands on time</span>` : `<strong>${NOW - it.r}+</strong><span>years and counting</span>`;
   const conf = it.kind === 'hist' ? (it.c === 'high' ? 'Well documented' : 'Dates approximate') : CONF_LONG[it.c];
   detailBody.innerHTML = `
-    <div class="dchips"><span class="chip src" style="background:${s.hex}">${s.name}</span><span class="chip" style="color:${FIELDS[it.v].hex};border-color:${FIELDS[it.v].hex}55">${FIELDS[it.v].name}</span><span class="chip conf-${it.c}">${conf}</span>${it.ver ? `<span class="chip ver-${it.ver}" title="Last checked ${it.checked || ''}">${{'source-cited':'✓ Source-cited','ai-compiled':'AI-compiled','ai-estimate':'AI estimate'}[it.ver]}</span>` : ''}${it.disputed ? '<span class="chip disputed">⚠ Disputed by QA</span>' : ''}${it.uni ? `<span class="chip uni">🎓 University project</span>` : ''}${it.aud ? `<span class="chip aud">${iconHtml(it.icon, it.iconImg)} Idea from the room</span>` : ''}${it.co ? `<span class="chip">Company: ${it.co}</span>` : ''}${it.acc ? `<span class="chip vis">AI-accelerated outlook</span>` : ''}${it.dv ? `<span class="chip vis">DESNZ vision: ${VISION[it.dv]}</span>` : ''}</div>
+    <div class="dchips"><span class="chip src" style="background:${s.hex}">${s.name}</span><span class="chip" style="color:${FIELDS[it.v].hex};border-color:${FIELDS[it.v].hex}55">${FIELDS[it.v].name}</span><span class="chip conf-${it.c}">${conf}</span>${it.ver ? `<span class="chip ver-${it.ver}" title="Last checked ${it.checked || ''}">${{'source-cited':'✓ Source-cited','ai-compiled':'AI-compiled','ai-estimate':'AI estimate'}[it.ver]}</span>` : ''}${it.disputed ? '<span class="chip disputed">⚠ Disputed by QA</span>' : ''}${it.uni ? `<span class="chip uni">🎓 University project</span>` : ''}${it.aud ? `<span class="chip aud">${iconHtml(it.icon, it.iconImg)} Added by you</span>` : ''}${it.co ? `<span class="chip">Company: ${it.co}</span>` : ''}${it.acc ? `<span class="chip vis">AI-accelerated outlook</span>` : ''}${it.dv ? `<span class="chip vis">DESNZ vision: ${VISION[it.dv]}</span>` : ''}</div>
     <h3 class="dtitle">${it.t}</h3>
     <div class="gap">${gapTxt}</div>
     <div class="span"><b>${it.r}</b><div>${it.rw}</div><b>${pYear}</b><div>${it.pw}</div></div>
     <p class="dnote">${it.note}</p><p class="basis">${sourceHtml(it)}</p>
-    <div class="dacts">${it.aud ? '<button class="mini" id="dDel">Delete this idea</button>' : ''}<button class="mini" id="dHide">Hide this arc</button><button class="mini" id="dOnly">Show only this field</button></div>`;
-  if (it.aud) $('dDel').onclick = () => { if (confirm('Delete this idea' + (FIELDS[it.v] && FIELDS[it.v].custom ? ' (and its new field track if nothing else uses it)' : '') + '?')) removeAudienceIdea(it.id); };
+    <div class="dacts">${it.aud ? '<button class="mini" id="dDel">Delete this milestone</button>' : ''}<button class="mini" id="dHide">Hide this arc</button><button class="mini" id="dOnly">Show only this field</button></div>`;
+  if (it.aud) $('dDel').onclick = () => { if (confirm('Delete this milestone' + (FIELDS[it.v] && FIELDS[it.v].custom ? ' (and its new field track if nothing else uses it)' : '') + '?')) removeAudienceIdea(it.id); };
   $('dHide').onclick = () => { hidden.add(it.id); closeDetail(); refresh(); };
   $('dOnly').onclick = () => { F.fields = new Set([it.v]); refresh(); };
   if (!layout.details.open) setOpen('details', true); else raise('details');
@@ -3618,7 +3678,7 @@ function openDetail(it){
 }
 function srcLink(label, url){ return url ? `<a href="${url}" target="_blank" rel="noopener">${esc(label || url)}</a>` : esc(label); }
 function sourceHtml(it){
-  if (it.aud) return (it.srcLabel || it.srcUrl) ? 'Source: ' + srcLink(it.srcLabel, it.srcUrl) : 'Source: idea from the room.';
+  if (it.aud) return (it.srcLabel || it.srcUrl) ? 'Source: ' + srcLink(it.srcLabel, it.srcUrl) : 'Source: added by hand.';
   const m = HIST_SRC[it.t] || (it.kind === 'proj' ? OUTLOOK_BASIS[it.t] : null);
   let h = it.kind === 'proj' ? 'Basis: ' + (m ? srcLink(m[0], m[1]) : 'our estimate; no published target found.')
     : 'Source: ' + (m ? srcLink(m[0], m[1]) : 'compiled by AI from standard references: institutional and company histories, Nobel and award citations, and regulator approval records.');
@@ -3694,6 +3754,7 @@ document.addEventListener('keydown', e => {
   else if (e.key === '0') { F.fields = new Set(FKEYS); refresh(); }
   else if (e.key === 'p' || e.key === 'P') state.playing ? stopPlay() : playWithCountdown();
   else if (e.key === 'q' || e.key === 'Q') showThanks();
+  else if (e.key === 'm' || e.key === 'M') setOpen('toolbar', !layout.toolbar.open);
   else if (e.key === ' ' && state.playing) { e.preventDefault(); togglePause(); }
   else if (e.key === 'r' || e.key === 'R') resetView();
   else if (e.key === 'h' || e.key === 'H') document.body.classList.toggle('clean');
@@ -4084,7 +4145,7 @@ function renderVision(yr){
 
     return `<div class="vrow ${on ? 'on' : ''}" data-dv="${k}"><div class="vhead" role="button" tabindex="0" title="Show only this area in the model"><span class="vn">${VISION[k]}</span><span class="vc">${landed.length} already helping, ${ahead.length} still to land</span></div>
       <details class="vdet" data-k="${k}" ${visOpen.has(k) ? 'open' : ''}><summary>Already helping (${landed.length})</summary>${landed.length ? landed.slice().reverse().map(it => `<div class="trow" data-id="${it.id}"><b>${it.p}</b><i class="cat" style="background:${itemHex(it)}"></i><span>${chgTag(it)}${it.t}<em>${it.pw}</em></span></div>`).join('') : '<p class="empty">Nothing yet at this point in time.</p>'}</details>
-      <details class="vdet" data-k="${k}:ahead" ${visOpen.has(k + ':ahead') ? 'open' : ''}><summary>Still to land (${ahead.length})</summary>${ahead.length ? ahead.map(it => `<div class="trow" data-id="${it.id}"><b>${it.kind === 'flight' ? 'Later' : '~' + it.p}</b><i class="cat" style="background:${itemHex(it)}"></i><span>${chgTag(it)}${it.t}<em>${it.pw}</em></span></div>`).join('') : '<p class="empty">Nothing still to land in this area.</p>'}</details>${areaChg.length ? `<details class="vdet vchg" data-k="${k}:chg" ${visOpen.has(k + ':chg') ? 'open' : ''}><summary>Data changes (${areaChg.length})</summary>${areaChg.map(c => `<div class="trow" data-id="${c.it.id}"><b>${c.date.slice(8, 10)}/${c.date.slice(5, 7)}</b><i class="chgb ${CHG_TYPES[c.type].cls}">${CHG_TYPES[c.type].label}</i><span>${c.it.t}<em>${esc(c.text)}</em></span></div>`).join('')}</details>` : ''}</div>`;
+      <details class="vdet" data-k="${k}:ahead" ${visOpen.has(k + ':ahead') ? 'open' : ''}><summary>Still to land (${ahead.length})</summary>${ahead.length ? ahead.map(it => `<div class="trow" data-id="${it.id}"><b>${it.kind === 'flight' ? 'Later' : '~' + it.p}</b><i class="cat" style="background:${itemHex(it)}"></i><span>${chgTag(it)}${it.t}<em>${it.pw}</em></span></div>`).join('') : '<p class="empty">Nothing still to land in this area.</p>'}</details>${areaChg.length ? `<details class="vdet vchg" data-k="${k}:chg" ${visOpen.has(k + ':chg') ? 'open' : ''}><summary>Data changes (${areaChg.length})</summary>${areaChg.map(c => `<div class="trow" data-id="${c.it.id}"><b>${c.date.slice(8, 10)}/${c.date.slice(5, 7)}</b><i class="cat" style="background:${itemHex(c.it)}"></i><span>${c.it.t}<em><span class="chgb ${CHG_TYPES[c.type].cls}">${CHG_TYPES[c.type].label}</span> ${esc(c.text)}</em></span></div>`).join('')}</details>` : ''}</div>`;
   }).join('');
 }
 $('visList').addEventListener('toggle', e => { const d = e.target; if (!d.classList || !d.classList.contains('vdet')) return; d.open ? visOpen.add(d.dataset.k) : visOpen.delete(d.dataset.k); }, true);
@@ -4374,11 +4435,11 @@ const CHG_TYPES = {added:{label:'Added', short:'NEW', cls:'add'}, corrected:{lab
 const fieldName = k => (FIELDS[k] && FIELDS[k].name) || k;
 function parseChange(d){
   let m;
-  if ((m = d.match(/^added: (.+)$/))) return {type:'added', key:m[1], text:'New milestone added'};
+  if ((m = d.match(/^added: (.+)$/))) return {type:'added', key:m[1], text:''};
   if ((m = d.match(/^re-estimated: ([a-z0-9-]+) → (\d{4})/))) return {type:'reestimated', key:m[1], text:`Outlook year re-estimated to ${m[2]}`};
   if ((m = d.match(/^disputed: (.+)$/))) return {type:'disputed', key:m[1], text:'Marked as disputed by the QA agent'};
   if ((m = d.match(/^([a-z0-9-]+): confirmed landed in (\d{4})/))) return {type:'landed', key:m[1], text:`Confirmed as landed in ${m[2]}`};
-  if ((m = d.match(/^([a-z0-9-]+): source added/))) return {type:'source', key:m[1], text:'New source added'};
+  if ((m = d.match(/^([a-z0-9-]+): source added/))) return {type:'source', key:m[1], text:''};
   if ((m = d.match(/^([a-z0-9-]+): (research|change)\.year (\d{4}) → (\d{4})/))) return {type:'corrected', key:m[1], text:`${m[2] === 'research' ? 'Research' : 'Change'} year ${m[3]} → ${m[4]}`};
   if ((m = d.match(/^([a-z0-9-]+): field (\S+) → (\S+)/))) return {type:'corrected', key:m[1], text:`Field ${fieldName(m[2])} → ${fieldName(m[3])}`};
   if ((m = d.match(/^([a-z0-9-]+): DESNZ area → (\S+)/))) return {type:'corrected', key:m[1], text:`DESNZ area → ${VISION[m[2]] || 'none'}`};
@@ -4457,7 +4518,7 @@ $('chgDesnzT').addEventListener('change', renderChanges);
 function chgRow(c, i){
   const ty = CHG_TYPES[c.type], it = c.it;
   const meta = [c.text, it ? fieldName(it.v) : null, it && it.dv ? 'DESNZ: ' + VISION[it.dv] : null].filter(Boolean).join(', ');
-  return `<div class="trow chgrow" data-ci="${i}"><i class="chgb ${ty.cls}">${ty.label}</i><span>${it ? `<a href="#" data-ci="${i}">${esc(c.title)}</a>` : esc(c.title)}<em>${esc(meta)}</em></span></div>`;
+  return `<div class="trow chgrow" data-ci="${i}"><span class="chgb ${ty.cls}">${ty.label}</span><span>${it ? `<a href="#" data-ci="${i}">${esc(c.title)}</a>` : esc(c.title)}<em>${esc(meta)}</em></span></div>`;
 }
 function renderChanges(){
   const q = $('chgQ').value.trim().toLowerCase(), desnz = $('chgDesnzT').checked;
@@ -4483,6 +4544,8 @@ $('chgFlagSeg').addEventListener('click', e => { const b = e.target.closest('but
 $('chgScopeSeg').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; view.chgScope = b.dataset.v; syncChgUI(); applyChangeFlags(); });
 $('chgSinceS').addEventListener('change', e => { view.chgSince = e.target.value; applyChangeFlags(); });
 $('chgAnnounceT').addEventListener('change', e => { view.chgAnnounce = e.target.checked; });
+$('keepPosT').addEventListener('change', e => { view.keepWinPos = e.target.checked; WIN_IDS.forEach(placeWin); });
+$('fitLoadT').addEventListener('change', e => { view.fitOnLoad = e.target.checked; });
 /* ---------- Search in the Details window ---------- */
 function detSearch(){
   const q = $('detQ').value.trim().toLowerCase(), box = $('detRes');
@@ -4505,7 +4568,7 @@ $('detRes').addEventListener('click', e => { const r = e.target.closest('.drow')
  *  SAVED VIEWS (JSON)
  * ================================================================== */
 function snapshot(name){
-  return {app:'the-shrinking-gap', version:1, name, saved:new Date().toISOString(),
+  return {app:'the-shrinking-gap', version:2, name, saved:new Date().toISOString(), screen:{w:innerWidth, h:innerHeight, fullScreen:!!document.fullscreenElement},
     layout:JSON.parse(JSON.stringify(layout)), maxed:WIN_IDS.filter(id => wins[id].classList.contains('max')),
     view:Object.assign({}, view), filters:Object.assign({}, F, {fields:[...F.fields]}),
     hidden:[...hidden].map(i => items[i].uid || items[i].t), title:Object.assign({}, titleCfg), ticker:Object.assign({}, tick),
@@ -4529,6 +4592,7 @@ function syncDisplayUI(){
   if (typeof renderFortunes === 'function' && layout.fortunes && layout.fortunes.open) renderFortunes();
   [['labelSeg','labels'],['labelPlaySeg','labelPlay'],['labelScopeSeg','labelScope'],['laneSeg','lanes'],['colSeg','colour']].forEach(([id, k]) => $(id).querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', b.dataset.v === view[k])));
   if (typeof syncChgUI === 'function') { syncChgUI(); applyChangeFlags(); }
+  $('keepPosT').checked = view.keepWinPos !== false; $('fitLoadT').checked = view.fitOnLoad !== false;
   $('countdownT').checked = view.countdown !== false; $('thanksIconT').checked = view.thanksIcon !== false; document.body.classList.toggle('nothanks', view.thanksIcon === false);
   $('gapBuildT').checked = view.gapBuild !== false; $('statsLiveT').checked = view.statsLive !== false; $('compactT').checked = view.compactLanes !== false;
   $('majBrightT').checked = view.majBright !== false; $('uniHiT').checked = view.uniHi !== false; document.body.classList.toggle('nouni', view.uniHi === false); $('audSpotT').checked = view.audSpot !== false; $('audPauseT').checked = view.audPause !== false;
@@ -4541,8 +4605,17 @@ function syncDisplayUI(){
 }
 function applyView(o){
   if (!o || o.app !== 'the-shrinking-gap') { alert('That file is not a saved view from this app.'); return; }
-  const d = defaultLayout();
-  layout = {}; WIN_IDS.forEach(id => { layout[id] = Object.assign({}, d[id], (o.layout || {})[id] || {}); });
+  const d = defaultLayout(), fit = view.fitOnLoad !== false;   // the current user's setting, not the file's
+  const sw = (o.screen && o.screen.w) || innerWidth, sh = (o.screen && o.screen.h) || innerHeight;
+  layout = {};
+  WIN_IDS.forEach(id => {
+    const saved = (o.layout || {})[id];
+    const L = Object.assign({}, d[id], saved || {});
+    if (saved) { if (!saved.sw) L.sw = sw; if (!saved.sh) L.sh = sh; }
+    if (saved && fit && (L.sw !== innerWidth || L.sh !== innerHeight)) Object.assign(L, winRect(L, innerWidth, innerHeight, true), {sw:innerWidth, sh:innerHeight});
+    layout[id] = L;
+  });
+  const savedOpen = Object.fromEntries(WIN_IDS.map(id => [id, layout[id].open]));
   WIN_IDS.forEach(id => { wins[id].classList.toggle('max', (o.maxed || []).includes(id)); placeWin(id); });
   saveLayout(); buildWinMenu();
   if (o.view && o.view.hideTitle && !(o.layout && o.layout.pagetitle)) { layout.pagetitle.open = false; placeWin('pagetitle'); }
@@ -4571,6 +4644,8 @@ function applyView(o){
     else if (state.playing) stopPlay();
   }
   if (o.selected) { const it = items.find(x => x.uid === o.selected || x.t === o.selected); if (it) openDetail(it); }
+  // selecting a milestone or starting Play opens their windows; restore exactly what the view saved
+  WIN_IDS.forEach(id => { if (layout[id].open !== savedOpen[id]) { layout[id].open = savedOpen[id]; placeWin(id); } }); buildWinMenu(); syncVideos();
   if (o.camera && !(state.playing && view.camTravel)) camGoal = {pos:new THREE.Vector3().fromArray(o.camera.pos), target:new THREE.Vector3().fromArray(o.camera.target)};
   if (o.autoRotate != null) setAutoRotate(o.autoRotate);
   renderFortunes(state.playing ? Math.floor(Math.min(state.cursor, YEND)) : YEND);
@@ -4650,8 +4725,8 @@ function addAudienceIdea(o, quiet){
   if (!key || !FIELDS[key]) return null;
   const r = +o.r, p = Math.max(+o.p, +o.r);
   const d = {v:key, s:o.s || 'academic', kind:p > NOW ? 'proj' : 'hist', t:o.t, r, p, c:'medium', aud:true, who:o.who || '',
-    rw:o.who ? `An idea from ${esc(o.who)}.` : 'An idea from the audience.', pw:p > NOW ? `Expected to reach change around ${p}.` : `Reached change in ${p}.`,
-    note:o.desc ? esc(o.desc) : 'Added live during the session.', desc:o.desc || '', srcLabel:o.source || '', srcUrl:safeUrl(o.url), icon:IDEA_ICONS[o.icon] ? o.icon : 'bulb', iconImg:o.icon === 'custom' ? (o.iconImg || customIcon) : ''};
+    rw:o.who ? `Added by ${esc(o.who)}.` : 'Added by hand.', pw:p > NOW ? `Expected to reach change around ${p}.` : `Reached change in ${p}.`,
+    note:o.desc ? esc(o.desc) : 'Added by hand.', desc:o.desc || '', srcLabel:o.source || '', srcUrl:safeUrl(o.url), icon:IDEA_ICONS[o.icon] ? o.icon : 'bulb', iconImg:o.icon === 'custom' ? (o.iconImg || customIcon) : ''};
   d.t = esc(o.t);
   const it = buildItem(d, items.length); items.push(it); makeLabel(it);
   F.fields.add(key);
@@ -4696,12 +4771,12 @@ function clearAudience(){
   refresh(); renderAudList();
 }
 function renderAudList(){
-  $('audList').innerHTML = AUD.length ? AUD.map(a => `<div class="audrow"><i class="audic">${iconHtml(a.icon, a.iconImg)}</i><span><a href="#" data-open="${a.id}">${esc(a.t)}</a><em>${esc(a.field)}, ${a.r} to ${a.p}${a.who ? ', ' + esc(a.who) : ''}${a.desc || a.source ? ', with details' : ''}</em></span><button data-rm="${a.id}" title="Delete this idea${FIELDS[items[a.id].v] && FIELDS[items[a.id].v].custom ? ' and its new field track if nothing else uses it' : ''}">✕</button></div>`).join('') : '<p class="empty">Ideas you add appear here and as bright arcs in the model.</p>';
+  $('audList').innerHTML = AUD.length ? AUD.map(a => `<div class="audrow"><i class="audic">${iconHtml(a.icon, a.iconImg)}</i><span><a href="#" data-open="${a.id}">${esc(a.t)}</a><em>${esc(a.field)}, ${a.r} to ${a.p}${a.who ? ', ' + esc(a.who) : ''}${a.desc || a.source ? ', with details' : ''}</em></span><button data-rm="${a.id}" title="Delete this milestone${FIELDS[items[a.id].v] && FIELDS[items[a.id].v].custom ? ' and its new field track if nothing else uses it' : ''}">✕</button></div>`).join('') : '<p class="empty">Milestones you add appear here and as bright arcs in the model.</p>';
 }
 $('audList').addEventListener('click', e => { const b = e.target.closest('button[data-rm]'); if (b) { removeAudienceIdea(+b.dataset.rm); return; } const o = e.target.closest('a[data-open]'); if (o) { e.preventDefault(); openDetail(items[+o.dataset.open]); } });
 $('audAdd').onclick = () => {
   const t = $('audName').value.trim();
-  if (!t) { $('audMsg').textContent = 'Give the idea a short name first.'; $('audName').focus(); return; }
+  if (!t) { $('audMsg').textContent = 'Give the milestone a short name first.'; $('audName').focus(); return; }
   let o = {t, icon:$('audIcon').value, iconImg:$('audIcon').value === 'custom' ? customIcon : '', s:$('audSrc').value, r:+$('audR').value, p:+$('audP').value, who:$('audWho').value.trim(), desc:$('audDesc').value.trim(), source:$('audSource').value.trim(), url:$('audUrl').value.trim()};
   if (o.url && !safeUrl(o.url)) { $('audMsg').textContent = 'Links must start with http:// or https://.'; $('audUrl').focus(); return; }
   if ($('audField').value === '__new') { const n = $('audNew').value.trim(); if (!n) { $('audMsg').textContent = 'Type a name for the new field.'; $('audNew').focus(); return; } o.field = n; }
@@ -4712,7 +4787,7 @@ $('audAdd').onclick = () => {
 function audSnapshot(){ return AUD.map(a => ({t:a.t, field:a.field, s:a.s, r:a.r, p:a.p, who:a.who, desc:a.desc, source:a.source, url:a.url, icon:a.icon, iconImg:a.iconImg})); }
 function loadAudience(list){ clearAudience(); (list || []).forEach(a => addAudienceIdea({t:a.t, field:a.field, s:a.s, r:a.r, p:a.p, who:a.who, desc:a.desc, source:a.source, url:a.url, icon:a.icon, iconImg:a.iconImg}, true)); }
 $('audSave').onclick = () => {
-  const name = (prompt('Name this set of ideas:', 'ideas-from-the-room') || '').trim(); if (!name) return;
+  const name = (prompt('Name this set of milestones:', 'my-milestones') || '').trim(); if (!name) return;
   const blob = new Blob([JSON.stringify({app:'the-shrinking-gap-ideas', version:1, saved:new Date().toISOString(), ideas:audSnapshot()}, null, 2)], {type:'application/json'});
   const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name.replace(/[^\w\-]+/g, '-').toLowerCase() + '.json';
   document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 3000);
@@ -4720,10 +4795,10 @@ $('audSave').onclick = () => {
 $('audLoad').addEventListener('change', e => {
   const f = e.target.files && e.target.files[0]; if (!f) return;
   const rd = new FileReader();
-  rd.onload = () => { try { const o = JSON.parse(rd.result); loadAudience(o.ideas || o.audience || []); $('audMsg').textContent = `Loaded ${AUD.length} ideas.`; } catch (err) { $('audMsg').textContent = 'Could not read that file.'; } e.target.value = ''; };
+  rd.onload = () => { try { const o = JSON.parse(rd.result); loadAudience(o.ideas || o.audience || []); $('audMsg').textContent = `Loaded ${AUD.length} milestones.`; } catch (err) { $('audMsg').textContent = 'Could not read that file.'; } e.target.value = ''; };
   rd.readAsText(f);
 });
-$('audClear').onclick = () => { if (!AUD.length || confirm('Remove all ideas from the room?')) clearAudience(); };
+$('audClear').onclick = () => { if (!AUD.length || confirm('Remove all of your milestones?')) clearAudience(); };
 $('audSpotT').addEventListener('change', e => { view.audSpot = e.target.checked; applyColours(); });
 $('audPauseT').addEventListener('change', e => { view.audPause = e.target.checked; });
 let spotTimer = 0;
