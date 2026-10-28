@@ -41,6 +41,8 @@ Every Monday at 06:00 UTC (or on demand from the Actions tab):
 
 The research agent also searches each of the five DESNZ AI energy vision areas directly every week. Each record carries a readiness stage (research, pilot, first commercial use, at scale), a GB status for energy and vision-linked records, and, for technologies, a note on whether it expands the cyber attack surface. Outlook estimates are recorded when made and scored when the item lands, so forecast accuracy builds up over time (see Data quality in the app). On deep-audit runs a second issue, labelled `desnz`, summarises the month for each vision area.
 
+A third agent, the guidance agent, runs weekly to record new and updated security guidance, with priority on the NCSC Cyber Assessment Framework and Ofgem's CAF Overlay and profiles, then NIST, NERC CIP, IEC 62443, ISO/IEC, ETSI and regulators worldwide. It accepts only official sources whose page it has read, and the updates appear in the Cyber lens. The mitigation guidance shown in the app is AI-generated research to prompt discussion, not security advice: engage qualified experts before acting.
+
 Time to a fortune is refreshed monthly with the deep audit: the research agent looks for new fortunes (two sources, independent QA), and the QA agent updates net worths only from a dated source whose quoted text contains the new figure, with jumps of more than threefold refused. Set `founders.weekly` in `agents/config.json` to run it every week.
 
 On the first Monday of each month (or when you tick *deep* on a manual run) the QA agent uses the stronger model and a bigger batch. To see estimated costs in the app, add your model prices under `pricing` in `agents/config.json`; the Claude Console always shows the exact charge.
