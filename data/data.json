@@ -2,7 +2,7 @@
  "$schema": "./schema.json",
  "meta": {
   "title": "The Shrinking Gap from Research to Change",
-  "revision": 9,
+  "revision": 10,
   "version": "8.0",
   "asOf": "2026-10-28",
   "horizonYears": 10,
@@ -235,9 +235,32 @@
      "zero-trust: tags added",
      "f-rocket-lab: fortuneYear 2018 → 2021"
     ]
+   },
+   {
+    "date": "2026-10-28",
+    "summary": "Manual update: readiness stages, GB status, attack-surface notes and forecast records added.",
+    "revision": 10
    }
   ],
-  "adoptionDefinition": "Mainstream adoption: the year the technology reached widespread, routine use, roughly 10% or more of its potential market or standard practice in its sector."
+  "adoptionDefinition": "Mainstream adoption: the year the technology reached widespread, routine use, roughly 10% or more of its potential market or standard practice in its sector.",
+  "readinessStages": [
+   {
+    "id": "research",
+    "name": "Research"
+   },
+   {
+    "id": "pilot",
+    "name": "Pilot or demonstration"
+   },
+   {
+    "id": "commercial",
+    "name": "First commercial use"
+   },
+   {
+    "id": "scale",
+    "name": "At scale"
+   }
+  ]
  },
  "fields": [
   {
@@ -657,7 +680,20 @@
     "grid",
     "nuclear"
    ],
-   "subfield": "nuclear"
+   "subfield": "nuclear",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "deployed",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Digital instrumentation and control adds safety-critical cyber exposure.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "hvdc-transmission",
@@ -694,7 +730,20 @@
    "tags": [
     "grid"
    ],
-   "subfield": "grids"
+   "subfield": "grids",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Adds digital control and communications to transmission and distribution assets.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "silicon-solar-cell",
@@ -732,7 +781,20 @@
     "solar",
     "space"
    ],
-   "subfield": "renewables"
+   "subfield": "renewables",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Inverters and turbine controllers are networked and often vendor-managed remotely.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "utility-scale-wind",
@@ -769,7 +831,20 @@
    "tags": [
     "wind"
    ],
-   "subfield": "renewables"
+   "subfield": "renewables",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Inverters and turbine controllers are networked and often vendor-managed remotely.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "lithium-ion-battery",
@@ -807,7 +882,20 @@
     "storage",
     "grid"
    ],
-   "subfield": "storage"
+   "subfield": "storage",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "deployed",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Battery management and dispatch systems are networked and remotely controllable.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "high-temperature-superconducting-cable",
@@ -836,7 +924,20 @@
    "tags": [
     "grid"
    ],
-   "subfield": "grids"
+   "subfield": "grids",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Adds digital control and communications to transmission and distribution assets.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "perovskite-solar",
@@ -865,7 +966,20 @@
    "tags": [
     "solar"
    ],
-   "subfield": "renewables"
+   "subfield": "renewables",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Inverters and turbine controllers are networked and often vendor-managed remotely.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "fusion-power",
@@ -912,7 +1026,20 @@
    "tags": [
     "nuclear"
    ],
-   "subfield": "nuclear"
+   "subfield": "nuclear",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "not-yet",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Digital instrumentation and control adds safety-critical cyber exposure.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "tandem-solar-at-volume",
@@ -945,7 +1072,25 @@
    "tags": [
     "solar"
    ],
-   "subfield": "renewables"
+   "subfield": "renewables",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "planned",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Inverters and turbine controllers are networked and often vendor-managed remotely.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2028,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "ai-in-grid-control-rooms",
@@ -995,7 +1140,25 @@
     "wind",
     "ai-models"
    ],
-   "subfield": "ops"
+   "subfield": "ops",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "planned",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Brings software and data into control-room decisions, so data integrity and model security matter.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2027,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "household-flexibility-at-scale",
@@ -1027,7 +1190,25 @@
     "grid",
     "heat"
    ],
-   "subfield": "demand"
+   "subfield": "demand",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "trial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Puts many remotely controllable devices at the grid edge, where coordinated misuse could move demand at scale.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2028,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "grid-forming-inverters-as-standard",
@@ -1058,7 +1239,25 @@
     "grid",
     "regulation"
    ],
-   "subfield": "storage"
+   "subfield": "storage",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Battery management and dispatch systems are networked and remotely controllable.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2028,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "long-duration-storage-at-scale",
@@ -1104,7 +1303,25 @@
    "tags": [
     "storage"
    ],
-   "subfield": "storage"
+   "subfield": "storage",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "planned",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Battery management and dispatch systems are networked and remotely controllable.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2030,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "first-uk-small-modular-reactors",
@@ -1150,7 +1367,25 @@
    "tags": [
     "nuclear"
    ],
-   "subfield": "nuclear"
+   "subfield": "nuclear",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "planned",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Digital instrumentation and control adds safety-critical cyber exposure.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2031,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "quantum-optimisation-pilots",
@@ -1180,7 +1415,25 @@
    "tags": [
     "grid"
    ],
-   "subfield": "ops"
+   "subfield": "ops",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Brings software and data into control-room decisions, so data integrity and model security matter.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2030,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "stored-program-computer",
@@ -1222,7 +1475,16 @@
     "basis": "ai-estimate"
    },
    "region": "uk",
-   "subfield": "compute"
+   "subfield": "compute",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Concentrates valuable data and workloads, making it a high-value target.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "transistor",
@@ -1259,7 +1521,16 @@
    "tags": [
     "semiconductors"
    ],
-   "subfield": "chips"
+   "subfield": "chips",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Hardware supply chains and flaws such as side channels can undermine everything built on top.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "integrated-circuit",
@@ -1297,7 +1568,16 @@
     "semiconductors",
     "space"
    ],
-   "subfield": "chips"
+   "subfield": "chips",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Hardware supply chains and flaws such as side channels can undermine everything built on top.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "mosfet",
@@ -1326,7 +1606,16 @@
    "tags": [
     "semiconductors"
    ],
-   "subfield": "chips"
+   "subfield": "chips",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Hardware supply chains and flaws such as side channels can undermine everything built on top.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "dram",
@@ -1355,7 +1644,16 @@
    "tags": [
     "semiconductors"
    ],
-   "subfield": "memory"
+   "subfield": "memory",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Little direct attack surface; data at rest still needs protecting.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "flash-memory",
@@ -1384,7 +1682,16 @@
    "tags": [
     "semiconductors"
    ],
-   "subfield": "memory"
+   "subfield": "memory",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Little direct attack surface; data at rest still needs protecting.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "giant-magnetoresistance",
@@ -1413,7 +1720,16 @@
    "tags": [
     "materials"
    ],
-   "subfield": "memory"
+   "subfield": "memory",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Little direct attack surface; data at rest still needs protecting.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "euv-lithography",
@@ -1450,7 +1766,16 @@
    "tags": [
     "semiconductors"
    ],
-   "subfield": "fab"
+   "subfield": "fab",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Manufacturing concentration creates supply chain and integrity risks.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "gpus-for-general-computing",
@@ -1488,7 +1813,16 @@
     "semiconductors",
     "ai-models"
    ],
-   "subfield": "compute"
+   "subfield": "compute",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Concentrates valuable data and workloads, making it a high-value target.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "high-na-euv-in-volume-production",
@@ -1521,7 +1855,21 @@
    "tags": [
     "semiconductors"
    ],
-   "subfield": "fab"
+   "subfield": "fab",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Manufacturing concentration creates supply chain and integrity risks.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2028,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "optical-interconnects-in-ai-data-centres",
@@ -1550,7 +1898,21 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "compute"
+   "subfield": "compute",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Concentrates valuable data and workloads, making it a high-value target.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2028,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "chiplet-ecosystems",
@@ -1580,7 +1942,21 @@
     "semiconductors",
     "regulation"
    ],
-   "subfield": "fab"
+   "subfield": "fab",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Manufacturing concentration creates supply chain and integrity risks.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2027,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "neuromorphic-chips-at-the-edge",
@@ -1610,7 +1986,21 @@
     "semiconductors",
     "ai-models"
    ],
-   "subfield": "devices"
+   "subfield": "devices",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Adds connected endpoints that need patching and secure configuration.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2030,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "high-level-programming-languages",
@@ -1636,7 +2026,16 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "dev"
+   "subfield": "dev",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "time-sharing",
@@ -1662,7 +2061,16 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "apps"
+   "subfield": "apps",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "object-oriented-programming",
@@ -1688,7 +2096,16 @@
     "approximate": false
    },
    "region": "europe",
-   "subfield": "dev"
+   "subfield": "dev",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "unix",
@@ -1714,7 +2131,16 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "apps"
+   "subfield": "apps",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "relational-database",
@@ -1748,7 +2174,16 @@
     "basis": "ai-estimate"
    },
    "region": "us",
-   "subfield": "data"
+   "subfield": "data",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "graphical-interface",
@@ -1782,7 +2217,16 @@
     "basis": "ai-estimate"
    },
    "region": "us",
-   "subfield": "apps"
+   "subfield": "apps",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "world-wide-web",
@@ -1819,7 +2263,16 @@
    "tags": [
     "networks"
    ],
-   "subfield": "web"
+   "subfield": "web",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "open-source-operating-systems",
@@ -1853,7 +2306,16 @@
     "basis": "ai-estimate"
    },
    "region": "europe",
-   "subfield": "cloud"
+   "subfield": "cloud",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "virtualisation-on-pcs",
@@ -1879,7 +2341,16 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "cloud"
+   "subfield": "cloud",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "large-scale-data-processing",
@@ -1905,7 +2376,16 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "data"
+   "subfield": "data",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "ai-writes-most-new-code",
@@ -1934,7 +2414,21 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "ai-tools"
+   "subfield": "ai-tools",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2028,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "agent-interoperability-standards",
@@ -1967,7 +2461,16 @@
     "ai-models",
     "regulation"
    ],
-   "subfield": "ai-tools"
+   "subfield": "ai-tools",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "forecast": {
+    "estimatedYear": 2027,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "memory-safe-languages-by-default",
@@ -1993,7 +2496,21 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "dev"
+   "subfield": "dev",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2029,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "ai-assisted-formal-verification",
@@ -2022,7 +2539,21 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "ai-tools"
+   "subfield": "ai-tools",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2030,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "expert-systems",
@@ -2051,7 +2582,16 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "science"
+   "subfield": "science",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Models and training data become valuable assets to steal or tamper with.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "statistical-speech-recognition",
@@ -2080,7 +2620,16 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "language"
+   "subfield": "language",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Prompt injection, data leakage and misuse at scale are new kinds of risk.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "neural-networks-in-products",
@@ -2109,7 +2658,16 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "methods"
+   "subfield": "methods",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "New model capabilities also help attackers find and exploit weaknesses.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "deep-learning-for-images",
@@ -2146,7 +2704,16 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "vision"
+   "subfield": "vision",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Models can be fooled by manipulated inputs, and the data behind them can be poisoned.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "transformer-models",
@@ -2183,7 +2750,16 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "language"
+   "subfield": "language",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Prompt injection, data leakage and misuse at scale are new kinds of risk.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "learning-from-human-feedback",
@@ -2220,7 +2796,16 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "language"
+   "subfield": "language",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Prompt injection, data leakage and misuse at scale are new kinds of risk.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "diffusion-image-generation",
@@ -2250,7 +2835,16 @@
     "nuclear",
     "ai-models"
    ],
-   "subfield": "vision"
+   "subfield": "vision",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Models can be fooled by manipulated inputs, and the data behind them can be poisoned.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "reasoning-models",
@@ -2282,7 +2876,16 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "language"
+   "subfield": "language",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Prompt injection, data leakage and misuse at scale are new kinds of risk.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "agentic-ai-in-everyday-work",
@@ -2314,7 +2917,21 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "agents"
+   "subfield": "agents",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Agents act on systems, so a manipulated agent can take harmful actions directly.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2027,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "on-device-ai-as-default",
@@ -2343,7 +2960,21 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "methods"
+   "subfield": "methods",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "New model capabilities also help attackers find and exploit weaknesses.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2027,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "eu-high-risk-ai-rules-apply",
@@ -2390,7 +3021,16 @@
     "ai-models",
     "regulation"
    ],
-   "subfield": "methods"
+   "subfield": "methods",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "forecast": {
+    "estimatedYear": 2027,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "ai-as-a-scientific-collaborator",
@@ -2420,7 +3060,25 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "science"
+   "subfield": "science",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Models and training data become valuable assets to steal or tamper with.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2028,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "atomic-clock",
@@ -2457,7 +3115,16 @@
    "tags": [
     "grid"
    ],
-   "subfield": "sensing"
+   "subfield": "sensing",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Can reduce risk, for example timing that does not depend on jammable satellite signals.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "laser",
@@ -2491,7 +3158,16 @@
     "basis": "ai-estimate"
    },
    "region": "us",
-   "subfield": "devices"
+   "subfield": "devices",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Little direct attack surface.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "quantum-key-distribution",
@@ -2528,7 +3204,16 @@
    "tags": [
     "cryptography"
    ],
-   "subfield": "comms"
+   "subfield": "comms",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Strengthens key exchange, but adds specialised hardware and trusted-node risks.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "quantum-annealing",
@@ -2554,7 +3239,16 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "computing"
+   "subfield": "computing",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "A large enough quantum computer would break today’s public-key cryptography.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "quantum-computing-access",
@@ -2586,7 +3280,16 @@
    "tags": [
     "semiconductors"
    ],
-   "subfield": "computing"
+   "subfield": "computing",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "A large enough quantum computer would break today’s public-key cryptography.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "quantum-gravimeter",
@@ -2612,7 +3315,16 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "sensing"
+   "subfield": "sensing",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Can reduce risk, for example timing that does not depend on jammable satellite signals.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "cryptographically-relevant-quantum-computer",
@@ -2644,7 +3356,16 @@
    "tags": [
     "cryptography"
    ],
-   "subfield": "computing"
+   "subfield": "computing",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "A large enough quantum computer would break today’s public-key cryptography.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "verified-quantum-advantage",
@@ -2674,7 +3395,21 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "computing"
+   "subfield": "computing",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "A large enough quantum computer would break today’s public-key cryptography.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2027,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "fault-tolerant-quantum-computer",
@@ -2707,7 +3442,21 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "computing"
+   "subfield": "computing",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "A large enough quantum computer would break today’s public-key cryptography.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2029,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "quantum-navigation-in-service",
@@ -2740,7 +3489,21 @@
    "tags": [
     "space"
    ],
-   "subfield": "sensing"
+   "subfield": "sensing",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Can reduce risk, for example timing that does not depend on jammable satellite signals.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2030,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "machine-codebreaking",
@@ -2769,7 +3532,11 @@
     "approximate": false
    },
    "region": "uk",
-   "subfield": "crypto"
+   "subfield": "crypto",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "public-key-cryptography-secret",
@@ -2798,7 +3565,11 @@
    "tags": [
     "cryptography"
    ],
-   "subfield": "crypto"
+   "subfield": "crypto",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "public-key-cryptography-open",
@@ -2835,7 +3606,11 @@
    "tags": [
     "cryptography"
    ],
-   "subfield": "crypto"
+   "subfield": "crypto",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "antivirus",
@@ -2861,7 +3636,11 @@
     "approximate": false
    },
    "region": "europe",
-   "subfield": "network"
+   "subfield": "network",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "intrusion-detection",
@@ -2887,7 +3666,11 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "ops"
+   "subfield": "ops",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "firewall",
@@ -2933,7 +3716,11 @@
    "tags": [
     "networks"
    ],
-   "subfield": "network"
+   "subfield": "network",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "industrial-control-system-security",
@@ -2967,7 +3754,11 @@
     "basis": "ai-estimate"
    },
    "region": "us",
-   "subfield": "ot"
+   "subfield": "ot",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "homomorphic-encryption",
@@ -2996,7 +3787,11 @@
    "tags": [
     "cryptography"
    ],
-   "subfield": "crypto"
+   "subfield": "crypto",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "zero-trust",
@@ -3033,7 +3828,11 @@
    "subfield": "identity",
    "tags": [
     "networks"
-   ]
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "post-quantum-cryptography",
@@ -3079,7 +3878,11 @@
     "cryptography",
     "regulation"
    ],
-   "subfield": "crypto"
+   "subfield": "crypto",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "ai-vulnerability-discovery",
@@ -3120,7 +3923,11 @@
     "ai-models",
     "robots"
    ],
-   "subfield": "ops"
+   "subfield": "ops",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "post-quantum-migration-of-priority-systems",
@@ -3166,7 +3973,16 @@
     "cryptography",
     "regulation"
    ],
-   "subfield": "crypto"
+   "subfield": "crypto",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "forecast": {
+    "estimatedYear": 2031,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "ai-agents-in-security-operations",
@@ -3195,7 +4011,16 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "ops"
+   "subfield": "ops",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "forecast": {
+    "estimatedYear": 2028,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "exploit-windows-collapse",
@@ -3224,7 +4049,16 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "governance"
+   "subfield": "governance",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "forecast": {
+    "estimatedYear": 2027,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "automated-vulnerability-repair",
@@ -3255,7 +4089,16 @@
     "robots",
     "regulation"
    ],
-   "subfield": "ops"
+   "subfield": "ops",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "forecast": {
+    "estimatedYear": 2029,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "ai-anomaly-detection-in-ot-networks",
@@ -3286,7 +4129,20 @@
     "ai-models",
     "regulation"
    ],
-   "subfield": "ot"
+   "subfield": "ot",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "forecast": {
+    "estimatedYear": 2029,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "television",
@@ -3320,7 +4176,16 @@
     "basis": "ai-estimate"
    },
    "region": "uk",
-   "subfield": "broadcast"
+   "subfield": "broadcast",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Limited attack surface for infrastructure.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "radar",
@@ -3362,7 +4227,16 @@
     "basis": "ai-estimate"
    },
    "region": "uk",
-   "subfield": "internet"
+   "subfield": "internet",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Connects systems to the internet and to each other, the root of most remote attacks.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "cellular-networks",
@@ -3399,7 +4273,16 @@
    "tags": [
     "networks"
    ],
-   "subfield": "mobile"
+   "subfield": "mobile",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Wide-area connectivity extends networks to every device and site.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "communications-satellites",
@@ -3428,7 +4311,16 @@
    "tags": [
     "space"
    ],
-   "subfield": "satellite"
+   "subfield": "satellite",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Ground stations and links can be jammed, spoofed or hacked.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "ldpc-error-correcting-codes",
@@ -3459,7 +4351,16 @@
     "space",
     "regulation"
    ],
-   "subfield": "satellite"
+   "subfield": "satellite",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Ground stations and links can be jammed, spoofed or hacked.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "optical-fibre",
@@ -3497,7 +4398,16 @@
     "networks",
     "materials"
    ],
-   "subfield": "fibre"
+   "subfield": "fibre",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Carries critical traffic; physical and routing integrity matter.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "wi-fi-technology",
@@ -3534,7 +4444,16 @@
    "tags": [
     "networks"
    ],
-   "subfield": "internet"
+   "subfield": "internet",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Connects systems to the internet and to each other, the root of most remote attacks.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "mimo-wireless",
@@ -3572,7 +4491,16 @@
     "semiconductors",
     "networks"
    ],
-   "subfield": "internet"
+   "subfield": "internet",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Connects systems to the internet and to each other, the root of most remote attacks.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "massive-mimo",
@@ -3602,7 +4530,16 @@
     "networks",
     "regulation"
    ],
-   "subfield": "mobile"
+   "subfield": "mobile",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Wide-area connectivity extends networks to every device and site.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "satellite-direct-to-phones",
@@ -3632,7 +4569,21 @@
     "space",
     "regulation"
    ],
-   "subfield": "satellite"
+   "subfield": "satellite",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Ground stations and links can be jammed, spoofed or hacked.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2027,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "first-6g-networks",
@@ -3666,7 +4617,21 @@
     "ai-models",
     "networks"
    ],
-   "subfield": "mobile"
+   "subfield": "mobile",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Wide-area connectivity extends networks to every device and site.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2030,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "polyethylene",
@@ -3695,7 +4660,11 @@
    "tags": [
     "materials"
    ],
-   "subfield": "construction"
+   "subfield": "construction",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "nylon",
@@ -3729,7 +4698,11 @@
     "basis": "ai-estimate"
    },
    "region": "us",
-   "subfield": "polymers"
+   "subfield": "polymers",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "ptfe-teflon",
@@ -3755,7 +4728,11 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "polymers"
+   "subfield": "polymers",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "carbon-fibre",
@@ -3793,7 +4770,11 @@
     "networks",
     "materials"
    ],
-   "subfield": "composites"
+   "subfield": "composites",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "kevlar",
@@ -3822,7 +4803,11 @@
    "tags": [
     "networks"
    ],
-   "subfield": "composites"
+   "subfield": "composites",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "stable-liquid-crystals",
@@ -3848,7 +4833,11 @@
     "approximate": false
    },
    "region": "uk",
-   "subfield": "electronic"
+   "subfield": "electronic",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "blue-led",
@@ -3882,7 +4871,11 @@
     "basis": "ai-estimate"
    },
    "region": "asia",
-   "subfield": "electronic"
+   "subfield": "electronic",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "metal-organic-frameworks",
@@ -3911,7 +4904,11 @@
    "tags": [
     "storage"
    ],
-   "subfield": "electronic"
+   "subfield": "electronic",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "metamaterials",
@@ -3948,7 +4945,11 @@
    "tags": [
     "space"
    ],
-   "subfield": "polymers"
+   "subfield": "polymers",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "graphene",
@@ -3980,7 +4981,11 @@
    "tags": [
     "materials"
    ],
-   "subfield": "nano"
+   "subfield": "nano",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "sodium-ion-batteries",
@@ -4009,7 +5014,11 @@
    "tags": [
     "storage"
    ],
-   "subfield": "energy-mat"
+   "subfield": "energy-mat",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "solid-state-batteries-in-production-cars",
@@ -4045,7 +5054,16 @@
    "tags": [
     "storage"
    ],
-   "subfield": "energy-mat"
+   "subfield": "energy-mat",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "forecast": {
+    "estimatedYear": 2028,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "sodium-ion-grid-storage-at-scale",
@@ -4075,7 +5093,16 @@
     "storage",
     "grid"
    ],
-   "subfield": "energy-mat"
+   "subfield": "energy-mat",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "forecast": {
+    "estimatedYear": 2027,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "mofs-for-carbon-capture",
@@ -4109,7 +5136,16 @@
     }
    ],
    "region": "other",
-   "subfield": "energy-mat"
+   "subfield": "energy-mat",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "forecast": {
+    "estimatedYear": 2028,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "ai-discovered-materials-in-products",
@@ -4139,7 +5175,20 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "polymers"
+   "subfield": "polymers",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "forecast": {
+    "estimatedYear": 2029,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "liquid-fuelled-rocket-to-orbit",
@@ -4176,7 +5225,11 @@
    "tags": [
     "space"
    ],
-   "subfield": "launch"
+   "subfield": "launch",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "commercial-earth-observation",
@@ -4213,7 +5266,16 @@
    "tags": [
     "space"
    ],
-   "subfield": "eo"
+   "subfield": "eo",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Imagery and data services add supply chain and data integrity dependencies.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "satellite-navigation",
@@ -4251,7 +5313,16 @@
     "grid",
     "space"
    ],
-   "subfield": "nav"
+   "subfield": "nav",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Navigation and timing signals can be jammed or spoofed, affecting grid timing.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "reusable-rockets",
@@ -4288,7 +5359,11 @@
    "tags": [
     "space"
    ],
-   "subfield": "launch"
+   "subfield": "launch",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "cubesats",
@@ -4318,7 +5393,16 @@
     "space",
     "regulation"
    ],
-   "subfield": "eo"
+   "subfield": "eo",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Imagery and data services add supply chain and data integrity dependencies.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "low-orbit-satellite-broadband",
@@ -4351,7 +5435,16 @@
     "networks",
     "space"
    ],
-   "subfield": "satcom"
+   "subfield": "satcom",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Satellite links and ground stations can be jammed, spoofed or hacked.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "in-orbit-satellite-servicing",
@@ -4389,7 +5482,16 @@
     "space",
     "robots"
    ],
-   "subfield": "in-space"
+   "subfield": "in-space",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Remotely operated spacecraft depend on secure command links.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "fully-reusable-heavy-launch",
@@ -4415,7 +5517,16 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "launch"
+   "subfield": "launch",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "forecast": {
+    "estimatedYear": 2028,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "in-orbit-refuelling",
@@ -4453,7 +5564,21 @@
     "space",
     "robots"
    ],
-   "subfield": "in-space"
+   "subfield": "in-space",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Remotely operated spacecraft depend on secure command links.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2028,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "space-based-solar-power-demonstration",
@@ -4483,7 +5608,21 @@
     "solar",
     "space"
    ],
-   "subfield": "in-space"
+   "subfield": "in-space",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Remotely operated spacecraft depend on secure command links.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2030,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "industrial-robot",
@@ -4520,7 +5659,16 @@
    "tags": [
     "robots"
    ],
-   "subfield": "industrial"
+   "subfield": "industrial",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Networked factory robots add operational technology exposure.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "home-robots",
@@ -4549,7 +5697,16 @@
    "tags": [
     "robots"
    ],
-   "subfield": "service"
+   "subfield": "service",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Connected robots in homes and hospitals add privacy and safety risks.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "surgical-robots",
@@ -4579,7 +5736,16 @@
     "robots",
     "regulation"
    ],
-   "subfield": "service"
+   "subfield": "service",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Connected robots in homes and hospitals add privacy and safety risks.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "driverless-cars",
@@ -4611,7 +5777,16 @@
    "tags": [
     "robots"
    ],
-   "subfield": "vehicles"
+   "subfield": "vehicles",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Remote updates and sensors can be attacked to cause physical harm.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "consumer-drones",
@@ -4648,7 +5823,16 @@
      "checked": "2026-10-28"
     }
    ],
-   "subfield": "drones"
+   "subfield": "drones",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Command links and navigation can be hijacked or spoofed.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "uk-robotaxis",
@@ -4694,7 +5878,16 @@
     "robots",
     "regulation"
    ],
-   "subfield": "vehicles"
+   "subfield": "vehicles",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Remote updates and sensors can be attacked to cause physical harm.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "fully-driverless-rides-in-london",
@@ -4728,7 +5921,21 @@
     "robots",
     "regulation"
    ],
-   "subfield": "vehicles"
+   "subfield": "vehicles",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Remote updates and sensors can be attacked to cause physical harm.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2028,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "humanoid-robots-at-work",
@@ -4761,7 +5968,21 @@
    "flags": {
     "disputed": true
    },
-   "subfield": "humanoids"
+   "subfield": "humanoids",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "General-purpose robots driven by AI models inherit AI and physical safety risks.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2028,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "routine-beyond-sight-drone-inspection",
@@ -4792,7 +6013,21 @@
     "space",
     "robots"
    ],
-   "subfield": "drones"
+   "subfield": "drones",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Command links and navigation can be hijacked or spoofed.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2028,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "penicillin",
@@ -4837,7 +6072,11 @@
      "checked": "2026-10-28"
     }
    ],
-   "subfield": "medicines"
+   "subfield": "medicines",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "recombinant-dna",
@@ -4883,7 +6122,11 @@
      "checked": "2026-10-28"
     }
    ],
-   "subfield": "genetics"
+   "subfield": "genetics",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "mri-scanning",
@@ -4929,7 +6172,11 @@
      "checked": "2026-10-28"
     }
    ],
-   "subfield": "imaging"
+   "subfield": "imaging",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "monoclonal-antibodies",
@@ -4966,7 +6213,11 @@
      "checked": "2026-10-28"
     }
    ],
-   "subfield": "medicines"
+   "subfield": "medicines",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "pcr",
@@ -5000,7 +6251,11 @@
      "checked": "2026-10-28"
     }
    ],
-   "subfield": "genetics"
+   "subfield": "genetics",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "genome-sequencing-to-consumers",
@@ -5038,7 +6293,11 @@
      "checked": "2026-10-28"
     }
    ],
-   "subfield": "genetics"
+   "subfield": "genetics",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "mrna-vaccines",
@@ -5083,7 +6342,11 @@
      "checked": "2026-10-28"
     }
    ],
-   "subfield": "vaccines"
+   "subfield": "vaccines",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "crispr-gene-editing",
@@ -5125,7 +6388,11 @@
      "checked": "2026-10-28"
     }
    ],
-   "subfield": "genetics"
+   "subfield": "genetics",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "protein-structure-prediction",
@@ -5170,7 +6437,16 @@
      "checked": "2026-10-28"
     }
    ],
-   "subfield": "ai-bio"
+   "subfield": "ai-bio",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Valuable data and models are targets for theft and tampering.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "ai-discovered-medicines",
@@ -5200,7 +6476,21 @@
     "ai-models",
     "medicine"
    ],
-   "subfield": "ai-bio"
+   "subfield": "ai-bio",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Valuable data and models are targets for theft and tampering.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2029,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "in-body-gene-editing",
@@ -5230,7 +6520,16 @@
     "medicine",
     "genetics"
    ],
-   "subfield": "genetics"
+   "subfield": "genetics",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "forecast": {
+    "estimatedYear": 2030,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "computer-weather-forecasting",
@@ -5261,7 +6560,20 @@
     "solar",
     "wind"
    ],
-   "subfield": "ops"
+   "subfield": "ops",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Brings software and data into control-room decisions, so data integrity and model security matter.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "power-system-state-estimation",
@@ -5291,7 +6603,20 @@
    "tags": [
     "grid"
    ],
-   "subfield": "ops"
+   "subfield": "ops",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Brings software and data into control-room decisions, so data integrity and model security matter.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "synchrophasor-measurement",
@@ -5322,7 +6647,20 @@
     "grid",
     "ai-models"
    ],
-   "subfield": "grids"
+   "subfield": "grids",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Adds digital control and communications to transmission and distribution assets.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "wind-power-forecasting",
@@ -5353,7 +6691,20 @@
     "wind",
     "ai-models"
    ],
-   "subfield": "renewables"
+   "subfield": "renewables",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Inverters and turbine controllers are networked and often vendor-managed remotely.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "wind-turbine-predictive-maintenance",
@@ -5392,7 +6743,20 @@
      "checked": "2026-10-28"
     }
    ],
-   "subfield": "renewables"
+   "subfield": "renewables",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Inverters and turbine controllers are networked and often vendor-managed remotely.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "ai-data-centre-cooling",
@@ -5430,7 +6794,20 @@
      "checked": "2026-10-28"
     }
    ],
-   "subfield": "ops"
+   "subfield": "ops",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Brings software and data into control-room decisions, so data integrity and model security matter.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "smart-ev-charging",
@@ -5460,7 +6837,20 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "demand"
+   "subfield": "demand",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "deployed",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Puts many remotely controllable devices at the grid edge, where coordinated misuse could move demand at scale.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "machine-learning-solar-nowcasting",
@@ -5491,7 +6881,20 @@
     "solar",
     "ai-models"
    ],
-   "subfield": "renewables"
+   "subfield": "renewables",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "deployed",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Inverters and turbine controllers are networked and often vendor-managed remotely.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "a-largely-self-running-energy-system",
@@ -5521,7 +6924,20 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "ops"
+   "subfield": "ops",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "not-yet",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Brings software and data into control-room decisions, so data integrity and model security matter.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "ai-predictive-maintenance-across-networks",
@@ -5551,7 +6967,25 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "ops"
+   "subfield": "ops",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Brings software and data into control-room decisions, so data integrity and model security matter.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2028,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "self-updating-network-digital-twins",
@@ -5578,7 +7012,25 @@
     "approximate": false
    },
    "region": "uk",
-   "subfield": "ops"
+   "subfield": "ops",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "planned",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Brings software and data into control-room decisions, so data integrity and model security matter.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2030,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "ai-assurance-for-energy",
@@ -5617,7 +7069,20 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "ops"
+   "subfield": "ops",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "planned",
+    "basis": "ai-estimate"
+   },
+   "forecast": {
+    "estimatedYear": 2028,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "ai-for-clean-energy-strategy",
@@ -5656,7 +7121,20 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "ops"
+   "subfield": "ops",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "planned",
+    "basis": "ai-estimate"
+   },
+   "forecast": {
+    "estimatedYear": 2027,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "machine-speed-flexibility-markets",
@@ -5689,7 +7167,20 @@
    "tags": [
     "grid"
    ],
-   "subfield": "demand"
+   "subfield": "demand",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "planned",
+    "basis": "ai-estimate"
+   },
+   "forecast": {
+    "estimatedYear": 2030,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "ai-plasma-control-for-fusion",
@@ -5720,7 +7211,25 @@
     "nuclear",
     "ai-models"
    ],
-   "subfield": "nuclear"
+   "subfield": "nuclear",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "planned",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Digital instrumentation and control adds safety-critical cyber exposure.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2030,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "combined-cycle-gas-turbine",
@@ -5749,7 +7258,20 @@
    "tags": [
     "wind"
    ],
-   "subfield": "fuels"
+   "subfield": "fuels",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Plant control systems add operational technology exposure.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "grid-scale-lithium-ion-storage",
@@ -5787,7 +7309,20 @@
     "storage",
     "grid"
    ],
-   "subfield": "storage"
+   "subfield": "storage",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Battery management and dispatch systems are networked and remotely controllable.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "magnetic-core-memory",
@@ -5816,7 +7351,16 @@
    "tags": [
     "materials"
    ],
-   "subfield": "memory"
+   "subfield": "memory",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Little direct attack surface; data at rest still needs protecting.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "hard-disk-drive",
@@ -5845,7 +7389,16 @@
    "tags": [
     "storage"
    ],
-   "subfield": "memory"
+   "subfield": "memory",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Little direct attack surface; data at rest still needs protecting.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "cmos-logic",
@@ -5874,7 +7427,16 @@
    "tags": [
     "semiconductors"
    ],
-   "subfield": "devices"
+   "subfield": "devices",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Adds connected endpoints that need patching and secure configuration.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "microprocessor",
@@ -5911,7 +7473,16 @@
    "tags": [
     "semiconductors"
    ],
-   "subfield": "chips"
+   "subfield": "chips",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Hardware supply chains and flaws such as side channels can undermine everything built on top.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "risc-processors",
@@ -5940,7 +7511,16 @@
    "tags": [
     "semiconductors"
    ],
-   "subfield": "chips"
+   "subfield": "chips",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Hardware supply chains and flaws such as side channels can undermine everything built on top.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "finfet-transistors",
@@ -5970,7 +7550,16 @@
     "semiconductors",
     "regulation"
    ],
-   "subfield": "chips"
+   "subfield": "chips",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Hardware supply chains and flaws such as side channels can undermine everything built on top.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "utility-and-cloud-computing",
@@ -6007,7 +7596,16 @@
    "tags": [
     "networks"
    ],
-   "subfield": "cloud"
+   "subfield": "cloud",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "blockchain",
@@ -6033,7 +7631,16 @@
     "approximate": false
    },
    "region": "global",
-   "subfield": "apps"
+   "subfield": "apps",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "web-search-ranking",
@@ -6062,7 +7669,16 @@
    "tags": [
     "networks"
    ],
-   "subfield": "data"
+   "subfield": "data",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "statistical-machine-translation",
@@ -6091,7 +7707,16 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "language"
+   "subfield": "language",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Prompt injection, data leakage and misuse at scale are new kinds of risk.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "recommender-systems",
@@ -6120,7 +7745,16 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "methods"
+   "subfield": "methods",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "New model capabilities also help attackers find and exploit weaknesses.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "lstm-networks",
@@ -6150,7 +7784,16 @@
     "semiconductors",
     "ai-models"
    ],
-   "subfield": "language"
+   "subfield": "language",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Prompt injection, data leakage and misuse at scale are new kinds of risk.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "voice-assistants",
@@ -6179,7 +7822,16 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "language"
+   "subfield": "language",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Prompt injection, data leakage and misuse at scale are new kinds of risk.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "squid-magnetometers",
@@ -6208,7 +7860,16 @@
    "tags": [
     "materials"
    ],
-   "subfield": "sensing"
+   "subfield": "sensing",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Can reduce risk, for example timing that does not depend on jammable satellite signals.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "trapped-ion-quantum-computing",
@@ -6234,7 +7895,16 @@
     "approximate": false
    },
    "region": "europe",
-   "subfield": "computing"
+   "subfield": "computing",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "A large enough quantum computer would break today’s public-key cryptography.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "data-encryption-standard",
@@ -6264,7 +7934,11 @@
     "cryptography",
     "regulation"
    ],
-   "subfield": "crypto"
+   "subfield": "crypto",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "aes-encryption",
@@ -6294,7 +7968,11 @@
     "cryptography",
     "regulation"
    ],
-   "subfield": "crypto"
+   "subfield": "crypto",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "passkeys",
@@ -6323,7 +8001,11 @@
    "tags": [
     "cryptography"
    ],
-   "subfield": "identity"
+   "subfield": "identity",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "packet-switching",
@@ -6352,7 +8034,16 @@
    "tags": [
     "networks"
    ],
-   "subfield": "mobile"
+   "subfield": "mobile",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Wide-area connectivity extends networks to every device and site.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "tcp-ip",
@@ -6389,7 +8080,16 @@
    "tags": [
     "networks"
    ],
-   "subfield": "internet"
+   "subfield": "internet",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Connects systems to the internet and to each other, the root of most remote attacks.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "gsm-mobile",
@@ -6427,7 +8127,16 @@
     "networks",
     "regulation"
    ],
-   "subfield": "mobile"
+   "subfield": "mobile",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Wide-area connectivity extends networks to every device and site.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "bluetooth",
@@ -6456,7 +8165,16 @@
    "tags": [
     "networks"
    ],
-   "subfield": "mobile"
+   "subfield": "mobile",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Wide-area connectivity extends networks to every device and site.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "shape-memory-alloy",
@@ -6485,7 +8203,11 @@
    "tags": [
     "materials"
    ],
-   "subfield": "composites"
+   "subfield": "composites",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "strengthened-glass",
@@ -6514,7 +8236,11 @@
    "tags": [
     "materials"
    ],
-   "subfield": "electronic"
+   "subfield": "electronic",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "neodymium-magnets",
@@ -6552,7 +8278,11 @@
     "wind",
     "materials"
    ],
-   "subfield": "energy-mat"
+   "subfield": "energy-mat",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "electric-propulsion",
@@ -6582,7 +8312,16 @@
     "space",
     "regulation"
    ],
-   "subfield": "satcom"
+   "subfield": "satcom",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Satellite links and ground stations can be jammed, spoofed or hacked.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "satellite-television",
@@ -6611,7 +8350,16 @@
    "tags": [
     "space"
    ],
-   "subfield": "satcom"
+   "subfield": "satcom",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Satellite links and ground stations can be jammed, spoofed or hacked.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "robot-mapping-slam",
@@ -6640,7 +8388,16 @@
    "tags": [
     "robots"
    ],
-   "subfield": "service"
+   "subfield": "service",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Connected robots in homes and hospitals add privacy and safety risks.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "warehouse-robots",
@@ -6670,7 +8427,16 @@
     "networks",
     "robots"
    ],
-   "subfield": "service"
+   "subfield": "service",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Connected robots in homes and hospitals add privacy and safety risks.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "spinning-lidar",
@@ -6700,7 +8466,16 @@
    "tags": [
     "robots",
     "computer-vision"
-   ]
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Remote updates and sensors can be attacked to cause physical harm.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "dna-sequencing",
@@ -6751,7 +8526,11 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
-   ]
+   ],
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "statins",
@@ -6788,7 +8567,11 @@
    ],
    "tags": [
     "medicine"
-   ]
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "next-generation-sequencing",
@@ -6826,7 +8609,11 @@
      "checked": "2026-10-28"
     }
    ],
-   "company": "Solexa (acquired by Illumina)"
+   "company": "Solexa (acquired by Illumina)",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "sap-enterprise-software",
@@ -6867,7 +8654,16 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
-   ]
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "electronic-spreadsheet",
@@ -6902,7 +8698,16 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
-   ]
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "postscript-and-desktop-publishing",
@@ -6937,7 +8742,16 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
-   ]
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "microsoft-windows",
@@ -6972,7 +8786,16 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
-   ]
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "software-as-a-service",
@@ -7010,7 +8833,16 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
-   ]
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "social-networking",
@@ -7056,7 +8888,16 @@
    ],
    "tags": [
     "networks"
-   ]
+   ],
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "online-video-sharing",
@@ -7083,7 +8924,16 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "web"
+   "subfield": "web",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "microblogging",
@@ -7121,7 +8971,16 @@
    ],
    "tags": [
     "networks"
-   ]
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "music-streaming",
@@ -7156,7 +9015,16 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
-   ]
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "mobile-photo-sharing",
@@ -7186,7 +9054,16 @@
    "tags": [
     "networks"
    ],
-   "subfield": "apps"
+   "subfield": "apps",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "workplace-messaging",
@@ -7221,7 +9098,16 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
-   ]
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "ibm-system-360",
@@ -7248,7 +9134,16 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "compute"
+   "subfield": "compute",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Concentrates valuable data and workloads, making it a high-value target.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "cray-1-supercomputer",
@@ -7278,7 +9173,16 @@
    "tags": [
     "grid"
    ],
-   "subfield": "compute"
+   "subfield": "compute",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Concentrates valuable data and workloads, making it a high-value target.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "apple-ii-personal-computer",
@@ -7305,7 +9209,16 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "devices"
+   "subfield": "devices",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Adds connected endpoints that need patching and secure configuration.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "ibm-pc",
@@ -7343,7 +9256,16 @@
    "subfield": "devices",
    "tags": [
     "semiconductors"
-   ]
+   ],
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Adds connected endpoints that need patching and secure configuration.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "pure-play-chip-foundry",
@@ -7373,7 +9295,16 @@
    "tags": [
     "semiconductors"
    ],
-   "subfield": "chips"
+   "subfield": "chips",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Hardware supply chains and flaws such as side channels can undermine everything built on top.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "graphics-processing-unit",
@@ -7404,7 +9335,16 @@
     "semiconductors",
     "ai-models"
    ],
-   "subfield": "chips"
+   "subfield": "chips",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Hardware supply chains and flaws such as side channels can undermine everything built on top.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "iphone",
@@ -7442,7 +9382,16 @@
    "subfield": "devices",
    "tags": [
     "semiconductors"
-   ]
+   ],
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Adds connected endpoints that need patching and secure configuration.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "raspberry-pi",
@@ -7469,7 +9418,16 @@
     "approximate": false
    },
    "region": "uk",
-   "subfield": "devices"
+   "subfield": "devices",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Adds connected endpoints that need patching and secure configuration.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "ai-data-centre-gpus",
@@ -7508,7 +9466,16 @@
     "semiconductors",
     "ai-models"
    ],
-   "subfield": "methods"
+   "subfield": "methods",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "New model capabilities also help attackers find and exploit weaknesses.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "tensor-processing-unit",
@@ -7539,7 +9506,16 @@
     "semiconductors",
     "ai-models"
    ],
-   "subfield": "science"
+   "subfield": "science",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Models and training data become valuable assets to steal or tamper with.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "graphcore-ipu",
@@ -7570,7 +9546,16 @@
     "semiconductors",
     "ai-models"
    ],
-   "subfield": "methods"
+   "subfield": "methods",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "New model capabilities also help attackers find and exploit weaknesses.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "wafer-scale-ai-chip",
@@ -7601,7 +9586,16 @@
     "semiconductors",
     "ai-models"
    ],
-   "subfield": "methods"
+   "subfield": "methods",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "New model capabilities also help attackers find and exploit weaknesses.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "large-language-model-api",
@@ -7639,7 +9633,16 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "language"
+   "subfield": "language",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Prompt injection, data leakage and misuse at scale are new kinds of risk.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "claude-assistant",
@@ -7669,7 +9672,16 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "language"
+   "subfield": "language",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Prompt injection, data leakage and misuse at scale are new kinds of risk.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "open-weight-european-models",
@@ -7699,7 +9711,16 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "language"
+   "subfield": "language",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Prompt injection, data leakage and misuse at scale are new kinds of risk.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "ai-voice-generation",
@@ -7729,7 +9750,16 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "language"
+   "subfield": "language",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Prompt injection, data leakage and misuse at scale are new kinds of risk.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "ai-coding-editor-cursor",
@@ -7759,7 +9789,16 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "agents"
+   "subfield": "agents",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Agents act on systems, so a manipulated agent can take harmful actions directly.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "stateful-inspection-firewall",
@@ -7786,7 +9825,11 @@
     "approximate": false
    },
    "region": "other",
-   "subfield": "network"
+   "subfield": "network",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "security-appliances-on-custom-chips",
@@ -7816,7 +9859,11 @@
    "tags": [
     "semiconductors"
    ],
-   "subfield": "network"
+   "subfield": "network",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "machine-data-analytics-siem",
@@ -7843,7 +9890,11 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "ot"
+   "subfield": "ops",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "next-generation-firewall",
@@ -7873,7 +9924,11 @@
    "subfield": "network",
    "tags": [
     "networks"
-   ]
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "hardware-security-keys",
@@ -7903,7 +9958,11 @@
    "subfield": "identity",
    "tags": [
     "cryptography"
-   ]
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "cloud-delivered-security",
@@ -7933,7 +9992,11 @@
    "subfield": "network",
    "tags": [
     "networks"
-   ]
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "cloud-identity",
@@ -7960,7 +10023,11 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "identity"
+   "subfield": "identity",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "cloud-endpoint-protection",
@@ -7987,7 +10054,11 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "network"
+   "subfield": "network",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "ai-threat-detection",
@@ -8017,7 +10088,11 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "ops"
+   "subfield": "ops",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "ot-security-platform",
@@ -8045,7 +10120,15 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "ot"
+   "subfield": "ot",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "cloud-security-posture",
@@ -8072,7 +10155,11 @@
     "approximate": false
    },
    "region": "other",
-   "subfield": "network"
+   "subfield": "network",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "commercial-wind-turbines",
@@ -8102,7 +10189,20 @@
    "tags": [
     "wind"
    ],
-   "subfield": "renewables"
+   "subfield": "renewables",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Inverters and turbine controllers are networked and often vendor-managed remotely.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "offshore-wind-farm",
@@ -8140,7 +10240,20 @@
    "tags": [
     "wind"
    ],
-   "subfield": "renewables"
+   "subfield": "renewables",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "deployed",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Inverters and turbine controllers are networked and often vendor-managed remotely.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "solar-microinverters",
@@ -8171,7 +10284,20 @@
     "grid",
     "solar"
    ],
-   "subfield": "renewables"
+   "subfield": "renewables",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Inverters and turbine controllers are networked and often vendor-managed remotely.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "home-and-grid-batteries",
@@ -8202,7 +10328,20 @@
     "storage",
     "grid"
    ],
-   "subfield": "storage"
+   "subfield": "storage",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Battery management and dispatch systems are networked and remotely controllable.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "kraken-energy-platform",
@@ -8233,7 +10372,20 @@
    "tags": [
     "grid"
    ],
-   "subfield": "demand"
+   "subfield": "demand",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "deployed",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Puts many remotely controllable devices at the grid edge, where coordinated misuse could move demand at scale.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "superconducting-quantum-cloud",
@@ -8263,7 +10415,16 @@
    "subfield": "computing",
    "tags": [
     "semiconductors"
-   ]
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "A large enough quantum computer would break today’s public-key cryptography.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "trapped-ion-commercial-systems",
@@ -8290,7 +10451,16 @@
     "approximate": false
    },
    "region": "uk",
-   "subfield": "computing"
+   "subfield": "computing",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "A large enough quantum computer would break today’s public-key cryptography.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "uk-quantum-computing-service",
@@ -8325,7 +10495,16 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
-   ]
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "A large enough quantum computer would break today’s public-key cryptography.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "photonic-fault-tolerant-quantum-computer",
@@ -8352,7 +10531,16 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "computing"
+   "subfield": "computing",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "A large enough quantum computer would break today’s public-key cryptography.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "multi-protocol-router",
@@ -8390,7 +10578,16 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
-   ]
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Connects systems to the internet and to each other, the root of most remote attacks.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "cdma-mobile-networks",
@@ -8444,6 +10641,15 @@
    },
    "flags": {
     "major": true
+   },
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Wide-area connectivity extends networks to every device and site.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -8482,7 +10688,16 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
-   ]
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Connects systems to the internet and to each other, the root of most remote attacks.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "mobile-messaging",
@@ -8512,7 +10727,16 @@
    "tags": [
     "networks"
    ],
-   "subfield": "messaging"
+   "subfield": "messaging",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "A major route for phishing and data leakage.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "video-meetings",
@@ -8555,7 +10779,16 @@
    },
    "tags": [
     "networks"
-   ]
+   ],
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Connects systems to the internet and to each other, the root of most remote attacks.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "small-commercial-satellites",
@@ -8593,7 +10826,11 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
-   ]
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "private-orbital-rocket",
@@ -8634,6 +10871,10 @@
    ],
    "flags": {
     "major": true
+   },
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
    }
   },
   {
@@ -8664,7 +10905,11 @@
    "tags": [
     "space"
    ],
-   "subfield": "launch"
+   "subfield": "launch",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "legged-robots",
@@ -8703,7 +10948,16 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
-   ]
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Robots operating on live networks combine physical and cyber risk.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "dji-camera-drones",
@@ -8741,7 +10995,16 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
-   ]
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Command links and navigation can be hijacked or spoofed.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "automated-grocery-warehouses",
@@ -8787,7 +11050,16 @@
      "status": "ok",
      "checked": "2026-10-28"
     }
-   ]
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Connected robots in homes and hospitals add privacy and safety risks.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "repositionable-adhesive-post-it",
@@ -8817,7 +11089,11 @@
    "subfield": "polymers",
    "tags": [
     "materials"
-   ]
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "expanded-ptfe-gore-tex",
@@ -8847,7 +11123,11 @@
    "subfield": "polymers",
    "tags": [
     "materials"
-   ]
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "ultra-strong-polyethylene-fibre",
@@ -8877,7 +11157,11 @@
    "tags": [
     "networks"
    ],
-   "subfield": "polymers"
+   "subfield": "polymers",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "nanopore-sequencing",
@@ -8907,7 +11191,11 @@
    "tags": [
     "genetics"
    ],
-   "subfield": "genetics"
+   "subfield": "genetics",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "pressurised-water-reactor",
@@ -8944,7 +11232,20 @@
    "tags": [
     "nuclear"
    ],
-   "subfield": "nuclear"
+   "subfield": "nuclear",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Digital instrumentation and control adds safety-critical cyber exposure.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "smart-meters-at-scale",
@@ -8983,7 +11284,20 @@
     "grid",
     "ai-models"
    ],
-   "subfield": "demand"
+   "subfield": "demand",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Puts many remotely controllable devices at the grid edge, where coordinated misuse could move demand at scale.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "voltage-source-hvdc",
@@ -9013,7 +11327,20 @@
     "grid",
     "wind"
    ],
-   "subfield": "grids"
+   "subfield": "grids",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Adds digital control and communications to transmission and distribution assets.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "carbon-capture-and-storage",
@@ -9042,7 +11369,20 @@
    "tags": [
     "storage"
    ],
-   "subfield": "storage"
+   "subfield": "storage",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Battery management and dispatch systems are networked and remotely controllable.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "lithium-iron-phosphate-batteries",
@@ -9072,7 +11412,20 @@
     "storage",
     "grid"
    ],
-   "subfield": "storage"
+   "subfield": "storage",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Battery management and dispatch systems are networked and remotely controllable.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "modern-electric-cars",
@@ -9110,7 +11463,20 @@
     "storage",
     "grid"
    ],
-   "subfield": "storage"
+   "subfield": "storage",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Battery management and dispatch systems are networked and remotely controllable.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "tidal-stream-power",
@@ -9140,7 +11506,20 @@
     "grid",
     "wind"
    ],
-   "subfield": "renewables"
+   "subfield": "renewables",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "deployed",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Inverters and turbine controllers are networked and often vendor-managed remotely.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "floating-offshore-wind",
@@ -9172,7 +11551,20 @@
    "tags": [
     "wind"
    ],
-   "subfield": "renewables"
+   "subfield": "renewables",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "deployed",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Inverters and turbine controllers are networked and often vendor-managed remotely.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "capacitive-touchscreen",
@@ -9198,7 +11590,16 @@
     "approximate": false
    },
    "region": "europe",
-   "subfield": "devices"
+   "subfield": "devices",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Adds connected endpoints that need patching and secure configuration.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "compact-disc",
@@ -9227,7 +11628,16 @@
    "tags": [
     "regulation"
    ],
-   "subfield": "memory"
+   "subfield": "memory",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Little direct attack surface; data at rest still needs protecting.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "high-bandwidth-memory",
@@ -9257,7 +11667,16 @@
     "semiconductors",
     "ai-models"
    ],
-   "subfield": "memory"
+   "subfield": "memory",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Little direct attack surface; data at rest still needs protecting.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "ai-designed-chip-layouts",
@@ -9287,7 +11706,16 @@
     "semiconductors",
     "ai-models"
    ],
-   "subfield": "compute"
+   "subfield": "compute",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Concentrates valuable data and workloads, making it a high-value target.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "email",
@@ -9313,7 +11741,16 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "apps"
+   "subfield": "apps",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "java-and-portable-code",
@@ -9339,7 +11776,16 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "dev"
+   "subfield": "dev",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "android",
@@ -9373,7 +11819,16 @@
     "basis": "ai-estimate"
    },
    "region": "us",
-   "subfield": "cloud"
+   "subfield": "cloud",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "containers-and-kubernetes",
@@ -9399,7 +11854,16 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "cloud"
+   "subfield": "cloud",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "face-detection-in-cameras",
@@ -9429,7 +11893,16 @@
     "ai-models",
     "computer-vision"
    ],
-   "subfield": "vision"
+   "subfield": "vision",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Models can be fooled by manipulated inputs, and the data behind them can be poisoned.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "generative-adversarial-networks",
@@ -9458,7 +11931,16 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "vision"
+   "subfield": "vision",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Models can be fooled by manipulated inputs, and the data behind them can be poisoned.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "quantum-dots",
@@ -9487,7 +11969,16 @@
    "tags": [
     "materials"
    ],
-   "subfield": "devices"
+   "subfield": "devices",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Little direct attack surface.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "smart-cards",
@@ -9516,7 +12007,11 @@
    "tags": [
     "semiconductors"
    ],
-   "subfield": "identity"
+   "subfield": "identity",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "kerberos-authentication",
@@ -9542,7 +12037,11 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "identity"
+   "subfield": "identity",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "encrypted-web-ssl-tls",
@@ -9580,7 +12079,11 @@
     "cryptography",
     "networks"
    ],
-   "subfield": "crypto"
+   "subfield": "crypto",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "erbium-doped-fibre-amplifier",
@@ -9609,7 +12112,16 @@
    "tags": [
     "networks"
    ],
-   "subfield": "fibre"
+   "subfield": "fibre",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Carries critical traffic; physical and routing integrity matter.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "broadband-over-phone-lines-dsl",
@@ -9638,7 +12150,16 @@
    "tags": [
     "networks"
    ],
-   "subfield": "internet"
+   "subfield": "internet",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Connects systems to the internet and to each other, the root of most remote attacks.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "4g-lte",
@@ -9675,7 +12196,16 @@
    "tags": [
     "networks"
    ],
-   "subfield": "mobile"
+   "subfield": "mobile",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Wide-area connectivity extends networks to every device and site.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "float-glass",
@@ -9704,7 +12234,11 @@
    "tags": [
     "materials"
    ],
-   "subfield": "construction"
+   "subfield": "construction",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "3d-printing",
@@ -9734,7 +12268,11 @@
     "wind",
     "semiconductors"
    ],
-   "subfield": "polymers"
+   "subfield": "polymers",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "silicon-carbide-power-devices",
@@ -9763,7 +12301,11 @@
    "tags": [
     "grid"
    ],
-   "subfield": "electronic"
+   "subfield": "electronic",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "weather-satellites",
@@ -9792,7 +12334,16 @@
    "tags": [
     "space"
    ],
-   "subfield": "eo"
+   "subfield": "eo",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Imagery and data services add supply chain and data integrity dependencies.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "satellite-radar-imaging",
@@ -9821,7 +12372,16 @@
    "tags": [
     "space"
    ],
-   "subfield": "eo"
+   "subfield": "eo",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Imagery and data services add supply chain and data integrity dependencies.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "collaborative-robots",
@@ -9851,7 +12411,16 @@
    "tags": [
     "robots"
    ],
-   "subfield": "industrial"
+   "subfield": "industrial",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Networked factory robots add operational technology exposure.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "legged-inspection-robots",
@@ -9882,7 +12451,16 @@
     "grid",
     "robots"
    ],
-   "subfield": "field"
+   "subfield": "field",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Robots operating on live networks combine physical and cyber risk.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "polio-vaccine",
@@ -9911,7 +12489,11 @@
    "tags": [
     "medicine"
    ],
-   "subfield": "vaccines"
+   "subfield": "vaccines",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "ct-scanning",
@@ -9948,7 +12530,11 @@
    "tags": [
     "medicine"
    ],
-   "subfield": "imaging"
+   "subfield": "imaging",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "ivf",
@@ -9974,7 +12560,11 @@
     "approximate": false
    },
    "region": "uk",
-   "subfield": "medicines"
+   "subfield": "medicines",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "first-hiv-drug",
@@ -10003,7 +12593,11 @@
    "tags": [
     "medicine"
    ],
-   "subfield": "medicines"
+   "subfield": "medicines",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "glp-1-medicines",
@@ -10032,7 +12626,11 @@
    "tags": [
     "medicine"
    ],
-   "subfield": "medicines"
+   "subfield": "medicines",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "ai-discovered-battery-electrolyte-in-cells",
@@ -10071,7 +12669,25 @@
     "hydrogen",
     "ai-models"
    ],
-   "subfield": "storage"
+   "subfield": "storage",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Battery management and dispatch systems are networked and remotely controllable.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2030,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "digital-twin-grid-connection-studies",
@@ -10104,7 +12720,25 @@
    "tags": [
     "grid"
    ],
-   "subfield": "ops"
+   "subfield": "ops",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "planned",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Brings software and data into control-room decisions, so data integrity and model security matter.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2028,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "autonomous-materials-labs-in-industry",
@@ -10137,7 +12771,16 @@
     "ai-models",
     "robots"
    ],
-   "subfield": "polymers"
+   "subfield": "polymers",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "forecast": {
+    "estimatedYear": 2028,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "ai-decoders-for-quantum-error-correction",
@@ -10169,7 +12812,21 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "computing"
+   "subfield": "computing",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "A large enough quantum computer would break today’s public-key cryptography.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2029,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "robot-foundation-models-in-products",
@@ -10202,7 +12859,21 @@
     "ai-models",
     "robots"
    ],
-   "subfield": "humanoids"
+   "subfield": "humanoids",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "General-purpose robots driven by AI models inherit AI and physical safety risks.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2027,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "ai-run-satellite-operations",
@@ -10236,7 +12907,16 @@
     "space",
     "robots"
    ],
-   "subfield": "launch"
+   "subfield": "launch",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "forecast": {
+    "estimatedYear": 2028,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "ai-native-radio-networks",
@@ -10269,7 +12949,21 @@
     "ai-models",
     "networks"
    ],
-   "subfield": "broadcast"
+   "subfield": "broadcast",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Limited attack surface for infrastructure.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2030,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "ai-weather-forecasting-goes-operational",
@@ -10310,7 +13004,20 @@
     "wind",
     "ai-models"
    ],
-   "subfield": "ops"
+   "subfield": "ops",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "deployed",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Brings software and data into control-room decisions, so data integrity and model security matter.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "ai-cloudcasting",
@@ -10352,7 +13059,20 @@
     "ai-models",
     "space"
    ],
-   "subfield": "ops"
+   "subfield": "ops",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "deployed",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Brings software and data into control-room decisions, so data integrity and model security matter.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "open-balancing-platform",
@@ -10392,7 +13112,20 @@
     "storage",
     "grid"
    ],
-   "subfield": "storage"
+   "subfield": "storage",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "deployed",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Battery management and dispatch systems are networked and remotely controllable.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "demand-flexibility-service",
@@ -10429,7 +13162,20 @@
    "tags": [
     "grid"
    ],
-   "subfield": "demand"
+   "subfield": "demand",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "deployed",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Puts many remotely controllable devices at the grid edge, where coordinated misuse could move demand at scale.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "ai-optimised-flexibility-aggregation",
@@ -10470,7 +13216,20 @@
     "grid",
     "ai-models"
    ],
-   "subfield": "demand"
+   "subfield": "demand",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "deployed",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Puts many remotely controllable devices at the grid edge, where coordinated misuse could move demand at scale.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "drone-inspection-of-transmission-towers",
@@ -10511,7 +13270,20 @@
     "grid",
     "robots"
    ],
-   "subfield": "ops"
+   "subfield": "ops",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "deployed",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Brings software and data into control-room decisions, so data integrity and model security matter.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "ai-drone-inspection-of-pylons",
@@ -10552,7 +13324,20 @@
     "ai-models",
     "robots"
    ],
-   "subfield": "ops"
+   "subfield": "ops",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "deployed",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Brings software and data into control-room decisions, so data integrity and model security matter.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "cyber-assessment-framework",
@@ -10586,7 +13371,15 @@
     "approximate": false
    },
    "region": "uk",
-   "subfield": "governance"
+   "subfield": "governance",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "deployed",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "ot-threat-detection-for-utilities",
@@ -10622,7 +13415,15 @@
     "approximate": false
    },
    "region": "other",
-   "subfield": "ot"
+   "subfield": "ot",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "liquid-air-energy-storage",
@@ -10653,7 +13454,20 @@
     "storage",
     "grid"
    ],
-   "subfield": "storage"
+   "subfield": "storage",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "deployed",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Battery management and dispatch systems are networked and remotely controllable.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "utility-scale-battery-product",
@@ -10684,7 +13498,20 @@
     "storage",
     "grid"
    ],
-   "subfield": "storage"
+   "subfield": "storage",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Battery management and dispatch systems are networked and remotely controllable.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "blade-lfp-battery",
@@ -10714,7 +13541,20 @@
    "tags": [
     "storage"
    ],
-   "subfield": "storage"
+   "subfield": "storage",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Battery management and dispatch systems are networked and remotely controllable.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "100-hour-iron-air-battery",
@@ -10750,7 +13590,25 @@
    "tags": [
     "storage"
    ],
-   "subfield": "storage"
+   "subfield": "storage",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Battery management and dispatch systems are networked and remotely controllable.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2027,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "weather-driven-fault-forecasting",
@@ -10787,7 +13645,25 @@
     "approximate": false
    },
    "region": "uk",
-   "subfield": "ops"
+   "subfield": "ops",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "planned",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Brings software and data into control-room decisions, so data integrity and model security matter.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2028,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "ensign-energy-system-digital-twin",
@@ -10828,7 +13704,25 @@
     "grid",
     "ai-models"
    ],
-   "subfield": "ops"
+   "subfield": "ops",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "planned",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Brings software and data into control-room decisions, so data integrity and model security matter.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2028,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "heat-flexibility-and-thermal-storage",
@@ -10870,7 +13764,25 @@
     "grid",
     "heat"
    ],
-   "subfield": "storage"
+   "subfield": "storage",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "planned",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Battery management and dispatch systems are networked and remotely controllable.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2030,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "spen-university-of-glasgow-cyber-defence-lab",
@@ -10911,7 +13823,20 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "ops"
+   "subfield": "ops",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "planned",
+    "basis": "ai-estimate"
+   },
+   "forecast": {
+    "estimatedYear": 2028,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "grid-forming-battery-stability-services",
@@ -10950,7 +13875,20 @@
     "storage",
     "grid"
    ],
-   "subfield": "storage"
+   "subfield": "storage",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "deployed",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Battery management and dispatch systems are networked and remotely controllable.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "eastern-green-link-1-subsea-hvdc",
@@ -10986,7 +13924,25 @@
    "tags": [
     "grid"
    ],
-   "subfield": "grids"
+   "subfield": "grids",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "planned",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Adds digital control and communications to transmission and distribution assets.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2029,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "cyber-security-and-resilience-act-in-force",
@@ -11027,7 +13983,20 @@
    "tags": [
     "regulation"
    ],
-   "subfield": "governance"
+   "subfield": "governance",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "planned",
+    "basis": "ai-estimate"
+   },
+   "forecast": {
+    "estimatedYear": 2027,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "exascale-supercomputing",
@@ -11056,7 +14025,16 @@
    "tags": [
     "grid"
    ],
-   "subfield": "compute"
+   "subfield": "compute",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Concentrates valuable data and workloads, making it a high-value target.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "arm-processors-in-laptops",
@@ -11086,7 +14064,16 @@
    "tags": [
     "semiconductors"
    ],
-   "subfield": "devices"
+   "subfield": "devices",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Adds connected endpoints that need patching and secure configuration.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "hydrogen-fuel-cell-power",
@@ -11120,7 +14107,20 @@
     "hydrogen",
     "space"
    ],
-   "subfield": "fuels"
+   "subfield": "fuels",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "deployed",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Plant control systems add operational technology exposure.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "advanced-gas-cooled-reactor",
@@ -11149,7 +14149,20 @@
    "tags": [
     "nuclear"
    ],
-   "subfield": "nuclear"
+   "subfield": "nuclear",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "deployed",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Digital instrumentation and control adds safety-critical cyber exposure.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "vanadium-flow-battery",
@@ -11178,7 +14191,20 @@
    "tags": [
     "storage"
    ],
-   "subfield": "storage"
+   "subfield": "storage",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "deployed",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Battery management and dispatch systems are networked and remotely controllable.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "learning-smart-thermostat",
@@ -11209,7 +14235,20 @@
    "tags": [
     "heat"
    ],
-   "subfield": "demand"
+   "subfield": "demand",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Puts many remotely controllable devices at the grid edge, where coordinated misuse could move demand at scale.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "enhanced-geothermal-power",
@@ -11239,7 +14278,20 @@
    "tags": [
     "grid"
    ],
-   "subfield": "fuels"
+   "subfield": "fuels",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Plant control systems add operational technology exposure.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "computer-mouse",
@@ -11273,7 +14325,16 @@
     "basis": "ai-estimate"
    },
    "region": "us",
-   "subfield": "devices"
+   "subfield": "devices",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Adds connected endpoints that need patching and secure configuration.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "laser-printer",
@@ -11299,7 +14360,16 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "devices"
+   "subfield": "devices",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Adds connected endpoints that need patching and secure configuration.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "charge-coupled-device-ccd",
@@ -11333,7 +14403,16 @@
     "basis": "ai-estimate"
    },
    "region": "us",
-   "subfield": "devices"
+   "subfield": "devices",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Adds connected endpoints that need patching and secure configuration.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "cmos-image-sensor",
@@ -11363,7 +14442,16 @@
     "semiconductors",
     "robots"
    ],
-   "subfield": "devices"
+   "subfield": "devices",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Adds connected endpoints that need patching and secure configuration.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "usb",
@@ -11392,7 +14480,16 @@
    "tags": [
     "regulation"
    ],
-   "subfield": "devices"
+   "subfield": "devices",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Adds connected endpoints that need patching and secure configuration.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "3d-nand-flash",
@@ -11421,7 +14518,16 @@
    "tags": [
     "storage"
    ],
-   "subfield": "memory"
+   "subfield": "memory",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Little direct attack surface; data at rest still needs protecting.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "risc-v-open-chip-architecture",
@@ -11450,7 +14556,16 @@
    "tags": [
     "semiconductors"
    ],
-   "subfield": "chips"
+   "subfield": "chips",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Hardware supply chains and flaws such as side channels can undermine everything built on top.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "basic-programming",
@@ -11476,7 +14591,16 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "dev"
+   "subfield": "dev",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "hypertext",
@@ -11513,7 +14637,16 @@
    "tags": [
     "networks"
    ],
-   "subfield": "apps"
+   "subfield": "apps",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "wikis",
@@ -11539,7 +14672,16 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "web"
+   "subfield": "web",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "online-maps",
@@ -11569,7 +14711,16 @@
    "tags": [
     "networks"
    ],
-   "subfield": "web"
+   "subfield": "web",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "distributed-version-control",
@@ -11596,7 +14747,16 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "dev"
+   "subfield": "dev",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "machine-learning-frameworks",
@@ -11625,7 +14785,16 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "dev"
+   "subfield": "dev",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "optical-character-recognition",
@@ -11654,7 +14823,16 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "vision"
+   "subfield": "vision",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Models can be fooled by manipulated inputs, and the data behind them can be poisoned.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "industrial-machine-vision",
@@ -11685,7 +14863,16 @@
     "ai-models",
     "computer-vision"
    ],
-   "subfield": "vision"
+   "subfield": "vision",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Models can be fooled by manipulated inputs, and the data behind them can be poisoned.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "neural-network-fraud-detection",
@@ -11714,7 +14901,16 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "science"
+   "subfield": "science",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Models and training data become valuable assets to steal or tamper with.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "machine-learning-spam-filters",
@@ -11743,7 +14939,16 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "methods"
+   "subfield": "methods",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "New model capabilities also help attackers find and exploit weaknesses.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "neural-machine-translation",
@@ -11780,7 +14985,16 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "language"
+   "subfield": "language",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Prompt injection, data leakage and misuse at scale are new kinds of risk.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "natural-sounding-ai-voices",
@@ -11809,7 +15023,16 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "language"
+   "subfield": "language",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Prompt injection, data leakage and misuse at scale are new kinds of risk.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "josephson-voltage-standard",
@@ -11838,7 +15061,16 @@
    "tags": [
     "regulation"
    ],
-   "subfield": "sensing"
+   "subfield": "sensing",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Can reduce risk, for example timing that does not depend on jammable satellite signals.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "quantum-hall-resistance-standard",
@@ -11867,7 +15099,16 @@
    "tags": [
     "regulation"
    ],
-   "subfield": "sensing"
+   "subfield": "sensing",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Can reduce risk, for example timing that does not depend on jammable satellite signals.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "chip-scale-atomic-clock",
@@ -11898,7 +15139,16 @@
     "semiconductors",
     "space"
    ],
-   "subfield": "sensing"
+   "subfield": "sensing",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Can reduce risk, for example timing that does not depend on jammable satellite signals.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "neutral-atom-quantum-computers",
@@ -11924,7 +15174,16 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "computing"
+   "subfield": "computing",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "A large enough quantum computer would break today’s public-key cryptography.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "wearable-quantum-brain-scanner",
@@ -11964,7 +15223,16 @@
     "medicine",
     "materials"
    ],
-   "subfield": "sensing"
+   "subfield": "sensing",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Can reduce risk, for example timing that does not depend on jammable satellite signals.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "quantum-secured-metro-network",
@@ -11994,7 +15262,16 @@
    "tags": [
     "cryptography"
    ],
-   "subfield": "comms"
+   "subfield": "comms",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Strengthens key exchange, but adds specialised hardware and trusted-node risks.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "two-factor-authentication-tokens",
@@ -12020,7 +15297,11 @@
     "approximate": true
    },
    "region": "us",
-   "subfield": "identity"
+   "subfield": "identity",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "captcha",
@@ -12049,7 +15330,11 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "identity"
+   "subfield": "identity",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "trusted-platform-module",
@@ -12078,7 +15363,11 @@
    "tags": [
     "semiconductors"
    ],
-   "subfield": "identity"
+   "subfield": "identity",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "differential-privacy",
@@ -12107,7 +15396,11 @@
    "tags": [
     "grid"
    ],
-   "subfield": "network"
+   "subfield": "network",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "end-to-end-encrypted-messaging",
@@ -12136,7 +15429,11 @@
    "tags": [
     "cryptography"
    ],
-   "subfield": "crypto"
+   "subfield": "crypto",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "hardware-memory-tagging",
@@ -12162,7 +15459,11 @@
     "approximate": false
    },
    "region": "uk",
-   "subfield": "network"
+   "subfield": "network",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "microwave-radio-relay",
@@ -12188,7 +15489,16 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "broadcast"
+   "subfield": "broadcast",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Limited attack surface for infrastructure.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "text-messaging-sms",
@@ -12225,7 +15535,16 @@
    "tags": [
     "networks"
    ],
-   "subfield": "mobile"
+   "subfield": "mobile",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Wide-area connectivity extends networks to every device and site.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "fibre-to-the-home",
@@ -12254,7 +15573,16 @@
    "tags": [
     "networks"
    ],
-   "subfield": "fibre"
+   "subfield": "fibre",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Carries critical traffic; physical and routing integrity matter.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "global-satellite-phones",
@@ -12284,7 +15612,16 @@
    "tags": [
     "space"
    ],
-   "subfield": "satellite"
+   "subfield": "satellite",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Ground stations and links can be jammed, spoofed or hacked.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "software-defined-networking",
@@ -12310,7 +15647,16 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "internet"
+   "subfield": "internet",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Connects systems to the internet and to each other, the root of most remote attacks.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "li-fi-light-communication",
@@ -12337,7 +15683,16 @@
     "approximate": false
    },
    "region": "uk",
-   "subfield": "internet"
+   "subfield": "internet",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Connects systems to the internet and to each other, the root of most remote attacks.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "polyester-fibre",
@@ -12366,7 +15721,11 @@
    "tags": [
     "networks"
    ],
-   "subfield": "polymers"
+   "subfield": "polymers",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "polycarbonate",
@@ -12395,7 +15754,11 @@
    "tags": [
     "materials"
    ],
-   "subfield": "polymers"
+   "subfield": "polymers",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "superglue",
@@ -12421,7 +15784,11 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "polymers"
+   "subfield": "polymers",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "oled-displays",
@@ -12458,7 +15825,11 @@
    "tags": [
     "materials"
    ],
-   "subfield": "electronic"
+   "subfield": "electronic",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "gallium-nitride-power-transistors",
@@ -12487,7 +15858,11 @@
    "tags": [
     "semiconductors"
    ],
-   "subfield": "electronic"
+   "subfield": "electronic",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "aerogel-insulation",
@@ -12513,7 +15888,11 @@
     "approximate": true
    },
    "region": "us",
-   "subfield": "nano"
+   "subfield": "nano",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "self-healing-concrete",
@@ -12539,7 +15918,11 @@
     "approximate": true
    },
    "region": "europe",
-   "subfield": "construction"
+   "subfield": "construction",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "commercial-cargo-to-the-space-station",
@@ -12568,7 +15951,11 @@
    "tags": [
     "space"
    ],
-   "subfield": "human"
+   "subfield": "human",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "commercial-crew-spaceflight",
@@ -12600,7 +15987,11 @@
    "tags": [
     "space"
    ],
-   "subfield": "human"
+   "subfield": "human",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "suborbital-space-tourism",
@@ -12629,7 +16020,11 @@
    "tags": [
     "space"
    ],
-   "subfield": "human"
+   "subfield": "human",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "radar-microsatellites",
@@ -12659,7 +16054,16 @@
    "tags": [
     "space"
    ],
-   "subfield": "eo"
+   "subfield": "eo",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Imagery and data services add supply chain and data integrity dependencies.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "methane-detecting-satellites",
@@ -12689,7 +16093,16 @@
    "tags": [
     "space"
    ],
-   "subfield": "eo"
+   "subfield": "eo",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Imagery and data services add supply chain and data integrity dependencies.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "laser-links-between-satellites",
@@ -12719,7 +16132,16 @@
     "networks",
     "space"
    ],
-   "subfield": "satcom"
+   "subfield": "satcom",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Satellite links and ground stations can be jammed, spoofed or hacked.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "underwater-robots-rovs",
@@ -12748,7 +16170,16 @@
    "tags": [
     "robots"
    ],
-   "subfield": "field"
+   "subfield": "field",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Robots operating on live networks combine physical and cyber risk.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "robotic-milking",
@@ -12777,7 +16208,16 @@
    "tags": [
     "robots"
    ],
-   "subfield": "service"
+   "subfield": "service",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Connected robots in homes and hospitals add privacy and safety risks.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "robotic-lawn-mowers",
@@ -12807,7 +16247,16 @@
     "solar",
     "robots"
    ],
-   "subfield": "service"
+   "subfield": "service",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Connected robots in homes and hospitals add privacy and safety risks.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "powered-exoskeletons",
@@ -12833,7 +16282,16 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "service"
+   "subfield": "service",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Connected robots in homes and hospitals add privacy and safety risks.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "sidewalk-delivery-robots",
@@ -12863,7 +16321,16 @@
    "tags": [
     "robots"
    ],
-   "subfield": "service"
+   "subfield": "service",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Connected robots in homes and hospitals add privacy and safety risks.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "streptomycin",
@@ -12889,7 +16356,11 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "medicines"
+   "subfield": "medicines",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "medical-ultrasound",
@@ -12926,7 +16397,11 @@
    "tags": [
     "medicine"
    ],
-   "subfield": "imaging"
+   "subfield": "imaging",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "contraceptive-pill",
@@ -12952,7 +16427,11 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "medicines"
+   "subfield": "medicines",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "implantable-pacemaker",
@@ -12978,7 +16457,16 @@
     "approximate": false
    },
    "region": "europe",
-   "subfield": "devices"
+   "subfield": "devices",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Connected medical devices put patient safety at cyber risk.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "beta-blockers",
@@ -13007,7 +16495,11 @@
    "tags": [
     "medicine"
    ],
-   "subfield": "medicines"
+   "subfield": "medicines",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "cochlear-implant",
@@ -13033,7 +16525,16 @@
     "approximate": false
    },
    "region": "other",
-   "subfield": "devices"
+   "subfield": "devices",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "A standalone device with little direct cyber exposure.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "cancer-immunotherapy",
@@ -13070,7 +16571,11 @@
    "tags": [
     "medicine"
    ],
-   "subfield": "medicines"
+   "subfield": "medicines",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "car-t-cell-therapy",
@@ -13099,7 +16604,11 @@
    "tags": [
     "medicine"
    ],
-   "subfield": "genetics"
+   "subfield": "genetics",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "reversible-pumped-storage-at-scale",
@@ -13129,7 +16638,20 @@
     "storage",
     "wind"
    ],
-   "subfield": "storage"
+   "subfield": "storage",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "deployed",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Battery management and dispatch systems are networked and remotely controllable.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "solar-thermal-power-stations",
@@ -13158,7 +16680,20 @@
    "tags": [
     "solar"
    ],
-   "subfield": "renewables"
+   "subfield": "renewables",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Inverters and turbine controllers are networked and often vendor-managed remotely.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "wave-power-to-the-grid",
@@ -13187,7 +16722,20 @@
    "tags": [
     "grid"
    ],
-   "subfield": "renewables"
+   "subfield": "renewables",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "deployed",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Inverters and turbine controllers are networked and often vendor-managed remotely.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "active-network-management",
@@ -13226,7 +16774,20 @@
     "grid",
     "wind"
    ],
-   "subfield": "renewables"
+   "subfield": "renewables",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "deployed",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Inverters and turbine controllers are networked and often vendor-managed remotely.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "offshore-wind-hvdc-connection",
@@ -13256,7 +16817,20 @@
     "grid",
     "wind"
    ],
-   "subfield": "renewables"
+   "subfield": "renewables",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Inverters and turbine controllers are networked and often vendor-managed remotely.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "inkjet-printer",
@@ -13282,7 +16856,16 @@
     "approximate": false
    },
    "region": "asia",
-   "subfield": "devices"
+   "subfield": "devices",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Adds connected endpoints that need patching and secure configuration.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "electronic-paper-displays",
@@ -13308,7 +16891,16 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "devices"
+   "subfield": "devices",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Adds connected endpoints that need patching and secure configuration.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "online-retail",
@@ -13338,7 +16930,16 @@
    "tags": [
     "networks"
    ],
-   "subfield": "web"
+   "subfield": "web",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "online-banking",
@@ -13364,7 +16965,16 @@
     "approximate": false
    },
    "region": "uk",
-   "subfield": "web"
+   "subfield": "web",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "body-tracking-without-markers",
@@ -13393,7 +17003,16 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "vision"
+   "subfield": "vision",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Models can be fooled by manipulated inputs, and the data behind them can be poisoned.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "autonomous-ai-diagnosis",
@@ -13423,7 +17042,16 @@
     "ai-models",
     "robots"
    ],
-   "subfield": "agents"
+   "subfield": "agents",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Agents act on systems, so a manipulated agent can take harmful actions directly.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "scanning-tunnelling-microscope",
@@ -13452,7 +17080,16 @@
    "tags": [
     "medicine"
    ],
-   "subfield": "devices"
+   "subfield": "devices",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Little direct attack surface.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "quantum-cascade-laser",
@@ -13478,7 +17115,16 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "sensing"
+   "subfield": "sensing",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Can reduce risk, for example timing that does not depend on jammable satellite signals.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "pgp-email-encryption",
@@ -13507,7 +17153,11 @@
    "tags": [
     "cryptography"
    ],
-   "subfield": "crypto"
+   "subfield": "crypto",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "onion-routing-tor",
@@ -13533,7 +17183,11 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "network"
+   "subfield": "network",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "fingerprint-sensors-on-phones",
@@ -13559,7 +17213,11 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "identity"
+   "subfield": "identity",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "ethernet",
@@ -13588,7 +17246,16 @@
    "tags": [
     "grid"
    ],
-   "subfield": "internet"
+   "subfield": "internet",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Connects systems to the internet and to each other, the root of most remote attacks.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "data-modems",
@@ -13614,7 +17281,16 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "internet"
+   "subfield": "internet",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Connects systems to the internet and to each other, the root of most remote attacks.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "digital-terrestrial-television",
@@ -13644,7 +17320,16 @@
     "networks",
     "regulation"
    ],
-   "subfield": "broadcast"
+   "subfield": "broadcast",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Limited attack surface for infrastructure.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "3g-mobile-data",
@@ -13674,7 +17359,16 @@
     "networks",
     "regulation"
    ],
-   "subfield": "mobile"
+   "subfield": "mobile",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Wide-area connectivity extends networks to every device and site.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "long-range-low-power-radio-lora",
@@ -13703,7 +17397,16 @@
    "tags": [
     "semiconductors"
    ],
-   "subfield": "mobile"
+   "subfield": "mobile",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Wide-area connectivity extends networks to every device and site.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "visible-leds",
@@ -13729,7 +17432,11 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "electronic"
+   "subfield": "electronic",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "electrochromic-smart-glass",
@@ -13758,7 +17465,11 @@
    "tags": [
     "materials"
    ],
-   "subfield": "electronic"
+   "subfield": "electronic",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "plant-based-plastics",
@@ -13787,7 +17498,11 @@
    "tags": [
     "materials"
    ],
-   "subfield": "polymers"
+   "subfield": "polymers",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "satellite-search-and-rescue",
@@ -13816,7 +17531,11 @@
    "tags": [
     "space"
    ],
-   "subfield": "launch"
+   "subfield": "launch",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "autonomous-mining-trucks",
@@ -13845,7 +17564,16 @@
    "tags": [
     "robots"
    ],
-   "subfield": "vehicles"
+   "subfield": "vehicles",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Remote updates and sensors can be attacked to cause physical harm.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "hpv-vaccine",
@@ -13874,7 +17602,11 @@
    "tags": [
     "medicine"
    ],
-   "subfield": "vaccines"
+   "subfield": "vaccines",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "targeted-breast-cancer-antibody",
@@ -13904,7 +17636,11 @@
     "medicine",
     "genetics"
    ],
-   "subfield": "medicines"
+   "subfield": "medicines",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "targeted-leukaemia-drug",
@@ -13933,7 +17669,11 @@
    "tags": [
     "medicine"
    ],
-   "subfield": "medicines"
+   "subfield": "medicines",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "laser-eye-surgery",
@@ -13959,7 +17699,16 @@
     "approximate": false
    },
    "region": "us",
-   "subfield": "devices"
+   "subfield": "devices",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "A standalone device with little direct cyber exposure.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "reinforcement-learning-control-room-assistants",
@@ -13996,7 +17745,25 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "ops"
+   "subfield": "ops",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Brings software and data into control-room decisions, so data integrity and model security matter.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2029,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "satellite-ai-vegetation-management",
@@ -14037,7 +17804,20 @@
     "ai-models",
     "space"
    ],
-   "subfield": "ops"
+   "subfield": "ops",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "deployed",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Brings software and data into control-room decisions, so data integrity and model security matter.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "network-wide-satellite-ai-tree-management-in-gb",
@@ -14076,7 +17856,25 @@
     "ai-models",
     "space"
    ],
-   "subfield": "ops"
+   "subfield": "ops",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "trial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Brings software and data into control-room decisions, so data integrity and model security matter.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2027,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "vehicle-to-grid-for-households",
@@ -14116,7 +17914,20 @@
     "grid",
     "regulation"
    ],
-   "subfield": "demand"
+   "subfield": "demand",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "deployed",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Puts many remotely controllable devices at the grid edge, where coordinated misuse could move demand at scale.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "ai-home-energy-agents",
@@ -14149,7 +17960,25 @@
     "heat",
     "ai-models"
    ],
-   "subfield": "ops"
+   "subfield": "ops",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "planned",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Brings software and data into control-room decisions, so data integrity and model security matter.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2028,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "machine-learning-battery-lifetime-prediction",
@@ -14180,7 +18009,20 @@
     "storage",
     "ai-models"
    ],
-   "subfield": "storage"
+   "subfield": "storage",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Battery management and dispatch systems are networked and remotely controllable.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "ai-discovered-electrolyser-catalysts",
@@ -14211,7 +18053,25 @@
     "hydrogen",
     "ai-models"
    ],
-   "subfield": "fuels"
+   "subfield": "fuels",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Plant control systems add operational technology exposure.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2031,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "ai-management-system-standard",
@@ -14242,7 +18102,15 @@
     "ai-models",
     "regulation"
    ],
-   "subfield": "governance"
+   "subfield": "governance",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "assured-ai-in-operational-energy-decisions",
@@ -14275,7 +18143,20 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "ops"
+   "subfield": "ops",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "planned",
+    "basis": "ai-estimate"
+   },
+   "forecast": {
+    "estimatedYear": 2029,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "first-power-from-a-uk-small-modular-reactor",
@@ -14312,7 +18193,25 @@
     "grid",
     "nuclear"
    ],
-   "subfield": "nuclear"
+   "subfield": "nuclear",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "planned",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Digital instrumentation and control adds safety-critical cyber exposure.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2035,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "ai-wind-farm-control-as-standard",
@@ -14347,7 +18246,25 @@
     "ai-models",
     "regulation"
    ],
-   "subfield": "renewables"
+   "subfield": "renewables",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Inverters and turbine controllers are networked and often vendor-managed remotely.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2032,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "ai-led-network-planning",
@@ -14381,7 +18298,25 @@
     "grid",
     "ai-models"
    ],
-   "subfield": "ops"
+   "subfield": "ops",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "trial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Brings software and data into control-room decisions, so data integrity and model security matter.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2033,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "digital-substations-across-gb",
@@ -14411,7 +18346,25 @@
     "grid",
     "regulation"
    ],
-   "subfield": "grids"
+   "subfield": "grids",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "planned",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Adds digital control and communications to transmission and distribution assets.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2035,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "multi-day-iron-air-storage-in-gb",
@@ -14440,7 +18393,25 @@
    "tags": [
     "storage"
    ],
-   "subfield": "storage"
+   "subfield": "storage",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "planned",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Battery management and dispatch systems are networked and remotely controllable.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2033,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "ai-designs-whole-chips",
@@ -14473,7 +18444,21 @@
     "semiconductors",
     "ai-models"
    ],
-   "subfield": "chips"
+   "subfield": "chips",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Hardware supply chains and flaws such as side channels can undermine everything built on top.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2032,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "2d-material-transistors",
@@ -14502,7 +18487,21 @@
    "tags": [
     "semiconductors"
    ],
-   "subfield": "fab"
+   "subfield": "fab",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Manufacturing concentration creates supply chain and integrity risks.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2035,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "photonic-ai-accelerators-in-data-centres",
@@ -14535,7 +18534,21 @@
     "semiconductors",
     "ai-models"
    ],
-   "subfield": "compute"
+   "subfield": "compute",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Concentrates valuable data and workloads, making it a high-value target.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2032,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "autonomous-software-engineering",
@@ -14568,7 +18581,21 @@
     "ai-models",
     "robots"
    ],
-   "subfield": "ai-tools"
+   "subfield": "ai-tools",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2033,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "ai-research-scientists",
@@ -14600,7 +18627,21 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "science"
+   "subfield": "science",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Models and training data become valuable assets to steal or tamper with.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2032,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "certified-ai-in-safety-critical-systems",
@@ -14632,7 +18673,16 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "science"
+   "subfield": "science",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "forecast": {
+    "estimatedYear": 2034,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "useful-quantum-chemistry-simulation",
@@ -14665,7 +18715,21 @@
     "storage",
     "ai-models"
    ],
-   "subfield": "computing"
+   "subfield": "computing",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "A large enough quantum computer would break today’s public-key cryptography.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2033,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "optical-clocks-for-national-timing",
@@ -14695,7 +18759,21 @@
     "grid",
     "space"
    ],
-   "subfield": "sensing"
+   "subfield": "sensing",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Can reduce risk, for example timing that does not depend on jammable satellite signals.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2035,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "post-quantum-migration-complete",
@@ -14733,7 +18811,20 @@
     "cryptography",
     "regulation"
    ],
-   "subfield": "crypto"
+   "subfield": "crypto",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "planned",
+    "basis": "ai-estimate"
+   },
+   "forecast": {
+    "estimatedYear": 2035,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "autonomous-cyber-defence-in-ot",
@@ -14767,7 +18858,20 @@
     "ai-models",
     "robots"
    ],
-   "subfield": "ot"
+   "subfield": "ot",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "forecast": {
+    "estimatedYear": 2032,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "quantum-network-links-between-cities",
@@ -14793,7 +18897,21 @@
     "approximate": true
    },
    "region": "uk",
-   "subfield": "internet"
+   "subfield": "internet",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Connects systems to the internet and to each other, the root of most remote attacks.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2036,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "ai-designed-battery-chemistry-in-mass-market-cars",
@@ -14826,7 +18944,16 @@
     "storage",
     "ai-models"
    ],
-   "subfield": "energy-mat"
+   "subfield": "energy-mat",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "forecast": {
+    "estimatedYear": 2033,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "recyclable-wind-turbine-blades-at-scale",
@@ -14856,7 +18983,16 @@
     "wind",
     "regulation"
    ],
-   "subfield": "composites"
+   "subfield": "composites",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "forecast": {
+    "estimatedYear": 2032,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "commercial-space-stations",
@@ -14889,7 +19025,16 @@
    "tags": [
     "space"
    ],
-   "subfield": "human"
+   "subfield": "human",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "forecast": {
+    "estimatedYear": 2032,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "in-orbit-manufacturing",
@@ -14924,7 +19069,21 @@
     "space",
     "robots"
    ],
-   "subfield": "in-space"
+   "subfield": "in-space",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Remotely operated spacecraft depend on secure command links.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2034,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "robots-doing-routine-network-field-work",
@@ -14957,7 +19116,21 @@
     "grid",
     "robots"
    ],
-   "subfield": "field"
+   "subfield": "field",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Robots operating on live networks combine physical and cyber risk.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2034,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "driverless-freight-on-uk-motorways",
@@ -14987,7 +19160,21 @@
     "robots",
     "regulation"
    ],
-   "subfield": "vehicles"
+   "subfield": "vehicles",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Remote updates and sensors can be attacked to cause physical harm.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2033,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "ai-discovered-antibiotic-approved",
@@ -15020,7 +19207,21 @@
     "ai-models",
     "medicine"
    ],
-   "subfield": "ai-bio"
+   "subfield": "ai-bio",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Valuable data and models are targets for theft and tampering.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2033,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "ai-virtual-cell-models-in-drug-trials",
@@ -15053,7 +19254,21 @@
     "ai-models",
     "medicine"
    ],
-   "subfield": "ai-bio"
+   "subfield": "ai-bio",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Valuable data and models are targets for theft and tampering.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2034,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "power-networks-demonstration-centre",
@@ -15091,7 +19306,20 @@
     "approximate": false
    },
    "region": "uk",
-   "subfield": "grids"
+   "subfield": "grids",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "deployed",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Adds digital control and communications to transmission and distribution assets.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "quantum-timing-and-navigation-for-infrastructure",
@@ -15130,7 +19358,21 @@
    "tags": [
     "space"
    ],
-   "subfield": "sensing"
+   "subfield": "sensing",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Can reduce risk, for example timing that does not depend on jammable satellite signals.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2032,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "quantum-cameras-that-see-gas-leaks",
@@ -15166,7 +19408,21 @@
     "approximate": true
    },
    "region": "uk",
-   "subfield": "sensing"
+   "subfield": "sensing",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Can reduce risk, for example timing that does not depend on jammable satellite signals.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2030,
+    "estimatedOn": "2026-10-27",
+    "revisions": []
+   }
   },
   {
    "id": "microsoft-maia-300-in-house-ai-inference-chip",
@@ -15222,7 +19478,21 @@
     "semiconductors",
     "ai-models"
    ],
-   "subfield": "compute"
+   "subfield": "compute",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Concentrates valuable data and workloads, making it a high-value target.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2027,
+    "estimatedOn": "2026-10-28",
+    "revisions": []
+   }
   },
   {
    "id": "post-quantum-cryptography-migration-mandates",
@@ -15282,7 +19552,21 @@
    "flags": {
     "hidden": true
    },
-   "subfield": "data"
+   "subfield": "data",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software and online services are a primary route for remote attack and data theft.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2030,
+    "estimatedOn": "2026-10-28",
+    "revisions": []
+   }
   },
   {
    "id": "first-commercial-upper-6ghz-mobile-network-uae",
@@ -15337,7 +19621,16 @@
    "tags": [
     "networks"
    ],
-   "subfield": "mobile"
+   "subfield": "mobile",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Wide-area connectivity extends networks to every device and site.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "eu-pfhxa-restriction-hits-textiles-food-paper-cosmetics",
@@ -15393,7 +19686,11 @@
    "flags": {
     "hidden": true
    },
-   "subfield": "electronic"
+   "subfield": "electronic",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "us-exemption-for-driverless-truck-warning-beacons",
@@ -15446,7 +19743,16 @@
    "flags": {
     "hidden": true
    },
-   "subfield": "vehicles"
+   "subfield": "vehicles",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Remote updates and sensors can be attacked to cause physical harm.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "first-approved-protac-protein-degrader-vepdegestrant",
@@ -15502,7 +19808,11 @@
     "medicine",
     "genetics"
    ],
-   "subfield": "imaging"
+   "subfield": "imaging",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "bepirovirsen-first-antisense-drug-for-hepatitis-b",
@@ -15558,7 +19868,11 @@
    "tags": [
     "medicine",
     "genetics"
-   ]
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "plastic-free-moulded-pulp-fibre-bottles-pulpex",
@@ -15614,7 +19928,11 @@
     "lastChecked": "2026-10-28",
     "approximate": false
    },
-   "subfield": "polymers"
+   "subfield": "polymers",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   }
   },
   {
    "id": "size-adjustable-pediatric-heart-valve-autus",
@@ -15670,7 +19988,16 @@
     "lastChecked": "2026-10-28",
     "approximate": false
    },
-   "subfield": "devices"
+   "subfield": "devices",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "A standalone device with little direct cyber exposure.",
+    "basis": "ai-compiled"
+   }
   },
   {
    "id": "google-open-source-coral-npu-in-commercial-edge-chips",
@@ -15726,6 +20053,15 @@
     "added": "2026-10-28",
     "lastChecked": "2026-10-28",
     "approximate": false
+   },
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Hardware supply chains and flaws such as side channels can undermine everything built on top.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -15775,6 +20111,15 @@
     "added": "2026-10-28",
     "lastChecked": "2026-10-28",
     "approximate": false
+   },
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Hardware supply chains and flaws such as side channels can undermine everything built on top.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -15837,6 +20182,15 @@
     "url": "https://mallory.ai/stories/019ca230-feea-791f-b21c-44b3a8082a7e",
     "status": "ok",
     "checked": "2026-10-28"
+   },
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "forecast": {
+    "estimatedYear": 2027,
+    "estimatedOn": "2026-10-28",
+    "revisions": []
    }
   },
   {
@@ -15887,6 +20241,10 @@
     "added": "2026-10-28",
     "lastChecked": "2026-10-28",
     "approximate": false
+   },
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
    }
   },
   {
@@ -15941,6 +20299,15 @@
     "added": "2026-10-28",
     "lastChecked": "2026-10-28",
     "approximate": false
+   },
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Prompt injection, data leakage and misuse at scale are new kinds of risk.",
+    "basis": "ai-compiled"
    }
   }
  ],
