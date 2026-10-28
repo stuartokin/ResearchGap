@@ -207,6 +207,12 @@ table.stats tr.all td{font-weight:600;color:var(--text)}
 .trow.fut span{color:var(--muted);font-style:italic}
 .trow em{font-style:normal;color:var(--faint);font-size:.9em;margin-left:.45em}
 .trow strong{font-weight:600}
+.trow.trow2{grid-template-columns:auto 1fr}
+.trow.trowg{grid-template-columns:4.6em 1fr}
+.trow.trow3{grid-template-columns:2.9em auto 1fr}
+.trow.trowl{grid-template-columns:3.8em .7em 1fr}
+.trow a{color:#A8D8FF;text-decoration:underline;text-underline-offset:2px}.trow a:visited{color:#C9B8FF}
+.trowg em{display:block;margin-left:0;margin-top:.15em}
 .trow[data-id]{cursor:pointer}.trow[data-id]:hover span{text-decoration:underline}
 canvas.chart{width:100%;height:11em;display:block;margin:.4em 0}
 .insight.sm{font-size:1.1em;margin-top:.3em}
@@ -4453,7 +4459,7 @@ function renderVision(yr){
 
     return `<div class="vrow ${on ? 'on' : ''}" data-dv="${k}"><div class="vhead" role="button" tabindex="0" title="Show only this area in the model"><span class="vn">${VISION[k]}</span><span class="vc">${landed.length} already helping, ${ahead.length} still to land</span></div>
       <details class="vdet" data-k="${k}" ${visOpen.has(k) ? 'open' : ''}><summary>Already helping (${landed.length})</summary>${landed.length ? landed.slice().reverse().map(it => `<div class="trow" data-id="${it.id}"><b>${it.p}</b><i class="cat" style="background:${itemHex(it)}"></i><span>${chgTag(it)}${it.t}<em>${it.pw}</em></span></div>`).join('') : '<p class="empty">Nothing yet at this point in time.</p>'}</details>
-      <details class="vdet" data-k="${k}:ahead" ${visOpen.has(k + ':ahead') ? 'open' : ''}><summary>Still to land (${ahead.length})</summary>${ahead.length ? ahead.map(it => `<div class="trow" data-id="${it.id}"><b>${it.kind === 'flight' ? 'Later' : '~' + it.p}</b><i class="cat" style="background:${itemHex(it)}"></i><span>${chgTag(it)}${it.t}<em>${it.pw}</em></span></div>`).join('') : '<p class="empty">Nothing still to land in this area.</p>'}</details>${areaChg.length ? `<details class="vdet vchg" data-k="${k}:chg" ${visOpen.has(k + ':chg') ? 'open' : ''}><summary>Data changes (${areaChg.length})</summary>${areaChg.map(c => `<div class="trow" data-id="${c.it.id}"><b>${c.date.slice(8, 10)}/${c.date.slice(5, 7)}</b><i class="cat" style="background:${itemHex(c.it)}"></i><span>${c.it.t}<em><span class="chgb ${CHG_TYPES[c.type].cls}">${CHG_TYPES[c.type].label}</span> ${esc(c.text)}</em></span></div>`).join('')}</details>` : ''}</div>`;
+      <details class="vdet" data-k="${k}:ahead" ${visOpen.has(k + ':ahead') ? 'open' : ''}><summary>Still to land (${ahead.length})</summary>${ahead.length ? ahead.map(it => `<div class="trow" data-id="${it.id}"><b>${it.kind === 'flight' ? 'Later' : '~' + it.p}</b><i class="cat" style="background:${itemHex(it)}"></i><span>${chgTag(it)}${it.t}<em>${it.pw}</em></span></div>`).join('') : '<p class="empty">Nothing still to land in this area.</p>'}</details>${areaChg.length ? `<details class="vdet vchg" data-k="${k}:chg" ${visOpen.has(k + ':chg') ? 'open' : ''}><summary>Data changes (${areaChg.length})</summary>${areaChg.map(c => `<div class="trow trow3" data-id="${c.it.id}"><b>${c.date.slice(8, 10)}/${c.date.slice(5, 7)}</b><i class="cat" style="background:${itemHex(c.it)}"></i><span>${c.it.t}<em><span class="chgb ${CHG_TYPES[c.type].cls}">${CHG_TYPES[c.type].label}</span> ${esc(c.text)}</em></span></div>`).join('')}</details>` : ''}</div>`;
   }).join('');
 }
 $('visList').addEventListener('toggle', e => { const d = e.target; if (!d.classList || !d.classList.contains('vdet')) return; d.open ? visOpen.add(d.dataset.k) : visOpen.delete(d.dataset.k); }, true);
@@ -5349,6 +5355,7 @@ labelLayer.addEventListener('click', e => { const l = e.target.closest('.lbl.chg
 /* ==================================================================
  *  READINESS, GB STATUS, CYBER LENS AND FORECASTS
  * ================================================================== */
+function monthYear(d){ if (!d) return ''; const [y, m] = d.split('-'); return m ? ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+m - 1] + ' ' + y : y; }
 const GUIDE = {}; (DB.securityGuidance || []).forEach(gd => { GUIDE[gd.id] = gd; });
 const GUIDE_NOTE = DB.meta.securityGuidanceNote || 'AI-generated research, not security advice. Engage qualified experts.';
 function guideHtml(gid, open){
@@ -5389,7 +5396,7 @@ function renderRadar(){
     html += `<div class="rarea"><div class="rhead"><b>${name}</b><span>${its.length} milestones, ${gb} deployed in GB</span></div>
       <div class="rpipe" role="img" aria-label="Readiness of ${name}">${Object.keys(STAGES).map(st => `<i class="stg-${st}" style="flex:${Math.max(cnt(st), .0001)}" title="${STAGES[st]}: ${cnt(st)}">${cnt(st) ? cnt(st) : ''}</i>`).join('')}</div>
       <div class="rsub">${news.length ? `<b>New or changed (${news.length})</b>` + news.slice(0, 8).map(c => `<div class="trow" data-id="${c.it.id}"><b>${c.date.slice(8, 10)}/${c.date.slice(5, 7)}</b>${chip(c.it.stage)}<span>${c.it.t}<em>${esc(c.type === 'added' ? 'New' : c.text)}${c.it.gb ? ', ' + GBS[c.it.gb] : ''}</em></span></div>`).join('') : '<p class="empty">Nothing new for this area in this period.</p>'}
-      ${next.length ? `<b>Coming in the next five years</b>` + next.map(it => `<div class="trow" data-id="${it.id}"><b>~${it.p}</b>${chip(it.stage)}<span>${it.t}<em>${it.gb ? GBS[it.gb] : ''}</em></span></div>`).join('') : ''}</div></div>`;
+      ${next.length ? `<b>Coming in the next five years</b>` + next.map(it => `<div class="trow trow3" data-id="${it.id}"><b>~${it.p}</b>${chip(it.stage)}<span>${it.t}<em>${it.gb ? GBS[it.gb] : ''}</em></span></div>`).join('') : ''}</div></div>`;
   });
   $('radarBody').innerHTML = html + '<p class="note-s">Readiness stages and GB status are AI estimates, refined weekly by the data agents. Stages: research, pilot or demonstration, first commercial use, at scale.</p>';
 }
@@ -5406,12 +5413,12 @@ function renderCyber(){
   let html = `<div class="kf"><div class="kfc"><b>${techs.length}</b><span>technologies in this selection that expand the attack surface</span></div><div class="kfc"><b>${med(landedResp.map(x => x.r.lag))} yrs</b><span>median wait for the first security response in their category</span></div><div class="kfc"><b>${gaps.length}</b><span>open gaps: arrived 2010 to ${NOW - 3} with no security response in their category since</span></div><div class="kfc"><b>${med(landedResp.filter(x => x.it.p >= 2000).map(x => x.r.lag))} yrs</b><span>median wait for technologies arriving since 2000</span></div></div>`;
   html += '<h3>By field</h3><table class="qtab"><tr><th>Field</th><th>Technologies</th><th>Median wait</th><th>Open gaps</th></tr>' + byField.map(r => `<tr><td><i style="background:${FIELDS[r.k].hex}"></i>${FIELDS[r.k].name}</td><td>${r.n}</td><td>${r.m == null ? '–' : Math.round(r.m) + ' yrs'}</td><td>${r.g}</td></tr>`).join('') + '</table>';
   html += '<h3>Open gaps</h3>' + (gaps.length ? gaps.slice(0, 14).map(x => `<div class="trow" data-id="${x.it.id}"><b>${x.it.p}</b><i class="cat" style="background:${itemHex(x.it)}"></i><span>${x.it.t}<em>${esc(x.it.sec || '')}</em></span></div>`).join('') : '<p class="empty">No open gaps in this selection.</p>');
-  html += '<h3>Longest waits</h3>' + landedResp.sort((a, b) => b.r.lag - a.r.lag).slice(0, 8).map(x => `<div class="trow" data-id="${x.it.id}"><b>${x.r.lag} yrs</b><i class="cat" style="background:${itemHex(x.it)}"></i><span>${x.it.t} (${x.it.p})<em>First response in its category: ${x.r.resp.t} (${x.r.resp.p})</em></span></div>`).join('');
+  html += '<h3>Longest waits</h3>' + landedResp.sort((a, b) => b.r.lag - a.r.lag).slice(0, 8).map(x => `<div class="trow trowl" data-id="${x.it.id}"><b>${x.r.lag} yrs</b><i class="cat" style="background:${itemHex(x.it)}"></i><span>${x.it.t} (${x.it.p})<em>First response in its category: ${x.r.resp.t} (${x.r.resp.p})</em></span></div>`).join('');
   html += '<p class="note-s">Responses are matched by category, not by a direct link, so treat waits as indicative. Attack-surface notes are AI-compiled.</p>';
   const gcount = id => techs.filter(it => it.secG === id).length;
   html += `<h3>Mitigation by type of exposure</h3><p class="aiwarn">⚠ ${esc(GUIDE_NOTE)}</p>` + (DB.securityGuidance || []).filter(gd => gcount(gd.id)).sort((a, b) => gcount(b.id) - gcount(a.id)).map(gd => guideHtml(gd.id).replace('<summary>Possible mitigations: ', `<summary>${gcount(gd.id)} technologies: `)).join('');
   const gu = (DB.guidanceUpdates || []).slice().sort((a, b) => (b.date || '').localeCompare(a.date || '')).slice(0, 10);
-  html += '<h3>Latest guidance and framework updates</h3>' + (gu.length ? gu.map(u => `<div class="trow"><b>${esc((u.date || '').slice(0, 7))}</b><span>${u.url ? `<a href="${esc(u.url)}" target="_blank" rel="noopener">${esc(u.title)}</a>` : esc(u.title)}<em>${esc(u.framework)}: ${esc(u.summary || '')}</em></span></div>`).join('') : '<p class="empty">No updates recorded yet.</p>') + '<p class="note-s">Found and checked weekly by the guidance agent, with priority on the NCSC CAF and Ofgem’s CAF Overlay.</p>';
+  html += '<h3>Latest guidance and framework updates</h3>' + (gu.length ? gu.map(u => `<div class="trow trow2 trowg"><b>${esc(monthYear(u.date))}</b><span>${u.url ? `<a href="${esc(u.url)}" target="_blank" rel="noopener">${esc(u.title)}</a>` : esc(u.title)}<em>${esc(u.framework)}: ${esc(u.summary || '')}</em></span></div>`).join('') : '<p class="empty">No updates recorded yet.</p>') + '<p class="note-s">Found and checked weekly by the guidance agent, with priority on the NCSC CAF and Ofgem’s CAF Overlay.</p>';
   $('cyberBody').innerHTML = html;
 }
 $('cyberBody').addEventListener('click', e => { const r = e.target.closest('[data-id]'); if (r) { const it = items[+r.dataset.id]; hidden.delete(it.id); openDetail(it); } });
@@ -5423,7 +5430,7 @@ function forecastHtml(){
   let h = `<h3>Forecast accuracy</h3><p class="note-s">Every outlook estimate is recorded when it is made. When the item lands, the agents record the actual year so the estimates can be scored.</p>`;
   h += `<div class="kf"><div class="kfc"><b>${done.length}</b><span>estimates resolved</span></div><div class="kfc"><b>${open.length}</b><span>still open (${overdue} overdue, ${revised} revised)</span></div>`;
   if (done.length) h += `<div class="kfc"><b>${(abs.reduce((a, b) => a + b, 0) / abs.length).toFixed(1)} yrs</b><span>average error</span></div><div class="kfc"><b>${Math.round(abs.filter(a => a <= 1).length / abs.length * 100)}%</b><span>within a year; ${errs.filter(e => e > 0).length} landed late, ${errs.filter(e => e < 0).length} early</span></div>`;
-  h += '</div>' + (done.length ? done.slice(-8).map(it => `<div class="trow"><b>${it.fc.actualYear - it.fc.estimatedYear > 0 ? '+' : ''}${it.fc.actualYear - it.fc.estimatedYear}</b><span>${it.t}<em>Estimated ${it.fc.estimatedYear} (on ${it.fc.estimatedOn}), landed ${it.fc.actualYear}</em></span></div>`).join('') : '<p class="empty">No estimates have resolved yet. The first scores appear as outlook items land.</p>');
+  h += '</div>' + (done.length ? done.slice(-8).map(it => `<div class="trow trow2"><b>${it.fc.actualYear - it.fc.estimatedYear > 0 ? '+' : ''}${it.fc.actualYear - it.fc.estimatedYear}</b><span>${it.t}<em>Estimated ${it.fc.estimatedYear} (on ${it.fc.estimatedOn}), landed ${it.fc.actualYear}</em></span></div>`).join('') : '<p class="empty">No estimates have resolved yet. The first scores appear as outlook items land.</p>');
   return h;
 }
 
