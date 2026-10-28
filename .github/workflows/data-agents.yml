@@ -72,7 +72,7 @@ jobs:
         run: |
           git config user.name  "shrinking-gap-data-agent"
           git config user.email "data-agent@users.noreply.github.com"
-          git add data/data.json data/pending.json index.html
+          git add data/data.json data/pending.json data/pending_founders.json index.html
           if git diff --cached --quiet; then echo "No changes to publish."; exit 0; fi
           REV=$(python -c "import json;print(json.load(open('data/data.json'))['meta']['revision'])")
           SUMMARY=$(python -c "import json;print(json.load(open('data/data.json'))['meta']['changelog'][-1]['summary'])")
