@@ -1,5 +1,5 @@
 {
- "version": 5,
+ "version": 7,
  "updated": "2026-10-29",
  "updatedBy": "initial-build",
  "note": "Narration templates for the guided tours. Figures come from {placeholders} filled from the live data; conclusions are chosen by rules in the app ({\"by\": fact, \"cases\": {...}}). The weekly tour agent may refine wording and choose examples, within the rules checked by tools/validate.py.",
@@ -63,8 +63,8 @@
       {
        "by": "corr",
        "cases": {
-        "holds": "the shrinking holds, at about {kmYears} years.",
-        "weakens": "research since 2010 takes about {kmYears} years, so the improvement is smaller.",
+        "holds": "research since 2010 still takes only about {kmYears} years, so recent work really is quicker.",
+        "weakens": "research since 2010 takes about {kmYears} years, longer than the landed figures alone suggest.",
         "tooEarly": "it is too early to be sure.",
         "unclear": "there is not yet enough data to tell."
        }
@@ -116,9 +116,9 @@
        "by": "score",
        "cases": {
         "0": "Not yet: the data do not show it.",
-        "1": "Partly: some of the evidence says yes.",
-        "2": "Probably: most of the evidence says yes.",
-        "3": "Yes: the evidence says so.",
+        "1": "Not really: only some of the evidence says yes.",
+        "2": "Partly: half of the evidence says yes.",
+        "3": "Probably: most of the evidence says yes.",
         "4": "Yes: every measure here agrees."
        }
       },
