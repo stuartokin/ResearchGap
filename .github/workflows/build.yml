@@ -1,0 +1,43 @@
+name: Build the app
+
+# Rebuilds index.html whenever the app's source files change, so you only ever upload the small file you edited.
+# It assembles src/ into index.html, embeds the current data, checks it, and publishes only if every check passes.
+on:
+  push:
+    branches: [main]
+    paths: ['src/**', 'tools/build.py', 'data/tours.json']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data-agents          # shared with the weekly agents, so the two never commit at the same time
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install tools
+        run: |
+          pip install -r requirements.txt
+          python -m playwright install --with-deps chromium
+      - name: Assemble index.html from src/
+        run: python tools/build.py
+      - name: Check the data and scripts
+        run: python tools/validate.py
+      - name: Smoke test the built page
+        run: python tools/smoke_test.py
+      - name: Publish the new index.html
+        run: |
+          if git diff --quiet index.html; then echo "index.html unchanged."; exit 0; fi
+          git config user.name "app-build"
+          git config user.email "app-build@users.noreply.github.com"
+          git add index.html
+          git commit -m "Build index.html from src"
+          git push
