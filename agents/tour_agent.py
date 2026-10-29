@@ -71,4 +71,6 @@ def run():
     return 0
 
 if __name__ == '__main__':
-    sys.exit(run())
+    try: sys.exit(run())
+    except Exception as e:   # the walk-throughs must never block the week's data: keep last week's scripts
+        print(f'Tour agent could not run ({type(e).__name__}: {e}). Keeping last week\'s scripts.'); sys.exit(0)

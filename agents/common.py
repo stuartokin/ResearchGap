@@ -111,7 +111,8 @@ def call_claude(system, prompt, submit_tool, max_searches=5, max_turns=8):
     """Run a conversation with web search until the model calls the submit tool. Returns the tool input or None."""
     import anthropic
     client = anthropic.Anthropic()
-    tools = [{'type': 'web_search_20250305', 'name': 'web_search', 'max_uses': max_searches}, submit_tool]
+    # web search only when at least one search is allowed (the API rejects a limit of zero)
+    tools = ([{'type': 'web_search_20250305', 'name': 'web_search', 'max_uses': max_searches}] if max_searches and max_searches > 0 else []) + [submit_tool]
     messages = [{'role': 'user', 'content': prompt}]
     for turn in range(max_turns):
         force = turn == max_turns - 1
