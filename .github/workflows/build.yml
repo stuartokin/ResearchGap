@@ -20,6 +20,8 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v5
+        with:
+          ref: main            # always build the latest files, not the upload that triggered this run
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
@@ -35,9 +37,19 @@ jobs:
         run: python tools/smoke_test.py
       - name: Publish the new index.html
         run: |
-          if git diff --quiet index.html; then echo "index.html unchanged."; exit 0; fi
           git config user.name "app-build"
           git config user.email "app-build@users.noreply.github.com"
-          git add index.html
-          git commit -m "Build index.html from src"
-          git push
+          # Uploading several files makes several commits; if the repository moves on while this run works,
+          # fetch the latest, rebuild and try again, rather than failing.
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git reset --hard origin/main
+            python tools/build.py
+            python tools/validate.py
+            if git diff --quiet index.html; then echo "index.html is up to date."; exit 0; fi
+            git add index.html
+            git commit -m "Build index.html from src"
+            if git push origin HEAD:main; then echo "Published."; exit 0; fi
+            echo "The repository moved on; retrying ($attempt)."; sleep 10
+          done
+          exit 1
