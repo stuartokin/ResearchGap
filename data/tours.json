@@ -1,7 +1,7 @@
 {
- "version": 2,
+ "version": 3,
  "updated": "2026-10-29",
- "updatedBy": "tour-agent",
+ "updatedBy": "initial-build",
  "note": "Narration templates for the guided tours. Figures come from {placeholders} filled from the live data; conclusions are chosen by rules in the app ({\"by\": fact, \"cases\": {...}}). The weekly tour agent may refine wording and choose examples, within the rules checked by tools/validate.py.",
  "tours": {
   "gap": {
@@ -124,6 +124,208 @@
       },
       " The answer updates as new evidence arrives."
      ]
+    }
+   }
+  },
+  "horizon": {
+   "title": "What AI-assisted products are on the horizon for the energy system?",
+   "steps": {
+    "intro": {
+     "say": "DESNZ's vision for an AI-enabled clean energy system groups the opportunities into five areas. Diamonds mark the arcs linked to them, playing here from 1980."
+    },
+    "radar": {
+     "say": "The Vision radar shows how ready each area's technologies are: {nResearch} in research, {nPilot} piloting, {nCommercial} in first commercial use and {nScale} at scale. {nGB} are deployed in Great Britain."
+    },
+    "new": {
+     "say": {
+      "by": "newCase",
+      "cases": {
+       "some": "In the last three months the agents found {newCount} new, including {newTitle}. Mark them as reviewed, and next time you see only what has arrived since.",
+       "none": "Nothing new has arrived in the last three months. Mark the radar as reviewed, and next time you see only what has arrived since."
+      }
+     }
+    },
+    "next": {
+     "say": {
+      "by": "nextCase",
+      "cases": {
+       "some": "Within five years, {nextCount} are expected, the soonest being {nextTitle}, around {nextYear}. {busiestArea} has the most in the pipeline.",
+       "none": "No arrivals are expected within five years in the current data."
+      }
+     }
+    },
+    "changes": {
+     "say": "Data changes lists everything the agents add or correct each week. Here it shows only changes linked to the vision."
+    },
+    "slide": {
+     "say": "For a briefing, the PowerPoint report window creates a one-slide summary of all five areas, ready to drop into a deck."
+    },
+    "answer": {
+     "say": [
+      "So, what is on the horizon? ",
+      {
+       "by": "horizonCase",
+       "cases": {
+        "busy": "A busy pipeline: much of it is already piloting, and the radar shows where it is landing first.",
+        "steady": "A steady pipeline, with the radar showing which areas are moving.",
+        "quiet": "Not much yet in the data, so watch the radar as the agents search each week."
+       }
+      }
+     ]
+    }
+   }
+  },
+  "secure": {
+   "title": "Securing the future energy system",
+   "steps": {
+    "intro": {
+     "say": "New technology brings new ways in. Of the technologies here, {attackPct} percent expand the attack surface, from smart devices at the grid edge to AI agents."
+    },
+    "lens": {
+     "say": [
+      "The Cyber lens shows how long security took to catch up: typically ",
+      {
+       "by": "lagCase",
+       "cases": {
+        "slow": "{lag} years after a technology arrived, a long time to be exposed.",
+        "moderate": "{lag} years after a technology arrived.",
+        "fast": "within {lag} years of a technology arriving.",
+        "unclear": "it is not yet clear from the data."
+       }
+      }
+     ]
+    },
+    "gaps": {
+     "say": {
+      "by": "gapCase",
+      "cases": {
+       "some": "{gapCount} technologies arrived since 2010 with no security response in their category yet, such as {gapTitle}.",
+       "none": "Every technology since 2010 has seen a security response in its category, at least in this data."
+      }
+     }
+    },
+    "example": {
+     "say": "Each card names the risk and suggests mitigations, linked to the NCSC CAF, Ofgem's CAF Overlay, NIST, NERC CIP and IEC 62443."
+    },
+    "guidance": {
+     "say": {
+      "by": "guideCase",
+      "cases": {
+       "some": "A guidance agent records new security guidance every week, CAF and Ofgem first. The latest: {guideTitle}.",
+       "none": "A guidance agent records new security guidance every week, CAF and Ofgem first."
+      }
+     }
+    },
+    "caution": {
+     "say": "This is AI research to prompt discussion, not security advice. Always engage qualified experts, and your regulator where relevant."
+    },
+    "answer": {
+     "say": [
+      "So, is security keeping pace? ",
+      {
+       "by": "trendCase",
+       "cases": {
+        "improving": "It is catching up faster than it used to.",
+        "worsening": "It is taking longer to catch up than it used to.",
+        "flat": "Its pace has barely changed.",
+        "unclear": "The data cannot say yet."
+       }
+      }
+     ]
+    }
+   }
+  },
+  "fortune": {
+   "title": "From lab to fortune",
+   "steps": {
+    "intro": {
+     "say": "Research does not just change products; it makes fortunes. Time to a fortune follows founders from starting a company to the listing, sale or valuation that made them rich."
+    },
+    "research": {
+     "say": "Of {nFortunes} fortunes here, {nResearch} began in a university or research lab. Gold rings mark those research founders."
+    },
+    "speed": {
+     "say": {
+      "by": "speedCase",
+      "cases": {
+       "faster": "The road is getting shorter: about {preYears} years for companies founded before 1970, and {recentYears} for those founded since 2015.",
+       "slower": "The road is getting longer: about {preYears} years before 1970, and {recentYears} since 2015.",
+       "similar": "The road is about as long as ever: {preYears} years before 1970, {recentYears} since 2015.",
+       "unclear": "There are not yet enough recent fortunes to compare eras."
+      }
+     }
+    },
+    "fastest": {
+     "say": "Sorted by speed, the fastest so far is {fastestCo}, in {fastestTime}."
+    },
+    "uk": {
+     "say": {
+      "by": "ukCase",
+      "cases": {
+       "faster": "Filter by country: research that began in the UK reached a product in {ukYears} years, faster than the {rowYears} elsewhere.",
+       "slower": "Filter by country: research that began in the UK took {ukYears} years to reach a product, against {rowYears} elsewhere.",
+       "similar": "Filter by country: UK research reached a product in about the same time as elsewhere, {ukYears} years against {rowYears}.",
+       "unclear": "Filter by country to compare UK research with the rest of the world."
+      }
+     }
+    },
+    "uni": {
+     "say": "University projects still under way carry a gold ring: {nUni} of them, the next generation of breakthroughs and perhaps fortunes."
+    },
+    "table": {
+     "say": "The Table lists every milestone. Sort by any column, such as the gap, and select a row for its story."
+    },
+    "answer": {
+     "say": [
+      "From lab to fortune: ",
+      {
+       "by": "speedCase",
+       "cases": {
+        "faster": "the journey is getting faster.",
+        "slower": "the journey is getting slower.",
+        "similar": "the journey takes about as long as ever.",
+        "unclear": "the data will tell as more fortunes are made."
+       }
+      }
+     ]
+    }
+   }
+  },
+  "how": {
+   "title": "How this AI model works",
+   "steps": {
+    "intro": {
+     "say": "This model is maintained by AI agents that run every week. It holds {nMilestones} milestones so far."
+    },
+    "research": {
+     "say": "A research agent searches each field, and each DESNZ vision area, for new breakthroughs and products. Data changes lists everything it adds."
+    },
+    "qa": {
+     "say": "A second agent checks every find independently. It needs two sources, and the quoted evidence must really appear on the page. Nothing is ever deleted."
+    },
+    "more": {
+     "say": "Two more agents track new security guidance and refresh these walk-throughs. Every change must pass automatic checks before it is published."
+    },
+    "quality": {
+     "say": [
+      "Data quality shows {pctSourceCited} percent of records now cite a checked source. ",
+      {
+       "by": "fcCase",
+       "cases": {
+        "scored": "Forecasts are scored as they land: {fcResolved} so far.",
+        "none": "Each forecast is recorded, and will be scored as it lands."
+       }
+      }
+     ]
+    },
+    "labels": {
+     "say": "Every record says how it was checked: source-cited, AI-compiled or an AI estimate. You can filter by these."
+    },
+    "arrange": {
+     "say": "Arrangements set the windows up for exploring, presenting, analysis or a DESNZ briefing. You can save any view, or share it as a link."
+    },
+    "answer": {
+     "say": "Help and the i buttons explain everything. It is AI-maintained, so it may contain errors: check anything important against the sources."
     }
    }
   }
