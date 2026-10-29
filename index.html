@@ -3140,7 +3140,7 @@ const FORTUNES = DB.founders.map(f => {
 });
 const fmtMoney = (bn, sym) => bn >= 1000 ? `${sym}${(bn / 1000).toFixed(1)}tn` : bn >= 1 ? `${sym}${bn >= 100 ? Math.round(bn) : Math.round(bn * 10) / 10}bn` : `${sym}${Math.round(bn * 1000)}m`;
 const DATA_AS_OF = DB.meta.asOf;
-const APP_VERSION = '9.6', APP_BUILD = '';
+const APP_VERSION = '9.7', APP_BUILD = '';
 // Screen-aware scaling: laptops slightly smaller, large screens larger
 const UI = (() => { const w = innerWidth; return w < 1280 ? .85 : w < 1500 ? .95 : w < 1800 ? 1.05 : w < 2300 ? 1.2 : 1.4; })();
 const LARGE = innerWidth >= 1700;
@@ -3179,6 +3179,7 @@ const hidden = new Set();
 const view = {fullText:false, flashNew:true, radarSince:'review', radarSeenRev:(() => { try { const v = store.get('sg.radarSeen', null); return v == null ? null : v; } catch (e) { return null; } })(), smartPlace:true, panels:{}, preset:'explore', menuGroups:{}, subLanes:true, adoption:true, palette:'standard', conclusion:true, playFrom:null, playTo:null, gapMetric:'first', statsRows:'src', statsRange:true, markSmall:true, smallN:5, survival:true, keepWinPos:true, fitOnLoad:true, chgFlag:'new', chgScope:'all', chgSince:'30', chgAnnounce:true, countdown:true, thanksIcon:true, majBright:true, uniHi:true, audSpot:true, audPause:true, statsBy:'landed', statsLive:true, gapBuild:true, compactLanes:true, fortSort:'year', musicOn:false, loopPlay:true, fortHi:true, fortOnly:false, laneFollow:true, camTravel:true, fadeLanded:true, keepYears:5, revealEnd:true, labelPlay:'until', labelScope:'all', labelMax:14, labelLinger:2, labels:'follow', lfs:LARGE ? 18 : 15, lanes:'v', colour:'v', pulses:true, trend:true, floor:true, rotSpeed:0.35, glow:0.75};
 Object.assign(view, store.get('sg.view.v2', {}));
 if (MOBILE) Object.assign(view, {lite:true, labels:'peak', labelScope:'major', labelMax:6, lfs:12, camTravel:false, fadeLanded:false, pulses:true, glow:0});
+const VIEW_DEFAULTS = JSON.parse(JSON.stringify(view));   // the original settings, for resets after a tour
 const state = {playing:false, cursor:Y1, autoRotate:!reduced && !(MOBILE && innerWidth < innerHeight)};
 let selected = null, hovered = null;
 
@@ -3789,6 +3790,7 @@ function applyPreset(name){
   if (name === 'wait') { tick.mode = 'both'; applyTicker(); buildTicker();
     view.loopPlay = true; syncDisplayUI(); if (!state.playing) { cancelCountdown(); startPlay(); } setAutoRotate(true); }
   if (name === 'play') updateTimeWindows(true);
+  if ((name === 'explore' || name === 'play') && !state.playing) { cancelCountdown(); startPlay(); }   // only Analysis has Play stopped
   buildWinMenu();
 }
 /* ==================================================================
@@ -5657,7 +5659,7 @@ function tourExample(){   // a well-known breakthrough with all three stages in 
   return pref || items.filter(it => ok(it) && it.major).sort((a, b) => a.r - b.r)[0] || null;
 }
 function tourHighlight(sel){ document.querySelectorAll('.tourhl').forEach(e => e.classList.remove('tourhl')); if (sel) document.querySelectorAll(sel).forEach(e => e.classList.add('tourhl')); }
-function tourFilters(){ Object.assign(F, JSON.parse(JSON.stringify(Object.assign({}, DEFAULT_FILTERS, {fields:null})))); F.fields = new Set(FKEYS.filter(k => FIELDS[k] && !FIELDS[k].custom)); }
+function tourFilters(){ Object.assign(F, DEFAULT_FILTERS()); F.fields = new Set(FKEYS.filter(k => FIELDS[k] && !FIELDS[k].custom)); F.subOff = {}; }   // every filter back to its default
 function tourPlace(ids){
   const W = innerWidth, H = innerHeight, cls = screenClass(), bar = $('tourBar').getBoundingClientRect(), bottom = H - bar.height - 18, top = 70;
   WIN_IDS.forEach(id => { if (['toolbar', 'footer', 'pagetitle'].includes(id)) return; if (id !== 'player' || !ids.includes('player')) { layout[id].open = false; placeWin(id); } });
@@ -5745,15 +5747,23 @@ function startTour(id){
   $('disc').classList.add('gone');
   tourStep(0);
 }
+function resetToDefaults(){
+  const keep = {radarSeenRev:view.radarSeenRev};
+  Object.keys(view).forEach(k => delete view[k]); Object.assign(view, JSON.parse(JSON.stringify(VIEW_DEFAULTS)), keep);
+  tourFilters(); hidden.clear(); F.q = ''; if ($('q')) $('q').value = '';
+  playSpeed = 1; prefs.playSpeed = 1; savePrefs(); $('tbSpeed').value = '1';
+  Object.keys(tick).forEach(k => delete tick[k]); Object.assign(tick, JSON.parse(JSON.stringify(TICK_DEFAULT))); try { store.set('sg.ticker', tick); } catch (e) {} applyTicker(); buildTicker();
+  if (state.playing) stopPlay(); setAutoRotate(false); resetView();
+  syncDisplayUI(); syncPlayRangeUI(); syncChgUI(); applyChangeFlags(); syncPanels(); refresh();
+}
 function endTour(how){
   if (!tour.on) return;
   tour.on = false; tour.token++; clearTimeout(tour.timer); if ('speechSynthesis' in window) speechSynthesis.cancel(); if (tour.audio) tour.audio.pause();
   document.body.classList.remove('touring'); $('tourBar').classList.remove('on'); $('tourCursor').classList.remove('on'); winMenu.classList.remove('open'); tourHighlight(null); $('spot').classList.remove('on', 'concl', 'chg');
   toast(how === 'done' ? 'Tour complete. Starting the tool…' : 'Leaving the tour. Starting the tool…');
   if (state.playing) stopPlay();
-  const sv = tour.saved || {}; if (sv.view) Object.keys(sv.view).forEach(k => { view[k] = sv.view[k]; });
-  playSpeed = sv.speed || 1; $('tbSpeed').value = String(playSpeed);
-  tourFilters(); syncDisplayUI(); syncPlayRangeUI(); applyPreset('explore'); refresh();
+  const sv = tour.saved || {};
+  resetToDefaults(); applyPreset('explore');   // a tour always hands over the original defaults, with Play running
   if (sv.musicWasOn) music.play().catch(() => {});
   showDisc();
 }
@@ -5791,7 +5801,7 @@ function tickWelcome(){   // timed by the real clock, so a busy computer cannot 
   if (welcomeLeft <= 0) return closeWelcome(true);
   welcomeTimer = setTimeout(tickWelcome, 250);
 }
-function closeWelcome(toTool){ clearTimeout(welcomeTimer); $('welcome').classList.remove('on'); if (toTool) { toast('Starting the tool…'); showDisc(); } }
+function closeWelcome(toTool){ clearTimeout(welcomeTimer); $('welcome').classList.remove('on'); if (toTool) { toast('Starting the tool…'); applyPreset('explore'); showDisc(); } }
 function showDisc(){ $('disc').classList.remove('gone'); clearTimeout(showDisc.t); showDisc.t = setTimeout(() => $('disc').classList.add('gone'), 12000); }
 $('wCards').addEventListener('click', e => { const c = e.target.closest('.wcard'); if (c && !c.disabled) startTour(c.dataset.tour); });
 $('wRun').onclick = () => closeWelcome(true);
