@@ -1,7 +1,7 @@
 {
- "version": 4,
+ "version": 5,
  "updated": "2026-10-29",
- "updatedBy": "tour-agent",
+ "updatedBy": "initial-build",
  "note": "Narration templates for the guided tours. Figures come from {placeholders} filled from the live data; conclusions are chosen by rules in the app ({\"by\": fact, \"cases\": {...}}). The weekly tour agent may refine wording and choose examples, within the rules checked by tools/validate.py.",
  "tours": {
   "gap": {
@@ -329,5 +329,9 @@
     }
    }
   }
+ },
+ "pronounce": {
+  "DESNZ": "Dez-nez",
+  "CAF": "caff"
  }
 }
