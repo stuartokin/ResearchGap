@@ -43,6 +43,7 @@ function kioskScene(){
   const sc = KIOSK_SCRIPT[kiosk.i % KIOSK_SCRIPT.length]; kiosk.i++;
   if (sc.scene === 'tour' && TOURS[sc.id]) { kioskCapOff(); startTour(sc.id); return; }   // the tour moves on to the next scene when it ends
   resetToDefaults(); applyPreset(sc.name);
+  if ((titleCfg.text || '').trim() === (TITLE_DEFAULT.text || '').trim()) setOpen('title', false);   // an unchanged showcase title says nothing about the event: leave it off
   kioskSay(sc);
   if (sc.name === 'wait') { tick.mode = 'both'; applyTicker(); buildTicker(); if (!kiosk.opts.ticker) setOpen('ticker', false); }
   if (kiosk.opts.sound === 'music') setMusic(true);
@@ -96,8 +97,8 @@ $('wKioskScript').innerHTML = KIOSK_SCRIPT.map((s, k) => `<li>${s.scene === 'tou
 /* ==================================================================
  *  IMAGE EXPORT: the model with its labels, a title and the attribution, as a PNG
  * ================================================================== */
-function exportImage(){
-  try {
+/* the view as a picture: the model, its labels, a title and the attribution (also used on the report's title slide) */
+function viewCanvas(plain){   // plain: the model and its labels only (for the report's title slide)
     if (composer && !view.lite) composer.render(); else renderer.render(scene, camera);   // draw now, so the frame can be read
     const src = renderer.domElement, dpr = src.width / innerWidth, band = Math.round(84 * dpr);
     const c = document.createElement('canvas'); c.width = src.width; c.height = src.height + band;
@@ -112,6 +113,7 @@ function exportImage(){
       x.fillRect(r.left * dpr, r.top * dpr, w + 14 * dpr, r.height * dpr);
       x.fillStyle = cs.color; x.fillText(t, r.left * dpr + 7 * dpr, (r.top + r.height * .7) * dpr); x.globalAlpha = 1;
     });
+    if (plain) { const p = document.createElement('canvas'); p.width = src.width; p.height = src.height; p.getContext('2d').drawImage(c, 0, 0); return p; }
     x.fillStyle = 'rgba(8,19,29,.82)'; x.fillRect(0, 0, c.width, Math.round(64 * dpr));
     x.fillStyle = '#E9F2FF'; x.font = `${Math.round(30 * dpr)}px "Instrument Serif", Georgia, serif`;
     x.fillText('The Shrinking Gap from Research to Change', 22 * dpr, 42 * dpr);
@@ -123,6 +125,11 @@ function exportImage(){
     x.fillStyle = '#F7C04A'; x.font = `italic ${Math.round(16 * dpr)}px "Instrument Sans", Arial, sans-serif`; x.fillText(verdict, 22 * dpr, y0 + 32 * dpr);
     x.fillStyle = '#8FA6B8'; x.font = `${Math.round(12.5 * dpr)}px "Instrument Sans", Arial, sans-serif`;
     x.fillText(`Stuart Okin, personal project. Data revision ${DB.meta.revision} (${DATA_AS_OF}); AI-maintained data and narrative, no human review; may contain errors.${siteUrl() ? '  ' + siteUrl() : ''}`, 22 * dpr, y0 + 60 * dpr);
+    return c;
+}
+function exportImage(){
+  try {
+    const c = viewCanvas();
     c.toBlob(b => {
       const a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = `shrinking-gap-${new Date().toISOString().slice(0, 10)}.png`;
       document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 5000); toast('Image saved.');
