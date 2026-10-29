@@ -66,6 +66,7 @@ const HELP = {
   thanksIconT:'Shows the speech-bubble button that opens the thank-you screen (Q key).',
   fullTextT:'Long explanations in windows show their first few words and an i button for the rest. Switch this on to always show the full text.',
   flashNewT:'A newly opened window glows briefly and comes to the front, so it is easy to spot on a busy screen.',
+  imgBtn:'Saves a picture of the model as it is now, with its labels, a title, the current verdict and the attribution, as a PNG file.',
   smartPlaceT:'When you open a window, it is placed in free space where possible, without covering other windows or the centre of the model.',
   keepPosT:'Windows keep their distance from the nearest edges when the screen size changes, such as leaving full screen.',
   fitLoadT:'When opening a view saved on a different screen size, brings every window fully into view.',
@@ -102,6 +103,7 @@ const FAQ_EXTRA = [
     ['Vision radar', 'For each area of the DESNZ vision: readiness of its technologies, how many are deployed in GB, what is new since your last review, and what is coming in the next five years.'],
     ['Cyber lens', 'Technologies that expand the attack surface, possible mitigations mapped to the NCSC CAF, Ofgem’s CAF Overlay, NIST, NERC CIP, IEC 62443 and ISO/IEC (AI research: engage experts), how long security responses took to follow in their category, and open gaps with no response yet.'],
     ['Walk-throughs (Tours)', 'Five one-minute guided tours. They are fully AI-generated: AI agents write and update the narration every week from their own findings, within fixed rules, and an AI voice speaks it. No person reviews them, so check anything important against the sources.'],
+    ['Kiosk mode', 'An unattended loop for stands and waiting areas: it plays the walk-throughs and arrangements in turn, with AI narration, music or silence, the ticker on or off, and a QR code to the site. Visitors can explore at any time; it resumes after a minute without a touch. Only Escape works on the keyboard, and it leaves kiosk mode. Start it from the welcome screen or the Windows menu.'],
     ['Ticker', 'A scrolling line of news (new milestones, click one to open it), jokes, or both. Choose in its Settings.']]],
   ['Data and agents', [
     ['Where does the data come from?', 'Two AI agents run every week. One looks for new breakthroughs and products; the other independently checks them and re-checks older records before anything is published.'],
