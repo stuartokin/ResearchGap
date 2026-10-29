@@ -12,7 +12,7 @@ import tour_rules
 
 TOURS = Path(__file__).resolve().parents[1] / 'data' / 'tours.json'
 TOOL = {'name': 'submit_tour_update', 'description': 'Submit the chosen examples and any improved step wording.', 'input_schema': {'type': 'object', 'required': ['exampleIds', 'steps', 'reason'], 'properties': {
-  'exampleIds': {'type': 'array', 'minItems': 1, 'maxItems': 4, 'items': {'type': 'string'}, 'description': 'Ids from the candidate list, best first'},
+  'exampleIds': {'type': 'array', 'minItems': 0, 'maxItems': 4, 'items': {'type': 'string'}, 'description': 'Ids from the candidate list, best first'},
   'steps': {'type': 'object', 'description': 'Only the steps whose wording you are improving: {stepId: {"say": template}}. Leave out steps that should stay as they are.'},
   'reason': {'type': 'string'}}}}
 
@@ -35,17 +35,20 @@ def run():
     for tid in tour_rules.SPEC:
         t = tours['tours'][tid]
         sp = tour_rules.SPEC[tid]
+        task1 = ("Tasks: (1) choose up to four worked examples, best first, from the candidates: well-known breakthroughs that make the stages easy to follow, "
+                 "preferring source-cited records and a mix of university, industry and government origins. ") if sp.get('examples') else "Tasks: (1) return exampleIds as an empty list; this tour has no worked example. "
         prompt = (f"You maintain the narration for a one-minute guided tour: \"{t['title']}\". Today is {TODAY}.\n"
                   "Narration templates use {placeholders} that the app fills from live data, and {\"by\": condition, \"cases\": {...}} blocks whose variant the app chooses from the evidence. "
                   "So you never state figures or decide conclusions yourself.\n"
                   f"Rules: only these placeholders: {sorted(sp['placeholders'])}; keep every case of every condition ({ {k: sorted(v) for k, v in sp['cases'].items()} }); "
-                  f"no figures typed in the text except the years {sorted(sp['years'])}; at most {sp['maxWords']} words per step; plain British English; no links.\n"
-                  "Tasks: (1) choose up to four worked examples, best first, from the candidates: well-known breakthroughs that make the stages easy to follow, preferring source-cited records and a mix of university, industry and government origins. "
+                  f"no figures typed in the text except {sorted(sp['years'])}; at most {sp['maxWords']} words per step; plain British English; no links.\n"
+                  + task1 +
                   "(2) Improve the wording of at most three steps, only where it becomes clearer or more accurate for a general audience. Leave the rest out.\n"
-                  f"Current steps: {json.dumps(t['steps'], ensure_ascii=False)}\nCandidates: {json.dumps(cands, ensure_ascii=False)}")
+                  f"Current steps: {json.dumps(t['steps'], ensure_ascii=False)}\n"
+                  + (f"Candidates: {json.dumps(cands, ensure_ascii=False)}" if sp.get('examples') else ''))
         out = call_claude('You write clear, accurate narration for a data visualisation.', prompt, TOOL, max_searches=0) or {}
         new = copy.deepcopy(t); changes = []
-        ex = [e for e in (out.get('exampleIds') or []) if e in cand_ids][:4]
+        ex = [e for e in (out.get('exampleIds') or []) if e in cand_ids][:4] if sp.get('examples') else []
         if ex and ex != t.get('exampleIds'): new['exampleIds'] = ex; changes.append(f"examples: {', '.join(ex)}")
         edits = out.get('steps') or {}
         for sid in list(edits)[:cfg.get('maxStepsChangedPerRun', 3)]:

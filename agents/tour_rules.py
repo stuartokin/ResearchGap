@@ -13,7 +13,31 @@ SPEC = {
               'outCmp': {'faster', 'slower', 'similar', 'unclear'}, 'score': {'0', '1', '2', '3', '4'}, 'hasAdopt': {'yes', 'no'}, 'exFound': {'yes', 'no'},
               'exHasAdopt': {'yes', 'no'}, 'fastestIsAI': {'ai', 'other', 'none'}},
     'years': {'1970', '2000', '2010'},
-    'maxWords': 40,
+    'maxWords': 40, 'examples': True,
+  },
+  'horizon': {
+    'steps': ['intro', 'radar', 'new', 'next', 'changes', 'slide', 'answer'],
+    'placeholders': {'nResearch', 'nPilot', 'nCommercial', 'nScale', 'nGB', 'newCount', 'newTitle', 'nextCount', 'nextTitle', 'nextYear', 'busiestArea'},
+    'cases': {'newCase': {'some', 'none'}, 'nextCase': {'some', 'none'}, 'horizonCase': {'busy', 'steady', 'quiet'}},
+    'years': {'1980'}, 'maxWords': 40,
+  },
+  'secure': {
+    'steps': ['intro', 'lens', 'gaps', 'example', 'guidance', 'caution', 'answer'],
+    'placeholders': {'attackPct', 'lag', 'gapCount', 'gapTitle', 'guideTitle'},
+    'cases': {'lagCase': {'slow', 'moderate', 'fast', 'unclear'}, 'gapCase': {'some', 'none'}, 'guideCase': {'some', 'none'}, 'trendCase': {'improving', 'worsening', 'flat', 'unclear'}},
+    'years': {'2010', '62443'}, 'maxWords': 40,
+  },
+  'fortune': {
+    'steps': ['intro', 'research', 'speed', 'fastest', 'uk', 'uni', 'table', 'answer'],
+    'placeholders': {'nFortunes', 'nResearch', 'preYears', 'recentYears', 'fastestCo', 'fastestTime', 'ukYears', 'rowYears', 'nUni'},
+    'cases': {'speedCase': {'faster', 'slower', 'similar', 'unclear'}, 'ukCase': {'faster', 'slower', 'similar', 'unclear'}},
+    'years': {'1970', '2015'}, 'maxWords': 40,
+  },
+  'how': {
+    'steps': ['intro', 'research', 'qa', 'more', 'quality', 'labels', 'arrange', 'answer'],
+    'placeholders': {'nMilestones', 'pctSourceCited', 'fcResolved'},
+    'cases': {'fcCase': {'scored', 'none'}},
+    'years': set(), 'maxWords': 40,
   }
 }
 
@@ -68,6 +92,7 @@ def check(tours, milestones=None):
             errs += check_step(tid, sid, steps[sid]['say'])
         for sid in steps:
             if sid not in sp['steps']: errs.append(f'{tid}: unknown step "{sid}"')
+        if not sp.get('examples'): continue
         ex = t.get('exampleIds', [])
         if not isinstance(ex, list) or not 1 <= len(ex) <= 6: errs.append(f'{tid}: exampleIds needs one to six ids')
         elif ms:
