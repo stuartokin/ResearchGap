@@ -1,5 +1,5 @@
 {
- "version": 9,
+ "version": 10,
  "updated": "2026-10-29",
  "updatedBy": "tour-agent",
  "note": "Narration templates for the guided tours. Figures come from {placeholders} filled from the live data; conclusions are chosen by rules in the app ({\"by\": fact, \"cases\": {...}}). The weekly tour agent may refine wording and choose examples, within the rules checked by tools/validate.py.",
@@ -9,7 +9,7 @@
    "exampleIds": [
     "penicillin",
     "radar",
-    "integrated-circuit",
+    "television",
     "mrna-vaccines"
    ],
    "steps": {
@@ -50,21 +50,21 @@
      "say": {
       "by": "trend",
       "cases": {
-       "shrunk": "Overall, the typical gap has shrunk: {pre} years for research begun before 1970, {recent} for research since 2000.",
-       "grown": "Overall, the typical gap has grown: {pre} years for research begun before 1970, {recent} for research since 2000.",
-       "flat": "Overall, the typical gap has barely changed: {pre} years for research begun before 1970, {recent} for research since 2000.",
-       "unclear": "There is not yet enough data to say how the gap has changed overall."
+       "shrunk": "Overall, the typical gap from research to first product has shrunk: {pre} years for research begun before 1970, {recent} for research since 2000.",
+       "grown": "Overall, the typical gap from research to first product has grown: {pre} years for research begun before 1970, {recent} for research since 2000.",
+       "flat": "Overall, the typical gap from research to first product has barely changed: {pre} years for research begun before 1970, {recent} for research since 2000.",
+       "unclear": "There is not yet enough data to say how the gap from research to first product has changed overall."
       }
      }
     },
     "corrected": {
      "say": [
-      "But recent research has not all landed yet. Allowing for work still unfinished, ",
+      "But much recent research has not yet reached a first product. Counting that unfinished work, ",
       {
        "by": "corr",
        "cases": {
-        "holds": "research since 2010 takes about {kmYears} years, still clearly quicker than research before 1970.",
-        "weakens": "research since 2010 takes about {kmYears} years, so it is not clearly quicker than research before 1970.",
+        "holds": "research since 2010 takes about {kmYears} years, still clearly quicker than research begun before 1970.",
+        "weakens": "research since 2010 takes about {kmYears} years, so it is not clearly quicker than research begun before 1970.",
         "tooEarly": "it is too early to be sure.",
         "unclear": "there is not yet enough data to tell."
        }
@@ -131,7 +131,7 @@
    "title": "What AI-assisted products are on the horizon for the energy system?",
    "steps": {
     "intro": {
-     "say": "The Department for Energy Security and Net Zero (DESNZ) has set out a vision for a clean energy system supported by AI, grouped into five areas. Diamonds mark the story arcs linked to the vision, which play from 1980 onwards."
+     "say": "The Department for Energy Security and Net Zero (DESNZ) has set out a vision for a clean energy system supported by AI, grouped into five areas. Diamonds mark story arcs linked to the vision; they play from 1980 onwards."
     },
     "radar": {
      "say": "The Vision radar shows how close each area's technologies are to everyday use: {nResearch} in research, {nPilot} in pilots, {nCommercial} in early commercial use and {nScale} in wide use. {nGB} of these are already used in Great Britain."
@@ -140,7 +140,7 @@
      "say": {
       "by": "newCase",
       "cases": {
-       "some": "New in the last three months, found by the agents: {newCount}, including {newTitle}. Mark them as reviewed, and next time you will see only what has arrived since.",
+       "some": "Added by the agents in the last three months: {newCount}, including {newTitle}. Mark them as reviewed, and next time you will see only what has arrived since.",
        "none": "Nothing new has arrived in the last three months. Mark the radar as reviewed, and next time you will see only what has arrived since."
       }
      }
@@ -155,7 +155,7 @@
      }
     },
     "changes": {
-     "say": "Data changes lists everything the agents add or correct each week. Here it shows only changes linked to the vision."
+     "say": "The Data changes window lists everything the agents add or correct each week. Here it is filtered to show only changes linked to the vision."
     },
     "slide": {
      "say": "For a briefing, the PowerPoint report window creates a one-slide summary of all five areas, ready to drop into a deck."
@@ -179,7 +179,7 @@
    "title": "Securing the future energy system",
    "steps": {
     "intro": {
-     "say": "New technology can open new ways in for attackers. Of the technologies shown here, {attackPct} percent widen the attack surface, meaning more points of entry, from smart devices at the edge of the grid to AI agents."
+     "say": "New technology can open new ways in for attackers. Of the technologies shown here, {attackPct} per cent widen the attack surface: they add more points of entry, from smart devices at the edge of the grid to AI agents."
     },
     "lens": {
      "say": [
@@ -199,7 +199,7 @@
      "say": {
       "by": "gapCase",
       "cases": {
-       "some": "Since 2010, some technologies have arrived with no security response yet in their category. There are {gapCount} so far, including {gapTitle}.",
+       "some": "Some technologies that have arrived since 2010 still have no security response in their category. So far there are {gapCount}, including {gapTitle}.",
        "none": "In this data, every technology since 2010 has seen a security response in its category."
       }
      }
@@ -211,8 +211,8 @@
      "say": {
       "by": "guideCase",
       "cases": {
-       "some": "Every week, a guidance agent records newly published security guidance, giving priority to the CAF and Ofgem. The latest: {guideTitle}.",
-       "none": "Every week, a guidance agent records newly published security guidance, giving priority to the CAF and Ofgem."
+       "some": "Each week, a guidance agent logs newly published security guidance, giving priority to the CAF and to Ofgem's publications. The latest: {guideTitle}.",
+       "none": "Each week, a guidance agent logs newly published security guidance, giving priority to the CAF and to Ofgem's publications."
       }
      }
     },
@@ -239,10 +239,10 @@
    "title": "From lab to fortune",
    "steps": {
     "intro": {
-     "say": "Research does not just change products; it can also make fortunes. Time to a fortune follows founders from starting a company to the listing, sale or valuation that made them rich."
+     "say": "Research does not just change products; it can also make fortunes. This chart, Time to a fortune, follows founders from starting a company to the stock market listing, sale or valuation that made them rich."
     },
     "research": {
-     "say": "Of {nFortunes} fortunes here, {nResearch} began in a university or research lab. Gold rings mark those research founders."
+     "say": "Of {nFortunes} fortunes here, {nResearch} began in a university or research lab. Gold rings mark the founders whose companies grew out of that research."
     },
     "speed": {
      "say": {
@@ -273,7 +273,7 @@
      "say": "Gold rings also mark {nUni} university projects that are still under way. They could become the next breakthroughs, and perhaps the next fortunes."
     },
     "table": {
-     "say": "The Table lists every milestone. Sort by any column, such as the gap, and select a row for its story."
+     "say": "The Table lists every milestone. Sort by any column, such as the gap between milestones, and select a row to read its story."
     },
     "answer": {
      "say": [
@@ -298,10 +298,10 @@
      "say": "This model is maintained by AI agents that run every week. It holds {nMilestones} milestones so far."
     },
     "research": {
-     "say": "A research agent searches every field, and each vision area of the Department for Energy Security and Net Zero (DESNZ), for new breakthroughs and products. The 'Data changes' view lists everything it adds."
+     "say": "A research agent looks for new breakthroughs and products across every field and every vision area of the Department for Energy Security and Net Zero (DESNZ). The 'Data changes' view lists everything it adds."
     },
     "qa": {
-     "say": "A second agent checks every find independently. It needs more than one source, and the quoted evidence must really appear on the page. Nothing is ever deleted."
+     "say": "A second agent checks each find independently. It needs more than one source, and the quoted evidence must actually appear on the cited page. Nothing is ever deleted."
     },
     "more": {
      "say": "Further agents track new security guidance and refresh these walk-throughs. Every change must pass automatic checks before it is published."
@@ -322,7 +322,7 @@
      "say": "Every record says how it was checked: source-cited, AI-compiled or an AI estimate. You can filter by these."
     },
     "arrange": {
-     "say": "Arrangements lay out the windows for exploring, presenting, analysis or a DESNZ briefing. You can save any view or share it as a link."
+     "say": "Choose an arrangement to lay out the windows for exploring, presenting, analysis or a DESNZ briefing. You can save any view or share it as a link."
     },
     "answer": {
      "say": "Help and the i buttons explain each feature. Because AI maintains this model, it may contain errors, so check anything important against the original sources."
