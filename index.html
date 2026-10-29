@@ -322,7 +322,9 @@ label.dim{opacity:.45}
 .tbctl button{all:unset;cursor:pointer;min-width:38px;height:34px;padding:0 10px;border-radius:9px;border:1px solid var(--line-strong);display:inline-flex;align-items:center;justify-content:center;font-size:14px}
 .tbctl button:hover,.tbctl button:focus-visible{background:rgba(255,255,255,.08);outline:none}
 #tourSkip{margin-left:auto;color:#FFB3B3}
-body.touring #w-toolbar,body.touring #w-footer,body.touring #w-pagetitle{display:none!important}
+body.touring #w-toolbar,body.touring #w-footer,body.touring #w-pagetitle{visibility:hidden!important}
+.tourhl{outline:2px solid #FFD166!important;outline-offset:2px;border-radius:8px;animation:tourpulse 1.4s ease-in-out infinite}
+@keyframes tourpulse{50%{outline-color:rgba(255,209,102,.25)}}
 .tclamp .tlead{color:inherit}
 .infob{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;width:1.3em;height:1.3em;border-radius:50%;border:1px solid rgba(168,216,255,.55);color:#A8D8FF;font:italic 700 .82em/1 Georgia,'Times New Roman',serif;margin-left:.4em;vertical-align:.08em}
 .infob:hover,.infob:focus-visible{background:rgba(168,216,255,.18);outline:2px solid rgba(168,216,255,.35);outline-offset:1px}
@@ -5582,31 +5584,32 @@ function gapFacts(){
 const yrs = v => v == null ? 'an unknown number of' : (v === 1 ? 'one' : String(v).replace(/\.0$/, ''));
 const TOURS = {
   gap: {title:'Is AI shrinking the gap from research to change?', facts:gapFacts, steps:[   // about 145 words: one minute of narration
-    {show:[], act:() => { tourFilters(); view.labelScope = 'major'; view.adoption = true; syncDisplayUI(); refresh(); resetView(); setAutoRotate(true); },
+    {show:[], act:() => { tourFilters(); view.labelScope = 'major'; view.adoption = true; syncDisplayUI(); refresh(); resetView(); setAutoRotate(true); tourTimeline(null); },
      say:f => `Each arc is a breakthrough. It rises when research began and lands at its first real-world use. Taller arcs mean longer gaps.`},
-    {show:['player'], act:() => { view.playFrom = null; view.playTo = null; playSpeed = 2.5; view.conclusion = false; syncPlayRangeUI(); if (state.playing) stopPlay(); startPlay(); },
+    {show:['player'], act:() => tourTimeline(Y0, 3),
      say:f => `Here is a century of change. Thinner arcs carry on to mainstream adoption${f.adopt != null ? `, typically ${yrs(f.adopt)} years later` : ''}.`},
-    {show:['findings'],
+    {show:['findings'], act:() => tourTimeline(2000, 1.2),
      say:f => ({shrunk:`Overall, the gap has shrunk: ${yrs(f.pre)} years before 1970, ${yrs(f.recent)} since 2000.`,
                 grown:`Overall, the gap has grown: ${yrs(f.pre)} years before 1970, ${yrs(f.recent)} since 2000.`,
                 flat:`Overall, the gap has barely changed: ${yrs(f.pre)} years before 1970, ${yrs(f.recent)} since 2000.`,
                 unclear:'There is not yet enough data to say how the gap has changed overall.'})[f.trend]},
-    {show:['summary'], act:() => { view.statsBy = 'began'; view.survival = true; view.gapMetric = 'first'; renderStats(); },
+    {show:['summary'], act:() => { view.statsBy = 'began'; view.survival = true; view.gapMetric = 'first'; renderStats(); tourTimeline(2010, .9); },
      say:f => 'But recent research has not all landed. Counting work still in progress, ' +
               ({holds:`the shrinking holds, at about ${yrs(Math.round(f.km.m))} years.`,
                 weakens:`research since 2010 takes about ${yrs(Math.round(f.km.m))} years, so the improvement is smaller.`,
                 tooEarly:'it is too early to be sure.', unclear:'there is not yet enough data to tell.'})[f.corr]},
-    {show:['gapchart'], act:() => { twKey = ''; updateTimeWindows(true); },
+    {show:['gapchart'], act:() => { tourTimeline(null); twKey = ''; updateTimeWindows(true); },
      say:() => 'Gap over time tracks this decade by decade, with scenarios beyond today, including AI and digital twins.'},
-    {show:['findings'], act:() => { F.fields = new Set(['ai']); view.subLanes = true; refresh(); },
+    {show:['filters'], act:() => { F.fields = new Set(['ai']); view.subLanes = true; view.panels = view.panels || {}; view.panels.filters = {fields:true}; refresh(); syncPanels(); tourTimeline(2000, 1.2);
+        setTimeout(() => { tourHighlight('#fieldList .frow[data-f="ai"], #w-filters .subbox'); const r = document.querySelector('#fieldList .frow[data-f="ai"]'); if (r) r.scrollIntoView({block:'center'}); }, 120); },
      say:f => (f.fastest ? (f.fastest.k === 'ai' ? `Since 2000, AI itself is the fastest field, at about ${yrs(Math.round(f.fastest.m))} years. ` : `Since 2000, ${FIELDS[f.fastest.k].name.toLowerCase()} is fastest${f.aiRank ? `; AI ranks ${['', 'first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh', 'eighth', 'ninth', 'tenth', 'eleventh'][f.aiRank]} of ${f.nFields}` : ''}. `) : '') + 'With one field selected, its sub-fields get their own tracks.'},
-    {show:['outlook'], act:() => { tourFilters(); refresh(); },
+    {show:['outlook'], act:() => { tourHighlight(null); tourFilters(); refresh(); tourTimeline(2010, .9); },
      say:f => ({faster:`Since 2010, AI-driven work took ${yrs(f.ai)} years, against ${yrs(f.oth)} for the rest.`,
                 slower:`Since 2010, AI-driven work has taken longer: ${yrs(f.ai)} years, against ${yrs(f.oth)}.`,
                 similar:`Since 2010, AI-driven work took about as long as the rest: ${yrs(f.ai)} years against ${yrs(f.oth)}.`,
                 unclear:'There are not yet enough AI-driven milestones to compare.'})[f.aiCmp] +
               ({faster:` Ahead, AI-assisted work is expected to take ${yrs(f.aiOut)} years, against ${yrs(f.convOut)}.`, slower:' Ahead, the estimates do not show AI landing sooner.', similar:' Ahead, the estimates are similar.', unclear:''})[f.outCmp]},
-    {show:['findings'],
+    {show:['findings'], act:() => tourTimeline(null),
      say:f => 'So, is AI shrinking the gap? ' + ['Not yet: the data do not show it.', 'Partly: some of the evidence says yes.', 'Probably: most of the evidence says yes.', 'Yes: the evidence says so.', 'Yes: every measure here agrees.'][f.score] +
               ' The answer updates as the agents add evidence.'}
   ]}
@@ -5621,16 +5624,22 @@ function pickVoice(){
   tourVoice = vs.find(v => /en[-_]GB/i.test(v.lang) && fem.test(v.name)) || vs.find(v => fem.test(v.name)) || vs.find(v => /en[-_]GB/i.test(v.lang)) || vs[0] || null;
 }
 if ('speechSynthesis' in window) { pickVoice(); speechSynthesis.onvoiceschanged = pickVoice; }
+function tourTimeline(from, speed){   // play the years the narration is about; null shows the whole century, still
+  cancelCountdown(); if (state.playing) stopPlay();
+  if (from == null) { state.cursor = Y1; return; }
+  view.playFrom = from <= Y0 ? null : from; view.playTo = null; playSpeed = speed || 1.5; syncPlayRangeUI(); startPlay();
+}
+function tourHighlight(sel){ document.querySelectorAll('.tourhl').forEach(e => e.classList.remove('tourhl')); if (sel) document.querySelectorAll(sel).forEach(e => e.classList.add('tourhl')); }
 function tourFilters(){ Object.assign(F, JSON.parse(JSON.stringify(Object.assign({}, DEFAULT_FILTERS, {fields:null})))); F.fields = new Set(FKEYS.filter(k => FIELDS[k] && !FIELDS[k].custom)); }
 function tourPlace(ids){
   const W = innerWidth, H = innerHeight, cls = screenClass(), bar = $('tourBar').getBoundingClientRect(), bottom = H - bar.height - 18, top = 70;
-  WIN_IDS.forEach(id => { if (id !== 'player' || !ids.includes('player')) { layout[id].open = false; placeWin(id); } });
+  WIN_IDS.forEach(id => { if (['toolbar', 'footer', 'pagetitle'].includes(id)) return; if (id !== 'player' || !ids.includes('player')) { layout[id].open = false; placeWin(id); } });
   const solid = ids.filter(id => id !== 'player');
   if (ids.includes('player')) { const pw = Math.min(layout.player.w || 640, W - 24), ph = layout.player.h || 190; Object.assign(layout.player, {x:(W - pw) / 2, y:Math.max(top, bottom - ph - (solid.length && cls === 'phone' ? H * .4 : 0)), w:pw, h:ph, open:true}); placeWin('player'); }
   solid.forEach((id, k) => {
     let r;
     if (cls === 'phone') r = {x:6, y:Math.max(top, H * .42), w:W - 12, h:bottom - Math.max(top, H * .42)};
-    else { const w = cls === 'large' ? Math.min(500, W * .3) : cls === 'laptop' ? Math.min(440, W * .32) : Math.min(380, W * .4); r = {x:W - w - 14, y:top, w, h:bottom - top}; }
+    else { const w = cls === 'large' ? Math.min(500, W * .3) : cls === 'laptop' ? Math.min(440, W * .32) : Math.min(380, W * .4); r = {x:id === 'filters' ? 14 : W - w - 14, y:top, w, h:bottom - top}; }
     Object.assign(layout[id], r, {open:true, sw:W, sh:H}); placeWin(id);
     if (id === 'findings') renderFindings(); if (id === 'outlook') renderOutlook(); if (id === 'summary') renderStats();
   });
@@ -5661,6 +5670,8 @@ function tourStep(i){
 function startTour(id){
   closeWelcome(false);
   tour.saved = {view:JSON.parse(JSON.stringify(view)), speed:playSpeed, musicWasOn:!music.paused};
+  cancelCountdown(); if (state.playing) stopPlay(); $('spot').classList.remove('on', 'concl', 'chg');
+  Object.assign(view, {conclusion:false, chgAnnounce:false, loopPlay:false, statsLive:false, gapBuild:false, camTravel:false});
   if (!music.paused) music.pause();
   Object.assign(tour, {on:true, id, i:0, facts:TOURS[id].facts()});
   document.body.classList.add('touring'); $('tourBar').classList.add('on'); $('tourTitle').textContent = TOURS[id].title;
@@ -5670,7 +5681,7 @@ function startTour(id){
 function endTour(how){
   if (!tour.on) return;
   tour.on = false; tour.token++; clearTimeout(tour.timer); if ('speechSynthesis' in window) speechSynthesis.cancel();
-  document.body.classList.remove('touring'); $('tourBar').classList.remove('on');
+  document.body.classList.remove('touring'); $('tourBar').classList.remove('on'); tourHighlight(null); $('spot').classList.remove('on', 'concl', 'chg');
   toast(how === 'done' ? 'Tour complete. Starting the tool…' : 'Leaving the tour. Starting the tool…');
   if (state.playing) stopPlay();
   const sv = tour.saved || {}; if (sv.view) Object.keys(sv.view).forEach(k => { view[k] = sv.view[k]; });
