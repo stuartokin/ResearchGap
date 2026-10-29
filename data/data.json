@@ -2,7 +2,7 @@
  "$schema": "./schema.json",
  "meta": {
   "title": "The Shrinking Gap from Research to Change",
-  "revision": 19,
+  "revision": 20,
   "version": "8.0",
   "asOf": "2026-10-29",
   "horizonYears": 10,
@@ -10,7 +10,7 @@
   "author": "Stuart Okin",
   "maintainedBy": "AI agents using Claude (Anthropic), without human review",
   "disclaimer": "Personal project by Stuart Okin, not affiliated with or endorsed by any employer. Data is compiled and maintained by AI agents without human review and may contain errors. Outlook years are AI estimates, not forecasts.",
-  "lastAgentRun": "2026-10-29T15:50Z",
+  "lastAgentRun": "2026-10-29T17:53Z",
   "changelog": [
    {
     "date": "2026-10-28",
@@ -764,6 +764,84 @@
      "disputed: f-darktrace",
      "guidance: NCSC research problem book: new chapter 'AI in cyber security problems'",
      "tours: walk-through scripts refreshed (version 10)"
+    ]
+   },
+   {
+    "date": "2026-10-29",
+    "time": "17:53",
+    "revision": 20,
+    "summary": "3 added, 46 corrected, 0 outlook re-estimated, 2 disputed, 1 broken links, 1 guidance update.",
+    "stats": {
+     "milestones": 474,
+     "sourceCited": 163,
+     "aiCompiled": 233,
+     "aiEstimate": 78,
+     "adoptionKnown": 74,
+     "landed": 374,
+     "regionKnown": 474
+    },
+    "usage": {
+     "calls": 15,
+     "inputTokens": 2166546,
+     "outputTokens": 96583,
+     "searches": 113,
+     "model": "claude-opus-5-5"
+    },
+    "deepAudit": true,
+    "details": [
+     "added: 300mm-gan-power-chip-volume-production-infineon",
+     "added: xona-pulsar-commercial-leo-navigation-pnt-service",
+     "added: fully-autonomous-excavators-doing-paid-site-work",
+     "statistical-machine-translation: source added",
+     "statistical-machine-translation: source added",
+     "statistical-machine-translation: readiness commercial → scale",
+     "recommender-systems: source added",
+     "lstm-networks: source added",
+     "lstm-networks: source added",
+     "lstm-networks: sub-field language → methods",
+     "lstm-networks: readiness commercial → scale",
+     "voice-assistants: source added",
+     "voice-assistants: readiness commercial → scale",
+     "squid-magnetometers: source added",
+     "trapped-ion-quantum-computing: source added",
+     "data-encryption-standard: source added",
+     "data-encryption-standard: readiness commercial → scale",
+     "aes-encryption: source added",
+     "aes-encryption: source added",
+     "aes-encryption: readiness commercial → scale",
+     "aes-encryption: major → True",
+     "wafer-scale-ai-chip: research.year 2016 → 2015",
+     "large-language-model-api: source added",
+     "large-language-model-api: source added",
+     "claude-assistant: readiness commercial → scale",
+     "open-weight-european-models: readiness commercial → scale",
+     "stateful-inspection-firewall: readiness commercial → scale",
+     "stateful-inspection-firewall: tags added",
+     "security-appliances-on-custom-chips: readiness commercial → scale",
+     "machine-data-analytics-siem: readiness commercial → scale",
+     "machine-data-analytics-siem: tags added",
+     "next-generation-firewall: readiness commercial → scale",
+     "hardware-security-keys: readiness commercial → scale",
+     "cloud-delivered-security: readiness commercial → scale",
+     "cloud-endpoint-protection: sub-field network → ops",
+     "cloud-endpoint-protection: readiness commercial → scale",
+     "cloud-endpoint-protection: tags added",
+     "mobile-messaging: readiness commercial → scale",
+     "repositionable-adhesive-post-it: readiness commercial → scale",
+     "expanded-ptfe-gore-tex: readiness commercial → scale",
+     "ultra-strong-polyethylene-fibre: readiness commercial → scale",
+     "nanopore-sequencing: readiness commercial → scale",
+     "pressurised-water-reactor: GB status unknown → deployed",
+     "smart-meters-at-scale: GB status unknown → deployed",
+     "voltage-source-hvdc: readiness commercial → scale",
+     "voltage-source-hvdc: GB status unknown → deployed",
+     "first-uk-small-modular-reactors: readiness research → pilot",
+     "on-device-ai-as-default: readiness research → commercial",
+     "post-quantum-migration-of-priority-systems: readiness commercial → pilot",
+     "disputed: cryptographically-relevant-quantum-computer",
+     "disputed: f-dropbox",
+     "guidance: NIST SP 800-100r1 (Initial Public Draft): Information Security Handbook – A Guide for Executive Leadership",
+     "tours: walk-through scripts refreshed (version 11)"
     ]
    }
   ],
@@ -1954,8 +2032,9 @@
    ],
    "subfield": "nuclear",
    "readiness": {
-    "stage": "research",
-    "basis": "ai-estimate"
+    "stage": "pilot",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
    },
    "gb": {
     "status": "planned",
@@ -3650,8 +3729,9 @@
    ],
    "subfield": "methods",
    "readiness": {
-    "stage": "research",
-    "basis": "ai-estimate"
+    "stage": "commercial",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -4043,14 +4123,16 @@
    "confidence": "low",
    "note": "Uncertainty about when is exactly why migration has to start now.",
    "flags": {
-    "major": true
+    "major": true,
+    "disputed": true
    },
    "provenance": {
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
     "lastChecked": "2026-10-29",
-    "approximate": false
+    "approximate": false,
+    "qaNote": "The 1994 Shor research year is correct. The 2045 estimate is later than current expert consensus: the 2025 GRI/evolutionQ report (published March 2026) gives a 51–70% chance of a CRQC within 15 years, which points to about 2041. I suggest 2041 and add the source."
    },
    "region": "us",
    "tags": [
@@ -4749,9 +4831,9 @@
    ],
    "subfield": "crypto",
    "readiness": {
-    "stage": "commercial",
+    "stage": "pilot",
     "basis": "ai-estimate",
-    "checked": "2026-10-28"
+    "checked": "2026-10-29"
    },
    "forecast": {
     "estimatedYear": 2031,
@@ -8814,10 +8896,10 @@
    "confidence": "medium",
    "note": "Data, not linguistics, won.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -8826,15 +8908,30 @@
    ],
    "subfield": "language",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
    },
    "security": {
     "expandsAttackSurface": true,
     "note": "Prompt injection, data leakage and misuse at scale are new kinds of risk.",
     "basis": "ai-compiled",
     "guidance": "ai"
-   }
+   },
+   "refs": [
+    {
+     "label": "Google Translate (Wikipedia)",
+     "url": "https://en.wikipedia.org/wiki/Google_Translate",
+     "status": "ok",
+     "checked": "2026-10-29"
+    },
+    {
+     "label": "Acutrans: history of machine translation",
+     "url": "https://acutrans.com/history-of-google-translate/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ]
   },
   {
    "id": "recommender-systems",
@@ -8853,10 +8950,10 @@
    "confidence": "medium",
    "note": "Quietly one of the most profitable AI applications.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -8873,7 +8970,15 @@
     "note": "New model capabilities also help attackers find and exploit weaknesses.",
     "basis": "ai-compiled",
     "guidance": "ai"
-   }
+   },
+   "refs": [
+    {
+     "label": "Item-item collaborative filtering (Wikipedia)",
+     "url": "https://en.wikipedia.org/wiki/Item-item_collaborative_filtering",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ]
   },
   {
    "id": "lstm-networks",
@@ -8892,10 +8997,10 @@
    "confidence": "high",
    "note": "Eighteen years waiting for data and GPUs.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "europe",
@@ -8903,17 +9008,32 @@
     "semiconductors",
     "ai-models"
    ],
-   "subfield": "language",
+   "subfield": "methods",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
    },
    "security": {
     "expandsAttackSurface": true,
     "note": "Prompt injection, data leakage and misuse at scale are new kinds of risk.",
     "basis": "ai-compiled",
     "guidance": "ai"
-   }
+   },
+   "refs": [
+    {
+     "label": "Google Research blog, Sept 2015",
+     "url": "https://ai.googleblog.com/2015/09/google-voice-search-faster-and-more.html",
+     "status": "ok",
+     "checked": "2026-10-29"
+    },
+    {
+     "label": "Sak et al. 2015, Google LSTM acoustic models",
+     "url": "https://arxiv.org/pdf/1507.06947",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ]
   },
   {
    "id": "voice-assistants",
@@ -8932,10 +9052,10 @@
    "confidence": "medium",
    "note": "Defence research reaches every pocket in eight years.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -8944,15 +9064,24 @@
    ],
    "subfield": "language",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
    },
    "security": {
     "expandsAttackSurface": true,
     "note": "Prompt injection, data leakage and misuse at scale are new kinds of risk.",
     "basis": "ai-compiled",
     "guidance": "ai"
-   }
+   },
+   "refs": [
+    {
+     "label": "SRI: 75 Years of Innovation – Siri",
+     "url": "https://www.sri.com/75-years-of-innovation/75-years-of-innovation-siri/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ]
   },
   {
    "id": "squid-magnetometers",
@@ -8971,10 +9100,10 @@
    "confidence": "low",
    "note": "Quantum sensing has a 60-year commercial history.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": true
    },
    "region": "us",
@@ -8990,7 +9119,15 @@
     "expandsAttackSurface": false,
     "note": "Can reduce risk, for example timing that does not depend on jammable satellite signals.",
     "basis": "ai-compiled"
-   }
+   },
+   "refs": [
+    {
+     "label": "SQUID (Wikipedia)",
+     "url": "https://en.wikipedia.org/wiki/SQUID",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ]
   },
   {
    "id": "trapped-ion-quantum-computing",
@@ -9009,10 +9146,10 @@
    "confidence": "medium",
    "note": "Spun out of university and national laboratory research.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "europe",
@@ -9026,7 +9163,15 @@
     "note": "A large enough quantum computer would break today’s public-key cryptography.",
     "basis": "ai-compiled",
     "guidance": "quantum"
-   }
+   },
+   "refs": [
+    {
+     "label": "IonQ press release, 2 Dec 2019",
+     "url": "https://investors.ionq.com/news/news-details/2019/IonQ-Helps-Bring-Quantum-Computing-to-Life-on-Amazon-Web-Services/default.aspx",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ]
   },
   {
    "id": "data-encryption-standard",
@@ -9045,10 +9190,10 @@
    "confidence": "high",
    "note": "The first public, standardised commercial cipher.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -9058,9 +9203,18 @@
    ],
    "subfield": "crypto",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
-   }
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
+   },
+   "refs": [
+    {
+     "label": "Cipher Museum: DES",
+     "url": "https://ciphermuseum.com/ciphers/des.html",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ]
   },
   {
    "id": "aes-encryption",
@@ -9079,10 +9233,10 @@
    "confidence": "high",
    "note": "Open competition delivered a trusted standard in three years.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "europe",
@@ -9092,8 +9246,26 @@
    ],
    "subfield": "crypto",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
+   },
+   "refs": [
+    {
+     "label": "NIST: Rijndael submission document",
+     "url": "https://csrc.nist.gov/csrc/media/projects/cryptographic-standards-and-guidelines/documents/aes-development/rijndael-ammended.pdf",
+     "status": "ok",
+     "checked": "2026-10-29"
+    },
+    {
+     "label": "NIST: Development of the Advanced Encryption Standard",
+     "url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=931014",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ],
+   "flags": {
+    "major": true
    }
   },
   {
@@ -10815,7 +10987,7 @@
    "status": "landed",
    "title": "Wafer-scale AI chip",
    "research": {
-    "year": 2016,
+    "year": 2015,
     "what": "Cerebras is founded to build a chip the size of a wafer."
    },
    "change": {
@@ -10826,10 +10998,10 @@
    "note": "Rethinking the chip itself for AI.",
    "company": "Cerebras",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -10847,7 +11019,15 @@
     "note": "New model capabilities also help attackers find and exploit weaknesses.",
     "basis": "ai-compiled",
     "guidance": "ai"
-   }
+   },
+   "refs": [
+    {
+     "label": "https://www.cerebras.ai/company",
+     "url": "https://www.cerebras.ai/company",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ]
   },
   {
    "id": "large-language-model-api",
@@ -10870,10 +11050,10 @@
     "major": true
    },
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "adoption": {
@@ -10895,7 +11075,21 @@
     "note": "Prompt injection, data leakage and misuse at scale are new kinds of risk.",
     "basis": "ai-compiled",
     "guidance": "ai"
-   }
+   },
+   "refs": [
+    {
+     "label": "OpenAI API launch",
+     "url": "https://techcrunch.com/2020/06/11/openai-makes-an-all-purpose-api-for-its-text-based-ai-capabilities/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    },
+    {
+     "label": "GPT-3 / GPT-1 history",
+     "url": "https://en.wikipedia.org/wiki/GPT-3",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ]
   },
   {
    "id": "claude-assistant",
@@ -10918,7 +11112,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -10927,8 +11121,9 @@
    ],
    "subfield": "language",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -10958,7 +11153,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "europe",
@@ -10967,8 +11162,9 @@
    ],
    "subfield": "language",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -10998,7 +11194,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "europe",
@@ -11038,7 +11234,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -11078,15 +11274,19 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "other",
    "subfield": "network",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
-   }
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
+   },
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "security-appliances-on-custom-chips",
@@ -11109,7 +11309,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -11118,8 +11318,9 @@
    ],
    "subfield": "network",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
    }
   },
   {
@@ -11143,15 +11344,19 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
    "subfield": "ops",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
-   }
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
+   },
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "next-generation-firewall",
@@ -11174,7 +11379,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -11183,8 +11388,9 @@
     "networks"
    ],
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
    }
   },
   {
@@ -11208,7 +11414,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "europe",
@@ -11217,8 +11423,9 @@
     "cryptography"
    ],
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
    }
   },
   {
@@ -11242,7 +11449,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -11251,8 +11458,9 @@
     "networks"
    ],
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
    }
   },
   {
@@ -11276,7 +11484,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -11307,15 +11515,19 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
-   "subfield": "network",
+   "subfield": "ops",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
-   }
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
+   },
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "ai-threat-detection",
@@ -11338,7 +11550,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "uk",
@@ -11373,7 +11585,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -11384,7 +11596,8 @@
    },
    "gb": {
     "status": "unknown",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "OT monitoring supports the NIS cyber-resilience duties of GB network and system operators as grids digitalise. National Grid Partners is a Dragos investor."
    }
   },
   {
@@ -11989,7 +12202,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -11998,8 +12211,9 @@
    ],
    "subfield": "messaging",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -12029,7 +12243,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -12180,7 +12394,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "other",
@@ -12191,6 +12405,11 @@
    "readiness": {
     "stage": "commercial",
     "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Cheaper access to orbit adds more satellites and ground segments that could be attacked or jammed.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -12368,7 +12587,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -12377,8 +12596,14 @@
     "materials"
    ],
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Not applicable; passive consumer material with no digital attack surface.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -12402,7 +12627,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -12411,8 +12636,14 @@
     "materials"
    ],
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Not applicable; passive material.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -12436,7 +12667,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "europe",
@@ -12445,8 +12676,14 @@
    ],
    "subfield": "polymers",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Not applicable; passive material.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -12470,7 +12707,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "uk",
@@ -12479,8 +12716,14 @@
    ],
    "subfield": "genetics",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Portable sequencers produce sensitive genomic data and run on connected analysis software, which raises privacy and data-integrity risks.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -12506,7 +12749,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "adoption": {
@@ -12524,8 +12767,9 @@
     "basis": "ai-estimate"
    },
    "gb": {
-    "status": "unknown",
-    "basis": "ai-estimate"
+    "status": "deployed",
+    "basis": "ai-estimate",
+    "note": "Sizewell B is GB's only operating PWR and the Hinkley Point C EPRs are a PWR design. Large PWR units are inflexible baseload, which shapes inertia, fault-level and reserve needs on the GB grid."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -12558,7 +12802,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "adoption": {
@@ -12577,8 +12821,9 @@
     "basis": "ai-estimate"
    },
    "gb": {
-    "status": "unknown",
-    "basis": "ai-estimate"
+    "status": "deployed",
+    "basis": "ai-estimate",
+    "note": "The GB smart meter rollout gives the half-hourly data and flexibility signals that demand-side response and AI-based demand forecasting depend on."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -12607,7 +12852,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "europe",
@@ -12617,12 +12862,14 @@
    ],
    "subfield": "grids",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
    },
    "gb": {
-    "status": "unknown",
-    "basis": "ai-estimate"
+    "status": "deployed",
+    "basis": "ai-estimate",
+    "note": "VSC-HVDC underpins GB offshore wind connections and newer interconnectors and links such as Eastern Green Link, and it provides controllable power flows and grid support."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -23173,6 +23420,222 @@
     "lastChecked": "2026-10-29",
     "approximate": false
    }
+  },
+  {
+   "id": "300mm-gan-power-chip-volume-production-infineon",
+   "field": "hw",
+   "origin": "industry",
+   "status": "outlook",
+   "title": "300mm GaN power chip volume production (Infineon)",
+   "research": {
+    "year": 2024,
+    "what": "Infineon processed the world's first gallium nitride power semiconductor wafers on 300mm diameter substrates, giving 2.3 times as many chips per wafer as 200mm. Origin: Infineon's first 300mm GaN wafer processing milestone, Villach, Austria (2024)"
+   },
+   "change": {
+    "year": 2027,
+    "what": "Infineon is converting cleanroom space in Villach into what it calls the world's first high-volume 300mm GaN power semiconductor fab, with production due to start by the end of 2027."
+   },
+   "confidence": "medium",
+   "note": "Moving GaN power devices onto 300mm wafers could cut costs and widen their use in AI data-centre power supplies, grid equipment and EVs; it is a manufacturing step beyond the existing GaN transistor milestone.",
+   "company": "Infineon Technologies",
+   "refs": [
+    {
+     "label": "Semiconductor Today, 27 Oct 2026",
+     "url": "https://www.semiconductor-today.com/news_items/2026/oct/infineon-271026.shtml",
+     "status": "ok",
+     "checked": "2026-10-29"
+    },
+    {
+     "label": "Euronews, 28 Oct 2026 (EU state aid approval)",
+     "url": "https://www.euronews.com/2026/10/28/eu-approves-319-million-in-state-aid-to-austrian-first-of-a-kind-next-generation-semicondu",
+     "status": "ok",
+     "checked": "2026-10-29"
+    },
+    {
+     "label": "TechWorks, 27 Oct 2026",
+     "url": "https://techworks.org.uk/infineon-to-establish-the-worlds-first-high-volume-manufacturing-facility-for-gallium-nitride-power-semiconductors-on-300-millimeter-wafers-in-europe/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ],
+   "subfield": "fab",
+   "region": "europe",
+   "tags": [
+    "semiconductors"
+   ],
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "This is a manufacturing process change, so it adds no new attack surface directly, but more European GaN capacity reduces supply-chain concentration risk for power electronics in critical infrastructure.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2027,
+    "estimatedOn": "2026-10-29",
+    "revisions": []
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-29",
+    "lastChecked": "2026-10-29",
+    "approximate": false
+   },
+   "basis": {
+    "label": "Semiconductor Today, 27 Oct 2026",
+    "url": "https://www.semiconductor-today.com/news_items/2026/oct/infineon-271026.shtml",
+    "status": "ok",
+    "checked": "2026-10-29"
+   }
+  },
+  {
+   "id": "xona-pulsar-commercial-leo-navigation-pnt-service",
+   "field": "space",
+   "origin": "industry",
+   "status": "outlook",
+   "title": "Xona Pulsar commercial LEO navigation (PNT) service",
+   "research": {
+    "year": 2019,
+    "what": "Engineers from Stanford's aerospace graduate programme founded Xona to build a commercial positioning, navigation and timing system using low Earth orbit satellites, which send stronger signals that are harder to jam. A prototype, Pulsar-0, proved the design in orbit in June 2025. Origin: Xona Space Systems, founded in 2019 by engineers from Stanford University's aerospace engineering graduate programme; Pulsar-0 validation satellite flown in June 2025"
+   },
+   "change": {
+    "year": 2027,
+    "what": "Six production Pulsar satellites launched on SpaceX Bandwagon-5 on 20 October 2026. Four of them will run beta service for customers in several countries from early 2027, and the company holds an FCC authorisation for a private navigation constellation."
+   },
+   "confidence": "medium",
+   "note": "This would be the first privately run satellite navigation constellation alongside government GNSS. It promises centimetre-level accuracy and works with existing GPS receivers after a software update.",
+   "company": "Xona Space Systems",
+   "refs": [
+    {
+     "label": "SpaceNews: Xona launches six satellites to begin commercial navigation service (20 Oct 2026)",
+     "url": "https://spacenews.com/xona-launches-six-satellites-to-begin-commercial-navigation-service/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    },
+    {
+     "label": "Business Wire via FinancialContent: Xona network begins deployment, beta service early 2027",
+     "url": "https://www.financialcontent.com/article/bizwire-2026-10-22-xona-raises-250m-as-next-generation-global-navigation-network-begins-deployment",
+     "status": "ok",
+     "checked": "2026-10-29"
+    },
+    {
+     "label": "Global CORS Networks: Pulsar-0 June 2025 heritage and Aerospacelab bus",
+     "url": "https://corsstations.com/news/xona-to-launch-six-pulsar-satellites-in-october-bringing-commercial-gps-alternative-into-service/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    },
+    {
+     "label": "TechCrunch: Xona's commercial GPS alternative is about to go live",
+     "url": "https://techcrunch.com/2026/10/09/xonas-commercial-gps-alternative-is-about-to-go-live/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ],
+   "subfield": "nav",
+   "region": "us",
+   "tags": [
+    "space",
+    "networks"
+   ],
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Pulsar is pitched as resistant to jamming and spoofing, which could make timing for critical infrastructure more resilient. But it adds a new commercial signal source and ground segment that receivers would have to authenticate.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2027,
+    "estimatedOn": "2026-10-29",
+    "revisions": []
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-29",
+    "lastChecked": "2026-10-29",
+    "approximate": false
+   },
+   "basis": {
+    "label": "SpaceNews: Xona launches six satellites to begin commercial navigation service (20 Oct 2026)",
+    "url": "https://spacenews.com/xona-launches-six-satellites-to-begin-commercial-navigation-service/",
+    "status": "ok",
+    "checked": "2026-10-29"
+   }
+  },
+  {
+   "id": "fully-autonomous-excavators-doing-paid-site-work",
+   "field": "robotics",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Fully autonomous excavators doing paid site work",
+   "research": {
+    "year": 1998,
+    "what": "Academic robotics work showed that a hydraulic excavator could perceive a dig face and load trucks by itself without a human operator. Origin: Carnegie Mellon University Robotics Institute Autonomous Loading System demonstration of an autonomous excavator (late 1990s; my background knowledge, not stated in the retrieved sources)"
+   },
+   "change": {
+    "year": 2026,
+    "what": "Bedrock Robotics' retrofit Operator kit began running excavators with nobody in the cab on paid commercial earthworks in Nevada and Texas from mid-August 2026, and its October 2026 Series C announcement confirmed the work."
+   },
+   "confidence": "medium",
+   "note": "This appears to be the first time hydraulic excavators have done full shifts of paid customer work with nobody in the cab, which takes autonomy beyond roads and mines and onto general construction sites.",
+   "company": "Bedrock Robotics",
+   "flags": {
+    "aiDriven": true
+   },
+   "refs": [
+    {
+     "label": "GlobeNewswire: Bedrock Robotics Series C release citing mid-August 2026 paid autonomous work",
+     "url": "https://www.globenewswire.com/news-release/2026/10/26/3388197/0/en/bedrock-robotics-raises-600-million-series-c-to-scale-autonomous-construction-equipment-across-u-s-sites.html",
+     "status": "ok",
+     "checked": "2026-10-29"
+    },
+    {
+     "label": "The Next Web: Bedrock's self-driving excavators win paid work",
+     "url": "https://thenextweb.com/news/bedrock-robotics-600m-series-c-4-1bn-valuation",
+     "status": "ok",
+     "checked": "2026-10-29"
+    },
+    {
+     "label": "The Robotics Media: Bedrock deploys fully autonomous excavators on US infrastructure sites",
+     "url": "https://theroboticsmedia.com/article/bedrock-robotics-autonomous-excavators-sundt-champion-zachry-us-infrastructure-august-17-2026",
+     "status": "ok",
+     "checked": "2026-10-29"
+    },
+    {
+     "label": "Fox News: Autonomous excavators digging with empty cabs",
+     "url": "https://www.foxnews.com/tech/autonomous-excavators-digging-empty-cabs",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ],
+   "subfield": "field",
+   "region": "us",
+   "tags": [
+    "robots",
+    "computer-vision"
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "If someone compromised the retrofit autonomy kit or its connection to the fleet, they could make heavy machines move unsafely on live job sites, so the safety-stop and remote-update paths are critical.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-29",
+    "lastChecked": "2026-10-29",
+    "approximate": false
+   }
   }
  ],
  "founders": [
@@ -23956,7 +24419,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-28"
+    "lastChecked": "2026-10-29"
    }
   },
   {
@@ -23973,7 +24436,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-28"
+    "lastChecked": "2026-10-29"
    }
   },
   {
@@ -23989,7 +24452,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-28"
+    "lastChecked": "2026-10-29"
    }
   },
   {
@@ -24011,7 +24474,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-28"
+    "lastChecked": "2026-10-29"
    }
   },
   {
@@ -24027,7 +24490,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-28"
+    "lastChecked": "2026-10-29"
    }
   },
   {
@@ -24043,7 +24506,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-28"
+    "lastChecked": "2026-10-29"
    }
   },
   {
@@ -24060,7 +24523,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-28"
+    "lastChecked": "2026-10-29"
    }
   },
   {
@@ -24082,7 +24545,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-28"
+    "lastChecked": "2026-10-29"
    }
   },
   {
@@ -24098,7 +24561,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-28"
+    "lastChecked": "2026-10-29"
    }
   },
   {
@@ -24114,7 +24577,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-28"
+    "lastChecked": "2026-10-29"
    }
   },
   {
@@ -24140,7 +24603,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-28"
+    "lastChecked": "2026-10-29"
    }
   },
   {
@@ -24162,7 +24625,8 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-28"
+    "lastChecked": "2026-10-29",
+    "qaNote": "Founded 2007 is supported by Forbes ('cofounded the company in 2007'). Net worth: no current Forbes or Bloomberg figure found. The only Forbes snapshot found was $2.3B as of 12/4/25. A non-Forbes tracker (Grizzly Bulls) shows $2.68B on Oct 20, 2026. The $2B 'estimate' is probably low but no correcti"
    }
   },
   {
@@ -24184,7 +24648,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-28"
+    "lastChecked": "2026-10-29"
    }
   },
   {
@@ -24206,7 +24670,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-28"
+    "lastChecked": "2026-10-29"
    }
   },
   {
@@ -24222,7 +24686,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "qaNote": "Founding year 2009 is well known. fortuneYear 2015 is questionable: Okta went public in April 2017. 2015 only fits if the field means the year it became a unicorn. I did not find a source to support a correction."
    }
   },
@@ -24239,7 +24703,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-28"
+    "lastChecked": "2026-10-29"
    }
   },
   {
@@ -24256,7 +24720,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "qaNote": "Founding year 2010 is well known. fortuneYear 2015 is unclear: Planet went public through a SPAC in December 2021. I did not find a source to support a correction."
    }
   },
@@ -24274,7 +24738,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-28"
+    "lastChecked": "2026-10-29"
    }
   },
   {
@@ -24290,7 +24754,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-28"
+    "lastChecked": "2026-10-29"
    }
   },
   {
@@ -24306,7 +24770,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-28"
+    "lastChecked": "2026-10-29"
    }
   },
   {
@@ -25978,6 +26442,15 @@
    "title": "NCSC research problem book: new chapter 'AI in cyber security problems'",
    "summary": "The NCSC rewrote its research problem book to add a new chapter setting out seven AI research areas under three themes: using AI (including agentic AI) for cyber defence, securing and assuring AI systems, and data-driven methods for resilience at scale, with human-AI collaboration and oversight running through all three. It helps address the risks of adopting autonomous AI agents in defence and in",
    "url": "https://www.ncsc.gov.uk/collection/problem-book/ai-cyber",
+   "added": "2026-10-29",
+   "by": "guidance-agent"
+  },
+  {
+   "date": "2026-10-21",
+   "framework": "NIST",
+   "title": "NIST SP 800-100r1 (Initial Public Draft): Information Security Handbook – A Guide for Executive Leadership",
+   "summary": "NIST has published the first revision since 2006 of its executive information security handbook. The draft is restructured around CSF 2.0 and gives high-level summaries of governance, enterprise risk management, information exchange, configuration management, incident response and contingency planning, helping leaders oversee cyber risk programmes as their technology estates change. Comments are o",
+   "url": "https://www.nist.gov/news-events/news/2026/10/nist-releases-draft-sp-800-100-revision-1-information-security-handbook",
    "added": "2026-10-29",
    "by": "guidance-agent"
   }

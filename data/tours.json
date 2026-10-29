@@ -1,5 +1,5 @@
 {
- "version": 10,
+ "version": 11,
  "updated": "2026-10-29",
  "updatedBy": "tour-agent",
  "note": "Narration templates for the guided tours. Figures come from {placeholders} filled from the live data; conclusions are chosen by rules in the app ({\"by\": fact, \"cases\": {...}}). The weekly tour agent may refine wording and choose examples, within the rules checked by tools/validate.py.",
@@ -9,12 +9,12 @@
    "exampleIds": [
     "penicillin",
     "radar",
-    "television",
+    "integrated-circuit",
     "mrna-vaccines"
    ],
    "steps": {
     "intro": {
-     "say": "Each arc is one research breakthrough, from a university, a government lab or industry. The arc starts when the research began and lands at the first product. A thinner arc then runs on to large-scale adoption."
+     "say": "Each arc is one research breakthrough, from a university, a government lab or industry. The arc starts when the research began and lands at the first product. Where mainstream use followed, a thinner arc runs on to it."
     },
     "example": {
      "say": {
@@ -36,11 +36,11 @@
     },
     "century": {
      "say": [
-      "Here is a century of change. Thinner arcs carry on to mainstream adoption",
+      "Here is a century of breakthroughs",
       {
        "by": "hasAdopt",
        "cases": {
-        "yes": ", typically {adopt} years after the first product.",
+        "yes": ". Where mainstream use has followed, it typically came {adopt} years after the first product.",
         "no": "."
        }
       }
@@ -131,7 +131,7 @@
    "title": "What AI-assisted products are on the horizon for the energy system?",
    "steps": {
     "intro": {
-     "say": "The Department for Energy Security and Net Zero (DESNZ) has set out a vision for a clean energy system supported by AI, grouped into five areas. Diamonds mark story arcs linked to the vision; they play from 1980 onwards."
+     "say": "The Department for Energy Security and Net Zero (DESNZ) has set out a vision for a clean energy system supported by AI, organised into five areas. Diamonds mark stories linked to the vision, playing from 1980 onwards."
     },
     "radar": {
      "say": "The Vision radar shows how close each area's technologies are to everyday use: {nResearch} in research, {nPilot} in pilots, {nCommercial} in early commercial use and {nScale} in wide use. {nGB} of these are already used in Great Britain."
@@ -140,7 +140,7 @@
      "say": {
       "by": "newCase",
       "cases": {
-       "some": "Added by the agents in the last three months: {newCount}, including {newTitle}. Mark them as reviewed, and next time you will see only what has arrived since.",
+       "some": "In the last three months, the agents have added {newCount}, including {newTitle}. Mark them as reviewed, and next time you will see only what has arrived since.",
        "none": "Nothing new has arrived in the last three months. Mark the radar as reviewed, and next time you will see only what has arrived since."
       }
      }
@@ -167,8 +167,8 @@
        "by": "horizonCase",
        "cases": {
         "busy": "A busy pipeline, and the radar shows which areas are closest to everyday use.",
-        "steady": "A steady pipeline, with the radar showing which areas are moving.",
-        "quiet": "Not much yet in the data, so watch the radar as the agents search each week."
+        "steady": "A steady pipeline, and the radar shows which areas are moving towards everyday use.",
+        "quiet": "Little has appeared in the data so far, so keep an eye on the radar as the agents search each week."
        }
       }
      ]
@@ -179,7 +179,7 @@
    "title": "Securing the future energy system",
    "steps": {
     "intro": {
-     "say": "New technology can open new ways in for attackers. Of the technologies shown here, {attackPct} per cent widen the attack surface: they add more points of entry, from smart devices at the edge of the grid to AI agents."
+     "say": "New technology can give attackers new ways in. Of the technologies shown here, {attackPct} per cent widen the 'attack surface' by adding more points of entry, from smart devices at the edge of the grid to AI agents."
     },
     "lens": {
      "say": [
@@ -199,8 +199,8 @@
      "say": {
       "by": "gapCase",
       "cases": {
-       "some": "Some technologies that have arrived since 2010 still have no security response in their category. So far there are {gapCount}, including {gapTitle}.",
-       "none": "In this data, every technology since 2010 has seen a security response in its category."
+       "some": "Some technologies that have arrived since 2010 still have no security response recorded in their category. There are {gapCount} so far, including {gapTitle}.",
+       "none": "In this data, every technology that has arrived since 2010 has a security response recorded in its category."
       }
      }
     },
@@ -262,10 +262,10 @@
      "say": {
       "by": "ukCase",
       "cases": {
-       "faster": "Filter by country: research that began in the UK reached a product in {ukYears} years, faster than the {rowYears} elsewhere.",
-       "slower": "Filter by country: research that began in the UK took {ukYears} years to reach a product, against {rowYears} elsewhere.",
-       "similar": "Filter by country: UK research reached a product in about the same time as elsewhere, {ukYears} years against {rowYears}.",
-       "unclear": "Filter by country to compare UK research with the rest of the world."
+       "faster": "Filter by country: research that began in the UK reached a product in {ukYears} years, faster than the {rowYears} years elsewhere.",
+       "slower": "Filter by country: research that began in the UK took {ukYears} years to reach a product, slower than the {rowYears} years elsewhere.",
+       "similar": "Filter by country: research that began in the UK reached a product in about the same time as elsewhere, {ukYears} years against {rowYears}.",
+       "unclear": "Filter by country to compare research that began in the UK with the rest of the world."
       }
      }
     },
@@ -298,7 +298,7 @@
      "say": "This model is maintained by AI agents that run every week. It holds {nMilestones} milestones so far."
     },
     "research": {
-     "say": "A research agent looks for new breakthroughs and products across every field and every vision area of the Department for Energy Security and Net Zero (DESNZ). The 'Data changes' view lists everything it adds."
+     "say": "A research agent searches for new breakthroughs and products across all the fields and vision areas of the Department for Energy Security and Net Zero (DESNZ). Everything it adds is listed in the 'Data changes' view."
     },
     "qa": {
      "say": "A second agent checks each find independently. It needs more than one source, and the quoted evidence must actually appear on the cited page. Nothing is ever deleted."
@@ -319,13 +319,13 @@
      ]
     },
     "labels": {
-     "say": "Every record says how it was checked: source-cited, AI-compiled or an AI estimate. You can filter by these."
+     "say": "Every record is labelled to show how it was produced and checked: source-cited, AI-compiled or AI estimate. You can filter records by these labels."
     },
     "arrange": {
      "say": "Choose an arrangement to lay out the windows for exploring, presenting, analysis or a DESNZ briefing. You can save any view or share it as a link."
     },
     "answer": {
-     "say": "Help and the i buttons explain each feature. Because AI maintains this model, it may contain errors, so check anything important against the original sources."
+     "say": "Help and the 'i' information buttons explain each feature. This model is maintained by AI, so it may contain errors. Check anything important against the original sources."
     }
    }
   }
