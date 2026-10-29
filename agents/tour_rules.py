@@ -14,6 +14,10 @@ SPEC = {
               'exHasAdopt': {'yes', 'no'}, 'fastestIsAI': {'ai', 'other', 'none'}},
     'years': {'1970', '2000', '2010'},
     'maxWords': 40, 'examples': True,
+    'meanings': {'score': {'0': 'none of the four measures points to yes', '1': 'one of four measures points to yes', '2': 'two of four (half) point to yes',
+                           '3': 'three of four point to yes', '4': 'all four point to yes'},
+                 'trend': {'shrunk': 'median gap since 2000 is at least two years shorter than before 1970', 'grown': 'at least two years longer', 'flat': 'within two years'},
+                 'corr': {'holds': 'counting unfinished work, research since 2010 is still clearly quicker than before 1970', 'weakens': 'counting unfinished work, it is not clearly quicker'}},
   },
   'horizon': {
     'steps': ['intro', 'radar', 'new', 'next', 'changes', 'slide', 'answer'],
