@@ -1,5 +1,5 @@
 {
- "version": 12,
+ "version": 13,
  "updated": "2026-10-29",
  "updatedBy": "tour-agent",
  "note": "Narration templates for the guided tours. Figures come from {placeholders} filled from the live data; conclusions are chosen by rules in the app ({\"by\": fact, \"cases\": {...}}). The weekly tour agent may refine wording and choose examples, within the rules checked by tools/validate.py.",
@@ -8,8 +8,8 @@
    "title": "Is AI shrinking the gap from research to change?",
    "exampleIds": [
     "penicillin",
-    "radar",
     "integrated-circuit",
+    "radar",
     "mrna-vaccines"
    ],
    "steps": {
@@ -131,10 +131,10 @@
    "title": "What AI-assisted products are on the horizon for the energy system?",
    "steps": {
     "intro": {
-     "say": "The Department for Energy Security and Net Zero (DESNZ) has set out a vision for a clean energy system supported by AI, organised into five areas. Diamonds mark stories linked to the vision, playing from 1980 onwards."
+     "say": "The Department for Energy Security and Net Zero (DESNZ) has set out a vision for a clean energy system supported by AI, split into distinct areas. Diamonds mark stories linked to the vision, playing from 1980 onwards."
     },
     "radar": {
-     "say": "The Vision radar shows how close each area's technologies are to everyday use: {nResearch} in research, {nPilot} in pilots, {nCommercial} in early commercial use and {nScale} in wide use. {nGB} of these are already used in Great Britain."
+     "say": "The Vision radar shows how close each area's technologies are to everyday use: {nResearch} still in research, {nPilot} in pilots, {nCommercial} in early commercial use and {nScale} in wide use. Of these, {nGB} are already used in Great Britain."
     },
     "new": {
      "say": {
@@ -199,13 +199,13 @@
      "say": {
       "by": "gapCase",
       "cases": {
-       "some": "Some technologies that have arrived since 2010 still have no security response recorded in their category. There are {gapCount} so far, including {gapTitle}.",
+       "some": "Some technologies that have arrived since 2010 have no security response recorded in their category yet. So far there are {gapCount}, including {gapTitle}.",
        "none": "In this data, every technology that has arrived since 2010 has a security response recorded in its category."
       }
      }
     },
     "example": {
-     "say": "Each card names the risk and suggests ways to reduce it, linked to the NCSC's Cyber Assessment Framework (CAF), Ofgem's CAF Overlay, NIST, NERC CIP and IEC 62443."
+     "say": "Each card names a risk and suggests ways to reduce it, mapped to recognised guidance: the NCSC's Cyber Assessment Framework (CAF), Ofgem's CAF Overlay, NIST, NERC CIP and IEC 62443."
     },
     "guidance": {
      "say": {
@@ -248,9 +248,9 @@
      "say": {
       "by": "speedCase",
       "cases": {
-       "faster": "The road is getting shorter: about {preYears} years for companies founded before 1970, against about {recentYears} years for those founded since 2015.",
-       "slower": "The road is getting longer: about {preYears} years for companies founded before 1970, against about {recentYears} years for those founded since 2015.",
-       "similar": "The road is about as long as ever: roughly {preYears} years for companies founded before 1970, against {recentYears} years for those founded since 2015.",
+       "faster": "The journey from founding to fortune is getting shorter: about {preYears} years for companies founded before 1970, against about {recentYears} years for those founded since 2015.",
+       "slower": "The journey from founding to fortune is getting longer: about {preYears} years for companies founded before 1970, against about {recentYears} years for those founded since 2015.",
+       "similar": "The journey from founding to fortune is about as long as ever: roughly {preYears} years for companies founded before 1970, against {recentYears} years for those founded since 2015.",
        "unclear": "There are not yet enough fortunes from recently founded companies to compare eras."
       }
      }
@@ -298,10 +298,10 @@
      "say": "This model is maintained by AI agents that run every week. It holds {nMilestones} milestones so far."
     },
     "research": {
-     "say": "A research agent searches for new breakthroughs and products across all the fields and vision areas of the Department for Energy Security and Net Zero (DESNZ). Everything it adds is listed in the 'Data changes' view."
+     "say": "A research agent looks for new breakthroughs and products in every field and vision area of the Department for Energy Security and Net Zero (DESNZ). Everything it adds appears in the 'Data changes' view."
     },
     "qa": {
-     "say": "A second agent checks each find independently. It needs more than one source, and the quoted evidence must actually appear on the cited page. Nothing is ever deleted."
+     "say": "A second agent checks each new entry independently. It requires more than one source, and the quoted evidence must really appear on the cited page. Nothing is ever deleted."
     },
     "more": {
      "say": "Further agents track new security guidance and refresh these walk-throughs. Every change must pass automatic checks before it is published."
