@@ -1,6 +1,13 @@
 #!/usr/bin/env python3
-"""Embed data/data.json (and data/tours.json, the walk-through scripts) into index.html as the offline snapshot.
-The page still prefers a newer data/data.json when served online."""
+"""Build index.html: assemble it from the source files in src/, then embed data/data.json and data/tours.json
+as the offline snapshot. The page still prefers newer data when served online.
+
+Source layout:
+  src/index.html     the page template: markup, with /*@include path*/ markers
+  src/styles/        the app's styles
+  src/js/            the app's code, in numbered sections assembled in order
+  src/vendor/        fonts and libraries (three.js, PptxGenJS), never edited by hand
+"""
 import json, re, sys
 from pathlib import Path
 
@@ -9,7 +16,11 @@ ROOT = Path(__file__).resolve().parents[1]
 def main():
     data = json.loads((ROOT / 'data/data.json').read_text(encoding='utf-8'))
     blob = json.dumps(data, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
-    html = (ROOT / 'index.html').read_text(encoding='utf-8')
+    src = ROOT / 'src/index.html'
+    if src.exists():   # assemble from the source files
+        html = re.sub(r'/\*@include ([\w./-]+)\*/', lambda m: (ROOT / 'src' / m.group(1)).read_text(encoding='utf-8'), src.read_text(encoding='utf-8'))
+    else:
+        html = (ROOT / 'index.html').read_text(encoding='utf-8')
     new, n = re.subn(r'/\*DATA-START\*/.*?/\*DATA-END\*/', lambda m: '/*DATA-START*/' + blob + '/*DATA-END*/', html, count=1, flags=re.S)
     if n != 1:
         print('ERROR: data markers not found in index.html'); return 1
