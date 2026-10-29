@@ -2,7 +2,7 @@
  "$schema": "./schema.json",
  "meta": {
   "title": "The Shrinking Gap from Research to Change",
-  "revision": 15,
+  "revision": 16,
   "version": "8.0",
   "asOf": "2026-10-29",
   "horizonYears": 10,
@@ -10,7 +10,7 @@
   "author": "Stuart Okin",
   "maintainedBy": "AI agents using Claude (Anthropic), without human review",
   "disclaimer": "Personal project by Stuart Okin, not affiliated with or endorsed by any employer. Data is compiled and maintained by AI agents without human review and may contain errors. Outlook years are AI estimates, not forecasts.",
-  "lastAgentRun": "2026-10-29T10:51Z",
+  "lastAgentRun": "2026-10-29T11:59Z",
   "changelog": [
    {
     "date": "2026-10-28",
@@ -463,6 +463,46 @@
      "guidance: Using TLS to protect data (updated with post-quantum cryptography configurations)",
      "guidance: NIST IR 8547: Transition to Post-Quantum Cryptography Standards (final)",
      "tours: walk-through scripts refreshed (version 2)"
+    ]
+   },
+   {
+    "date": "2026-10-29",
+    "time": "11:59",
+    "revision": 16,
+    "summary": "2 added, 11 corrected, 0 outlook re-estimated, 0 disputed, 0 broken links, 1 guidance update.",
+    "stats": {
+     "milestones": 464,
+     "sourceCited": 115,
+     "aiCompiled": 271,
+     "aiEstimate": 78,
+     "adoptionKnown": 72,
+     "landed": 366,
+     "regionKnown": 464
+    },
+    "usage": {
+     "calls": 6,
+     "inputTokens": 579609,
+     "outputTokens": 45825,
+     "searches": 43,
+     "model": "claude-sonnet-5-5"
+    },
+    "deepAudit": false,
+    "details": [
+     "added: recombinant-spider-silk-yarn-first-commercial-order",
+     "added: dynamic-line-rating-on-gb-transmission-lines",
+     "cryptographically-relevant-quantum-computer: source added",
+     "fault-tolerant-quantum-computer: source added",
+     "quantum-navigation-in-service: source added",
+     "ai-agents-in-security-operations: source added",
+     "exploit-windows-collapse: source added",
+     "exploit-windows-collapse: note updated",
+     "automated-vulnerability-repair: source added",
+     "ai-anomaly-detection-in-ot-networks: source added",
+     "satellite-direct-to-phones: source added",
+     "satellite-direct-to-phones: source added",
+     "first-6g-networks: source added",
+     "guidance: ENISA Threat Landscape 2026",
+     "tours: walk-through scripts refreshed (version 4)"
     ]
    }
   ],
@@ -3302,7 +3342,7 @@
     "label": "EU AI Act Digital Omnibus: postponed high-risk deadlines",
     "url": "https://www.gibsondunn.com/eu-ai-act-omnibus-agreement",
     "status": "ok",
-    "checked": "2026-10-28"
+    "checked": "2026-10-29"
    },
    "provenance": {
     "verification": "source-cited",
@@ -3316,7 +3356,7 @@
      "label": "https://govern365.ai/blogs/eu-ai-act-digital-omnibus-timeline/",
      "url": "https://govern365.ai/blogs/eu-ai-act-digital-omnibus-timeline/",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "region": "europe",
@@ -3503,7 +3543,7 @@
      "label": "https://www.lightreading.com/cable-technology/magiq-demos-quantum-cryptography",
      "url": "https://www.lightreading.com/cable-technology/magiq-demos-quantum-cryptography",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "region": "us",
@@ -3658,7 +3698,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -3675,7 +3715,15 @@
     "note": "A large enough quantum computer would break today’s public-key cryptography.",
     "basis": "ai-compiled",
     "guidance": "quantum"
-   }
+   },
+   "refs": [
+    {
+     "label": "PostQuantum: What Is Shor's Algorithm",
+     "url": "https://postquantum.com/quantum-security-reference/what-is-shors-algorithm/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ]
   },
   {
    "id": "verified-quantum-advantage",
@@ -3701,7 +3749,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -3749,7 +3797,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -3771,6 +3819,14 @@
    },
    "tags": [
     "cryptography"
+   ],
+   "refs": [
+    {
+     "label": "IBM: path to large-scale fault-tolerant quantum computing",
+     "url": "https://www.ibm.com/quantum/blog/large-scale-ftqc",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
    ]
   },
   {
@@ -3797,7 +3853,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "uk",
@@ -3818,7 +3874,15 @@
     "estimatedYear": 2030,
     "estimatedOn": "2026-10-27",
     "revisions": []
-   }
+   },
+   "refs": [
+    {
+     "label": "Defence Online: Dstl atomic clock trial",
+     "url": "https://www.defenceonline.co.uk/2026/02/23/trial-speeds-up-next-generation-of-atomic-clocks/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ]
   },
   {
    "id": "machine-codebreaking",
@@ -4128,7 +4192,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "refs": [
@@ -4136,7 +4200,7 @@
      "label": "https://cloud.google.com/learn/what-is-zero-trust",
      "url": "https://cloud.google.com/learn/what-is-zero-trust",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "region": "us",
@@ -4172,7 +4236,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "refs": [
@@ -4180,7 +4244,7 @@
      "label": "https://quantumtimeline.org/milestones/2024-nist-pqc-standards/",
      "url": "https://quantumtimeline.org/milestones/2024-nist-pqc-standards/",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "adoption": {
@@ -4222,7 +4286,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "refs": [
@@ -4230,7 +4294,7 @@
      "label": "https://www.darpa.mil/news/2025/aixcc-results",
      "url": "https://www.darpa.mil/news/2025/aixcc-results",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "region": "us",
@@ -4273,7 +4337,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "refs": [
@@ -4281,7 +4345,7 @@
      "label": "https://www.ncsc.gov.uk/collection/ncsc-annual-review-2025/chapter-03-keeping-pace-with-evolving-technology/migrating-to-post-quantum-cryptography",
      "url": "https://www.ncsc.gov.uk/collection/ncsc-annual-review-2025/chapter-03-keeping-pace-with-evolving-technology/migrating-to-post-quantum-cryptography",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "region": "uk",
@@ -4321,7 +4385,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -4337,7 +4401,15 @@
     "estimatedYear": 2028,
     "estimatedOn": "2026-10-27",
     "revisions": []
-   }
+   },
+   "refs": [
+    {
+     "label": "Swimlane: Agentic AI in the SOC",
+     "url": "https://swimlane.com/blog/agentic-ai-in-soc/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ]
   },
   {
    "id": "exploit-windows-collapse",
@@ -4354,12 +4426,12 @@
     "what": "Time from disclosure to exploitation falls to days or hours for many flaws."
    },
    "confidence": "medium",
-   "note": "Patching and compensating controls for operational technology need rethinking.",
+   "note": "Q3 2026 data already shows a 3-day average disclosure-to-exploitation time and 71% of exploitation within 7 days (Rapid7). The 2027 milestone looks largely met in 2026, so consider changing status to landed with a 2026 change year.",
    "provenance": {
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "global",
@@ -4375,7 +4447,15 @@
     "estimatedYear": 2027,
     "estimatedOn": "2026-10-27",
     "revisions": []
-   }
+   },
+   "refs": [
+    {
+     "label": "Rapid7 Q3 2026 Threat Update",
+     "url": "https://www.rapid7.com/blog/post/tr-q3-2026-threat-update-attackers-exploiting-vulnerabilities-within-3-days/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ]
   },
   {
    "id": "automated-vulnerability-repair",
@@ -4397,7 +4477,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -4415,7 +4495,15 @@
     "estimatedYear": 2029,
     "estimatedOn": "2026-10-27",
     "revisions": []
-   }
+   },
+   "refs": [
+    {
+     "label": "DARPA AIxCC final competition winners",
+     "url": "https://aicyberchallenge.com/finals-winners-announcement/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ]
   },
   {
    "id": "ai-anomaly-detection-in-ot-networks",
@@ -4438,7 +4526,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "global",
@@ -4460,7 +4548,15 @@
     "estimatedYear": 2029,
     "estimatedOn": "2026-10-27",
     "revisions": []
-   }
+   },
+   "refs": [
+    {
+     "label": "Industrial Cyber: AI/ML anomaly detection across OT and ICS",
+     "url": "https://industrialcyber.co/features/integrating-ai-and-ml-technologies-across-ot-ics-environments-to-enhance-anomaly-detection-and-operational-resilience/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ]
   },
   {
    "id": "television",
@@ -4528,7 +4624,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "refs": [
@@ -4536,7 +4632,7 @@
      "label": "https://en.wikipedia.org/wiki/Chain_Home",
      "url": "https://en.wikipedia.org/wiki/Chain_Home",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "adoption": {
@@ -4799,7 +4895,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "refs": [
@@ -4807,7 +4903,7 @@
      "label": "https://www.comsoc.org/node/20051",
      "url": "https://www.comsoc.org/node/20051",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "region": "us",
@@ -4887,7 +4983,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -4910,7 +5006,21 @@
     "estimatedYear": 2027,
     "estimatedOn": "2026-10-27",
     "revisions": []
-   }
+   },
+   "refs": [
+    {
+     "label": "T-Mobile: Reaching for the Stars (T-Satellite)",
+     "url": "https://www.t-mobile.com/news/un-carrier/reaching-for-the-stars-with-t-satellite",
+     "status": "ok",
+     "checked": "2026-10-29"
+    },
+    {
+     "label": "Consultant Alliance: Direct-to-cell in 2026 (O2 Satellite UK)",
+     "url": "https://www.consultant-alliance.com/2026/07/satellite-internet-on-your-smartphone-how-direct-to-cell-works-in-2026/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ]
   },
   {
    "id": "first-6g-networks",
@@ -4936,7 +5046,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "global",
@@ -4959,7 +5069,15 @@
     "estimatedYear": 2030,
     "estimatedOn": "2026-10-27",
     "revisions": []
-   }
+   },
+   "refs": [
+    {
+     "label": "Light Reading: 6G specs are set for early 2029",
+     "url": "https://www.lightreading.com/6g/it-s-official-6g-specs-are-set-for-early-2029",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ]
   },
   {
    "id": "polyethylene",
@@ -21530,6 +21648,128 @@
     "lastChecked": "2026-10-28",
     "approximate": false
    }
+  },
+  {
+   "id": "recombinant-spider-silk-yarn-first-commercial-order",
+   "field": "materials",
+   "origin": "academic",
+   "status": "landed",
+   "title": "Recombinant spider silk yarn: first commercial order",
+   "research": {
+    "year": 2012,
+    "what": "Silkworms were genetically engineered with spider silk protein genes so they spin composite silk fibres with improved mechanical properties. Origin: Teulé et al., PNAS 2012, transgenic silkworms spinning chimeric silkworm/spider silk (University of Wyoming and Notre Dame work licensed to Kraig Biocraft Laboratories). This origin comes from my own background knowledge, not from the search results."
+   },
+   "change": {
+    "year": 2026,
+    "what": "Kraig Biocraft Laboratories shipped its first paid commercial order of recombinant spider silk yarn to an unnamed global performance sports brand, announced 29 September 2026."
+   },
+   "confidence": "medium",
+   "note": "This is the first paid sale of transgenic-silkworm spider silk yarn, although the volume is small and sits inside a confidential pilot programme.",
+   "refs": [
+    {
+     "label": "Knitting Industry",
+     "url": "https://knittingindustry.com/kraig-labs-ships-first-commercial-spider-silk-yarn/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    },
+    {
+     "label": "Just Style",
+     "url": "https://www.just-style.com/news/kraig-labs-spider-silk-yarn-order/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    },
+    {
+     "label": "Global Textile Times",
+     "url": "https://www.globaltextiletimes.com/news/kraig-biocraft-laboratories-ships-first-commercial-spider-silk-order-to-global-sports-brand/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ],
+   "subfield": "composites",
+   "region": "us",
+   "tags": [
+    "materials"
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "No notable cyber security implications.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-29",
+    "lastChecked": "2026-10-29",
+    "approximate": false
+   }
+  },
+  {
+   "id": "dynamic-line-rating-on-gb-transmission-lines",
+   "field": "energy",
+   "origin": "academic",
+   "status": "landed",
+   "title": "Dynamic line rating on GB transmission lines",
+   "research": {
+    "year": 1977,
+    "what": "Early utility and academic work proposed rating overhead lines from live weather and conductor conditions, in place of fixed seasonal limits. Origin: 1970s dynamic thermal line rating research (the 1977 date is from my own recollection and is not confirmed by the sources found)"
+   },
+   "change": {
+    "year": 2026,
+    "what": "SSEN Transmission announced in September 2026 that its north of Beauly DLR project was fully operational, covering more than 300km of lines. National Grid separately signed a five-year contract in April 2026 to extend DLR to 39 circuits and over 900km."
+   },
+   "confidence": "low",
+   "note": "DLR moves GB transmission from fixed line limits to live, weather-based ratings, cutting constraint costs. The SSEN go-live fell about five weeks before today, so it is outside the 21-day window. The research origin is unverified.",
+   "desnz": "opt",
+   "refs": [
+    {
+     "label": "Energy-pedia: SSEN Transmission DLR goes live north of Beauly (25 Sep 2026)",
+     "url": "https://www.energy-pedia.com/news/united-kingdom/new-technology-helps-unlock-more-capacity-on-north-of-scotland-electricity-network-205441",
+     "status": "ok",
+     "checked": "2026-10-29"
+    },
+    {
+     "label": "National Grid press release: DLR rollout across 585km more (30 Apr 2026)",
+     "url": "https://www.nationalgrid.com/national-grid-rollout-new-technology-expand-capacity-existing-power-lines",
+     "status": "ok",
+     "checked": "2026-10-29"
+    },
+    {
+     "label": "Inverness Courier: SSEN DLR installed between Beauly and Dounreay",
+     "url": "https://www.inverness-courier.co.uk/news/ssen-s-power-line-technology-installed-in-highlands-between-445771/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ],
+   "subfield": "grids",
+   "region": "us",
+   "tags": [
+    "grid",
+    "regulation"
+   ],
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "deployed",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Adds networked sensors and software that set live line limits, so tampering or spoofed data could push lines beyond safe operating limits.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-29",
+    "lastChecked": "2026-10-29",
+    "approximate": false
+   }
   }
  ],
  "founders": [
@@ -24057,6 +24297,15 @@
    "title": "NIST IR 8547: Transition to Post-Quantum Cryptography Standards (final)",
    "summary": "NIST finalised its report on moving from quantum-vulnerable signature and key-establishment algorithms to post-quantum standards. It gives planning timelines for retiring vulnerable algorithms, which helps long-lived OT and grid systems with cryptography that is hard to replace limit harvest-now-decrypt-later and future forgery risks.",
    "url": "https://csrc.nist.gov/pubs/ir/8547/final",
+   "added": "2026-10-29",
+   "by": "guidance-agent"
+  },
+  {
+   "date": "2026-09-22",
+   "framework": "ENISA",
+   "title": "ENISA Threat Landscape 2026",
+   "summary": "ENISA's annual threat assessment covers incidents from 2025 and finds that dependencies between organisations and technologies widen the attack surface. It also examines how advanced AI models are changing attacker capability and speed, which helps energy and other critical-infrastructure operators prioritise supply chain, dependency and AI-related risk.",
+   "url": "https://www.enisa.europa.eu/publications/enisa-threat-landscape-2026",
    "added": "2026-10-29",
    "by": "guidance-agent"
   }

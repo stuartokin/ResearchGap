@@ -1,7 +1,7 @@
 {
- "version": 3,
+ "version": 4,
  "updated": "2026-10-29",
- "updatedBy": "initial-build",
+ "updatedBy": "tour-agent",
  "note": "Narration templates for the guided tours. Figures come from {placeholders} filled from the live data; conclusions are chosen by rules in the app ({\"by\": fact, \"cases\": {...}}). The weekly tour agent may refine wording and choose examples, within the rules checked by tools/validate.py.",
  "tours": {
   "gap": {
@@ -10,11 +10,11 @@
     "penicillin",
     "computer-mouse",
     "mrna-vaccines",
-    "protein-structure-prediction"
+    "charge-coupled-device-ccd"
    ],
    "steps": {
     "intro": {
-     "say": "Each arc is a research breakthrough, from a university, a government lab or industry. It rises when the research began, lands at the first product, and a thinner arc runs on to large-scale adoption."
+     "say": "Each arc is one research breakthrough, from a university, a government lab or industry. The arc starts when the research began and lands at the first product. A thinner arc then runs on to large-scale adoption."
     },
     "example": {
      "say": {
@@ -93,7 +93,7 @@
        "by": "aiCmp",
        "cases": {
         "faster": "Since 2010, AI-driven work took {ai} years, against {oth} for the rest.",
-        "slower": "Since 2010, AI-driven work has taken longer: {ai} years, against {oth}.",
+        "slower": "Since 2010, AI-driven work has taken longer: {ai} years, against {oth} for the rest.",
         "similar": "Since 2010, AI-driven work took about as long as the rest: {ai} years against {oth}.",
         "unclear": "There are not yet enough AI-driven milestones to compare."
        }
@@ -101,9 +101,9 @@
       {
        "by": "outCmp",
        "cases": {
-        "faster": " Ahead, AI-assisted work is expected to take {aiOut} years, against {convOut}.",
+        "faster": " Ahead, AI-assisted work is expected to take {aiOut} years, against {convOut} for conventional work.",
         "slower": " Ahead, the estimates do not show AI landing sooner.",
-        "similar": " Ahead, the estimates are similar.",
+        "similar": " Ahead, the estimates show little difference.",
         "unclear": ""
        }
       }
@@ -131,7 +131,7 @@
    "title": "What AI-assisted products are on the horizon for the energy system?",
    "steps": {
     "intro": {
-     "say": "DESNZ's vision for an AI-enabled clean energy system groups the opportunities into five areas. Diamonds mark the arcs linked to them, playing here from 1980."
+     "say": "The Department for Energy Security and Net Zero (DESNZ) has a vision for an AI-enabled clean energy system, grouping the opportunities into five areas. Diamonds mark the arcs linked to them, playing here from 1980."
     },
     "radar": {
      "say": "The Vision radar shows how ready each area's technologies are: {nResearch} in research, {nPilot} piloting, {nCommercial} in first commercial use and {nScale} at scale. {nGB} are deployed in Great Britain."
@@ -140,8 +140,8 @@
      "say": {
       "by": "newCase",
       "cases": {
-       "some": "In the last three months the agents found {newCount} new, including {newTitle}. Mark them as reviewed, and next time you see only what has arrived since.",
-       "none": "Nothing new has arrived in the last three months. Mark the radar as reviewed, and next time you see only what has arrived since."
+       "some": "New in the last three months, found by the agents: {newCount}, including {newTitle}. Mark them as reviewed, and next time you will see only what has arrived since.",
+       "none": "Nothing new has arrived in the last three months. Mark the radar as reviewed, and next time you will see only what has arrived since."
       }
      }
     },
@@ -149,7 +149,7 @@
      "say": {
       "by": "nextCase",
       "cases": {
-       "some": "Within five years, {nextCount} are expected, the soonest being {nextTitle}, around {nextYear}. {busiestArea} has the most in the pipeline.",
+       "some": "Expected within five years: {nextCount}, the soonest being {nextTitle}, around {nextYear}. {busiestArea} has the most in the pipeline.",
        "none": "No arrivals are expected within five years in the current data."
       }
      }
@@ -183,14 +183,14 @@
     },
     "lens": {
      "say": [
-      "The Cyber lens shows how long security took to catch up: typically ",
+      "The Cyber lens shows how long security took to catch up: ",
       {
        "by": "lagCase",
        "cases": {
-        "slow": "{lag} years after a technology arrived, a long time to be exposed.",
-        "moderate": "{lag} years after a technology arrived.",
-        "fast": "within {lag} years of a technology arriving.",
-        "unclear": "it is not yet clear from the data."
+        "slow": "typically {lag} years after a technology arrived, a long time to leave systems exposed.",
+        "moderate": "typically {lag} years after a technology arrived.",
+        "fast": "typically within {lag} years of a technology arriving.",
+        "unclear": "the data does not yet show this clearly."
        }
       }
      ]
@@ -199,7 +199,7 @@
      "say": {
       "by": "gapCase",
       "cases": {
-       "some": "{gapCount} technologies arrived since 2010 with no security response in their category yet, such as {gapTitle}.",
+       "some": "Since 2010, some technologies have arrived with no security response yet in their category. The count is {gapCount}, including {gapTitle}.",
        "none": "Every technology since 2010 has seen a security response in its category, at least in this data."
       }
      }
@@ -270,7 +270,7 @@
      }
     },
     "uni": {
-     "say": "University projects still under way carry a gold ring: {nUni} of them, the next generation of breakthroughs and perhaps fortunes."
+     "say": "Gold rings also mark university projects still under way: {nUni} of them. They could be the next generation of breakthroughs, and perhaps of fortunes."
     },
     "table": {
      "say": "The Table lists every milestone. Sort by any column, such as the gap, and select a row for its story."
@@ -298,13 +298,13 @@
      "say": "This model is maintained by AI agents that run every week. It holds {nMilestones} milestones so far."
     },
     "research": {
-     "say": "A research agent searches each field, and each DESNZ vision area, for new breakthroughs and products. Data changes lists everything it adds."
+     "say": "A research agent searches each field, and each vision area of the Department for Energy Security and Net Zero (DESNZ), for new breakthroughs and products. The Data changes view lists everything it adds."
     },
     "qa": {
-     "say": "A second agent checks every find independently. It needs two sources, and the quoted evidence must really appear on the page. Nothing is ever deleted."
+     "say": "A second agent checks every find independently. It needs more than one source, and the quoted evidence must really appear on the page. Nothing is ever deleted."
     },
     "more": {
-     "say": "Two more agents track new security guidance and refresh these walk-throughs. Every change must pass automatic checks before it is published."
+     "say": "Further agents track new security guidance and refresh these walk-throughs. Every change must pass automatic checks before it is published."
     },
     "quality": {
      "say": [
