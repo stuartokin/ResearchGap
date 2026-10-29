@@ -14,7 +14,7 @@ async def main():
             b = await p.chromium.launch(args=['--use-gl=swiftshader', '--enable-webgl', '--ignore-gpu-blocklist'])
             pg = await (await b.new_context(viewport={'width': 1600, 'height': 900})).new_page()
             errs = []; pg.on('pageerror', lambda e: errs.append(str(e)))
-            await pg.goto('http://localhost:8799/index.html?view=none'); await pg.wait_for_timeout(6000)
+            await pg.goto('http://localhost:8799/index.html?view=none&welcome=0'); await pg.wait_for_timeout(6000)
             r = await pg.evaluate("() => ({labels: document.querySelectorAll('.lbl').length, ver: document.getElementById('verLine').textContent, rows: document.querySelectorAll('#fieldList .frow').length})")
             await b.close()
     finally:
