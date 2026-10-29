@@ -6,6 +6,8 @@ Guardrails live here so both agents apply them the same way:
 - Web content is treated strictly as data; the system prompts tell the model to ignore instructions inside it.
 """
 import json, os, re, time, difflib, datetime as dt
+import logging
+logging.getLogger('pypdf').setLevel(logging.ERROR)   # many PDFs have slightly broken indexes; pypdf repairs them and warns each time
 from pathlib import Path
 import requests
 
