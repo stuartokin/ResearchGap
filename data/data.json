@@ -2,7 +2,7 @@
  "$schema": "./schema.json",
  "meta": {
   "title": "The Shrinking Gap from Research to Change",
-  "revision": 16,
+  "revision": 17,
   "version": "8.0",
   "asOf": "2026-10-29",
   "horizonYears": 10,
@@ -10,7 +10,7 @@
   "author": "Stuart Okin",
   "maintainedBy": "AI agents using Claude (Anthropic), without human review",
   "disclaimer": "Personal project by Stuart Okin, not affiliated with or endorsed by any employer. Data is compiled and maintained by AI agents without human review and may contain errors. Outlook years are AI estimates, not forecasts.",
-  "lastAgentRun": "2026-10-29T11:59Z",
+  "lastAgentRun": "2026-10-29T14:32Z",
   "changelog": [
    {
     "date": "2026-10-28",
@@ -503,6 +503,105 @@
      "first-6g-networks: source added",
      "guidance: ENISA Threat Landscape 2026",
      "tours: walk-through scripts refreshed (version 4)"
+    ]
+   },
+   {
+    "date": "2026-10-29",
+    "time": "14:32",
+    "revision": 17,
+    "summary": "5 added, 64 corrected, 0 outlook re-estimated, 1 disputed, 1 broken links, 3 guidance updates.",
+    "stats": {
+     "milestones": 468,
+     "sourceCited": 129,
+     "aiCompiled": 261,
+     "aiEstimate": 78,
+     "adoptionKnown": 73,
+     "landed": 370,
+     "regionKnown": 468
+    },
+    "usage": {
+     "calls": 16,
+     "inputTokens": 2541978,
+     "outputTokens": 93828,
+     "searches": 117,
+     "model": "claude-opus-5-5"
+    },
+    "deepAudit": true,
+    "details": [
+     "added: hollow-core-fibre-in-commercial-networks",
+     "added: anymal-x-explosion-proof-legged-inspection-robot",
+     "added: bmw-embotech-infrastructure-based-in-plant-driving",
+     "added: icotrokinra-oral-il-23-receptor-peptide-approved-uk",
+     "added: founder f-shenzhen-hfc",
+     "online-banking: source added",
+     "body-tracking-without-markers: source added",
+     "autonomous-ai-diagnosis: source added",
+     "scanning-tunnelling-microscope: source added",
+     "quantum-cascade-laser: change.year 2004 → 2001",
+     "quantum-cascade-laser: change.what updated",
+     "pgp-email-encryption: source added",
+     "onion-routing-tor: source added",
+     "onion-routing-tor: source added",
+     "onion-routing-tor: readiness commercial → scale",
+     "onion-routing-tor: tags added",
+     "fingerprint-sensors-on-phones: change.what updated",
+     "fingerprint-sensors-on-phones: source added",
+     "targeted-leukaemia-drug: source added",
+     "targeted-leukaemia-drug: readiness commercial → scale",
+     "laser-eye-surgery: source added",
+     "laser-eye-surgery: adoption year none → 1999 (source-cited)",
+     "laser-eye-surgery: readiness commercial → scale",
+     "laser-eye-surgery: tags added",
+     "ai-management-system-standard: source added",
+     "ai-management-system-standard: GB status unknown → deployed",
+     "silicon-solar-cell: GB status unknown → deployed",
+     "utility-scale-wind: GB status unknown → deployed",
+     "object-oriented-programming: readiness commercial → scale",
+     "open-source-operating-systems: sub-field cloud → dev",
+     "open-source-operating-systems: tags added",
+     "virtualisation-on-pcs: readiness commercial → scale",
+     "virtualisation-on-pcs: tags added",
+     "large-scale-data-processing: readiness commercial → scale",
+     "expert-systems: sub-field science → methods",
+     "expert-systems: readiness commercial → scale",
+     "neural-networks-in-products: sub-field methods → vision",
+     "neural-networks-in-products: readiness commercial → scale",
+     "learning-from-human-feedback: sub-field language → methods",
+     "diffusion-image-generation: readiness commercial → scale",
+     "reasoning-models: readiness commercial → scale",
+     "laser: tags added",
+     "machine-codebreaking: readiness commercial → scale",
+     "machine-codebreaking: tags added",
+     "public-key-cryptography-secret: readiness commercial → scale",
+     "in-orbit-refuelling: readiness research → pilot",
+     "uk-robotaxis: readiness commercial → pilot",
+     "humanoid-robots-at-work: readiness pilot → commercial",
+     "monoclonal-antibodies: readiness commercial → scale",
+     "pcr: readiness commercial → scale",
+     "pcr: tags added",
+     "in-body-gene-editing: readiness research → pilot",
+     "ai-data-centre-cooling: sub-field ops → demand",
+     "ai-data-centre-cooling: GB status unknown → deployed",
+     "ai-assurance-for-energy: readiness research → pilot",
+     "ai-plasma-control-for-fusion: readiness research → pilot",
+     "ai-plasma-control-for-fusion: GB status planned → trial",
+     "statins: readiness commercial → scale",
+     "next-generation-sequencing: readiness commercial → scale",
+     "sap-enterprise-software: readiness commercial → scale",
+     "electronic-spreadsheet: readiness commercial → scale",
+     "social-networking: sub-field web → apps",
+     "microblogging: sub-field web → apps",
+     "microblogging: readiness commercial → scale",
+     "music-streaming: readiness commercial → scale",
+     "music-streaming: tags added",
+     "workplace-messaging: sub-field web → apps",
+     "workplace-messaging: readiness commercial → scale",
+     "workplace-messaging: tags added",
+     "disputed: f-anthropic",
+     "guidance: NIST SP 800-82r4 (Initial Public Draft): Guide to Operational Technology (OT) Security",
+     "guidance: NIST IR 8625 (final) O-RAN Near-Real Time RIC Security and draft IR 8623 CSF 2.0 Community Profile for O-RAN",
+     "guidance: NIST SP 800-221r1 (Initial Public Draft): Enterprise Impact of ICT Risk – Governing and Managing ICT Risk Programs Within an Enterprise Risk Portfolio",
+     "tours: walk-through scripts refreshed (version 8)"
     ]
    }
   ],
@@ -1045,7 +1144,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "adoption": {
@@ -1064,8 +1163,9 @@
     "basis": "ai-estimate"
    },
    "gb": {
-    "status": "unknown",
-    "basis": "ai-estimate"
+    "status": "deployed",
+    "basis": "ai-estimate",
+    "note": "GB has more than 18 GW of solar, mostly embedded on distribution networks. This drives the need for better visibility and forecasting."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -1097,7 +1197,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "adoption": {
@@ -1115,8 +1215,9 @@
     "basis": "ai-estimate"
    },
    "gb": {
-    "status": "unknown",
-    "basis": "ai-estimate"
+    "status": "deployed",
+    "basis": "ai-estimate",
+    "note": "Wind is GB's largest renewable source, and offshore wind is central to Clean Power 2030. It drives constraint, balancing and network reinforcement needs."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -1148,7 +1249,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "adoption": {
@@ -1168,7 +1269,8 @@
    },
    "gb": {
     "status": "deployed",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "Lithium-ion is the dominant chemistry in GB grid-scale BESS, which provides frequency response and balancing."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -1197,7 +1299,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -1211,7 +1313,8 @@
    },
    "gb": {
     "status": "unknown",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "Could add capacity in congested urban GB networks without new rights of way. I did not confirm any GB transmission deployment."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -2113,7 +2216,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "adoption": {
@@ -2341,7 +2444,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -2377,7 +2480,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -2413,14 +2516,15 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "europe",
    "subfield": "dev",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -2449,7 +2553,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -2488,7 +2592,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "adoption": {
@@ -2532,7 +2636,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "adoption": {
@@ -2576,7 +2680,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "adoption": {
@@ -2623,7 +2727,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "adoption": {
@@ -2632,7 +2736,7 @@
     "basis": "ai-estimate"
    },
    "region": "europe",
-   "subfield": "cloud",
+   "subfield": "dev",
    "readiness": {
     "stage": "scale",
     "basis": "ai-estimate"
@@ -2642,7 +2746,10 @@
     "note": "Software and online services are a primary route for remote attack and data theft.",
     "basis": "ai-compiled",
     "guidance": "it"
-   }
+   },
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "virtualisation-on-pcs",
@@ -2664,21 +2771,25 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
    "subfield": "cloud",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
    },
    "security": {
     "expandsAttackSurface": true,
     "note": "Software and online services are a primary route for remote attack and data theft.",
     "basis": "ai-compiled",
     "guidance": "it"
-   }
+   },
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "large-scale-data-processing",
@@ -2700,14 +2811,15 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
    "subfield": "data",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -2908,17 +3020,18 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
    "tags": [
     "ai-models"
    ],
-   "subfield": "science",
+   "subfield": "methods",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -2947,7 +3060,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -2986,17 +3099,18 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
    "tags": [
     "ai-models"
    ],
-   "subfield": "methods",
+   "subfield": "vision",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -3028,7 +3142,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "adoption": {
@@ -3075,7 +3189,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "adoption": {
@@ -3122,7 +3236,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "adoption": {
@@ -3134,7 +3248,7 @@
    "tags": [
     "ai-models"
    ],
-   "subfield": "language",
+   "subfield": "methods",
    "readiness": {
     "stage": "scale",
     "basis": "ai-estimate"
@@ -3166,7 +3280,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -3176,8 +3290,9 @@
    ],
    "subfield": "vision",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -3209,7 +3324,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -3218,8 +3333,9 @@
    ],
    "subfield": "language",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -3295,7 +3411,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -3348,7 +3464,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "refs": [
@@ -3397,7 +3513,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "global",
@@ -3449,7 +3565,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "adoption": {
@@ -3495,7 +3611,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "adoption": {
@@ -3513,7 +3629,12 @@
     "expandsAttackSurface": false,
     "note": "Little direct attack surface.",
     "basis": "ai-compiled"
-   }
+   },
+   "tags": [
+    "networks",
+    "medicine",
+    "semiconductors"
+   ]
   },
   {
    "id": "quantum-key-distribution",
@@ -3535,7 +3656,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "refs": [
@@ -3582,7 +3703,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -3621,7 +3742,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "asia",
@@ -3660,7 +3781,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -3907,15 +4028,19 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "uk",
    "subfield": "crypto",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
-   }
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
+   },
+   "tags": [
+    "cryptography"
+   ]
   },
   {
    "id": "public-key-cryptography-secret",
@@ -3937,7 +4062,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "uk",
@@ -3946,8 +4071,9 @@
    ],
    "subfield": "crypto",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
    }
   },
   {
@@ -5373,18 +5499,19 @@
    "confidence": "medium",
    "note": "Theory first, engineering second.",
    "provenance": {
-    "verification": "source-cited",
+    "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
-    "approximate": false
+    "lastChecked": "2026-10-29",
+    "approximate": false,
+    "qaNote": "All cited links are broken; downgraded until a new source is found."
    },
    "refs": [
     {
      "label": "https://www.microwavejournal.com/articles/28062-kymeta-announces-commercial-release-of-ku-band-metamaterial-antenna-and-satellite-data-service",
      "url": "https://www.microwavejournal.com/articles/28062-kymeta-announces-commercial-release-of-ku-band-metamaterial-antenna-and-satellite-data-service",
-     "status": "ok",
-     "checked": "2026-10-28"
+     "status": "broken",
+     "checked": "2026-10-29"
     }
    ],
    "region": "uk",
@@ -5498,7 +5625,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "asia",
@@ -5542,7 +5669,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "asia",
@@ -5587,7 +5714,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "refs": [
@@ -5595,7 +5722,7 @@
      "label": "https://www.basf.com/global/en/media/news-releases/2023/10/p-23-327",
      "url": "https://www.basf.com/global/en/media/news-releases/2023/10/p-23-327",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "region": "other",
@@ -5636,7 +5763,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -5944,7 +6071,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "refs": [
@@ -5952,7 +6079,7 @@
      "label": "https://www.spacebandits.io/post/what-is-satellite-refuelling-and-how-close-are-we-to-solving-it",
      "url": "https://www.spacebandits.io/post/what-is-satellite-refuelling-and-how-close-are-we-to-solving-it",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "region": "us",
@@ -5992,7 +6119,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -6033,7 +6160,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "refs": [
@@ -6041,7 +6168,7 @@
      "label": "https://www.spacebandits.io/post/what-is-satellite-refuelling-and-how-close-are-we-to-solving-it",
      "url": "https://www.spacebandits.io/post/what-is-satellite-refuelling-and-how-close-are-we-to-solving-it",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "region": "us",
@@ -6051,8 +6178,9 @@
    ],
    "subfield": "in-space",
    "readiness": {
-    "stage": "research",
-    "basis": "ai-estimate"
+    "stage": "pilot",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -6086,7 +6214,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -6299,7 +6427,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": true
    },
    "region": "asia",
@@ -6311,7 +6439,7 @@
      "label": "DJI press release: Phantom launch (7 Jan 2013)",
      "url": "https://www.dji.com/newsroom/news/dji-launches-industry-best-easiest-to-fly-quadcopter-for-consumer-use",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "subfield": "drones",
@@ -6355,14 +6483,14 @@
      "label": "Wikipedia: Wayve",
      "url": "https://en.wikipedia.org/wiki/Wayve",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "uk",
@@ -6373,8 +6501,9 @@
    ],
    "subfield": "vehicles",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "pilot",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -6407,7 +6536,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "uk",
@@ -6452,7 +6581,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false,
     "qaNote": "The change as written ('paid humanoid deployments in warehouses and factories, in small numbers') already happened in 2024. Agility's Digit has worked under a multi-year Robots-as-a-Service contract at GXO since June 2024, and other paying customers include Schaeffler and Toyota Canada. GXO is expanding to two more sites in 2027. Either mark this record landed in 2024, or reword the outlook to sca"
    },
@@ -6465,8 +6594,9 @@
    },
    "subfield": "humanoids",
    "readiness": {
-    "stage": "pilot",
-    "basis": "ai-estimate"
+    "stage": "commercial",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -6500,7 +6630,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "global",
@@ -6549,7 +6679,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "adoption": {
@@ -6566,7 +6696,7 @@
      "label": "CDC Emerging Infectious Diseases: The Discovery of Penicillin (2017)",
      "url": "https://wwwnc.cdc.gov/eid/article/23/5/16-1556_article",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "subfield": "medicines",
@@ -6598,7 +6728,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "adoption": {
@@ -6616,7 +6746,7 @@
      "label": "Science History Institute: Herbert W. Boyer and Stanley N. Cohen",
      "url": "https://www.sciencehistory.org/education/scientific-biographies/herbert-w-boyer-and-stanley-n-cohen/",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "subfield": "genetics",
@@ -6648,7 +6778,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "adoption": {
@@ -6666,7 +6796,7 @@
      "label": "FONAR company history",
      "url": "https://www.fonar.com/history.html",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "subfield": "imaging",
@@ -6695,7 +6825,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "uk",
@@ -6707,13 +6837,14 @@
      "label": "An (2017), Protein & Cell: 'Magic Bullets' special issue on therapeutic antibodies",
      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5777979/",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "subfield": "medicines",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
    }
   },
   {
@@ -6736,7 +6867,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -6745,14 +6876,24 @@
      "label": "Thermo Fisher: PCR thermal cycler history",
      "url": "https://commerce.thermofisher.com/us/en/home/life-science/cloning/cloning-learning-center/invitrogen-school-of-molecular-biology/pcr-education/pcr-thermal-cyclers.html",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "subfield": "genetics",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
-   }
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Lab technique with little direct cyber exposure; modern networked thermal cyclers and diagnostic data pipelines carry ordinary IT risks.",
+    "basis": "ai-compiled"
+   },
+   "tags": [
+    "genetics",
+    "medicine"
+   ]
   },
   {
    "id": "genome-sequencing-to-consumers",
@@ -6774,7 +6915,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -6787,13 +6928,18 @@
      "label": "Stanford GSB case study: 23andMe (2017)",
      "url": "https://gsb.stanford.edu/faculty-research/case-studies/23andme",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "subfield": "genetics",
    "readiness": {
     "stage": "commercial",
     "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Large centralised consumer genetic databases are high-value targets (e.g. credential-stuffing breaches) and raise privacy risks.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -6819,7 +6965,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "adoption": {
@@ -6836,13 +6982,18 @@
      "label": "Nobel Prize facts: Karikó",
      "url": "https://www.nobelprize.org/prizes/medicine/2023/kariko/facts/",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "subfield": "vaccines",
    "readiness": {
     "stage": "scale",
     "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Biomedical product; supply-chain and cold-chain IT systems were targeted by phishing during the rollout, but the technology itself adds little attack surface.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -6868,7 +7019,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "uk",
@@ -6882,13 +7033,18 @@
      "label": "HLK: Casgevy world's first CRISPR approval",
      "url": "https://www.hlk-ip.com/news-and-insights/casgevy-worlds-first-approval-of-a-crispr-cas9-gene-editing-therapy/",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "subfield": "genetics",
    "readiness": {
     "stage": "commercial",
     "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Therapeutic product; dual-use biosecurity concerns rather than cyber attack surface.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -6914,7 +7070,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "adoption": {
@@ -6931,7 +7087,7 @@
      "label": "EMBL: AlphaFold Nobel and database history",
      "url": "https://www.embl.org/news/science-technology/alphafold-wins-nobel-prize-chemistry-2024/",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "subfield": "ai-bio",
@@ -6966,7 +7122,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "global",
@@ -7011,7 +7167,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -7021,13 +7177,19 @@
    ],
    "subfield": "genetics",
    "readiness": {
-    "stage": "research",
-    "basis": "ai-estimate"
+    "stage": "pilot",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
    },
    "forecast": {
     "estimatedYear": 2030,
     "estimatedOn": "2026-10-27",
     "revisions": []
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Therapeutic; biosecurity/dual-use concern rather than cyber attack surface.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -7230,7 +7392,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": true
    },
    "region": "europe",
@@ -7243,7 +7405,7 @@
      "label": "CORDIS: Providing Predictive Maintenance for Wind Turbines Over Cloud (2015)",
      "url": "https://cordis.europa.eu/project/id/673137",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "subfield": "renewables",
@@ -7253,7 +7415,8 @@
    },
    "gb": {
     "status": "unknown",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "GB's large offshore wind fleet uses SCADA/vibration analytics to cut downtime and O&M costs, raising availability of generation the grid relies on."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -7283,7 +7446,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -7295,17 +7458,18 @@
      "label": "ACHR News, Aug 2016",
      "url": "https://www.achrnews.com/articles/133132-machine-learning-reduces-google-data-center-cooling-bill-by-40",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
-   "subfield": "ops",
+   "subfield": "demand",
    "readiness": {
     "stage": "commercial",
     "basis": "ai-estimate"
    },
    "gb": {
-    "status": "unknown",
-    "basis": "ai-estimate"
+    "status": "deployed",
+    "basis": "ai-estimate",
+    "note": "Data centre demand is growing fast in GB (AI Growth Zones). Cooling efficiency directly reduces new load on constrained networks."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -7424,7 +7588,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "uk",
@@ -7438,7 +7602,8 @@
    },
    "gb": {
     "status": "not-yet",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "Would shift who effectively controls GB system operation, with implications for NESO, DNO accountability and fixed-decision consenting."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -7468,7 +7633,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "global",
@@ -7482,7 +7647,8 @@
    },
    "gb": {
     "status": "unknown",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "GB transformers are ageing. Predictive maintenance could defer replacement capex and cut outages under RIIO."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -7517,7 +7683,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "uk",
@@ -7528,7 +7694,8 @@
    },
    "gb": {
     "status": "planned",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "Faster, continuously updated reinforcement planning could ease GB connection queues. But it clashes with fixed-decision consenting and appraisal."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -7566,13 +7733,13 @@
     "label": "DESNZ: Vision for an AI-enabled clean energy system",
     "url": "https://www.gov.uk/government/calls-for-evidence/vision-for-an-ai-enabled-clean-energy-system/vision-for-an-ai-enabled-clean-energy-system-html",
     "status": "ok",
-    "checked": "2026-10-28"
+    "checked": "2026-10-29"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "uk",
@@ -7581,12 +7748,14 @@
    ],
    "subfield": "ops",
    "readiness": {
-    "stage": "research",
-    "basis": "ai-estimate"
+    "stage": "pilot",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
    },
    "gb": {
     "status": "planned",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "System-level assurance is the precondition for letting AI into GB control-room and network operational decisions."
    },
    "forecast": {
     "estimatedYear": 2028,
@@ -7618,13 +7787,13 @@
     "label": "DESNZ: Vision for an AI-enabled clean energy system",
     "url": "https://www.gov.uk/government/calls-for-evidence/vision-for-an-ai-enabled-clean-energy-system/vision-for-an-ai-enabled-clean-energy-system-html",
     "status": "ok",
-    "checked": "2026-10-28"
+    "checked": "2026-10-29"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "uk",
@@ -7638,7 +7807,8 @@
    },
    "gb": {
     "status": "planned",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "Will set GB policy priorities for data access, incentives and governance of AI across networks and markets."
    },
    "forecast": {
     "estimatedYear": 2027,
@@ -7670,7 +7840,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "uk",
@@ -7684,7 +7854,8 @@
    },
    "gb": {
     "status": "planned",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "Automated local flexibility could relieve DNO constraints and cut curtailment, as on Orkney. It supports Clean Flexibility Roadmap goals."
    },
    "forecast": {
     "estimatedYear": 2030,
@@ -7713,7 +7884,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "uk",
@@ -7723,12 +7894,14 @@
    ],
    "subfield": "nuclear",
    "readiness": {
-    "stage": "research",
-    "basis": "ai-estimate"
+    "stage": "pilot",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
    },
    "gb": {
-    "status": "planned",
-    "basis": "ai-estimate"
+    "status": "trial",
+    "basis": "ai-estimate",
+    "note": "Relevant to UKAEA/STEP fusion R&D. No near-term effect on GB networks."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -9034,7 +9207,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "adoption": {
@@ -9052,18 +9225,23 @@
      "label": "Wikipedia: Sanger sequencing",
      "url": "https://en.wikipedia.org/wiki/Sanger_sequencing",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     },
     {
      "label": "History of genome sequencing",
      "url": "https://the-odin.com/blogs/blog/from-3-billion-to-599-the-complete-history-of-genome-sequencing",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "readiness": {
     "stage": "scale",
     "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Networked sequencers and genomic data stores hold highly sensitive, immutable personal data; instrument firmware and data pipelines are targets.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -9086,7 +9264,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "asia",
@@ -9096,15 +9274,21 @@
      "label": "Lasker Foundation: Getting to the Heart of Cardiovascular Disease",
      "url": "https://laskerfoundation.org/getting-to-the-heart-of-cardiovascular-disease/",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "tags": [
     "medicine"
    ],
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Small-molecule drug; no direct digital attack surface beyond general pharma supply-chain risk.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -9127,7 +9311,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "uk",
@@ -9140,13 +9324,19 @@
      "label": "Cambridge Enterprise: Solexa case study",
      "url": "https://www.enterprise.cam.ac.uk/case-studies/solexa-second-generation-genetic-sequencing/",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "company": "Solexa (acquired by Illumina)",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "High-throughput sequencers and cloud genomic pipelines handle sensitive data; vulnerabilities have been reported in networked sequencer control software.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -9170,7 +9360,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -9180,18 +9370,19 @@
      "label": "Wikipedia: SAP",
      "url": "https://en.wikipedia.org/wiki/SAP",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     },
     {
      "label": "SAP's History",
      "url": "https://www.sap-ps.net/sap-history",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -9221,7 +9412,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -9231,12 +9422,13 @@
      "label": "Computer Timeline: Dan Bricklin",
      "url": "http://www.computer-timeline.com/timeline/dan-bricklin/",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -9266,7 +9458,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -9276,7 +9468,7 @@
      "label": "Computer History Museum: Charles M. Geschke",
      "url": "https://computerhistory.org/profile/charles-m-geschke/",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "readiness": {
@@ -9311,7 +9503,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -9321,7 +9513,7 @@
      "label": "SoftwareKeep: Windows OS history",
      "url": "https://softwarekeep.com/blogs/news/history-of-windows-operating-system",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "readiness": {
@@ -9356,7 +9548,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -9369,7 +9561,7 @@
      "label": "Reference for Business: History of salesforce.com",
      "url": "https://www.referenceforbusiness.com/history2/84/salesforce-com-Inc.html",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "readiness": {
@@ -9407,7 +9599,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "adoption": {
@@ -9416,13 +9608,13 @@
     "basis": "ai-estimate"
    },
    "region": "us",
-   "subfield": "web",
+   "subfield": "apps",
    "refs": [
     {
      "label": "First Versions: Facebook",
      "url": "https://www.firstversions.com/2015/04/facebook.html",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "tags": [
@@ -9497,25 +9689,26 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
-   "subfield": "web",
+   "subfield": "apps",
    "refs": [
     {
      "label": "History.com: Twitter launches",
      "url": "https://www.history.com/this-day-in-history/july-15/twitter-launches",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "tags": [
     "networks"
    ],
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -9545,7 +9738,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "europe",
@@ -9555,19 +9748,23 @@
      "label": "99founder: Spotify profile",
      "url": "https://99founder.com/articles/spotify.html",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
    },
    "security": {
     "expandsAttackSurface": true,
     "note": "Software and online services are a primary route for remote attack and data theft.",
     "basis": "ai-compiled",
     "guidance": "it"
-   }
+   },
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "mobile-photo-sharing",
@@ -9630,29 +9827,33 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
-   "subfield": "web",
+   "subfield": "apps",
    "refs": [
     {
      "label": "Wikipedia: Stewart Butterfield",
      "url": "https://en.wikipedia.org/wiki/Stewart_Butterfield",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
    },
    "security": {
     "expandsAttackSurface": true,
     "note": "Software and online services are a primary route for remote attack and data theft.",
     "basis": "ai-compiled",
     "guidance": "it"
-   }
+   },
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "ibm-system-360",
@@ -18005,10 +18206,10 @@
    "confidence": "medium",
    "note": "A Scottish first; now a major cyber target.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "uk",
@@ -18022,7 +18223,15 @@
     "note": "Software and online services are a primary route for remote attack and data theft.",
     "basis": "ai-compiled",
     "guidance": "it"
-   }
+   },
+   "refs": [
+    {
+     "label": "Bank of Scotland history (HOBS launch date and Nottingham precursor)",
+     "url": "https://en-academic.com/dic.nsf/enwiki/174087",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ]
   },
   {
    "id": "body-tracking-without-markers",
@@ -18041,10 +18250,10 @@
    "confidence": "high",
    "note": "A UK research lab’s work in millions of homes within two years.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -18061,7 +18270,15 @@
     "note": "Models can be fooled by manipulated inputs, and the data behind them can be poisoned.",
     "basis": "ai-compiled",
     "guidance": "ai"
-   }
+   },
+   "refs": [
+    {
+     "label": "Microsoft Research: Kinect body tracking",
+     "url": "https://www.microsoft.com/en-us/research/blog/kinect-body-tracking-reaps-renown/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ]
   },
   {
    "id": "autonomous-ai-diagnosis",
@@ -18080,10 +18297,10 @@
    "confidence": "medium",
    "note": "Regulators had to decide how to approve a machine that diagnoses alone.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -18101,7 +18318,15 @@
     "note": "Agents act on systems, so a manipulated agent can take harmful actions directly.",
     "basis": "ai-compiled",
     "guidance": "ai"
-   }
+   },
+   "refs": [
+    {
+     "label": "University of Iowa: FDA permits marketing of IDx-DR",
+     "url": "https://engineering.uiowa.edu/news-all/2018/04/fda-permits-marketing-idx-dr-automated-detection-diabetic-retinopathy-primary-care",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ]
   },
   {
    "id": "scanning-tunnelling-microscope",
@@ -18120,10 +18345,10 @@
    "confidence": "medium",
    "note": "Nobel Prize in Physics 1986; opened up nanotechnology.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-29",
     "approximate": true
    },
    "region": "us",
@@ -18139,7 +18364,15 @@
     "expandsAttackSurface": false,
     "note": "Little direct attack surface.",
     "basis": "ai-compiled"
-   }
+   },
+   "refs": [
+    {
+     "label": "IBM History: the scanning tunneling microscope",
+     "url": "https://www.ibm.com/history/scanning-tunneling-microscope",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ]
   },
   {
    "id": "quantum-cascade-laser",
@@ -18152,16 +18385,16 @@
     "what": "Bell Labs demonstrates the quantum cascade laser."
    },
    "change": {
-    "year": 2004,
-    "what": "Commercial quantum cascade lasers are sold for gas sensing."
+    "year": 2001,
+    "what": "Alpes Lasers, a Swiss spin-off, sells the first commercial quantum cascade lasers, used for gas sensing and spectroscopy."
    },
    "confidence": "medium",
    "note": "Used to detect methane and other gases.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -18174,7 +18407,15 @@
     "expandsAttackSurface": false,
     "note": "Can reduce risk, for example timing that does not depend on jammable satellite signals.",
     "basis": "ai-compiled"
-   }
+   },
+   "refs": [
+    {
+     "label": "https://nerites.eu/alpes-lasers-sa/",
+     "url": "https://nerites.eu/alpes-lasers-sa/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ]
   },
   {
    "id": "pgp-email-encryption",
@@ -18193,10 +18434,10 @@
    "confidence": "high",
    "note": "Its author was investigated for exporting cryptography.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -18207,7 +18448,15 @@
    "readiness": {
     "stage": "commercial",
     "basis": "ai-estimate"
-   }
+   },
+   "refs": [
+    {
+     "label": "Philip Zimmermann background",
+     "url": "https://www.mit.edu/~prz/EN/background/background.html",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ]
   },
   {
    "id": "onion-routing-tor",
@@ -18226,18 +18475,37 @@
    "confidence": "medium",
    "note": "Protects dissidents, and hides criminal infrastructure.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
    "subfield": "network",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
-   }
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
+   },
+   "refs": [
+    {
+     "label": "Tor Project history",
+     "url": "https://www.torproject.org/about/history/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    },
+    {
+     "label": "A history of Tor",
+     "url": "https://www.ssdnodes.com/learn/history-of-tor",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ],
+   "tags": [
+    "networks",
+    "cryptography"
+   ]
   },
   {
    "id": "fingerprint-sensors-on-phones",
@@ -18251,15 +18519,15 @@
    },
    "change": {
     "year": 2013,
-    "what": "Fingerprint unlocking goes mainstream on smartphones."
+    "what": "Apple launches the iPhone 5s with the Touch ID fingerprint sensor, the first mainstream smartphone with a fingerprint scanner."
    },
    "confidence": "medium",
    "note": "Made biometrics an everyday security control.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -18267,7 +18535,15 @@
    "readiness": {
     "stage": "commercial",
     "basis": "ai-estimate"
-   }
+   },
+   "refs": [
+    {
+     "label": "MacRumors: iPhone 5s with Touch ID",
+     "url": "https://www.macrumors.com/2013/09/10/apple-announces-iphone-5s/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ]
   },
   {
    "id": "ethernet",
@@ -18833,10 +19109,10 @@
    "confidence": "high",
    "note": "Turned a deadly leukaemia into a manageable condition.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -18845,8 +19121,22 @@
    ],
    "subfield": "medicines",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
+   },
+   "refs": [
+    {
+     "label": "JCI review: The long road to imatinib",
+     "url": "https://www.jci.org/articles/view/31691",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ],
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "A pharmaceutical with no meaningful digital attack surface. The relevant risks are supply chain and counterfeit drugs.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -18866,23 +19156,48 @@
    "confidence": "medium",
    "note": "Sixteen years through device approval.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
    "subfield": "devices",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
    },
    "security": {
     "expandsAttackSurface": false,
     "note": "A standalone device with little direct cyber exposure.",
     "basis": "ai-compiled"
-   }
+   },
+   "refs": [
+    {
+     "label": "Laser Focus World: Excimer eye surgery celebrates 25 years",
+     "url": "https://www.laserfocusworld.com/home/article/14190186/laser-vision-correction-excimer-eye-surgery-celebrates-25-years",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ],
+   "adoption": {
+    "year": 1999,
+    "what": "Reached mainstream use.",
+    "basis": "source-cited",
+    "refs": [
+     {
+      "label": "Mainstream on FDA approval",
+      "url": "https://www.laserfocusworld.com/home/article/14190186/laser-vision-correction-excimer-eye-surgery-celebrates-25-years",
+      "status": "ok",
+      "checked": "2026-10-29"
+     }
+    ]
+   },
+   "tags": [
+    "medicine"
+   ]
   },
   {
    "id": "reinforcement-learning-control-room-assistants",
@@ -19180,7 +19495,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-29",
     "approximate": true
    },
    "region": "us",
@@ -19195,7 +19510,8 @@
    },
    "gb": {
     "status": "unknown",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "GB grid-scale BESS operators use analytics-based degradation forecasting for warranty, trading and asset-life decisions. This matters as GB battery capacity grows quickly for balancing."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -19272,10 +19588,10 @@
    "note": "Gives organisations, including energy companies, an auditable framework for AI governance.",
    "desnz": "gov",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "global",
@@ -19289,9 +19605,18 @@
     "basis": "ai-estimate"
    },
    "gb": {
-    "status": "unknown",
-    "basis": "ai-estimate"
-   }
+    "status": "deployed",
+    "basis": "ai-estimate",
+    "note": "This standard gives GB energy companies and Ofgem a certifiable baseline for governing AI used in network operations."
+   },
+   "refs": [
+    {
+     "label": "ISO/IEC 42001 explained (timeline)",
+     "url": "https://www.glocertinternational.com/resources/articles/iso-42001-explained/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ]
   },
   {
    "id": "assured-ai-in-operational-energy-decisions",
@@ -21770,6 +22095,271 @@
     "lastChecked": "2026-10-29",
     "approximate": false
    }
+  },
+  {
+   "id": "hollow-core-fibre-in-commercial-networks",
+   "field": "comms",
+   "origin": "academic",
+   "status": "landed",
+   "title": "Hollow-core fibre in commercial networks",
+   "research": {
+    "year": 2014,
+    "what": "University of Southampton researchers proposed the nested antiresonant nodeless hollow-core fibre, which guides light mainly through air rather than glass to cut latency and nonlinearity. Origin: F. Poletti, 'Nested antiresonant nodeless hollow core fiber', Optics Express, 2014 (Optoelectronics Research Centre, University of Southampton)"
+   },
+   "change": {
+    "year": 2026,
+    "what": "Hollow-core fibre is carrying live traffic in production networks: Microsoft reports more than 1,200 km in use, AWS links some data centres, a commercial link between computing centres in Ningxia, China was reported in October 2026, and Colt has run a live proof of concept in central London."
+   },
+   "confidence": "medium",
+   "note": "About 30% lower latency than glass-core fibre is changing how AI data-centre interconnects and low-latency trading routes are built. Some smaller commercial links, such as Lumenisity's London route, came before 2026, so the change year may be earlier.",
+   "company": "Microsoft (Lumenisity), YOFC, Relativity Networks, Colt",
+   "refs": [
+    {
+     "label": "Pandaily: Hollow-core fibre enters commercial use between Ningxia computing centres (Oct 2026)",
+     "url": "https://pandaily.com/hollow-core-fiber-commercial-use-zhongwei-ningxia-intelligent-computing-centers",
+     "status": "ok",
+     "checked": "2026-10-29"
+    },
+    {
+     "label": "Colt: ChronoCore hollow-core fibre proof of concept in central London (13 Oct 2026)",
+     "url": "https://www.colt.net/resources/insights/colt-network-planning-solutions-and-relativity-networks-advance-next-generation-connectivity-with-hollow-core-fibre-deployment",
+     "status": "ok",
+     "checked": "2026-10-29"
+    },
+    {
+     "label": "arXiv: Hollow-core fiber technology readiness and deployment (Microsoft, AWS, YOFC/China Mobile deployments)",
+     "url": "https://arxiv.org/html/2606.23511v1",
+     "status": "ok",
+     "checked": "2026-10-29"
+    },
+    {
+     "label": "MapYourTech: Is hollow core fiber ready for practical deployment?",
+     "url": "https://mapyourtech.com/is-hollow-core-fiber-ready-for-practical-deployment/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ],
+   "subfield": "fibre",
+   "region": "uk",
+   "tags": [
+    "networks",
+    "materials"
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "It does not add new remote attack routes, but low-latency links that carry a lot of data-centre traffic become high-value physical targets for tapping or cutting.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-29",
+    "lastChecked": "2026-10-29",
+    "approximate": false
+   }
+  },
+  {
+   "id": "anymal-x-explosion-proof-legged-inspection-robot",
+   "field": "robotics",
+   "origin": "industry",
+   "status": "landed",
+   "title": "ANYmal X: explosion-proof legged inspection robot",
+   "research": {
+    "year": 2022,
+    "what": "ANYbotics presented an explosion-protected version of its ANYmal quadruped, aimed at ATEX/IECEx Zone 1 hazardous areas, and early-access customers trialled it from 2023. Origin: ANYmal X introduced at OTC Asia 2022 by ANYbotics (an ETH Zurich spin-off); four years of engineering and more than 10 patents"
+   },
+   "change": {
+    "year": 2026,
+    "what": "On 27 October 2026 ANYbotics began customer deliveries of ANYmal X, holding an ATEX EU-type certificate from Bureau Veritas, to Equinor and DSM-Firmenich for autonomous inspection in explosive atmospheres."
+   },
+   "confidence": "medium",
+   "note": "This is the first certified legged robot that can work autonomously in Ex Zone 1 areas, which standard robots are barred from, at oil, gas and chemical sites.",
+   "desnz": "asset",
+   "flags": {
+    "aiDriven": true
+   },
+   "refs": [
+    {
+     "label": "The Robot Report: ANYbotics begins delivering ANYmal X",
+     "url": "https://www.therobotreport.com/anybotics-begins-delivering-anymal-x-legged-robot-explosive-atmospheres/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    },
+    {
+     "label": "Offshore Technology: ANYbotics ships explosion-proof robots",
+     "url": "https://www.offshore-technology.com/news/anybotics-explosion-proof-robots-oil-gas/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    },
+    {
+     "label": "Unite.AI: ANYmal X launch and certification",
+     "url": "https://www.unite.ai/anybotics-launches-anymal-x-a-legged-robot-for-explosive-atmospheres/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    },
+    {
+     "label": "Oil & Gas Middle East: ANYmal X ships",
+     "url": "https://oilandgasmiddleeast.com/news/anymal-x-robot-shipping",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ],
+   "subfield": "field",
+   "region": "europe",
+   "tags": [
+    "robots"
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Autonomous robots linked to plant maintenance systems such as SAP and Yokogawa through the Shift platform give attackers a new connected path into safety-critical hazardous-area operations.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-29",
+    "lastChecked": "2026-10-29",
+    "approximate": false
+   }
+  },
+  {
+   "id": "bmw-embotech-infrastructure-based-in-plant-driving",
+   "field": "robotics",
+   "origin": "industry",
+   "status": "landed",
+   "title": "BMW/Embotech infrastructure-based in-plant driving",
+   "research": {
+    "year": 2022,
+    "what": "BMW and Swiss firm Embotech piloted Automated Driving In-Plant (AFW) at Dingolfing. Lidar sensing is built into the factory, and remote trajectory planning drives new cars that carry no self-driving hardware of their own. Origin: AFW pilot project at BMW Plant Dingolfing, 2022, developed with Embotech"
+   },
+   "change": {
+    "year": 2026,
+    "what": "BMW and Embotech reported one million driverless vehicle moves at production scale, about 3,500 a day with over 99.5% availability, across Dingolfing, Leipzig, Regensburg and MINI Plant Oxford."
+   },
+   "confidence": "medium",
+   "note": "This is the first production-scale deployment of infrastructure-based automated driving, in which perception sits in the factory rather than the car. It is running in GB at Oxford, with a TÜV SÜD-certified safety layer.",
+   "flags": {
+    "aiDriven": true
+   },
+   "refs": [
+    {
+     "label": "The Robot Report: Embotech and BMW move 1M vehicles",
+     "url": "https://www.therobotreport.com/embotech-bmw-move-1m-vehicles-automated-driving-technology/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    },
+    {
+     "label": "Motoring Research: BMW factories moved one million cars without drivers",
+     "url": "https://www.motoringresearch.com/car-news/bmw-factories-driverless-cars/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    },
+    {
+     "label": "Port Technology: Embotech million-vehicle milestone",
+     "url": "https://www.porttechnology.org/news/automation-and-optimisation/embotech-automation-milestone/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    },
+    {
+     "label": "MCM: BMW factories drove a million cars with no one inside",
+     "url": "https://www.martincid.com/technology-sv/bmw-factories-self-driving-cars-one-million-embotech/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ],
+   "subfield": "vehicles",
+   "region": "europe",
+   "tags": [
+    "robots",
+    "computer-vision"
+   ],
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Cars are driven remotely by cloud-based trajectory servers that link vehicles to factory control systems, so compromising the network could cause physical harm or stop production.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-29",
+    "lastChecked": "2026-10-29",
+    "approximate": false
+   }
+  },
+  {
+   "id": "icotrokinra-oral-il-23-receptor-peptide-approved-uk",
+   "field": "life",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Icotrokinra: oral IL-23 receptor peptide approved (UK)",
+   "research": {
+    "year": 2017,
+    "what": "Protagonist Therapeutics developed an orally stable targeted peptide that blocks the IL-23 receptor, co-developed with Janssen as JNJ-2113. Origin: Protagonist Therapeutics oral peptide IL-23R antagonist programme (JNJ-2113/PN-235), Janssen collaboration from about 2017; the year comes from background knowledge and the sources found do not confirm it"
+   },
+   "change": {
+    "year": 2026,
+    "what": "The MHRA authorised icotrokinra (Icotyde) tablets for moderate-to-severe plaque psoriasis in adults and adolescents in October 2026, based on four phase 3 trials with 2,500 patients."
+   },
+   "confidence": "low",
+   "note": "It is a once-daily pill that targets the IL-23 pathway, which until now could only be blocked by injected antibodies; it is unclear whether the UK approval is the first anywhere.",
+   "refs": [
+    {
+     "label": "Medscape: MHRA approves a new oral treatment for plaque psoriasis (Oct 26, 2026)",
+     "url": "https://www.medscape.com/viewarticle/mhra-approves-new-oral-treatment-plaque-psoriasis-2026a10014cs",
+     "status": "ok",
+     "checked": "2026-10-29"
+    },
+    {
+     "label": "GOV.UK MHRA: approves new oral treatment for plaque psoriasis (21 Oct 2026)",
+     "url": "https://www.gov.uk/government/organisations/medicines-and-healthcare-products-regulatory-agency",
+     "status": "ok",
+     "checked": "2026-10-29"
+    },
+    {
+     "label": "The Pharma Letter regulatory round-up 26 Oct 2026",
+     "url": "https://www.thepharmaletter.com/regulation/regulatory-roundup-26-october-2026",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ],
+   "subfield": "medicines",
+   "region": "us",
+   "tags": [
+    "medicine",
+    "regulation"
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "No meaningful new cyber attack surface; it is a conventional oral medicine.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-29",
+    "lastChecked": "2026-10-29",
+    "approximate": false
+   }
   }
  ],
  "founders": [
@@ -22938,7 +23528,13 @@
    "fortuneYear": 2023,
    "how": "Private valuation",
    "confidence": "medium",
-   "research": "university"
+   "research": "university",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-29",
+    "lastChecked": "2026-10-29"
+   }
   },
   {
    "id": "f-wayve",
@@ -22949,7 +23545,13 @@
    "fortuneYear": 2022,
    "how": "Private valuation",
    "confidence": "medium",
-   "research": "university"
+   "research": "university",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-29",
+    "lastChecked": "2026-10-29"
+   }
   },
   {
    "id": "f-wiz",
@@ -22965,6 +23567,12 @@
     "who": "Assaf Rappaport",
     "basis": "estimate",
     "asOf": "2026-10-27"
+   },
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-29",
+    "lastChecked": "2026-10-29"
    }
   },
   {
@@ -22982,6 +23590,13 @@
     "who": "each co-founder",
     "basis": "Forbes 2025 estimate",
     "asOf": "2026-10-27"
+   },
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-29",
+    "lastChecked": "2026-10-29",
+    "qaNote": "The $3.7B figure is out of date. Forbes later put each of the seven cofounders at $15.5B after the May 2026 round. After the S-1 filing (Oct 2026), Forbes re-estimated individual stakes at $13.1B (McCandlish) to $13.8B (Brown, Olah), with Dario $13.6B and Daniela $13.7B. Because the figures now diff"
    }
   },
   {
@@ -22992,7 +23607,13 @@
    "founded": 2022,
    "fortuneYear": 2024,
    "how": "Private valuation",
-   "confidence": "medium"
+   "confidence": "medium",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-29",
+    "lastChecked": "2026-10-29"
+   }
   },
   {
    "id": "f-perplexity",
@@ -23002,7 +23623,13 @@
    "founded": 2022,
    "fortuneYear": 2024,
    "how": "Private valuation",
-   "confidence": "medium"
+   "confidence": "medium",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-29",
+    "lastChecked": "2026-10-29"
+   }
   },
   {
    "id": "f-anysphere-cursor",
@@ -23012,7 +23639,13 @@
    "founded": 2022,
    "fortuneYear": 2024,
    "how": "Private valuation",
-   "confidence": "medium"
+   "confidence": "medium",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-29",
+    "lastChecked": "2026-10-29"
+   }
   },
   {
    "id": "f-safe-superintelligence",
@@ -23023,7 +23656,13 @@
    "fortuneYear": 2024,
    "how": "Private valuation",
    "confidence": "medium",
-   "research": "lab"
+   "research": "lab",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-29",
+    "lastChecked": "2026-10-29"
+   }
   },
   {
    "id": "f-thinking-machines-lab",
@@ -23034,7 +23673,13 @@
    "fortuneYear": 2025,
    "how": "Private valuation",
    "confidence": "medium",
-   "research": "lab"
+   "research": "lab",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-29",
+    "lastChecked": "2026-10-29"
+   }
   },
   {
    "id": "f-dnnresearch",
@@ -23046,7 +23691,13 @@
    "how": "Sale to Google",
    "confidence": "high",
    "research": "university",
-   "prize": "Nobel Prize in Physics 2024 and Turing Award 2018 (Hinton)"
+   "prize": "Nobel Prize in Physics 2024 and Turing Award 2018 (Hinton)",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-29",
+    "lastChecked": "2026-10-29"
+   }
   },
   {
    "id": "f-sun-microsystems",
@@ -23063,6 +23714,12 @@
     "who": "Andy Bechtolsheim",
     "basis": "estimate",
     "asOf": "2026-10-27"
+   },
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-29",
+    "lastChecked": "2026-10-29"
    }
   },
   {
@@ -23074,7 +23731,13 @@
    "fortuneYear": 1999,
    "how": "Stock market listing",
    "confidence": "high",
-   "research": "university"
+   "research": "university",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-29",
+    "lastChecked": "2026-10-29"
+   }
   },
   {
    "id": "f-broadcom",
@@ -23091,6 +23754,12 @@
     "who": "Henry Samueli",
     "basis": "estimate",
     "asOf": "2026-10-27"
+   },
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-29",
+    "lastChecked": "2026-10-29"
    }
   },
   {
@@ -23102,7 +23771,13 @@
    "fortuneYear": 2004,
    "how": "Sale to EMC",
    "confidence": "high",
-   "research": "university"
+   "research": "university",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-29",
+    "lastChecked": "2026-10-29"
+   }
   },
   {
    "id": "f-illumina",
@@ -23113,7 +23788,13 @@
    "fortuneYear": 2000,
    "how": "Stock market listing",
    "confidence": "high",
-   "research": "university"
+   "research": "university",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-29",
+    "lastChecked": "2026-10-29"
+   }
   },
   {
    "id": "f-exscientia",
@@ -23124,7 +23805,13 @@
    "fortuneYear": 2021,
    "how": "Stock market listing",
    "confidence": "medium",
-   "research": "university"
+   "research": "university",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-29",
+    "lastChecked": "2026-10-29"
+   }
   },
   {
    "id": "f-moderna",
@@ -23136,7 +23823,13 @@
    "how": "Stock market listing",
    "confidence": "high",
    "research": "university",
-   "prize": "Millennium Technology Prize 2008 (Langer)"
+   "prize": "Millennium Technology Prize 2008 (Langer)",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-29",
+    "lastChecked": "2026-10-29"
+   }
   },
   {
    "id": "f-a123-systems",
@@ -23147,7 +23840,13 @@
    "fortuneYear": 2009,
    "how": "Stock market listing",
    "confidence": "high",
-   "research": "university"
+   "research": "university",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-29",
+    "lastChecked": "2026-10-29"
+   }
   },
   {
    "id": "f-form-energy",
@@ -23158,7 +23857,13 @@
    "fortuneYear": 2021,
    "how": "Private valuation",
    "confidence": "medium",
-   "research": "university"
+   "research": "university",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-29",
+    "lastChecked": "2026-10-29"
+   }
   },
   {
    "id": "f-quantumscape",
@@ -23169,7 +23874,13 @@
    "fortuneYear": 2020,
    "how": "Listing via merger",
    "confidence": "high",
-   "research": "university"
+   "research": "university",
+   "provenance": {
+    "verification": "ai-compiled",
+    "addedBy": "initial-build",
+    "added": "2026-10-29",
+    "lastChecked": "2026-10-29"
+   }
   },
   {
    "id": "f-oxford-ionics",
@@ -23263,6 +23974,42 @@
      {
       "label": "Quel Placement – Fluidstack valuation timeline (Sept 2026 round)",
       "url": "https://quel-placement.com/en/blog/fluidstack-series-c-40-billion-valuation/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "f-shenzhen-hfc",
+   "names": "Sun Aixiang and co-founder Zhao Jianping",
+   "company": "Shenzhen HFC",
+   "field": "materials",
+   "founded": 2003,
+   "fortuneYear": 2026,
+   "how": "Shenzhen ChiNext IPO on 29 Sept 2026; shares closed up ~653% on debut",
+   "confidence": "medium",
+   "netWorth": {
+    "usdBn": 1.7,
+    "who": "Sun Aixiang and co-founder Zhao Jianping",
+    "basis": "Forbes estimate, reported by Billionaires.Africa, 30 Sept 2026 (Zhao Jianping: $1.3bn)",
+    "asOf": "2026-10-29"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-29",
+    "lastChecked": "2026-10-29",
+    "sources": [
+     {
+      "label": "Billionaires.Africa, 30 Sept 2026: Sun Aixiang becomes billionaire as chip-cooling firm soars",
+      "url": "https://www.billionaires.africa/2026/09/30/former-glue-salesman-sun-aixiang-becomes-a-billionaire-as-chip-stock-soars/"
+     },
+     {
+      "label": "VnExpress International, 29 Sept 2026: Former glue salesman becomes billionaire",
+      "url": "https://e.vnexpress.net/news/business/billionaires/former-glue-salesman-becomes-billionaire-as-chip-cooling-material-sales-surge-5126256.html"
+     },
+     {
+      "label": "Forbes Middle East: Meet 10 Billionaires Minted By 2026 IPOs",
+      "url": "https://forbesmiddleeast.com/billionaires/world-billionaires/who-are-the-billionaires-minted-by-2026-ipos"
      }
     ]
    }
@@ -24306,6 +25053,33 @@
    "title": "ENISA Threat Landscape 2026",
    "summary": "ENISA's annual threat assessment covers incidents from 2025 and finds that dependencies between organisations and technologies widen the attack surface. It also examines how advanced AI models are changing attacker capability and speed, which helps energy and other critical-infrastructure operators prioritise supply chain, dependency and AI-related risk.",
    "url": "https://www.enisa.europa.eu/publications/enisa-threat-landscape-2026",
+   "added": "2026-10-29",
+   "by": "guidance-agent"
+  },
+  {
+   "date": "2026-09",
+   "framework": "NIST",
+   "title": "NIST SP 800-82r4 (Initial Public Draft): Guide to Operational Technology (OT) Security",
+   "summary": "NIST released a fourth-revision draft of its OT security guide, covering OT topologies, common threats and vulnerabilities, and recommended countermeasures aligned with CSF 2.0, plus an OT-tailored security control overlay; comments run 21 September to 30 November 2026. It helps reduce risks to industrial control systems, DCS and SCADA environments such as those used in energy networks.",
+   "url": "https://csrc.nist.gov/pubs/sp/800/82/r4/ipd",
+   "added": "2026-10-29",
+   "by": "guidance-agent"
+  },
+  {
+   "date": "2026-10-08",
+   "framework": "NIST",
+   "title": "NIST IR 8625 (final) O-RAN Near-Real Time RIC Security and draft IR 8623 CSF 2.0 Community Profile for O-RAN",
+   "summary": "NIST published a final report on security requirements and zero trust for O-RAN RAN Intelligent Controllers and their rApps/xApps, together with a draft CSF 2.0 profile that maps O-RAN ALLIANCE security specifications to CSF outcomes. These help address risks from software-defined, multi-vendor 5G radio access networks that critical infrastructure increasingly relies on for communications.",
+   "url": "https://www.nist.gov/news-events/news/2026/10/nist-publishes-reports-open-radio-access-network-o-ran-security",
+   "added": "2026-10-29",
+   "by": "guidance-agent"
+  },
+  {
+   "date": "2026-10-22",
+   "framework": "NIST",
+   "title": "NIST SP 800-221r1 (Initial Public Draft): Enterprise Impact of ICT Risk – Governing and Managing ICT Risk Programs Within an Enterprise Risk Portfolio",
+   "summary": "NIST released a draft revision of its guidance on bringing system-level ICT risks, including technology and supplier risks, into enterprise risk management, risk appetite and risk registers; comments are open until 7 December 2026. It helps organisations govern risks from new technology and supply chains at board level instead of handling them in silos.",
+   "url": "https://csrc.nist.gov/pubs/sp/800/221/r1/ipd",
    "added": "2026-10-29",
    "by": "guidance-agent"
   }
