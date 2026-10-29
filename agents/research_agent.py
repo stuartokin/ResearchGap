@@ -11,8 +11,8 @@ Hard checks (code, not the model):
   4. At most `maxProposalsPerField` per field and `maxAdditionsPerRun` overall.
 """
 import sys, json, re
-from common import norm, TODAY
-from common import (load_pending_founders, save_pending_founders, founder_runs, slug, load_db, load_pending, save_pending, call_claude, fetch_text, evidence_in, is_duplicate, new_id, CONFIG, TODAY)
+from common import norm
+from common import (load_pending_founders, save_pending_founders, founder_runs, load_db, load_pending, save_pending, call_claude, fetch_text, evidence_in, is_duplicate, new_id, CONFIG, TODAY)
 
 SUBMIT = {
   'name': 'submit_candidates',

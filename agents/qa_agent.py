@@ -10,7 +10,7 @@ Rules enforced in code (the model only proposes):
   - At most `maxCorrectionsPerRun` corrections and `maxAdditionsPerRun` additions per run.
   - Outlook records whose year has passed are confirmed as landed (with evidence) or re-estimated.
 """
-import sys, json, copy
+import sys, json
 from common import (load_pending_founders, save_pending_founders, founder_runs, slug, DEEP, load_db, save_db, load_pending, save_pending, call_claude, fetch_text, link_ok, quote_in, evidence_in, log_change, CONFIG, TODAY)
 
 CORR = {'type': 'object', 'required': ['path', 'value', 'evidence_url', 'evidence_quote'], 'properties': {

@@ -1,6 +1,6 @@
 """Text-to-speech providers for the walk-through narration. The API key comes from the TTS_API_KEY environment variable
 (a GitHub secret); it is never written to the repository or the web page."""
-import json, base64, html, urllib.request
+import json, base64, html, re, urllib.request
 
 def _post(url, body, headers, timeout=60):
     req = urllib.request.Request(url, data=body, headers=headers, method='POST')
@@ -10,7 +10,10 @@ def _post(url, body, headers, timeout=60):
 def azure(text, cfg, key):
     """Microsoft Azure AI Speech: British English neural voices such as en-GB-SoniaNeural or en-GB-LibbyNeural."""
     region, voice = cfg.get('region', 'uksouth'), cfg.get('voice', 'en-GB-SoniaNeural')
-    ssml = f"<speak version='1.0' xml:lang='en-GB'><voice name='{voice}'><prosody rate='{cfg.get('rate', '0%')}'>{html.escape(text)}</prosody></voice></speak>"
+    body = html.escape(text)
+    for word, said in (cfg.get('pronounce') or {}).items():   # spoken forms, e.g. DESNZ as one word, using Azure's substitution tag
+        body = re.sub(r'\b' + re.escape(word) + r'\b', f"<sub alias='{html.escape(said)}'>{word}</sub>", body)
+    ssml = f"<speak version='1.0' xml:lang='en-GB'><voice name='{voice}'><prosody rate='{cfg.get('rate', '0%')}'>{body}</prosody></voice></speak>"
     return _post(f'https://{region}.tts.speech.microsoft.com/cognitiveservices/v1', ssml.encode('utf-8'),
                  {'Ocp-Apim-Subscription-Key': key, 'Content-Type': 'application/ssml+xml', 'X-Microsoft-OutputFormat': 'audio-24khz-48kbitrate-mono-mp3', 'User-Agent': 'shrinking-gap-tours'})
 
@@ -34,4 +37,7 @@ def openai(text, cfg, key):
 PROVIDERS = {'azure': azure, 'google': google, 'elevenlabs': elevenlabs, 'openai': openai}
 
 def synthesize(text, cfg, key):
-    return PROVIDERS[cfg.get('provider', 'azure')](text, cfg, key)
+    provider = cfg.get('provider', 'azure')
+    if provider != 'azure':   # other services: substitute the spoken forms in the text itself
+        for word, said in (cfg.get('pronounce') or {}).items(): text = re.sub(r'\b' + re.escape(word) + r'\b', said, text)
+    return PROVIDERS[provider](text, cfg, key)
