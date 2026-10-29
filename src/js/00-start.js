@@ -1,0 +1,4 @@
+
+function boot(){
+"use strict";
+

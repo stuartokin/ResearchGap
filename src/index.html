@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Shrinking Gap from Research to Change</title>
+<meta name="description" content="An interactive 3D model of how quickly academic, industry and government research has turned into products and change over the last century, with a five-year outlook.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%E2%9A%A1%3C/text%3E%3C/svg%3E">
+<style>/*@include vendor/fonts.css*/</style>
+<style>/*@include styles/app.css*/</style>
+</head>
+<body>
+<div id="loading">Building the century…</div>
+<div id="scene" aria-label="Interactive 3D chart. Drag to rotate, scroll to zoom."></div>
+<div id="labels" aria-hidden="true"></div>
+
+<section class="win chromeless keep gripwin toolwin" id="w-toolbar" data-title="Toolbar">
+  <div class="wbody" id="top"><div class="actions">
+    <button class="btn primary" id="playBtn">Play the century</button>
+    <button class="btn" id="thanksBtn" title="Thank you and questions (Q)" aria-label="Show the thank you message">💬</button>
+    <button class="btn" id="ideasBtn" title="Add your own milestones by hand">✚ Add</button>
+    <button class="btn" id="musicBtn" aria-pressed="false">♪ Music</button>
+    <button class="btn" id="winBtn" aria-haspopup="true" aria-expanded="false">Windows</button>
+    <button class="btn wide" id="rotBtn" aria-pressed="true">Auto-rotate</button>
+    <button class="btn wide" id="resetBtn" title="Return everything to the original defaults">Reset all</button>
+    <button class="btn wide" id="fsBtn">Full screen</button>
+    <button class="btn" id="toursBtn" title="One-minute guided walk-throughs">Tours</button><button class="btn" id="aboutBtn">Help</button>
+  </div></div>
+</section>
+
+<!-- SHOWCASE TITLE -->
+<section class="win chromeless titlewin keep" id="w-title" data-title="Showcase title">
+  <div class="wbody tbody">
+    <div class="tbar" id="titleBar"></div>
+    <div class="ttext" id="titleText" contenteditable="true" spellcheck="false" title="Click to edit the title">SP Energy Networks &amp; University of Glasgow Partnership Showcase</div>
+    <button class="cfgbtn" id="titleCfgBtn">Colours</button>
+    <div class="cfg" id="titleCfg">
+      <label style="flex-basis:100%">Title <input type="text" id="tcName" class="search" style="flex:1;min-width:14em" maxlength="90"></label>
+      <label>Text <input type="color" id="tcText"></label>
+      <label>Background <input type="color" id="tcBg"></label>
+      <label>Accent <input type="color" id="tcAcc"></label>
+      <label>Opacity <input type="range" id="tcAlpha" min="0" max="1" step="0.05"></label>
+      <label>Align <select id="tcAlign"><option value="center">Centre</option><option value="left">Left</option></select></label>
+      <button class="mini" id="tcReset">Reset</button>
+    </div>
+  </div>
+</section>
+<!-- JOKE TICKER -->
+<section class="win chromeless tickwin keep" id="w-ticker" data-title="Ticker">
+  <div class="wbody kbody">
+    <div class="ktrack" id="ktrack"></div>
+    <button class="cfgbtn" id="tickCfgBtn">Settings</button>
+    <div class="cfg kcfg" id="tickCfg">
+      <label>Show <select id="tkMode"><option value="jokes">Jokes only</option><option value="both">News and jokes</option><option value="news">News only</option></select></label>
+      <label>Speed <input type="range" id="tkSpeed" min="10" max="300" step="5"> <b id="tkSpeedV"></b></label>
+      <button class="mini" id="tkPause">Pause</button>
+      <label>Text <input type="color" id="tkText"></label>
+      <label>Background <input type="color" id="tkBg"></label>
+      <label>Opacity <input type="range" id="tkAlpha" min="0" max="1" step="0.05"></label>
+    </div>
+  </div>
+</section>
+<!-- OUTLOOK -->
+<section class="win" id="w-outlook" data-title="Can AI shrink the gap?">
+  <div class="wbody">
+    <p class="insight sm" id="olHead"></p>
+    <p class="fbanner" id="olAI"></p>
+    <p class="note-s">Each bar runs from 0 to 25 years. Grey: recent median gap for research begun since 2000. Teal: plausible range with AI and digital twins. These are scenario assumptions, not forecasts.</p>
+    <div id="olList"></div>
+    <h3>Early evidence</h3>
+    <p class="note-s">Google DeepMind’s GNoME predicted 2.2 million new crystal structures (2023). Microsoft and PNNL used AI to screen 32 million candidates and make a new battery electrolyte (2024). AI-designed drug candidates are progressing through clinical trials. AI-generated layouts are used in Google’s TPU chips. Network digital twins are entering planning and connections work.</p>
+    <h3>What AI does not compress</h3>
+    <p class="note-s">Factories, clinical trials, safety cases, standards, spectrum, planning consent and grid connections. That is why physical fields shrink less than software, and why regulation and assurance increasingly set the pace.</p>
+  </div>
+</section>
+<!-- POWERPOINT REPORT -->
+<section class="win" id="w-report" data-title="PowerPoint report">
+  <div class="wbody">
+    <p class="note-s">Creates a three-slide PowerPoint report from the current filters: the headline, a field-by-field comparison and the AI outlook. Charts are native and editable. Works offline.</p>
+    <label class="af wide" style="margin:.6em 0">Report title<input id="repTitle" class="search" value="The Shrinking Gap from Research to Change" maxlength="80"></label>
+    <button class="audadd" id="repGo" style="background:#4CD3C2;color:#04201d">Create PowerPoint report</button>
+    <button class="audadd" id="repDesnz" style="background:#F2D38A;color:#241a04;margin-top:.3em">Create DESNZ briefing slide</button>
+    <p class="note-s" id="repMsg"></p>
+  </div>
+</section>
+<!-- MUSIC -->
+<section class="win" id="w-music" data-title="Music">
+  <div class="wbody">
+    <audio id="music" src="mixkit-driving-ambition-32.mp3" loop preload="auto"></audio>
+    <div class="row"><button class="mini" id="muPlay">Play music</button><span class="note-s" id="muName">Driving Ambition (Mixkit)</span></div>
+    <div class="slider"><label>Volume <b id="muVolV">50%</b></label><input type="range" id="muVol" min="0" max="1" step="0.05" value="0.5"></div>
+    <div class="row" style="margin:.4em 0"><input class="search" id="muUrl" placeholder="Track file name in the repo, or a web address" aria-label="Track file name or web address"><button class="mini" id="muUrlBtn">Use</button></div>
+    <label class="mini" style="display:inline-block;cursor:pointer">Choose a track from this computer<input type="file" accept="audio/*" id="muFile" hidden></label>
+    <p class="note-s">Tracks chosen from this computer cannot be saved in a view; use a file name in the repo for that.</p>
+    <p class="note-s" id="muMsg"></p>
+  </div>
+</section>
+<input type="file" id="viewFile" accept="application/json,.json" hidden>
+
+<!-- YOUR MILESTONES (added by hand) -->
+<section class="win audwin" id="w-audience" data-title="Your milestones">
+  <div class="wbody">
+    <div class="audform">
+      <label class="af wide">Milestone<input id="audName" class="search" placeholder="e.g. AI that predicts cable faults" maxlength="80"></label>
+      <label class="af">Field<select id="audField"></select></label>
+      <label class="af" id="audNewWrap" style="display:none">New field name<input id="audNew" class="search" placeholder="e.g. Hydrogen" maxlength="30"></label>
+      <label class="af">Starts in<select id="audSrc"><option value="academic">University</option><option value="industry">Industry</option><option value="government">Government</option></select></label>
+      <label class="af">Research begins<select id="audR"></select></label>
+      <label class="af">Reaches change<select id="audP"></select></label>
+      <label class="af wide">Who (optional)<input id="audWho" class="search" placeholder="Name or team" maxlength="60"></label>
+      <label class="af wide">Icon on the label<span class="iconrow"><select id="audIcon"></select><span id="audIconPrev" class="iconprev"></span><input type="file" id="audIconFile" accept="image/*" hidden></span></label>
+
+    </div>
+    <details class="afmore"><summary>More details (optional)</summary>
+      <label class="af">Description<textarea id="audDesc" rows="3" maxlength="400" placeholder="What it does, why it matters"></textarea></label>
+      <label class="af">Source<input id="audSource" class="search" placeholder="e.g. University research paper" maxlength="120"></label>
+      <label class="af">Link<input id="audUrl" class="search" placeholder="https://…" maxlength="300"></label>
+    </details>
+    <button class="audadd" id="audAdd">Add to the model</button>
+    <p class="note-s" id="audMsg"></p>
+    <div class="tlist" id="audList"></div>
+    <div class="minis" style="margin-top:.6em"><button class="mini" id="audSave">Save my milestones…</button><label class="mini" style="cursor:pointer">Load my milestones…<input type="file" id="audLoad" accept="application/json,.json" hidden></label><button class="mini" id="audClear">Clear all</button></div>
+    <label class="toggle">Spotlight your milestones (bright arcs and big labels) <input type="checkbox" id="audSpotT" checked></label>
+    <label class="toggle">Pause Play briefly when one of your milestones starts or lands <input type="checkbox" id="audPauseT" checked></label>
+  </div>
+</section>
+<div id="spot" aria-live="polite"><b id="spotT"></b><span id="spotS"></span></div>
+
+<!-- PAGE TITLE -->
+<section class="win chromeless keep pagetitlewin" id="w-pagetitle" data-title="Page title">
+  <div class="wbody ptbody"><h1 class="ptitle" id="pageTitle" contenteditable="true" spellcheck="false" title="Click to edit">The Shrinking Gap from Research to Change</h1></div>
+</section>
+<!-- PLAY THE CENTURY -->
+<section class="win chromeless playerwin keep" id="w-player" data-title="Play the century">
+  <div class="wbody pbody">
+    <div class="pyear" id="yearNum">1925</div>
+    <div class="ptot" id="playTotals"></div>
+    <div class="psub" id="yearSub">Press Play to run from 1925 to 2036</div>
+    <div class="pctrl"><button class="btn" id="tbPause">Pause</button><input type="range" id="scrub" min="1925" max="2037" step="0.1" value="1925" aria-label="Scrub through time"><select id="tbSpeed" class="btn" aria-label="Play speed"><option value="0.25">Very slow</option><option value="0.5">Slow</option><option value="1" selected>Normal</option><option value="2">Fast</option></select><label class="btn looplbl"><input type="checkbox" id="loopT"> Loop</label><button class="btn" id="tbStop">Exit</button></div>
+  </div>
+</section>
+<!-- SOURCES -->
+<section class="win" id="w-sources" data-title="Sources">
+  <div class="wbody srcs">
+    <p class="note-s">The sources consulted for this model. Recent milestones were checked against the web sources below during development. Historical dates draw on standard references; where a date is less certain, its details card says “Dates approximate”. Links open in a new tab.</p>
+    <h3>SPEN and University of Glasgow</h3>
+    <a href="https://www.gla.ac.uk/news/headline_1248646_en.html" target="_blank" rel="noopener">University of Glasgow: strategic partnership and Cyber Defence Lab (2026)</a>
+    <a href="https://www.gla.ac.uk/news/headline_837214_en.html" target="_blank" rel="noopener">University of Glasgow: Predict4Resilience, Flexible Heat and Heat Balance (2022)</a>
+    <a href="https://www.enlit.world/library/ensign-digital-twin-project-to-model-future-uk-energy-system" target="_blank" rel="noopener">ENSIGN energy system digital twin</a>
+    <a href="https://www.power-technology.com/news/uk-electricity-digital-twin/" target="_blank" rel="noopener">Power Technology: SPEN to develop an electricity network digital twin</a>
+    <a href="https://www.spenergynetworks.co.uk/news/pages/drones_transmission_network.aspx" target="_blank" rel="noopener">SPEN: drones for transmission tower inspection</a>
+    <a href="https://easterngreenlink1.co.uk" target="_blank" rel="noopener">Eastern Green Link 1 (SPEN and National Grid)</a>
+    <a href="https://constructionenquirer.com/2023/09/13/build-deal-for-2-5bn-eastern-green-link-1-converter-stations" target="_blank" rel="noopener">Construction Enquirer: EGL1 targeted for 2029</a>
+    <h3>Policy, regulation and law</h3>
+    <a href="https://www.gov.uk/government/calls-for-evidence/vision-for-an-ai-enabled-clean-energy-system/vision-for-an-ai-enabled-clean-energy-system-html" target="_blank" rel="noopener">DESNZ: Vision for an AI-enabled clean energy system (2026)</a>
+    <a href="https://www.ofgem.gov.uk/consultation/long-duration-electricity-storage-window-1-minded-decisions" target="_blank" rel="noopener">Ofgem: long duration electricity storage Window 1 minded-to decisions</a>
+    <a href="https://bills.parliament.uk/Bills/4035" target="_blank" rel="noopener">UK Parliament: Cyber Security and Resilience (NIS) Bill</a>
+    <a href="https://www.osborneclarke.com/insights/regulatory-outlook-june-2026-cyber-security" target="_blank" rel="noopener">Osborne Clarke: cyber security regulatory outlook (June 2026)</a>
+    <a href="https://www.6clicks.com/resources/blog/the-uks-cyber-security-and-resilience-bill-what-to-do-now" target="_blank" rel="noopener">6clicks: Cyber Security and Resilience Bill progress</a>
+    <a href="https://www.trowers.com/insights/2026/february/the-cyber-security-and-resilience-bill" target="_blank" rel="noopener">Trowers &amp; Hamlins: large load controllers under the Bill</a>
+    <a href="https://www.gibsondunn.com/eu-ai-act-omnibus-agreement" target="_blank" rel="noopener">EU AI Act Digital Omnibus: postponed high-risk deadlines</a>
+    <p class="note-s">Also: NCSC, <i>Timelines for migration to post-quantum cryptography</i> (2025); NIST FIPS 203–205 (2024); NCSC Cyber Assessment Framework.</p>
+    <h3>System operation, forecasting and flexibility</h3>
+    <a href="https://www.neso.energy/news/first-stages-open-balancing-platform-go-live" target="_blank" rel="noopener">NESO: Open Balancing Platform goes live</a>
+    <a href="https://www.neso.energy/news/volta-programme-powering-future-dispatch-tapestry-energy-moonshot-x-moonshot-factory-alphabets-innovation-lab-bring-ai-our-control-room" target="_blank" rel="noopener">NESO: Volta programme with Tapestry</a>
+    <a href="https://www.ecmwf.int/node/29308" target="_blank" rel="noopener">ECMWF: AI forecasts become operational</a>
+    <a href="https://new.openclimatefix.org/projects/cloud-forecasting" target="_blank" rel="noopener">Open Climate Fix: Cloudcasting</a>
+    <a href="https://www.solarpowerportal.co.uk/battery-storage/drax-acquires-uk-based-ai-enabled-asset-optimisation-platform-flexitricity" target="_blank" rel="noopener">Drax acquires Flexitricity</a>
+    <a href="https://transportandenergy.com/2025/09/04/national-grid-uses-ai-drone-aerial-inspection/" target="_blank" rel="noopener">National Grid: AI drone aerial inspection</a>
+    <a href="https://www.electrive.com/2025/06/24/octopus-energy-and-byd-launch-uks-first-v2g-bundle" target="_blank" rel="noopener">Electrive: Octopus and BYD vehicle-to-grid bundle</a>
+    <a href="https://innovation.ukpowernetworks.co.uk/projects/satelline" target="_blank" rel="noopener">UK Power Networks: Satelline satellite and AI vegetation pilot</a>
+    <a href="https://www.aidash.com/wp-content/uploads/2021/06/Earth-Observation-and-Utility-Vegetation-Management.pdf" target="_blank" rel="noopener">AiDash: satellite AI vegetation management</a>
+    <a href="https://www.artelys.com/app/uploads/2024/04/White_paper_L2RPN_2023_.pdf" target="_blank" rel="noopener">Artelys: Learning to Run a Power Network (L2RPN) 2023</a>
+    <h3>Storage, stability and nuclear</h3>
+    <a href="https://www.solarpowerportal.co.uk/zenobe-200mw-bess-operational-first-to-provide-stability-services-for-neso" target="_blank" rel="noopener">Zenobē Blackhillock: first battery providing stability services</a>
+    <a href="https://www.nsenergybusiness.com/analysis/blackhillock-launches-uks-first-grid-forming-battery/" target="_blank" rel="noopener">NS Energy: Blackhillock, the UK’s first grid-forming battery</a>
+    <a href="https://greatriverenergy.com/what-we-do/cambridge-energy-storage-project" target="_blank" rel="noopener">Great River Energy: Form Energy iron-air battery project</a>
+    <a href="https://www.technologyreview.com/2026/10/06/1145020/2026-climate-tech-companies-to-watch-form-energy-iron-batteries/" target="_blank" rel="noopener">MIT Technology Review: Form Energy (2026)</a>
+    <a href="https://research.senedd.wales/research-articles/new-nuclear-at-wylfa-what-happens-next/" target="_blank" rel="noopener">Senedd Research: Rolls-Royce SMR at Wylfa</a>
+    <h3>Cyber security vendors</h3>
+    <a href="https://www.securityweek.com/radiflow-launches-new-intrusion-detection-system-icsscada-networks/amp/" target="_blank" rel="noopener">SecurityWeek: Radiflow industrial intrusion detection</a>
+    <h3>Quantum and UK research to product</h3>
+    <a href="https://www.nottingham.ac.uk/research/groups/spmic/research/meg-and-opm.aspx" target="_blank" rel="noopener">University of Nottingham: wearable quantum brain scanner (OPM-MEG)</a>
+    <a href="https://www.gov.uk/government/news/worlds-first-mobile-quantum-brain-scanner-being-developed-to-measure-blast-effects-on-troops" target="_blank" rel="noopener">MOD: mobile quantum brain scanner (2025)</a>
+    <p class="note-s">Also: IBM quantum roadmap (2026), treated as a target rather than a forecast.</p>
+    <h3>Founders and wealth</h3>
+    <a href="https://www.scrippsnews.com/world/forbes-2026-worlds-billionaires-list-is-here-some-rankings-may-surprise-you" target="_blank" rel="noopener">Forbes 2026 World’s Billionaires (summary)</a>
+    <a href="https://manofmany.com/culture/forbes-billionaires-list-richest-people" target="_blank" rel="noopener">Forbes 2026 list: top 10 and AI billionaires</a>
+    <p class="note-s">Other net worth figures are recent rich-list estimates; founding and listing dates come from company histories.</p>
+    <h3>Standard references for historical milestones</h3>
+    <p class="note-s">Nobel Prize citations (physics, chemistry, medicine); IEEE milestones and Engineering and Technology History; institutional histories of Bell Labs, IBM Research, Xerox PARC, CERN, DARPA, CSIRO, NPL, RAE Farnborough, the MRC Laboratory of Molecular Biology and UK Atomic Energy Authority; company histories and annual reports; regulator approval records (FDA, MHRA).</p>
+  </div>
+</section>
+<!-- FILTERS -->
+<section class="win" id="w-filters" data-title="Filters">
+  <div class="wbody">
+    <input class="search" id="q" type="search" placeholder="Search milestones" aria-label="Search milestones">
+    <div class="ptools"><button class="mini" data-pexp="filters">Expand all</button><button class="wide-btn ptiny" id="resetFilters">Reset all filters</button></div>
+    <details class="psec" data-sec="fields"><summary>Fields and sub-fields</summary>
+      <div class="minis"><button class="mini" data-preset="all">All</button><button class="mini" data-preset="none">None</button><button class="mini" data-preset="core">Energy, cyber and computing</button></div>
+      <div class="flist" id="fieldList"></div>
+      <label class="toggle">Hide tracks for unselected fields and sources <input type="checkbox" id="compactT" checked></label>
+      <div class="subbox"><label class="toggle">Show sub-field tracks when one field is selected <input type="checkbox" id="subLanesT" checked></label>
+      <p class="note-s" id="subHint">Select a single field (use “Only”) to see and filter its sub-fields.</p><div class="chips" id="subChips"></div></div>
+    </details>
+    <details class="psec" data-sec="origin"><summary>Where the research began</summary>
+      <h4>Type of organisation</h4><div class="chips" id="srcChips"></div>
+      <h4>Country or region</h4><div class="chips" id="regionChips"></div>
+      <label class="toggle">University projects only <input type="checkbox" id="uniOnlyT"></label>
+    </details>
+    <details class="psec" data-sec="type"><summary>Type and status</summary>
+      <h4>Type of milestone</h4><div class="chips" id="catChips"></div>
+      <h4>Status</h4><div class="chips" id="kindChips"></div>
+      <h4>Readiness</h4><div class="chips" id="stageChips"></div>
+      <label class="toggle">Major milestones only <input type="checkbox" id="majT"></label>
+    </details>
+    <details class="psec" data-sec="trust"><summary>Confidence and verification</summary>
+      <h4>Confidence in the dates</h4><div class="chips" id="confChips"></div>
+      <h4>How it was checked</h4><div class="chips" id="verChips"></div>
+    </details>
+    <details class="psec" data-sec="topics"><summary>Topics</summary>
+      <p class="note-s">Pick topics to show only those; with none picked, everything shows.</p>
+      <div class="chips" id="tagChips"></div>
+    </details>
+    <details class="psec" data-sec="years"><summary>Years and gaps</summary>
+      <div class="slider"><label>Research began from <b id="fromV">1925</b></label><input type="range" id="fromR" min="1925" max="2036" value="1925"></div>
+      <div class="slider"><label>Research began to <b id="toV">2036</b></label><input type="range" id="toR" min="1925" max="2036" value="2036"></div>
+      <div class="slider"><label>Longest gap shown <b id="gapV">Any</b></label><input type="range" id="gapR" min="1" max="60" value="60"></div>
+    </details>
+    <details class="psec" data-sec="desnz"><summary>DESNZ AI energy vision</summary>
+      <label class="toggle">Only arcs linked to the vision <input type="checkbox" id="visT"></label>
+      <label class="toggle">Only technologies deployed in GB <input type="checkbox" id="gbOnlyT"></label>
+      <p class="note-s">Diamonds mark arcs that have helped, or could help, deliver the September 2026 vision. The vision window breaks them down by area.</p>
+    </details>
+    <details class="psec" data-sec="cyber"><summary>Cyber lens</summary>
+      <label class="toggle">Only technologies that expand the attack surface <input type="checkbox" id="attackT"></label>
+      <label class="toggle">Only open security gaps (no response yet) <input type="checkbox" id="gapOnlyT"></label>
+    </details>
+    <label class="toggle pfoot">Show filtered-out arcs faintly <input type="checkbox" id="ghostT" checked></label>
+  </div>
+</section>
+
+<!-- DISPLAY -->
+<section class="win" id="w-display" data-title="Display">
+  <div class="wbody">
+    <div class="ptools"><button class="mini" data-pexp="display">Expand all</button></div>
+    <details class="psec" data-sec="labels"><summary>Labels</summary>
+      <div class="minis"><button class="mini" data-lp="story">Clean story</button><button class="mini" data-lp="highlights">Landing highlights</button><button class="mini" data-lp="major">Major milestones</button><button class="mini" data-lp="all">Everything</button></div>
+      <div class="seg" id="labelSeg"><button data-v="off">Off</button><button data-v="peak">On arcs</button><button data-v="follow">Follow lights</button></div>
+      <div class="seg" id="labelScopeSeg"><button data-v="all">All shown arcs</button><button data-v="major">Major milestones</button></div>
+      <div class="slider"><label>Label size <b id="lfsV">12</b></label><input type="range" id="lfsR" min="9" max="26" value="12"></div>
+      <div class="slider"><label>Most labels on screen <b id="labelMaxV">All</b></label><input type="range" id="labelMaxR" min="3" max="60" value="60"></div>
+      <label class="toggle">Major milestones in brighter, bolder labels <input type="checkbox" id="majBrightT" checked></label>
+    </details>
+    <details class="psec" data-sec="play"><summary>Play the century</summary>
+      <div class="prange"><label class="af">From<select id="playFromS" aria-label="Play from"></select></label><label class="af">To<select id="playToS" aria-label="Play to"></select></label><button class="mini" id="playCentury">Whole century</button></div>
+      <label class="toggle">Loop Play the century <input type="checkbox" id="loopD"></label>
+      <label class="toggle">Countdown from 3 before Play <input type="checkbox" id="countdownT" checked></label>
+      <label class="toggle">Show the conclusion when Play ends <input type="checkbox" id="conclT" checked></label>
+      <h4>Labels during Play</h4>
+      <div class="seg" id="labelPlaySeg"><button data-v="always">Always</button><button data-v="until">Until landed</button><button data-v="flash">Flash on landing</button></div>
+      <div class="slider"><label>Linger after landing <b id="lingerV">2 s</b></label><input type="range" id="lingerR" min="0" max="8" step="0.5" value="2"></div>
+    </details>
+    <details class="psec" data-sec="travel"><summary>Travel through time</summary>
+      <button class="wide-btn" id="travelPreset" style="margin:.1em 0 .6em">Set up a time-travel journey</button>
+      <div class="seg" id="camSeg"><button data-v="fixed">Camera fixed</button><button data-v="travel">Camera travels with time</button></div>
+      <div class="seg" id="fadeSeg"><button data-v="keep">Keep landed arcs</button><button data-v="fade">Fade landed arcs</button></div>
+      <div class="slider"><label>Keep landed arcs for <b id="keepV">5 years</b></label><input type="range" id="keepR" min="0" max="20" step="1" value="5"></div>
+      <label class="toggle">Reveal the whole century at the end <input type="checkbox" id="revealT" checked></label>
+      <label class="toggle">Keep lane names in view while travelling <input type="checkbox" id="laneFollowT" checked></label>
+    </details>
+    <details class="psec" data-sec="arcs"><summary>Arcs, lanes and colours</summary>
+      <h4>Arrange lanes by</h4><div class="seg" id="laneSeg"><button data-v="s">Research source</button><button data-v="v">Field</button></div>
+      <h4>Colour arcs by</h4><div class="seg" id="colSeg"><button data-v="s">Research source</button><button data-v="v">Field</button></div>
+      <label class="af" style="margin:.4em 0">Palette<select id="paletteS"><option value="standard">Standard</option><option value="cb">Colour-blind safe</option></select></label>
+      <label class="toggle">Show adoption arcs (first product to mainstream use) <input type="checkbox" id="adoptT" checked></label>
+      <label class="toggle">Highlight ongoing university projects <input type="checkbox" id="uniHiT" checked></label>
+      <label class="toggle">Moving lights <input type="checkbox" id="pulseT" checked></label>
+      <label class="toggle">Trend lines <input type="checkbox" id="trendT" checked></label>
+      <label class="toggle">Floor labels <input type="checkbox" id="floorT" checked></label>
+    </details>
+    <details class="psec" data-sec="changes"><summary>Data changes</summary>
+      <div class="seg" id="chgFlagSeg" aria-label="Highlight data changes"><button data-v="off">Off</button><button data-v="new">New only</button><button data-v="all">All changes</button></div>
+      <div class="seg" id="chgScopeSeg" aria-label="Which changes"><button data-v="all">All areas</button><button data-v="desnz">DESNZ vision only</button></div>
+      <label class="af" style="margin:.4em 0">Changes from<select id="chgSinceS"><option value="last">The latest agent run</option><option value="30">The last 30 days</option><option value="90">The last 90 days</option><option value="0">All agent runs</option></select></label>
+      <label class="toggle">Announce changes as Play reaches them <input type="checkbox" id="chgAnnounceT" checked></label>
+    </details>
+    <details class="psec" data-sec="motion"><summary>Motion and performance</summary>
+      <div class="slider"><label>Rotation speed <b id="rotV">0.35</b></label><input type="range" id="rotR" min="0" max="2" step="0.05" value="0.35"></div>
+      <div class="slider"><label>Glow <b id="glowV">0.75</b></label><input type="range" id="glowR" min="0" max="1.6" step="0.05" value="0.75"></div>
+      <label class="toggle">Performance mode <input type="checkbox" id="liteT"></label>
+    </details>
+    <details class="psec" data-sec="present"><summary>Presenting, windows and sharing</summary>
+      <label class="toggle">Show page title <input type="checkbox" id="titleShowT"></label>
+      <label class="toggle">Hide top buttons until the mouse is near <input type="checkbox" id="barAutoT"></label>
+      <label class="toggle">Show the thank-you icon (Q key) <input type="checkbox" id="thanksIconT" checked></label>
+      <label class="toggle">Show full descriptions in windows <input type="checkbox" id="fullTextT"></label>
+      <label class="toggle">Highlight a window when it opens <input type="checkbox" id="flashNewT" checked></label>
+      <label class="toggle">Open new windows in free space <input type="checkbox" id="smartPlaceT" checked></label>
+      <label class="toggle">Keep window positions when the screen size changes <input type="checkbox" id="keepPosT" checked></label>
+      <label class="toggle">Fit windows to this screen when loading a saved view <input type="checkbox" id="fitLoadT" checked></label>
+      <button class="mini" id="copyLinkBtn">Copy a link to this view</button>
+    </details>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="win" id="w-summary" data-title="Summary">
+  <div class="wbody">
+    <h3 id="statsHead">Median years from research to change</h3>
+    <label class="af">Measure<select id="statsMetricS"><option value="first">Research to first product</option><option value="adopt">First product to mainstream adoption</option><option value="total">Research to mainstream adoption</option></select></label>
+    <div class="seg" id="statsBySeg"><button data-v="landed">Year it landed</button><button data-v="began">Year research began</button></div>
+    <div class="seg" id="statsRowsSeg"><button data-v="src">Rows by source</button><button data-v="field">Rows by field</button><button data-v="region">Rows by region</button></div>
+    <label class="toggle">Show the typical range <input type="checkbox" id="statsRangeT" checked></label>
+    <label class="toggle">Grey out small samples (fewer than 5) <input type="checkbox" id="statsSmallT" checked></label>
+    <label class="toggle">Correct for research still in progress (year research began) <input type="checkbox" id="statsSurvT" checked></label>
+    <label class="toggle">Build the table as Play runs <input type="checkbox" id="statsLiveT" checked></label>
+    <table class="stats" id="stats"></table>
+    <p class="note-s" id="statsNote"></p>
+    <p class="insight" id="insight"></p>
+    <p class="count" id="count"></p>
+  </div>
+</section>
+
+<section class="win" id="w-radar" data-title="Vision radar"><div class="wbody"><div class="rtools"><label class="af">New since<select id="radarSince"><option value="review">My last review</option><option value="last">The latest agent run</option><option value="30">The last 30 days</option><option value="90">The last 90 days</option></select></label><button class="mini" id="radarReviewed">Mark all as reviewed</button></div><p class="note-s" id="radarNote"></p><div id="radarBody"></div></div></section>
+<section class="win" id="w-cyber" data-title="Cyber lens"><div class="wbody" id="cyberBody"></div></section>
+<section class="win" id="w-findings" data-title="Key findings"><div class="wbody" id="findBody"></div></section>
+<section class="win" id="w-quality" data-title="Data quality"><div class="wbody" id="qualBody"></div></section>
+<section class="win" id="w-table" data-title="Table of milestones"><div class="wbody"><input id="tabQ" class="search" placeholder="Search the table" aria-label="Search the table"><p class="note-s" id="tabCount"></p><div class="tabwrap"><table class="mtab"><thead id="tabHead"></thead><tbody id="tabBody"></tbody></table></div></div></section>
+<!-- MILESTONES -->
+<section class="win" id="w-milestones" data-title="Milestones">
+  <div class="wbody">
+    <div class="minis"><button class="mini" id="showAllM">Show all hidden</button><button class="mini" id="hideAllM">Hide all listed</button></div>
+    <p class="note-s" style="margin-bottom:.6em">Untick to hide a single arc. Select a name to inspect it.</p>
+    <div class="mlist" id="mlist"></div>
+  </div>
+</section>
+
+<!-- DETAILS -->
+<section class="win" id="w-details" data-title="Details">
+  <div class="wbody"><div class="dsearch"><input id="detQ" class="search" placeholder="Search milestones, companies or descriptions" aria-label="Search milestones"><div id="detRes" class="dres"></div></div>
+  <div id="detailBody"><p class="empty">Select an arc or a milestone to see its story, or search above.</p></div></div>
+</section>
+<section class="win" id="w-changes" data-title="Data changes">
+  <div class="wbody">
+    <p class="note-s">Every change the data agents have made, newest first. Click a milestone to open its details. Highlighting in the model and during Play is set in Display.</p>
+    <input id="chgQ" class="search" placeholder="Search changes" aria-label="Search changes">
+    <div class="chips" id="chgTypes" style="margin:.5em 0"></div>
+    <label class="toggle">DESNZ AI energy vision only <input type="checkbox" id="chgDesnzT"></label>
+    <p class="note-s" id="chgCount"></p>
+    <div id="chgList" class="tlist"></div>
+  </div>
+</section>
+
+<!-- KEY -->
+<section class="win" id="w-key" data-title="Reading the model">
+  <div class="wbody key">
+    <p><svg width="22" height="12" viewBox="0 0 22 12"><path d="M1 11 Q11 -9 21 11" fill="none" stroke="#E3ECF2" stroke-width="1.6"/></svg>Each arc runs from first research to first product or change. Taller means slower.</p>
+    <p><svg width="22" height="12" viewBox="0 0 22 12"><path d="M1 11 Q11 -9 21 11" fill="none" stroke="#E3ECF2" stroke-width="1.8" stroke-dasharray="1 3" stroke-linecap="round"/></svg>Dotted arcs are expected to land in the next ten years.</p>
+    <p><svg width="22" height="12" viewBox="0 0 22 12"><defs><linearGradient id="fd"><stop offset="0" stop-color="#E3ECF2"/><stop offset="1" stop-color="#E3ECF2" stop-opacity="0"/></linearGradient></defs><path d="M1 11 Q11 -9 21 11" fill="none" stroke="url(#fd)" stroke-width="1.6"/></svg>Fading arcs have not landed yet.</p>
+  </div>
+</section>
+
+<!-- CONTEXT -->
+<section class="win" id="w-context" data-title="Context">
+  <div class="wbody"><p class="era" id="ctxEra"></p><p class="note-s" id="ctxYear"></p><div class="tlist" id="ctxList"></div></div>
+</section>
+<!-- LANDING -->
+<section class="win" id="w-landing" data-title="Landing and starting">
+  <div class="wbody"><h3>Reached change in the last eight years</h3><div class="tlist" id="landList"></div><h3>Research begun in the last eight years</h3><div class="tlist" id="startList"></div></div>
+</section>
+<!-- GAP CHART -->
+<section class="win" id="w-gapchart" data-title="Gap over time">
+  <div class="wbody"><p class="note-s">History: median years from research to change for arcs landing in the previous ten years. Beyond today: a scenario for research starting now, at the recent pace and with AI and digital twins. Follows your filters.</p><label class="toggle">Build the line as Play runs <input type="checkbox" id="gapBuildT" checked></label><p class="legend"><span><i class="lg l1"></i>History</span><span><i class="lg l2"></i>Recent pace</span><span><i class="lg l3"></i>With AI and digital twins</span></p><canvas id="gapCanvas" class="chart"></canvas><p class="insight sm" id="gapNow"></p></div>
+</section>
+<!-- FORTUNES -->
+<section class="win" id="w-fortunes" data-title="Time to a fortune">
+  <div class="wbody"><p class="note-s">Years from founding to the first listing, sale or private valuation that made founders multi-millionaires on paper. Net worth is the lead founder’s approximate wealth in 2026 money (Forbes 2026 where available; deceased founders at death, inflation-adjusted). Hover a figure for its basis. Follows the field filter.</p><div class="minis"><button class="mini" id="fortHi" aria-pressed="true">Highlight research founders</button><button class="mini" id="fortOnly" aria-pressed="false">Research founders only</button></div><div class="seg" id="fortSortSeg"><button data-v="year">Newest first</button><button data-v="worth">Net worth</button><button data-v="speed">Fastest fortune</button></div><p class="fbanner" id="fortBanner"></p><canvas id="fortCanvas" class="chart"></canvas><p class="fstat" id="fortStat"></p><div class="tlist" id="fortList"></div></div>
+</section>
+<!-- VISION -->
+<section class="win" id="w-vision" data-title="DESNZ AI energy vision">
+  <div class="wbody">
+    <p class="note-s">DESNZ’s <i>Vision for an AI-enabled clean energy system</i> (call for evidence, September 2026, closing 6 November) groups AI opportunities into four areas and highlights barriers such as data access, incentives, regulatory clarity, security and skills. Select an area to show its arcs; select a name to inspect it.</p>
+    <div class="minis"><button class="mini" id="visExpand">Expand all</button><button class="mini" id="visAll">Show all vision arcs</button><button class="mini" id="visOff">Clear vision filter</button></div>
+    <div id="visList"></div>
+  </div>
+</section>
+
+<!-- VIDEOS -->
+<section class="win vidwin" id="w-vid1" data-title="Countdown to Q-Day">
+  <div class="wbody vbody"><video id="vid1" src="QDayIntro.mp4" muted loop playsinline preload="auto" controls></video>
+  <div class="vmsg" id="vid1msg"><p>Could not load <b>QDayIntro.mp4</b>. Put it in the same GitHub folder as index.html, or choose the file from this computer.</p><label class="mini">Choose video file<input type="file" accept="video/*" data-for="vid1" hidden></label></div></div>
+</section>
+<section class="win vidwin" id="w-vid2" data-title="University Curated Cyber-attacks since 2000">
+  <div class="wbody vbody"><video id="vid2" src="cae_cover_16x9.mp4" muted loop playsinline preload="auto" controls></video>
+  <div class="vmsg" id="vid2msg"><p>Could not load <b>cae_cover_16x9.mp4</b>. Put it in the same GitHub folder as index.html, or choose the file from this computer.</p><label class="mini">Choose video file<input type="file" accept="video/*" data-for="vid2" hidden></label></div></div>
+</section>
+<div id="countdown" aria-hidden="true"><div id="cdNum">3</div><div id="cdSub">Play the century</div></div>
+<div id="thanks" role="dialog" aria-modal="true" aria-label="Thank you"><div class="tybox"><div class="ty1">Thank you for your time</div><div class="ty2">Any questions?</div><div class="ty3">Stuart Okin</div></div></div>
+<div id="disc" role="status"><div class="dmeta" id="discMeta"></div><b>AI-maintained data.</b> This personal project’s data is compiled by AI agents without human review and may contain errors. <button id="discAbout">About</button><button id="discX" aria-label="Dismiss">✕</button></div>
+<div id="nogl" role="alert"><div><h2>3D view unavailable</h2><p>This device or browser can’t show the 3D model. Try a recent version of Chrome, Edge, Safari or Firefox on a laptop or desktop.</p></div></div>
+<div id="winMenu" role="menu"></div>
+<div id="welcome" role="dialog" aria-modal="true" aria-labelledby="wTitle"><div class="wbox">
+  <h1 id="wTitle">The Shrinking Gap from Research to Change</h1>
+  <p class="wsub">Five one-minute walk-throughs, narrated with subtitles. Or go straight to the tool.</p>
+  <p class="wai" role="note"><b>Fully AI-generated, with no human in the loop.</b> AI agents write and update these walk-throughs every week from their own findings, and an AI voice speaks them. No person reviews the narration before you hear it.</p>
+  <div class="wcards" id="wCards"></div>
+  <div class="wfoot"><button id="wRun" class="wrun">Run the tool</button><button id="wMute" class="wmute"></button></div>
+  <p class="wauto" id="wAuto"></p>
+  <p class="note-s wnote">Narration uses your browser’s voice and can be muted. Press Escape at any time to leave a walk-through. AI-maintained data; may contain errors.</p>
+</div></div>
+<div id="tourCursor" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 2l15 10.5-6.6 1.3 3.9 7.4-3 1.5-3.8-7.5L4 20z" fill="#fff" stroke="#0b1724" stroke-width="1.4" stroke-linejoin="round"/></svg></div>
+<div id="tourBar" role="region" aria-label="Guided tour"><div class="tbtop"><span id="tourTitle"></span><span id="tourDots"></span></div><div class="tbai">AI-generated narration and voice, updated weekly by AI agents. No human review.</div><p id="tourCap" aria-live="polite"></p>
+  <div class="tbctl"><button id="tourPrev" aria-label="Back">◀</button><button id="tourPause" aria-label="Pause">❚❚</button><button id="tourNext" aria-label="Next">▶</button><button id="tourMute" aria-label="Mute narration">🔊</button><button id="tourSkip">Leave tour ✕</button></div></div>
+<div id="toast" role="status" aria-live="polite"></div>
+<div id="tip" role="tooltip"></div>
+<section class="win chromeless gripwin footwin" id="w-footer" data-title="Footer">
+  <div class="wbody" id="foot">
+    <span>Drag to rotate, scroll to zoom, right-drag to pan. Keys: P play, Space pause, ] and [ next and previous milestone, 1–9 single field, 0 all fields, L labels, M toolbar, T page title, Q thank you, R reset camera, H hide windows.</span>
+    <span>Stuart Okin, personal project. AI-maintained data; may contain errors.</span>
+  </div>
+</section>
+
+<div id="about" role="dialog" aria-modal="true" aria-labelledby="aboutTitle">
+  <div class="sheet">
+    <button class="btn close" id="aboutClose">Close</button>
+    <h2 id="aboutTitle">Help</h2>
+    <div class="faqtools"><input id="faqQ" class="search" placeholder="Search help" aria-label="Search help"></div>
+    <div id="faq"></div>
+    <h2 style="margin-top:1.2em">About this model</h2>
+    <p class="disc"><b>Personal project.</b> Built by Stuart Okin in a personal capacity; not affiliated with or endorsed by any employer. <b>AI-maintained data.</b> The dataset is compiled and kept up to date by AI agents using Claude (Anthropic), without human review, so it may contain errors. Outlook years are AI estimates, not forecasts. Check anything important against the cited sources.</p>
+    <h3>Data status</h3>
+    <p class="aboutmeta" id="aboutMeta"></p>
+    <div id="dataStatus" class="dstat"></div>
+    <h3>What the model shows</h3>
+    <p>Each arc traces one breakthrough from the first published or demonstrated research to its first commercial product, operational use or binding change. Lanes group arcs by where the research began (universities, industry labs, or government and publicly funded labs) or by field. The height of each arc is the gap in years. “Today” is the date the data was last updated, and the outlook always runs ten years beyond it.</p>
+    <h3>Definitions</h3>
+    <ul>
+      <li><b>Research</b> is the first credible publication, patent or demonstration of the core idea.</li>
+      <li><b>Mainstream adoption</b> is the year the technology reached widespread, routine use: roughly 10% or more of its potential market, or standard practice in its sector. Shown as a second, thinner arc. Most are AI estimates until the agents find a source.</li>
+      <li><b>Region</b> is where the research began; “Many countries” marks work with no single origin.</li>
+      <li><b>Change</b> is the first commercial sale, operational deployment, or rule taking effect. It is not mass adoption, which usually takes longer.</li>
+      <li><b>Verification</b>: “Source-cited” records link to a source that was checked; “AI-compiled” records were compiled by AI from standard references; “AI estimate” marks outlook years with no published target.</li>
+      <li><b>Trend lines</b> join the median gap for each lane in each era. Beyond today, the gap chart shows a scenario at the recent pace and with AI and digital twins, using stated assumptions.</li>
+      <li><b>Company product arcs</b> run from founding or first prototype to first commercial release. <b>Founder wealth</b> uses the first listing, sale or valuation that made founders multi-millionaires; net worths carry a dated source.</li>
+    </ul>
+    <h3>Caveats</h3>
+    <ul>
+      <li>Dates can be approximate and some attributions are contested; many breakthroughs drew on all three sources.</li>
+      <li>The sample is curated, not exhaustive, and only includes ideas that succeeded.</li>
+      <li>Physical and safety-critical sectors stay slower than software because of capital, safety and regulatory cycles. That is often appropriate.</li>
+    </ul>
+    <h3>Recent data changes</h3>
+    <div id="changeLog" class="clog"></div>
+    <p><button class="btn" id="aboutSources">View all sources</button> <span class="note-s">Opens a window you can move, resize and keep open.</span></p>
+    <h3>Credits and licences</h3>
+    <ul class="attrib">
+      <li>3D graphics: <a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> r128, MIT licence.</li>
+      <li>PowerPoint reports: <a href="https://gitbrent.github.io/PptxGenJS/" target="_blank" rel="noopener">PptxGenJS</a> 4.0.1, MIT licence (includes JSZip, MIT licence).</li>
+      <li>Typefaces: Instrument Sans and Instrument Serif, SIL Open Font Licence 1.1.</li>
+      <li>Music: “Driving Ambition” from <a href="https://mixkit.co" target="_blank" rel="noopener">Mixkit</a>, under the Mixkit free licence.</li>
+      <li>Licences: code under MIT, dataset under CC BY 4.0 (credit Stuart Okin). See LICENSE and DATA-LICENSE.md in the repository.</li>
+      <li>Data compiled and maintained with Claude, by Anthropic. Facts belong to their cited sources; descriptions are paraphrased. “Further reading” links point to Wikipedia.</li>
+    </ul>
+    <h3>How to cite</h3>
+    <p class="cite" id="citeLine"></p>
+    <p class="ver" id="verLine"></p>
+    <p class="by">Stuart Okin. A personal project, not affiliated with or endorsed by any employer.</p>
+  </div>
+</div>
+
+<script type="application/json" id="embedded-tours">/*TOURS-START*/{}/*TOURS-END*/</script>
+<script type="application/json" id="embedded-data">
+/*DATA-START*/{}/*DATA-END*/
+</script>
+<script>/*@include vendor/three.min.js*/</script>
+<script>/*@include vendor/orbitcontrols.js*/</script>
+<script>/*@include vendor/copyshader.js*/</script>
+<script>/*@include vendor/luminosityhighpassshader.js*/</script>
+<script>/*@include vendor/effectcomposer.js*/</script>
+<script>/*@include vendor/renderpass.js*/</script>
+<script>/*@include vendor/shaderpass.js*/</script>
+<script>/*@include vendor/unrealbloompass.js*/</script>
+<script>/*@include vendor/pptxgenjs.js*/</script>
+<script>/*@include js/00-start.js*//*@include js/01-data-loaded-from-data-data-json-or-the-e.js*//*@include js/02-state.js*//*@include js/03-three-setup.js*//*@include js/04-stage.js*//*@include js/05-items.js*//*@include js/06-filtering.js*//*@include js/07-window-manager.js*//*@include js/08-arrangements-five-presets-that-adapt-to-.js*//*@include js/09-windows-menu-arrangements-then-windows-i.js*//*@include js/10-filter-ui.js*//*@include js/11-refresh-targets-trends-stats-list.js*//*@include js/12-details.js*//*@include js/13-top-bar-keyboard.js*//*@include js/14-labels-dom.js*//*@include js/15-animation.js*//*@include js/16-time-linked-windows.js*//*@include js/17-ai-outlook-can-ai-and-digital-twins-shri.js*//*@include js/18-showcase-title.js*//*@include js/19-joke-ticker.js*//*@include js/20-music.js*//*@include js/21-powerpoint-report-three-slides-native-ed.js*//*@include js/22-data-changes-from-the-agents-change-log-.js*//*@include js/23-statistics-helpers-ranges-small-samples-.js*//*@include js/24-play-range-custom-from-and-to-the-whole-.js*//*@include js/25-colour-blind-safe-palette.js*//*@include js/26-next-and-previous-milestone-keyboard-and.js*//*@include js/27-shareable-links-the-current-filters-and-.js*//*@include js/28-help-one-source-for-hover-tips-press-and.js*//*@include js/29-readiness-gb-status-cyber-lens-and-forec.js*//*@include js/30-short-descriptions-long-explanatory-text.js*//*@include js/31-welcome-screen-and-guided-tours.js*//*@include js/32-saved-views-json.js*//*@include js/33-ideas-from-the-room-audience-form.js*//*@include js/34-countdown-and-thank-you.js*//*@include js/35-video-windows.js*//*@include js/36-start.js*/</script>
+</body>
+</html>
