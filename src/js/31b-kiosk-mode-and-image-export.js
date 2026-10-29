@@ -12,6 +12,11 @@ const KIOSK_SCRIPT = [
   {scene:'tour', id:'fortune'},
   {scene:'tour', id:'how'}
 ];
+const KIOSK_SAY = {
+  wait:() => 'Welcome to The Shrinking Gap from Research to Change. A century of research breakthroughs is playing now, from first research to real-world use. Touch the screen to explore it yourself.',
+  desnz:() => ['This view follows the DESNZ AI energy vision. The Vision radar shows how ready each area’s technologies are, and what is arriving next.'].concat(narrative('horizon', ['answer'])).join(' '),
+  analysis:() => ['The findings dashboard brings the headline results together.'].concat(narrative('gap', ['answer'])).join(' ')
+};
 const kiosk = {on:false, i:0, timer:0, idleTimer:0, paused:false, opts:{sound:'narration', ticker:true, qr:true, idleSeconds:60}};
 function setMusic(on){ if (on === music.paused) toggleMusic(); }
 function siteUrl(){ return location.protocol.indexOf('http') === 0 ? location.origin + location.pathname : ''; }
@@ -36,15 +41,30 @@ function kioskStart(opts){
 function kioskScene(){
   clearTimeout(kiosk.timer); if (!kiosk.on || kiosk.paused) return;
   const sc = KIOSK_SCRIPT[kiosk.i % KIOSK_SCRIPT.length]; kiosk.i++;
-  if (sc.scene === 'tour' && TOURS[sc.id]) { startTour(sc.id); return; }   // the tour moves on to the next scene when it ends
+  if (sc.scene === 'tour' && TOURS[sc.id]) { kioskCapOff(); startTour(sc.id); return; }   // the tour moves on to the next scene when it ends
   resetToDefaults(); applyPreset(sc.name);
+  kioskSay(sc);
   if (sc.name === 'wait') { tick.mode = 'both'; applyTicker(); buildTicker(); if (!kiosk.opts.ticker) setOpen('ticker', false); }
   if (kiosk.opts.sound === 'music') setMusic(true);
   kiosk.timer = setTimeout(kioskScene, sc.seconds * 1000);
 }
+/* captions (and the voice, in narration mode) for the arrangement scenes, using the tour's caption bar without its controls */
+function kioskSay(sc){
+  const f = KIOSK_SAY[sc.name]; if (!f) return;
+  const bar = $('tourBar'); bar.classList.add('on', 'kioskcap'); $('tourTitle').textContent = sc.note || 'Kiosk';
+  tour.token++; tourSay(f(), () => {});
+}
+function kioskCapOff(){ const bar = $('tourBar'); if (bar.classList.contains('kioskcap')) { bar.classList.remove('on', 'kioskcap'); tour.token++; clearTimeout(tour.timer); if ('speechSynthesis' in window) speechSynthesis.cancel(); if (tour.audio) tour.audio.pause(); } }
+/* a visible notice while the kiosk is paused for a visitor, counting down to when it resumes */
+function kioskPill(){
+  const el = $('kioskPill'); clearInterval(kioskPill.t);
+  if (!kiosk.on || !kiosk.paused) { el.classList.remove('on'); return; }
+  const tick = () => { const left = Math.max(0, Math.ceil((kiosk.resumeAt - Date.now()) / 1000)); el.textContent = `Kiosk paused while you explore. It carries on in ${left} s without a touch. Escape leaves kiosk mode.`; };
+  tick(); el.classList.add('on'); kioskPill.t = setInterval(tick, 1000);
+}
 function kioskStop(){
   if (!kiosk.on) return;
-  kiosk.on = false; clearTimeout(kiosk.timer); clearTimeout(kiosk.idleTimer);
+  kiosk.on = false; clearTimeout(kiosk.timer); clearTimeout(kiosk.idleTimer); kioskCapOff(); kioskPill();
   if (tour.on) { tour.on = false; tour.token++; clearTimeout(tour.timer); if ('speechSynthesis' in window) speechSynthesis.cancel(); if (tour.audio) tour.audio.pause(); document.body.classList.remove('touring'); $('tourBar').classList.remove('on'); $('tourCursor').classList.remove('on'); tourHighlight(null); }
   document.body.classList.remove('kiosk'); showQr(false); setMusic(false); tour.muted = !!prefs.tourMuted; syncMute();
   resetToDefaults(); applyPreset('explore'); toast('Kiosk mode off.');
@@ -55,10 +75,10 @@ function kioskInteraction(){
   if (!kiosk.paused) {
     kiosk.paused = true; clearTimeout(kiosk.timer);
     if (tour.on) { tour.on = false; tour.token++; clearTimeout(tour.timer); if ('speechSynthesis' in window) speechSynthesis.cancel(); if (tour.audio) tour.audio.pause(); document.body.classList.remove('touring'); $('tourBar').classList.remove('on'); $('tourCursor').classList.remove('on'); tourHighlight(null); resetToDefaults(); applyPreset('explore'); }
-    toast(`Explore freely. The kiosk carries on after ${kiosk.opts.idleSeconds} seconds without a touch.`);
+    kioskCapOff();
   }
-  clearTimeout(kiosk.idleTimer);
-  kiosk.idleTimer = setTimeout(() => { if (!kiosk.on) return; kiosk.paused = false; kiosk.i = 0; winMenu.classList.remove('open'); kioskScene(); }, kiosk.opts.idleSeconds * 1000);
+  clearTimeout(kiosk.idleTimer); kiosk.resumeAt = Date.now() + kiosk.opts.idleSeconds * 1000; kioskPill();
+  kiosk.idleTimer = setTimeout(() => { if (!kiosk.on) return; kiosk.paused = false; kioskPill(); kiosk.i = 0; winMenu.classList.remove('open'); kioskScene(); }, kiosk.opts.idleSeconds * 1000);
 }
 window.addEventListener('keydown', e => {   // on the window, so it runs before any other key handling
   if (!kiosk.on) return;
@@ -66,6 +86,8 @@ window.addEventListener('keydown', e => {   // on the window, so it runs before 
   if (e.key === 'Escape') kioskStop(); else kioskInteraction();   // safe mode: only Escape does anything
 }, true);
 ['pointerdown', 'wheel'].forEach(ev => document.addEventListener(ev, e => { if (kiosk.on && !e.target.closest('#welcome')) kioskInteraction(); }, {capture:true, passive:true}));
+const tourTextsOnly = window.__tourTexts;
+window.__tourTexts = () => tourTextsOnly().concat(Object.keys(KIOSK_SAY).map(k => ({tour:'kiosk', step:k, text:KIOSK_SAY[k]().replace(/\s+/g, ' ').trim()})));
 /* welcome screen: the kiosk options */
 $('wKiosk').onclick = () => { $('wKioskOpts').classList.toggle('on'); clearTimeout(welcomeTimer); $('wAuto').textContent = ''; };
 $('wKioskGo').onclick = () => kioskStart({sound:document.querySelector('input[name="kSound"]:checked').value, ticker:$('kTicker').checked, qr:$('kQr').checked});
