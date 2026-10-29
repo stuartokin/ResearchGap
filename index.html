@@ -546,6 +546,11 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions{opacity:0;point
 #loading.done{opacity:0;pointer-events:none}
 @media (max-width:820px){ .actions .wide{display:none} #foot span:first-child{display:none} }
 @media (prefers-reduced-motion:reduce){ .win,#loading{transition:none} }
+
+/* Touch screens have no hover, so the title-bar controls of the toolbar and the Play window would always show: hide them there */
+@media (hover: none) { #w-toolbar > .wh, #w-player > .wh { display: none !important; } }
+/* Narrower landscape screens: five walk-through cards across */
+@media (max-width: 1000px) and (orientation: landscape) { .wcards { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; } .wcard { padding: 10px; } .wcard span:not(.wn) { display: none; } }
 </style>
 </head>
 <body>
@@ -3554,8 +3559,11 @@ function defaultLayout(){
   if (MOBILE) {
     const o = {}; const all = ['toolbar','footer','radar','cyber','findings','quality','table','changes','audience','pagetitle','title','ticker','player','sources','report','filters','display','summary','milestones','details','key','context','landing','gapchart','fortunes','vision','outlook','music','vid1','vid2'];
     const y0 = Math.max(Math.round(H * .18), tbH + 14);
-    all.forEach(id => { o[id] = {x:6, y:y0, w:W - 12, h:Math.min(Math.round(H * .6), H - y0 - 8), fs:.9, open:false}; });
-    o.player = {x:6, y:H - 196, w:W - 12, h:188, fs:.85, open:false};
+    const land = W >= H, cw = Math.round(Math.max(250, Math.min(420, W * .34))), band = Math.max(y0, Math.round(H * .5));
+    // windows open beside the model (landscape) or below it (portrait), never across the centre
+    all.forEach(id => { o[id] = land ? {x:W - cw - 6, y:y0, w:cw, h:H - y0 - 8, fs:.9, open:false} : {x:6, y:band, w:W - 12, h:Math.max(160, H - band - 176), fs:.9, open:false}; });
+    o.player = land ? {x:6, y:H - 158, w:W - cw - 18, h:150, fs:.8, open:false} : {x:6, y:H - 168, w:W - 12, h:160, fs:.8, open:false};
+    o.ticker = {x:6, y:H - 58, w:W - 12, h:50, fs:.85, open:false};
     o.toolbar = {x:6, y:6, w:W - 12, h:tbH, fs:1, open:true};
     o.findings.open = true;   // phones open on the headline findings, with the 3D model a tap away
     o.footer = {x:6, y:H - footH - 4, w:W - 12, h:footH, fs:.9, open:false};
@@ -3688,11 +3696,38 @@ const winMenu = $('winMenu');
 /* ==================================================================
  *  ARRANGEMENTS: five presets that adapt to phone, tablet, laptop and large screens without overlapping
  * ================================================================== */
-function screenClass(){ const W = innerWidth, H = innerHeight; if (MOBILE) return 'phone'; if (W < 1180 || (matchMedia('(pointer: coarse)').matches && W < 1400)) return 'tablet'; if (W < 1500 || H < 860) return 'small'; return W < 1900 ? 'laptop' : 'large'; }
+function screenClass(){ const W = innerWidth, H = innerHeight; if (MOBILE) return W >= H ? 'compact' : 'phone';   // compact: small landscape screens such as a folding phone opened out
+  if (H > W && W < 1100) return 'tabletP'; if (W < 1180 || (matchMedia('(pointer: coarse)').matches && W < 1400)) return 'tablet'; if (W < 1500 || H < 860) return 'small'; return W < 1900 ? 'laptop' : 'large'; }
+/* Small or portrait screens: the model keeps the open centre. Landscape: one content column on the right and a compact
+   Play strip along the bottom left. Portrait: the model on top, content and Play in the lower half. */
+function compactArrange(name, d, set, top, bot, W, H){
+  const g = 8, land = W >= H, ph = land ? Math.min(d.player.h, 150) : Math.min(d.player.h, 160);
+  d.player.fs = .8;
+  if (name === 'analysis') {   // a dashboard: two panels side by side, or one above the other
+    if (land) { const cw = (W - 12 - g) / 2; set('findings', 6, top, cw, bot - top); set('summary', 6 + cw + g, top, cw, bot - top); }
+    else { const mid = Math.round(top + (bot - top) / 2); set('findings', 6, top, W - 12, mid - top - 4); set('summary', 6, mid + 4, W - 12, bot - mid - 4); }
+    return d;
+  }
+  if (name === 'wait') { const th = 50; set('ticker', 6, bot - th, W - 12, th); d.ticker.fs = .85; bot -= th + g; }
+  const side = {explore:['findings'], play:['landing'], desnz:['radar']}[name] || [];
+  if (land) {
+    const cw = Math.round(Math.max(250, Math.min(420, W * .34))), xr = W - cw - 6;
+    if (name === 'wait') { const two = H >= 500, vh = Math.min(cw * 9 / 16 + 34, two ? (bot - top - g) / 2 : bot - top); set('vid1', xr, top, cw, vh); if (two) set('vid2', xr, top + vh + g, cw, vh); }   // one video on short screens
+    else side.forEach(id => set(id, xr, top, cw, bot - top));
+    set('player', 6, bot - ph, xr - g - 6, ph);
+  } else {
+    set('player', 6, bot - ph, W - 12, ph);
+    const y0 = Math.max(top, Math.round(H * .5)), y1 = bot - ph - g;
+    if (name === 'wait') { const vh = Math.min((W - 12) * 9 / 16 + 34, y1 - y0); if (vh > 120) set('vid1', 6, y1 - vh, Math.min(W - 12, (vh - 34) * 16 / 9), vh); }
+    else if (y1 - y0 >= 140) side.forEach(id => set(id, 6, y0, W - 12, y1 - y0));
+  }
+  return d;
+}
 function arrangeLayout(name){
   const d = defaultLayout(), W = innerWidth, H = innerHeight, g = 12, cls = screenClass(), big = cls === 'laptop' || cls === 'large';
   WIN_IDS.forEach(id => { d[id].open = false; d[id].sw = W; d[id].sh = H; });
-  d.toolbar.open = true; d.footer.open = cls !== 'phone'; d.pagetitle.open = cls !== 'phone';
+  const tight = cls === 'phone' || cls === 'compact';
+  d.toolbar.open = true; d.footer.open = !tight; d.pagetitle.open = !tight;
   const top = Math.max(d.pagetitle.open ? d.pagetitle.y + d.pagetitle.h : 0, d.toolbar.y + d.toolbar.h) + g;
   let bot = (d.footer.open ? d.footer.y : H) - g;
   const set = (id, x, y, w, h, open = true) => Object.assign(d[id], {x:Math.round(x), y:Math.round(y), w:Math.round(w), h:Math.round(h), open});
@@ -3700,6 +3735,7 @@ function arrangeLayout(name){
   // narrower side columns on smaller screens, so the timeline stays the focus
   const L = {tablet:Math.min(320, W * .36), small:Math.min(290, W * .23), laptop:Math.min(360, W * .25), large:Math.min(440, W * .23)}[cls] || 300;
   const Rw = {tablet:Math.min(320, W * .36), small:Math.min(310, W * .24), laptop:Math.min(400, W * .27), large:Math.min(520, W * .27)}[cls] || 320;
+  if (tight || cls === 'tabletP') return compactArrange(name, d, set, top, bot, W, H);   // small or portrait screens: protect the centre
   const xL = 12, xR = W - Rw - 12, xC = xL + L + g, wC = xR - g - xC, ph = d.player.h;
   const centrePlayer = (x0, w0, open = true) => { const pw = Math.min(d.player.w, Math.max(280, w0)); set('player', x0 + (w0 - Math.min(pw, w0)) / 2, bot - ph, Math.min(pw, w0), ph, open); };
   if (name === 'wait') {
@@ -5781,10 +5817,10 @@ function tourPlace(ids){
   const W = innerWidth, H = innerHeight, cls = screenClass(), bar = $('tourBar').getBoundingClientRect(), bottom = H - bar.height - 18, top = 70;
   WIN_IDS.forEach(id => { if (['toolbar', 'footer', 'pagetitle'].includes(id)) return; if (id !== 'player' || !ids.includes('player')) { layout[id].open = false; placeWin(id); } });
   const solid = ids.filter(id => id !== 'player');
-  if (ids.includes('player')) { const pw = Math.min(layout.player.w || 640, W - 24), ph = layout.player.h || 190; Object.assign(layout.player, {x:(W - pw) / 2, y:Math.max(top, bottom - ph - (solid.length && cls === 'phone' ? H * .4 : 0)), w:pw, h:ph, open:true}); placeWin('player'); }
+  if (ids.includes('player')) { const pw = Math.min(layout.player.w || 640, W - 24), ph = layout.player.h || 190; Object.assign(layout.player, {x:(W - pw) / 2, y:Math.max(top, bottom - ph), w:pw, h:ph, open:true}); placeWin('player'); }
   solid.forEach((id, k) => {
     let r;
-    if (cls === 'phone') r = {x:6, y:Math.max(top, H * .42), w:W - 12, h:bottom - Math.max(top, H * .42)};
+    if (H > W && W < 1100) r = {x:6, y:Math.max(top, H * .5), w:W - 12, h:bottom - Math.max(top, H * .5)};   // portrait: below the model
     else { const w = cls === 'large' ? Math.min(500, W * .3) : cls === 'laptop' ? Math.min(440, W * .32) : Math.min(380, W * .4); r = {x:id === 'filters' ? 14 : W - w - 14, y:top, w, h:bottom - top}; }
     Object.assign(layout[id], r, {open:true, sw:W, sh:H}); placeWin(id);
     if (id === 'findings') renderFindings(); if (id === 'outlook') renderOutlook(); if (id === 'summary') renderStats();

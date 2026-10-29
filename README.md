@@ -86,3 +86,17 @@ Keep each record’s `id` unchanged: saved views and the agents rely on it.
 ## Credits
 
 See `ATTRIBUTION.md`.
+
+
+## Editing the app
+
+The app's code lives in `src/`, split into small files; `index.html` is assembled from them and should not be edited by hand.
+
+| Folder | Contents |
+|---|---|
+| `src/index.html` | The page template: markup, with `/*@include …*/` markers |
+| `src/styles/app.css` | The app's styles |
+| `src/js/` | The app's code, in numbered sections (for example `07-window-manager.js`, `31-welcome-screen-and-guided-tours.js`), assembled in order |
+| `src/vendor/` | Fonts and libraries (three.js, PptxGenJS); never edited |
+
+To change something, upload the edited file into `src/`. The **Build the app** workflow then assembles `index.html`, embeds the current data, validates and smoke-tests it, and publishes it only if every check passes. To build locally, run `python tools/build.py`.
