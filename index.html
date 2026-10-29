@@ -322,7 +322,15 @@ label.dim{opacity:.45}
 .tbctl button{all:unset;cursor:pointer;min-width:38px;height:34px;padding:0 10px;border-radius:9px;border:1px solid var(--line-strong);display:inline-flex;align-items:center;justify-content:center;font-size:14px}
 .tbctl button:hover,.tbctl button:focus-visible{background:rgba(255,255,255,.08);outline:none}
 #tourSkip{margin-left:auto;color:#FFB3B3}
-body.touring #w-toolbar,body.touring #w-footer,body.touring #w-pagetitle{visibility:hidden!important}
+body.touring #w-footer,body.touring #w-pagetitle{visibility:hidden!important}
+body.touring #w-toolbar,body.touring #winMenu{pointer-events:none}
+#tourCursor{position:fixed;left:0;top:0;width:30px;height:30px;margin:-3px 0 0 -4px;z-index:3600;pointer-events:none;opacity:0;transition:transform .65s cubic-bezier(.4,.1,.2,1),opacity .25s;transform:translate(50vw,70vh)}
+#tourCursor.on{opacity:1}#tourCursor svg{width:100%;height:100%;filter:drop-shadow(0 2px 4px rgba(0,0,0,.6));transition:transform .15s}
+#tourCursor.press svg{transform:scale(.82)}
+#tourCursor::after{content:'';position:absolute;left:2px;top:2px;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;border:2px solid #FFD166;opacity:0;transform:scale(.3)}
+#tourCursor.press::after{animation:tourclick .45s ease-out}
+@keyframes tourclick{0%{opacity:1;transform:scale(.3)}100%{opacity:0;transform:scale(1.6)}}
+.tourpress{outline:2px solid #FFD166!important;outline-offset:2px;background:rgba(255,209,102,.18)!important}
 .tourhl{outline:2px solid #FFD166!important;outline-offset:2px;border-radius:8px;animation:tourpulse 1.4s ease-in-out infinite}
 @keyframes tourpulse{50%{outline-color:rgba(255,209,102,.25)}}
 .tclamp .tlead{color:inherit}
@@ -937,6 +945,7 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions{opacity:0;point
   <p class="wauto" id="wAuto"></p>
   <p class="note-s wnote">Narration uses your browser’s voice and can be muted. Press Escape at any time to leave a walk-through. AI-maintained data; may contain errors.</p>
 </div></div>
+<div id="tourCursor" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 2l15 10.5-6.6 1.3 3.9 7.4-3 1.5-3.8-7.5L4 20z" fill="#fff" stroke="#0b1724" stroke-width="1.4" stroke-linejoin="round"/></svg></div>
 <div id="tourBar" role="region" aria-label="Guided tour"><div class="tbtop"><span id="tourTitle"></span><span id="tourDots"></span></div><p id="tourCap" aria-live="polite"></p>
   <div class="tbctl"><button id="tourPrev" aria-label="Back">◀</button><button id="tourPause" aria-label="Pause">❚❚</button><button id="tourNext" aria-label="Next">▶</button><button id="tourMute" aria-label="Mute narration">🔊</button><button id="tourSkip">Leave tour ✕</button></div></div>
 <div id="toast" role="status" aria-live="polite"></div>
@@ -3130,7 +3139,7 @@ const FORTUNES = DB.founders.map(f => {
 });
 const fmtMoney = (bn, sym) => bn >= 1000 ? `${sym}${(bn / 1000).toFixed(1)}tn` : bn >= 1 ? `${sym}${bn >= 100 ? Math.round(bn) : Math.round(bn * 10) / 10}bn` : `${sym}${Math.round(bn * 1000)}m`;
 const DATA_AS_OF = DB.meta.asOf;
-const APP_VERSION = '9.4', APP_BUILD = '';
+const APP_VERSION = '9.5', APP_BUILD = '';
 // Screen-aware scaling: laptops slightly smaller, large screens larger
 const UI = (() => { const w = innerWidth; return w < 1280 ? .85 : w < 1500 ? .95 : w < 1800 ? 1.05 : w < 2300 ? 1.2 : 1.4; })();
 const LARGE = innerWidth >= 1700;
@@ -5584,11 +5593,16 @@ function gapFacts(){
 const yrs = v => v == null ? 'an unknown number of' : (v === 1 ? 'one' : String(v).replace(/\.0$/, ''));
 const TOURS = {
   gap: {title:'Is AI shrinking the gap from research to change?', facts:gapFacts, steps:[   // about 145 words: one minute of narration
-    {show:[], act:() => { tourFilters(); view.labelScope = 'major'; view.adoption = true; syncDisplayUI(); refresh(); resetView(); setAutoRotate(true); tourTimeline(null); },
-     say:f => `Each arc is a breakthrough. It rises when research began and lands at its first real-world use. Taller arcs mean longer gaps.`},
-    {show:['player'], act:() => tourTimeline(Y0, 3),
+    {show:[], act:() => { tourFilters(); view.lanes = 's'; view.colour = 's'; view.labelScope = 'major'; view.adoption = true; syncDisplayUI(); refresh(); resetView(); setAutoRotate(true); tourTimeline(null); },
+     say:f => `Each arc is a research breakthrough, from a university, a government lab or industry. It rises when the research began, lands at the first product, and a thinner arc runs on to large-scale adoption.`},
+    {show:['details'], pick:() => { const it = tourExample(); return it && it.labelEl && it.labelEl.offsetParent ? it.labelEl : null; },
+     act:() => { const it = tourExample(); if (it) { hidden.delete(it.id); openDetail(it); } },
+     say:f => { const it = tourExample(); if (!it) return 'Select any arc to see its story.';
+       const where = {academic:'at a university', industry:'in industry', government:'in a government lab'}[it.s] || '';
+       return `For example: ${it.t}. Research ${it.co ? `at ${it.co}` : where} began in ${it.r}, the first product came in ${it.p}${it.adopt && it.adopt <= NOW ? `, and it was in mainstream use by ${it.adopt}` : ''}.`; }},
+    {show:['player'], pick:() => $('playBtn'), act:() => { setOpen('details', false); tourTimeline(Y0, 3); },
      say:f => `Here is a century of change. Thinner arcs carry on to mainstream adoption${f.adopt != null ? `, typically ${yrs(f.adopt)} years later` : ''}.`},
-    {show:['findings'], act:() => tourTimeline(2000, 1.2),
+    {show:['findings'], act:() => { view.lanes = 'v'; view.colour = 'v'; syncDisplayUI(); refresh(); tourTimeline(2000, 1.2); },
      say:f => ({shrunk:`Overall, the gap has shrunk: ${yrs(f.pre)} years before 1970, ${yrs(f.recent)} since 2000.`,
                 grown:`Overall, the gap has grown: ${yrs(f.pre)} years before 1970, ${yrs(f.recent)} since 2000.`,
                 flat:`Overall, the gap has barely changed: ${yrs(f.pre)} years before 1970, ${yrs(f.recent)} since 2000.`,
@@ -5629,6 +5643,11 @@ function tourTimeline(from, speed){   // play the years the narration is about; 
   if (from == null) { state.cursor = Y1; return; }
   view.playFrom = from <= Y0 ? null : from; view.playTo = null; playSpeed = speed || 1.5; syncPlayRangeUI(); startPlay();
 }
+function tourExample(){   // a well-known breakthrough with all three stages in the data
+  const ok = it => it && !it.removed && it.kind === 'hist' && it.adopt && it.adopt <= NOW;
+  const pref = ['transistor', 'lithium-ion-battery', 'world-wide-web', 'mrna-vaccines'].map(u => items.find(it => it.uid === u)).find(ok);
+  return pref || items.filter(it => ok(it) && it.major).sort((a, b) => a.r - b.r)[0] || null;
+}
 function tourHighlight(sel){ document.querySelectorAll('.tourhl').forEach(e => e.classList.remove('tourhl')); if (sel) document.querySelectorAll(sel).forEach(e => e.classList.add('tourhl')); }
 function tourFilters(){ Object.assign(F, JSON.parse(JSON.stringify(Object.assign({}, DEFAULT_FILTERS, {fields:null})))); F.fields = new Set(FKEYS.filter(k => FIELDS[k] && !FIELDS[k].custom)); }
 function tourPlace(ids){
@@ -5655,17 +5674,46 @@ function tourSay(text, done){
   speechSynthesis.speak(u);
   tour.timer = setTimeout(fin, est + 4000);   // safety net: some browsers never report the end of speech
 }
+function tourPick(id, pick, tok, done){
+  const cur = $('tourCursor'), hide = () => cur.classList.remove('on');
+  cur.classList.add('on');
+  const move = (el, then) => {
+    const r = el.getBoundingClientRect(); cur.style.transform = `translate(${r.left + Math.min(r.width / 2, 60)}px, ${r.top + r.height / 2}px)`;
+    setTimeout(() => {
+      if (tok !== tour.token) return hide();
+      cur.classList.add('press'); el.classList.add('tourpress');
+      setTimeout(() => { cur.classList.remove('press'); el.classList.remove('tourpress'); if (tok === tour.token) then(); else hide(); }, 380);
+    }, 700);
+  };
+  const target = pick ? pick() : null;
+  if (target) return move(target, () => { hide(); done(); });
+  move($('winBtn'), () => {   // through the Windows menu, as a visitor would
+    positionWinMenu(); winMenu.classList.add('open');
+    const g = WIN_GROUPS.find(x => x[2].includes(id)); view.menuGroups = view.menuGroups || {}; if (g) view.menuGroups[g[0]] = true; buildWinMenu();
+    const item = winMenu.querySelector(`button[data-w="${id}"]`);
+    if (!item) { winMenu.classList.remove('open'); hide(); return done(); }
+    item.scrollIntoView({block:'nearest'});
+    setTimeout(() => { if (tok !== tour.token) { winMenu.classList.remove('open'); return hide(); } move(item, () => { winMenu.classList.remove('open'); hide(); done(); }); }, 250);
+  });
+}
 function tourStep(i){
   const T = TOURS[tour.id]; if (i < 0) i = 0; if (i >= T.steps.length) return endTour('done');
   tour.i = i; tour.token++; clearTimeout(tour.timer); if ('speechSynthesis' in window) speechSynthesis.cancel();
-  const st = T.steps[i];
+  const st = T.steps[i], before = WIN_IDS.filter(id => layout[id].open && !['toolbar', 'footer', 'pagetitle'].includes(id));
   try { if (st.act) st.act(tour.facts); } catch (e) { console.warn('tour step action failed', e); }
   let text; try { text = st.say(tour.facts); } catch (e) { text = ''; }
   $('tourCap').textContent = text;   // set the caption first, so windows are sized to the space it leaves
   $('tourDots').innerHTML = T.steps.map((s, k) => `<i class="${k === i ? 'on' : k < i ? 'done' : ''}"></i>`).join('');
-  tourPlace(st.show || []); requestAnimationFrame(() => { if (tour.on) tourPlace(st.show || []); });
+  const show = st.show || [], fresh = show.filter(id => !before.includes(id)), tok = tour.token;
+  tourPlace(show.filter(id => before.includes(id)));   // keep windows that carry on; new ones are opened by the pointer
+  let spoken = false, seen = !fresh.length;
+  const advance = () => { if (tok === tour.token && spoken && seen && !tour.paused) tourStep(tour.i + 1); };
+  const finish = () => { if (tok !== tour.token) return; tourPlace(show); fresh.forEach(id => flashWin(id)); requestAnimationFrame(() => { if (tour.on && tok === tour.token) tourPlace(show); });
+    if (fresh.length) setTimeout(() => { seen = true; advance(); }, 3000); };
+  winMenu.classList.remove('open');
+  if (fresh.length) tourPick(fresh[0], st.pick, tok, finish); else finish();
   tour.paused = false; $('tourPause').textContent = '❚❚'; $('tourPause').setAttribute('aria-label', 'Pause');
-  tourSay(text, () => tourStep(tour.i + 1));
+  tourSay(text, () => { spoken = true; advance(); });
 }
 function startTour(id){
   closeWelcome(false);
@@ -5681,7 +5729,7 @@ function startTour(id){
 function endTour(how){
   if (!tour.on) return;
   tour.on = false; tour.token++; clearTimeout(tour.timer); if ('speechSynthesis' in window) speechSynthesis.cancel();
-  document.body.classList.remove('touring'); $('tourBar').classList.remove('on'); tourHighlight(null); $('spot').classList.remove('on', 'concl', 'chg');
+  document.body.classList.remove('touring'); $('tourBar').classList.remove('on'); $('tourCursor').classList.remove('on'); winMenu.classList.remove('open'); tourHighlight(null); $('spot').classList.remove('on', 'concl', 'chg');
   toast(how === 'done' ? 'Tour complete. Starting the tool…' : 'Leaving the tour. Starting the tool…');
   if (state.playing) stopPlay();
   const sv = tour.saved || {}; if (sv.view) Object.keys(sv.view).forEach(k => { view[k] = sv.view[k]; });
