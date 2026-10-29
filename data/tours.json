@@ -1,5 +1,5 @@
 {
- "version": 13,
+ "version": 14,
  "updated": "2026-10-29",
  "updatedBy": "tour-agent",
  "note": "Narration templates for the guided tours. Figures come from {placeholders} filled from the live data; conclusions are chosen by rules in the app ({\"by\": fact, \"cases\": {...}}). The weekly tour agent may refine wording and choose examples, within the rules checked by tools/validate.py.",
@@ -8,8 +8,8 @@
    "title": "Is AI shrinking the gap from research to change?",
    "exampleIds": [
     "penicillin",
-    "integrated-circuit",
     "radar",
+    "integrated-circuit",
     "mrna-vaccines"
    ],
    "steps": {
@@ -21,11 +21,11 @@
       "by": "exFound",
       "cases": {
        "yes": [
-        "For example: {exTitle}. Research {exWhere} began in {exR}, the first product came in {exP}",
+        "For example: {exTitle}. Research {exWhere} began in {exR}; the first product came in {exP}",
         {
          "by": "exHasAdopt",
          "cases": {
-          "yes": ", and it was in mainstream use by {exAdopt}.",
+          "yes": ", and mainstream use followed by {exAdopt}.",
           "no": "."
          }
         }
@@ -131,7 +131,7 @@
    "title": "What AI-assisted products are on the horizon for the energy system?",
    "steps": {
     "intro": {
-     "say": "The Department for Energy Security and Net Zero (DESNZ) has set out a vision for a clean energy system supported by AI, split into distinct areas. Diamonds mark stories linked to the vision, playing from 1980 onwards."
+     "say": "The Department for Energy Security and Net Zero (DESNZ) has set out a vision for a clean energy system supported by AI, divided into distinct areas. Diamonds mark stories linked to that vision, playing through from 1980 onwards."
     },
     "radar": {
      "say": "The Vision radar shows how close each area's technologies are to everyday use: {nResearch} still in research, {nPilot} in pilots, {nCommercial} in early commercial use and {nScale} in wide use. Of these, {nGB} are already used in Great Britain."
@@ -158,7 +158,7 @@
      "say": "The Data changes window lists everything the agents add or correct each week. Here it is filtered to show only changes linked to the vision."
     },
     "slide": {
-     "say": "For a briefing, the PowerPoint report window creates a one-slide summary of all five areas, ready to drop into a deck."
+     "say": "For a briefing, the PowerPoint report window creates a single-slide summary covering every area of the vision, ready to drop into a deck."
     },
     "answer": {
      "say": [
@@ -199,7 +199,7 @@
      "say": {
       "by": "gapCase",
       "cases": {
-       "some": "Some technologies that have arrived since 2010 have no security response recorded in their category yet. So far there are {gapCount}, including {gapTitle}.",
+       "some": "Gaps remain. Some technologies that have arrived since 2010 have no security response recorded in their category yet. The count so far is {gapCount}, including {gapTitle}.",
        "none": "In this data, every technology that has arrived since 2010 has a security response recorded in its category."
       }
      }
@@ -211,8 +211,8 @@
      "say": {
       "by": "guideCase",
       "cases": {
-       "some": "Each week, a guidance agent logs newly published security guidance, giving priority to the CAF and to Ofgem's publications. The latest: {guideTitle}.",
-       "none": "Each week, a guidance agent logs newly published security guidance, giving priority to the CAF and to Ofgem's publications."
+       "some": "Each week, an AI agent logs newly published security guidance, giving priority to the CAF and to Ofgem's publications. The latest: {guideTitle}.",
+       "none": "Each week, an AI agent logs newly published security guidance, giving priority to the CAF and to Ofgem's publications."
       }
      }
     },
@@ -256,7 +256,7 @@
      }
     },
     "fastest": {
-     "say": "Sort by speed: so far, the quickest journey from founding to fortune belongs to {fastestCo}, taking {fastestTime}."
+     "say": "Sort by speed and the quickest journey so far comes first: {fastestCo}, which took {fastestTime} to go from founding to fortune."
     },
     "uk": {
      "say": {
@@ -298,7 +298,7 @@
      "say": "This model is maintained by AI agents that run every week. It holds {nMilestones} milestones so far."
     },
     "research": {
-     "say": "A research agent looks for new breakthroughs and products in every field and vision area of the Department for Energy Security and Net Zero (DESNZ). Everything it adds appears in the 'Data changes' view."
+     "say": "A research agent searches for new breakthroughs and products in each field and vision area of the Department for Energy Security and Net Zero (DESNZ). Everything it adds appears in the 'Data changes' view."
     },
     "qa": {
      "say": "A second agent checks each new entry independently. It requires more than one source, and the quoted evidence must really appear on the cited page. Nothing is ever deleted."

@@ -2,7 +2,7 @@
  "$schema": "./schema.json",
  "meta": {
   "title": "The Shrinking Gap from Research to Change",
-  "revision": 21,
+  "revision": 22,
   "version": "8.0",
   "asOf": "2026-10-29",
   "horizonYears": 10,
@@ -10,7 +10,7 @@
   "author": "Stuart Okin",
   "maintainedBy": "AI agents using Claude (Anthropic), without human review",
   "disclaimer": "Personal project by Stuart Okin, not affiliated with or endorsed by any employer. Data is compiled and maintained by AI agents without human review and may contain errors. Outlook years are AI estimates, not forecasts.",
-  "lastAgentRun": "2026-10-29T19:36Z",
+  "lastAgentRun": "2026-10-29T20:45Z",
   "changelog": [
    {
     "date": "2026-10-28",
@@ -881,6 +881,54 @@
      "optical-interconnects-in-ai-data-centres: source added",
      "neuromorphic-chips-at-the-edge: source added",
      "tours: walk-through scripts refreshed (version 13)"
+    ]
+   },
+   {
+    "date": "2026-10-29",
+    "time": "20:45",
+    "revision": 22,
+    "summary": "0 added, 18 corrected, 0 outlook re-estimated, 2 disputed, 1 broken links, 2 guidance updates.",
+    "stats": {
+     "milestones": 474,
+     "sourceCited": 175,
+     "aiCompiled": 221,
+     "aiEstimate": 78,
+     "adoptionKnown": 76,
+     "landed": 374,
+     "regionKnown": 474
+    },
+    "usage": {
+     "calls": 6,
+     "inputTokens": 456368,
+     "outputTokens": 42151,
+     "searches": 29,
+     "model": "claude-sonnet-5-5"
+    },
+    "deepAudit": false,
+    "details": [
+     "driverless-cars: source added",
+     "computer-weather-forecasting: source added",
+     "computer-weather-forecasting: note updated",
+     "power-system-state-estimation: source added",
+     "synchrophasor-measurement: note updated",
+     "wind-power-forecasting: research.year 1990 → 1992",
+     "wind-power-forecasting: research.what updated",
+     "wind-power-forecasting: change.year 1996 → 1994",
+     "wind-power-forecasting: source added",
+     "smart-ev-charging: source added",
+     "machine-learning-solar-nowcasting: source added",
+     "combined-cycle-gas-turbine: source added",
+     "floating-offshore-wind: source added",
+     "capacitive-touchscreen: adoption estimate 2007",
+     "capacitive-touchscreen: readiness commercial → scale",
+     "capacitive-touchscreen: tags added",
+     "compact-disc: research.what updated",
+     "compact-disc: readiness commercial → scale",
+     "disputed: synchrophasor-measurement",
+     "disputed: smart-ev-charging",
+     "guidance: ETSI EN 303 994 (Parts 1-3) V1.1.2: Privileged Access Workstations (Physical Device, Connectivity, System Integration)",
+     "guidance: ETSI TS 104 275 V1.1.1: Applying Baseline Cyber Security Requirements for AI Models and Systems to Generative AI (Preventing Harm from Deepfakes)",
+     "tours: walk-through scripts refreshed (version 14)"
     ]
    }
   ],
@@ -6920,10 +6968,10 @@
     "major": true
    },
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -6940,7 +6988,15 @@
     "note": "Remote updates and sensors can be attacked to cause physical harm.",
     "basis": "ai-compiled",
     "guidance": "autonomy"
-   }
+   },
+   "refs": [
+    {
+     "label": "Waymo blog, 8 Oct 2020",
+     "url": "https://waymo.com/blog/2020/10/waymo-is-opening-its-fully-driverless-service-in-phoenix/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ]
   },
   {
    "id": "consumer-drones",
@@ -7742,13 +7798,13 @@
     "what": "Operational numerical weather prediction begins."
    },
    "confidence": "medium",
-   "note": "Sweden (Rossby's group at SMHI) produced an operational numerical forecast in 1954; US operational NWP began in 1955 under the JNWPU.",
+   "note": "Wikipedia's NWP article says Rossby's group at SMHI produced the first operational forecast in 1954. The 1955 date is for US operational NWP (JNWPU).",
    "desnz": "opt",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -7763,14 +7819,23 @@
    },
    "gb": {
     "status": "unknown",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "Weather model output underpins GB wind, solar and demand forecasts used for system balancing."
    },
    "security": {
     "expandsAttackSurface": true,
     "note": "Brings software and data into control-room decisions, so data integrity and model security matter.",
     "basis": "ai-compiled",
     "guidance": "ot"
-   }
+   },
+   "refs": [
+    {
+     "label": "NOAA: History of Numerical Weather Prediction",
+     "url": "https://www.vos.noaa.gov/MWL/dec_07/weatherprediction.shtml",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ]
   },
   {
    "id": "power-system-state-estimation",
@@ -7790,10 +7855,10 @@
    "note": "The first time software, not just operators, built a live picture of the grid.",
    "desnz": "opt",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -7807,14 +7872,23 @@
    },
    "gb": {
     "status": "unknown",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "State estimation is core to NESO and network control-room visibility; it is increasingly extended to distribution networks."
    },
    "security": {
     "expandsAttackSurface": true,
     "note": "Brings software and data into control-room decisions, so data integrity and model security matter.",
     "basis": "ai-compiled",
     "guidance": "ot"
-   }
+   },
+   "refs": [
+    {
+     "label": "Springer: State Estimation",
+     "url": "https://link.springer.com/chapter/10.1007/978-3-319-93922-3_2",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ]
   },
   {
    "id": "synchrophasor-measurement",
@@ -7831,14 +7905,15 @@
     "what": "First commercial phasor measurement units."
    },
    "confidence": "medium",
-   "note": "High-speed grid data: one of the foundations the vision says AI depends on.",
+   "note": "Dates vary by source: prototypes in the early 1980s (Phadke and Thorp book) or 1988 (Wikipedia and patents); first commercial PMU 1991 (Phadke) or 1992 (others).",
    "desnz": "opt",
    "provenance": {
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
-    "approximate": false
+    "lastChecked": "2026-10-29",
+    "approximate": false,
+    "qaNote": "Sources conflict on both dates. The Phadke and Thorp book places first GPS prototypes in the early 1980s, while Wikipedia and patents give 1988. Phadke's own account says the first commercial Macrodyne 1690 appeared in 1991, while others give 1992. I left both years unchanged and added refs and a note. The tag 'ai-models' is wrong for this record."
    },
    "region": "us",
    "tags": [
@@ -7852,13 +7927,17 @@
    },
    "gb": {
     "status": "unknown",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "Wide-area monitoring is used for GB stability and inertia monitoring as inverter-based generation grows."
    },
    "security": {
     "expandsAttackSurface": true,
     "note": "Adds digital control and communications to transmission and distribution assets.",
     "basis": "ai-compiled",
     "guidance": "ot"
+   },
+   "flags": {
+    "disputed": true
    }
   },
   {
@@ -7868,21 +7947,21 @@
    "status": "landed",
    "title": "Wind power forecasting",
    "research": {
-    "year": 1990,
-    "what": "Risø, the Danish national laboratory, develops statistical wind power prediction."
+    "year": 1992,
+    "what": "DTU's Department of Mathematical Modelling and Elsam begin developing the Wind Power Prediction Tool (WPPT), a statistical wind power prediction model, in an EC-funded project."
    },
    "change": {
-    "year": 1996,
+    "year": 1994,
     "what": "DTU's Wind Power Prediction Tool (WPPT) enters operational use in Elsam/Eltra control rooms in western Denmark."
    },
    "confidence": "medium",
    "note": "Forecasting was the first job machine learning did for renewables.",
    "desnz": "opt",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": true
    },
    "region": "europe",
@@ -7897,14 +7976,35 @@
    },
    "gb": {
     "status": "unknown",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "Wind forecasts feed GB balancing and reserve decisions as offshore wind capacity grows."
    },
    "security": {
     "expandsAttackSurface": true,
     "note": "Inverters and turbine controllers are networked and often vendor-managed remotely.",
     "basis": "ai-compiled",
     "guidance": "ot"
-   }
+   },
+   "refs": [
+    {
+     "label": "https://www.osti.gov/etdeweb/servlets/purl/20599421",
+     "url": "https://www.osti.gov/etdeweb/servlets/purl/20599421",
+     "status": "ok",
+     "checked": "2026-10-29"
+    },
+    {
+     "label": "http://www.drgiebel.de/ShortTermPredLiterature.htm",
+     "url": "http://www.drgiebel.de/ShortTermPredLiterature.htm",
+     "status": "ok",
+     "checked": "2026-10-29"
+    },
+    {
+     "label": "DTU Orbit: WPPT, a tool for on-line wind power prediction",
+     "url": "https://orbit.dtu.dk/en/publications/wppt-a-tool-for-on-line-wind-power-prediction/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ]
   },
   {
    "id": "wind-turbine-predictive-maintenance",
@@ -8031,11 +8131,12 @@
    "note": "The vision names EV charging as an area where AI is already used.",
    "desnz": "demand",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
-    "approximate": false
+    "lastChecked": "2026-10-29",
+    "approximate": false,
+    "qaNote": "I could not support 2020 as the date when smart EV tariffs reached GB households at scale. Octopus launched its first EV tariff in 2018, and Ofgem reported 653k customers on smart time-of-use EV tariffs in July 2025, which points to scale later than 2020. The record is GB-specific, so the region should be uk rather than global. The 'ai-models' tag does not fit."
    },
    "region": "global",
    "tags": [
@@ -8048,13 +8149,25 @@
    },
    "gb": {
     "status": "deployed",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "Shifts EV charging to off-peak and low-carbon periods, easing GB distribution network peaks."
    },
    "security": {
     "expandsAttackSurface": true,
     "note": "Puts many remotely controllable devices at the grid edge, where coordinated misuse could move demand at scale.",
     "basis": "ai-compiled",
     "guidance": "edge"
+   },
+   "refs": [
+    {
+     "label": "Octopus Energy: Intelligent Octopus Go",
+     "url": "https://octopus.energy/smart/intelligent-octopus-go/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ],
+   "flags": {
+    "disputed": true
    }
   },
   {
@@ -8075,10 +8188,10 @@
    "note": "A UK example of research reaching the control room in about four years.",
    "desnz": "opt",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "uk",
@@ -8093,14 +8206,23 @@
    },
    "gb": {
     "status": "deployed",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "Live in the NESO control room, where better solar nowcasts reduce the reserve and balancing cost needed to cover uncertainty."
    },
    "security": {
     "expandsAttackSurface": true,
     "note": "Inverters and turbine controllers are networked and often vendor-managed remotely.",
     "basis": "ai-compiled",
     "guidance": "ot"
-   }
+   },
+   "refs": [
+    {
+     "label": "pv magazine: AI solar forecasting at NESO",
+     "url": "https://www.pv-magazine.com/2025/11/07/ai-powered-solar-forecasting-helps-uk-grid-operator-reduce-balancing-costs/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ]
   },
   {
    "id": "a-largely-self-running-energy-system",
@@ -8467,10 +8589,10 @@
    "confidence": "low",
    "note": "The technology behind the 1990s dash for gas.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": true
    },
    "region": "us",
@@ -8484,14 +8606,23 @@
    },
    "gb": {
     "status": "unknown",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "Gas combined-cycle plants are a major source of GB flexible dispatchable capacity."
    },
    "security": {
     "expandsAttackSurface": true,
     "note": "Plant control systems add operational technology exposure.",
     "basis": "ai-compiled",
     "guidance": "ot"
-   }
+   },
+   "refs": [
+    {
+     "label": "POWER: History of Power",
+     "url": "https://www.powermag.com/history-of-power-the-evolution-of-the-electric-generation-industry/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ]
   },
   {
    "id": "grid-scale-lithium-ion-storage",
@@ -13223,10 +13354,10 @@
     "major": true
    },
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "europe",
@@ -13240,14 +13371,23 @@
    },
    "gb": {
     "status": "deployed",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "Hywind Scotland (30 MW, off Peterhead) is operating. Floating foundations open up deep-water Scottish and Celtic Sea sites that fixed-bottom turbines cannot use, which matters for GB grid connection and offshore build-out."
    },
    "security": {
     "expandsAttackSurface": true,
     "note": "Inverters and turbine controllers are networked and often vendor-managed remotely.",
     "basis": "ai-compiled",
     "guidance": "ot"
-   }
+   },
+   "refs": [
+    {
+     "label": "Equinor: Hywind Scotland",
+     "url": "https://www.equinor.com/energy/hywind-scotland",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ]
   },
   {
    "id": "capacitive-touchscreen",
@@ -13269,21 +13409,30 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "europe",
    "subfield": "devices",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
    },
    "security": {
     "expandsAttackSurface": true,
     "note": "Adds connected endpoints that need patching and secure configuration.",
     "basis": "ai-compiled",
     "guidance": "hw"
-   }
+   },
+   "adoption": {
+    "year": 2007,
+    "what": "Capacitive touchscreens became the standard smartphone input with the LG Prada (2006) and the first iPhone (2007).",
+    "basis": "ai-estimate"
+   },
+   "tags": [
+    "semiconductors"
+   ]
   },
   {
    "id": "compact-disc",
@@ -13293,7 +13442,7 @@
    "title": "Compact disc",
    "research": {
     "year": 1974,
-    "what": "Philips and Sony develop optical digital audio."
+    "what": "Philips researchers combine optical readout and digital encoding for digital audio on disc; Sony joins in 1979."
    },
    "change": {
     "year": 1982,
@@ -13305,7 +13454,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "europe",
@@ -13314,8 +13463,9 @@
    ],
    "subfield": "memory",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
    },
    "security": {
     "expandsAttackSurface": false,
@@ -13343,7 +13493,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "asia",
@@ -26593,6 +26743,24 @@
    "title": "NIST SP 800-100r1 (Initial Public Draft): Information Security Handbook – A Guide for Executive Leadership",
    "summary": "NIST has published the first revision since 2006 of its executive information security handbook. The draft is restructured around CSF 2.0 and gives high-level summaries of governance, enterprise risk management, information exchange, configuration management, incident response and contingency planning, helping leaders oversee cyber risk programmes as their technology estates change. Comments are o",
    "url": "https://www.nist.gov/news-events/news/2026/10/nist-releases-draft-sp-800-100-revision-1-information-security-handbook",
+   "added": "2026-10-29",
+   "by": "guidance-agent"
+  },
+  {
+   "date": "2026-10",
+   "framework": "ETSI",
+   "title": "ETSI EN 303 994 (Parts 1-3) V1.1.2: Privileged Access Workstations (Physical Device, Connectivity, System Integration)",
+   "summary": "A three-part ETSI CYBER European Standard that sets requirements for privileged access workstations: the physical device, how it connects, and how it integrates into the wider system. Listed as 'On Approval', so not yet final. It could help reduce the risk of compromised admin endpoints being used to reach OT and cloud management planes.",
+   "url": "https://www.etsi.org/technical-groups/cyber/",
+   "added": "2026-10-29",
+   "by": "guidance-agent"
+  },
+  {
+   "date": "2026-09",
+   "framework": "ETSI",
+   "title": "ETSI TS 104 275 V1.1.1: Applying Baseline Cyber Security Requirements for AI Models and Systems to Generative AI (Preventing Harm from Deepfakes)",
+   "summary": "An ETSI Securing AI technical specification that applies the baseline AI security principles to generative AI, focusing on preventing harm from deepfakes. It supports the AI baseline already recorded (TS 104 223 and EN 304 223). It helps with impersonation and synthetic-media risks to operators of critical infrastructure.",
+   "url": "https://www.etsi.org/technical-groups/sai/",
    "added": "2026-10-29",
    "by": "guidance-agent"
   }
