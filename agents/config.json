@@ -18,8 +18,9 @@
     "deepAuditBatchSize": 100
   },
   "publish": {
-    "maxAdditionsPerRun": 10,
-    "minTitleSimilarityForDuplicate": 0.82
+    "maxAdditionsPerRun": 15,
+    "minTitleSimilarityForDuplicate": 0.82,
+    "reservedForVision": 5
   },
   "deepModel": "claude-opus-5-5",
   "pricing": {

@@ -8,7 +8,8 @@ Hard checks (code, not the model):
   1. Valid field, origin, status and years; the change year cannot precede the research year.
   2. Not a duplicate of an existing or pending milestone (fuzzy title match).
   3. At least two sources, each fetched by this code, each containing a distinctive term and the change year.
-  4. At most `maxProposalsPerField` per field and `maxAdditionsPerRun` overall.
+  4. At most `maxProposalsPerField` per field and `maxAdditionsPerRun` overall, with `reservedForVision` places
+     kept for the DESNZ vision-area searches (they run first; unused places go to the general searches).
 """
 import sys, json, re
 from common import norm
@@ -54,8 +55,11 @@ def run():
     as_of = int(db['meta']['asOf'][:4]); horizon = as_of + db['meta']['horizonYears']
     pending = load_pending(); accepted = 0; report = []
     vision_runs = [{'id': fid, 'name': fname, 'subfields': next((x.get('subfields', []) for x in db['fields'] if x['id'] == fid), []), 'vision': a} for a in (db.get('visionAreas', []) if cfg.get('visionSearches', True) else []) for fid, fname in [('energy', 'Energy')]]
-    for f in list(db['fields'][:cfg['fieldsPerRun']]) + vision_runs:
+    # DESNZ vision areas first, with places reserved for them; the general field searches then fill the rest
+    reserved, vision_accepted = pub.get('reservedForVision', 0), 0
+    for f in vision_runs + list(db['fields'][:cfg['fieldsPerRun']]):
         if accepted >= pub['maxAdditionsPerRun']: break
+        if f.get('vision') and reserved and vision_accepted >= reserved: continue
         va = f.get('vision')
         existing = [m['title'] for m in db['milestones']]   # every field, so cross-field duplicates are visible
         field_guide = '; '.join(f"{x['id']}: {x['name']}" for x in db['fields'])
@@ -107,9 +111,9 @@ def run():
               **({'forecast': {'estimatedYear': c['change_year'], 'estimatedOn': TODAY, 'revisions': []}} if c['status'] == 'outlook' else {}),
               'evidence_terms': c['evidence_terms'][:6], 'proposed': TODAY, 'attempts': 0
             })
-            accepted += 1
-            report.append(f"pending  [{f['id']}] {c['title']}")
-            if accepted >= pub['maxAdditionsPerRun']: break
+            accepted += 1; vision_accepted += 1 if f.get('vision') else 0
+            report.append(f"pending  [{'vision ' if f.get('vision') else ''}{f['id']}] {c['title']}")
+            if accepted >= pub['maxAdditionsPerRun'] or (f.get('vision') and reserved and vision_accepted >= reserved): break
     save_pending(pending)
     if founder_runs(): report += research_founders(db)
     print('\n'.join(report) or 'No candidates this run.')
