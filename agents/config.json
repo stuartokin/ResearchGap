@@ -54,5 +54,16 @@
     "lookbackDays": 45,
     "searches": 8,
     "maxUpdatesPerRun": 5
+  },
+  "tours": {
+    "enabled": true,
+    "maxStepsChangedPerRun": 3
+  },
+  "voice": {
+    "_note": "Human voice for the walk-throughs, recorded weekly by tools/make_voice.py. Add your provider key as the GitHub secret TTS_API_KEY; without it the app uses the browser voice.",
+    "provider": "azure",
+    "voice": "en-GB-SoniaNeural",
+    "region": "uksouth",
+    "maxCharsPerRun": 20000
   }
 }
