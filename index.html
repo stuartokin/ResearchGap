@@ -562,6 +562,9 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions{opacity:0;point
 body.touring #qrBadge.on{bottom:auto;top:calc(var(--safe-t,0px) + 70px)}
 @media (max-width:700px),(max-height:500px){#qrBadge.on{display:none}}
 body.kiosk #resetBtn,body.kiosk #winMenu [data-w="__load"],body.kiosk #winMenu [data-w="__save"],body.kiosk #winMenu [data-w="__kiosk"]{display:none!important}
+#tourBar.kioskcap .tbctl,#tourBar.kioskcap #tourDots{display:none}
+#kioskPill{position:fixed;left:50%;bottom:calc(var(--safe-b,0px) + 14px);transform:translateX(-50%);z-index:2750;display:none;max-width:min(720px,calc(100vw - 24px));padding:8px 16px;border-radius:999px;background:rgba(6,16,26,.92);border:1px solid rgba(255,209,102,.55);color:#FFE7A8;font-size:13px;text-align:center}
+#kioskPill.on{display:block}
 </style>
 </head>
 <body>
@@ -969,6 +972,7 @@ body.kiosk #resetBtn,body.kiosk #winMenu [data-w="__load"],body.kiosk #winMenu [
   <p class="wauto" id="wAuto"></p>
   <p class="note-s wnote">Narration uses your browser’s voice and can be muted. Press Escape at any time to leave a walk-through. AI-maintained data; may contain errors.</p>
 </div></div>
+<div id="kioskPill" role="status" aria-live="polite"></div>
 <div id="qrBadge" aria-label="QR code to open this site on your phone"><div id="qrImg"></div><span>Explore on your phone</span></div>
 <div id="tourCursor" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 2l15 10.5-6.6 1.3 3.9 7.4-3 1.5-3.8-7.5L4 20z" fill="#fff" stroke="#0b1724" stroke-width="1.4" stroke-linejoin="round"/></svg></div>
 <div id="tourBar" role="region" aria-label="Guided tour"><div class="tbtop"><span id="tourTitle"></span><span id="tourDots"></span></div><div class="tbai">AI-generated narration and voice, updated weekly by AI agents. No human review.</div><p id="tourCap" aria-live="polite"></p>
@@ -5463,7 +5467,7 @@ const FORTUNES = DB.founders.map(f => {
 });
 const fmtMoney = (bn, sym) => bn >= 1000 ? `${sym}${(bn / 1000).toFixed(1)}tn` : bn >= 1 ? `${sym}${bn >= 100 ? Math.round(bn) : Math.round(bn * 10) / 10}bn` : `${sym}${Math.round(bn * 1000)}m`;
 const DATA_AS_OF = DB.meta.asOf;
-const APP_VERSION = '10.2', APP_BUILD = '';
+const APP_VERSION = '10.3', APP_BUILD = '';
 // Screen-aware scaling: laptops slightly smaller, large screens larger
 const UI = (() => { const w = innerWidth; return w < 1280 ? .85 : w < 1500 ? .95 : w < 1800 ? 1.05 : w < 2300 ? 1.2 : 1.4; })();
 const LARGE = innerWidth >= 1700;
@@ -8308,6 +8312,11 @@ const KIOSK_SCRIPT = [
   {scene:'tour', id:'fortune'},
   {scene:'tour', id:'how'}
 ];
+const KIOSK_SAY = {
+  wait:() => 'Welcome to The Shrinking Gap from Research to Change. A century of research breakthroughs is playing now, from first research to real-world use. Touch the screen to explore it yourself.',
+  desnz:() => ['This view follows the DESNZ AI energy vision. The Vision radar shows how ready each area’s technologies are, and what is arriving next.'].concat(narrative('horizon', ['answer'])).join(' '),
+  analysis:() => ['The findings dashboard brings the headline results together.'].concat(narrative('gap', ['answer'])).join(' ')
+};
 const kiosk = {on:false, i:0, timer:0, idleTimer:0, paused:false, opts:{sound:'narration', ticker:true, qr:true, idleSeconds:60}};
 function setMusic(on){ if (on === music.paused) toggleMusic(); }
 function siteUrl(){ return location.protocol.indexOf('http') === 0 ? location.origin + location.pathname : ''; }
@@ -8332,15 +8341,30 @@ function kioskStart(opts){
 function kioskScene(){
   clearTimeout(kiosk.timer); if (!kiosk.on || kiosk.paused) return;
   const sc = KIOSK_SCRIPT[kiosk.i % KIOSK_SCRIPT.length]; kiosk.i++;
-  if (sc.scene === 'tour' && TOURS[sc.id]) { startTour(sc.id); return; }   // the tour moves on to the next scene when it ends
+  if (sc.scene === 'tour' && TOURS[sc.id]) { kioskCapOff(); startTour(sc.id); return; }   // the tour moves on to the next scene when it ends
   resetToDefaults(); applyPreset(sc.name);
+  kioskSay(sc);
   if (sc.name === 'wait') { tick.mode = 'both'; applyTicker(); buildTicker(); if (!kiosk.opts.ticker) setOpen('ticker', false); }
   if (kiosk.opts.sound === 'music') setMusic(true);
   kiosk.timer = setTimeout(kioskScene, sc.seconds * 1000);
 }
+/* captions (and the voice, in narration mode) for the arrangement scenes, using the tour's caption bar without its controls */
+function kioskSay(sc){
+  const f = KIOSK_SAY[sc.name]; if (!f) return;
+  const bar = $('tourBar'); bar.classList.add('on', 'kioskcap'); $('tourTitle').textContent = sc.note || 'Kiosk';
+  tour.token++; tourSay(f(), () => {});
+}
+function kioskCapOff(){ const bar = $('tourBar'); if (bar.classList.contains('kioskcap')) { bar.classList.remove('on', 'kioskcap'); tour.token++; clearTimeout(tour.timer); if ('speechSynthesis' in window) speechSynthesis.cancel(); if (tour.audio) tour.audio.pause(); } }
+/* a visible notice while the kiosk is paused for a visitor, counting down to when it resumes */
+function kioskPill(){
+  const el = $('kioskPill'); clearInterval(kioskPill.t);
+  if (!kiosk.on || !kiosk.paused) { el.classList.remove('on'); return; }
+  const tick = () => { const left = Math.max(0, Math.ceil((kiosk.resumeAt - Date.now()) / 1000)); el.textContent = `Kiosk paused while you explore. It carries on in ${left} s without a touch. Escape leaves kiosk mode.`; };
+  tick(); el.classList.add('on'); kioskPill.t = setInterval(tick, 1000);
+}
 function kioskStop(){
   if (!kiosk.on) return;
-  kiosk.on = false; clearTimeout(kiosk.timer); clearTimeout(kiosk.idleTimer);
+  kiosk.on = false; clearTimeout(kiosk.timer); clearTimeout(kiosk.idleTimer); kioskCapOff(); kioskPill();
   if (tour.on) { tour.on = false; tour.token++; clearTimeout(tour.timer); if ('speechSynthesis' in window) speechSynthesis.cancel(); if (tour.audio) tour.audio.pause(); document.body.classList.remove('touring'); $('tourBar').classList.remove('on'); $('tourCursor').classList.remove('on'); tourHighlight(null); }
   document.body.classList.remove('kiosk'); showQr(false); setMusic(false); tour.muted = !!prefs.tourMuted; syncMute();
   resetToDefaults(); applyPreset('explore'); toast('Kiosk mode off.');
@@ -8351,10 +8375,10 @@ function kioskInteraction(){
   if (!kiosk.paused) {
     kiosk.paused = true; clearTimeout(kiosk.timer);
     if (tour.on) { tour.on = false; tour.token++; clearTimeout(tour.timer); if ('speechSynthesis' in window) speechSynthesis.cancel(); if (tour.audio) tour.audio.pause(); document.body.classList.remove('touring'); $('tourBar').classList.remove('on'); $('tourCursor').classList.remove('on'); tourHighlight(null); resetToDefaults(); applyPreset('explore'); }
-    toast(`Explore freely. The kiosk carries on after ${kiosk.opts.idleSeconds} seconds without a touch.`);
+    kioskCapOff();
   }
-  clearTimeout(kiosk.idleTimer);
-  kiosk.idleTimer = setTimeout(() => { if (!kiosk.on) return; kiosk.paused = false; kiosk.i = 0; winMenu.classList.remove('open'); kioskScene(); }, kiosk.opts.idleSeconds * 1000);
+  clearTimeout(kiosk.idleTimer); kiosk.resumeAt = Date.now() + kiosk.opts.idleSeconds * 1000; kioskPill();
+  kiosk.idleTimer = setTimeout(() => { if (!kiosk.on) return; kiosk.paused = false; kioskPill(); kiosk.i = 0; winMenu.classList.remove('open'); kioskScene(); }, kiosk.opts.idleSeconds * 1000);
 }
 window.addEventListener('keydown', e => {   // on the window, so it runs before any other key handling
   if (!kiosk.on) return;
@@ -8362,6 +8386,8 @@ window.addEventListener('keydown', e => {   // on the window, so it runs before 
   if (e.key === 'Escape') kioskStop(); else kioskInteraction();   // safe mode: only Escape does anything
 }, true);
 ['pointerdown', 'wheel'].forEach(ev => document.addEventListener(ev, e => { if (kiosk.on && !e.target.closest('#welcome')) kioskInteraction(); }, {capture:true, passive:true}));
+const tourTextsOnly = window.__tourTexts;
+window.__tourTexts = () => tourTextsOnly().concat(Object.keys(KIOSK_SAY).map(k => ({tour:'kiosk', step:k, text:KIOSK_SAY[k]().replace(/\s+/g, ' ').trim()})));
 /* welcome screen: the kiosk options */
 $('wKiosk').onclick = () => { $('wKioskOpts').classList.toggle('on'); clearTimeout(welcomeTimer); $('wAuto').textContent = ''; };
 $('wKioskGo').onclick = () => kioskStart({sound:document.querySelector('input[name="kSound"]:checked').value, ticker:$('kTicker').checked, qr:$('kQr').checked});
