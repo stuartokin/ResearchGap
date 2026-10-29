@@ -59,6 +59,10 @@ jobs:
         working-directory: agents
         run: python guidance_agent.py
 
+      - name: Tour agent (refreshes the walk-through scripts within fixed rules)
+        working-directory: agents
+        run: python tour_agent.py
+
       - name: Gate 1 - schema and data rules
         run: python tools/validate.py
 
@@ -71,12 +75,20 @@ jobs:
       - name: Gate 3 - the app loads and renders the new data
         run: python tools/smoke_test.py
 
+      - name: Voice (records changed narration; skipped without a key, never blocks publishing)
+        continue-on-error: true
+        env:
+          TTS_API_KEY: ${{ secrets.TTS_API_KEY }}
+          TTS_REGION: ${{ vars.TTS_REGION }}
+        run: python tools/make_voice.py
+
       - name: Publish (only reached if every gate passed)
         id: publish
         run: |
           git config user.name  "shrinking-gap-data-agent"
           git config user.email "data-agent@users.noreply.github.com"
-          git add data/data.json data/pending.json data/pending_founders.json index.html
+          git add data/data.json data/pending.json data/pending_founders.json data/tours.json index.html
+          if [ -d audio ]; then git add -A audio; fi
           if git diff --cached --quiet; then echo "No changes to publish."; exit 0; fi
           REV=$(python -c "import json;print(json.load(open('data/data.json'))['meta']['revision'])")
           SUMMARY=$(python -c "import json;print(json.load(open('data/data.json'))['meta']['changelog'][-1]['summary'])")
