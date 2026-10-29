@@ -295,6 +295,34 @@ label.dim{opacity:.45}
 .prange{display:flex;gap:.6em;align-items:flex-end;flex-wrap:wrap;margin:.3em 0 .5em}
 .prange .af{flex:1;min-width:6em}
 .chip.tag{color:var(--muted)}
+#welcome{position:fixed;inset:0;z-index:3000;display:none;align-items:flex-start;justify-content:center;background:radial-gradient(ellipse at 50% 40%,rgba(8,24,38,.82),rgba(3,9,15,.94));backdrop-filter:blur(6px);padding:calc(var(--safe-t,0px) + 16px) 16px calc(var(--safe-b,0px) + 16px);overflow:auto}
+#welcome.on{display:flex}
+.wbox{max-width:1080px;width:100%;text-align:center;margin:auto}
+@media (max-width:700px),(max-height:500px){.wbox h1{font-size:24px;margin-top:0}.wsub{margin-bottom:.7em;font-size:13px}.wcard{padding:10px 12px;gap:.2em}.wcard .wn{font-size:20px}.wcard b{font-size:14px}.wcard span:not(.wn){font-size:12px}.wfoot{margin:.8em 0 .2em;position:sticky;bottom:0;padding:14px 0 10px;background:linear-gradient(rgba(3,9,15,0),rgba(3,9,15,.96) 40%)}.wrun{padding:10px 22px}}
+.wbox h1{font-family:var(--serif);font-weight:400;font-size:clamp(28px,4vw,54px);margin:.2em 0 .25em}
+.wsub{color:var(--muted);font-size:clamp(14px,1.4vw,18px);margin:0 0 1.2em}
+.wcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;text-align:left}
+.wcard{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:.4em;padding:16px;border-radius:14px;border:1px solid var(--line-strong);background:rgba(13,30,45,.85);transition:transform .15s,border-color .15s,background .15s}
+.wcard:hover,.wcard:focus-visible{transform:translateY(-2px);border-color:#FFD166;background:rgba(26,40,52,.95);outline:none}
+.wcard .wn{font-family:var(--serif);font-size:28px;color:#FFD166;line-height:1}
+.wcard b{font-size:15px;line-height:1.3}.wcard span:not(.wn){color:var(--muted);font-size:13px;line-height:1.4}
+.wcard em{font-style:normal;font-size:12px;color:#5FD8FF;margin-top:auto}
+.wcard.soon{cursor:default;opacity:.55}.wcard.soon:hover{transform:none;border-color:var(--line-strong)}.wcard.soon em{color:var(--faint)}
+.wfoot{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:1.2em 0 .4em}
+.wrun{all:unset;cursor:pointer;padding:12px 26px;border-radius:999px;background:#FFD166;color:#1a1305;font-weight:700;font-size:16px}
+.wrun:hover,.wrun:focus-visible{background:#FFE08F;outline:2px solid #fff3}
+.wmute{all:unset;cursor:pointer;padding:12px 18px;border-radius:999px;border:1px solid var(--line-strong);font-size:14px}
+.wauto{color:var(--faint);font-size:13px;margin:.4em 0}.wnote{max-width:640px;margin:.3em auto 0}
+#tourBar{position:fixed;left:50%;bottom:calc(var(--safe-b,0px) + 14px);transform:translateX(-50%);width:min(920px,calc(100vw - 24px));z-index:2800;display:none;background:rgba(6,16,26,.94);border:1px solid rgba(255,209,102,.55);border-radius:14px;padding:10px 14px 10px;box-shadow:0 10px 40px rgba(0,0,0,.5)}
+#tourBar.on{display:block}
+.tbtop{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:12px;color:#FFD166;font-weight:600}
+#tourDots{display:flex;gap:5px}#tourDots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.2)}#tourDots i.done{background:rgba(255,209,102,.5)}#tourDots i.on{background:#FFD166}
+#tourCap{margin:.35em 0 .5em;font-size:clamp(15px,1.5vw,20px);line-height:1.45;min-height:2.9em}
+.tbctl{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.tbctl button{all:unset;cursor:pointer;min-width:38px;height:34px;padding:0 10px;border-radius:9px;border:1px solid var(--line-strong);display:inline-flex;align-items:center;justify-content:center;font-size:14px}
+.tbctl button:hover,.tbctl button:focus-visible{background:rgba(255,255,255,.08);outline:none}
+#tourSkip{margin-left:auto;color:#FFB3B3}
+body.touring #w-toolbar,body.touring #w-footer,body.touring #w-pagetitle{display:none!important}
 .tclamp .tlead{color:inherit}
 .infob{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;width:1.3em;height:1.3em;border-radius:50%;border:1px solid rgba(168,216,255,.55);color:#A8D8FF;font:italic 700 .82em/1 Georgia,'Times New Roman',serif;margin-left:.4em;vertical-align:.08em}
 .infob:hover,.infob:focus-visible{background:rgba(168,216,255,.18);outline:2px solid rgba(168,216,255,.35);outline-offset:1px}
@@ -523,7 +551,7 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions{opacity:0;point
     <button class="btn wide" id="rotBtn" aria-pressed="true">Auto-rotate</button>
     <button class="btn wide" id="resetBtn" title="Return everything to the original defaults">Reset all</button>
     <button class="btn wide" id="fsBtn">Full screen</button>
-    <button class="btn" id="aboutBtn">Help</button>
+    <button class="btn" id="toursBtn" title="One-minute guided walk-throughs">Tours</button><button class="btn" id="aboutBtn">Help</button>
   </div></div>
 </section>
 
@@ -899,6 +927,16 @@ body.clean .win:not(.vidwin):not(.keep),body.clean #top .actions{opacity:0;point
 <div id="disc" role="status"><div class="dmeta" id="discMeta"></div><b>AI-maintained data.</b> This personal project’s data is compiled by AI agents without human review and may contain errors. <button id="discAbout">About</button><button id="discX" aria-label="Dismiss">✕</button></div>
 <div id="nogl" role="alert"><div><h2>3D view unavailable</h2><p>This device or browser can’t show the 3D model. Try a recent version of Chrome, Edge, Safari or Firefox on a laptop or desktop.</p></div></div>
 <div id="winMenu" role="menu"></div>
+<div id="welcome" role="dialog" aria-modal="true" aria-labelledby="wTitle"><div class="wbox">
+  <h1 id="wTitle">The Shrinking Gap from Research to Change</h1>
+  <p class="wsub">Five one-minute walk-throughs, narrated with subtitles. Or go straight to the tool.</p>
+  <div class="wcards" id="wCards"></div>
+  <div class="wfoot"><button id="wRun" class="wrun">Run the tool</button><button id="wMute" class="wmute"></button></div>
+  <p class="wauto" id="wAuto"></p>
+  <p class="note-s wnote">Narration uses your browser’s voice and can be muted. Press Escape at any time to leave a walk-through. AI-maintained data; may contain errors.</p>
+</div></div>
+<div id="tourBar" role="region" aria-label="Guided tour"><div class="tbtop"><span id="tourTitle"></span><span id="tourDots"></span></div><p id="tourCap" aria-live="polite"></p>
+  <div class="tbctl"><button id="tourPrev" aria-label="Back">◀</button><button id="tourPause" aria-label="Pause">❚❚</button><button id="tourNext" aria-label="Next">▶</button><button id="tourMute" aria-label="Mute narration">🔊</button><button id="tourSkip">Leave tour ✕</button></div></div>
 <div id="toast" role="status" aria-live="polite"></div>
 <div id="tip" role="tooltip"></div>
 <section class="win chromeless gripwin footwin" id="w-footer" data-title="Footer">
@@ -3090,7 +3128,7 @@ const FORTUNES = DB.founders.map(f => {
 });
 const fmtMoney = (bn, sym) => bn >= 1000 ? `${sym}${(bn / 1000).toFixed(1)}tn` : bn >= 1 ? `${sym}${bn >= 100 ? Math.round(bn) : Math.round(bn * 10) / 10}bn` : `${sym}${Math.round(bn * 1000)}m`;
 const DATA_AS_OF = DB.meta.asOf;
-const APP_VERSION = '9.3', APP_BUILD = '';
+const APP_VERSION = '9.4', APP_BUILD = '';
 // Screen-aware scaling: laptops slightly smaller, large screens larger
 const UI = (() => { const w = innerWidth; return w < 1280 ? .85 : w < 1500 ? .95 : w < 1800 ? 1.05 : w < 2300 ? 1.2 : 1.4; })();
 const LARGE = innerWidth >= 1700;
@@ -5270,6 +5308,7 @@ const HELP = {
   rotBtn:'Turns the model slowly. Drag the model to look around.',
   resetBtn:'Reloads the app with its default settings.',
   fsBtn:'Uses the whole screen.',
+  toursBtn:'Reopen the welcome screen with the one-minute guided walk-throughs.',
   aboutBtn:'Help, frequently asked questions and information about the data.'
 };
 const FAQ_EXTRA = [
@@ -5506,6 +5545,180 @@ document.addEventListener('click', e => {
 let clampTimer = 0;
 new MutationObserver(() => { if (!clampTimer) clampTimer = setTimeout(() => { clampTimer = 0; clampAll(); }, 100); }).observe(document.body, {childList:true, subtree:true});   // throttled, so a steady stream of updates cannot starve it
 $('fullTextT').addEventListener('change', e => { view.fullText = e.target.checked; if (view.fullText) unclampAll(); else clampAll(); });
+
+/* ==================================================================
+ *  WELCOME SCREEN AND GUIDED TOURS
+ *  Tours drive the real app. Narration is written as functions of live facts, so both the figures and the
+ *  conclusions (shrunk or grown, faster or slower, yes or not yet) follow the data each time a tour runs.
+ * ================================================================== */
+const TOUR_LIST = [
+  {id:'gap', title:'Is AI shrinking the gap from research to change?', blurb:'The core question, the evidence and the outlook.', ready:true},
+  {id:'horizon', title:'What AI-assisted products are on the horizon for the energy system?', blurb:'Horizon scanning against the DESNZ vision.', ready:false},
+  {id:'secure', title:'Securing the future energy system', blurb:'Attack surfaces, security responses and mitigations.', ready:false},
+  {id:'fortune', title:'From lab to fortune', blurb:'How research turns into companies and wealth.', ready:false},
+  {id:'how', title:'How this AI model works', blurb:'The agents, their guardrails and the data quality.', ready:false}
+];
+/* ---------- live facts for the gap tour ---------- */
+function gapFacts(){
+  const med = a => a.length ? median(a) : null, r1 = v => v == null ? null : Math.round(v * 10) / 10, rd = v => v == null ? null : Math.round(v);
+  const pool = items.filter(it => it.kind === 'hist' && !it.removed && !it.aud);
+  const f = {n:items.filter(it => !it.removed && !it.aud).length};
+  f.pre = rd(med(pool.filter(it => it.p < 1970).map(it => it.lag))); f.recent = rd(med(pool.filter(it => it.p >= 2000).map(it => it.lag)));
+  const s10 = pool.filter(it => it.r >= 2010); f.ai = r1(med(s10.filter(isAIDriven).map(it => it.lag))); f.oth = r1(med(s10.filter(it => !isAIDriven(it)).map(it => it.lag)));
+  f.nAI = s10.filter(isAIDriven).length; f.adopt = rd(med(pool.filter(it => it.adopt && it.adopt <= NOW).map(it => it.adopt - it.p)));
+  const running = items.filter(it => !it.removed && !it.aud && (it.kind === 'proj' || it.kind === 'flight') && it.r >= 2010).map(it => Math.max(.5, NOW - it.r));
+  f.km = kmMedian(pool.filter(it => it.r >= 2010).map(it => it.lag), running); f.nRunning = running.length;
+  const fm = FKEYS.filter(k => FIELDS[k] && !FIELDS[k].custom).map(k => { const v = pool.filter(it => it.v === k && it.p >= 2000).map(it => it.lag); return {k, n:v.length, m:v.length ? median(v) : null}; }).filter(x => x.n >= 5 && x.m != null).sort((a, b) => a.m - b.m);
+  f.fastest = fm[0] || null; f.aiRank = fm.findIndex(x => x.k === 'ai') + 1; f.nFields = fm.length;
+  const out = items.filter(it => it.kind === 'proj' && !it.removed && it.r >= 2015); f.aiOut = rd(med(out.filter(isAIDriven).map(it => it.lag))); f.convOut = rd(med(out.filter(it => !isAIDriven(it)).map(it => it.lag)));
+  // conclusions
+  f.trend = f.pre == null || f.recent == null ? 'unclear' : f.pre - f.recent >= 2 ? 'shrunk' : f.recent - f.pre >= 2 ? 'grown' : 'flat';
+  f.aiCmp = f.ai == null || f.oth == null || f.nAI < 5 ? 'unclear' : f.oth - f.ai >= 1 ? 'faster' : f.ai - f.oth >= 1 ? 'slower' : 'similar';
+  f.outCmp = f.aiOut == null || f.convOut == null ? 'unclear' : f.convOut - f.aiOut >= 1 ? 'faster' : f.aiOut - f.convOut >= 1 ? 'slower' : 'similar';
+  f.corr = !f.km ? 'unclear' : f.km.m != null ? (f.pre != null && f.km.m < f.pre - 1 ? 'holds' : 'weakens') : 'tooEarly';
+  f.score = (f.trend === 'shrunk') + (f.aiCmp === 'faster') + (f.outCmp === 'faster') + (f.corr === 'holds');
+  return f;
+}
+const yrs = v => v == null ? 'an unknown number of' : (v === 1 ? 'one' : String(v).replace(/\.0$/, ''));
+const TOURS = {
+  gap: {title:'Is AI shrinking the gap from research to change?', facts:gapFacts, steps:[   // about 145 words: one minute of narration
+    {show:[], act:() => { tourFilters(); view.labelScope = 'major'; view.adoption = true; syncDisplayUI(); refresh(); resetView(); setAutoRotate(true); },
+     say:f => `Each arc is a breakthrough. It rises when research began and lands at its first real-world use. Taller arcs mean longer gaps.`},
+    {show:['player'], act:() => { view.playFrom = null; view.playTo = null; playSpeed = 2.5; view.conclusion = false; syncPlayRangeUI(); if (state.playing) stopPlay(); startPlay(); },
+     say:f => `Here is a century of change. Thinner arcs carry on to mainstream adoption${f.adopt != null ? `, typically ${yrs(f.adopt)} years later` : ''}.`},
+    {show:['findings'],
+     say:f => ({shrunk:`Overall, the gap has shrunk: ${yrs(f.pre)} years before 1970, ${yrs(f.recent)} since 2000.`,
+                grown:`Overall, the gap has grown: ${yrs(f.pre)} years before 1970, ${yrs(f.recent)} since 2000.`,
+                flat:`Overall, the gap has barely changed: ${yrs(f.pre)} years before 1970, ${yrs(f.recent)} since 2000.`,
+                unclear:'There is not yet enough data to say how the gap has changed overall.'})[f.trend]},
+    {show:['summary'], act:() => { view.statsBy = 'began'; view.survival = true; view.gapMetric = 'first'; renderStats(); },
+     say:f => 'But recent research has not all landed. Counting work still in progress, ' +
+              ({holds:`the shrinking holds, at about ${yrs(Math.round(f.km.m))} years.`,
+                weakens:`research since 2010 takes about ${yrs(Math.round(f.km.m))} years, so the improvement is smaller.`,
+                tooEarly:'it is too early to be sure.', unclear:'there is not yet enough data to tell.'})[f.corr]},
+    {show:['gapchart'], act:() => { twKey = ''; updateTimeWindows(true); },
+     say:() => 'Gap over time tracks this decade by decade, with scenarios beyond today, including AI and digital twins.'},
+    {show:['findings'], act:() => { F.fields = new Set(['ai']); view.subLanes = true; refresh(); },
+     say:f => (f.fastest ? (f.fastest.k === 'ai' ? `Since 2000, AI itself is the fastest field, at about ${yrs(Math.round(f.fastest.m))} years. ` : `Since 2000, ${FIELDS[f.fastest.k].name.toLowerCase()} is fastest${f.aiRank ? `; AI ranks ${['', 'first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh', 'eighth', 'ninth', 'tenth', 'eleventh'][f.aiRank]} of ${f.nFields}` : ''}. `) : '') + 'With one field selected, its sub-fields get their own tracks.'},
+    {show:['outlook'], act:() => { tourFilters(); refresh(); },
+     say:f => ({faster:`Since 2010, AI-driven work took ${yrs(f.ai)} years, against ${yrs(f.oth)} for the rest.`,
+                slower:`Since 2010, AI-driven work has taken longer: ${yrs(f.ai)} years, against ${yrs(f.oth)}.`,
+                similar:`Since 2010, AI-driven work took about as long as the rest: ${yrs(f.ai)} years against ${yrs(f.oth)}.`,
+                unclear:'There are not yet enough AI-driven milestones to compare.'})[f.aiCmp] +
+              ({faster:` Ahead, AI-assisted work is expected to take ${yrs(f.aiOut)} years, against ${yrs(f.convOut)}.`, slower:' Ahead, the estimates do not show AI landing sooner.', similar:' Ahead, the estimates are similar.', unclear:''})[f.outCmp]},
+    {show:['findings'],
+     say:f => 'So, is AI shrinking the gap? ' + ['Not yet: the data do not show it.', 'Partly: some of the evidence says yes.', 'Probably: most of the evidence says yes.', 'Yes: the evidence says so.', 'Yes: every measure here agrees.'][f.score] +
+              ' The answer updates as the agents add evidence.'}
+  ]}
+};
+/* ---------- the engine ---------- */
+const tour = {on:false, id:null, i:0, facts:null, token:0, timer:0, paused:false, muted:!!prefs.tourMuted, saved:null};
+let tourVoice = null;
+function pickVoice(){
+  if (!('speechSynthesis' in window)) return;
+  const vs = speechSynthesis.getVoices().filter(v => /^en[-_]/i.test(v.lang));
+  const fem = /female|libby|sonia|maisie|hazel|susan|serena|kate|martha|stephanie|fiona|moira|tessa|karen|samantha|victoria|zira|aria|jenny|emma|amy|olivia|natasha|ava|allison/i;
+  tourVoice = vs.find(v => /en[-_]GB/i.test(v.lang) && fem.test(v.name)) || vs.find(v => fem.test(v.name)) || vs.find(v => /en[-_]GB/i.test(v.lang)) || vs[0] || null;
+}
+if ('speechSynthesis' in window) { pickVoice(); speechSynthesis.onvoiceschanged = pickVoice; }
+function tourFilters(){ Object.assign(F, JSON.parse(JSON.stringify(Object.assign({}, DEFAULT_FILTERS, {fields:null})))); F.fields = new Set(FKEYS.filter(k => FIELDS[k] && !FIELDS[k].custom)); }
+function tourPlace(ids){
+  const W = innerWidth, H = innerHeight, cls = screenClass(), bar = $('tourBar').getBoundingClientRect(), bottom = H - bar.height - 18, top = 70;
+  WIN_IDS.forEach(id => { if (id !== 'player' || !ids.includes('player')) { layout[id].open = false; placeWin(id); } });
+  const solid = ids.filter(id => id !== 'player');
+  if (ids.includes('player')) { const pw = Math.min(layout.player.w || 640, W - 24), ph = layout.player.h || 190; Object.assign(layout.player, {x:(W - pw) / 2, y:Math.max(top, bottom - ph - (solid.length && cls === 'phone' ? H * .4 : 0)), w:pw, h:ph, open:true}); placeWin('player'); }
+  solid.forEach((id, k) => {
+    let r;
+    if (cls === 'phone') r = {x:6, y:Math.max(top, H * .42), w:W - 12, h:bottom - Math.max(top, H * .42)};
+    else { const w = cls === 'large' ? Math.min(500, W * .3) : cls === 'laptop' ? Math.min(440, W * .32) : Math.min(380, W * .4); r = {x:W - w - 14, y:top, w, h:bottom - top}; }
+    Object.assign(layout[id], r, {open:true, sw:W, sh:H}); placeWin(id);
+    if (id === 'findings') renderFindings(); if (id === 'outlook') renderOutlook(); if (id === 'summary') renderStats();
+  });
+}
+function tourSay(text, done){
+  const tok = tour.token, fin = () => { if (tok === tour.token) { clearTimeout(tour.timer); done(); } };
+  $('tourCap').textContent = text;
+  const est = Math.max(4000, text.split(/\s+/).length / 2.7 * 1000);
+  if (tour.muted || !('speechSynthesis' in window)) { tour.timer = setTimeout(fin, est); return; }
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text); if (tourVoice) { u.voice = tourVoice; u.lang = tourVoice.lang; } else u.lang = 'en-GB';
+  u.rate = 1.05; u.pitch = 1.05; u.onend = () => setTimeout(fin, 500); u.onerror = () => setTimeout(fin, 300);
+  speechSynthesis.speak(u);
+  tour.timer = setTimeout(fin, est + 4000);   // safety net: some browsers never report the end of speech
+}
+function tourStep(i){
+  const T = TOURS[tour.id]; if (i < 0) i = 0; if (i >= T.steps.length) return endTour('done');
+  tour.i = i; tour.token++; clearTimeout(tour.timer); if ('speechSynthesis' in window) speechSynthesis.cancel();
+  const st = T.steps[i];
+  try { if (st.act) st.act(tour.facts); } catch (e) { console.warn('tour step action failed', e); }
+  let text; try { text = st.say(tour.facts); } catch (e) { text = ''; }
+  $('tourCap').textContent = text;   // set the caption first, so windows are sized to the space it leaves
+  $('tourDots').innerHTML = T.steps.map((s, k) => `<i class="${k === i ? 'on' : k < i ? 'done' : ''}"></i>`).join('');
+  tourPlace(st.show || []); requestAnimationFrame(() => { if (tour.on) tourPlace(st.show || []); });
+  tour.paused = false; $('tourPause').textContent = '❚❚'; $('tourPause').setAttribute('aria-label', 'Pause');
+  tourSay(text, () => tourStep(tour.i + 1));
+}
+function startTour(id){
+  closeWelcome(false);
+  tour.saved = {view:JSON.parse(JSON.stringify(view)), speed:playSpeed, musicWasOn:!music.paused};
+  if (!music.paused) music.pause();
+  Object.assign(tour, {on:true, id, i:0, facts:TOURS[id].facts()});
+  document.body.classList.add('touring'); $('tourBar').classList.add('on'); $('tourTitle').textContent = TOURS[id].title;
+  $('disc').classList.add('gone');
+  tourStep(0);
+}
+function endTour(how){
+  if (!tour.on) return;
+  tour.on = false; tour.token++; clearTimeout(tour.timer); if ('speechSynthesis' in window) speechSynthesis.cancel();
+  document.body.classList.remove('touring'); $('tourBar').classList.remove('on');
+  toast(how === 'done' ? 'Tour complete. Starting the tool…' : 'Leaving the tour. Starting the tool…');
+  if (state.playing) stopPlay();
+  const sv = tour.saved || {}; if (sv.view) Object.keys(sv.view).forEach(k => { view[k] = sv.view[k]; });
+  playSpeed = sv.speed || 1; $('tbSpeed').value = String(playSpeed);
+  tourFilters(); syncDisplayUI(); syncPlayRangeUI(); applyPreset('explore'); refresh();
+  if (sv.musicWasOn) music.play().catch(() => {});
+  showDisc();
+}
+$('tourNext').onclick = () => tourStep(tour.i + 1);
+$('tourPrev').onclick = () => tourStep(tour.i - 1);
+$('tourPause').onclick = () => {
+  if (!tour.paused) { tour.paused = true; tour.token++; clearTimeout(tour.timer); if ('speechSynthesis' in window) speechSynthesis.cancel(); if (state.playing && !paused) togglePause(); $('tourPause').textContent = '▶'; $('tourPause').setAttribute('aria-label', 'Resume'); }
+  else { if (state.playing && paused) togglePause(); tourStep(tour.i); }
+};
+$('tourMute').onclick = () => {
+  tour.muted = !tour.muted; prefs.tourMuted = tour.muted; savePrefs(); syncMute();
+  if (tour.on && !tour.paused) { tour.token++; clearTimeout(tour.timer); if ('speechSynthesis' in window) speechSynthesis.cancel(); const t = $('tourCap').textContent, tok = tour.token; tourSay(t, () => { if (tok + 1 === tour.token || true) tourStep(tour.i + 1); }); }
+};
+function syncMute(){ $('tourMute').textContent = tour.muted ? '🔇' : '🔊'; $('tourMute').setAttribute('aria-label', tour.muted ? 'Unmute narration' : 'Mute narration'); $('wMute').textContent = tour.muted ? '🔇 Narration off' : '🔊 Narration on'; }
+$('tourSkip').onclick = () => endTour('escape');
+document.addEventListener('keydown', e => {
+  if (tour.on && e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); endTour('escape'); }
+  else if (tour.on && e.key === 'ArrowRight') { e.stopPropagation(); tourStep(tour.i + 1); }
+  else if (tour.on && e.key === 'ArrowLeft') { e.stopPropagation(); tourStep(tour.i - 1); }
+  else if ($('welcome').classList.contains('on') && e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); closeWelcome(true); }
+}, true);
+/* ---------- the welcome screen: shown on every load ---------- */
+let welcomeTimer = 0, welcomeLeft = 0, welcomeDeadline = 0, welcomeLast = 0;
+function showWelcome(){
+  $('wCards').innerHTML = TOUR_LIST.map((t, k) => `<button class="wcard${t.ready ? '' : ' soon'}" data-tour="${t.id}"${t.ready ? '' : ' disabled aria-disabled="true"'}><span class="wn">${k + 1}</span><b>${esc(t.title)}</b><span>${esc(t.blurb)}</span><em>${t.ready ? '1 minute walk-through' : 'Coming soon'}</em></button>`).join('');
+  $('welcome').classList.add('on'); $('disc').classList.add('gone'); syncMute();
+  welcomeDeadline = Date.now() + 30000; welcomeLast = Date.now(); tickWelcome();
+}
+function tickWelcome(){   // timed by the real clock, so a busy computer cannot slow the countdown
+  clearTimeout(welcomeTimer); if (!$('welcome').classList.contains('on')) return;
+  const now = Date.now();
+  if ($('welcome').querySelector('.wbox').matches(':hover')) welcomeDeadline += now - welcomeLast;   // pause while hovering over the cards
+  welcomeLast = now; welcomeLeft = Math.max(0, Math.ceil((welcomeDeadline - now) / 1000));
+  $('wAuto').textContent = `Starting the tool in ${welcomeLeft} s`;
+  if (welcomeLeft <= 0) return closeWelcome(true);
+  welcomeTimer = setTimeout(tickWelcome, 250);
+}
+function closeWelcome(toTool){ clearTimeout(welcomeTimer); $('welcome').classList.remove('on'); if (toTool) { toast('Starting the tool…'); showDisc(); } }
+function showDisc(){ $('disc').classList.remove('gone'); clearTimeout(showDisc.t); showDisc.t = setTimeout(() => $('disc').classList.add('gone'), 12000); }
+$('wCards').addEventListener('click', e => { const c = e.target.closest('.wcard'); if (c && !c.disabled) startTour(c.dataset.tour); });
+$('wRun').onclick = () => closeWelcome(true);
+$('wMute').onclick = () => { tour.muted = !tour.muted; prefs.tourMuted = tour.muted; savePrefs(); syncMute(); };
+$('toursBtn').onclick = () => { if (tour.on) endTour('escape'); showWelcome(); };
 
 /* ==================================================================
  *  SAVED VIEWS (JSON)
@@ -5871,8 +6084,8 @@ $('verLine').textContent = `App version ${APP_VERSION}. Data revision ${DB.meta.
 })();
 $('discX').onclick = () => $('disc').classList.add('gone');
 $('discAbout').onclick = () => { $('disc').classList.add('gone'); $('about').classList.add('open'); };
-setTimeout(() => $('disc').classList.add('gone'), 12000);
 buildFieldList(); fillAudFields(); refresh(); syncChgUI(); applyChangeFlags(); renderChanges(); syncPlayRangeUI(); buildTicker(); attachHelp(); buildFaq(); syncPanels(); clampAll();
+if (new URLSearchParams(location.search).get('welcome') === '0') showDisc(); else showWelcome();   // the welcome screen opens on every load (welcome=0 is for automated tests)
 [['title', 'titleCfgBtn'], ['ticker', 'tickCfgBtn']].forEach(([w, b]) => { const h = wins[w].querySelector('.wh'), btn = $(b); if (h && btn) { h.insertBefore(btn, h.querySelector('button')); btn.classList.add('inhead'); } }); applyLite(); applyHeader(); computeLaneLayout(); applyLanes(true); applyColours(); refresh(); setAutoRotate(state.autoRotate); syncVideos(); applyTitle(); applyTicker(); syncMusic();
 function startMusicIfWanted(){
   if (!view.musicOn || !music.paused) return;
