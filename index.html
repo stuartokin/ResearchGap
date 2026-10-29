@@ -5467,7 +5467,7 @@ const FORTUNES = DB.founders.map(f => {
 });
 const fmtMoney = (bn, sym) => bn >= 1000 ? `${sym}${(bn / 1000).toFixed(1)}tn` : bn >= 1 ? `${sym}${bn >= 100 ? Math.round(bn) : Math.round(bn * 10) / 10}bn` : `${sym}${Math.round(bn * 1000)}m`;
 const DATA_AS_OF = DB.meta.asOf;
-const APP_VERSION = '10.3', APP_BUILD = '';
+const APP_VERSION = '10.5', APP_BUILD = '';
 // Screen-aware scaling: laptops slightly smaller, large screens larger
 const UI = (() => { const w = innerWidth; return w < 1280 ? .85 : w < 1500 ? .95 : w < 1800 ? 1.05 : w < 2300 ? 1.2 : 1.4; })();
 const LARGE = innerWidth >= 1700;
@@ -7093,98 +7093,153 @@ async function ensureFresh(kind){
   return true;
 }
 async function generateReport(){
-  const msg = $('repMsg');
-  if (!window.PptxGenJS) { msg.textContent = 'The PowerPoint library did not load.'; return; }
+  const msg = $('repMsg'); if (!window.PptxGenJS) { msg.textContent = 'The PowerPoint library did not load.'; return; }
   msg.textContent = 'Building your report…';
-  const R = reportData(), f1 = v => v == null ? '–' : fmtY(v);
-  const BG = '0B1724', PANEL = '13283A', TXT = 'E9F2FF', MUTED = '8FA6B8', AMBER = 'F7C04A', TEAL = '4CD3C2', VIOLET = 'A891FF', LINE = '22384A';
-  const titleText = ($('repTitle').value || 'The Shrinking Gap from Research to Change').trim();
-  const pptx = new PptxGenJS();
-  pptx.layout = 'LAYOUT_16x9'; pptx.author = 'Stuart Okin'; pptx.title = titleText; pptx.subject = 'Research to change, ' + Y0 + '–' + YEND;
-  const footer = (slide, n) => {
-    slide.addText(`Stuart Okin, personal project. Data as of ${DATA_AS_OF} (revision ${DB.meta.revision}), narrative version ${narrVersion()}; maintained by AI agents without human review and may contain errors. Outlook years are AI estimates. Selection: ${selectionText()}.`,
-      {x:0.5, y:5.2, w:8.4, h:0.3, fontSize:7, color:MUTED, fontFace:'Arial', margin:0, isTextBox:true});
-    slide.addText(String(n), {x:9.1, y:5.2, w:0.4, h:0.3, fontSize:8, color:MUTED, align:'right', fontFace:'Arial', margin:0, isTextBox:true});
+  const BG = '0B1724', PANEL = '13283A', LINE = '22384A', TXT = 'E9F2FF', MUTED = '8FA6B8', AMBER = 'F7C04A', TEAL = '4CD3C2', VIOLET = 'A891FF', CORAL = 'FF6B6B', GREEN = '7FD6A0';
+  const R = reportData(), yrsTxt = v => v == null ? '–' : `${Math.round(v)} yr${Math.round(v) === 1 ? '' : 's'}`, gapOf = it => Math.max(0, Math.round(it.lag));
+  const title = ($('repTitle').value || '').trim() || 'The Shrinking Gap from Research to Change';
+  // examples from the live data, in the current selection
+  const L = items.filter(it => it.kind === 'hist' && shownFully(it) && !it.aud && !it.co && !POLICY_ARCS.has(it.t));
+  const pickMajor = (arr, n) => arr.filter(it => it.major).slice(0, n).concat(arr.filter(it => !it.major)).slice(0, n);
+  const fastRecent = pickMajor(L.filter(it => it.p >= 2015).sort((a, b) => a.lag - b.lag), 3);
+  const slowRecent = L.filter(it => it.p >= 2010).sort((a, b) => b.lag - a.lag)[0];
+  const oldEx = L.filter(it => it.p < 1970 && it.major).sort((a, b) => b.lag - a.lag)[0];
+  const aiEx = L.filter(it => it.r >= 2010 && isAIDriven(it)).sort((a, b) => a.lag - b.lag || b.major - a.major).slice(0, 3);
+  const adoptEx = L.filter(it => it.adopt && it.adopt <= NOW && it.major).sort((a, b) => b.p - a.p)[0];
+  const adm = (() => { const v = L.filter(it => it.adopt && it.adopt <= NOW).map(it => it.adopt - it.p); return v.length ? median(v) : null; })();
+  const exLine = it => `${it.t}: ${it.r} → ${it.p} (${gapOf(it)} yr${gapOf(it) === 1 ? '' : 's'})`;
+  const pptx = new PptxGenJS(); pptx.layout = 'LAYOUT_16x9'; pptx.author = 'Stuart Okin'; pptx.title = title;
+  const footer = (s, n) => {
+    s.addText(`Stuart Okin, personal project. Data revision ${DB.meta.revision} (${DATA_AS_OF}), narrative version ${narrVersion()}. AI-maintained data and narrative, no human review; may contain errors. Selection: ${selectionText()}.`,
+      {x:0.4, y:5.3, w:8.7, h:0.22, fontSize:6.5, color:MUTED, fontFace:'Arial', margin:0, isTextBox:true});
+    s.addText(String(n), {x:9.2, y:5.3, w:0.4, h:0.22, fontSize:7, color:MUTED, align:'right', fontFace:'Arial', margin:0, isTextBox:true});
   };
-  const arcs = (slide, x, y, w, h, cols) => cols.forEach((c, i) => slide.addShape(pptx.ShapeType.arc, {x:x + i * 0.35, y:y + i * 0.22, w:w - i * 0.7, h:h - i * 0.44, angleRange:[180, 360], line:{color:c, width:1.5, transparency:20 + i * 12}}));
-  const card = (slide, x, y, w, big, label, colour) => {
-    slide.addShape(pptx.ShapeType.roundRect, {x, y, w, h:1.2, fill:{color:PANEL}, line:{color:LINE, width:0.75}, rectRadius:0.12});
-    slide.addText(big, {x:x + 0.2, y:y + 0.12, w:w - 0.4, h:0.6, fontSize:big.length > 9 ? 22 : 28, bold:true, color:colour, fontFace:'Georgia', margin:0, fit:'shrink', isTextBox:true});
-    slide.addText(label, {x:x + 0.2, y:y + 0.74, w:w - 0.4, h:0.4, fontSize:9, color:MUTED, fontFace:'Arial', margin:0, valign:'top', isTextBox:true});
+  const heading = (s, t, sub, col) => {
+    s.addShape(pptx.ShapeType.rect, {x:0.4, y:0.38, w:0.08, h:0.5, fill:{color:col}, line:{color:col, width:0}});
+    s.addText(t, {x:0.6, y:0.3, w:8.9, h:0.5, fontSize:24, color:TXT, fontFace:'Georgia', margin:0, isTextBox:true});
+    if (sub) s.addText(sub, {x:0.6, y:0.78, w:8.9, h:0.28, fontSize:10.5, color:MUTED, fontFace:'Arial', margin:0, isTextBox:true});
   };
-  const axisOpts = {catAxisLabelColor:'B7C6D2', valAxisLabelColor:'8FA6B8', catAxisLabelFontFace:'Arial', valAxisLabelFontFace:'Arial', catAxisLabelFontSize:8, valAxisLabelFontSize:8,
-    valGridLine:{color:LINE, size:0.5}, catGridLine:{style:'none'}, catAxisLineShow:false, valAxisLineShow:false, plotArea:{fill:{color:BG}}};
+  const card = (s, x, y, w, h, col) => { s.addShape(pptx.ShapeType.roundRect, {x, y, w, h, fill:{color:PANEL}, line:{color:LINE, width:0.75}, rectRadius:0.08}); s.addShape(pptx.ShapeType.rect, {x, y:y + 0.12, w:0.05, h:h - 0.24, fill:{color:col}, line:{color:col, width:0}}); };
 
-  // ---------- Slide 1: the headline ----------
+  // 1. Title: the live model, full width
   let s = pptx.addSlide(); s.background = {color:BG};
-  arcs(s, 5.6, 0.35, 4.2, 2.4, [AMBER, TEAL, VIOLET]);
-  s.addText(titleText, {x:0.5, y:0.35, w:6.6, h:0.95, fontSize:titleText.length > 34 ? 24 : 28, color:TXT, fontFace:'Georgia', margin:0, valign:'top', isTextBox:true});
-  s.addText(`How long research takes to become real-world change, ${Y0}–${YEND}`, {x:0.5, y:1.33, w:6.4, h:0.3, fontSize:12, color:MUTED, fontFace:'Arial', margin:0, isTextBox:true});
-  card(s, 0.5, 1.75, 2.85, `${f1(R.pre)} → ${f1(R.recent)} yrs`, 'Median gap for milestones landing before 1970, and since 2000', AMBER);
-  card(s, 3.575, 1.75, 2.85, `${f1(R.ai)} vs ${f1(R.conv)} yrs`, 'AI-driven work against everything else (research since 2010)', TEAL);
-  card(s, 6.65, 1.75, 2.85, String(R.n), `Milestones in this selection, across ${FKEYS.filter(k => F.fields.has(k)).length} fields`, VIOLET);
-  if (R.series.length > 3) s.addChart(pptx.ChartType.line, [{name:'Median years, rolling ten-year window', labels:R.series.map(p => String(p.y)), values:R.series.map(p => Math.round(p.m * 10) / 10)}],
-    Object.assign({x:0.4, y:3.1, w:9.2, h:2.0, chartColors:[AMBER], lineSize:2, lineDataSymbol:'none', showLegend:false, showTitle:true, title:'Median years from research to change, for milestones landing in each preceding ten years',
-      titleColor:'B7C6D2', titleFontSize:9, titleFontFace:'Arial', catAxisLabelFrequency:2}, axisOpts));
-  const verdict = narrative('gap', ['answer'])[0];
-  if (verdict) s.addText(verdict, {x:0.5, y:2.78, w:9, h:0.28, fontSize:10, italic:true, color:AMBER, fontFace:'Arial', margin:0, isTextBox:true});
-  s.addNotes(narrative('gap', ['trend', 'corrected', 'answer']).join(' ') + `\n\nSelection figures: across the selection, the typical gap has moved from ${f1(R.pre)} years (before 1970) to ${f1(R.recent)} years (since 2000). AI-driven work since 2010 has taken a median ${f1(R.ai)} years against ${f1(R.conv)} for other work. Data is AI-maintained and may contain errors.`);
+  try { const c = viewCanvas(true); s.addImage({data:c.toDataURL('image/jpeg', 0.88), x:0, y:0, w:10, h:5.625, sizing:{type:'cover', w:10, h:5.625}}); } catch (e) { /* no picture available */ }
+  s.addShape(pptx.ShapeType.rect, {x:0, y:3.05, w:10, h:2.575, fill:{color:BG, transparency:12}, line:{color:BG, width:0}});
+  s.addText(title, {x:0.5, y:3.2, w:9, h:0.62, fontSize:title.length > 40 ? 28 : 32, color:TXT, fontFace:'Georgia', margin:0, fit:'shrink', isTextBox:true});
+  s.addText('How long it takes research to become real-world change, and whether AI is shortening the journey.', {x:0.5, y:3.95, w:9, h:0.35, fontSize:13, color:MUTED, fontFace:'Arial', margin:0, isTextBox:true});
+  s.addText(`${R.n || L.length} milestones across ${FKEYS.filter(k => F.fields.has(k) && FIELDS[k] && !FIELDS[k].custom).length} fields, 1925 to ${YEND}  •  ${new Date().toLocaleDateString('en-GB', {day:'numeric', month:'long', year:'numeric'})}`, {x:0.5, y:4.4, w:9, h:0.3, fontSize:10, color:AMBER, fontFace:'Arial', margin:0, isTextBox:true});
+  s.addNotes('A visual introduction: each arc is one research breakthrough, rising when the research began and landing at its first real-world use. The picture shows the live model as it was when this deck was created.');
   footer(s, 1);
 
-  // ---------- Slide 2: by field ----------
+  // 2. The headline: three figures, each with a real example, and the verdict once
   s = pptx.addSlide(); s.background = {color:BG};
-  s.addText('Where the gap has shrunk, and where it hasn’t', {x:0.5, y:0.35, w:9, h:0.6, fontSize:24, color:TXT, fontFace:'Georgia', margin:0, isTextBox:true});
-  const rows = R.fieldRows.slice().sort((a, b) => b.since - a.since);
-  if (rows.length) s.addChart(pptx.ChartType.bar, [
-      {name:'Landed before 2000', labels:rows.map(r => r.name), values:rows.map(r => Math.round(r.before * 10) / 10)},
-      {name:'Landed since 2000', labels:rows.map(r => r.name), values:rows.map(r => Math.round(r.since * 10) / 10)}],
-    Object.assign({x:0.4, y:1.05, w:6.0, h:4.05, barDir:'bar', barGrouping:'clustered', chartColors:['5D7486', TEAL], showLegend:true, legendPos:'b', legendColor:'B7C6D2', legendFontSize:8, legendFontFace:'Arial',
-      showValue:true, dataLabelColor:TXT, dataLabelFontSize:7, dataLabelPosition:'outEnd', showTitle:true, title:'Median years from research to change', titleColor:'B7C6D2', titleFontSize:9, titleFontFace:'Arial'}, axisOpts));
-  const shrank = rows.filter(r => r.since < r.before).sort((a, b) => (a.since - a.before) - (b.since - b.before)).slice(0, 3);
-  const stuck = rows.filter(r => r.since >= r.before).slice(0, 3);
-  s.addShape(pptx.ShapeType.roundRect, {x:6.65, y:1.05, w:2.85, h:4.05, fill:{color:PANEL}, line:{color:LINE, width:0.75}, rectRadius:0.12});
-  const bullets = [{text:'Shrinking fastest', options:{bold:true, color:TEAL, fontSize:11, breakLine:true, paraSpaceAfter:4}}]
-    .concat(shrank.map(r => ({text:`${r.name}: ${f1(r.before)} → ${f1(r.since)} years`, options:{bullet:true, breakLine:true, color:TXT, fontSize:10, paraSpaceAfter:4}})))
-    .concat([{text:'Not shrinking', options:{bold:true, color:AMBER, fontSize:11, breakLine:true, paraSpaceAfter:4}}])
-    .concat(stuck.length ? stuck.map((r, i) => ({text:`${r.name}: ${f1(r.before)} → ${f1(r.since)} years`, options:{bullet:true, breakLine:i < stuck.length - 1, color:TXT, fontSize:10, paraSpaceAfter:4}})) : [{text:'Every selected field has shrunk.', options:{color:TXT, fontSize:10}}]);
-  s.addText(bullets, {x:6.85, y:1.25, w:2.5, h:3.7, fontFace:'Arial', valign:'top', margin:0, isTextBox:true});
-  s.addNotes('Software and AI compress fastest. Physical, safety-critical fields such as energy, materials and life sciences are limited by manufacturing, trials, safety cases and consent.');
+  heading(s, 'The headline', 'Median years, for the current selection', AMBER);
+  const big = [
+    [`${R.pre == null ? '–' : Math.round(R.pre)} → ${yrsTxt(R.recent)}`, 'From research to first product: milestones landing before 1970, against since 2000', AMBER, [oldEx && `Then: ${exLine(oldEx)}`, fastRecent[0] && `Now: ${exLine(fastRecent[0])}`]],
+    [`${R.ai == null ? '–' : Math.round(R.ai)} vs ${yrsTxt(R.conv)}`, 'AI-driven work against everything else, for research since 2010', TEAL, aiEx.slice(0, 2).map(exLine)],
+    [adm != null ? `+${yrsTxt(adm)}` : '–', 'From first product to mainstream adoption', VIOLET, [adoptEx && `${adoptEx.t}: first product ${adoptEx.p}, mainstream by ${adoptEx.adopt}`]]
+  ];
+  big.forEach(([v, label, col, ex], i) => {
+    const x = 0.4 + i * 3.1; card(s, x, 1.25, 2.95, 3.0, col);
+    s.addText(v, {x:x + 0.2, y:1.38, w:2.65, h:0.7, fontSize:28, color:col, fontFace:'Georgia', margin:0, fit:'shrink', isTextBox:true});
+    s.addText(label, {x:x + 0.2, y:2.12, w:2.65, h:0.6, fontSize:9.5, color:TXT, fontFace:'Arial', margin:0, valign:'top', isTextBox:true});
+    const lines = ex.filter(Boolean);
+    s.addText([{text:'For example', options:{bold:true, color:MUTED, fontSize:8, breakLine:true}}].concat(lines.map((l, j) => ({text:l, options:{color:TXT, fontSize:8.5, breakLine:j < lines.length - 1, paraSpaceAfter:3}}))),
+      {x:x + 0.2, y:2.8, w:2.65, h:1.35, fontFace:'Arial', valign:'top', margin:0, isTextBox:true});
+  });
+  const verdict = narrative('gap', ['answer'])[0] || '';
+  s.addShape(pptx.ShapeType.roundRect, {x:0.4, y:4.45, w:9.2, h:0.62, fill:{color:'2A2410'}, line:{color:AMBER, width:0.75}, rectRadius:0.08});
+  s.addText(verdict, {x:0.6, y:4.5, w:8.8, h:0.52, fontSize:12.5, italic:true, color:AMBER, fontFace:'Georgia', valign:'middle', margin:0, isTextBox:true});
+  s.addNotes(narrative('gap', ['trend', 'corrected']).join(' ') + ' (AI-generated narrative from the weekly agents; no human review.)');
   footer(s, 2);
 
-  // ---------- Slide 3: AI outlook ----------
+  // 3. Gap over time, with key examples
   s = pptx.addSlide(); s.background = {color:BG};
-  s.addText('Can AI shrink the gap further?', {x:0.5, y:0.35, w:9, h:0.6, fontSize:24, color:TXT, fontFace:'Georgia', margin:0, isTextBox:true});
-  const orows = R.outRows.slice().sort((a, b) => b.recent - a.recent);
-  if (orows.length) s.addChart(pptx.ChartType.bar, [
-      {name:'Recent pace (research since 2000)', labels:orows.map(r => r.name), values:orows.map(r => Math.round(r.recent * 10) / 10)},
-      {name:'With AI and digital twins (scenario midpoint)', labels:orows.map(r => r.name), values:orows.map(r => Math.round(r.ai * 10) / 10)}],
-    Object.assign({x:0.4, y:1.05, w:6.0, h:4.05, barDir:'bar', barGrouping:'clustered', chartColors:['5D7486', AMBER], showLegend:true, legendPos:'b', legendColor:'B7C6D2', legendFontSize:8, legendFontFace:'Arial',
-      showValue:true, dataLabelColor:TXT, dataLabelFontSize:7, dataLabelPosition:'outEnd', showTitle:true, title:'Median years from research to change', titleColor:'B7C6D2', titleFontSize:9, titleFontFace:'Arial'}, axisOpts));
-  card(s, 6.65, 1.05, 2.85, R.sc ? `${fmtR(R.sc.lo, R.sc.hi)} yrs` : '–', `Scenario for research starting now, against ${R.sc ? f1(R.sc.base) : '–'} years at the recent pace`, AMBER);
-  card(s, 6.65, 2.4, 2.85, `${f1(R.fa)} vs ${f1(R.fc)}`, `Years to change, outlook to ${YEND}: AI-driven routes against conventional ones`, TEAL);
-  s.addText('AI compresses discovery, design and testing. It does not compress factories, clinical trials, safety cases, standards or planning consent.', {x:6.65, y:3.75, w:2.85, h:1.1, fontSize:9, color:'B7C6D2', fontFace:'Arial', margin:0, valign:'top', isTextBox:true});
-  s.addNotes(narrative('gap', ['outlook', 'fields']).join(' ') + ' The AI ranges are scenario assumptions stated in the dataset, not forecasts. The comparison uses technology arcs only, excluding policy milestones.');
+  heading(s, 'The gap over time', 'Median years from research to first product, for milestones landing in the preceding ten years', AMBER);
+  computeGapSeries(); const gs = gapSeries.filter(g => g.m != null && g.y % 2 === 0);
+  if (gs.length) s.addChart(pptx.ChartType.line, [{name:'Median gap (years)', labels:gs.map(g => String(g.y)), values:gs.map(g => Math.round(g.m * 10) / 10)}],
+    {x:0.4, y:1.2, w:6.0, h:3.85, chartColors:[AMBER], lineSize:2.5, lineDataSymbol:'none', showLegend:false, catAxisLabelColor:MUTED, valAxisLabelColor:MUTED, catAxisLabelFontSize:8, valAxisLabelFontSize:8,
+     valGridLine:{color:LINE, size:0.5}, catGridLine:{style:'none'}, catAxisLineShow:false, valAxisLineShow:false, catAxisLabelFrequency:5, valAxisMinVal:0, plotArea:{fill:{color:BG}}});
+  card(s, 6.6, 1.2, 3.0, 3.85, TEAL);
+  s.addText([{text:'Fastest recent arrivals', options:{bold:true, color:TEAL, fontSize:10.5, breakLine:true, paraSpaceAfter:4}}]
+    .concat(fastRecent.map(it => ({text:exLine(it), options:{bullet:{indent:9}, color:TXT, fontSize:9, breakLine:true, paraSpaceAfter:3}})))
+    .concat(slowRecent ? [{text:'Still slow', options:{bold:true, color:CORAL, fontSize:10.5, breakLine:true, paraSpaceBefore:6, paraSpaceAfter:4}}, {text:exLine(slowRecent), options:{bullet:{indent:9}, color:TXT, fontSize:9}}] : []),
+    {x:6.8, y:1.3, w:2.7, h:3.65, fontFace:'Arial', valign:'top', margin:0, isTextBox:true});
+  s.addNotes('The line shows the typical gap for milestones landing in each preceding decade. The examples are the quickest recent arrivals in the selection, and the slowest since 2010.');
   footer(s, 3);
 
-  // ---------- Slide 4: the weekly AI narrative across all five walk-throughs ----------
+  // 4. Can AI shrink the gap?
   s = pptx.addSlide(); s.background = {color:BG};
-  s.addText('What the agents found this week', {x:0.5, y:0.35, w:9, h:0.6, fontSize:24, color:TXT, fontFace:'Georgia', margin:0, isTextBox:true});
-  s.addText('AI-generated narrative from the weekly agents’ findings, across all the data. No human review.', {x:0.5, y:0.92, w:9, h:0.28, fontSize:10, color:MUTED, fontFace:'Arial', margin:0, isTextBox:true});
-  const themes = [['Is AI shrinking the gap?', AMBER, narrative('gap', ['trend', 'answer'])], ['On the horizon for the energy system', TEAL, narrative('horizon', ['next', 'answer'])],
-                  ['Securing the future energy system', 'FF6B6B', narrative('secure', ['lens', 'answer'])], ['From lab to fortune', VIOLET, narrative('fortune', ['speed', 'answer'])]];
-  themes.forEach(([head, col, lines], i) => {
-    const x = 0.5 + (i % 2) * 4.6, y = 1.35 + Math.floor(i / 2) * 1.9;
-    s.addShape(pptx.ShapeType.roundRect, {x, y, w:4.4, h:1.75, fill:{color:PANEL}, line:{color:LINE, width:0.75}, rectRadius:0.1});
-    s.addShape(pptx.ShapeType.rect, {x, y:y + 0.15, w:0.06, h:1.45, fill:{color:col}, line:{color:col, width:0}});
-    s.addText([{text:head, options:{bold:true, color:col, fontSize:11, breakLine:true, paraSpaceAfter:4}}].concat(lines.map((l, j) => ({text:l, options:{color:TXT, fontSize:9.5, breakLine:j < lines.length - 1, paraSpaceAfter:3}}))),
-      {x:x + 0.2, y:y + 0.12, w:4.05, h:1.55, fontFace:'Arial', valign:'top', margin:0, isTextBox:true});
-  });
-  s.addNotes('This slide uses the narration of the guided walk-throughs. AI agents write and update it every week, within fixed rules; figures and conclusions are calculated from the live data when the report is created. No person reviews it.');
+  heading(s, 'Can AI shrink the gap?', 'Recent median gap by field, against a plausible range with AI and digital twins (scenario, not forecast)', TEAL);
+  const rows = R.outRows.slice(0, 9);
+  if (rows.length) s.addChart(pptx.ChartType.bar, [{name:'Recent gap', labels:rows.map(r => r.name), values:rows.map(r => Math.round(r.recent * 10) / 10)}, {name:'With AI (scenario)', labels:rows.map(r => r.name), values:rows.map(r => Math.round(r.ai * 10) / 10)}],
+    {x:0.4, y:1.2, w:5.9, h:3.85, barDir:'bar', barGrouping:'clustered', chartColors:[MUTED, TEAL], showLegend:true, legendPos:'b', legendColor:MUTED, legendFontSize:8, catAxisLabelColor:TXT, valAxisLabelColor:MUTED,
+     catAxisLabelFontSize:8, valAxisLabelFontSize:8, valGridLine:{color:LINE, size:0.5}, catGridLine:{style:'none'}, catAxisOrientation:'maxMin', valAxisMinVal:0, plotArea:{fill:{color:BG}}});
+  card(s, 6.5, 1.2, 3.1, 3.85, TEAL);
+  s.addText([{text:'AI at work', options:{bold:true, color:TEAL, fontSize:10.5, breakLine:true, paraSpaceAfter:4}}]
+    .concat(aiEx.map(it => ({text:exLine(it), options:{bullet:{indent:9}, color:TXT, fontSize:9, breakLine:true, paraSpaceAfter:3}})))
+    .concat([{text:`Since 2010, AI-driven work took ${yrsTxt(R.ai)}, against ${yrsTxt(R.conv)} for the rest.`, options:{color:AMBER, fontSize:9.5, italic:true, paraSpaceBefore:8}}]),
+    {x:6.7, y:1.3, w:2.8, h:3.65, fontFace:'Arial', valign:'top', margin:0, isTextBox:true});
+  s.addNotes(narrative('gap', ['outlook', 'fields']).join(' ') + ' The AI ranges are scenario assumptions stated in the dataset, not forecasts.');
   footer(s, 4);
 
+  // 5. Arriving next: the DESNZ AI energy vision
+  s = pptx.addSlide(); s.background = {color:BG};
+  heading(s, 'Arriving next: the DESNZ AI energy vision', 'Readiness of the technologies behind each area, and the soonest expected arrival', 'F2D38A');
+  const SC = {research:MUTED, pilot:'F2D38A', commercial:'5FD8FF', scale:GREEN};
+  Object.entries(VISION).forEach(([k, name], i) => {
+    const x = 0.4 + i * 1.86, w = 1.76, its = items.filter(it => !it.removed && it.dv === k), tot = Math.max(1, its.length);
+    card(s, x, 1.2, w, 3.2, 'F2D38A');
+    s.addText(name, {x:x + 0.15, y:1.28, w:w - 0.25, h:0.62, fontSize:9.5, bold:true, color:TXT, fontFace:'Arial', valign:'top', margin:0, isTextBox:true});
+    let bx = x + 0.15; Object.keys(SC).forEach(st => { const n = its.filter(it => it.stage === st).length; if (!n) return; const bw = (w - 0.3) * n / tot; s.addShape(pptx.ShapeType.rect, {x:bx, y:1.95, w:bw, h:0.16, fill:{color:SC[st]}, line:{color:SC[st], width:0}}); bx += bw; });
+    s.addText(`${its.length} technologies, ${its.filter(it => it.gb === 'deployed').length} deployed in GB`, {x:x + 0.15, y:2.15, w:w - 0.25, h:0.3, fontSize:7.5, color:MUTED, fontFace:'Arial', margin:0, isTextBox:true});
+    const nx = its.filter(it => it.kind === 'proj' && it.p <= NOW + 5).sort((a, b) => a.p - b.p).slice(0, 2);
+    s.addText([{text:'Next', options:{bold:true, color:'F2D38A', fontSize:8, breakLine:true, paraSpaceAfter:2}}].concat(nx.length ? nx.map((n, j) => ({text:`~${n.p}  ${n.t}`, options:{color:TXT, fontSize:8.5, breakLine:j < nx.length - 1, paraSpaceAfter:5}})) : [{text:'None expected within five years', options:{color:MUTED, fontSize:8.5}}]),
+      {x:x + 0.15, y:2.5, w:w - 0.25, h:1.8, fontFace:'Arial', valign:'top', margin:0, isTextBox:true});
+  });
+  const hv = narrative('horizon', ['answer'])[0] || '';
+  s.addText(hv, {x:0.4, y:4.55, w:9.2, h:0.5, fontSize:11, italic:true, color:'F2D38A', fontFace:'Georgia', valign:'middle', margin:0, isTextBox:true});
+  s.addNotes(narrative('horizon', ['radar', 'next']).join(' ') + ' Readiness stages and GB status are AI estimates.');
+  footer(s, 5);
+
+  // 6. Securing it
+  s = pptx.addSlide(); s.background = {color:BG};
+  heading(s, 'Securing it', 'New technology brings new ways in; security has historically followed later', CORAL);
+  const sf = secureFacts();
+  [[`${sf.attackPct}%`, 'of the technologies here expand the attack surface'], [sf.lag ? `${sf.lag} yrs` : '–', 'typical wait for the first security response in a technology’s category'], [sf.gapCount, 'open gaps: arrived since 2010 with no response yet']].forEach(([v, l], i) => {
+    const y = 1.2 + i * 1.07; card(s, 0.4, y, 3.0, 0.95, CORAL);
+    s.addText(v, {x:0.6, y:y + 0.06, w:1.2, h:0.8, fontSize:24, color:CORAL, fontFace:'Georgia', valign:'middle', margin:0, isTextBox:true});
+    s.addText(l, {x:1.75, y:y + 0.08, w:1.55, h:0.8, fontSize:8.5, color:TXT, fontFace:'Arial', valign:'middle', margin:0, isTextBox:true});
+  });
+  const ex = secExample(), er = ex ? secResponse(ex) : null;
+  card(s, 3.6, 1.2, 6.0, 1.85, CORAL);
+  s.addText([{text:'Example', options:{bold:true, color:CORAL, fontSize:10, breakLine:true, paraSpaceAfter:3}},
+             {text:ex ? `${ex.t} (${ex.p}). ${ex.sec || ''}` : '', options:{color:TXT, fontSize:9.5, breakLine:true, paraSpaceAfter:3}},
+             {text:er && er.resp ? `First security response in its category: ${er.resp.t} (${er.resp.p}), ${er.lag} years later.` : '', options:{color:AMBER, fontSize:9.5}}],
+    {x:3.8, y:1.28, w:5.7, h:1.7, fontFace:'Arial', valign:'top', margin:0, isTextBox:true});
+  card(s, 3.6, 3.2, 6.0, 1.82, CORAL);
+  const fw = ['NCSC CAF', 'Ofgem CAF Overlay', 'NERC CIP', 'ISA/IEC 62443', 'NIST CSF 2.0', 'IEC 62351'];
+  s.addText('Mitigations are mapped to official frameworks', {x:3.8, y:3.28, w:5.7, h:0.3, fontSize:10, bold:true, color:CORAL, fontFace:'Arial', margin:0, isTextBox:true});
+  fw.forEach((t, i) => { const x = 3.8 + (i % 3) * 1.9, y = 3.68 + Math.floor(i / 3) * 0.42; s.addShape(pptx.ShapeType.roundRect, {x, y, w:1.78, h:0.32, fill:{color:'2A1517'}, line:{color:CORAL, width:0.5}, rectRadius:0.06}); s.addText(t, {x, y, w:1.78, h:0.32, fontSize:8.5, color:TXT, align:'center', valign:'middle', fontFace:'Arial', margin:0, isTextBox:true}); });
+  s.addText('AI research to prompt discussion, not security advice: engage qualified experts.', {x:3.8, y:4.6, w:5.7, h:0.3, fontSize:8, italic:true, color:'F2D38A', fontFace:'Arial', margin:0, isTextBox:true});
+  s.addNotes(narrative('secure', ['lens', 'answer']).join(' '));
+  footer(s, 6);
+
+  // 7. From lab to fortune
+  s = pptx.addSlide(); s.background = {color:BG};
+  heading(s, 'From lab to fortune', 'Years from founding a company to the listing, sale or valuation that made its founders wealthy', VIOLET);
+  const ff = fortuneFacts(), fast = FORTUNES.filter(x => x.w && x.f).sort((a, b) => (a.w - a.f) - (b.w - b.f) || b.w - a.w)[0];
+  [[`${ff.nResearch} of ${ff.nFortunes}`, 'fortunes began in a university or research lab'], [`${ff.preYears || '–'} → ${ff.recentYears || '–'} yrs`, 'typical time to a fortune: companies founded before 1970, against since 2015'], [fast ? fast.co : '–', fast ? `the fastest so far: ${ff.fastestTime}, from founding in ${fast.f}` : '']].forEach(([v, l], i) => {
+    const x = 0.4 + i * 3.1; card(s, x, 1.3, 2.95, 2.4, VIOLET);
+    s.addText(v, {x:x + 0.2, y:1.45, w:2.65, h:0.9, fontSize:i === 2 ? 20 : 28, color:VIOLET, fontFace:'Georgia', valign:'middle', margin:0, isTextBox:true});
+    s.addText(l, {x:x + 0.2, y:2.4, w:2.65, h:1.2, fontSize:10, color:TXT, fontFace:'Arial', valign:'top', margin:0, isTextBox:true});
+  });
+  s.addText(narrative('fortune', ['answer'])[0] || '', {x:0.4, y:4.0, w:9.2, h:0.5, fontSize:13, italic:true, color:VIOLET, fontFace:'Georgia', valign:'middle', margin:0, isTextBox:true});
+  s.addNotes(narrative('fortune', ['speed', 'fastest']).join(' '));
+  footer(s, 7);
+
   const fileName = `shrinking-gap-report-${new Date().toISOString().slice(0, 10)}.pptx`;
-  try { await pptx.writeFile({fileName}); msg.textContent = `Saved ${fileName}. Open it in PowerPoint, Keynote or Google Slides; the charts are editable.`; }
-  catch (e) { msg.textContent = 'Could not create the report: ' + e.message; }
+  try { await pptx.writeFile({fileName}); msg.textContent = `Saved ${fileName}: seven slides with live examples.`; } catch (e) { msg.textContent = 'Could not create the report: ' + e.message; }
 }
 
 $('repGo').onclick = async () => { if (await ensureFresh('report')) generateReport(); };
@@ -8343,6 +8398,7 @@ function kioskScene(){
   const sc = KIOSK_SCRIPT[kiosk.i % KIOSK_SCRIPT.length]; kiosk.i++;
   if (sc.scene === 'tour' && TOURS[sc.id]) { kioskCapOff(); startTour(sc.id); return; }   // the tour moves on to the next scene when it ends
   resetToDefaults(); applyPreset(sc.name);
+  if ((titleCfg.text || '').trim() === (TITLE_DEFAULT.text || '').trim()) setOpen('title', false);   // an unchanged showcase title says nothing about the event: leave it off
   kioskSay(sc);
   if (sc.name === 'wait') { tick.mode = 'both'; applyTicker(); buildTicker(); if (!kiosk.opts.ticker) setOpen('ticker', false); }
   if (kiosk.opts.sound === 'music') setMusic(true);
@@ -8396,8 +8452,8 @@ $('wKioskScript').innerHTML = KIOSK_SCRIPT.map((s, k) => `<li>${s.scene === 'tou
 /* ==================================================================
  *  IMAGE EXPORT: the model with its labels, a title and the attribution, as a PNG
  * ================================================================== */
-function exportImage(){
-  try {
+/* the view as a picture: the model, its labels, a title and the attribution (also used on the report's title slide) */
+function viewCanvas(plain){   // plain: the model and its labels only (for the report's title slide)
     if (composer && !view.lite) composer.render(); else renderer.render(scene, camera);   // draw now, so the frame can be read
     const src = renderer.domElement, dpr = src.width / innerWidth, band = Math.round(84 * dpr);
     const c = document.createElement('canvas'); c.width = src.width; c.height = src.height + band;
@@ -8412,6 +8468,7 @@ function exportImage(){
       x.fillRect(r.left * dpr, r.top * dpr, w + 14 * dpr, r.height * dpr);
       x.fillStyle = cs.color; x.fillText(t, r.left * dpr + 7 * dpr, (r.top + r.height * .7) * dpr); x.globalAlpha = 1;
     });
+    if (plain) { const p = document.createElement('canvas'); p.width = src.width; p.height = src.height; p.getContext('2d').drawImage(c, 0, 0); return p; }
     x.fillStyle = 'rgba(8,19,29,.82)'; x.fillRect(0, 0, c.width, Math.round(64 * dpr));
     x.fillStyle = '#E9F2FF'; x.font = `${Math.round(30 * dpr)}px "Instrument Serif", Georgia, serif`;
     x.fillText('The Shrinking Gap from Research to Change', 22 * dpr, 42 * dpr);
@@ -8423,6 +8480,11 @@ function exportImage(){
     x.fillStyle = '#F7C04A'; x.font = `italic ${Math.round(16 * dpr)}px "Instrument Sans", Arial, sans-serif`; x.fillText(verdict, 22 * dpr, y0 + 32 * dpr);
     x.fillStyle = '#8FA6B8'; x.font = `${Math.round(12.5 * dpr)}px "Instrument Sans", Arial, sans-serif`;
     x.fillText(`Stuart Okin, personal project. Data revision ${DB.meta.revision} (${DATA_AS_OF}); AI-maintained data and narrative, no human review; may contain errors.${siteUrl() ? '  ' + siteUrl() : ''}`, 22 * dpr, y0 + 60 * dpr);
+    return c;
+}
+function exportImage(){
+  try {
+    const c = viewCanvas();
     c.toBlob(b => {
       const a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = `shrinking-gap-${new Date().toISOString().slice(0, 10)}.png`;
       document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 5000); toast('Image saved.');
