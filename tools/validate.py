@@ -66,6 +66,10 @@ def main(path='data/data.json'):
             url = ref[2] if len(ref) > 2 else ''
             host = url.split('/')[2].lower() if url.startswith('https://') and len(url.split('/')) > 2 else ''
             if not host or not any(host == o or host.endswith('.' + o) for o in OFFICIAL_REF): errors.append(f"mitigation {gd['id']}: reference '{ref[0]}' must link to an official source (got {url or 'no link'})")
+    tours_path = ROOT / 'data/tours.json'
+    if tours_path.exists():   # the walk-through scripts: placeholders, variants, no typed figures, word limits, real examples
+        sys.path.insert(0, str(ROOT / 'agents')); import tour_rules
+        errors += [f'tours: {e}' for e in tour_rules.check(json.loads(tours_path.read_text(encoding='utf-8')), db['milestones'])]
     print(f"{len(db['milestones'])} milestones, {len(db['founders'])} founders: {len(errors)} errors, {len(warnings)} warnings")
     return 1 if errors else 0
 
