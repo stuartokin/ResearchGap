@@ -2,15 +2,15 @@
  "$schema": "./schema.json",
  "meta": {
   "title": "The Shrinking Gap from Research to Change",
-  "revision": 14,
+  "revision": 15,
   "version": "8.0",
-  "asOf": "2026-10-28",
+  "asOf": "2026-10-29",
   "horizonYears": 10,
   "startYear": 1925,
   "author": "Stuart Okin",
   "maintainedBy": "AI agents using Claude (Anthropic), without human review",
   "disclaimer": "Personal project by Stuart Okin, not affiliated with or endorsed by any employer. Data is compiled and maintained by AI agents without human review and may contain errors. Outlook years are AI estimates, not forecasts.",
-  "lastAgentRun": "2026-10-28T23:14Z",
+  "lastAgentRun": "2026-10-29T10:51Z",
   "changelog": [
    {
     "date": "2026-10-28",
@@ -419,6 +419,50 @@
      "guidance: ENISA Technical Advisory for Software Bill of Materials",
      "guidance: Disruptive cyber attacks – reducing their impact, reducing the risk",
      "guidance: Disruptive cyber activity highlights risk from internet-exposed systems and edge devices"
+    ]
+   },
+   {
+    "date": "2026-10-29",
+    "time": "10:51",
+    "revision": 15,
+    "summary": "0 added, 16 corrected, 0 outlook re-estimated, 0 disputed, 1 broken links, 2 guidance updates.",
+    "stats": {
+     "milestones": 462,
+     "sourceCited": 113,
+     "aiCompiled": 271,
+     "aiEstimate": 78,
+     "adoptionKnown": 72,
+     "landed": 364,
+     "regionKnown": 462
+    },
+    "usage": {
+     "calls": 5,
+     "inputTokens": 579041,
+     "outputTokens": 46146,
+     "searches": 42,
+     "model": "claude-sonnet-5-5"
+    },
+    "deepAudit": false,
+    "details": [
+     "ethernet: change.year 1980 → 1981",
+     "ethernet: source added",
+     "data-modems: source added",
+     "data-modems: adoption year none → 1970 (source-cited)",
+     "digital-terrestrial-television: source added",
+     "digital-terrestrial-television: source added",
+     "3g-mobile-data: source added",
+     "visible-leds: source added",
+     "electrochromic-smart-glass: source added",
+     "plant-based-plastics: source added",
+     "autonomous-mining-trucks: source added",
+     "autonomous-mining-trucks: company updated",
+     "targeted-breast-cancer-antibody: source added",
+     "targeted-breast-cancer-antibody: readiness commercial → scale",
+     "hvdc-transmission: source added",
+     "tandem-solar-at-volume: source added",
+     "guidance: Using TLS to protect data (updated with post-quantum cryptography configurations)",
+     "guidance: NIST IR 8547: Transition to Post-Quantum Cryptography Standards (final)",
+     "tours: walk-through scripts refreshed (version 2)"
     ]
    }
   ],
@@ -840,7 +884,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "refs": [
@@ -848,7 +892,7 @@
      "label": "https://www.euronuclear.org/glossary/calder-hall/",
      "url": "https://www.euronuclear.org/glossary/calder-hall/",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "adoption": {
@@ -898,15 +942,22 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
-    "approximate": false
+    "lastChecked": "2026-10-29",
+    "approximate": false,
+    "qaNote": "All cited links are broken; downgraded until a new source is found."
    },
    "refs": [
     {
      "label": "https://ieeemilestones.ethw.org/Milestone-Proposal:Gotland_HVDC_Link",
      "url": "https://ieeemilestones.ethw.org/Milestone-Proposal:Gotland_HVDC_Link",
+     "status": "broken",
+     "checked": "2026-10-29"
+    },
+    {
+     "label": "Modern Power Systems: HVDC fifty years on",
+     "url": "https://www.modernpowersystems.com/analysis/hvdc-fifty-years-on/",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "region": "europe",
@@ -1196,7 +1247,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "refs": [
@@ -1204,13 +1255,13 @@
      "label": "https://stepfusion.com/why-fusion/",
      "url": "https://stepfusion.com/why-fusion/",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     },
     {
      "label": "https://stepfusion.com/why-fusion/",
      "url": "https://stepfusion.com/why-fusion/",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "region": "europe",
@@ -1258,7 +1309,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "uk",
@@ -1285,7 +1336,15 @@
     "estimatedYear": 2028,
     "estimatedOn": "2026-10-27",
     "revisions": []
-   }
+   },
+   "refs": [
+    {
+     "label": "pv magazine: Oxford PV mass production 2027",
+     "url": "https://www.pv-magazine.com/2026/01/16/oxford-pv-targets-20-year-lifetime-for-perovskite-silicon-tandem-modules-by-2028/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ]
   },
   {
    "id": "ai-in-grid-control-rooms",
@@ -1311,13 +1370,13 @@
     "label": "NESO: Volta programme",
     "url": "https://www.neso.energy/news/volta-programme-powering-future-dispatch-tapestry-energy-moonshot-x-moonshot-factory-alphabets-innovation-lab-bring-ai-our-control-room",
     "status": "ok",
-    "checked": "2026-10-28"
+    "checked": "2026-10-29"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "refs": [
@@ -1325,7 +1384,7 @@
      "label": "https://www.neso.energy/news/volta-programme-powering-future-dispatch-tapestry-energy-moonshot-x-moonshot-factory-alphabets-innovation-lab-bring-ai-our-control-room",
      "url": "https://www.neso.energy/news/volta-programme-powering-future-dispatch-tapestry-energy-moonshot-x-moonshot-factory-alphabets-innovation-lab-bring-ai-our-control-room",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "region": "uk",
@@ -1379,7 +1438,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "uk",
@@ -1430,7 +1489,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "global",
@@ -1484,13 +1543,13 @@
     "label": "Ofgem: long duration storage Window 1 minded-to decisions",
     "url": "https://www.ofgem.gov.uk/consultation/long-duration-electricity-storage-window-1-minded-decisions",
     "status": "ok",
-    "checked": "2026-10-28"
+    "checked": "2026-10-29"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "refs": [
@@ -1498,7 +1557,7 @@
      "label": "https://www.ofgem.gov.uk/energy-regulation/low-carbon/long-duration-electricity-storage",
      "url": "https://www.ofgem.gov.uk/energy-regulation/low-carbon/long-duration-electricity-storage",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "region": "uk",
@@ -1551,13 +1610,13 @@
     "label": "Senedd Research: Rolls-Royce SMR at Wylfa",
     "url": "https://research.senedd.wales/research-articles/new-nuclear-at-wylfa-what-happens-next/",
     "status": "ok",
-    "checked": "2026-10-28"
+    "checked": "2026-10-29"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "refs": [
@@ -1565,7 +1624,7 @@
      "label": "https://www.powermag.com/uk-confirms-wylfa-as-launch-site-for-first-nuclear-smr-fleet/",
      "url": "https://www.powermag.com/uk-confirms-wylfa-as-launch-site-for-first-nuclear-smr-fleet/",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "region": "uk",
@@ -1615,7 +1674,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "global",
@@ -1667,7 +1726,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "refs": [
@@ -1675,7 +1734,7 @@
      "label": "https://www.manchester.ac.uk/about/news/the-moment-computing-became-real/",
      "url": "https://www.manchester.ac.uk/about/news/the-moment-computing-became-real/",
      "status": "ok",
-     "checked": "2026-10-28"
+     "checked": "2026-10-29"
     }
    ],
    "adoption": {
@@ -2063,7 +2122,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "europe",
@@ -2108,7 +2167,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -2152,7 +2211,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -2197,7 +2256,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -2637,7 +2696,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -2684,7 +2743,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -2724,7 +2783,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -2765,7 +2824,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "global",
@@ -3152,7 +3211,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -18103,16 +18162,16 @@
     "what": "Robert Metcalfe and colleagues invent Ethernet at Xerox PARC."
    },
    "change": {
-    "year": 1980,
+    "year": 1981,
     "what": "3Com and others sell commercial Ethernet products."
    },
    "confidence": "high",
    "note": "Still the basis of most wired networks, including substations.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -18129,7 +18188,21 @@
     "note": "Connects systems to the internet and to each other, the root of most remote attacks.",
     "basis": "ai-compiled",
     "guidance": "it"
-   }
+   },
+   "refs": [
+    {
+     "label": "3Com first shipped Ethernet transceiver",
+     "url": "https://www.theregister.com/off-prem/2007/10/03/3com-a-company-built-on-ether/1273063",
+     "status": "ok",
+     "checked": "2026-10-29"
+    },
+    {
+     "label": "The Register: 3Com",
+     "url": "https://www.theregister.com/off-prem/2007/10/03/3com-a-company-built-on-ether/1273063",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ]
   },
   {
    "id": "data-modems",
@@ -18148,10 +18221,10 @@
    "confidence": "medium",
    "note": "Remote telemetry for utilities grew from this.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -18165,6 +18238,27 @@
     "note": "Connects systems to the internet and to each other, the root of most remote attacks.",
     "basis": "ai-compiled",
     "guidance": "it"
+   },
+   "refs": [
+    {
+     "label": "PCWorld: Modems, 60 years",
+     "url": "https://www.pcworld.com/article/494459/modems_through_the_years.html",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ],
+   "adoption": {
+    "year": 1970,
+    "what": "Reached mainstream use.",
+    "basis": "source-cited",
+    "refs": [
+     {
+      "label": "Bell 103 de facto standard",
+      "url": "https://en.wikipedia.org/wiki/Modem",
+      "status": "ok",
+      "checked": "2026-10-29"
+     }
+    ]
    }
   },
   {
@@ -18184,10 +18278,10 @@
    "confidence": "high",
    "note": "A UK world first that freed spectrum for mobile.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "europe",
@@ -18204,7 +18298,21 @@
     "expandsAttackSurface": false,
     "note": "Limited attack surface for infrastructure.",
     "basis": "ai-compiled"
-   }
+   },
+   "refs": [
+    {
+     "label": "Wikipedia: DTT in the UK",
+     "url": "https://en.wikipedia.org/wiki/Digital_terrestrial_television_in_the_United_Kingdom",
+     "status": "ok",
+     "checked": "2026-10-29"
+    },
+    {
+     "label": "DVB Project history",
+     "url": "https://dvb.org/about/history/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ]
   },
   {
    "id": "3g-mobile-data",
@@ -18223,10 +18331,10 @@
    "confidence": "high",
    "note": "The start of the mobile internet.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "asia",
@@ -18244,7 +18352,15 @@
     "note": "Wide-area connectivity extends networks to every device and site.",
     "basis": "ai-compiled",
     "guidance": "comms"
-   }
+   },
+   "refs": [
+    {
+     "label": "NTT DoCoMo history",
+     "url": "https://www.docomo.ne.jp/english/corporate/about/outline/history/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ]
   },
   {
    "id": "long-range-low-power-radio-lora",
@@ -18266,7 +18382,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "europe",
@@ -18302,10 +18418,10 @@
    "confidence": "high",
    "note": "Half a century later, LEDs cut lighting energy use dramatically.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -18313,6 +18429,19 @@
    "readiness": {
     "stage": "commercial",
     "basis": "ai-estimate"
+   },
+   "refs": [
+    {
+     "label": "Univ. of Illinois: Holonyak obituary",
+     "url": "https://ece.illinois.edu/news/51161",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ],
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Little direct cyber surface. Smart LED lighting systems add networked controllers, which is a separate matter.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -18332,10 +18461,10 @@
    "confidence": "low",
    "note": "Cuts cooling energy in buildings.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-29",
     "approximate": true
    },
    "region": "us",
@@ -18346,6 +18475,19 @@
    "readiness": {
     "stage": "commercial",
     "basis": "ai-estimate"
+   },
+   "refs": [
+    {
+     "label": "Wikipedia: SAGE Electrochromics",
+     "url": "https://en.wikipedia.org/wiki/SAGE_Electrochromics",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ],
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Negligible direct cyber surface. Networked building controls can expose the glass controllers.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -18365,10 +18507,10 @@
    "confidence": "medium",
    "note": "Renewable feedstocks for plastics.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -18379,6 +18521,19 @@
    "readiness": {
     "stage": "commercial",
     "basis": "ai-estimate"
+   },
+   "refs": [
+    {
+     "label": "NatureWorks: About",
+     "url": "https://natureworksllc.com/about",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ],
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "No meaningful cyber surface.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -18401,7 +18556,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "other",
@@ -18412,6 +18567,11 @@
    "readiness": {
     "stage": "commercial",
     "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Beacon and ground-segment data is safety-critical. Spoofed or jammed distress signals are a minor risk; it relies on an international ground network.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -18431,10 +18591,10 @@
    "confidence": "medium",
    "note": "Driverless heavy vehicles arrived in mines long before roads.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -18451,7 +18611,16 @@
     "note": "Remote updates and sensors can be attacked to cause physical harm.",
     "basis": "ai-compiled",
     "guidance": "autonomy"
-   }
+   },
+   "refs": [
+    {
+     "label": "Komatsu: Los Bronces AHS announcement",
+     "url": "https://www.komatsu.jp/en/newsroom/2022/20220603",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ],
+   "company": "Komatsu"
   },
   {
    "id": "hpv-vaccine",
@@ -18473,7 +18642,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "other",
@@ -18503,10 +18672,10 @@
    "confidence": "high",
    "note": "Personalised medicine based on a tumour’s genetics.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-27",
+    "lastChecked": "2026-10-29",
     "approximate": false
    },
    "region": "us",
@@ -18516,9 +18685,18 @@
    ],
    "subfield": "medicines",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
-   }
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-29"
+   },
+   "refs": [
+    {
+     "label": "Lasker Foundation: Herceptin",
+     "url": "https://laskerfoundation.org/winners/herceptin-a-targeted-antibody-therapy-for-breast-cancer/",
+     "status": "ok",
+     "checked": "2026-10-29"
+    }
+   ]
   },
   {
    "id": "targeted-leukaemia-drug",
@@ -23862,6 +24040,24 @@
    "summary": "NCSC has issued an advisory, prompted by observed disruptive activity, urging all OT users to review their security. It recommends a definitive view of OT architecture, no direct internet exposure of PLCs and HMIs, replacing default and shared credentials, segmenting OT from IT and management networks, and keeping tested backups of OT configurations and controller logic. These steps reduce the ris",
    "url": "https://www.ncsc.gov.uk/news/disruptive-cyber-activity-highlights-risk-from-internet-exposed-systems-and-edge-devices",
    "added": "2026-10-28",
+   "by": "guidance-agent"
+  },
+  {
+   "date": "2026-10-15",
+   "framework": "NCSC",
+   "title": "Using TLS to protect data (updated with post-quantum cryptography configurations)",
+   "summary": "The NCSC refreshed its TLS guidance to recommend post-quantum hybrid key agreement settings, following the IETF's publication of RFC 10024 for TLS 1.3. It helps reduce harvest-now-decrypt-later exposure for data in transit, including remote access and data links in energy and other critical infrastructure.",
+   "url": "https://www.ncsc.gov.uk/blogs/post-quantum-updates-to-our-tls-guidance",
+   "added": "2026-10-29",
+   "by": "guidance-agent"
+  },
+  {
+   "date": "2026-10",
+   "framework": "NIST",
+   "title": "NIST IR 8547: Transition to Post-Quantum Cryptography Standards (final)",
+   "summary": "NIST finalised its report on moving from quantum-vulnerable signature and key-establishment algorithms to post-quantum standards. It gives planning timelines for retiring vulnerable algorithms, which helps long-lived OT and grid systems with cryptography that is hard to replace limit harvest-now-decrypt-later and future forgery risks.",
+   "url": "https://csrc.nist.gov/pubs/ir/8547/final",
+   "added": "2026-10-29",
    "by": "guidance-agent"
   }
  ]

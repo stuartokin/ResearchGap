@@ -1,0 +1,15 @@
+{
+ "voice": "azure:en-GB-SoniaNeural",
+ "updated": "2026-10-29",
+ "files": {
+  "ead0b576": "tours/gap/intro-ead0b576.mp3",
+  "08e2e417": "tours/gap/example-08e2e417.mp3",
+  "3e2f0b00": "tours/gap/century-3e2f0b00.mp3",
+  "a43b1c18": "tours/gap/trend-a43b1c18.mp3",
+  "6dca0d1a": "tours/gap/corrected-6dca0d1a.mp3",
+  "6a000b03": "tours/gap/gapchart-6a000b03.mp3",
+  "d7e820d4": "tours/gap/fields-d7e820d4.mp3",
+  "0e0303a5": "tours/gap/outlook-0e0303a5.mp3",
+  "6c7da760": "tours/gap/answer-6c7da760.mp3"
+ }
+}
