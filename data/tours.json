@@ -1,0 +1,50 @@
+{
+ "version": 1,
+ "updated": "2026-10-28",
+ "updatedBy": "initial-build",
+ "note": "Narration templates for the guided tours. Figures come from {placeholders} filled from the live data; conclusions are chosen by rules in the app ({\"by\": fact, \"cases\": {...}}). The weekly tour agent may refine wording and choose examples, within the rules checked by tools/validate.py.",
+ "tours": {
+  "gap": {
+   "title": "Is AI shrinking the gap from research to change?",
+   "exampleIds": ["transistor", "lithium-ion-battery", "world-wide-web", "mrna-vaccines"],
+   "steps": {
+    "intro": {"say": "Each arc is a research breakthrough, from a university, a government lab or industry. It rises when the research began, lands at the first product, and a thinner arc runs on to large-scale adoption."},
+    "example": {"say": {"by": "exFound", "cases": {
+      "yes": ["For example: {exTitle}. Research {exWhere} began in {exR}, the first product came in {exP}", {"by": "exHasAdopt", "cases": {"yes": ", and it was in mainstream use by {exAdopt}.", "no": "."}}],
+      "no": "Select any arc to see its story."}}},
+    "century": {"say": ["Here is a century of change. Thinner arcs carry on to mainstream adoption", {"by": "hasAdopt", "cases": {"yes": ", typically {adopt} years later.", "no": "."}}]},
+    "trend": {"say": {"by": "trend", "cases": {
+      "shrunk": "Overall, the gap has shrunk: {pre} years before 1970, {recent} since 2000.",
+      "grown": "Overall, the gap has grown: {pre} years before 1970, {recent} since 2000.",
+      "flat": "Overall, the gap has barely changed: {pre} years before 1970, {recent} since 2000.",
+      "unclear": "There is not yet enough data to say how the gap has changed overall."}}},
+    "corrected": {"say": ["But recent research has not all landed. Counting work still in progress, ", {"by": "corr", "cases": {
+      "holds": "the shrinking holds, at about {kmYears} years.",
+      "weakens": "research since 2010 takes about {kmYears} years, so the improvement is smaller.",
+      "tooEarly": "it is too early to be sure.",
+      "unclear": "there is not yet enough data to tell."}}]},
+    "gapchart": {"say": "Gap over time tracks this decade by decade, with scenarios beyond today, including AI and digital twins."},
+    "fields": {"say": [{"by": "fastestIsAI", "cases": {
+      "ai": "Since 2000, AI itself is the fastest field, at about {fastestYears} years. ",
+      "other": "Since 2000, {fastestName} is fastest; AI ranks {aiRankWord} of {nFields}. ",
+      "none": ""}}, "With one field selected, its sub-fields get their own tracks."]},
+    "outlook": {"say": [{"by": "aiCmp", "cases": {
+      "faster": "Since 2010, AI-driven work took {ai} years, against {oth} for the rest.",
+      "slower": "Since 2010, AI-driven work has taken longer: {ai} years, against {oth}.",
+      "similar": "Since 2010, AI-driven work took about as long as the rest: {ai} years against {oth}.",
+      "unclear": "There are not yet enough AI-driven milestones to compare."}},
+      {"by": "outCmp", "cases": {
+      "faster": " Ahead, AI-assisted work is expected to take {aiOut} years, against {convOut}.",
+      "slower": " Ahead, the estimates do not show AI landing sooner.",
+      "similar": " Ahead, the estimates are similar.",
+      "unclear": ""}}]},
+    "answer": {"say": ["So, is AI shrinking the gap? ", {"by": "score", "cases": {
+      "0": "Not yet: the data do not show it.",
+      "1": "Partly: some of the evidence says yes.",
+      "2": "Probably: most of the evidence says yes.",
+      "3": "Yes: the evidence says so.",
+      "4": "Yes: every measure here agrees."}}, " The answer updates as the agents add evidence."]}
+   }
+  }
+ }
+}
