@@ -3,7 +3,6 @@
 Used as a hard gate: the weekly pipeline publishes nothing unless this passes."""
 import json, sys, re
 from pathlib import Path
-from datetime import date
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -59,17 +58,26 @@ def main(path='data/data.json'):
         if f['fortuneYear'] < f['founded']: errors.append(f'{f["id"]}: fortune before founding')
         if f['field'] not in fields: errors.append(f'{f["id"]}: unknown field')
     for w in warnings[:40]: print('WARN ', w)
-    for e in errors: print('ERROR', e)
     OFFICIAL_REF = ('ncsc.gov.uk', 'gov.uk', 'nist.gov', 'nerc.com', 'federalregister.gov', 'iso.org', 'isa.org', 'iec.ch', 'etsi.org', 'unece.org', 'bsigroup.com')
     for gd in db.get('securityGuidance', []):
         for ref in gd.get('refs', []):
             url = ref[2] if len(ref) > 2 else ''
             host = url.split('/')[2].lower() if url.startswith('https://') and len(url.split('/')) > 2 else ''
             if not host or not any(host == o or host.endswith('.' + o) for o in OFFICIAL_REF): errors.append(f"mitigation {gd['id']}: reference '{ref[0]}' must link to an official source (got {url or 'no link'})")
+    def _strings(x, path):
+        if isinstance(x, dict):
+            for k, v in x.items(): yield from _strings(v, f'{path}.{k}')
+        elif isinstance(x, list):
+            for i, v in enumerate(x): yield from _strings(v, f'{path}[{i}]')
+        elif isinstance(x, str): yield path, x
+    for path, text in _strings(db, 'data'):   # agent text is shown in the page: no markup, and only web links
+        if '<' in text: errors.append(f'{path}: contains markup ("<"), which is not allowed')
+        if path.endswith('.url') and text and not re.match(r'https?://', text): errors.append(f'{path}: links must be web addresses')
     tours_path = ROOT / 'data/tours.json'
     if tours_path.exists():   # the walk-through scripts: placeholders, variants, no typed figures, word limits, real examples
         sys.path.insert(0, str(ROOT / 'agents')); import tour_rules
         errors += [f'tours: {e}' for e in tour_rules.check(json.loads(tours_path.read_text(encoding='utf-8')), db['milestones'])]
+    for e in errors: print('ERROR', e)   # after every check, so none is counted without being shown
     print(f"{len(db['milestones'])} milestones, {len(db['founders'])} founders: {len(errors)} errors, {len(warnings)} warnings")
     return 1 if errors else 0
 

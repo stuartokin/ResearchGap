@@ -32,7 +32,9 @@ def main():
     key = os.environ.get('TTS_API_KEY', '')
     if not key and cfg.get('provider') != 'mock': print('No TTS_API_KEY: skipping the recorded voice (the app uses the browser voice).'); return 0
     if os.environ.get('TTS_REGION'): cfg['region'] = os.environ['TTS_REGION']
-    voice = f"{cfg.get('provider', 'azure')}:{cfg.get('voice', '')}"
+    tours = json.loads((ROOT / 'data/tours.json').read_text(encoding='utf-8')); cfg['pronounce'] = tours.get('pronounce', {})
+    # the pronunciation list is part of the voice key, so changing it re-records the affected sentences
+    voice = f"{cfg.get('provider', 'azure')}:{cfg.get('voice', '')}:{key_for(json.dumps(cfg['pronounce'], sort_keys=True), 'p')}"
     class Quiet(http.server.SimpleHTTPRequestHandler):
         def log_message(self, *a): pass
     handler = functools.partial(Quiet, directory=str(ROOT))
