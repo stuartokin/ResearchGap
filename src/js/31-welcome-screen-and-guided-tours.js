@@ -276,7 +276,7 @@ function startTour(id){
   tour.saved = {view:JSON.parse(JSON.stringify(view)), speed:playSpeed, musicWasOn:!music.paused};
   cancelCountdown(); if (state.playing) stopPlay(); $('spot').classList.remove('on', 'concl', 'chg');
   Object.assign(view, {conclusion:false, chgAnnounce:false, loopPlay:false, statsLive:false, gapBuild:false, camTravel:false});
-  if (!music.paused) music.pause();
+  if (!music.paused && !(kiosk.on && kiosk.opts.sound === 'music')) music.pause();
   Object.assign(tour, {on:true, id, i:0, facts:TOURS[id].facts()});
   document.body.classList.add('touring'); $('tourBar').classList.add('on'); $('tourTitle').textContent = TOURS[id].title;
   $('disc').classList.add('gone');
@@ -298,6 +298,10 @@ function returnFromTour(){
 }
 function endTour(how){
   if (!tour.on) return;
+  if (kiosk.on && how === 'done') {   // kiosk mode: straight on to the next scene
+    tour.on = false; tour.token++; clearTimeout(tour.timer); if ('speechSynthesis' in window) speechSynthesis.cancel(); if (tour.audio) tour.audio.pause();
+    document.body.classList.remove('touring'); $('tourBar').classList.remove('on'); $('tourCursor').classList.remove('on'); tourHighlight(null); kioskScene(); return;
+  }
   tour.on = false; tour.token++; clearTimeout(tour.timer); if ('speechSynthesis' in window) speechSynthesis.cancel(); if (tour.audio) tour.audio.pause();
   document.body.classList.remove('touring'); $('tourBar').classList.remove('on'); $('tourCursor').classList.remove('on'); winMenu.classList.remove('open'); tourHighlight(null); $('spot').classList.remove('on', 'concl', 'chg');
   toast((how === 'done' ? 'Tour complete. ' : 'Leaving the tour. ') + (tour.returnTo ? 'Back to where you were…' : 'Starting the tool…'));
