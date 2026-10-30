@@ -1,8 +1,8 @@
 /* ==================================================================
  *  WINDOW MANAGER
  * ================================================================== */
-const WIN_IDS = ['toolbar','footer','radar','cyber','findings','quality','table','changes','audience','pagetitle','title','ticker','player','sources','filters','display','summary','milestones','details','key','context','landing','gapchart','fortunes','vision','outlook','report','music','vid1','vid2'];
-const WIN_NAMES = {radar:'Vision radar', cyber:'Cyber lens', toolbar:'Toolbar', footer:'Footer', findings:'Key findings', quality:'Data quality', table:'Table of milestones', changes:'Data changes', audience:'Your milestones', pagetitle:'Page title', title:'Showcase title', ticker:'Ticker', player:'Play the century', sources:'Sources', filters:'Filters', display:'Display', summary:'Summary', milestones:'Milestones', details:'Details', key:'Reading the model', context:'Context', landing:'Landing and starting', gapchart:'Gap over time', fortunes:'Time to a fortune', vision:'AI for clean energy', outlook:'Can AI shrink the gap?', music:'Music', report:'PowerPoint report', vid1:'Countdown to Q-Day', vid2:'University Curated Cyber-attacks since 2000'};
+const WIN_IDS = ['toolbar','footer','radar','cyber','charts','findings','quality','table','changes','audience','pagetitle','title','ticker','player','sources','filters','display','summary','milestones','details','key','context','landing','gapchart','fortunes','vision','outlook','report','music','vid1','vid2'];
+const WIN_NAMES = {radar:'Vision radar', cyber:'Cyber lens', charts:'Charts', toolbar:'Toolbar', footer:'Footer', findings:'Key findings', quality:'Data quality', table:'Table of milestones', changes:'Data changes', audience:'Your milestones', pagetitle:'Page title', title:'Showcase title', ticker:'Ticker', player:'Play the century', sources:'Sources', filters:'Filters', display:'Display', summary:'Summary', milestones:'Milestones', details:'Details', key:'Reading the model', context:'Context', landing:'Landing and starting', gapchart:'Gap over time', fortunes:'Time to a fortune', vision:'AI for clean energy', outlook:'Can AI shrink the gap?', music:'Music', report:'PowerPoint report', vid1:'Countdown to Q-Day', vid2:'University Curated Cyber-attacks since 2000'};
 function defaultLayout(){
   const W = innerWidth, H = innerHeight, Hh = innerHeight, u = UI, narrow = W < 820; let top = Math.round(72 * u);
   const rw = Math.min(Math.round(360 * u), W - 36), lw = Math.min(Math.round(330 * u), W - 36);
@@ -19,7 +19,7 @@ function defaultLayout(){
   const pw = Math.min(Math.round(560 * u), Math.round(W * .42)), ph = Math.round(250 * u);
   const tw = Math.min(Math.round(1000 * u), W - midX - 18);
   if (MOBILE) {
-    const o = {}; const all = ['toolbar','footer','radar','cyber','findings','quality','table','changes','audience','pagetitle','title','ticker','player','sources','report','filters','display','summary','milestones','details','key','context','landing','gapchart','fortunes','vision','outlook','music','vid1','vid2'];
+    const o = {}; const all = ['toolbar','footer','radar','cyber','charts','findings','quality','table','changes','audience','pagetitle','title','ticker','player','sources','report','filters','display','summary','milestones','details','key','context','landing','gapchart','fortunes','vision','outlook','music','vid1','vid2'];
     const y0 = Math.max(Math.round(H * .18), tbH + 14);
     const land = W >= H, cw = Math.round(Math.max(250, Math.min(420, W * .34))), band = Math.max(y0, Math.round(H * .5));
     // windows open beside the model (landscape) or below it (portrait), never across the centre
@@ -27,6 +27,7 @@ function defaultLayout(){
     o.player = land ? {x:6, y:H - 158, w:W - cw - 18, h:150, fs:.8, open:false} : {x:6, y:H - 168, w:W - 12, h:160, fs:.8, open:false};
     o.ticker = {x:6, y:H - 58, w:W - 12, h:50, fs:.85, open:false};
     o.toolbar = {x:6, y:6, w:W - 12, h:tbH, fs:1, open:true};
+    o.charts = {x:6, y:y0, w:W - 12, h:H - y0 - 8, fs:.9, open:false};   // charts need the width
     o.findings.open = true;   // phones open on the headline findings, with the 3D model a tap away
     o.footer = {x:6, y:H - footH - 4, w:W - 12, h:footH, fs:.9, open:false};
     Object.values(o).forEach(L => { L.sw = W; L.sh = H; });
@@ -54,6 +55,7 @@ function defaultLayout(){
     outlook:{x:midX + Math.round(406 * u), y:top + 20, w:Math.max(320, W - rw - 36 - midX - Math.round(406 * u)), h:Math.min(Math.round(620 * u), bottom - top - 20), fs:1, open:false},
     radar:{x:midX - 20, y:top + 10, w:Math.round(460 * u), h:Math.max(260, bottom - top - 10), fs:1, open:false},
     cyber:{x:midX + 10, y:top + 20, w:Math.round(470 * u), h:Math.min(Math.round(680 * u), bottom - top - 20), fs:1, open:false},
+    charts:{x:Math.round(W * .36), y:top, w:W - Math.round(W * .36) - 18, h:bottom - top, fs:1, open:false},
     findings:{x:midX, y:top + 20, w:Math.round(430 * u), h:Math.min(Math.round(600 * u), bottom - top - 20), fs:1, open:false},
     quality:{x:midX + 30, y:top + 20, w:Math.round(460 * u), h:Math.min(Math.round(640 * u), bottom - top - 20), fs:1, open:false},
     table:{x:midX, y:top + 10, w:Math.max(420, Math.min(Math.round(940 * u), W - midX - 18)), h:Math.max(260, bottom - top - 10), fs:1, open:false},
@@ -119,7 +121,7 @@ function raise(id){
   if (zTop > 900) { zTop = 20; WIN_IDS.slice().sort((a, b) => (+wins[a].style.zIndex || 0) - (+wins[b].style.zIndex || 0)).forEach(w => { wins[w].style.zIndex = ++zTop; }); }
   wins[id].style.zIndex = ++zTop;
 }
-function setOpen(id, open){ const wasOpen = layout[id].open; layout[id].open = open; if (open && !wasOpen && view.flashNew !== false && !['toolbar', 'footer', 'pagetitle'].includes(id)) setTimeout(() => flashWin(id), 30); if (open) setTimeout(() => { if (id === 'radar') renderRadar(); if (id === 'cyber') renderCyber(); }, 0); if (open && !wasOpen && view.smartPlace !== false) smartPlace(id); if (open) setTimeout(() => { if (id === 'findings') renderFindings(); if (id === 'quality') renderQuality(); if (id === 'table') renderTable(); }, 0); if (!open) wins[id].classList.remove('max'); placeWin(id); if (typeof syncVideos === 'function') syncVideos(); if (open) raise(id); saveLayout(); buildWinMenu(); if (open && typeof updateTimeWindows === 'function') updateTimeWindows(true); }
+function setOpen(id, open){ const wasOpen = layout[id].open; layout[id].open = open; if (id === 'charts' && open) setTimeout(() => { raise('charts'); wins.charts.style.zIndex = Math.max(+wins.charts.style.zIndex || 0, 1200); renderCharts(); }, 0); if (open && !wasOpen && view.flashNew !== false && !['toolbar', 'footer', 'pagetitle'].includes(id)) setTimeout(() => flashWin(id), 30); if (open) setTimeout(() => { if (id === 'radar') renderRadar(); if (id === 'cyber') renderCyber(); }, 0); if (open && !wasOpen && view.smartPlace !== false) smartPlace(id); if (open) setTimeout(() => { if (id === 'findings') renderFindings(); if (id === 'quality') renderQuality(); if (id === 'table') renderTable(); }, 0); if (!open) wins[id].classList.remove('max'); placeWin(id); if (typeof syncVideos === 'function') syncVideos(); if (open) raise(id); saveLayout(); buildWinMenu(); if (open && typeof updateTimeWindows === 'function') updateTimeWindows(true); }
 WIN_IDS.forEach(id => {
   const el = $('w-' + id); wins[id] = el;
   const head = document.createElement('div'); head.className = 'wh';

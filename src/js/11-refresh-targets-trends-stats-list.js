@@ -2,6 +2,7 @@
  *  REFRESH: targets, trends, stats, list
  * ================================================================== */
 function refresh(){
+  scheduleCharts();   // the charts follow the filters (updated a moment later, once)
   computeLaneLayout(); ensureSubLanes(); computeLaneLayout();
   items.forEach(it => {
     it.match = matches(it);

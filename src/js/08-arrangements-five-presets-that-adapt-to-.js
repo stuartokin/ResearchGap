@@ -8,6 +8,7 @@ function screenClass(){ const W = innerWidth, H = innerHeight; if (MOBILE) retur
 function compactArrange(name, d, set, top, bot, W, H){
   const g = 8, land = W >= H, ph = land ? Math.min(d.player.h, 150) : Math.min(d.player.h, 160);
   d.player.fs = .8;
+  if (name === 'charts') { set('charts', 6, top, W - 12, bot - top); d.player.open = false; return d; }   // the charts need the whole width
   if (name === 'analysis') {   // a dashboard: two panels side by side, or one above the other
     if (land) { const cw = (W - 12 - g) / 2; set('findings', 6, top, cw, bot - top); set('summary', 6 + cw + g, top, cw, bot - top); }
     else { const mid = Math.round(top + (bot - top) / 2); set('findings', 6, top, W - 12, mid - top - 4); set('summary', 6, mid + 4, W - 12, bot - mid - 4); }
@@ -67,6 +68,10 @@ function arrangeLayout(name){
     else if (!big) { stack(['landing'], xL, L, top, bot, [1]); centrePlayer(xC, W - 12 - xC); }
     else if (cls === 'laptop') { stack(['landing'], xL, L, top, bot, [1]); stack(['gapchart'], xR, Rw, top, Math.min(bot, top + (bot - top) * .6), [1]); centrePlayer(xC, wC); }
     else { stack(['context', 'landing'], xL, L, top, bot, [.38, .62]); stack(['gapchart', 'fortunes'], xR, Rw, top, bot, [.45, .55]); centrePlayer(xC, wC); }
+  } else if (name === 'charts') {   // the charts, with the story of a selected milestone beside them
+    const dw = Math.round(Math.max(300, Math.min(420, W * .26)));
+    set('charts', 12, top, W - dw - 24 - g, bot - top); set('details', W - dw - 12, top, dw, bot - top);
+    d.player.open = false;   // no timeline here: the charts are the focus
   } else if (name === 'analysis') {   // a dashboard: charts take priority over the timeline here
     if (cls === 'phone') set('findings', 6, top, W - 12, H - top - 8);
     else if (!big) { const cw = (W - 24 - g) / 2, mid = top + (bot - top) * .55; set('findings', 12, top, cw, mid - top); set('summary', 12 + cw + g, top, cw, mid - top); set('gapchart', 12, mid + g, cw, bot - mid - g); set('outlook', 12 + cw + g, mid + g, cw, bot - mid - g); }
@@ -99,11 +104,11 @@ function arrangeLayout(name){
 }
 function applyPreset(name){
   const wasDesnz = view.preset === 'desnz';
-  view.preset = name; view.chgFlag = 'new'; view.conclusion = !(name === 'desnz' || name === 'analysis'); if ($('conclT')) $('conclT').checked = view.conclusion; syncChgUI(); applyChangeFlags();
+  view.preset = name; view.chgFlag = 'new'; view.conclusion = !(name === 'desnz' || name === 'analysis' || name === 'charts'); if ($('conclT')) $('conclT').checked = view.conclusion; syncChgUI(); applyChangeFlags();
   layout = arrangeLayout(name); WIN_IDS.forEach(placeWin); saveLayout(); syncVideos();
   if (name === 'desnz') { view.preDesnzFields = [...F.fields]; F.fields = new Set(FKEYS.filter(k => items.some(it => it.v === k && it.dv && !it.removed))); F.vision = true; view.chgScope = 'desnz'; $('chgDesnzT').checked = true; syncChgUI(); applyChangeFlags(); refresh(); renderChanges(); }
   else if (wasDesnz) { F.fields = new Set((view.preDesnzFields || FKEYS).filter(k => FIELDS[k])); delete view.preDesnzFields; F.vision = false; view.chgScope = 'all'; $('chgDesnzT').checked = false; syncChgUI(); applyChangeFlags(); refresh(); renderChanges(); }
-  if (name === 'analysis' && state.playing) stopPlay();
+  if (name === 'analysis' || name === 'charts') { cancelCountdown(); if (state.playing) stopPlay(); }   // no timeline running behind a dashboard
   if (name === 'desnz') {   // a slow loop from 1980; your own range and speed come back when you leave
     if (!view.preDesnzPlay) view.preDesnzPlay = {from:view.playFrom, to:view.playTo, speed:playSpeed, loop:view.loopPlay};
     view.playFrom = 1980; view.playTo = null; playSpeed = .25; $('tbSpeed').value = '0.25'; view.loopPlay = true;
