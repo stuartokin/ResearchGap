@@ -69,6 +69,11 @@ jobs:
         working-directory: agents
         run: python levers_agent.py
 
+      - name: Story agent (researches research, first use and impact, most recent first)
+        continue-on-error: true
+        working-directory: agents
+        run: python story_agent.py
+
       - name: Gate 1 - schema and data rules
         run: python tools/validate.py
 
