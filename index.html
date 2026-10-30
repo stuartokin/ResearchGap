@@ -963,15 +963,15 @@ body.kiosk #resetBtn,body.kiosk #winMenu [data-w="__load"],body.kiosk #winMenu [
 </section>
 <div id="countdown" aria-hidden="true"><div id="cdNum">3</div><div id="cdSub">Play the century</div></div>
 <div id="thanks" role="dialog" aria-modal="true" aria-label="Thank you"><div class="tybox"><div class="ty1">Thank you for your time</div><div class="ty2">Any questions?</div><div class="ty3">Stuart Okin</div></div></div>
-<div id="disc" role="status"><div class="dmeta" id="discMeta"></div><b>AI-maintained data.</b> This personal project’s data is compiled by AI agents without human review and may contain errors. <button id="discAbout">About</button><button id="discX" aria-label="Dismiss">✕</button></div>
+<div id="disc" role="status"><div class="dmeta" id="discMeta"></div><b>AI-maintained data.</b> This personal project’s data is compiled by AI agents from publicly available sources only, without human review, and may contain errors. <button id="discAbout">About</button><button id="discX" aria-label="Dismiss">✕</button></div>
 <div id="nogl" role="alert"><div><h2>3D view unavailable</h2><p>This device or browser can’t show the 3D model. Try a recent version of Chrome, Edge, Safari or Firefox on a laptop or desktop.</p></div></div>
 <div id="winMenu" role="menu"></div>
 <div id="welcome" role="dialog" aria-modal="true" aria-labelledby="wTitle"><div class="wbox">
   <h1 id="wTitle">The Shrinking Gap from Research to Change</h1>
   <p class="wsub">Five one-minute walk-throughs, narrated with subtitles. Or go straight to the tool.</p>
-  <div id="wAck" class="wack" role="alertdialog" aria-labelledby="wAckT"><b id="wAckT">Before you start</b> This site is run and managed by AI agents, with <b>no human in the loop</b>. Its data, narrative and voice are AI-generated and may contain errors. Please acknowledge to continue.
+  <div id="wAck" class="wack" role="alertdialog" aria-labelledby="wAckT"><b id="wAckT">Before you start</b> This site is run and managed by AI agents, with <b>no human in the loop</b>. It uses <b>only publicly available sources</b>. Its data, narrative and voice are AI-generated and may contain errors. Please acknowledge to continue.
     <button id="wAckBtn" class="wrun">I understand and acknowledge</button></div>
-  <p class="wai" role="note"><b>Fully AI-generated, with no human in the loop.</b> AI agents write and update these walk-throughs every week from their own findings, and an AI voice speaks them. No person reviews the narration before you hear it.</p>
+  <p class="wai" role="note"><b>Fully AI-generated, with no human in the loop.</b> AI agents write and update these walk-throughs every week from their own findings, using only publicly available sources, and an AI voice speaks them. No person reviews the narration before you hear it.</p>
   <div class="wcards" id="wCards"></div>
   <div class="wfoot"><button id="wRun" class="wrun">Run the tool</button><button id="wKiosk" class="wmute">Kiosk mode</button><button id="wMute" class="wmute"></button></div>
   <div id="wKioskOpts" class="wkiosk"><b>Kiosk mode</b> loops through the walk-throughs and arrangements, unattended. Visitors can explore at any time; it carries on after a minute without a touch. Press <b>Escape</b> to leave.
@@ -992,7 +992,7 @@ body.kiosk #resetBtn,body.kiosk #winMenu [data-w="__load"],body.kiosk #winMenu [
 <section class="win chromeless gripwin footwin" id="w-footer" data-title="Footer">
   <div class="wbody" id="foot">
     <span>Drag to rotate, scroll to zoom, right-drag to pan. Keys: P play, Space pause, ] and [ next and previous milestone, 1–9 single field, 0 all fields, L labels, M toolbar, T page title, Q thank you, R reset camera, H hide windows.</span>
-    <span>Stuart Okin, personal project. AI-maintained data; may contain errors.</span>
+    <span>Stuart Okin, personal project. AI-maintained data from public sources only; may contain errors.</span>
   </div>
 </section>
 
@@ -1003,7 +1003,7 @@ body.kiosk #resetBtn,body.kiosk #winMenu [data-w="__load"],body.kiosk #winMenu [
     <div class="faqtools"><input id="faqQ" class="search" placeholder="Search help" aria-label="Search help"></div>
     <div id="faq"></div>
     <h2 style="margin-top:1.2em">About this model</h2>
-    <p class="disc"><b>Personal project.</b> Built by Stuart Okin in a personal capacity; not affiliated with or endorsed by any employer. <b>AI-maintained data.</b> The dataset is compiled and kept up to date by AI agents using Claude (Anthropic), without human review, so it may contain errors. Outlook years are AI estimates, not forecasts. Check anything important against the cited sources.</p>
+    <p class="disc"><b>Personal project.</b> Built by Stuart Okin in a personal capacity; not affiliated with or endorsed by any employer. <b>AI-maintained data, from public sources only.</b> The dataset is compiled and kept up to date by AI agents using Claude (Anthropic), without human review, so it may contain errors. Outlook years are AI estimates, not forecasts. Check anything important against the cited sources.</p>
     <h3>Data status</h3>
     <p class="aboutmeta" id="aboutMeta"></p>
     <div id="dataStatus" class="dstat"></div>
@@ -5477,7 +5477,7 @@ const FORTUNES = DB.founders.map(f => {
 });
 const fmtMoney = (bn, sym) => bn >= 1000 ? `${sym}${(bn / 1000).toFixed(1)}tn` : bn >= 1 ? `${sym}${bn >= 100 ? Math.round(bn) : Math.round(bn * 10) / 10}bn` : `${sym}${Math.round(bn * 1000)}m`;
 const DATA_AS_OF = DB.meta.asOf;
-const APP_VERSION = '10.6', APP_BUILD = '';
+const APP_VERSION = '10.7', APP_BUILD = '';
 // Screen-aware scaling: laptops slightly smaller, large screens larger
 const UI = (() => { const w = innerWidth; return w < 1280 ? .85 : w < 1500 ? .95 : w < 1800 ? 1.05 : w < 2300 ? 1.2 : 1.4; })();
 const LARGE = innerWidth >= 1700;
@@ -6167,9 +6167,9 @@ function buildWinMenu(){
   groups.forEach(([g, name, ids]) => {
     const open = ids.filter(id => layout[id].open).length, ex = !!view.menuGroups[g];
     h += `<button class="wmg" data-g="${g}" aria-expanded="${ex}"><span class="car">${ex ? '▾' : '▸'}</span>${name}<span class="cnt">${open} of ${ids.length} open</span></button>`;
-    if (ex) h += '<div class="wmitems">' + ids.map(item).join('') + '</div>';
+    if (ex) h += '<div class="wmitems">' + ids.map(item).join('') + (g === 'share' ? '<button data-w="__csv"><span class="tick"></span>Download the data (CSV)</button><button data-w="__xlsx"><span class="tick"></span>Download the data (Excel)</button>' : '') + '</div>';
   });
-  h += '<hr><button data-w="__all">Open all windows</button><button data-w="__link">Copy a link to this view</button><button data-w="__img">Save an image of the view</button><button data-w="__csv">Download the data (CSV)</button><button data-w="__xlsx">Download the data (Excel)</button><button data-w="__kiosk">Kiosk mode…</button><button data-w="__save">Save this view to a file…</button><button data-w="__load">Load a view from a file…</button>' +
+  h += '<hr><button data-w="__all">Open all windows</button><button data-w="__link">Copy a link to this view</button><button data-w="__img">Save an image of the view</button><button data-w="__kiosk">Kiosk mode…</button><button data-w="__save">Save this view to a file…</button><button data-w="__load">Load a view from a file…</button>' +
     '<small>Saved views remember windows, positions, text sizes, filters and display settings. Open one with index.html?view=yourfile.json. Drag a title bar to move a window, its corner to resize, A− and A+ for text size; double-click a title bar to restore its place.</small>';
   winMenu.innerHTML = h;
 }
@@ -7121,7 +7121,7 @@ async function generateReport(){
   const exLine = it => `${it.t}: ${it.r} → ${it.p} (${gapOf(it)} yr${gapOf(it) === 1 ? '' : 's'})`;
   const pptx = new PptxGenJS(); pptx.layout = 'LAYOUT_16x9'; pptx.author = 'Stuart Okin'; pptx.title = title;
   const footer = (s, n) => {
-    s.addText(`Stuart Okin, personal project. Data revision ${DB.meta.revision} (${DATA_AS_OF}), narrative version ${narrVersion()}. AI-maintained data and narrative, no human review; may contain errors. Selection: ${selectionText()}.`,
+    s.addText(`Stuart Okin, personal project. Data revision ${DB.meta.revision} (${DATA_AS_OF}), narrative version ${narrVersion()}. AI-maintained data and narrative from public sources only, no human review; may contain errors. Selection: ${selectionText()}.`,
       {x:0.4, y:5.3, w:8.7, h:0.22, fontSize:6.5, color:MUTED, fontFace:'Arial', margin:0, isTextBox:true});
     s.addText(String(n), {x:9.2, y:5.3, w:0.4, h:0.22, fontSize:7, color:MUTED, align:'right', fontFace:'Arial', margin:0, isTextBox:true});
   };
@@ -7792,6 +7792,7 @@ const FAQ_EXTRA = [
     ['Vision radar', 'For each area of AI for clean energy (the five areas of DESNZ’s Vision for an AI-enabled clean energy system): readiness of its technologies, how many are deployed in GB, what is new since your last review, and what is coming in the next five years.'],
     ['Cyber lens', 'Technologies that expand the attack surface, possible mitigations mapped to the NCSC CAF, Ofgem’s CAF Overlay, NIST, NERC CIP, IEC 62443 and ISO/IEC (AI research: engage experts), how long security responses took to follow in their category, and open gaps with no response yet.'],
     ['Walk-throughs (Tours)', 'Five one-minute guided tours. They are fully AI-generated: AI agents write and update the narration every week from their own findings, within fixed rules, and an AI voice speaks it. No person reviews them, so check anything important against the sources.'],
+    ['Where does the data come from?', 'Only from publicly available sources: published research, company and product announcements, official publications and reputable news. The agents search the open web and record a link for every source; no confidential, non-public or regulatory information is used. Each record says whether it is source-cited, AI-compiled or an AI estimate.'],
     ['Kiosk mode', 'An unattended loop for stands and waiting areas: it plays the walk-throughs and arrangements in turn, with AI narration, music or silence, the ticker on or off, and a QR code to the site. Visitors can explore at any time; it resumes after a minute without a touch. Only Escape works on the keyboard, and it leaves kiosk mode. Start it from the welcome screen or the Windows menu.'],
     ['Ticker', 'A scrolling line of news (new milestones, click one to open it), jokes, or both. Choose in its Settings.']]],
   ['Data and agents', [
@@ -7975,7 +7976,7 @@ async function generateDesnzSlide(){
   });
   const legend = Object.entries({research:'Research', pilot:'Pilot', commercial:'First commercial use', scale:'At scale'});
   legend.forEach(([st, n], i) => { s.addShape(pptx.ShapeType.rect, {x:0.4 + i * 1.6, y:5.12, w:0.14, h:0.12, fill:{color:SC[st]}, line:{color:SC[st], width:0}}); s.addText(n, {x:0.58 + i * 1.6, y:5.08, w:1.4, h:0.2, fontSize:7.5, color:MUTED, fontFace:'Arial', margin:0, isTextBox:true}); });
-  s.addText(`Stuart Okin, personal project. Data revision ${DB.meta.revision}, narrative version ${narrVersion()}. AI-maintained data; readiness and GB status are AI estimates.`, {x:0.4, y:5.32, w:9.2, h:0.2, fontSize:6.5, color:MUTED, fontFace:'Arial', margin:0, isTextBox:true});
+  s.addText(`Stuart Okin, personal project. Data revision ${DB.meta.revision}, narrative version ${narrVersion()}. AI-maintained data from public sources only; readiness and GB status are AI estimates.`, {x:0.4, y:5.32, w:9.2, h:0.2, fontSize:6.5, color:MUTED, fontFace:'Arial', margin:0, isTextBox:true});
   const hv = narrative('horizon', ['answer'])[0];
   if (hv) s.addText(hv + ' (AI-generated narrative; no human review.)', {x:0.4, y:1.0, w:9.2, h:0.22, fontSize:8.5, italic:true, color:'F2D38A', fontFace:'Arial', margin:0, isTextBox:true});
   s.addNotes(narrative('horizon', ['radar', 'new', 'next', 'answer']).join(' ') + '\n\nEach column is one area of AI for clean energy, following the five areas of DESNZ’s Vision for an AI-enabled clean energy system. The bar shows how many of its technologies are at each readiness stage. Lists show what the data agents found new and what is expected within five years.');
@@ -8497,7 +8498,7 @@ function viewCanvas(plain){   // plain: the model and its labels only (for the r
     const verdict = (narrative('gap', ['answer'])[0] || '');
     x.fillStyle = '#F7C04A'; x.font = `italic ${Math.round(16 * dpr)}px "Instrument Sans", Arial, sans-serif`; x.fillText(verdict, 22 * dpr, y0 + 32 * dpr);
     x.fillStyle = '#8FA6B8'; x.font = `${Math.round(12.5 * dpr)}px "Instrument Sans", Arial, sans-serif`;
-    x.fillText(`Stuart Okin, personal project. Data revision ${DB.meta.revision} (${DATA_AS_OF}); AI-maintained data and narrative, no human review; may contain errors.${siteUrl() ? '  ' + siteUrl() : ''}`, 22 * dpr, y0 + 60 * dpr);
+    x.fillText(`Stuart Okin, personal project. Data revision ${DB.meta.revision} (${DATA_AS_OF}); AI-maintained data and narrative from public sources only, no human review; may contain errors.${siteUrl() ? '  ' + siteUrl() : ''}`, 22 * dpr, y0 + 60 * dpr);
     return c;
 }
 function exportImage(){
@@ -8536,6 +8537,7 @@ function fortuneRows(){
 }
 const ABOUT_ROWS = () => [['The Shrinking Gap from Research to Change'], ['Stuart Okin, personal project'], [`Data revision ${DB.meta.revision}, as of ${DATA_AS_OF}`],
   ['This data is run and managed by AI agents, with no human in the loop. It may contain errors: check anything important against the sources.'],
+  ['It uses only publicly available sources: published research, announcements, official publications and reputable news. No confidential or non-public information is used.'],
   ['Verification: source-cited (checked against a source), AI-compiled, or AI estimate.'], [siteUrl() || 'https://stuartokin.github.io/ResearchGap/']];
 function saveBlob(blob, name){ const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 5000); }
 const stamp = () => new Date().toISOString().slice(0, 10);
