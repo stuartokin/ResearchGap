@@ -16,7 +16,8 @@ const DATA = DB.milestones.filter(m => !(m.flags && m.flags.hidden)).map(m => {
   d.stage = (m.readiness || {}).stage || 'commercial'; if (m.gb) { d.gb = m.gb.status; d.gbNote = m.gb.note || ''; }
   if (m.security) { d.attack = !!m.security.expandsAttackSurface; d.sec = m.security.note || ''; d.secG = m.security.guidance || ''; }
   if (m.forecast) d.fc = m.forecast;
-  if (m.aiLevers) d.aiL = m.aiLevers;   // researched weekly by the AI levers agent
+  if (m.aiLevers) d.aiL = m.aiLevers;
+  if (m.story) d.story = m.story;   // researched weekly by the story agent   // researched weekly by the AI levers agent
   if (fl.major) d.major = true; if (fl.university) d.uni = true; if (fl.aiDriven) d.acc = true; if (fl.policy) d.policy = true; if (fl.disputed) d.disputed = true;
   return d;
 });
@@ -47,7 +48,7 @@ const FORTUNES = DB.founders.map(f => {
 });
 const fmtMoney = (bn, sym) => bn >= 1000 ? `${sym}${(bn / 1000).toFixed(1)}tn` : bn >= 1 ? `${sym}${bn >= 100 ? Math.round(bn) : Math.round(bn * 10) / 10}bn` : `${sym}${Math.round(bn * 1000)}m`;
 const DATA_AS_OF = DB.meta.asOf;
-const APP_VERSION = '11.0', APP_BUILD = '';
+const APP_VERSION = '11.1', APP_BUILD = '';
 // Screen-aware scaling: laptops slightly smaller, large screens larger
 const UI = (() => { const w = innerWidth; return w < 1280 ? .85 : w < 1500 ? .95 : w < 1800 ? 1.05 : w < 2300 ? 1.2 : 1.4; })();
 const LARGE = innerWidth >= 1700;

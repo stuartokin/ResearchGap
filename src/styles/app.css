@@ -596,3 +596,7 @@ body.kiosk #resetBtn,body.kiosk #winMenu [data-w="__load"],body.kiosk #winMenu [
 .ccallout.on{display:block}.cohead{display:flex;justify-content:space-between;align-items:center;gap:.6em;color:#4CD3C2}.cotext{font-size:1.12em;line-height:1.5;margin:.5em 0;color:#E9F2FF}
 .cofoot{display:flex;flex-wrap:wrap;gap:.4em .8em;align-items:center}.csres{border-left:3px solid #7FD6A0;padding:.3em 0 .3em .6em;margin:.6em 0}.csres p{margin:.25em 0}.csres a{color:#5FD8FF}
 @media (max-width:1000px) and (orientation:landscape){.wcards{grid-template-columns:repeat(6,minmax(0,1fr))}}
+
+.colink{background:rgba(76,211,194,.16);border:0;border-bottom:2px solid #4CD3C2;color:#BFF5EC;font:inherit;font-weight:700;padding:0 .25em;border-radius:4px;cursor:pointer}.colink:hover{background:rgba(76,211,194,.32)}
+.dstory{border-left:3px solid #A891FF;padding:.3em 0 .3em .7em;margin:.7em 0}.dstory p{margin:.25em 0}.dstory a{color:#5FD8FF}
+@media (max-width:1000px) and (orientation:landscape){.wcards{grid-template-columns:repeat(4,minmax(0,1fr))}}

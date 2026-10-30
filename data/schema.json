@@ -458,6 +458,52 @@
                 "type": "string"
               }
             }
+          },
+          "story": {
+            "type": "object",
+            "required": [
+              "research",
+              "deploy",
+              "impact",
+              "refs",
+              "checked"
+            ],
+            "properties": {
+              "research": {
+                "type": "string"
+              },
+              "deploy": {
+                "type": "string"
+              },
+              "impact": {
+                "type": "string"
+              },
+              "refs": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "url"
+                  ],
+                  "properties": {
+                    "url": {
+                      "type": "string",
+                      "pattern": "^https?://"
+                    },
+                    "label": {
+                      "type": "string"
+                    },
+                    "quote": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "checked": {
+                "type": "string"
+              }
+            }
           }
         }
       }

@@ -57,7 +57,8 @@ function renderSay(tpl, f){
   if (tpl.by) { const v = String(f[PH[tpl.by] || tpl.by]); return renderSay(tpl.cases[v] != null ? tpl.cases[v] : tpl.cases.default, f); }
   return '';
 }
-function stepText(tourId, st, f){ const t = (tourText.tours[tourId] || {}).steps || {}, fb = (TOUR_TEXT.tours[tourId] || {}).steps || {}; return renderSay((t[st.id] || fb[st.id] || {}).say, f).replace(/\s+/g, ' ').trim(); }
+function stepText(tourId, st, f){ const t = (tourText.tours[tourId] || {}).steps || {}, fb = (TOUR_TEXT.tours[tourId] || {}).steps || {}; return tidyText(renderSay((t[st.id] || fb[st.id] || {}).say, f)); }
+function tidyText(s){ return String(s).replace(/\s+/g, ' ').replace(/\b(\w+)\s+\1\b/gi, '$1').replace(/\s+([.,;:])/g, '$1').replace(/\.\s*\./g, '.').trim(); }   // no doubled words or stray spaces
 /* every sentence the tours will speak with today's data: used by the weekly voice step to record them */
 window.__tourTexts = () => Object.keys(TOURS).flatMap(id => { const f = TOURS[id].facts(); return TOURS[id].steps.map(st => ({tour:id, step:st.id, text:stepText(id, st, f)})); });
 /* FNV-1a hash of the exact sentence and voice, matched by tools/make_voice.py */
@@ -212,10 +213,13 @@ function tourSay(text, done){
   if (tour.muted) { tour.timer = setTimeout(fin, est); return; }
   const file = tourAudio.voice && tourAudio.files[textKey(text, tourAudio.voice)];
   if (file) {   // recorded voice for this exact sentence
-    const a = tour.audio || (tour.audio = new Audio()); a.pause(); a.src = 'audio/' + file; a.onended = () => setTimeout(fin, 400);
-    a.onerror = () => { if (tok === tour.token) browserSay(text, fin, est); };
-    a.play().catch(() => { if (tok === tour.token) browserSay(text, fin, est); });
-    tour.timer = setTimeout(fin, est + 8000); return;
+    const a = tour.audio || (tour.audio = new Audio()); a.pause(); a.preload = 'auto'; a.src = 'audio/' + file; let started = false;
+    const fallback = () => { if (tok === tour.token && !started) { started = true; browserSay(text, fin, est); } };   // only if the recording never started
+    a.onplaying = () => { if (started) return; started = true; clearTimeout(tour.timer); tour.timer = setTimeout(fin, Math.max(est, (a.duration || 0) * 1000) + 8000); };
+    a.onended = () => setTimeout(fin, 400);
+    a.onerror = () => { if (!started) fallback(); else { clearTimeout(tour.timer); tour.timer = setTimeout(fin, 1200); } };   // a hiccup after starting: never restart in another voice
+    a.play().catch(fallback);
+    tour.timer = setTimeout(fallback, 7000); return;
   }
   browserSay(text, fin, est);
 }
@@ -226,10 +230,13 @@ function speechText(text){   // spoken forms, such as DESNZ as one word; shared 
 function browserSay(text, fin, est){
   if (!('speechSynthesis' in window)) { tour.timer = setTimeout(fin, est); return; }
   speechSynthesis.cancel();
-  const u = new SpeechSynthesisUtterance(speechText(text)); if (tourVoice) { u.voice = tourVoice; u.lang = tourVoice.lang; } else u.lang = 'en-GB';
-  u.rate = 1.05; u.pitch = 1.05; u.onend = () => setTimeout(fin, 500); u.onerror = () => setTimeout(fin, 300);
-  speechSynthesis.speak(u);
-  tour.timer = setTimeout(fin, est + 4000);   // safety net: some browsers never report the end of speech
+  // a sentence at a time: some mobile browsers stop long utterances part-way through
+  const parts = speechText(text).match(/[^.!?]+[.!?]*\s*/g) || [text], tok = tour.token; let k = 0;
+  const next = () => { if (tok !== tour.token) return; if (k >= parts.length) { setTimeout(fin, 400); return; }
+    const u = new SpeechSynthesisUtterance(parts[k++].trim()); if (tourVoice) { u.voice = tourVoice; u.lang = tourVoice.lang; } else u.lang = 'en-GB';
+    u.rate = 1.05; u.pitch = 1.05; u.onend = next; u.onerror = next; speechSynthesis.speak(u); };
+  next();
+  tour.timer = setTimeout(fin, est + 6000);   // safety net: some browsers never report the end of speech
 }
 function tourPick(id, pick, tok, done){
   const cur = $('tourCursor'), hide = () => cur.classList.remove('on');
@@ -285,6 +292,7 @@ function startTour(id){
   tourStep(0);
 }
 function resetToDefaults(){
+  if (typeof resetCharts === 'function') resetCharts();
   const keep = {radarSeenRev:view.radarSeenRev};
   Object.keys(view).forEach(k => delete view[k]); Object.assign(view, JSON.parse(JSON.stringify(VIEW_DEFAULTS)), keep);
   tourFilters(); hidden.clear(); F.q = ''; if ($('q')) $('q').value = '';
@@ -336,7 +344,7 @@ let welcomeTimer = 0, welcomeLeft = 0, welcomeDeadline = 0, welcomeLast = 0;
 let aiAcked = new URLSearchParams(location.search).get('welcome') === '0';   // a mandatory acknowledgement, once per visit (tests skip it with welcome=0)
 function ackAI(){ aiAcked = true; $('welcome').classList.remove('needack'); welcomeDeadline = Date.now() + 30000; welcomeLast = Date.now(); tickWelcome(); $('wRun').focus(); }
 function showWelcome(){
-  $('wCards').innerHTML = TOUR_LIST.map((t, k) => `<button class="wcard${t.ready ? '' : ' soon'}" data-tour="${t.id}"${t.ready ? '' : ' disabled aria-disabled="true"'}><span class="wn">${k + 1}</span><b>${esc(t.title)}</b><span>${esc(t.blurb)}</span><em>${t.id === 'week' ? 'Updated ' + chEsc(weekFacts().updatedAt) : t.ready ? '1 to 2 minute walk-through' : 'Coming soon'}</em></button>`).join('');
+  $('wCards').innerHTML = TOUR_LIST.map((t, k) => `<button class="wcard${t.ready ? '' : ' soon'}" data-tour="${t.id}"${t.ready ? '' : ' disabled aria-disabled="true"'}><span class="wn">${k + 1}</span><b>${esc(t.title)}</b><span>${esc(t.blurb)}</span><em>${tourUpdatedLabel(t.id) ? 'Updated ' + chEsc(tourUpdatedLabel(t.id)) : t.ready ? '1 to 2 minute walk-through' : 'Coming soon'}</em></button>`).join('');
   $('welcome').classList.add('on'); $('disc').classList.add('gone'); syncMute();
   if (!aiAcked) { $('welcome').classList.add('needack'); clearTimeout(welcomeTimer); $('wAuto').textContent = 'Please acknowledge the notice above to continue.'; setTimeout(() => $('wAckBtn').focus(), 50); return; }
   welcomeDeadline = Date.now() + 30000; welcomeLast = Date.now(); tickWelcome();

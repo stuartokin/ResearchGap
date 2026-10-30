@@ -72,5 +72,11 @@
     "perRun": 8,
     "maxSearches": 3,
     "refreshDays": 90
+  },
+  "stories": {
+    "enabled": true,
+    "perRun": 10,
+    "maxSearches": 3,
+    "refreshDays": 180
   }
 }

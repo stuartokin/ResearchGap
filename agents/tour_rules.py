@@ -8,9 +8,10 @@ import re, itertools
 # placeholders and conclusions shared by every tour: the chart facts and the week's facts
 CHART_PH = {'nGap', 'longestTitle', 'longestYears', 'quickRecentTitle', 'quickRecentYears', 'fastField', 'fastFieldYears', 'slowField', 'slowFieldYears', 'improvedField', 'improvedFrom', 'improvedTo',
   'aiMed', 'restMed', 'aiCount', 'pipeTotal', 'pipeResearch', 'pipePilot', 'pipeCommercial', 'pipeScale', 'pipeGB', 'driftCount', 'driftPeakYear', 'driftPeakCount', 'driftRevised', 'driftSlipped',
-  'secCount', 'secMedian', 'secLongestTitle', 'secLongestYears', 'secOpen', 'fortCount', 'fortResearch', 'fortFastest', 'fortFastestTime', 'fortPre', 'fortRecent', 'wiAvg', 'wi2030Now', 'wi2030AI', 'wiTopLever', 'wiResearched'}
-CHART_CASES = {'improvedCase': {'yes', 'no'}, 'aiCase': {'faster', 'similar', 'slower', 'unclear'}, 'pipeCase': {'early', 'late'}, 'driftCase': {'some', 'none'}, 'secCase': {'open', 'closed'}, 'fortCase': {'faster', 'slower', 'similar', 'unclear'}}
-WEEK_PH = {'updatedAt', 'newCount', 'newTitles', 'changedCount'}
+  'secCount', 'secMedian', 'secLongestTitle', 'secLongestYears', 'secOpen', 'fortCount', 'fortResearch', 'fortFastest', 'fortFastestTime', 'fortPre', 'fortRecent', 'wiAvg', 'wi2030Now', 'wi2030AI', 'wiTopLever', 'wiResearched'} | {f'{k}{x}' for k in ('quickStory', 'fastStory', 'aiStory', 'pipeStory', 'secStory', 'newStory', 'cleanStory') for x in ('', 'Title')}
+CHART_CASES = {'improvedCase': {'yes', 'no'}, 'aiCase': {'faster', 'similar', 'slower', 'unclear'}, 'pipeCase': {'early', 'late'}, 'driftCase': {'some', 'none'}, 'secCase': {'open', 'closed'}, 'fortCase': {'faster', 'slower', 'similar', 'unclear'}, **{f'{k}Case': {'yes', 'no'} for k in ('quickStory', 'fastStory', 'aiStory', 'pipeStory', 'secStory', 'newStory', 'cleanStory')}}
+WEEK_PH = {'updatedAt', 'newCount', 'newTitles', 'changedCount', 'cleanUpdatedAt', 'cleanNewCount', 'cleanNewTitles', 'cleanChangedCount'}
+CLEAN_VIEWS = {'main', 'radar', 'pipe', 'drift', 'sec', 'whatif', 'findings'}
 WEEK_VIEWS = {'main', 'findings', 'radar', 'cyber', 'fortunes', 'gaps', 'heat', 'ai', 'pipe', 'drift', 'sec', 'fort', 'whatif'}
 CHART_YEARS = {'1990', '2010', '2030'}
 
@@ -54,6 +55,14 @@ SPEC = {
     'steps': None,   # written each week: 'intro' plus three to six steps, each with a view
     'placeholders': set(), 'cases': {'newCase': {'some', 'none'}}, 'years': set(), 'maxWords': 45, 'titles': True,
   },
+  'charthow': {
+    'steps': ['open', 'gapsort', 'filter', 'heat', 'ai', 'pipe', 'drift', 'sec', 'fort', 'whatif', 'insight'],
+    'placeholders': set(), 'cases': {}, 'years': set(), 'maxWords': 45,
+  },
+  'cleanweek': {
+    'steps': None, 'views': CLEAN_VIEWS,   # written each week, like the weekly analysis, but about AI for clean energy
+    'placeholders': set(), 'cases': {'cleanCase': {'some', 'none'}}, 'years': set(), 'maxWords': 45, 'titles': True,
+  },
   'how': {
     'steps': ['intro', 'research', 'qa', 'more', 'quality', 'labels', 'arrange', 'whatifchart', 'answer'],
     'placeholders': {'nMilestones', 'pctSourceCited', 'fcResolved'},
@@ -64,9 +73,14 @@ SPEC = {
 
 # every tour may use the chart facts; the weekly analysis may also use the week's facts
 for _tid, _sp in SPEC.items():
-    _sp['placeholders'] = set(_sp['placeholders']) | CHART_PH | (WEEK_PH if _tid == 'week' else set())
+    _sp['placeholders'] = set(_sp['placeholders']) | CHART_PH | (WEEK_PH if _tid in ('week', 'cleanweek') else set())
     _sp['cases'] = dict(CHART_CASES, **_sp['cases'])
     _sp['years'] = set(_sp['years']) | CHART_YEARS
+
+def similarity(a, b):
+    w = lambda x: set(re.findall(r'[a-z]{4,}', re.sub(r'\{\w+\}', ' ', x.lower())))
+    A, B = w(a), w(b)
+    return len(A & B) / min(len(A), len(B)) if A and B else 0
 
 def _paths(tpl, limit=400):
     """Every possible rendering of a template, with placeholders kept as single words."""
@@ -104,6 +118,7 @@ def check_step(tour_id, step_id, say, titles=None):
         for num in re.findall(r'\d+(?:\.\d+)?', literal):
             if num not in sp['years']: errs.append(f'{tour_id}.{step_id}: typed figure "{num}" (figures must come from placeholders)')
         if re.search(r'https?:|www\.|<|>', literal): errs.append(f'{tour_id}.{step_id}: links or markup are not allowed')
+        if re.search(r'\b(\w+)\s+\1\b', literal, re.I): errs.append(f'{tour_id}.{step_id}: a word is repeated')
         if re.search(r'DESNZ|Department for Energy Security', literal): errs.append(f'{tour_id}.{step_id}: say "AI for clean energy" rather than naming DESNZ')
         words = len(re.sub(r'\{\w+\}', 'X', text).split())
         if words > sp['maxWords']: errs.append(f'{tour_id}.{step_id}: {words} words (limit {sp["maxWords"]})')
@@ -123,9 +138,14 @@ def check(tours, milestones=None):
             if 'intro' not in steps: errs.append(f'{tid}: the intro step is missing')
             if not 3 <= len(body) <= 6: errs.append(f'{tid}: needs three to six steps besides the intro (has {len(body)})')
             for sid, st in steps.items():
-                if sid != 'intro' and st.get('view') not in WEEK_VIEWS: errs.append(f'{tid}.{sid}: unknown view {st.get("view")!r}')
+                if sid != 'intro' and st.get('view') not in sp.get('views', WEEK_VIEWS): errs.append(f'{tid}.{sid}: unknown view {st.get("view")!r}')
                 errs += check_step(tid, sid, st.get('say'), titles)
             if not t.get('updated'): errs.append(f'{tid}: missing the updated date and time')
+            lits = {k: ' '.join(_paths(v.get('say'))[:1]) for k, v in steps.items()}
+            ks = list(lits)
+            for i_ in range(len(ks)):
+                for j_ in range(i_ + 1, len(ks)):
+                    if similarity(lits[ks[i_]], lits[ks[j_]]) > .6: errs.append(f'{tid}: steps {ks[i_]} and {ks[j_]} say much the same thing')
             continue
         for sid in sp['steps']:
             if sid not in steps or 'say' not in steps[sid]: errs.append(f'{tid}: step "{sid}" is missing'); continue

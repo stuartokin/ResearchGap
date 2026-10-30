@@ -108,7 +108,8 @@ function applyPreset(name){
   layout = arrangeLayout(name); WIN_IDS.forEach(placeWin); saveLayout(); syncVideos();
   if (name === 'desnz') { view.preDesnzFields = [...F.fields]; F.fields = new Set(FKEYS.filter(k => items.some(it => it.v === k && it.dv && !it.removed))); F.vision = true; view.chgScope = 'desnz'; $('chgDesnzT').checked = true; syncChgUI(); applyChangeFlags(); refresh(); renderChanges(); }
   else if (wasDesnz) { F.fields = new Set((view.preDesnzFields || FKEYS).filter(k => FIELDS[k])); delete view.preDesnzFields; F.vision = false; view.chgScope = 'all'; $('chgDesnzT').checked = false; syncChgUI(); applyChangeFlags(); refresh(); renderChanges(); }
-  if (name === 'analysis' || name === 'charts') { cancelCountdown(); if (state.playing) stopPlay(); }   // no timeline running behind a dashboard
+  if (name === 'analysis' || name === 'charts') { cancelCountdown(); if (state.playing) stopPlay(); }
+  if (name === 'charts' && typeof resetCharts === 'function') resetCharts();   // a fresh start, not wherever a tour left it   // no timeline running behind a dashboard
   if (name === 'desnz') {   // a slow loop from 1980; your own range and speed come back when you leave
     if (!view.preDesnzPlay) view.preDesnzPlay = {from:view.playFrom, to:view.playTo, speed:playSpeed, loop:view.loopPlay};
     view.playFrom = 1980; view.playTo = null; playSpeed = .25; $('tbSpeed').value = '0.25'; view.loopPlay = true;

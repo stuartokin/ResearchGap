@@ -1,16 +1,16 @@
 {
- "version": 18,
- "updated": "2026-10-30",
+ "version": 19,
+ "updated": "2026-10-29",
  "updatedBy": "tour-agent",
  "note": "Narration templates for the guided tours. Figures come from {placeholders} filled from the live data; conclusions are chosen by rules in the app ({\"by\": fact, \"cases\": {...}}). The weekly tour agent may refine wording and choose examples, within the rules checked by tools/validate.py.",
  "tours": {
   "gap": {
    "title": "Is AI shrinking the gap from research to change?",
    "exampleIds": [
-    "penicillin",
+    "mrna-vaccines",
     "radar",
-    "large-language-model-api",
-    "mrna-vaccines"
+    "integrated-circuit",
+    "large-language-model-api"
    ],
    "steps": {
     "intro": {
@@ -161,7 +161,7 @@
      }
     },
     "changes": {
-     "say": "The Data changes window lists everything the search agents add or correct each week. Here it is filtered to show only changes linked to AI for clean energy."
+     "say": "Forecast drift shows when these clean energy technologies are expected to arrive, and tracks any slips as the agents re-estimate each week."
     },
     "slide": {
      "say": "For a briefing, the PowerPoint report window creates a single-slide summary covering every area of the vision, ready to drop into a deck."
@@ -352,7 +352,16 @@
    "updated": "2026-10-30",
    "steps": {
     "gaps": {
-     "say": "Across {nGap} landed milestones, the longest journey was {longestTitle}, at {longestYears} years. Among recent arrivals, {quickRecentTitle} took just {quickRecentYears}."
+     "say": [
+      "Across {nGap} landed milestones, the longest journey was {longestTitle}, at {longestYears} years. Among recent arrivals, {quickRecentTitle} took just {quickRecentYears}.",
+      {
+       "by": "quickStoryCase",
+       "cases": {
+        "yes": " {quickStory}",
+        "no": ""
+       }
+      }
+     ]
     },
     "heat": {
      "say": [
@@ -363,19 +372,35 @@
         "yes": "{improvedField} improved most: from {improvedFrom} years in the 1990s to {improvedTo} in the 2010s.",
         "no": "No field has clearly sped up between the 1990s and the 2010s."
        }
+      },
+      {
+       "by": "fastStoryCase",
+       "cases": {
+        "yes": " {fastStory}",
+        "no": ""
+       }
       }
      ]
     },
     "ai": {
-     "say": {
-      "by": "aiCase",
-      "cases": {
-       "faster": "For research since 2010, AI-driven work typically reached a product in about {aiMed} years, against {restMed} for everything else. This rests on only {aiCount} AI-driven milestones so far.",
-       "similar": "For research since 2010, AI-driven work has typically taken about as long as the rest: {aiMed} years against {restMed}, based on {aiCount} AI-driven milestones.",
-       "slower": "For research since 2010, AI-driven work has typically taken longer: {aiMed} years against {restMed}, based on {aiCount} AI-driven milestones.",
-       "unclear": "There are not yet enough AI-driven milestones to compare."
+     "say": [
+      {
+       "by": "aiCase",
+       "cases": {
+        "faster": "For research since 2010, AI-driven work reached a product in about {aiMed} years, against {restMed} for everything else. It is a small group so far: {aiCount} milestones.",
+        "similar": "For research since 2010, AI-driven work has taken about as long as the rest: {aiMed} years against {restMed}.",
+        "slower": "For research since 2010, AI-driven work has taken longer: {aiMed} years against {restMed}.",
+        "unclear": "There are not yet enough AI-driven milestones to compare."
+       }
+      },
+      {
+       "by": "aiStoryCase",
+       "cases": {
+        "yes": " {aiStory}",
+        "no": ""
+       }
       }
-     }
+     ]
     },
     "pipe": {
      "say": [
@@ -386,6 +411,13 @@
         "early": "Most are still early, so proving them at scale is the next challenge.",
         "late": "Most have reached commercial use, so scaling up is the challenge now."
        }
+      },
+      {
+       "by": "pipeStoryCase",
+       "cases": {
+        "yes": " {pipeStory}",
+        "no": ""
+       }
       }
      ]
     },
@@ -395,8 +427,8 @@
       {
        "by": "driftCase",
        "cases": {
-        "none": "None has been revised yet. Any slips will show here as the forecasts are re-estimated each week.",
-        "some": "{driftRevised} have been revised so far, {driftSlipped} of them to a later date."
+        "none": "None has been revised yet; trails will show any slips as the agents re-estimate each week.",
+        "some": "{driftRevised} have been revised so far, {driftSlipped} of them later."
        }
       }
      ]
@@ -409,6 +441,13 @@
        "cases": {
         "open": "{secOpen} still have no response in their category.",
         "closed": "Every technology here now has a response in its category."
+       }
+      },
+      {
+       "by": "secStoryCase",
+       "cases": {
+        "yes": " {secStory}",
+        "no": ""
        }
       }
      ]
@@ -428,7 +467,7 @@
      ]
     },
     "whatif": {
-     "say": "In this scenario, practical AI for clean energy brings projected technologies forward by about {wiAvg} years on average: {wi2030AI} would have arrived by 2030, against {wi2030Now} on the current course. The biggest lever is {wiTopLever}. An illustration, not a forecast."
+     "say": "With practical AI levers, projected technologies arrive about {wiAvg} years sooner on average: {wi2030AI} by 2030 rather than {wi2030Now}. The biggest lever is {wiTopLever}. An illustration, not a forecast."
     }
    }
   },
@@ -447,10 +486,6 @@
        }
       }
      ]
-    },
-    "w1": {
-     "view": "main",
-     "say": "This week's analysis, updated {updatedAt}. The agents added {newCount} milestones, including {newTitles}. Across {nGap} landed milestones, the typical gap from research to product has grown, though the newest work is moving faster."
     },
     "w2": {
      "view": "heat",
@@ -471,6 +506,88 @@
     "w6": {
      "view": "fort",
      "say": "Fortunes are a mixed picture. Of {fortCount} tracked, the fastest took {fortFastestTime} years, and the gap between earlier and recent founders is {fortPre} against {fortRecent}. Treat it cautiously."
+    }
+   }
+  },
+  "charthow": {
+   "title": "How the charts work",
+   "steps": {
+    "open": {
+     "say": "Eight charts make the data readable. Choose a tab at the top; every chart follows your filters, and selecting a milestone opens its story and moves the model to it."
+    },
+    "gapsort": {
+     "say": "In the Gap explorer you can sort and colour the bars. Drag across the chart to zoom into years; double-click to reset."
+    },
+    "filter": {
+     "say": "The filter bar narrows any chart by search, field or origin. With fewer items, the rows grow larger and the years zoom in automatically."
+    },
+    "heat": {
+     "say": "In the heatmap, select a cell to list its milestones in the side panel. The panel stays while you open a story."
+    },
+    "ai": {
+     "say": "In AI against the rest, drag a box to zoom in; labels appear once there is room. Switch to select mode to list a group of milestones."
+    },
+    "pipe": {
+     "say": "In the pipeline, select any bar or flow to see the technologies behind it."
+    },
+    "drift": {
+     "say": "In Forecast drift, the bars count expected arrivals by year. Select a bar to list them; trails show any slips as forecasts are revised."
+    },
+    "sec": {
+     "say": "Security lag can be sorted by arrival, longest wait, or open gaps first. Rows in red still have no security response."
+    },
+    "fort": {
+     "say": "Play the race to a fortune through time, or select a bubble for the company's story."
+    },
+    "whatif": {
+     "say": "What if? applies practical AI levers. Switch the scenario or the levers, and select a row to see the reasoning and any research behind it."
+    },
+    "insight": {
+     "say": "Finally, the Insight button gives this week's analysis for each chart, with subtitles and speech; select a number to see what is behind it. Any chart saves as an image or CSV."
+    }
+   }
+  },
+  "cleanweek": {
+   "title": "AI for clean energy analysis",
+   "updated": "2026-10-30T23:05Z",
+   "steps": {
+    "intro": {
+     "say": [
+      "AI for clean energy: this week's analysis, updated {cleanUpdatedAt}. ",
+      {
+       "by": "cleanCase",
+       "cases": {
+        "some": "The agents added {cleanNewCount} clean energy technologies this week, including {cleanNewTitles}.",
+        "none": "No clean energy technologies were added this week, so this is a review of the pipeline."
+       }
+      }
+     ]
+    },
+    "c1": {
+     "view": "pipe",
+     "say": "Of {pipeTotal} technologies, {pipeResearch} are in research and {pipePilot} piloting; {pipeCommercial} are in first commercial use and {pipeScale} at scale. {pipeGB} are deployed in Great Britain."
+    },
+    "c2": {
+     "view": "radar",
+     "say": "The Vision radar groups them into five areas, showing how ready each area is and what has arrived since the last review."
+    },
+    "c3": {
+     "view": "drift",
+     "say": "Forecast drift shows when the rest are expected, so you can see which years will be busiest for the energy system."
+    },
+    "c4": {
+     "view": "sec",
+     "say": "As they roll out, security has typically followed about {secMedian} years behind; that window of exposure is where the risk sits."
+    },
+    "c5": {
+     "view": "main",
+     "say": {
+      "by": "cleanStoryCase",
+      "cases": {
+       "yes": "One story from the pipeline: {cleanStory}",
+       "no": "Every technology has its own story; select any arc in the model to read it."
+      }
+     }
     }
    }
   }

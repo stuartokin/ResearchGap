@@ -15,6 +15,7 @@ function chNiceStep(span, px, fs){ const target = Math.max(1, span / Math.max(2,
 function chMatch(it){
   if (CH.field && it.v !== CH.field) return false;
   if (CH.origin && it.s !== CH.origin) return false;
+  if (CH.dvOnly && !it.dv) return false;   // AI for clean energy only
   if (CH.q) { const q = CH.q.toLowerCase(); if (!(`${it.t} ${it.co || ''} ${it.sub || ''} ${(it.tags || []).join(' ')}`.toLowerCase().includes(q))) return false; }
   return true;
 }
@@ -72,12 +73,12 @@ function chRowChart(W, H, fs, rows, o){
   (o.markers || []).forEach(m => { if (m.x < a || m.x > b) return; s += `<line x1="${x(m.x)}" x2="${x(m.x)}" y1="${top - 4}" y2="${top + n * rh}" stroke="${m.color}" stroke-dasharray="4 4" stroke-opacity=".8"/>${m.label ? `<text x="${x(m.x)}" y="${below}" fill="${m.color}" font-size="${fs * .8}" text-anchor="middle">${chEsc(m.label)}</text>` : ''}`; });
   rows.forEach((r, i) => {
     const y = top + i * rh + rh / 2, sel = CH.sel === r.id, th = Math.max(3, Math.min(rh * .42, fs * .75));
-    s += `<g class="chrow" data-id="${r.id}" data-tip="${chEsc(r.tip)}"><rect x="0" y="${y - rh / 2}" width="${W}" height="${rh}" fill="${sel ? 'rgba(247,192,74,.16)' : i % 2 ? 'rgba(255,255,255,.018)' : 'transparent'}"/>
+    s += `<g class="chrow" data-id="${r.id}" data-tip="${chEsc(r.tip)}"><rect x="0" y="${y - rh / 2}" width="${W}" height="${rh}" fill="${sel ? 'rgba(247,192,74,.16)' : r.alert ? 'rgba(255,107,107,.13)' : i % 2 ? 'rgba(255,255,255,.018)' : 'transparent'}"/>${r.alert ? `<rect x="0" y="${y - rh / 2}" width="4" height="${rh}" fill="${CHC.coral}"/>` : ''}
       <text x="${L}" y="${y + lf * .35}" fill="${sel ? CHC.amber : CHC.txt}" text-anchor="end">${chEsc(chClip(r.label, Math.floor((L - 10) / (lf * .5))))}</text>`;
     (r.bars || []).forEach(bb => { const x1 = x(Math.max(a, bb.a)), x2 = x(Math.min(b, bb.b)); if (x2 < x1 || bb.b < a || bb.a > b) return;
       s += `<line x1="${x1}" x2="${x2}" y1="${y}" y2="${y}" stroke="${bb.color}" stroke-width="${th * (bb.thin ? .45 : 1)}" stroke-linecap="round" stroke-opacity="${bb.opacity ?? 1}"${bb.dash ? ` stroke-dasharray="${th * 1.2} ${th}"` : ''}/>`; });
     (r.dots || []).forEach(d => { if (d.x < a || d.x > b) return; s += `<circle cx="${x(d.x)}" cy="${y}" r="${(d.r || .5) * th + 1.5}" fill="${d.hollow ? CHC.bg : d.color}" stroke="${d.color}" stroke-width="${d.hollow ? 2 : 0}"/>`; });
-    if (r.end) s += `<text x="${o.endAtRight ? W - endW - 4 + 8 : x(Math.min(b, r.endX ?? b)) + th + 4}" y="${y + lf * .35}" fill="${r.endColor || CHC.mut}" font-size="${fs * .82}">${chEsc(r.end)}</text>`;
+    if (r.end) s += `<text x="${o.endAtRight ? W - endW - 4 + 8 : x(Math.min(b, r.endX ?? b)) + th + 4}" y="${y + lf * .35}" fill="${r.endColor || CHC.mut}" font-size="${fs * .82}" font-weight="${r.alert ? 700 : 400}">${chEsc(r.end)}</text>`;
     s += '</g>';
   });
   return s + '</svg>';
@@ -198,7 +199,7 @@ function chDrift(W, H, fs){
   let hist = '';
   if (ys.length) { const bw = Math.min(fs * 4, (W - 40) / ys.length - 6), mx = Math.max(...Object.values(counts));
     hist = `<svg width="${W}" height="${histH + fs * 1.8}" font-size="${fs * .8}"><text x="4" y="${fs}" fill="${CHC.mut}">Expected arrivals by year</text>` + ys.map((y, i) => { const h = counts[y] / mx * (histH - fs * 1.6), x0 = 40 + i * (bw + 6);
-      return `<rect x="${x0}" y="${histH - h + fs * .3}" width="${bw}" height="${h}" rx="3" fill="${y <= NOW ? CHC.green : CHC.amber}" fill-opacity=".8"><title>${y}: ${counts[y]}</title></rect><text x="${x0 + bw / 2}" y="${histH - h - fs * .1}" fill="${CHC.txt}" text-anchor="middle">${counts[y]}</text><text x="${x0 + bw / 2}" y="${histH + fs * 1.4}" fill="${CHC.mut}" text-anchor="middle">${y}</text>`; }).join('') + '</svg>'; }
+      return `<rect class="chdyear" data-dyear="${y}" data-tip="${y}: ${counts[y]} expected. Select to list them." x="${x0}" y="${histH - h + fs * .3}" width="${bw}" height="${h}" rx="3" fill="${y <= NOW ? CHC.green : CHC.amber}" fill-opacity="${CH.panel && CH.panel.dyear == y ? 1 : .75}" stroke="${CH.panel && CH.panel.dyear == y ? '#fff' : 'none'}" stroke-width="2" style="cursor:pointer"></rect><text x="${x0 + bw / 2}" y="${histH - h - fs * .1}" fill="${CHC.txt}" text-anchor="middle">${counts[y]}</text><text x="${x0 + bw / 2}" y="${histH + fs * 1.4}" fill="${CHC.mut}" text-anchor="middle">${y}</text>`; }).join('') + '</svg>'; }
   let revised = 0, slipped = 0;
   const rows = pool.map(it => { const revs = revOf(it), first = revs.length ? (it.fc.revisions[0].from ?? revs[0]) : it.fc.estimatedYear, now = it.fc.actualYear ?? it.fc.estimatedYear;
     if (revs.length) revised++; if (now > first) slipped++; const sc = STC[it.stage] || STC.research, c = now > first ? CHC.coral : now < first ? CHC.green : sc;
@@ -211,9 +212,9 @@ function chDrift(W, H, fs){
 /* 6. Security lag */
 function chSec(W, H, fs){
   const all = chPool().filter(it => it.kind === 'hist' && it.attack).map(it => ({it, r:secResponse(it)})).filter(x => x.r);
-  const sorts = {arrival:(p, q) => p.it.p - q.it.p, wait:(p, q) => (q.r.resp ? q.r.lag : NOW - q.it.p) - (p.r.resp ? p.r.lag : NOW - p.it.p), response:(p, q) => ((p.r.resp || {}).p || 9999) - ((q.r.resp || {}).p || 9999) || p.it.p - q.it.p};
+  const sorts = {open:(p, q) => (!!q.r.resp - !!p.r.resp) || p.it.p - q.it.p, arrival:(p, q) => p.it.p - q.it.p, wait:(p, q) => (q.r.resp ? q.r.lag : NOW - q.it.p) - (p.r.resp ? p.r.lag : NOW - p.it.p), response:(p, q) => ((p.r.resp || {}).p || 9999) - ((q.r.resp || {}).p || 9999) || p.it.p - q.it.p};
   all.sort(sorts[CH.secSort] || sorts.arrival);
-  $('chartCtl').innerHTML = chFilterBar(`<label class="cl">Sort <span class="cseg" data-seg="secSort"><button data-v="arrival" class="${CH.secSort === 'arrival' ? 'on' : ''}">Arrival</button><button data-v="wait" class="${CH.secSort === 'wait' ? 'on' : ''}">Longest wait</button><button data-v="response" class="${CH.secSort === 'response' ? 'on' : ''}">By response</button></span></label>`)
+  $('chartCtl').innerHTML = chFilterBar(`<label class="cl">Sort <span class="cseg" data-seg="secSort"><button data-v="open" class="${CH.secSort === 'open' ? 'on' : ''}">Open gaps first</button><button data-v="arrival" class="${CH.secSort === 'arrival' ? 'on' : ''}">Arrival</button><button data-v="wait" class="${CH.secSort === 'wait' ? 'on' : ''}">Longest wait</button><button data-v="response" class="${CH.secSort === 'response' ? 'on' : ''}">By response</button></span></label>`)
     + `<div class="clegend"><span><i style="background:${CHC.green}"></i>Response within 3 years</span><span><i style="background:${CHC.amber}"></i>4 to 8 years</span><span><i style="background:${CHC.coral}"></i>Over 8 years</span><span><i class="dash"></i>Response expected (forecast)</span><span><i class="ring"></i>No response yet</span></div>`;
   const lagCol = l => l <= 3 ? CHC.green : l <= 8 ? CHC.amber : CHC.coral;
   const respYears = {}; all.forEach(({r}) => { if (r.resp) respYears[r.resp.p] = respYears[r.resp.p] || r.resp.t; });
@@ -221,7 +222,7 @@ function chSec(W, H, fs){
   const rows = all.map(({it, r}) => { const open = !r.resp, end = open ? NOW : r.resp.p, lag = open ? NOW - it.p : r.lag, c = open ? CHC.coral : lagCol(lag);
     return {id:it.id, label:it.t, span:[it.p, end], tip:open ? `${it.t} arrived ${it.p}; no security response in its category yet (${lag} years so far)` : `${it.t} arrived ${it.p}. First security response in its category: ${r.resp.t} (${r.resp.p})${r.expected ? ', expected' : ''}: a wait of ${r.lag} years.`,
       bars:[{a:it.p, b:end, color:c, dash:open || r.expected}], dots:[{x:it.p, color:itemHex(it), r:.6}, {x:end, color:c, hollow:open, r:.6}],
-      end:open ? `${lag}+ yrs, none yet` : `${r.lag} yrs → ${chClip(r.resp.t, 28)}`, endColor:c, endX:end}; });
+      end:open ? (lag < 1 ? '⚠ No security response yet (arrived this year)' : `⚠ No security response yet: ${lag}+ year${lag === 1 ? '' : 's'} and counting`) : `${r.lag} yrs → ${chClip(r.resp.t, 28)}`, endColor:c, endX:end, alert:open}; });
   const done = all.filter(p => p.r.resp && !p.r.expected);
   CH.head = ['Technology', 'Arrived', 'First response', 'Response year', 'Wait (years)', 'Expected']; CH.rows = all.map(({it, r}) => [it.t, it.p, r.resp ? r.resp.t : '(none yet)', r.resp ? r.resp.p : '', r.resp ? r.lag : '', r.expected ? 'yes' : '']);
   CH.note = `Each row: a technology that expands the attack surface, from when it arrived to the first security response built for its category. ${all.length} technologies; median wait ${done.length ? Math.round(median(done.map(p => p.r.lag)) * 10) / 10 : '–'} years; ${all.filter(p => !p.r.resp).length} still open. AI research, not security advice.`;
@@ -326,6 +327,7 @@ $('chartBody').addEventListener('click', e => {
   const sb = e.target.closest('[data-seg] button'); if (sb) { CH[sb.parentElement.dataset.seg] = sb.dataset.v; CH.box = null; renderCharts(); return; }
   const cell = e.target.closest('[data-cell]'); if (cell) { heatPanel(cell.dataset.cell); return; }
   const fl = e.target.closest('[data-flow]'); if (fl) { const list = fl.dataset.ids ? fl.dataset.ids.split(',').map(chFind).filter(Boolean) : []; chPanel(fl.dataset.flow, `<p class="csstat"><b>${list.length}</b> technolog${list.length === 1 ? 'y' : 'ies'}</p>` + chItemsHtml(list, it => `${it.stage || ''}${it.p ? ' · ~' + it.p : ''}`)); renderCharts(); return; }
+  const dy = e.target.closest('[data-dyear]'); if (dy) { const y = +dy.dataset.dyear, list = chPool().filter(it => it.fc && (it.fc.actualYear ?? it.fc.estimatedYear) === y).sort((p, q) => p.t.localeCompare(q.t)); chPanel(`Expected in ${y}`, `<p class="csstat"><b>${list.length}</b> forecast${list.length === 1 ? '' : 's'}, by readiness</p>` + chItemsHtml(list, it => `${it.stage || 'research'} · research ${it.r}`)); CH.panel.dyear = y; renderCharts(); return; }
   const bub = e.target.closest('[data-fid]'); if (bub) { fortPanel(bub.dataset.fid); return; }
   if (e.target.id === 'chFortPlay') { if (CH.fortTimer) { clearInterval(CH.fortTimer); CH.fortTimer = 0; renderCharts(); return; } CH.fortYear = 1890; CH.fortTimer = setInterval(() => { CH.fortYear += 2; if (CH.fortYear >= NOW) { CH.fortYear = NOW; clearInterval(CH.fortTimer); CH.fortTimer = 0; } renderCharts(); }, 160); return; }
   const r = e.target.closest('[data-id]'); if (r) { const it = chFind(r.dataset.id); if (CH.tab === 'whatif' && r.closest('svg')) { wiPanel(it); openDetail(it); return; } chartSelect(it); }

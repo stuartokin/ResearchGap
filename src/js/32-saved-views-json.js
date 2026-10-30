@@ -9,6 +9,7 @@ function snapshot(name){
     camera:{pos:camera.position.toArray(), target:controls.target.toArray()}, autoRotate:state.autoRotate, musicVolume:mus.vol,
     music:{volume:mus.vol, track:mus.track}, playSpeed, loopPlay:!!view.loopPlay, visionExpanded:[...visOpen],
     playState:{playing:state.playing, cursor:state.cursor, paused}, cleanMode:document.body.classList.contains('clean'),
+    charts:chartState(), scroll:scrollState(),
     zOrder:WIN_IDS.slice().sort((a, b) => (+wins[a].style.zIndex || 0) - (+wins[b].style.zIndex || 0)),
     videos:Object.fromEntries(['vid1','vid2'].map(id => [id, {muted:$(id).muted, volume:$(id).volume}])),
     audience:audSnapshot(), customFields:FKEYS.filter(k => FIELDS[k].custom).map(k => FIELDS[k].name),
@@ -89,6 +90,8 @@ function applyView(o){
   if (o.camera && !(state.playing && view.camTravel)) camGoal = {pos:new THREE.Vector3().fromArray(o.camera.pos), target:new THREE.Vector3().fromArray(o.camera.target)};
   if (o.autoRotate != null) setAutoRotate(o.autoRotate);
   renderFortunes(state.playing ? Math.floor(Math.min(state.cursor, YEND)) : YEND);
+  if (o.charts) applyChartState(o.charts);
+  if (o.scroll) [600, 1400].forEach(ms => setTimeout(() => applyScroll(o.scroll), ms));   // once the windows and charts have drawn
 }
 $('viewFile').addEventListener('change', e => {
   const f = e.target.files && e.target.files[0]; if (!f) return;
