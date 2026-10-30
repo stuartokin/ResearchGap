@@ -2,7 +2,7 @@
  "$schema": "./schema.json",
  "meta": {
   "title": "The Shrinking Gap from Research to Change",
-  "revision": 23,
+  "revision": 24,
   "version": "8.0",
   "asOf": "2026-10-30",
   "horizonYears": 10,
@@ -10,7 +10,7 @@
   "author": "Stuart Okin",
   "maintainedBy": "AI agents using Claude (Anthropic), without human review",
   "disclaimer": "Personal project by Stuart Okin, not affiliated with or endorsed by any employer. Data is compiled and maintained by AI agents without human review and may contain errors. Outlook years are AI estimates, not forecasts.",
-  "lastAgentRun": "2026-10-30T15:08Z",
+  "lastAgentRun": "2026-10-30T20:54Z",
   "changelog": [
    {
     "date": "2026-10-28",
@@ -967,6 +967,68 @@
      "chiplet-ecosystems: source added",
      "disputed: ai-in-grid-control-rooms",
      "tours: walk-through scripts refreshed (version 16)"
+    ]
+   },
+   {
+    "date": "2026-10-30",
+    "time": "20:54",
+    "revision": 24,
+    "summary": "0 added, 7 corrected, 0 outlook re-estimated, 0 disputed, 0 broken links, 1 guidance update.",
+    "stats": {
+     "milestones": 475,
+     "sourceCited": 179,
+     "aiCompiled": 218,
+     "aiEstimate": 78,
+     "adoptionKnown": 76,
+     "landed": 375,
+     "regionKnown": 475
+    },
+    "usage": {
+     "calls": 6,
+     "inputTokens": 652325,
+     "outputTokens": 44418,
+     "searches": 40,
+     "model": "claude-sonnet-5-5"
+    },
+    "deepAudit": false,
+    "details": [
+     "offshore-wind-farm: research.year 1985 → 1987",
+     "trapped-ion-commercial-systems: research.year 2014 → 2015",
+     "on-device-ai-as-default: source added",
+     "ai-as-a-scientific-collaborator: source added",
+     "verified-quantum-advantage: source added",
+     "verified-quantum-advantage: note updated",
+     "quantum-navigation-in-service: source added",
+     "guidance: One does not simply defend agentically",
+     "tours: walk-through scripts refreshed (version 18)"
+    ]
+   },
+   {
+    "date": "2026-10-30",
+    "time": "20:58",
+    "revision": 24,
+    "summary": "AI levers researched for 3 technologies.",
+    "stats": {
+     "milestones": 475,
+     "sourceCited": 179,
+     "aiCompiled": 218,
+     "aiEstimate": 78,
+     "adoptionKnown": 76,
+     "landed": 375,
+     "regionKnown": 475
+    },
+    "usage": {
+     "calls": 8,
+     "inputTokens": 189900,
+     "outputTokens": 12509,
+     "searches": 16,
+     "model": "claude-sonnet-5-5"
+    },
+    "deepAudit": false,
+    "details": [
+     "levers   chiplet-ecosystems: demo; simulation, discovery, software",
+     "levers   agentic-ai-in-everyday-work: demo; software",
+     "levers   exploit-windows-collapse: deploy; software"
     ]
    }
   ],
@@ -2886,7 +2948,46 @@
      "status": "ok",
      "checked": "2026-10-30"
     }
-   ]
+   ],
+   "aiLevers": {
+    "phase": "demo",
+    "bottleneck": "Turning single-vendor packages into tested, thermally qualified multi-vendor products: cross-vendor interoperability validation at scale, known-good-die test, and unresolved liability across suppliers.",
+    "levers": [
+     {
+      "k": "simulation",
+      "strength": "mid",
+      "note": "AI surrogate models could speed multi-physics (thermal, warpage, power, signal integrity) checks across die boundaries before tape-out and assembly."
+     },
+     {
+      "k": "discovery",
+      "strength": "mid",
+      "note": "AI-assisted multi-die design: partitioning, floorplanning and routing across chiplets; EDA vendors are adding such features, adoption gradual."
+     },
+     {
+      "k": "software",
+      "strength": "low",
+      "note": "Automating UCIe compliance verification and test-flow setup across die, interposer and package; little specific evidence yet."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://www.uciexpress.org/post/chiplet-summit-2026-ucie-momentum-across-a-growing-ecosystem",
+      "label": "UCIe Consortium: Chiplet Summit 2026",
+      "quote": "validated true cross-vendor interoperability"
+     },
+     {
+      "url": "https://www.insidedeeptech.com/chiplets-ucie-full-guide/",
+      "label": "Inside Deep Tech: Chiplets and UCIe full guide (2026)",
+      "quote": "A multi-vendor chiplet marketplace is not a 2026 product."
+     },
+     {
+      "url": "https://semiengineering.com/chiplets-need-a-new-workflow/",
+      "label": "Semiconductor Engineering: Chiplets Need A New Workflow",
+      "quote": "AI is beginning to improve chiplet workflows through predictive modeling, routing, verification, and automation"
+     }
+    ],
+    "checked": "2026-10-30"
+   }
   },
   {
    "id": "neuromorphic-chips-at-the-edge",
@@ -3884,7 +3985,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -3906,6 +4007,30 @@
     "estimatedYear": 2027,
     "estimatedOn": "2026-10-27",
     "revisions": []
+   },
+   "aiLevers": {
+    "phase": "demo",
+    "bottleneck": "Enterprises can't yet govern agent identities and permissions: weak visibility, over-broad access and little real-time enforcement stall pilots from reaching trusted production scale.",
+    "levers": [
+     {
+      "k": "software",
+      "strength": "high",
+      "note": "Agents already call APIs, query databases and trigger actions in enterprise systems. The technology is itself AI-driven automation; the open questions are scoped credentials, audit trails and rollback, not capability."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://research.etr.ai/etr-data-drop/agentic-ai-is-live.-enterprise-security-controls-are-not",
+      "label": "ETR 2026 State of Security study",
+      "quote": "37% of organizations report AI agents deployed or in active testing"
+     },
+     {
+      "url": "https://campustechnology.com/articles/2026/10/07/survey-reveals-data-governance-enforcement-gap-for-agentic-ai-tools.aspx",
+      "label": "Campus Technology on Delinea Identity Security Report (Oct 2026)",
+      "quote": "Yet only about 51% said AI access is checked against those policies in real time."
+     }
+    ],
+    "checked": "2026-10-30"
    }
   },
   {
@@ -3928,7 +4053,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -3951,7 +4076,15 @@
     "estimatedYear": 2027,
     "estimatedOn": "2026-10-27",
     "revisions": []
-   }
+   },
+   "refs": [
+    {
+     "label": "Counterpoint: GenAI smartphone share to rise to 45% of shipments in 2026",
+     "url": "https://counterpointresearch.com/en/insights/genai-smartphone-share-to-rise-to-45-percent-of-global-shipments-in-2026",
+     "status": "ok",
+     "checked": "2026-10-30"
+    }
+   ]
   },
   {
    "id": "eu-high-risk-ai-rules-apply",
@@ -3976,13 +4109,13 @@
     "label": "EU AI Act Digital Omnibus: postponed high-risk deadlines",
     "url": "https://www.gibsondunn.com/eu-ai-act-omnibus-agreement",
     "status": "ok",
-    "checked": "2026-10-29"
+    "checked": "2026-10-30"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "refs": [
@@ -3990,7 +4123,7 @@
      "label": "https://govern365.ai/blogs/eu-ai-act-digital-omnibus-timeline/",
      "url": "https://govern365.ai/blogs/eu-ai-act-digital-omnibus-timeline/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ],
    "region": "europe",
@@ -4031,7 +4164,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "global",
@@ -4058,7 +4191,15 @@
     "estimatedYear": 2028,
     "estimatedOn": "2026-10-27",
     "revisions": []
-   }
+   },
+   "refs": [
+    {
+     "label": "Sakana AI: The AI Scientist generates its first peer-reviewed publication",
+     "url": "https://sakana.ai/ai-scientist-first-publication/",
+     "status": "ok",
+     "checked": "2026-10-30"
+    }
+   ]
   },
   {
    "id": "atomic-clock",
@@ -4174,7 +4315,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "refs": [
@@ -4182,7 +4323,7 @@
      "label": "https://www.lightreading.com/cable-technology/magiq-demos-quantum-cryptography",
      "url": "https://www.lightreading.com/cable-technology/magiq-demos-quantum-cryptography",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ],
    "region": "us",
@@ -4338,7 +4479,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false,
     "qaNote": "The 1994 Shor research year is correct. The 2045 estimate is later than current expert consensus: the 2025 GRI/evolutionQ report (published March 2026) gives a 51–70% chance of a CRQC within 15 years, which points to about 2041. I suggest 2041 and add the source."
    },
@@ -4362,7 +4503,7 @@
      "label": "PostQuantum: What Is Shor's Algorithm",
      "url": "https://postquantum.com/quantum-security-reference/what-is-shors-algorithm/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ]
   },
@@ -4381,7 +4522,7 @@
     "what": "Independently verified advantage on scientific problems; IBM expects first examples in 2026."
    },
    "confidence": "medium",
-   "note": "Expect claims and counter-claims as classical methods improve too.",
+   "note": "IBM and partners claimed advantage demonstrations on 30 July 2026. A classical GPU reproduction of the IBM/UChicago experiment was reported in August 2026, so independent verification remains contested.",
    "basis": {
     "label": "IBM quantum roadmap (advantage by end of 2026)",
     "url": null
@@ -4390,7 +4531,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -4409,7 +4550,15 @@
     "estimatedYear": 2027,
     "estimatedOn": "2026-10-27",
     "revisions": []
-   }
+   },
+   "refs": [
+    {
+     "label": "IBM Newsroom: IBM and UChicago demonstrate quantum advantage (30 July 2026)",
+     "url": "https://newsroom.ibm.com/2026-07-30-ibm-and-the-university-of-chicago-demonstrate-quantum-advantage,-establishing-trusted-quantum-computation-on-logical-circuits",
+     "status": "ok",
+     "checked": "2026-10-30"
+    }
+   ]
   },
   {
    "id": "fault-tolerant-quantum-computer",
@@ -4438,7 +4587,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -4466,7 +4615,7 @@
      "label": "IBM: path to large-scale fault-tolerant quantum computing",
      "url": "https://www.ibm.com/quantum/blog/large-scale-ftqc",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ]
   },
@@ -4494,7 +4643,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "uk",
@@ -4521,7 +4670,13 @@
      "label": "Defence Online: Dstl atomic clock trial",
      "url": "https://www.defenceonline.co.uk/2026/02/23/trial-speeds-up-next-generation-of-atomic-clocks/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
+    },
+    {
+     "label": "Royal Navy: DCTO quantum clock trials (Aug 2026)",
+     "url": "https://www.royalnavy.mod.uk/news/2026/august/14/20260814-dcto-quantum-clock-trials",
+     "status": "ok",
+     "checked": "2026-10-30"
     }
    ]
   },
@@ -4619,7 +4774,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "adoption": {
@@ -4641,7 +4796,7 @@
      "label": "Verisign history: RSA Data Security launches PKI products, 1986",
      "url": "https://www.verisign.com/about-us/verisign-history/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ]
   },
@@ -4665,7 +4820,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "europe",
@@ -4679,7 +4834,7 @@
      "label": "Cyber Magazine: history of cybersecurity (1987 commercial antivirus)",
      "url": "https://cybermagazine.com/cyber-security/history-cybersecurity",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ]
   },
@@ -4786,7 +4941,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "adoption": {
@@ -4805,13 +4960,13 @@
      "label": "Wikipedia: Aurora Generator Test",
      "url": "https://en.wikipedia.org/wiki/Aurora_Generator_Test",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     },
     {
      "label": "Nozomi Networks leadership (founded 2013 for ICS monitoring)",
      "url": "https://www.nozominetworks.com/company/leadership",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ]
   },
@@ -4835,7 +4990,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -4852,7 +5007,7 @@
      "label": "Microsoft Research: SEAL open-source release",
      "url": "https://www.microsoft.com/en-us/research/blog/microsoft-seal-open-source-homomorphic-encryption-library-gets-even-better-for-net-developers/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ]
   },
@@ -4876,7 +5031,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "refs": [
@@ -4884,7 +5039,7 @@
      "label": "https://cloud.google.com/learn/what-is-zero-trust",
      "url": "https://cloud.google.com/learn/what-is-zero-trust",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ],
    "region": "us",
@@ -4920,7 +5075,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "refs": [
@@ -4928,7 +5083,7 @@
      "label": "https://quantumtimeline.org/milestones/2024-nist-pqc-standards/",
      "url": "https://quantumtimeline.org/milestones/2024-nist-pqc-standards/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ],
    "adoption": {
@@ -4970,7 +5125,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "refs": [
@@ -4978,7 +5133,7 @@
      "label": "https://www.darpa.mil/news/2025/aixcc-results",
      "url": "https://www.darpa.mil/news/2025/aixcc-results",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ],
    "region": "us",
@@ -5139,7 +5294,36 @@
      "status": "ok",
      "checked": "2026-10-29"
     }
-   ]
+   ],
+   "aiLevers": {
+    "phase": "deploy",
+    "bottleneck": "Defender patching and remediation cycles are far slower than attacker exploitation; AI use in attacks is still largely manual, so measured speed-ups vary by dataset.",
+    "levers": [
+     {
+      "k": "software",
+      "strength": "high",
+      "note": "LLM tooling turns advisories and patches into working exploits in minutes and finds bugs at scale; defenders can use the same automation for triage, patch generation and exposure prioritisation."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://www.rapid7.com/blog/post/tr-q3-2026-threat-update-attackers-exploiting-vulnerabilities-within-3-days/",
+      "label": "Rapid7 blog, Q3 2026 Threat Update (21 Oct 2026)",
+      "quote": "On average, exploitation occurred just three days after public disclosure."
+     },
+     {
+      "url": "https://www.securityweek.com/high-severity-flaws-exploited-in-three-days-as-ransomware-dominates-q3-rapid7/",
+      "label": "SecurityWeek on Rapid7 Q3 2026 report",
+      "quote": "attacks increasingly involve the use of AI (but largely manually rather than autonomously)"
+     },
+     {
+      "url": "https://labs.cloudsecurityalliance.org/research/csa-whitepaper-collapsing-exploit-window-ai-speed-vulnerabil/",
+      "label": "Cloud Security Alliance, The Collapsing Exploit Window (Apr 2026)",
+      "quote": "AI systems generating working CVE exploits in 10 to 15 minutes at approximately one dollar per attempt"
+     }
+    ],
+    "checked": "2026-10-30"
+   }
   },
   {
    "id": "automated-vulnerability-repair",
@@ -11912,7 +12096,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "other",
@@ -11943,7 +12127,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "europe",
@@ -11957,7 +12141,8 @@
    },
    "gb": {
     "status": "unknown",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "Onshore wind is a core part of GB generation. Wind was almost 30% of GB generation in 2025, so its variability drives balancing and forecasting needs."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -11973,7 +12158,7 @@
    "status": "landed",
    "title": "Offshore wind farm",
    "research": {
-    "year": 1985,
+    "year": 1987,
     "what": "Danish state-backed studies of offshore wind."
    },
    "change": {
@@ -11987,10 +12172,10 @@
     "major": true
    },
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "adoption": {
@@ -12009,14 +12194,23 @@
    },
    "gb": {
     "status": "deployed",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "UK offshore wind produced about 17.7% of UK electricity in 2025 (DESNZ DUKES). It is the largest single source of renewable power, which shapes grid connection and balancing."
    },
    "security": {
     "expandsAttackSurface": true,
     "note": "Inverters and turbine controllers are networked and often vendor-managed remotely.",
     "basis": "ai-compiled",
     "guidance": "ot"
-   }
+   },
+   "refs": [
+    {
+     "label": "https://energydigital.com/news/orsted-how-the-first-offshore-wind-farm-changed-energy",
+     "url": "https://energydigital.com/news/orsted-how-the-first-offshore-wind-farm-changed-energy",
+     "status": "ok",
+     "checked": "2026-10-30"
+    }
+   ]
   },
   {
    "id": "solar-microinverters",
@@ -12039,7 +12233,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -12054,7 +12248,8 @@
    },
    "gb": {
     "status": "unknown",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "Enphase microinverters are sold in the UK. Module-level power electronics support rooftop solar uptake and give per-panel monitoring, but the large numbers of small inverters need grid-code compliance and remote settings management."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -12084,7 +12279,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -12099,7 +12294,8 @@
    },
    "gb": {
     "status": "unknown",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "Home and grid batteries are growing in GB. They give flexibility for balancing and peak shaving, and AI-driven dispatch and aggregation is a main use case."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -12130,7 +12326,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "uk",
@@ -12144,7 +12340,8 @@
    },
    "gb": {
     "status": "deployed",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "Kraken runs Octopus's customer base and is used by E.ON Next and EDF in GB. It orchestrates smart tariffs, EV charging and flexibility, which is central to demand-side response on the GB grid."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -12174,7 +12371,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -12200,7 +12397,7 @@
    "status": "landed",
    "title": "Trapped-ion commercial systems",
    "research": {
-    "year": 2014,
+    "year": 2015,
     "what": "Honeywell begins its trapped-ion programme."
    },
    "change": {
@@ -12211,10 +12408,10 @@
    "note": "Merged with UK-founded Cambridge Quantum in 2021.",
    "company": "Quantinuum",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "uk",
@@ -12228,7 +12425,15 @@
     "note": "A large enough quantum computer would break today’s public-key cryptography.",
     "basis": "ai-compiled",
     "guidance": "quantum"
-   }
+   },
+   "refs": [
+    {
+     "label": "https://quantumzeitgeist.com/honeywell-quantum-computing/",
+     "url": "https://quantumzeitgeist.com/honeywell-quantum-computing/",
+     "status": "ok",
+     "checked": "2026-10-30"
+    }
+   ]
   },
   {
    "id": "uk-quantum-computing-service",
@@ -26896,6 +27101,15 @@
    "summary": "An ETSI Securing AI technical specification that applies the baseline AI security principles to generative AI, focusing on preventing harm from deepfakes. It supports the AI baseline already recorded (TS 104 223 and EN 304 223). It helps with impersonation and synthetic-media risks to operators of critical infrastructure.",
    "url": "https://www.etsi.org/technical-groups/sai/",
    "added": "2026-10-29",
+   "by": "guidance-agent"
+  },
+  {
+   "date": "2026-09",
+   "framework": "NCSC",
+   "title": "One does not simply defend agentically",
+   "summary": "NCSC's CTO for Architecture explains why defenders cannot adopt agentic AI as freely as attackers, and sets out a risk-based way to judge which defensive actions are safe to automate. It supports safer AI adoption in security operations, including for critical infrastructure operators, by pointing to human oversight and provably low-risk automation, and it previews the NCSC and DCMS Cyber Shield e",
+   "url": "https://www.ncsc.gov.uk/blogs/one-does-not-simply-defend-agentically",
+   "added": "2026-10-30",
    "by": "guidance-agent"
   }
  ]

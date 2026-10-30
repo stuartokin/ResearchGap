@@ -1,1 +1,62 @@
-[]
+[
+ {
+  "id": "atomic-6-space-armor-debris-shield-flies",
+  "field": "space",
+  "origin": "industry",
+  "status": "landed",
+  "title": "Atomic-6 Space Armor debris shield flies",
+  "research": {
+   "year": 1947,
+   "what": "The Whipple shield, a sacrificial bumper that breaks up fast debris before it reaches a spacecraft wall, is the conceptual origin of modern debris shielding. Origin: Fred Whipple's meteoroid bumper shield concept, 1947. This is a conceptual origin only: I found no named paper or patent for Atomic-6's own composite tile."
+  },
+  "change": {
+   "year": 2026,
+   "what": "Atomic-6's composite Space Armor tiles were launched on Portal Space Systems' Starburst-1 on 20–21 October 2026 (Falcon 9, Bandwagon-5). The company describes this as their first operational deployment in orbit after ground hypervelocity testing."
+  },
+  "confidence": "low",
+  "note": "This is the first in-orbit use of a lightweight composite debris shield that is also transparent to radio signals. The research lineage is loose, and the mission is a one-year flight demonstration rather than a commercial fleet rollout.",
+  "refs": [
+   {
+    "label": "PR Newswire: First Ever Launch of Atomic-6 Space Armor",
+    "url": "https://www.prnewswire.com/news-releases/first-ever-launch-of-atomic-6-space-armor-takes-aim-at-growing-threat-of-space-debris-302915755.html",
+    "status": "ok",
+    "checked": "2026-10-30"
+   },
+   {
+    "label": "CompositesWorld: Atomic-6 Composite Space Armor Is Deployed on Starburst-1",
+    "url": "https://www.compositesworld.com/news/atomic-6-composite-space-armor-is-deployed-on-starburst-1-spacecraft",
+    "status": "ok",
+    "checked": "2026-10-30"
+   },
+   {
+    "label": "Interesting Engineering: Atomic-6 space armor makes orbital debut",
+    "url": "https://interestingengineering.com/innovation/atomic-6-space-armor-orbital-debut",
+    "status": "ok",
+    "checked": "2026-10-30"
+   }
+  ],
+  "subfield": "in-space",
+  "region": "us",
+  "tags": [
+   "space",
+   "materials"
+  ],
+  "readiness": {
+   "stage": "pilot",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": false,
+   "note": "Passive shielding adds no new cyber attack surface.",
+   "basis": "ai-compiled"
+  },
+  "evidence_terms": [
+   "Atomic-6",
+   "Space Armor",
+   "Starburst-1",
+   "Portal Space Systems"
+  ],
+  "proposed": "2026-10-30",
+  "attempts": 1
+ }
+]

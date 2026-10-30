@@ -1,20 +1,20 @@
 {
- "version": 17,
- "updated": "2026-10-29",
+ "version": 18,
+ "updated": "2026-10-30",
  "updatedBy": "tour-agent",
  "note": "Narration templates for the guided tours. Figures come from {placeholders} filled from the live data; conclusions are chosen by rules in the app ({\"by\": fact, \"cases\": {...}}). The weekly tour agent may refine wording and choose examples, within the rules checked by tools/validate.py.",
  "tours": {
   "gap": {
    "title": "Is AI shrinking the gap from research to change?",
    "exampleIds": [
-    "mrna-vaccines",
+    "penicillin",
     "radar",
-    "integrated-circuit",
-    "large-language-model-api"
+    "large-language-model-api",
+    "mrna-vaccines"
    ],
    "steps": {
     "intro": {
-     "say": "Each arc is one research breakthrough, from a university, a government lab or industry. The arc starts when the research began and lands at the first product. Where mainstream use followed, a thinner arc runs on to it."
+     "say": "Each arc is one research breakthrough, from a university, a government lab or industry. It starts when the research began and ends at the first product. Where mainstream use followed, a thinner arc continues to that date."
     },
     "example": {
      "say": {
@@ -63,8 +63,8 @@
       {
        "by": "corr",
        "cases": {
-        "holds": "research since 2010 takes about {kmYears} years, still clearly quicker than research begun before 1970.",
-        "weakens": "research since 2010 takes about {kmYears} years, so it is not clearly quicker than research begun before 1970.",
+        "holds": "research since 2010 is estimated at about {kmYears} years, still clearly quicker than research begun before 1970.",
+        "weakens": "research since 2010 is estimated at about {kmYears} years, so it is not clearly quicker than research begun before 1970.",
         "tooEarly": "it is too early to be sure.",
         "unclear": "there is not yet enough data to tell."
        }
@@ -146,7 +146,7 @@
      "say": {
       "by": "newCase",
       "cases": {
-       "some": "In the last three months, the agents have added {newCount}, including {newTitle}. Mark them as reviewed, and next time you will see only what has arrived since.",
+       "some": "Added by the search agents in the last three months: {newCount}, including {newTitle}. Mark them as reviewed, and next time you will see only what has arrived since.",
        "none": "Nothing new has arrived in the last three months. Mark the radar as reviewed, and next time you will see only what has arrived since."
       }
      }
@@ -155,13 +155,13 @@
      "say": {
       "by": "nextCase",
       "cases": {
-       "some": "{nextCount} are expected within five years. The soonest is {nextTitle}, around {nextYear}. {busiestArea} has the most in the pipeline.",
+       "some": "Products expected within five years: {nextCount}. The soonest is {nextTitle}, around {nextYear}. {busiestArea} has the most in the pipeline.",
        "none": "In the current data, no products are expected to arrive within five years."
       }
      }
     },
     "changes": {
-     "say": "The Data changes window lists everything the agents add or correct each week. Here it is filtered to show only changes linked to the vision."
+     "say": "The Data changes window lists everything the search agents add or correct each week. Here it is filtered to show only changes linked to AI for clean energy."
     },
     "slide": {
      "say": "For a briefing, the PowerPoint report window creates a single-slide summary covering every area of the vision, ready to drop into a deck."
@@ -302,7 +302,7 @@
      ]
     },
     "fortchart": {
-     "say": "Play the race through time. Each bubble is a fortune, sized by net worth; gold rings mark research founders, {fortResearch} of {fortCount}."
+     "say": "Play the race through time. Each bubble is a fortune, sized by net worth. Gold rings mark the {fortResearch} of {fortCount} founders whose companies grew out of research."
     }
    }
   },
@@ -337,13 +337,13 @@
      "say": "Every record is labelled to show how it was produced and checked: source-cited, AI-compiled or AI estimate. You can filter records by these labels."
     },
     "arrange": {
-     "say": "Choose an arrangement to lay out the windows for exploring, presenting, analysis or an AI for clean energy briefing. You can save any view or share it as a link."
+     "say": "Choose an arrangement to lay out the windows for exploring, presenting, analysing or an AI for clean energy briefing. You can save any view or share it as a link."
     },
     "answer": {
      "say": "Help and the 'i' information buttons explain each feature. This model is maintained by AI, so it may contain errors. Check anything important against the original sources."
     },
     "whatifchart": {
-     "say": "What if? estimates how practical AI levers, such as faster discovery, simulation and approvals, could bring projected technologies forward. An agent researches them weekly."
+     "say": "What if? estimates how practical AI levers, such as faster discovery, simulation and approvals, could bring projected technologies forward. An agent researches these levers every week."
     }
    }
   },
@@ -370,9 +370,9 @@
      "say": {
       "by": "aiCase",
       "cases": {
-       "faster": "For research since 2010, AI-driven work reached a product in about {aiMed} years, against {restMed} for everything else. It is a small group so far: {aiCount} milestones.",
-       "similar": "For research since 2010, AI-driven work has taken about as long as the rest: {aiMed} years against {restMed}.",
-       "slower": "For research since 2010, AI-driven work has taken longer: {aiMed} years against {restMed}.",
+       "faster": "For research since 2010, AI-driven work typically reached a product in about {aiMed} years, against {restMed} for everything else. This rests on only {aiCount} AI-driven milestones so far.",
+       "similar": "For research since 2010, AI-driven work has typically taken about as long as the rest: {aiMed} years against {restMed}, based on {aiCount} AI-driven milestones.",
+       "slower": "For research since 2010, AI-driven work has typically taken longer: {aiMed} years against {restMed}, based on {aiCount} AI-driven milestones.",
        "unclear": "There are not yet enough AI-driven milestones to compare."
       }
      }
@@ -395,8 +395,8 @@
       {
        "by": "driftCase",
        "cases": {
-        "none": "None has been revised yet; trails will show any slips as the agents re-estimate each week.",
-        "some": "{driftRevised} have been revised so far, {driftSlipped} of them later."
+        "none": "None has been revised yet. Any slips will show here as the forecasts are re-estimated each week.",
+        "some": "{driftRevised} have been revised so far, {driftSlipped} of them to a later date."
        }
       }
      ]
@@ -428,13 +428,13 @@
      ]
     },
     "whatif": {
-     "say": "With practical AI levers, projected technologies arrive about {wiAvg} years sooner on average: {wi2030AI} by 2030 rather than {wi2030Now}. The biggest lever is {wiTopLever}. An illustration, not a forecast."
+     "say": "In this scenario, practical AI for clean energy brings projected technologies forward by about {wiAvg} years on average: {wi2030AI} would have arrived by 2030, against {wi2030Now} on the current course. The biggest lever is {wiTopLever}. An illustration, not a forecast."
     }
    }
   },
   "week": {
    "title": "This week's analysis",
-   "updated": "2026-10-30T19:57Z",
+   "updated": "2026-10-30T20:56Z",
    "steps": {
     "intro": {
      "say": [
@@ -450,23 +450,27 @@
     },
     "w1": {
      "view": "main",
-     "say": "Start with the big picture. Across a century of research, the typical gap has grown, but the newest work is moving faster."
+     "say": "This week's analysis, updated {updatedAt}. The agents added {newCount} milestones, including {newTitles}. Across {nGap} landed milestones, the typical gap from research to product has grown, though the newest work is moving faster."
     },
     "w2": {
      "view": "heat",
-     "say": "By field, {fastField} has been quickest since 2010, and {slowField} slowest. {improvedField} improved most since the 1990s."
+     "say": "By field, {fastField} has been quickest since 2010, at {fastFieldYears} years, and {slowField} slowest, at {slowFieldYears}. {improvedField} improved most since the 1990s, from {improvedFrom} years to {improvedTo}."
     },
     "w3": {
      "view": "ai",
-     "say": "AI-driven work since 2010 reached a product in about {aiMed} years, against {restMed} for the rest; still a small group of {aiCount}."
+     "say": "AI-driven work since 2010 reached a product in about {aiMed} years, against {restMed} for the rest. That is a small group of {aiCount}, so treat it as a hint, not a verdict."
     },
     "w4": {
      "view": "pipe",
-     "say": "For the energy system, {pipePilot} technologies are piloting and {pipeCommercial} are in first commercial use; {pipeGB} are deployed in Great Britain."
+     "say": "For AI for clean energy, {pipePilot} technologies are piloting and {pipeCommercial} are in first commercial use. {pipeGB} are already deployed in Great Britain."
     },
     "w5": {
      "view": "sec",
-     "say": "Security still follows about {secMedian} years behind, so the window of exposure matters as these technologies roll out."
+     "say": "Security still trails by about {secMedian} years. The longest lag is {secLongestTitle}, at {secLongestYears} years, so the window of exposure matters as these technologies roll out."
+    },
+    "w6": {
+     "view": "fort",
+     "say": "Fortunes are a mixed picture. Of {fortCount} tracked, the fastest took {fortFastestTime} years, and the gap between earlier and recent founders is {fortPre} against {fortRecent}. Treat it cautiously."
     }
    }
   }
