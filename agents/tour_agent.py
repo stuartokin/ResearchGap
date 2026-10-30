@@ -41,7 +41,7 @@ def run():
                   "Narration templates use {placeholders} that the app fills from live data, and {\"by\": condition, \"cases\": {...}} blocks whose variant the app chooses from the evidence. "
                   "So you never state figures or decide conclusions yourself.\n"
                   f"Rules: only these placeholders: {sorted(sp['placeholders'])}; keep every case of every condition ({ {k: sorted(v) for k, v in sp['cases'].items()} }); "
-                  f"no figures typed in the text except {sorted(sp['years'])}; at most {sp['maxWords']} words per step; plain British English; no links.\n"
+                  f"refer to the government's clean energy vision areas as \"AI for clean energy\", never by department name; no figures typed in the text except {sorted(sp['years'])}; at most {sp['maxWords']} words per step; plain British English; no links.\n"
                   + (f"Each variant's wording must state exactly what its condition means, no more and no less: {json.dumps(sp.get('meanings', {}))}.\n" if sp.get('meanings') else '')
                   + task1 +
                   "(2) Improve the wording of at most three steps, only where it becomes clearer or more accurate for a general audience. Leave the rest out.\n"

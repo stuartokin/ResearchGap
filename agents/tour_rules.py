@@ -79,6 +79,7 @@ def check_step(tour_id, step_id, say):
         for num in re.findall(r'\d+(?:\.\d+)?', literal):
             if num not in sp['years']: errs.append(f'{tour_id}.{step_id}: typed figure "{num}" (figures must come from placeholders)')
         if re.search(r'https?:|www\.|<|>', literal): errs.append(f'{tour_id}.{step_id}: links or markup are not allowed')
+        if re.search(r'DESNZ|Department for Energy Security', literal): errs.append(f'{tour_id}.{step_id}: say "AI for clean energy" rather than naming DESNZ')
         words = len(re.sub(r'\{\w+\}', 'X', text).split())
         if words > sp['maxWords']: errs.append(f'{tour_id}.{step_id}: {words} words (limit {sp["maxWords"]})')
     return sorted(set(errs))

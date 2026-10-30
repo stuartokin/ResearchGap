@@ -1,5 +1,5 @@
 {
- "version": 14,
+ "version": 15,
  "updated": "2026-10-29",
  "updatedBy": "tour-agent",
  "note": "Narration templates for the guided tours. Figures come from {placeholders} filled from the live data; conclusions are chosen by rules in the app ({\"by\": fact, \"cases\": {...}}). The weekly tour agent may refine wording and choose examples, within the rules checked by tools/validate.py.",
@@ -131,7 +131,7 @@
    "title": "What AI-assisted products are on the horizon for the energy system?",
    "steps": {
     "intro": {
-     "say": "The Department for Energy Security and Net Zero (DESNZ) has set out a vision for a clean energy system supported by AI, divided into distinct areas. Diamonds mark stories linked to that vision, playing through from 1980 onwards."
+     "say": "The UK government has set out a vision for a clean energy system supported by AI, divided into distinct areas. Diamonds mark stories linked to that vision, playing through from 1980 onwards."
     },
     "radar": {
      "say": "The Vision radar shows how close each area's technologies are to everyday use: {nResearch} still in research, {nPilot} in pilots, {nCommercial} in early commercial use and {nScale} in wide use. Of these, {nGB} are already used in Great Britain."
@@ -298,7 +298,7 @@
      "say": "This model is maintained by AI agents that run every week. It holds {nMilestones} milestones so far."
     },
     "research": {
-     "say": "A research agent searches for new breakthroughs and products in each field and vision area of the Department for Energy Security and Net Zero (DESNZ). Everything it adds appears in the 'Data changes' view."
+     "say": "A research agent searches for new breakthroughs and products in each field, and each area of AI for clean energy. Everything it adds appears in the 'Data changes' view."
     },
     "qa": {
      "say": "A second agent checks each new entry independently. It requires more than one source, and the quoted evidence must really appear on the cited page. Nothing is ever deleted."
@@ -322,7 +322,7 @@
      "say": "Every record is labelled to show how it was produced and checked: source-cited, AI-compiled or AI estimate. You can filter records by these labels."
     },
     "arrange": {
-     "say": "Choose an arrangement to lay out the windows for exploring, presenting, analysis or a DESNZ briefing. You can save any view or share it as a link."
+     "say": "Choose an arrangement to lay out the windows for exploring, presenting, analysis or a clean energy briefing. You can save any view or share it as a link."
     },
     "answer": {
      "say": "Help and the 'i' information buttons explain each feature. This model is maintained by AI, so it may contain errors. Check anything important against the original sources."

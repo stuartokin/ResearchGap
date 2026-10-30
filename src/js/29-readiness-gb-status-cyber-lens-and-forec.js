@@ -87,10 +87,10 @@ $('gapOnlyT').addEventListener('change', e => { F.gapOnly = e.target.checked; re
 /* ---------- DESNZ briefing: one slide, five vision areas ---------- */
 async function generateDesnzSlide(){
   const msg = $('repMsg'); if (!window.PptxGenJS) { msg.textContent = 'The PowerPoint library did not load.'; return; }
-  msg.textContent = 'Building the DESNZ briefing slide…';
+  msg.textContent = 'Building the AI for clean energy briefing…';
   const BG = '0B1724', PANEL = '13283A', TXT = 'E9F2FF', MUTED = '8FA6B8', LINE = '22384A';
   const SC = {research:'8FA6B8', pilot:'F2D38A', commercial:'5FD8FF', scale:'7FD6A0'};
-  const pptx = new PptxGenJS(); pptx.layout = 'LAYOUT_16x9'; pptx.author = 'Stuart Okin'; pptx.title = 'DESNZ AI energy vision: what is arriving';
+  const pptx = new PptxGenJS(); pptx.layout = 'LAYOUT_16x9'; pptx.author = 'Stuart Okin'; pptx.title = 'AI for clean energy: what is arriving';
   const s = pptx.addSlide(); s.background = {color:BG};
   s.addText('DESNZ AI energy vision: what is arriving', {x:0.4, y:0.25, w:9.2, h:0.5, fontSize:22, color:TXT, fontFace:'Georgia', margin:0, isTextBox:true});
   const sinceLabel = {review:view.radarSeenRev == null ? 'the latest agent run' : `data revision ${view.radarSeenRev}`, last:'the latest agent run', 30:'the last 30 days', 90:'the last 90 days'}[view.radarSince || 'review'];
@@ -116,8 +116,8 @@ async function generateDesnzSlide(){
   s.addText(`Stuart Okin, personal project. Data revision ${DB.meta.revision}, narrative version ${narrVersion()}. AI-maintained data; readiness and GB status are AI estimates.`, {x:0.4, y:5.32, w:9.2, h:0.2, fontSize:6.5, color:MUTED, fontFace:'Arial', margin:0, isTextBox:true});
   const hv = narrative('horizon', ['answer'])[0];
   if (hv) s.addText(hv + ' (AI-generated narrative; no human review.)', {x:0.4, y:1.0, w:9.2, h:0.22, fontSize:8.5, italic:true, color:'F2D38A', fontFace:'Arial', margin:0, isTextBox:true});
-  s.addNotes(narrative('horizon', ['radar', 'new', 'next', 'answer']).join(' ') + '\n\nEach column is one area of the DESNZ AI energy vision. The bar shows how many of its technologies are at each readiness stage. Lists show what the data agents found new and what is expected within five years.');
-  const fileName = `desnz-briefing-${new Date().toISOString().slice(0, 10)}.pptx`;
+  s.addNotes(narrative('horizon', ['radar', 'new', 'next', 'answer']).join(' ') + '\n\nEach column is one area of AI for clean energy, following the five areas of DESNZ’s Vision for an AI-enabled clean energy system. The bar shows how many of its technologies are at each readiness stage. Lists show what the data agents found new and what is expected within five years.');
+  const fileName = `clean-energy-ai-briefing-${new Date().toISOString().slice(0, 10)}.pptx`;
   try { await pptx.writeFile({fileName}); msg.textContent = `Saved ${fileName}.`; } catch (e) { msg.textContent = 'Could not create the slide: ' + e.message; }
 }
 

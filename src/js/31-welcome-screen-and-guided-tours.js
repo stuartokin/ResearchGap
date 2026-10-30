@@ -5,7 +5,7 @@
  * ================================================================== */
 const TOUR_LIST = [
   {id:'gap', title:'Is AI shrinking the gap from research to change?', blurb:'The core question, the evidence and the outlook.', ready:true},
-  {id:'horizon', title:'What AI-assisted products are on the horizon for the energy system?', blurb:'Horizon scanning against the DESNZ vision.', ready:false},
+  {id:'horizon', title:'What AI-assisted products are on the horizon for the energy system?', blurb:'Horizon scanning for AI in the clean energy system.', ready:false},
   {id:'secure', title:'Securing the future energy system', blurb:'Attack surfaces, security responses and mitigations.', ready:false},
   {id:'fortune', title:'From lab to fortune', blurb:'How research turns into companies and wealth.', ready:false},
   {id:'how', title:'How this AI model works', blurb:'The agents, their guardrails and the data quality.', ready:false}
@@ -331,9 +331,12 @@ document.addEventListener('keydown', e => {
 }, true);
 /* ---------- the welcome screen: shown on every load ---------- */
 let welcomeTimer = 0, welcomeLeft = 0, welcomeDeadline = 0, welcomeLast = 0;
+let aiAcked = new URLSearchParams(location.search).get('welcome') === '0';   // a mandatory acknowledgement, once per visit (tests skip it with welcome=0)
+function ackAI(){ aiAcked = true; $('welcome').classList.remove('needack'); welcomeDeadline = Date.now() + 30000; welcomeLast = Date.now(); tickWelcome(); $('wRun').focus(); }
 function showWelcome(){
   $('wCards').innerHTML = TOUR_LIST.map((t, k) => `<button class="wcard${t.ready ? '' : ' soon'}" data-tour="${t.id}"${t.ready ? '' : ' disabled aria-disabled="true"'}><span class="wn">${k + 1}</span><b>${esc(t.title)}</b><span>${esc(t.blurb)}</span><em>${t.ready ? '1 minute walk-through' : 'Coming soon'}</em></button>`).join('');
   $('welcome').classList.add('on'); $('disc').classList.add('gone'); syncMute();
+  if (!aiAcked) { $('welcome').classList.add('needack'); clearTimeout(welcomeTimer); $('wAuto').textContent = 'Please acknowledge the notice above to continue.'; setTimeout(() => $('wAckBtn').focus(), 50); return; }
   welcomeDeadline = Date.now() + 30000; welcomeLast = Date.now(); tickWelcome();
 }
 function tickWelcome(){   // timed by the real clock, so a busy computer cannot slow the countdown
@@ -345,10 +348,11 @@ function tickWelcome(){   // timed by the real clock, so a busy computer cannot 
   if (welcomeLeft <= 0) return closeWelcome(true);
   welcomeTimer = setTimeout(tickWelcome, 250);
 }
-function closeWelcome(toTool){ clearTimeout(welcomeTimer); $('welcome').classList.remove('on'); if (toTool) { toast(tour.returnTo ? 'Back to where you were…' : 'Starting the tool…'); returnFromTour(); showDisc(); } }
+function closeWelcome(toTool){ if (!aiAcked) return; clearTimeout(welcomeTimer); $('welcome').classList.remove('on'); if (toTool) { toast(tour.returnTo ? 'Back to where you were…' : 'Starting the tool…'); returnFromTour(); showDisc(); } }
 function showDisc(){ $('disc').classList.remove('gone'); clearTimeout(showDisc.t); showDisc.t = setTimeout(() => $('disc').classList.add('gone'), 12000); }
-$('wCards').addEventListener('click', e => { const c = e.target.closest('.wcard'); if (c && !c.disabled) startTour(c.dataset.tour); });
+$('wCards').addEventListener('click', e => { const c = e.target.closest('.wcard'); if (c && !c.disabled && aiAcked) startTour(c.dataset.tour); });
 $('wRun').onclick = () => closeWelcome(true);
+$('wAckBtn').onclick = ackAI;
 $('wMute').onclick = () => { tour.muted = !tour.muted; prefs.tourMuted = tour.muted; savePrefs(); syncMute(); };
 $('toursBtn').onclick = () => { if (tour.on) endTour('escape'); tour.returnTo = JSON.parse(JSON.stringify(snapshot('before-tour'))); showWelcome(); };   // remember the app exactly as it was
 

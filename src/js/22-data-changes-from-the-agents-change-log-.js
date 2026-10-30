@@ -17,7 +17,7 @@ function parseChange(d){
   if ((m = d.match(/^([a-z0-9-]+): source added/))) return {type:'source', key:m[1], text:''};
   if ((m = d.match(/^([a-z0-9-]+): (research|change)\.year (\d{4}) → (\d{4})/))) return {type:'corrected', key:m[1], text:`${m[2] === 'research' ? 'Research' : 'Change'} year ${m[3]} → ${m[4]}`};
   if ((m = d.match(/^([a-z0-9-]+): field (\S+) → (\S+)/))) return {type:'corrected', key:m[1], text:`Field ${fieldName(m[2])} → ${fieldName(m[3])}`};
-  if ((m = d.match(/^([a-z0-9-]+): DESNZ area → (\S+)/))) return {type:'corrected', key:m[1], text:`DESNZ area → ${VISION[m[2]] || 'none'}`};
+  if ((m = d.match(/^([a-z0-9-]+): DESNZ area → (\S+)/))) return {type:'corrected', key:m[1], text:`clean energy area → ${VISION[m[2]] || 'none'}`};
   if ((m = d.match(/^([a-z0-9-]+): major → (\S+)/))) return {type:'corrected', key:m[1], text:/^true$/i.test(m[2]) ? 'Marked as a major milestone' : 'No longer a major milestone'};
   if ((m = d.match(/^([a-z0-9-]+): (research|change)\.what updated/))) return {type:'corrected', key:m[1], text:`${m[2] === 'research' ? 'Research' : 'Change'} description updated`};
   if ((m = d.match(/^([a-z0-9-]+): (note|company) updated/))) return {type:'corrected', key:m[1], text:`${m[2] === 'note' ? 'Note' : 'Company'} updated`};
@@ -92,7 +92,7 @@ $('chgQ').addEventListener('input', renderChanges); $('chgQ').addEventListener('
 $('chgDesnzT').addEventListener('change', renderChanges);
 function chgRow(c, i){
   const ty = CHG_TYPES[c.type], it = c.it;
-  const meta = [c.text, it ? fieldName(it.v) : c.fo ? 'Time to a fortune' : null, it && it.dv ? 'DESNZ: ' + VISION[it.dv] : null].filter(Boolean).join(', ');
+  const meta = [c.text, it ? fieldName(it.v) : c.fo ? 'Time to a fortune' : null, it && it.dv ? 'Clean energy AI: ' + VISION[it.dv] : null].filter(Boolean).join(', ');
   return `<div class="trow chgrow" data-ci="${i}"><span class="chgb ${ty.cls}">${ty.label}</span><span>${it || c.fo || c.type === 'guidance' ? `<a href="#" data-ci="${i}">${esc(c.title)}</a>` : esc(c.title)}<em>${esc(meta)}</em></span></div>`;
 }
 function renderChanges(){

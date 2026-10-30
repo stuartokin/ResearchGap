@@ -142,9 +142,9 @@ async function generateReport(){
   s.addNotes(narrative('gap', ['outlook', 'fields']).join(' ') + ' The AI ranges are scenario assumptions stated in the dataset, not forecasts.');
   footer(s, 4);
 
-  // 5. Arriving next: the DESNZ AI energy vision
+  // 5. Arriving next: AI for clean energy
   s = pptx.addSlide(); s.background = {color:BG};
-  heading(s, 'Arriving next: the DESNZ AI energy vision', 'Readiness of the technologies behind each area, and the soonest expected arrival', 'F2D38A');
+  heading(s, 'Arriving next: AI for clean energy', 'Readiness behind each area, and the soonest arrivals (areas from DESNZ’s AI energy vision)', 'F2D38A');
   const SC = {research:MUTED, pilot:'F2D38A', commercial:'5FD8FF', scale:GREEN};
   Object.entries(VISION).forEach(([k, name], i) => {
     const x = 0.4 + i * 1.86, w = 1.76, its = items.filter(it => !it.removed && it.dv === k), tot = Math.max(1, its.length);

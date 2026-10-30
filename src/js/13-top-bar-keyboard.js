@@ -84,7 +84,7 @@ renderer.domElement.addEventListener('pointermove', ev => {
   const it = pick(ev); hovered = it; document.body.classList.toggle('pointing', !!it);
   if (it) {
     const span = it.kind === 'hist' ? `${it.r} to ${it.p}, ${lagTxt(it.lag)}` : it.kind === 'proj' ? `Expected around ${it.p}` : `Since ${it.r}, not yet landed`;
-    tip.innerHTML = `<b>${esc(it.t)}</b><span>${FIELDS[it.v].name}. ${span}${it.dv ? '<br>Linked to the DESNZ AI energy vision' : ''}</span>`;
+    tip.innerHTML = `<b>${esc(it.t)}</b><span>${FIELDS[it.v].name}. ${span}${it.dv ? '<br>Linked to an AI for clean energy area' : ''}</span>`;
     tip.style.left = Math.min(ev.clientX + 14, innerWidth - 290) + 'px'; tip.style.top = (ev.clientY + 14) + 'px'; tip.style.opacity = 1;
   } else tip.style.opacity = 0;
 });

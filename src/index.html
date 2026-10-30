@@ -79,7 +79,7 @@
     <p class="note-s">Creates a three-slide PowerPoint report from the current filters: the headline, a field-by-field comparison and the AI outlook. Charts are native and editable. Works offline.</p>
     <label class="af wide" style="margin:.6em 0">Report title<input id="repTitle" class="search" value="The Shrinking Gap from Research to Change" maxlength="80"></label>
     <button class="audadd" id="repGo" style="background:#4CD3C2;color:#04201d">Create PowerPoint report</button>
-    <button class="audadd" id="repDesnz" style="background:#F2D38A;color:#241a04;margin-top:.3em">Create DESNZ briefing slide</button>
+    <button class="audadd" id="repDesnz" style="background:#F2D38A;color:#241a04;margin-top:.3em">Create an AI for clean energy briefing slide</button>
     <p class="note-s" id="repMsg"></p>
   </div>
 </section>
@@ -227,7 +227,7 @@
       <div class="slider"><label>Research began to <b id="toV">2036</b></label><input type="range" id="toR" min="1925" max="2036" value="2036"></div>
       <div class="slider"><label>Longest gap shown <b id="gapV">Any</b></label><input type="range" id="gapR" min="1" max="60" value="60"></div>
     </details>
-    <details class="psec" data-sec="desnz"><summary>DESNZ AI energy vision</summary>
+    <details class="psec" data-sec="desnz"><summary>AI for clean energy</summary>
       <label class="toggle">Only arcs linked to the vision <input type="checkbox" id="visT"></label>
       <label class="toggle">Only technologies deployed in GB <input type="checkbox" id="gbOnlyT"></label>
       <p class="note-s">Diamonds mark arcs that have helped, or could help, deliver the September 2026 vision. The vision window breaks them down by area.</p>
@@ -281,7 +281,7 @@
     </details>
     <details class="psec" data-sec="changes"><summary>Data changes</summary>
       <div class="seg" id="chgFlagSeg" aria-label="Highlight data changes"><button data-v="off">Off</button><button data-v="new">New only</button><button data-v="all">All changes</button></div>
-      <div class="seg" id="chgScopeSeg" aria-label="Which changes"><button data-v="all">All areas</button><button data-v="desnz">DESNZ vision only</button></div>
+      <div class="seg" id="chgScopeSeg" aria-label="Which changes"><button data-v="all">All areas</button><button data-v="desnz">Clean energy AI only</button></div>
       <label class="af" style="margin:.4em 0">Changes from<select id="chgSinceS"><option value="last">The latest agent run</option><option value="30">The last 30 days</option><option value="90">The last 90 days</option><option value="0">All agent runs</option></select></label>
       <label class="toggle">Announce changes as Play reaches them <input type="checkbox" id="chgAnnounceT" checked></label>
     </details>
@@ -299,6 +299,7 @@
       <label class="toggle">Open new windows in free space <input type="checkbox" id="smartPlaceT" checked></label>
       <label class="toggle">Keep window positions when the screen size changes <input type="checkbox" id="keepPosT" checked></label>
       <label class="toggle">Fit windows to this screen when loading a saved view <input type="checkbox" id="fitLoadT" checked></label>
+      <div class="exprow">Download the data: <button class="mini" id="expCsv">CSV</button> <button class="mini" id="expXlsx">Excel</button> <label class="toggle inl">Only the current selection <input type="checkbox" id="expSel"></label></div>
       <button class="mini" id="copyLinkBtn">Copy a link to this view</button> <button class="mini" id="imgBtn">Save an image of the view</button>
     </details>
   </div>
@@ -346,7 +347,7 @@
     <p class="note-s">Every change the data agents have made, newest first. Click a milestone to open its details. Highlighting in the model and during Play is set in Display.</p>
     <input id="chgQ" class="search" placeholder="Search changes" aria-label="Search changes">
     <div class="chips" id="chgTypes" style="margin:.5em 0"></div>
-    <label class="toggle">DESNZ AI energy vision only <input type="checkbox" id="chgDesnzT"></label>
+    <label class="toggle">AI for clean energy only <input type="checkbox" id="chgDesnzT"></label>
     <p class="note-s" id="chgCount"></p>
     <div id="chgList" class="tlist"></div>
   </div>
@@ -378,7 +379,7 @@
   <div class="wbody"><p class="note-s">Years from founding to the first listing, sale or private valuation that made founders multi-millionaires on paper. Net worth is the lead founder’s approximate wealth in 2026 money (Forbes 2026 where available; deceased founders at death, inflation-adjusted). Hover a figure for its basis. Follows the field filter.</p><div class="minis"><button class="mini" id="fortHi" aria-pressed="true">Highlight research founders</button><button class="mini" id="fortOnly" aria-pressed="false">Research founders only</button></div><div class="seg" id="fortSortSeg"><button data-v="year">Newest first</button><button data-v="worth">Net worth</button><button data-v="speed">Fastest fortune</button></div><p class="fbanner" id="fortBanner"></p><canvas id="fortCanvas" class="chart"></canvas><p class="fstat" id="fortStat"></p><div class="tlist" id="fortList"></div></div>
 </section>
 <!-- VISION -->
-<section class="win" id="w-vision" data-title="DESNZ AI energy vision">
+<section class="win" id="w-vision" data-title="AI for clean energy">
   <div class="wbody">
     <p class="note-s">DESNZ’s <i>Vision for an AI-enabled clean energy system</i> (call for evidence, September 2026, closing 6 November) groups AI opportunities into four areas and highlights barriers such as data access, incentives, regulatory clarity, security and skills. Select an area to show its arcs; select a name to inspect it.</p>
     <div class="minis"><button class="mini" id="visExpand">Expand all</button><button class="mini" id="visAll">Show all vision arcs</button><button class="mini" id="visOff">Clear vision filter</button></div>
@@ -403,6 +404,8 @@
 <div id="welcome" role="dialog" aria-modal="true" aria-labelledby="wTitle"><div class="wbox">
   <h1 id="wTitle">The Shrinking Gap from Research to Change</h1>
   <p class="wsub">Five one-minute walk-throughs, narrated with subtitles. Or go straight to the tool.</p>
+  <div id="wAck" class="wack" role="alertdialog" aria-labelledby="wAckT"><b id="wAckT">Before you start</b> This site is run and managed by AI agents, with <b>no human in the loop</b>. Its data, narrative and voice are AI-generated and may contain errors. Please acknowledge to continue.
+    <button id="wAckBtn" class="wrun">I understand and acknowledge</button></div>
   <p class="wai" role="note"><b>Fully AI-generated, with no human in the loop.</b> AI agents write and update these walk-throughs every week from their own findings, and an AI voice speaks them. No person reviews the narration before you hear it.</p>
   <div class="wcards" id="wCards"></div>
   <div class="wfoot"><button id="wRun" class="wrun">Run the tool</button><button id="wKiosk" class="wmute">Kiosk mode</button><button id="wMute" class="wmute"></button></div>
@@ -490,6 +493,6 @@
 <script>/*@include vendor/unrealbloompass.js*/</script>
 <script>/*@include vendor/pptxgenjs.js*/</script>
 <script>/*@include vendor/qrcode.js*/</script>
-<script>/*@include js/00-start.js*//*@include js/01-data-loaded-from-data-data-json-or-the-e.js*//*@include js/02-state.js*//*@include js/03-three-setup.js*//*@include js/04-stage.js*//*@include js/05-items.js*//*@include js/06-filtering.js*//*@include js/07-window-manager.js*//*@include js/08-arrangements-five-presets-that-adapt-to-.js*//*@include js/09-windows-menu-arrangements-then-windows-i.js*//*@include js/10-filter-ui.js*//*@include js/11-refresh-targets-trends-stats-list.js*//*@include js/12-details.js*//*@include js/13-top-bar-keyboard.js*//*@include js/14-labels-dom.js*//*@include js/15-animation.js*//*@include js/16-time-linked-windows.js*//*@include js/17-ai-outlook-can-ai-and-digital-twins-shri.js*//*@include js/18-showcase-title.js*//*@include js/19-joke-ticker.js*//*@include js/20-music.js*//*@include js/21-powerpoint-report-three-slides-native-ed.js*//*@include js/22-data-changes-from-the-agents-change-log-.js*//*@include js/23-statistics-helpers-ranges-small-samples-.js*//*@include js/24-play-range-custom-from-and-to-the-whole-.js*//*@include js/25-colour-blind-safe-palette.js*//*@include js/26-next-and-previous-milestone-keyboard-and.js*//*@include js/27-shareable-links-the-current-filters-and-.js*//*@include js/28-help-one-source-for-hover-tips-press-and.js*//*@include js/29-readiness-gb-status-cyber-lens-and-forec.js*//*@include js/30-short-descriptions-long-explanatory-text.js*//*@include js/31-welcome-screen-and-guided-tours.js*//*@include js/31b-kiosk-mode-and-image-export.js*//*@include js/32-saved-views-json.js*//*@include js/33-ideas-from-the-room-audience-form.js*//*@include js/34-countdown-and-thank-you.js*//*@include js/35-video-windows.js*//*@include js/36-start.js*/</script>
+<script>/*@include js/00-start.js*//*@include js/01-data-loaded-from-data-data-json-or-the-e.js*//*@include js/02-state.js*//*@include js/03-three-setup.js*//*@include js/04-stage.js*//*@include js/05-items.js*//*@include js/06-filtering.js*//*@include js/07-window-manager.js*//*@include js/08-arrangements-five-presets-that-adapt-to-.js*//*@include js/09-windows-menu-arrangements-then-windows-i.js*//*@include js/10-filter-ui.js*//*@include js/11-refresh-targets-trends-stats-list.js*//*@include js/12-details.js*//*@include js/13-top-bar-keyboard.js*//*@include js/14-labels-dom.js*//*@include js/15-animation.js*//*@include js/16-time-linked-windows.js*//*@include js/17-ai-outlook-can-ai-and-digital-twins-shri.js*//*@include js/18-showcase-title.js*//*@include js/19-joke-ticker.js*//*@include js/20-music.js*//*@include js/21-powerpoint-report-three-slides-native-ed.js*//*@include js/22-data-changes-from-the-agents-change-log-.js*//*@include js/23-statistics-helpers-ranges-small-samples-.js*//*@include js/24-play-range-custom-from-and-to-the-whole-.js*//*@include js/25-colour-blind-safe-palette.js*//*@include js/26-next-and-previous-milestone-keyboard-and.js*//*@include js/27-shareable-links-the-current-filters-and-.js*//*@include js/28-help-one-source-for-hover-tips-press-and.js*//*@include js/29-readiness-gb-status-cyber-lens-and-forec.js*//*@include js/30-short-descriptions-long-explanatory-text.js*//*@include js/31-welcome-screen-and-guided-tours.js*//*@include js/31b-kiosk-mode-and-image-export.js*//*@include js/31c-data-export.js*//*@include js/32-saved-views-json.js*//*@include js/33-ideas-from-the-room-audience-form.js*//*@include js/34-countdown-and-thank-you.js*//*@include js/35-video-windows.js*//*@include js/36-start.js*/</script>
 </body>
 </html>

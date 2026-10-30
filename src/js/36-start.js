@@ -28,7 +28,7 @@ $('discX').onclick = () => $('disc').classList.add('gone');
 $('discAbout').onclick = () => { $('disc').classList.add('gone'); $('about').classList.add('open'); };
 buildFieldList(); fillAudFields(); refresh(); syncChgUI(); applyChangeFlags(); renderChanges(); syncPlayRangeUI(); buildTicker(); attachHelp(); buildFaq(); syncPanels(); clampAll();
 const pendingReport = (() => { const q = new URLSearchParams(location.search), k = q.get('report'); if (!k) return null; history.replaceState(null, '', location.pathname + location.hash); return {kind:k, title:q.get('rtitle') || ''}; })();   // then a refresh opens normally
-if (pendingReport) {   // the visitor asked to reload for newer data and create a report: do that, without the welcome screen
+if (pendingReport) { aiAcked = true;   // acknowledged before asking to reload; the visitor asked to reload for newer data and create a report: do that, without the welcome screen
   showDisc(); setOpen('report', true); if (pendingReport.title) $('repTitle').value = pendingReport.title;
   setTimeout(() => { $('repMsg').textContent = 'Reloaded with the latest data. Creating your report…'; (pendingReport.kind === 'desnz' ? generateDesnzSlide : generateReport)(); }, 1500);
 } else if (new URLSearchParams(location.search).get('welcome') === '0') showDisc(); else showWelcome();   // the welcome screen opens on every load (welcome=0 is for automated tests)

@@ -550,3 +550,10 @@ body.kiosk #resetBtn,body.kiosk #winMenu [data-w="__load"],body.kiosk #winMenu [
 #tourBar.kioskcap .tbctl,#tourBar.kioskcap #tourDots{display:none}
 #kioskPill{position:fixed;left:50%;bottom:calc(var(--safe-b,0px) + 14px);transform:translateX(-50%);z-index:2750;display:none;max-width:min(720px,calc(100vw - 24px));padding:8px 16px;border-radius:999px;background:rgba(6,16,26,.92);border:1px solid rgba(255,209,102,.55);color:#FFE7A8;font-size:13px;text-align:center}
 #kioskPill.on{display:block}
+
+/* the mandatory AI acknowledgement on the welcome screen */
+.wack{display:none;max-width:760px;margin:0 auto 1.1em;padding:.9em 1.1em;border:2px solid #FFD166;border-radius:12px;background:rgba(255,209,102,.12);color:#FFE7A8;font-size:clamp(13px,1.3vw,15px);line-height:1.5;text-align:left}
+.wack b:first-child{display:block;color:#FFD166;font-size:1.1em;margin-bottom:.2em}.wack .wrun{display:block;margin:.7em auto 0}
+#welcome.needack .wack{display:block}#welcome.needack .wai{display:none}
+#welcome.needack .wcards,#welcome.needack .wfoot,#welcome.needack .wkiosk{opacity:.3;pointer-events:none;filter:grayscale(.6)}
+.exprow{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;margin:.3em 0 .5em}.toggle.inl{display:inline-flex;gap:6px}

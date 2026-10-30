@@ -8,7 +8,7 @@ const WIN_GROUPS = [
   ['data', 'Data and agents', ['changes', 'quality', 'audience']],
   ['share', 'Share and export', ['report']]
 ];
-const PRESETS = [['explore', 'Exploring', 'The default: filters and key findings'], ['play', 'Play the century', 'Timeline windows around the model'], ['wait', 'Waiting (kiosk)', 'Both videos, joke ticker, plays on a loop'], ['analysis', 'Analysis', 'Findings, summary and charts side by side'], ['desnz', 'DESNZ AI vision', 'Vision radar, areas and changes; plays from 1980']];
+const PRESETS = [['explore', 'Exploring', 'The default: filters and key findings'], ['play', 'Play the century', 'Timeline windows around the model'], ['wait', 'Waiting (kiosk)', 'Both videos, joke ticker, plays on a loop'], ['analysis', 'Analysis', 'Findings, summary and charts side by side'], ['desnz', 'AI for clean energy', 'Vision radar, areas and changes; plays from 1980']];
 function buildWinMenu(){
   view.menuGroups = view.menuGroups || {};
   const item = id => `<button data-w="${id}"><span class="tick ${layout[id].open ? 'on' : ''}">${layout[id].open ? '✓' : ''}</span>${WIN_NAMES[id]}</button>`;
@@ -23,7 +23,7 @@ function buildWinMenu(){
     h += `<button class="wmg" data-g="${g}" aria-expanded="${ex}"><span class="car">${ex ? '▾' : '▸'}</span>${name}<span class="cnt">${open} of ${ids.length} open</span></button>`;
     if (ex) h += '<div class="wmitems">' + ids.map(item).join('') + '</div>';
   });
-  h += '<hr><button data-w="__all">Open all windows</button><button data-w="__link">Copy a link to this view</button><button data-w="__img">Save an image of the view</button><button data-w="__kiosk">Kiosk mode…</button><button data-w="__save">Save this view to a file…</button><button data-w="__load">Load a view from a file…</button>' +
+  h += '<hr><button data-w="__all">Open all windows</button><button data-w="__link">Copy a link to this view</button><button data-w="__img">Save an image of the view</button><button data-w="__csv">Download the data (CSV)</button><button data-w="__xlsx">Download the data (Excel)</button><button data-w="__kiosk">Kiosk mode…</button><button data-w="__save">Save this view to a file…</button><button data-w="__load">Load a view from a file…</button>' +
     '<small>Saved views remember windows, positions, text sizes, filters and display settings. Open one with index.html?view=yourfile.json. Drag a title bar to move a window, its corner to resize, A− and A+ for text size; double-click a title bar to restore its place.</small>';
   winMenu.innerHTML = h;
 }
@@ -34,6 +34,7 @@ winMenu.addEventListener('click', e => {
   if (b.dataset.g) { view.menuGroups = view.menuGroups || {}; view.menuGroups[b.dataset.g] = !view.menuGroups[b.dataset.g]; buildWinMenu(); return; }
   if (b.dataset.x === 'all') { const any = WIN_GROUPS.some(([g]) => view.menuGroups[g]); WIN_GROUPS.concat([['other']]).forEach(([g]) => { view.menuGroups[g] = !any; }); buildWinMenu(); return; }
   const w = b.dataset.w;
+  if (w === '__csv' || w === '__xlsx') { winMenu.classList.remove('open'); (w === '__csv' ? exportCsv : exportXlsx)(); return; }
   if (w === '__img') { winMenu.classList.remove('open'); setTimeout(exportImage, 150); return; }
   if (w === '__kiosk') { winMenu.classList.remove('open'); showWelcome(); $('wKioskOpts').classList.add('on'); clearTimeout(welcomeTimer); $('wAuto').textContent = ''; return; }
   if (w && w.startsWith('__p_')) { applyPreset(w.slice(4)); winMenu.classList.remove('open'); $('winBtn').setAttribute('aria-expanded', false); return; }

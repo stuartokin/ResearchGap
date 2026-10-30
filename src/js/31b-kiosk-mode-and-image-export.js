@@ -5,7 +5,7 @@
 const KIOSK_SCRIPT = [
   {scene:'arrangement', name:'wait', seconds:45, note:'Waiting: the century plays, with the videos'},
   {scene:'tour', id:'gap'},
-  {scene:'arrangement', name:'desnz', seconds:35, note:'DESNZ AI vision: the Vision radar, playing from 1980'},
+  {scene:'arrangement', name:'desnz', seconds:35, note:'AI for clean energy: the Vision radar, playing from 1980'},
   {scene:'tour', id:'horizon'},
   {scene:'tour', id:'secure'},
   {scene:'arrangement', name:'analysis', seconds:30, note:'Analysis: the findings dashboard'},
@@ -14,7 +14,7 @@ const KIOSK_SCRIPT = [
 ];
 const KIOSK_SAY = {
   wait:() => 'Welcome to The Shrinking Gap from Research to Change. A century of research breakthroughs is playing now, from first research to real-world use. Touch the screen to explore it yourself.',
-  desnz:() => ['This view follows the DESNZ AI energy vision. The Vision radar shows how ready each area’s technologies are, and what is arriving next.'].concat(narrative('horizon', ['answer'])).join(' '),
+  desnz:() => ['This view follows AI for clean energy. The Vision radar shows how ready each area’s technologies are, and what is arriving next.'].concat(narrative('horizon', ['answer'])).join(' '),
   analysis:() => ['The findings dashboard brings the headline results together.'].concat(narrative('gap', ['answer'])).join(' ')
 };
 const kiosk = {on:false, i:0, timer:0, idleTimer:0, paused:false, opts:{sound:'narration', ticker:true, qr:true, idleSeconds:60}};
@@ -28,6 +28,7 @@ function showQr(on){
   box.classList.add('on');
 }
 function kioskStart(opts){
+  if (!aiAcked) return;
   Object.assign(kiosk.opts, opts || {});
   kiosk.on = true; kiosk.i = 0; kiosk.paused = false;
   closeWelcome(false); document.body.classList.add('kiosk');
