@@ -558,16 +558,34 @@ body.kiosk #resetBtn,body.kiosk #winMenu [data-w="__load"],body.kiosk #winMenu [
 #welcome.needack .wcards,#welcome.needack .wfoot,#welcome.needack .wkiosk{opacity:.3;pointer-events:none;filter:grayscale(.6)}
 .exprow{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;margin:.3em 0 .5em}.toggle.inl{display:inline-flex;gap:6px}
 
-/* charts */
-#chartBody{display:flex;flex-direction:column;gap:6px}.ctabs{display:flex;flex-wrap:wrap;gap:4px}
-.ctabs button{background:transparent;border:1px solid var(--line-strong);color:var(--muted);border-radius:999px;padding:4px 11px;font-size:12px;cursor:pointer}
-.ctabs button.on{background:var(--accent,#F7C04A);border-color:transparent;color:#1c1406;font-weight:600}
-.cctl{font-size:12px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}.cctl .mini.on{outline:1px solid #F7C04A}
-.csvg{flex:1;min-height:200px;overflow:auto}.chsvg{display:block;user-select:none;touch-action:pan-y}.chrow,.chdot,.chcell,.chflow{cursor:pointer}
-.chrow:hover rect:first-child{fill:rgba(255,255,255,.05)}.chflow:hover{fill-opacity:.55}.chcell:hover rect{stroke:#fff;stroke-width:1.5}
-.clist{font-size:12px}.clrows{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;max-height:130px;overflow:auto}
-.clrows button{display:inline-flex;gap:6px;align-items:center;background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--text);border-radius:8px;padding:3px 8px;font-size:12px;cursor:pointer}
-.clrows i{width:8px;height:8px;border-radius:50%}.clrows em{color:var(--muted);font-style:normal}.cfoot{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
-#chartTip{position:fixed;z-index:4000;display:none;max-width:290px;padding:6px 9px;border-radius:8px;background:rgba(6,16,26,.96);border:1px solid var(--line-strong);color:#E9F2FF;font-size:12px;pointer-events:none}
+/* charts: sizes follow the window's text size (A− A+) */
+#chartBody{display:flex;flex-direction:column;gap:.45em;height:100%;box-sizing:border-box}
+.ctabs{display:flex;flex-wrap:wrap;gap:.3em}.ctabs button{background:rgba(255,255,255,.03);border:1px solid var(--line-strong);color:var(--muted);border-radius:999px;padding:.32em .9em;font-size:.9em;cursor:pointer}
+.ctabs button:hover{color:var(--text)}.ctabs button.on{background:#F7C04A;border-color:transparent;color:#1c1406;font-weight:600}
+.cctl{font-size:.88em;color:var(--muted);display:flex;flex-direction:column;gap:.4em}
+.cfilt{display:flex;flex-wrap:wrap;gap:.4em .6em;align-items:center}
+.cfilt input[type=search],.cfilt select{background:rgba(255,255,255,.06);border:1px solid var(--line-strong);color:var(--text);border-radius:8px;padding:.35em .6em;font:inherit;font-size:1em;min-width:9em}
+.cfilt select option{background:#0E1E2C;color:#E9F2FF}.cfilt input[type=search]{min-width:12em}
+.cl{display:inline-flex;align-items:center;gap:.4em}.cseg{display:inline-flex;border:1px solid var(--line-strong);border-radius:8px;overflow:hidden}
+.cseg button{background:transparent;border:0;border-right:1px solid var(--line-strong);color:var(--muted);padding:.35em .7em;font:inherit;font-size:1em;cursor:pointer}.cseg button:last-child{border-right:0}
+.cseg button.on{background:rgba(247,192,74,.18);color:#FFE7A8}.cseg button:hover{color:var(--text)}
+.clegend{display:flex;flex-wrap:wrap;gap:.3em 1.1em;font-size:.95em}.clegend i{display:inline-block;width:1.4em;height:.35em;border-radius:3px;margin-right:.4em;vertical-align:middle}
+.clegend i.dash{background:repeating-linear-gradient(90deg,#F7C04A 0 5px,transparent 5px 9px)}.clegend i.ring{width:.75em;height:.75em;border:2px solid #FF6B6B;border-radius:50%}
+.clevers{display:flex;flex-wrap:wrap;gap:.3em 1em;align-items:center}
+.cmain{flex:1;min-height:0;display:flex;gap:.6em}.csvg{flex:1;min-width:0;overflow:auto}.cside{display:none;width:30%;min-width:15em;max-width:26em;overflow:auto;border-left:1px solid var(--line);padding-left:.7em;font-size:.92em}
+.cmain.hasside .cside{display:block}@media (max-width:900px){.cmain{flex-direction:column}.cside{width:auto;max-width:none;border-left:0;border-top:1px solid var(--line);padding:.5em 0 0;max-height:40%}}
+.cshead{display:flex;justify-content:space-between;align-items:center;gap:.5em;margin-bottom:.4em}.cshead b{font-size:1.1em}
+.csstat{margin:.2em 0 .6em;color:var(--muted)}.csstat b{color:var(--text);font-size:1.25em}.csstat b.t,.cwisum b.t{color:#4CD3C2}
+.csitems{display:flex;flex-direction:column;gap:.25em}.csitems button{display:grid;grid-template-columns:1fr;gap:.15em;text-align:left;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:8px;padding:.4em .55em;color:var(--text);font:inherit;cursor:pointer}
+.csitems button:hover,.csitems button.on{border-color:#F7C04A}.cst{display:flex;gap:.45em;align-items:center}.cst i{width:.6em;height:.6em;border-radius:50%;flex:none}
+.csb{height:.3em;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden}.csb em{display:block;height:100%;border-radius:3px}.csy{color:var(--muted);font-size:.9em}
+.csdl{display:grid;grid-template-columns:auto 1fr;gap:.3em .8em;margin:0}.csdl dt{color:var(--muted)}.csdl dd{margin:0}
+.cstab{width:100%;border-collapse:collapse;margin:.3em 0 .7em;font-size:.95em}.cstab th,.cstab td{text-align:left;padding:.3em .3em;border-bottom:1px solid var(--line)}.cstab th{color:var(--muted);font-weight:500}
+.cslever{border-left:3px solid #4CD3C2;padding:.2em 0 .2em .6em;margin:.5em 0}.cslever p{margin:.2em 0}
+.cwihead{position:sticky;left:0}.cwisum{display:flex;flex-wrap:wrap;gap:.4em 1.4em;padding:.2em 0 .5em;font-size:1em}
+.chsvg{display:block;user-select:none;touch-action:pan-y;font-family:inherit}.chrow,.chdot,.chcell,.chflow,.chbub{cursor:pointer}
+.chrow:hover rect:first-child{fill:rgba(255,255,255,.06)}.chflow:hover{fill-opacity:.6}.chcell:hover rect{stroke:#fff;stroke-width:1.5}.chbub:hover{stroke:#fff;stroke-width:2}
+.clist:empty{display:none}.cfoot{display:flex;gap:.5em;align-items:center;flex-wrap:wrap;font-size:.9em}
+#chartTip{position:fixed;z-index:4000;display:none;max-width:310px;padding:6px 9px;border-radius:8px;background:rgba(6,16,26,.96);border:1px solid var(--line-strong);color:#E9F2FF;font-size:12.5px;pointer-events:none}
 #chartTip.on{display:block}
 #w-charts,#w-charts .wbody{background:rgba(9,20,31,.97)!important;backdrop-filter:none}
