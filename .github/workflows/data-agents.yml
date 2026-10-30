@@ -64,6 +64,11 @@ jobs:
         working-directory: agents
         run: python tour_agent.py
 
+      - name: AI levers agent (researches how AI could speed each projected technology)
+        continue-on-error: true
+        working-directory: agents
+        run: python levers_agent.py
+
       - name: Gate 1 - schema and data rules
         run: python tools/validate.py
 
