@@ -2,15 +2,15 @@
  "$schema": "./schema.json",
  "meta": {
   "title": "The Shrinking Gap from Research to Change",
-  "revision": 22,
+  "revision": 23,
   "version": "8.0",
-  "asOf": "2026-10-29",
+  "asOf": "2026-10-30",
   "horizonYears": 10,
   "startYear": 1925,
   "author": "Stuart Okin",
   "maintainedBy": "AI agents using Claude (Anthropic), without human review",
   "disclaimer": "Personal project by Stuart Okin, not affiliated with or endorsed by any employer. Data is compiled and maintained by AI agents without human review and may contain errors. Outlook years are AI estimates, not forecasts.",
-  "lastAgentRun": "2026-10-29T20:45Z",
+  "lastAgentRun": "2026-10-30T15:08Z",
   "changelog": [
    {
     "date": "2026-10-28",
@@ -930,6 +930,44 @@
      "guidance: ETSI TS 104 275 V1.1.1: Applying Baseline Cyber Security Requirements for AI Models and Systems to Generative AI (Preventing Harm from Deepfakes)",
      "tours: walk-through scripts refreshed (version 14)"
     ]
+   },
+   {
+    "date": "2026-10-30",
+    "time": "15:08",
+    "revision": 23,
+    "summary": "1 added, 10 corrected, 0 outlook re-estimated, 1 disputed, 1 broken links.",
+    "stats": {
+     "milestones": 475,
+     "sourceCited": 177,
+     "aiCompiled": 220,
+     "aiEstimate": 78,
+     "adoptionKnown": 76,
+     "landed": 375,
+     "regionKnown": 475
+    },
+    "usage": {
+     "calls": 6,
+     "inputTokens": 536249,
+     "outputTokens": 42715,
+     "searches": 35,
+     "model": "claude-sonnet-5-5"
+    },
+    "deepAudit": false,
+    "details": [
+     "added: reclinker-cement-recycled-in-steel-furnaces",
+     "smart-cards: source added",
+     "smart-cards: source added",
+     "smart-cards: change.what updated",
+     "kerberos-authentication: readiness commercial → scale",
+     "kerberos-authentication: tags added",
+     "erbium-doped-fibre-amplifier: readiness commercial → scale",
+     "tandem-solar-at-volume: source added",
+     "dram: adoption year 1972 → 1972 (source-cited)",
+     "high-na-euv-in-volume-production: source added",
+     "chiplet-ecosystems: source added",
+     "disputed: ai-in-grid-control-rooms",
+     "tours: walk-through scripts refreshed (version 16)"
+    ]
    }
   ],
   "adoptionDefinition": "Mainstream adoption: the year the technology reached widespread, routine use, roughly 10% or more of its potential market or standard practice in its sector.",
@@ -1350,7 +1388,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "refs": [
@@ -1358,7 +1396,7 @@
      "label": "https://www.euronuclear.org/glossary/calder-hall/",
      "url": "https://www.euronuclear.org/glossary/calder-hall/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ],
    "adoption": {
@@ -1408,7 +1446,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false,
     "qaNote": "All cited links are broken; downgraded until a new source is found."
    },
@@ -1417,13 +1455,13 @@
      "label": "https://ieeemilestones.ethw.org/Milestone-Proposal:Gotland_HVDC_Link",
      "url": "https://ieeemilestones.ethw.org/Milestone-Proposal:Gotland_HVDC_Link",
      "status": "broken",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     },
     {
      "label": "Modern Power Systems: HVDC fifty years on",
      "url": "https://www.modernpowersystems.com/analysis/hvdc-fifty-years-on/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ],
    "region": "europe",
@@ -1670,7 +1708,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "asia",
@@ -1698,13 +1736,13 @@
      "label": "Panasonic: Miyasaka 2009 first perovskite solar cell",
      "url": "https://news.panasonic.com/global/stories/14221",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     },
     {
      "label": "pv magazine: Oxford PV commercial perovskite tandem modules 2024",
      "url": "https://www.pv-magazine.com/2024/09/05/oxford-pv-starts-commercial-distribution-of-perovskite-solar-modules/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ],
    "company": "Oxford PV"
@@ -1733,7 +1771,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "refs": [
@@ -1741,13 +1779,13 @@
      "label": "https://stepfusion.com/why-fusion/",
      "url": "https://stepfusion.com/why-fusion/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     },
     {
      "label": "https://stepfusion.com/why-fusion/",
      "url": "https://stepfusion.com/why-fusion/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ],
    "region": "europe",
@@ -1795,7 +1833,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "uk",
@@ -1828,7 +1866,13 @@
      "label": "pv magazine: Oxford PV mass production 2027",
      "url": "https://www.pv-magazine.com/2026/01/16/oxford-pv-targets-20-year-lifetime-for-perovskite-silicon-tandem-modules-by-2028/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
+    },
+    {
+     "label": "Oxford PV roadmap",
+     "url": "https://www.oxfordpv.com/mainstream",
+     "status": "ok",
+     "checked": "2026-10-30"
     }
    ]
   },
@@ -1850,27 +1894,29 @@
    "note": "Assurance, explainability and cyber resilience will set the pace, not model capability.",
    "desnz": "opt",
    "flags": {
-    "major": true
+    "major": true,
+    "disputed": true
    },
    "basis": {
     "label": "NESO: Volta programme",
     "url": "https://www.neso.energy/news/volta-programme-powering-future-dispatch-tapestry-energy-moonshot-x-moonshot-factory-alphabets-innovation-lab-bring-ai-our-control-room",
     "status": "ok",
-    "checked": "2026-10-29"
+    "checked": "2026-10-30"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
-    "approximate": false
+    "lastChecked": "2026-10-30",
+    "approximate": false,
+    "qaNote": "The Volta programme and Grand Optimiser are confirmed. The Grand Optimiser sources describe design-stage deliverables (architecture plan, roadmap, interface mock-up), and NESO's innovation annex expects about 10 more Volta projects over five years. I found no source saying AI dispatch will be routine in 2027, so that year looks optimistic and the 2028–2030 range looks more likely. The 2017 researc"
    },
    "refs": [
     {
      "label": "https://www.neso.energy/news/volta-programme-powering-future-dispatch-tapestry-energy-moonshot-x-moonshot-factory-alphabets-innovation-lab-bring-ai-our-control-room",
      "url": "https://www.neso.energy/news/volta-programme-powering-future-dispatch-tapestry-energy-moonshot-x-moonshot-factory-alphabets-innovation-lab-bring-ai-our-control-room",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ],
    "region": "uk",
@@ -1924,7 +1970,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "uk",
@@ -1959,7 +2005,7 @@
      "label": "DESNZ/Ofgem: Clean Flexibility Roadmap (July 2025)",
      "url": "https://assets.publishing.service.gov.uk/media/68874ddeb0e1dfe5b5f0e431/clean-flexibility-roadmap.pdf",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ]
   },
@@ -1983,7 +2029,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "global",
@@ -2018,7 +2064,7 @@
      "label": "Ofgem decision on Grid Code GC0137 (GB grid-forming specification)",
      "url": "https://www.neso.energy/document/234701/download",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ]
   },
@@ -2045,13 +2091,13 @@
     "label": "Ofgem: long duration storage Window 1 minded-to decisions",
     "url": "https://www.ofgem.gov.uk/consultation/long-duration-electricity-storage-window-1-minded-decisions",
     "status": "ok",
-    "checked": "2026-10-29"
+    "checked": "2026-10-30"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "refs": [
@@ -2059,7 +2105,7 @@
      "label": "https://www.ofgem.gov.uk/energy-regulation/low-carbon/long-duration-electricity-storage",
      "url": "https://www.ofgem.gov.uk/energy-regulation/low-carbon/long-duration-electricity-storage",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ],
    "region": "uk",
@@ -2112,13 +2158,13 @@
     "label": "Senedd Research: Rolls-Royce SMR at Wylfa",
     "url": "https://research.senedd.wales/research-articles/new-nuclear-at-wylfa-what-happens-next/",
     "status": "ok",
-    "checked": "2026-10-29"
+    "checked": "2026-10-30"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "refs": [
@@ -2126,7 +2172,7 @@
      "label": "https://www.powermag.com/uk-confirms-wylfa-as-launch-site-for-first-nuclear-smr-fleet/",
      "url": "https://www.powermag.com/uk-confirms-wylfa-as-launch-site-for-first-nuclear-smr-fleet/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ],
    "region": "uk",
@@ -2177,7 +2223,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "global",
@@ -2210,7 +2256,7 @@
      "label": "Quantum Circle: quantum grid optimisation overview",
      "url": "https://quantumcircle.eu/quantum-grid-optimisation/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ]
   },
@@ -2237,7 +2283,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "refs": [
@@ -2245,7 +2291,7 @@
      "label": "https://www.manchester.ac.uk/about/news/the-moment-computing-became-real/",
      "url": "https://www.manchester.ac.uk/about/news/the-moment-computing-became-real/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ],
    "adoption": {
@@ -2336,7 +2382,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "adoption": {
@@ -2365,7 +2411,7 @@
      "label": "CHM: Fairchild Micrologic 1961",
      "url": "https://computerhistory.org/blog/silicon-chips-take-man-to-the-moon/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ]
   },
@@ -2432,7 +2478,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -2455,7 +2501,7 @@
      "label": "https://en.wikipedia.org/wiki/Random-access_memory",
      "url": "https://en.wikipedia.org/wiki/Random-access_memory",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ],
    "adoption": {
@@ -2464,10 +2510,10 @@
     "basis": "source-cited",
     "refs": [
      {
-      "label": "https://www.cpushack.com/2023/12/21/the-first-mass-produced-dram-of-the-soviet-union/",
-      "url": "https://www.cpushack.com/2023/12/21/the-first-mass-produced-dram-of-the-soviet-union/",
+      "label": "Nature Electronics: Memory lane (1103 best-selling by 1972)",
+      "url": "https://www.nature.com/articles/s41928-018-0098-9",
       "status": "ok",
-      "checked": "2026-10-29"
+      "checked": "2026-10-30"
      }
     ]
    }
@@ -2531,7 +2577,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "europe",
@@ -2554,7 +2600,7 @@
      "label": "MagLab: IBM first GMR read head 1997",
      "url": "https://nationalmaglab.org/magnet-academy/read-science-stories/science-simplified/giant-magnetoresistance/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ],
    "adoption": {
@@ -2594,7 +2640,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "adoption": {
@@ -2622,7 +2668,7 @@
      "label": "CSET: EUV LLC 1997 and first EUV products 2019",
      "url": "https://cset.georgetown.edu/wp-content/uploads/CSET-Tracing-the-Emergence-of-Extreme-Ultraviolet-Lithography.pdf",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ]
   },
@@ -2698,7 +2744,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "europe",
@@ -2727,7 +2773,13 @@
      "label": "ASML press release: High NA EUV enters HVM with Intel 18A",
      "url": "https://www.techpowerup.com/350772/asml-high-na-euv-technology-enters-high-volume-manufacturing-with-intel-18a",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
+    },
+    {
+     "label": "TechTimes: Intel High-NA volume, 14A HVM 2028, TSMC 2030",
+     "url": "https://www.techtimes.com/articles/326966/20260908/intel-processes-more-high-na-euv-wafers-all-chipmakers-combined-tsmc-joins.htm",
+     "status": "ok",
+     "checked": "2026-10-30"
     }
    ]
   },
@@ -2751,7 +2803,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -2779,7 +2831,7 @@
      "label": "Co-packaged optics explained (volume timeline 2027-2029)",
      "url": "https://safeguard.sh/resources/blog/co-packaged-optics-explained-who-supplies-light-for-ai-networks",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ]
   },
@@ -2803,7 +2855,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -2826,7 +2878,15 @@
     "estimatedYear": 2027,
     "estimatedOn": "2026-10-27",
     "revisions": []
-   }
+   },
+   "refs": [
+    {
+     "label": "UCIe Consortium: UCIe 1.0 specification",
+     "url": "https://www.uciexpress.org/specifications",
+     "status": "ok",
+     "checked": "2026-10-30"
+    }
+   ]
   },
   {
    "id": "neuromorphic-chips-at-the-edge",
@@ -2848,7 +2908,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -2877,7 +2937,7 @@
      "label": "Stanford Brains in Silicon: Mead pioneered neuromorphic chips",
      "url": "https://web.stanford.edu/group/brainsinsilicon/blog/our_technology/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ]
   },
@@ -13833,15 +13893,15 @@
    },
    "change": {
     "year": 1984,
-    "what": "Chip cards adopted by French banks."
+    "what": "French banks field-test chip bank cards; Carte Bleue chip rollout follows."
    },
    "confidence": "medium",
    "note": "The basis of chip and PIN and SIM cards.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "europe",
@@ -13852,7 +13912,21 @@
    "readiness": {
     "stage": "commercial",
     "basis": "ai-estimate"
-   }
+   },
+   "refs": [
+    {
+     "label": "CardWerk: history of smart cards",
+     "url": "https://cardwerk.com/smart-card-history/",
+     "status": "ok",
+     "checked": "2026-10-30"
+    },
+    {
+     "label": "Wikipedia: Roland Moreno",
+     "url": "https://en.wikipedia.org/wiki/Roland_Moreno",
+     "status": "ok",
+     "checked": "2026-10-30"
+    }
+   ]
   },
   {
    "id": "kerberos-authentication",
@@ -13874,15 +13948,20 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
    "subfield": "identity",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
-   }
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-30"
+   },
+   "tags": [
+    "cryptography",
+    "networks"
+   ]
   },
   {
    "id": "encrypted-web-ssl-tls",
@@ -13907,7 +13986,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "adoption": {
@@ -13946,7 +14025,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "uk",
@@ -13955,8 +14034,9 @@
    ],
    "subfield": "fibre",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-30"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -23926,6 +24006,60 @@
     "addedBy": "research-agent",
     "added": "2026-10-29",
     "lastChecked": "2026-10-29",
+    "approximate": false
+   }
+  },
+  {
+   "id": "reclinker-cement-recycled-in-steel-furnaces",
+   "field": "materials",
+   "origin": "academic",
+   "status": "landed",
+   "title": "Reclinker: cement recycled in steel furnaces",
+   "research": {
+    "year": 2024,
+    "what": "University of Cambridge researchers showed that old cement paste from demolition can be turned back into clinker inside electric arc furnaces that recycle steel. Origin: Cambridge Electric Cement programme, University of Cambridge; Nature paper, 2024"
+   },
+   "change": {
+    "year": 2026,
+    "what": "Reclinker made thousands of tonnes of product at 7 Steel UK's Cardiff plant and secured its first commercial sales, announced alongside a £10m Series A in early October 2026."
+   },
+   "confidence": "medium",
+   "note": "This is the first commercial sale of cement clinker recycled from demolition waste in a steel furnace. The announcement was in early October, slightly before the 21-day window, and was reported with a funding round.",
+   "refs": [
+    {
+     "label": "The Next Web: Reclinker raises £10m",
+     "url": "https://thenextweb.com/news/reclinker-10m-series-a-low-carbon-cement-cardiff",
+     "status": "ok",
+     "checked": "2026-10-30"
+    },
+    {
+     "label": "Zero Carbon Capital: backing Reclinker at Series A",
+     "url": "https://www.zerocarbon.vc/news/recycling-cement-backing-reclinker-again-at-series-a",
+     "status": "ok",
+     "checked": "2026-10-30"
+    },
+    {
+     "label": "World Cement: Reclinker raises £10 million",
+     "url": "https://www.worldcement.com/europe-cis/07102026/first-of-its-kind-process-that-creates-low-carbon-cement-raises-10-million-to-cut-emissions-in-half/amp/",
+     "status": "ok",
+     "checked": "2026-10-30"
+    }
+   ],
+   "subfield": "construction",
+   "region": "uk",
+   "tags": [
+    "materials",
+    "heat"
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-30",
+    "lastChecked": "2026-10-30",
     "approximate": false
    }
   }

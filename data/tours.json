@@ -1,16 +1,16 @@
 {
- "version": 15,
- "updated": "2026-10-29",
+ "version": 16,
+ "updated": "2026-10-30",
  "updatedBy": "tour-agent",
  "note": "Narration templates for the guided tours. Figures come from {placeholders} filled from the live data; conclusions are chosen by rules in the app ({\"by\": fact, \"cases\": {...}}). The weekly tour agent may refine wording and choose examples, within the rules checked by tools/validate.py.",
  "tours": {
   "gap": {
    "title": "Is AI shrinking the gap from research to change?",
    "exampleIds": [
-    "penicillin",
+    "mrna-vaccines",
     "radar",
     "integrated-circuit",
-    "mrna-vaccines"
+    "large-language-model-api"
    ],
    "steps": {
     "intro": {
@@ -94,7 +94,7 @@
        "cases": {
         "faster": "Since 2010, AI-driven work has been quicker: {ai} years, against {oth} for the rest.",
         "slower": "Since 2010, AI-driven work has taken longer: {ai} years, against {oth} for the rest.",
-        "similar": "Since 2010, AI-driven work took about as long as the rest: {ai} years against {oth}.",
+        "similar": "Since 2010, AI-driven work has taken about as long as the rest: {ai} years against {oth}.",
         "unclear": "There are not yet enough AI-driven milestones to compare."
        }
       },
@@ -131,10 +131,10 @@
    "title": "What AI-assisted products are on the horizon for the energy system?",
    "steps": {
     "intro": {
-     "say": "The UK government has set out a vision for a clean energy system supported by AI, divided into distinct areas. Diamonds mark stories linked to that vision, playing through from 1980 onwards."
+     "say": "The government's AI for clean energy vision is split into distinct areas. Diamonds mark stories linked to it, playing through from 1980 onwards."
     },
     "radar": {
-     "say": "The Vision radar shows how close each area's technologies are to everyday use: {nResearch} still in research, {nPilot} in pilots, {nCommercial} in early commercial use and {nScale} in wide use. Of these, {nGB} are already used in Great Britain."
+     "say": "The Vision radar shows how close each area's technologies are to everyday use: {nResearch} in research, {nPilot} in pilots, {nCommercial} in early commercial use and {nScale} in wide use. {nGB} of these are already used in Great Britain."
     },
     "new": {
      "say": {
@@ -149,7 +149,7 @@
      "say": {
       "by": "nextCase",
       "cases": {
-       "some": "Expected within five years: {nextCount}, the soonest being {nextTitle}, around {nextYear}. {busiestArea} has the most in the pipeline.",
+       "some": "{nextCount} are expected within five years. The soonest is {nextTitle}, around {nextYear}. {busiestArea} has the most in the pipeline.",
        "none": "In the current data, no products are expected to arrive within five years."
       }
      }
@@ -199,7 +199,7 @@
      "say": {
       "by": "gapCase",
       "cases": {
-       "some": "Gaps remain. Some technologies that have arrived since 2010 have no security response recorded in their category yet. The count so far is {gapCount}, including {gapTitle}.",
+       "some": "Gaps remain. Since 2010, some technologies have arrived with no security response recorded in their category. So far that covers {gapCount}, including {gapTitle}.",
        "none": "In this data, every technology that has arrived since 2010 has a security response recorded in its category."
       }
      }
@@ -225,9 +225,9 @@
       {
        "by": "trendCase",
        "cases": {
-        "improving": "It is catching up faster than it used to.",
-        "worsening": "It is taking longer to catch up than it used to.",
-        "flat": "Its pace has barely changed.",
+        "improving": "Security is catching up faster than it used to.",
+        "worsening": "Security is taking longer to catch up than it used to.",
+        "flat": "The pace of catching up has barely changed.",
         "unclear": "The data cannot say yet."
        }
       }
@@ -298,7 +298,7 @@
      "say": "This model is maintained by AI agents that run every week. It holds {nMilestones} milestones so far."
     },
     "research": {
-     "say": "A research agent searches for new breakthroughs and products in each field, and each area of AI for clean energy. Everything it adds appears in the 'Data changes' view."
+     "say": "A research agent searches for new breakthroughs and products across every field of AI, including each area of AI for clean energy. Everything it adds appears in the 'Data changes' view."
     },
     "qa": {
      "say": "A second agent checks each new entry independently. It requires more than one source, and the quoted evidence must really appear on the cited page. Nothing is ever deleted."
@@ -322,7 +322,7 @@
      "say": "Every record is labelled to show how it was produced and checked: source-cited, AI-compiled or AI estimate. You can filter records by these labels."
     },
     "arrange": {
-     "say": "Choose an arrangement to lay out the windows for exploring, presenting, analysis or a clean energy briefing. You can save any view or share it as a link."
+     "say": "Choose an arrangement to lay out the windows for exploring, presenting, analysis or an AI for clean energy briefing. You can save any view or share it as a link."
     },
     "answer": {
      "say": "Help and the 'i' information buttons explain each feature. This model is maintained by AI, so it may contain errors. Check anything important against the original sources."
