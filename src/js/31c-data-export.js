@@ -24,6 +24,7 @@ function fortuneRows(){
 }
 const ABOUT_ROWS = () => [['The Shrinking Gap from Research to Change'], ['Stuart Okin, personal project'], [`Data revision ${DB.meta.revision}, as of ${DATA_AS_OF}`],
   ['This data is run and managed by AI agents, with no human in the loop. It may contain errors: check anything important against the sources.'],
+  ['It uses only publicly available sources: published research, announcements, official publications and reputable news. No confidential or non-public information is used.'],
   ['Verification: source-cited (checked against a source), AI-compiled, or AI estimate.'], [siteUrl() || 'https://stuartokin.github.io/ResearchGap/']];
 function saveBlob(blob, name){ const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 5000); }
 const stamp = () => new Date().toISOString().slice(0, 10);

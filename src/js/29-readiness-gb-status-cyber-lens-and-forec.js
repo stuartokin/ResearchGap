@@ -113,7 +113,7 @@ async function generateDesnzSlide(){
   });
   const legend = Object.entries({research:'Research', pilot:'Pilot', commercial:'First commercial use', scale:'At scale'});
   legend.forEach(([st, n], i) => { s.addShape(pptx.ShapeType.rect, {x:0.4 + i * 1.6, y:5.12, w:0.14, h:0.12, fill:{color:SC[st]}, line:{color:SC[st], width:0}}); s.addText(n, {x:0.58 + i * 1.6, y:5.08, w:1.4, h:0.2, fontSize:7.5, color:MUTED, fontFace:'Arial', margin:0, isTextBox:true}); });
-  s.addText(`Stuart Okin, personal project. Data revision ${DB.meta.revision}, narrative version ${narrVersion()}. AI-maintained data; readiness and GB status are AI estimates.`, {x:0.4, y:5.32, w:9.2, h:0.2, fontSize:6.5, color:MUTED, fontFace:'Arial', margin:0, isTextBox:true});
+  s.addText(`Stuart Okin, personal project. Data revision ${DB.meta.revision}, narrative version ${narrVersion()}. AI-maintained data from public sources only; readiness and GB status are AI estimates.`, {x:0.4, y:5.32, w:9.2, h:0.2, fontSize:6.5, color:MUTED, fontFace:'Arial', margin:0, isTextBox:true});
   const hv = narrative('horizon', ['answer'])[0];
   if (hv) s.addText(hv + ' (AI-generated narrative; no human review.)', {x:0.4, y:1.0, w:9.2, h:0.22, fontSize:8.5, italic:true, color:'F2D38A', fontFace:'Arial', margin:0, isTextBox:true});
   s.addNotes(narrative('horizon', ['radar', 'new', 'next', 'answer']).join(' ') + '\n\nEach column is one area of AI for clean energy, following the five areas of DESNZ’s Vision for an AI-enabled clean energy system. The bar shows how many of its technologies are at each readiness stage. Lists show what the data agents found new and what is expected within five years.');

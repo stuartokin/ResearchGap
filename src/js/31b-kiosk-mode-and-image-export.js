@@ -125,7 +125,7 @@ function viewCanvas(plain){   // plain: the model and its labels only (for the r
     const verdict = (narrative('gap', ['answer'])[0] || '');
     x.fillStyle = '#F7C04A'; x.font = `italic ${Math.round(16 * dpr)}px "Instrument Sans", Arial, sans-serif`; x.fillText(verdict, 22 * dpr, y0 + 32 * dpr);
     x.fillStyle = '#8FA6B8'; x.font = `${Math.round(12.5 * dpr)}px "Instrument Sans", Arial, sans-serif`;
-    x.fillText(`Stuart Okin, personal project. Data revision ${DB.meta.revision} (${DATA_AS_OF}); AI-maintained data and narrative, no human review; may contain errors.${siteUrl() ? '  ' + siteUrl() : ''}`, 22 * dpr, y0 + 60 * dpr);
+    x.fillText(`Stuart Okin, personal project. Data revision ${DB.meta.revision} (${DATA_AS_OF}); AI-maintained data and narrative from public sources only, no human review; may contain errors.${siteUrl() ? '  ' + siteUrl() : ''}`, 22 * dpr, y0 + 60 * dpr);
     return c;
 }
 function exportImage(){

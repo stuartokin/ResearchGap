@@ -21,9 +21,9 @@ function buildWinMenu(){
   groups.forEach(([g, name, ids]) => {
     const open = ids.filter(id => layout[id].open).length, ex = !!view.menuGroups[g];
     h += `<button class="wmg" data-g="${g}" aria-expanded="${ex}"><span class="car">${ex ? '▾' : '▸'}</span>${name}<span class="cnt">${open} of ${ids.length} open</span></button>`;
-    if (ex) h += '<div class="wmitems">' + ids.map(item).join('') + '</div>';
+    if (ex) h += '<div class="wmitems">' + ids.map(item).join('') + (g === 'share' ? '<button data-w="__csv"><span class="tick"></span>Download the data (CSV)</button><button data-w="__xlsx"><span class="tick"></span>Download the data (Excel)</button>' : '') + '</div>';
   });
-  h += '<hr><button data-w="__all">Open all windows</button><button data-w="__link">Copy a link to this view</button><button data-w="__img">Save an image of the view</button><button data-w="__csv">Download the data (CSV)</button><button data-w="__xlsx">Download the data (Excel)</button><button data-w="__kiosk">Kiosk mode…</button><button data-w="__save">Save this view to a file…</button><button data-w="__load">Load a view from a file…</button>' +
+  h += '<hr><button data-w="__all">Open all windows</button><button data-w="__link">Copy a link to this view</button><button data-w="__img">Save an image of the view</button><button data-w="__kiosk">Kiosk mode…</button><button data-w="__save">Save this view to a file…</button><button data-w="__load">Load a view from a file…</button>' +
     '<small>Saved views remember windows, positions, text sizes, filters and display settings. Open one with index.html?view=yourfile.json. Drag a title bar to move a window, its corner to resize, A− and A+ for text size; double-click a title bar to restore its place.</small>';
   winMenu.innerHTML = h;
 }

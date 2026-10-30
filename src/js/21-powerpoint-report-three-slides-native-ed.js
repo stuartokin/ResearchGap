@@ -69,7 +69,7 @@ async function generateReport(){
   const exLine = it => `${it.t}: ${it.r} → ${it.p} (${gapOf(it)} yr${gapOf(it) === 1 ? '' : 's'})`;
   const pptx = new PptxGenJS(); pptx.layout = 'LAYOUT_16x9'; pptx.author = 'Stuart Okin'; pptx.title = title;
   const footer = (s, n) => {
-    s.addText(`Stuart Okin, personal project. Data revision ${DB.meta.revision} (${DATA_AS_OF}), narrative version ${narrVersion()}. AI-maintained data and narrative, no human review; may contain errors. Selection: ${selectionText()}.`,
+    s.addText(`Stuart Okin, personal project. Data revision ${DB.meta.revision} (${DATA_AS_OF}), narrative version ${narrVersion()}. AI-maintained data and narrative from public sources only, no human review; may contain errors. Selection: ${selectionText()}.`,
       {x:0.4, y:5.3, w:8.7, h:0.22, fontSize:6.5, color:MUTED, fontFace:'Arial', margin:0, isTextBox:true});
     s.addText(String(n), {x:9.2, y:5.3, w:0.4, h:0.22, fontSize:7, color:MUTED, align:'right', fontFace:'Arial', margin:0, isTextBox:true});
   };
