@@ -379,6 +379,85 @@
           "subfield": {
             "type": "string",
             "pattern": "^[a-z0-9-]+$"
+          },
+          "aiLevers": {
+            "type": "object",
+            "required": [
+              "phase",
+              "levers",
+              "refs",
+              "checked"
+            ],
+            "properties": {
+              "phase": {
+                "enum": [
+                  "rd",
+                  "demo",
+                  "build",
+                  "approvals",
+                  "deploy"
+                ]
+              },
+              "bottleneck": {
+                "type": "string"
+              },
+              "levers": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "k",
+                    "strength"
+                  ],
+                  "properties": {
+                    "k": {
+                      "enum": [
+                        "discovery",
+                        "simulation",
+                        "software",
+                        "approvals",
+                        "deploy"
+                      ]
+                    },
+                    "strength": {
+                      "enum": [
+                        "low",
+                        "mid",
+                        "high"
+                      ]
+                    },
+                    "note": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "refs": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "url"
+                  ],
+                  "properties": {
+                    "url": {
+                      "type": "string",
+                      "pattern": "^https?://"
+                    },
+                    "label": {
+                      "type": "string"
+                    },
+                    "quote": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "checked": {
+                "type": "string"
+              }
+            }
           }
         }
       }

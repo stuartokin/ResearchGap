@@ -44,7 +44,9 @@ function chFilterBar(extra, opts){
 function renderCharts(){
   if (!layout.charts || !layout.charts.open) return;
   const box = $('chartSvg'), fs = chFs();
-  $('chartTabs').innerHTML = CHART_TABS.map(([k, n]) => `<button data-t="${k}" class="${CH.tab === k ? 'on' : ''}" role="tab" aria-selected="${CH.tab === k}">${n}</button>`).join('');
+  const tabName = (CHART_TABS.find(t => t[0] === CH.tab) || [])[1] || '', h2 = $('w-charts').querySelector('.wh h2'); if (h2) h2.textContent = 'Charts – ' + tabName;
+  $('chartTabs').innerHTML = CHART_TABS.map(([k, n]) => `<button data-t="${k}" class="${CH.tab === k ? 'on' : ''}" role="tab" aria-selected="${CH.tab === k}">${n}</button>`).join('') + '<button id="chInsight" class="cinsight" title="This week’s AI-generated insight for this chart, with subtitles and speech">★ Insight</button>';
+  if (CH.insightOn && typeof showInsight === 'function') setTimeout(() => showInsight(true), 0);
   drawPanel();
   const W = Math.max(300, box.clientWidth - 6), H = Math.max(260, box.clientHeight - 6);
   CH.note = ''; CH.rows = []; CH.head = [];
@@ -188,7 +190,8 @@ function chPipe(W, H, fs){
 /* 5. Forecast drift */
 function chDrift(W, H, fs){
   const pool = chPool().filter(it => it.fc && it.fc.estimatedYear != null).sort((p, q) => (p.fc.actualYear || p.fc.estimatedYear) - (q.fc.actualYear || q.fc.estimatedYear) || p.t.localeCompare(q.t));
-  $('chartCtl').innerHTML = chFilterBar('');
+  const STC = {research:'#8FA6B8', pilot:'#F2D38A', commercial:'#5FD8FF', scale:'#7FD6A0'};
+  $('chartCtl').innerHTML = chFilterBar('') + `<div class="clegend">Readiness: ${Object.entries(STC).map(([k, c]) => `<span><i style="background:${c}"></i>${{research:'Research', pilot:'Pilot', commercial:'First commercial use', scale:'At scale'}[k]}</span>`).join('')}<span><i style="background:#FF6B6B"></i>Slipped later</span></div>`;
   const revOf = it => (it.fc.revisions || []).map(r => r.year ?? r.to ?? r.estimatedYear).filter(v => v != null);
   const counts = {}; pool.forEach(it => { const y = it.fc.actualYear ?? it.fc.estimatedYear; counts[y] = (counts[y] || 0) + 1; });
   const ys = Object.keys(counts).map(Number).sort((a, b) => a - b), histH = fs * 5;
@@ -198,13 +201,12 @@ function chDrift(W, H, fs){
       return `<rect x="${x0}" y="${histH - h + fs * .3}" width="${bw}" height="${h}" rx="3" fill="${y <= NOW ? CHC.green : CHC.amber}" fill-opacity=".8"><title>${y}: ${counts[y]}</title></rect><text x="${x0 + bw / 2}" y="${histH - h - fs * .1}" fill="${CHC.txt}" text-anchor="middle">${counts[y]}</text><text x="${x0 + bw / 2}" y="${histH + fs * 1.4}" fill="${CHC.mut}" text-anchor="middle">${y}</text>`; }).join('') + '</svg>'; }
   let revised = 0, slipped = 0;
   const rows = pool.map(it => { const revs = revOf(it), first = revs.length ? (it.fc.revisions[0].from ?? revs[0]) : it.fc.estimatedYear, now = it.fc.actualYear ?? it.fc.estimatedYear;
-    if (revs.length) revised++; if (now > first) slipped++; const c = now > first ? CHC.coral : now < first ? CHC.green : itemHex(it);
+    if (revs.length) revised++; if (now > first) slipped++; const sc = STC[it.stage] || STC.research, c = now > first ? CHC.coral : now < first ? CHC.green : sc;
     return {id:it.id, label:it.t, span:[first, now, NOW], tip:`${it.t}: first estimate ${first}, now ${it.fc.actualYear ? 'landed ' + it.fc.actualYear : '~' + now}${revs.length ? `, revised ${revs.length} time${revs.length > 1 ? 's' : ''}` : ''}${it.fc.estimatedOn ? ` (estimate recorded ${it.fc.estimatedOn})` : ''}`,
-      bars:first !== now ? [{a:Math.min(first, now), b:Math.max(first, now), color:c}] : [], dots:[...(first !== now ? [{x:first, color:CHC.mut, hollow:true, r:.5}] : []), {x:now, color:it.fc.actualYear ? CHC.green : c, r:.7}],
-      end:`${it.stage || ''}`, endX:now}; });
+      bars:first !== now ? [{a:Math.min(first, now), b:Math.max(first, now), color:c}] : [], dots:[...(first !== now ? [{x:first, color:CHC.mut, hollow:true, r:.5}] : []), {x:now, color:sc, r:.8}]}; });
   CH.head = ['Title', 'First estimate', 'Current estimate', 'Landed', 'Revisions']; CH.rows = pool.map(it => [it.t, (it.fc.revisions && it.fc.revisions[0] && it.fc.revisions[0].from) || it.fc.estimatedYear, it.fc.estimatedYear, it.fc.actualYear || '', (it.fc.revisions || []).length]);
   CH.note = `${pool.length} forecasts; ${revised} revised so far, ${slipped} slipped later. The agents record every re-estimate, so trails (hollow dot to filled) grow week by week: red means it slipped later, green earlier.`;
-  return hist + chRowChart(W, Math.max(200, H - histH - fs * 2), fs, rows, {markers:[{x:NOW, label:'Today', color:CHC.amber}], endW:fs * 5});
+  return hist + chRowChart(W, Math.max(200, H - histH - fs * 2), fs, rows, {markers:[{x:NOW, label:'Today', color:CHC.amber}], endW:fs});
 }
 /* 6. Security lag */
 function chSec(W, H, fs){
@@ -275,10 +277,13 @@ function aiPlan(it){
   if (sw) { base.build = base.rd + base.demo * .6; base.rd = 0; base.demo *= .4; }   // software: mostly building, not lab research
   if (['nuclear', 'medicine'].some(t => (it.tags || []).includes(t))) base.approvals *= 2;   // approval-heavy technologies
   const tot = Object.values(base).reduce((a, b) => a + b, 0) || 1; Object.keys(base).forEach(k => { base[k] /= tot; });
-  const si = {low:0, mid:1, high:2}[CH.wiScen] ?? 1, remaining = Math.max(0, it.p - NOW);
+  const shift = {low:-1, mid:0, high:1}[CH.wiScen] ?? 0, R = it.aiL && Array.isArray(it.aiL.levers) ? it.aiL : null, remaining = Math.max(0, it.p - NOW);
+  if (R && PHASE_NAMES[R.phase]) { Object.keys(base).forEach(k => { base[k] *= .5; }); base[R.phase] = (base[R.phase] || 0) + .5; }   // the researched phase carries more of the time left
+  const si = 1 + shift, strength = k => { const l = R && R.levers.find(x => x.k === k); return l ? Math.max(0, Math.min(2, ({low:0, mid:1, high:2}[l.strength] ?? 1) + shift)) : si; };
   const phases = Object.keys(base).filter(k => base[k] > 0).map(k => {
-    const lev = AI_LEVERS.filter(l => !CH.wiOff[l.k] && (l.phase === k || (k === 'build' && l.k === 'software')) && l.test(it)).sort((a, b) => b.r[si] - a.r[si])[0];
-    const cut = lev ? lev.r[si] : 0; return {k, share:base[k], lever:lev, cut, saved:remaining * base[k] * cut};
+    const applies = l => R ? R.levers.some(x => x.k === l.k) : l.test(it);
+    const lev = AI_LEVERS.filter(l => !CH.wiOff[l.k] && (l.phase === k || (k === 'build' && l.k === 'software')) && applies(l)).sort((a, b) => b.r[strength(b.k)] - a.r[strength(a.k)])[0];
+    const cut = lev ? lev.r[strength(lev.k)] : 0; return {k, share:base[k], lever:lev, cut, saved:remaining * base[k] * cut};
   });
   const saved = phases.reduce((a, p) => a + p.saved, 0);
   return {remaining, saved, year:remaining ? Math.round((it.p - saved) * 10) / 10 : it.p, phases, levers:[...new Set(phases.filter(p => p.lever).map(p => p.lever))]};
@@ -296,7 +301,7 @@ function chWhatIf(W, H, fs){
   const rows = pool.map(it => { const pl = plans.get(it.id), c = pl.levers.length ? levColour[pl.levers[0].k] : CHC.mut;
     return {id:it.id, label:it.t, span:[pl.year, it.p, NOW], tip:`${it.t}: expected ~${it.p}; with AI levers ~${Math.round(pl.year)} (saves ${Math.round(pl.saved * 10) / 10} years). Levers: ${pl.levers.map(l => l.n).join(', ') || 'none apply'}`,
       bars:[{a:pl.year, b:it.p, color:c, opacity:.55}], dots:[{x:it.p, color:CHC.mut, hollow:true, r:.55}, {x:pl.year, color:c, r:.7}],
-      end:pl.saved >= .05 ? `−${Math.round(pl.saved * 10) / 10} yrs · ${pl.levers.map(l => l.n.split(' ')[0]).join(', ')}` : 'no lever applies', endColor:c, endX:it.p}; });
+      end:(it.aiL ? '✓ ' : '') + (pl.saved >= .05 ? `−${Math.round(pl.saved * 10) / 10} yrs · ${pl.levers.map(l => l.n.split(' ')[0]).join(', ')}` : 'no lever applies'), endColor:c, endX:it.p}; });
   CH.head = ['Title', 'Expected', 'With AI levers', 'Years saved', 'Levers']; CH.rows = pool.map(it => { const pl = plans.get(it.id); return [it.t, it.p, Math.round(pl.year), Math.round(pl.saved * 10) / 10, pl.levers.map(l => l.n).join('; ')]; });
   CH.note = `${pool.length} projected technologies. Hollow dot: today's AI estimate; filled: with the selected AI levers (colour shows the main lever). Assumptions are illustrative: lever savings apply only to the phase each lever helps.`;
   return `<div class="cwihead">${head}</div>` + chRowChart(W, H - fs * 2.6, fs, rows, {markers:[{x:2030, label:'2030', color:CHC.amber}], endW:fs * 17});
@@ -306,6 +311,7 @@ function wiPanel(it){
   chPanel(it.t, `<p class="csstat">Expected <b>~${it.p}</b>; with AI levers (${si}) <b class="t">~${Math.round(pl.year)}</b>, saving about <b class="t">${Math.round(pl.saved * 10) / 10} years</b> of the ${pl.remaining} remaining.</p>
     <table class="cstab"><tr><th>Phase</th><th>Share of the time left</th><th>AI lever</th><th>Saved</th></tr>${pl.phases.map(p => `<tr><td>${PHASE_NAMES[p.k]}</td><td>${Math.round(p.share * 100)}%</td><td>${p.lever ? `${chEsc(p.lever.n)} (−${Math.round(p.cut * 100)}%)` : '<span class="note-s">none</span>'}</td><td>${p.saved >= .05 ? Math.round(p.saved * 10) / 10 + ' yrs' : '–'}</td></tr>`).join('')}</table>
     ${pl.levers.map(l => `<div class="cslever"><b>${chEsc(l.n)}</b><p>${chEsc(l.what)}</p><p class="note-s">${chEsc(l.basis)}</p></div>`).join('') || '<p class="note-s">None of the levers apply to this technology as described.</p>'}
+    ${it.aiL ? `<div class="csres"><b>✓ Researched by the agents${it.aiL.checked ? ' (' + fmtDate(it.aiL.checked) + ')' : ''}</b>${it.aiL.bottleneck ? `<p><b>Main bottleneck:</b> ${chEsc(it.aiL.bottleneck)}</p>` : ''}${(it.aiL.levers || []).map(l => `<p><b>${chEsc((AI_LEVERS.find(x => x.k === l.k) || {}).n || l.k)}</b> (${chEsc(l.strength || 'mid')}): ${chEsc(l.note || '')}</p>`).join('')}${(it.aiL.refs || []).map(r => `<a href="${chEsc(r.url)}" target="_blank" rel="noopener">${chEsc(r.label || r.url)}</a>`).join('<br>')}</div>` : '<p class="note-s">Not yet researched individually: general rules apply. The AI levers agent researches a batch of technologies each week.</p>'}
     <p class="note-s">How this works: the time left is split into phases according to the technology's readiness (${chEsc(it.stage || 'research')}), and each lever shortens only the phase it helps, by an assumed range. These are illustrative assumptions, not researched estimates for this project.</p>`);
   CH.sel = it.id; renderCharts();
 }

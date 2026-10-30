@@ -5,9 +5,18 @@ conclusion needs a variant, and no figures may be typed into the text (apart fro
 """
 import re, itertools
 
+# placeholders and conclusions shared by every tour: the chart facts and the week's facts
+CHART_PH = {'nGap', 'longestTitle', 'longestYears', 'quickRecentTitle', 'quickRecentYears', 'fastField', 'fastFieldYears', 'slowField', 'slowFieldYears', 'improvedField', 'improvedFrom', 'improvedTo',
+  'aiMed', 'restMed', 'aiCount', 'pipeTotal', 'pipeResearch', 'pipePilot', 'pipeCommercial', 'pipeScale', 'pipeGB', 'driftCount', 'driftPeakYear', 'driftPeakCount', 'driftRevised', 'driftSlipped',
+  'secCount', 'secMedian', 'secLongestTitle', 'secLongestYears', 'secOpen', 'fortCount', 'fortResearch', 'fortFastest', 'fortFastestTime', 'fortPre', 'fortRecent', 'wiAvg', 'wi2030Now', 'wi2030AI', 'wiTopLever', 'wiResearched'}
+CHART_CASES = {'improvedCase': {'yes', 'no'}, 'aiCase': {'faster', 'similar', 'slower', 'unclear'}, 'pipeCase': {'early', 'late'}, 'driftCase': {'some', 'none'}, 'secCase': {'open', 'closed'}, 'fortCase': {'faster', 'slower', 'similar', 'unclear'}}
+WEEK_PH = {'updatedAt', 'newCount', 'newTitles', 'changedCount'}
+WEEK_VIEWS = {'main', 'findings', 'radar', 'cyber', 'fortunes', 'gaps', 'heat', 'ai', 'pipe', 'drift', 'sec', 'fort', 'whatif'}
+CHART_YEARS = {'1990', '2010', '2030'}
+
 SPEC = {
   'gap': {
-    'steps': ['intro', 'example', 'century', 'trend', 'corrected', 'gapchart', 'fields', 'outlook', 'answer'],
+    'steps': ['intro', 'example', 'century', 'trend', 'heatchart', 'corrected', 'gapchart', 'fields', 'outlook', 'aichart', 'answer'],
     'placeholders': {'n', 'pre', 'recent', 'adopt', 'kmYears', 'exTitle', 'exWhere', 'exR', 'exP', 'exAdopt', 'fastestName', 'fastestYears', 'aiRankWord', 'nFields', 'ai', 'oth', 'aiOut', 'convOut'},
     'cases': {'trend': {'shrunk', 'grown', 'flat', 'unclear'}, 'corr': {'holds', 'weakens', 'tooEarly', 'unclear'}, 'aiCmp': {'faster', 'slower', 'similar', 'unclear'},
               'outCmp': {'faster', 'slower', 'similar', 'unclear'}, 'score': {'0', '1', '2', '3', '4'}, 'hasAdopt': {'yes', 'no'}, 'exFound': {'yes', 'no'},
@@ -20,30 +29,44 @@ SPEC = {
                  'corr': {'holds': 'counting unfinished work, research since 2010 is still clearly quicker than before 1970', 'weakens': 'counting unfinished work, it is not clearly quicker'}},
   },
   'horizon': {
-    'steps': ['intro', 'radar', 'new', 'next', 'changes', 'slide', 'answer'],
+    'steps': ['intro', 'radar', 'new', 'next', 'pipechart', 'changes', 'slide', 'answer'],
     'placeholders': {'nResearch', 'nPilot', 'nCommercial', 'nScale', 'nGB', 'newCount', 'newTitle', 'nextCount', 'nextTitle', 'nextYear', 'busiestArea'},
     'cases': {'newCase': {'some', 'none'}, 'nextCase': {'some', 'none'}, 'horizonCase': {'busy', 'steady', 'quiet'}},
     'years': {'1980'}, 'maxWords': 40,
   },
   'secure': {
-    'steps': ['intro', 'lens', 'gaps', 'example', 'guidance', 'caution', 'answer'],
+    'steps': ['intro', 'lens', 'secchart', 'gaps', 'example', 'guidance', 'caution', 'answer'],
     'placeholders': {'attackPct', 'lag', 'gapCount', 'gapTitle', 'guideTitle'},
     'cases': {'lagCase': {'slow', 'moderate', 'fast', 'unclear'}, 'gapCase': {'some', 'none'}, 'guideCase': {'some', 'none'}, 'trendCase': {'improving', 'worsening', 'flat', 'unclear'}},
     'years': {'2010', '62443'}, 'maxWords': 40,
   },
   'fortune': {
-    'steps': ['intro', 'research', 'speed', 'fastest', 'uk', 'uni', 'table', 'answer'],
+    'steps': ['intro', 'research', 'speed', 'fortchart', 'fastest', 'uk', 'uni', 'table', 'answer'],
     'placeholders': {'nFortunes', 'nResearch', 'preYears', 'recentYears', 'fastestCo', 'fastestTime', 'ukYears', 'rowYears', 'nUni'},
     'cases': {'speedCase': {'faster', 'slower', 'similar', 'unclear'}, 'ukCase': {'faster', 'slower', 'similar', 'unclear'}},
     'years': {'1970', '2015'}, 'maxWords': 40,
   },
+  'charts': {
+    'steps': ['gaps', 'heat', 'ai', 'pipe', 'drift', 'sec', 'fort', 'whatif'],
+    'placeholders': set(), 'cases': {}, 'years': set(), 'maxWords': 45,
+  },
+  'week': {
+    'steps': None,   # written each week: 'intro' plus three to six steps, each with a view
+    'placeholders': set(), 'cases': {'newCase': {'some', 'none'}}, 'years': set(), 'maxWords': 45, 'titles': True,
+  },
   'how': {
-    'steps': ['intro', 'research', 'qa', 'more', 'quality', 'labels', 'arrange', 'answer'],
+    'steps': ['intro', 'research', 'qa', 'more', 'quality', 'labels', 'arrange', 'whatifchart', 'answer'],
     'placeholders': {'nMilestones', 'pctSourceCited', 'fcResolved'},
     'cases': {'fcCase': {'scored', 'none'}},
     'years': set(), 'maxWords': 40,
   }
 }
+
+# every tour may use the chart facts; the weekly analysis may also use the week's facts
+for _tid, _sp in SPEC.items():
+    _sp['placeholders'] = set(_sp['placeholders']) | CHART_PH | (WEEK_PH if _tid == 'week' else set())
+    _sp['cases'] = dict(CHART_CASES, **_sp['cases'])
+    _sp['years'] = set(_sp['years']) | CHART_YEARS
 
 def _paths(tpl, limit=400):
     """Every possible rendering of a template, with placeholders kept as single words."""
@@ -64,7 +87,7 @@ def _nodes(tpl):
         yield tpl
         for c in tpl.get('cases', {}).values(): yield from _nodes(c)
 
-def check_step(tour_id, step_id, say):
+def check_step(tour_id, step_id, say, titles=None):
     sp, errs = SPEC[tour_id], []
     for node in _nodes(say):
         if 'by' not in node or not isinstance(node.get('cases'), dict): errs.append(f'{tour_id}.{step_id}: a variant block needs "by" and "cases"'); continue
@@ -76,6 +99,8 @@ def check_step(tour_id, step_id, say):
         for ph in re.findall(r'\{(\w+)\}', text):
             if ph not in sp['placeholders']: errs.append(f'{tour_id}.{step_id}: unknown placeholder {{{ph}}}')
         literal = re.sub(r'\{\w+\}', ' ', text)
+        for _t in sorted(titles or [], key=len, reverse=True):
+            if _t and _t in literal: literal = literal.replace(_t, ' ')
         for num in re.findall(r'\d+(?:\.\d+)?', literal):
             if num not in sp['years']: errs.append(f'{tour_id}.{step_id}: typed figure "{num}" (figures must come from placeholders)')
         if re.search(r'https?:|www\.|<|>', literal): errs.append(f'{tour_id}.{step_id}: links or markup are not allowed')
@@ -92,6 +117,16 @@ def check(tours, milestones=None):
         t = tours['tours'].get(tid)
         if not t: errs.append(f'tours.json: tour "{tid}" is missing'); continue
         steps = t.get('steps', {})
+        if sp['steps'] is None:   # the weekly analysis: an intro plus three to six steps, each showing a view
+            titles = {m['title'] for m in (milestones or [])}
+            body = [k for k in steps if k != 'intro']
+            if 'intro' not in steps: errs.append(f'{tid}: the intro step is missing')
+            if not 3 <= len(body) <= 6: errs.append(f'{tid}: needs three to six steps besides the intro (has {len(body)})')
+            for sid, st in steps.items():
+                if sid != 'intro' and st.get('view') not in WEEK_VIEWS: errs.append(f'{tid}.{sid}: unknown view {st.get("view")!r}')
+                errs += check_step(tid, sid, st.get('say'), titles)
+            if not t.get('updated'): errs.append(f'{tid}: missing the updated date and time')
+            continue
         for sid in sp['steps']:
             if sid not in steps or 'say' not in steps[sid]: errs.append(f'{tid}: step "{sid}" is missing'); continue
             errs += check_step(tid, sid, steps[sid]['say'])

@@ -37,7 +37,7 @@ const CHANGES = [];
   });
   CHANGES.reverse();
 })();
-function ukDay(iso){ return new Date(iso + 'T12:00:00Z').toLocaleDateString('en-GB', {day:'numeric', month:'long', year:'numeric'}); }
+function ukDay(iso){ return fmtDate(iso); }   // follows the UK or US date setting
 function changeInWindow(c){
   if (view.chgSince === 'last') return c.run === (DB.meta.changelog || []).length - 1;
   const days = +view.chgSince; if (!days) return true;

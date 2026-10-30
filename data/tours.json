@@ -1,6 +1,6 @@
 {
- "version": 16,
- "updated": "2026-10-30",
+ "version": 17,
+ "updated": "2026-10-29",
  "updatedBy": "tour-agent",
  "note": "Narration templates for the guided tours. Figures come from {placeholders} filled from the live data; conclusions are chosen by rules in the app ({\"by\": fact, \"cases\": {...}}). The weekly tour agent may refine wording and choose examples, within the rules checked by tools/validate.py.",
  "tours": {
@@ -124,6 +124,12 @@
       },
       " The answer updates as new evidence arrives."
      ]
+    },
+    "heatchart": {
+     "say": "The heatmap shows where it changed, field by field and decade by decade. Since 2010, {fastField} has been quickest, and {slowField} slowest."
+    },
+    "aichart": {
+     "say": "Here every milestone is a dot. The teal ones are AI-driven: since 2010 they took about {aiMed} years, against {restMed} for the rest."
     }
    }
   },
@@ -172,6 +178,9 @@
        }
       }
      ]
+    },
+    "pipechart": {
+     "say": "The pipeline traces each technology from its area, through its readiness, to whether Great Britain has deployed it: {pipeGB} of {pipeTotal} so far."
     }
    }
   },
@@ -232,6 +241,9 @@
        }
       }
      ]
+    },
+    "secchart": {
+     "say": "The security lag chart shows each technology's wait for a response. The longest here was {secLongestTitle}, at {secLongestYears} years."
     }
    }
   },
@@ -288,6 +300,9 @@
        }
       }
      ]
+    },
+    "fortchart": {
+     "say": "Play the race through time. Each bubble is a fortune, sized by net worth; gold rings mark research founders, {fortResearch} of {fortCount}."
     }
    }
   },
@@ -326,6 +341,132 @@
     },
     "answer": {
      "say": "Help and the 'i' information buttons explain each feature. This model is maintained by AI, so it may contain errors. Check anything important against the original sources."
+    },
+    "whatifchart": {
+     "say": "What if? estimates how practical AI levers, such as faster discovery, simulation and approvals, could bring projected technologies forward. An agent researches them weekly."
+    }
+   }
+  },
+  "charts": {
+   "title": "Chart insights",
+   "updated": "2026-10-30",
+   "steps": {
+    "gaps": {
+     "say": "Across {nGap} landed milestones, the longest journey was {longestTitle}, at {longestYears} years. Among recent arrivals, {quickRecentTitle} took just {quickRecentYears}."
+    },
+    "heat": {
+     "say": [
+      "Since 2010, {fastField} has been quickest, at about {fastFieldYears} years, and {slowField} slowest, at about {slowFieldYears}. ",
+      {
+       "by": "improvedCase",
+       "cases": {
+        "yes": "{improvedField} improved most: from {improvedFrom} years in the 1990s to {improvedTo} in the 2010s.",
+        "no": "No field has clearly sped up between the 1990s and the 2010s."
+       }
+      }
+     ]
+    },
+    "ai": {
+     "say": {
+      "by": "aiCase",
+      "cases": {
+       "faster": "For research since 2010, AI-driven work reached a product in about {aiMed} years, against {restMed} for everything else. It is a small group so far: {aiCount} milestones.",
+       "similar": "For research since 2010, AI-driven work has taken about as long as the rest: {aiMed} years against {restMed}.",
+       "slower": "For research since 2010, AI-driven work has taken longer: {aiMed} years against {restMed}.",
+       "unclear": "There are not yet enough AI-driven milestones to compare."
+      }
+     }
+    },
+    "pipe": {
+     "say": [
+      "Of {pipeTotal} clean energy technologies, {pipeResearch} are in research, {pipePilot} piloting, {pipeCommercial} in first commercial use and {pipeScale} at scale; {pipeGB} are deployed in Great Britain. ",
+      {
+       "by": "pipeCase",
+       "cases": {
+        "early": "Most are still early, so proving them at scale is the next challenge.",
+        "late": "Most have reached commercial use, so scaling up is the challenge now."
+       }
+      }
+     ]
+    },
+    "drift": {
+     "say": [
+      "{driftCount} forecasts are being tracked; {driftPeakYear} is the busiest year, with {driftPeakCount} expected. ",
+      {
+       "by": "driftCase",
+       "cases": {
+        "none": "None has been revised yet; trails will show any slips as the agents re-estimate each week.",
+        "some": "{driftRevised} have been revised so far, {driftSlipped} of them later."
+       }
+      }
+     ]
+    },
+    "sec": {
+     "say": [
+      "Security has typically followed about {secMedian} years after a technology arrived. The longest wait here was for {secLongestTitle}, at {secLongestYears} years. ",
+      {
+       "by": "secCase",
+       "cases": {
+        "open": "{secOpen} still have no response in their category.",
+        "closed": "Every technology here now has a response in its category."
+       }
+      }
+     ]
+    },
+    "fort": {
+     "say": [
+      "{fortResearch} of {fortCount} fortunes began in a university or research lab. The fastest was {fortFastest}, in {fortFastestTime}. ",
+      {
+       "by": "fortCase",
+       "cases": {
+        "faster": "The road to a fortune is getting shorter.",
+        "slower": "The road to a fortune is getting longer.",
+        "similar": "The road to a fortune takes about as long as ever.",
+        "unclear": "There are not yet enough recent fortunes to compare eras."
+       }
+      }
+     ]
+    },
+    "whatif": {
+     "say": "With practical AI levers, projected technologies arrive about {wiAvg} years sooner on average: {wi2030AI} by 2030 rather than {wi2030Now}. The biggest lever is {wiTopLever}. An illustration, not a forecast."
+    }
+   }
+  },
+  "week": {
+   "title": "This week's analysis",
+   "updated": "2026-10-30T19:57Z",
+   "steps": {
+    "intro": {
+     "say": [
+      "This week's analysis, updated {updatedAt}. ",
+      {
+       "by": "newCase",
+       "cases": {
+        "some": "The agents added {newCount} milestones this week, including {newTitles}.",
+        "none": "No new milestones were added this week, so this is a review of the evidence."
+       }
+      }
+     ]
+    },
+    "w1": {
+     "view": "main",
+     "say": "Start with the big picture. Across a century of research, the typical gap has grown, but the newest work is moving faster."
+    },
+    "w2": {
+     "view": "heat",
+     "say": "By field, {fastField} has been quickest since 2010, and {slowField} slowest. {improvedField} improved most since the 1990s."
+    },
+    "w3": {
+     "view": "ai",
+     "say": "AI-driven work since 2010 reached a product in about {aiMed} years, against {restMed} for the rest; still a small group of {aiCount}."
+    },
+    "w4": {
+     "view": "pipe",
+     "say": "For the energy system, {pipePilot} technologies are piloting and {pipeCommercial} are in first commercial use; {pipeGB} are deployed in Great Britain."
+    },
+    "w5": {
+     "view": "sec",
+     "say": "Security still follows about {secMedian} years behind, so the window of exposure matters as these technologies roll out."
     }
    }
   }

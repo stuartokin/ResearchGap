@@ -66,5 +66,11 @@
     "voice": "en-GB-SoniaNeural",
     "region": "uksouth",
     "maxCharsPerRun": 20000
+  },
+  "levers": {
+    "enabled": true,
+    "perRun": 8,
+    "maxSearches": 3,
+    "refreshDays": 90
   }
 }

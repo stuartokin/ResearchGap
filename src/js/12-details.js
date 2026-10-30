@@ -17,7 +17,7 @@ function openDetail(it){
     ${it.adopt ? `<p class="dadopt"><b>Mainstream adoption${it.adopt > NOW ? ', expected' : ''}: ${it.adopt}</b>. ${esc(it.adoptWhat || '')} <span class="note-s">${it.adopt - it.p} years after first product; ${it.adoptBasis === 'source-cited' ? 'source-cited' : 'AI estimate'}.</span></p>` : ''}
     ${(it.stage || it.gb) ? `<p class="dstage">${it.stage ? `<span class="stg stg-${it.stage}">${STAGES[it.stage]}</span>` : ''}${it.gb ? ` <span class="note-s">${GBS[it.gb]}${it.gbNote ? ': ' + esc(it.gbNote) : ''}</span>` : ''}</p>` : ''}
     ${it.sec ? `<p class="dsec"><b>${it.attack ? 'Expands the attack surface' : 'Security'}</b>: ${esc(it.sec)}${(() => { const r = secResponse(it); return !r ? '' : r.resp ? ` First security response in its category: ${r.resp.t} (${r.resp.p})${r.expected ? ', expected' : ''}, ${r.lag} years later.` : ' No security response yet in its category.'; })()}</p>${it.attack && it.secG ? guideHtml(it.secG) : ''}` : ''}
-    ${it.fc && it.kind === 'proj' ? `<p class="note-s">Estimate recorded on ${it.fc.estimatedOn}: ${it.fc.estimatedYear}${(it.fc.revisions || []).length ? `, revised ${it.fc.revisions.length} time${it.fc.revisions.length > 1 ? 's' : ''}` : ''}.</p>` : ''}${it.fc && it.fc.actualYear != null ? `<p class="note-s">Forecast check: estimated ${it.fc.estimatedYear}, landed ${it.fc.actualYear} (${it.fc.actualYear - it.fc.estimatedYear >= 0 ? '+' : ''}${it.fc.actualYear - it.fc.estimatedYear} years).</p>` : ''}
+    ${it.fc && it.kind === 'proj' ? `<p class="note-s">Estimate recorded on ${fmtDate(it.fc.estimatedOn)}: ${it.fc.estimatedYear}${(it.fc.revisions || []).length ? `, revised ${it.fc.revisions.length} time${it.fc.revisions.length > 1 ? 's' : ''}` : ''}.</p>` : ''}${it.fc && it.fc.actualYear != null ? `<p class="note-s">Forecast check: estimated ${it.fc.estimatedYear}, landed ${it.fc.actualYear} (${it.fc.actualYear - it.fc.estimatedYear >= 0 ? '+' : ''}${it.fc.actualYear - it.fc.estimatedYear} years).</p>` : ''}
     <p class="dnote">${it.note}</p><p class="basis">${sourceHtml(it)}</p>
     <div class="dacts">${it.aud ? '<button class="mini" id="dDel">Delete this milestone</button>' : ''}<button class="mini" id="dHide">Hide this arc</button><button class="mini" id="dOnly">Show only this field</button></div>`;
   if (it.aud) $('dDel').onclick = () => { if (confirm('Delete this milestone' + (FIELDS[it.v] && FIELDS[it.v].custom ? ' (and its new field track if nothing else uses it)' : '') + '?')) removeAudienceIdea(it.id); };
@@ -33,7 +33,7 @@ function sourceHtml(it){
   const m = HIST_SRC[it.t] || (it.kind === 'proj' ? OUTLOOK_BASIS[it.t] : null);
   let h = it.kind === 'proj' ? 'Basis: ' + (m ? srcLink(m[0], m[1]) : 'our estimate; no published target found.')
     : 'Source: ' + (m ? srcLink(m[0], m[1]) : 'compiled by AI from standard references: institutional and company histories, Nobel and award citations, and regulator approval records.');
-  if (it.checked) h += `<br>Last checked by the data agents: ${it.checked}${it.addedBy === 'research-agent' ? ' (added by the research agent)' : ''}.`;
+  if (it.checked) h += `<br>Last checked by the data agents: ${fmtDate(it.checked)}${it.addedBy === 'research-agent' ? ' (added by the research agent)' : ''}.`;
   const q = it.t.replace(/\s*\(.*?\)\s*/g, ' ').trim();
   h += `<br>Further reading: <a href="https://en.wikipedia.org/w/index.php?search=${encodeURIComponent(q)}" target="_blank" rel="noopener">look up “${esc(q)}”</a> (online)`;
   return h;

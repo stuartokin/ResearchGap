@@ -5,7 +5,7 @@ $('scrub').min = Y0; $('scrub').max = Y1; $('fromR').min = $('toR').min = Y0; $(
 $('yearSub').textContent = `Press Play to run from ${Y0} to ${YEND}`;
 $('verLine').textContent = `App version ${APP_VERSION}. Data revision ${DB.meta.revision}, as of ${DATA_AS_OF}.`;
 (function updateNotice(){
-  const ukDate = iso => new Date(iso.slice(0, 10) + 'T12:00:00Z').toLocaleDateString('en-GB', {day:'numeric', month:'long', year:'numeric'});
+  const ukDate = iso => fmtDate(iso.slice(0, 10));
   const last = (DB.meta.lastAgentRun || DATA_AS_OF).slice(0, 10);
   const days = Math.floor((Date.now() - new Date(last + 'T12:00:00Z').getTime()) / 86400000);
   const ago = days < 1 ? 'today' : days === 1 ? 'yesterday' : days < 14 ? `${days} days ago` : days < 60 ? `${Math.round(days / 7)} weeks ago` : `${Math.round(days / 30)} months ago`;

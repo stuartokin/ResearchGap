@@ -68,7 +68,8 @@ async function generateReport(){
   const adm = (() => { const v = L.filter(it => it.adopt && it.adopt <= NOW).map(it => it.adopt - it.p); return v.length ? median(v) : null; })();
   const exLine = it => `${it.t}: ${it.r} → ${it.p} (${gapOf(it)} yr${gapOf(it) === 1 ? '' : 's'})`;
   const pptx = new PptxGenJS(); pptx.layout = 'LAYOUT_16x9'; pptx.author = 'Stuart Okin'; pptx.title = title;
-  const footer = (s, n) => {
+  let slideNo = 0;
+  const footer = (s) => { const n = ++slideNo;
     s.addText(`Stuart Okin, personal project. Data revision ${DB.meta.revision} (${DATA_AS_OF}), narrative version ${narrVersion()}. AI-maintained data and narrative from public sources only, no human review; may contain errors. Selection: ${selectionText()}.`,
       {x:0.4, y:5.3, w:8.7, h:0.22, fontSize:6.5, color:MUTED, fontFace:'Arial', margin:0, isTextBox:true});
     s.addText(String(n), {x:9.2, y:5.3, w:0.4, h:0.22, fontSize:7, color:MUTED, align:'right', fontFace:'Arial', margin:0, isTextBox:true});
@@ -86,9 +87,9 @@ async function generateReport(){
   s.addShape(pptx.ShapeType.rect, {x:0, y:3.05, w:10, h:2.575, fill:{color:BG, transparency:12}, line:{color:BG, width:0}});
   s.addText(title, {x:0.5, y:3.2, w:9, h:0.62, fontSize:title.length > 40 ? 28 : 32, color:TXT, fontFace:'Georgia', margin:0, fit:'shrink', isTextBox:true});
   s.addText('How long it takes research to become real-world change, and whether AI is shortening the journey.', {x:0.5, y:3.95, w:9, h:0.35, fontSize:13, color:MUTED, fontFace:'Arial', margin:0, isTextBox:true});
-  s.addText(`${R.n || L.length} milestones across ${FKEYS.filter(k => F.fields.has(k) && FIELDS[k] && !FIELDS[k].custom).length} fields, 1925 to ${YEND}  •  ${new Date().toLocaleDateString('en-GB', {day:'numeric', month:'long', year:'numeric'})}`, {x:0.5, y:4.4, w:9, h:0.3, fontSize:10, color:AMBER, fontFace:'Arial', margin:0, isTextBox:true});
+  s.addText(`${R.n || L.length} milestones across ${FKEYS.filter(k => F.fields.has(k) && FIELDS[k] && !FIELDS[k].custom).length} fields, 1925 to ${YEND}  •  ${fmtDate(new Date().toISOString().slice(0, 10))}`, {x:0.5, y:4.4, w:9, h:0.3, fontSize:10, color:AMBER, fontFace:'Arial', margin:0, isTextBox:true});
   s.addNotes('A visual introduction: each arc is one research breakthrough, rising when the research began and landing at its first real-world use. The picture shows the live model as it was when this deck was created.');
-  footer(s, 1);
+  footer(s);
 
   // 2. The headline: three figures, each with a real example, and the verdict once
   s = pptx.addSlide(); s.background = {color:BG};
@@ -110,7 +111,7 @@ async function generateReport(){
   s.addShape(pptx.ShapeType.roundRect, {x:0.4, y:4.45, w:9.2, h:0.62, fill:{color:'2A2410'}, line:{color:AMBER, width:0.75}, rectRadius:0.08});
   s.addText(verdict, {x:0.6, y:4.5, w:8.8, h:0.52, fontSize:12.5, italic:true, color:AMBER, fontFace:'Georgia', valign:'middle', margin:0, isTextBox:true});
   s.addNotes(narrative('gap', ['trend', 'corrected']).join(' ') + ' (AI-generated narrative from the weekly agents; no human review.)');
-  footer(s, 2);
+  footer(s);
 
   // 3. Gap over time, with key examples
   s = pptx.addSlide(); s.background = {color:BG};
@@ -125,8 +126,18 @@ async function generateReport(){
     .concat(slowRecent ? [{text:'Still slow', options:{bold:true, color:CORAL, fontSize:10.5, breakLine:true, paraSpaceBefore:6, paraSpaceAfter:4}}, {text:exLine(slowRecent), options:{bullet:{indent:9}, color:TXT, fontSize:9}}] : []),
     {x:6.8, y:1.3, w:2.7, h:3.65, fontFace:'Arial', valign:'top', margin:0, isTextBox:true});
   s.addNotes('The line shows the typical gap for milestones landing in each preceding decade. The examples are the quickest recent arrivals in the selection, and the slowest since 2010.');
-  footer(s, 3);
+  footer(s);
 
+  // the strongest charts, as images with their weekly insight
+  const chartSlide = async (tab, title, sub, col) => {
+    const img = await chartImage(tab, 1500, tab === 'heat' ? 640 : 700, 17); if (!img) return;
+    const sl = pptx.addSlide(); sl.background = {color:BG}; heading(sl, title, sub, col);
+    const maxW = 9.2, maxH = 3.55, k = Math.min(maxW / img.w, maxH / img.h);
+    sl.addImage({data:img.data, x:0.4 + (maxW - img.w * k) / 2, y:1.15, w:img.w * k, h:img.h * k});
+    const ins = chartInsight(tab); if (ins) sl.addText(ins, {x:0.4, y:4.78, w:9.2, h:0.45, fontSize:10, italic:true, color:col, fontFace:'Georgia', valign:'middle', margin:0, isTextBox:true});
+    sl.addNotes(ins + ' (AI-generated narrative from the weekly agents; no human review.)'); footer(sl);
+  };
+  await chartSlide('heat', 'Where the gap moved: field by decade', 'Median years from research to first product, by the decade it landed', AMBER);
   // 4. Can AI shrink the gap?
   s = pptx.addSlide(); s.background = {color:BG};
   heading(s, 'Can AI shrink the gap?', 'Recent median gap by field, against a plausible range with AI and digital twins (scenario, not forecast)', TEAL);
@@ -140,8 +151,9 @@ async function generateReport(){
     .concat([{text:`Since 2010, AI-driven work took ${yrsTxt(R.ai)}, against ${yrsTxt(R.conv)} for the rest.`, options:{color:AMBER, fontSize:9.5, italic:true, paraSpaceBefore:8}}]),
     {x:6.7, y:1.3, w:2.8, h:3.65, fontFace:'Arial', valign:'top', margin:0, isTextBox:true});
   s.addNotes(narrative('gap', ['outlook', 'fields']).join(' ') + ' The AI ranges are scenario assumptions stated in the dataset, not forecasts.');
-  footer(s, 4);
+  footer(s);
 
+  await chartSlide('ai', 'AI against the rest, milestone by milestone', 'Each dot is a landed milestone; teal ones are AI-driven. Lines: median gap by decade of research', TEAL);
   // 5. Arriving next: AI for clean energy
   s = pptx.addSlide(); s.background = {color:BG};
   heading(s, 'Arriving next: AI for clean energy', 'Readiness behind each area, and the soonest arrivals (areas from DESNZ’s AI energy vision)', 'F2D38A');
@@ -159,7 +171,7 @@ async function generateReport(){
   const hv = narrative('horizon', ['answer'])[0] || '';
   s.addText(hv, {x:0.4, y:4.55, w:9.2, h:0.5, fontSize:11, italic:true, color:'F2D38A', fontFace:'Georgia', valign:'middle', margin:0, isTextBox:true});
   s.addNotes(narrative('horizon', ['radar', 'next']).join(' ') + ' Readiness stages and GB status are AI estimates.');
-  footer(s, 5);
+  footer(s);
 
   // 6. Securing it
   s = pptx.addSlide(); s.background = {color:BG};
@@ -182,7 +194,7 @@ async function generateReport(){
   fw.forEach((t, i) => { const x = 3.8 + (i % 3) * 1.9, y = 3.68 + Math.floor(i / 3) * 0.42; s.addShape(pptx.ShapeType.roundRect, {x, y, w:1.78, h:0.32, fill:{color:'2A1517'}, line:{color:CORAL, width:0.5}, rectRadius:0.06}); s.addText(t, {x, y, w:1.78, h:0.32, fontSize:8.5, color:TXT, align:'center', valign:'middle', fontFace:'Arial', margin:0, isTextBox:true}); });
   s.addText('AI research to prompt discussion, not security advice: engage qualified experts.', {x:3.8, y:4.6, w:5.7, h:0.3, fontSize:8, italic:true, color:'F2D38A', fontFace:'Arial', margin:0, isTextBox:true});
   s.addNotes(narrative('secure', ['lens', 'answer']).join(' '));
-  footer(s, 6);
+  footer(s);
 
   // 7. From lab to fortune
   s = pptx.addSlide(); s.background = {color:BG};
@@ -195,10 +207,11 @@ async function generateReport(){
   });
   s.addText(narrative('fortune', ['answer'])[0] || '', {x:0.4, y:4.0, w:9.2, h:0.5, fontSize:13, italic:true, color:VIOLET, fontFace:'Georgia', valign:'middle', margin:0, isTextBox:true});
   s.addNotes(narrative('fortune', ['speed', 'fastest']).join(' '));
-  footer(s, 7);
+  footer(s);
 
+  await chartSlide('fort', 'The race to a fortune', 'Years from founding to fortune; bubble size is net worth, gold rings are research founders', VIOLET);
   const fileName = `shrinking-gap-report-${new Date().toISOString().slice(0, 10)}.pptx`;
-  try { await pptx.writeFile({fileName}); msg.textContent = `Saved ${fileName}: seven slides with live examples.`; } catch (e) { msg.textContent = 'Could not create the report: ' + e.message; }
+  try { await pptx.writeFile({fileName}); msg.textContent = `Saved ${fileName}: ${slideNo} slides with live examples and charts.`; } catch (e) { msg.textContent = 'Could not create the report: ' + e.message; }
 }
 
 $('repGo').onclick = async () => { if (await ensureFresh('report')) generateReport(); };

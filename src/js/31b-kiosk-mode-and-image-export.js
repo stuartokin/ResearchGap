@@ -42,7 +42,8 @@ function kioskStart(opts){
 function kioskScene(){
   clearTimeout(kiosk.timer); if (!kiosk.on || kiosk.paused) return;
   const sc = KIOSK_SCRIPT[kiosk.i % KIOSK_SCRIPT.length]; kiosk.i++;
-  if (sc.scene === 'tour' && TOURS[sc.id]) { kioskCapOff(); startTour(sc.id); return; }   // the tour moves on to the next scene when it ends
+  if (sc.scene === 'tour' && TOURS[sc.id]) { kioskCapOff(); startTour(sc.id); return; }
+  if (sc.scene === 'charts') { resetToDefaults(); applyPreset('charts'); Object.assign(CH, {tab:sc.tab, q:'', field:'', origin:'', zoom:{}, zoom2:{}, panel:null, fortYear:null}); setTimeout(() => { renderCharts(); if (sc.play) playFortunes(); }, 300); kioskSay(sc); if (kiosk.opts.sound === 'music') setMusic(true); kiosk.timer = setTimeout(kioskScene, sc.seconds * 1000); return; }   // the tour moves on to the next scene when it ends
   resetToDefaults(); applyPreset(sc.name);
   if ((titleCfg.text || '').trim() === (TITLE_DEFAULT.text || '').trim()) setOpen('title', false);   // an unchanged showcase title says nothing about the event: leave it off
   kioskSay(sc);
@@ -52,7 +53,7 @@ function kioskScene(){
 }
 /* captions (and the voice, in narration mode) for the arrangement scenes, using the tour's caption bar without its controls */
 function kioskSay(sc){
-  const f = KIOSK_SAY[sc.name]; if (!f) return;
+  const f = sc.scene === 'charts' ? () => chartInsight(sc.tab) : KIOSK_SAY[sc.name]; if (!f) return;
   const bar = $('tourBar'); bar.classList.add('on', 'kioskcap'); $('tourTitle').textContent = sc.note || 'Kiosk';
   tour.token++; tourSay(f(), () => {});
 }
@@ -93,7 +94,7 @@ window.__tourTexts = () => tourTextsOnly().concat(Object.keys(KIOSK_SAY).map(k =
 /* welcome screen: the kiosk options */
 $('wKiosk').onclick = () => { $('wKioskOpts').classList.toggle('on'); clearTimeout(welcomeTimer); $('wAuto').textContent = ''; };
 $('wKioskGo').onclick = () => kioskStart({sound:document.querySelector('input[name="kSound"]:checked').value, ticker:$('kTicker').checked, qr:$('kQr').checked});
-$('wKioskScript').innerHTML = KIOSK_SCRIPT.map((s, k) => `<li>${s.scene === 'tour' ? esc((TOUR_LIST.find(t => t.id === s.id) || {}).title || s.id) : esc(s.note)}${s.scene === 'arrangement' ? ` (${s.seconds} s)` : ' (walk-through)'}</li>`).join('');
+setTimeout(() => { $('wKioskScript').innerHTML = KIOSK_SCRIPT.map(s => `<li>${s.scene === 'tour' ? esc((TOUR_LIST.find(t => t.id === s.id) || {}).title || s.id) : esc(s.note)}${s.scene === 'tour' ? ' (walk-through)' : ` (${s.seconds} s)`}</li>`).join(''); }, 0);
 
 /* ==================================================================
  *  IMAGE EXPORT: the model with its labels, a title and the attribution, as a PNG

@@ -197,9 +197,11 @@ function tourPlace(ids){
   if (ids.includes('player')) { const pw = Math.min(layout.player.w || 640, W - 24), ph = layout.player.h || 190; Object.assign(layout.player, {x:(W - pw) / 2, y:Math.max(top, bottom - ph), w:pw, h:ph, open:true}); placeWin('player'); }
   solid.forEach((id, k) => {
     let r;
-    if (H > W && W < 1100) r = {x:6, y:Math.max(top, H * .5), w:W - 12, h:bottom - Math.max(top, H * .5)};   // portrait: below the model
+    if (id === 'charts') r = H > W && W < 1100 ? {x:6, y:top, w:W - 12, h:bottom - top} : {x:Math.round(W * .26), y:top, w:Math.round(W * .74) - 14, h:bottom - top};   // charts need the room
+    else if (H > W && W < 1100) r = {x:6, y:Math.max(top, H * .5), w:W - 12, h:bottom - Math.max(top, H * .5)};   // portrait: below the model
     else { const w = cls === 'large' ? Math.min(500, W * .3) : cls === 'laptop' ? Math.min(440, W * .32) : Math.min(380, W * .4); r = {x:id === 'filters' ? 14 : W - w - 14, y:top, w, h:bottom - top}; }
     Object.assign(layout[id], r, {open:true, sw:W, sh:H}); placeWin(id);
+    if (id === 'charts') { if (typeof raise === 'function') raise('charts'); setTimeout(renderCharts, 50); }
     if (id === 'findings') renderFindings(); if (id === 'outlook') renderOutlook(); if (id === 'summary') renderStats();
   });
 }
@@ -334,7 +336,7 @@ let welcomeTimer = 0, welcomeLeft = 0, welcomeDeadline = 0, welcomeLast = 0;
 let aiAcked = new URLSearchParams(location.search).get('welcome') === '0';   // a mandatory acknowledgement, once per visit (tests skip it with welcome=0)
 function ackAI(){ aiAcked = true; $('welcome').classList.remove('needack'); welcomeDeadline = Date.now() + 30000; welcomeLast = Date.now(); tickWelcome(); $('wRun').focus(); }
 function showWelcome(){
-  $('wCards').innerHTML = TOUR_LIST.map((t, k) => `<button class="wcard${t.ready ? '' : ' soon'}" data-tour="${t.id}"${t.ready ? '' : ' disabled aria-disabled="true"'}><span class="wn">${k + 1}</span><b>${esc(t.title)}</b><span>${esc(t.blurb)}</span><em>${t.ready ? '1 minute walk-through' : 'Coming soon'}</em></button>`).join('');
+  $('wCards').innerHTML = TOUR_LIST.map((t, k) => `<button class="wcard${t.ready ? '' : ' soon'}" data-tour="${t.id}"${t.ready ? '' : ' disabled aria-disabled="true"'}><span class="wn">${k + 1}</span><b>${esc(t.title)}</b><span>${esc(t.blurb)}</span><em>${t.id === 'week' ? 'Updated ' + chEsc(weekFacts().updatedAt) : t.ready ? '1 to 2 minute walk-through' : 'Coming soon'}</em></button>`).join('');
   $('welcome').classList.add('on'); $('disc').classList.add('gone'); syncMute();
   if (!aiAcked) { $('welcome').classList.add('needack'); clearTimeout(welcomeTimer); $('wAuto').textContent = 'Please acknowledge the notice above to continue.'; setTimeout(() => $('wAckBtn').focus(), 50); return; }
   welcomeDeadline = Date.now() + 30000; welcomeLast = Date.now(); tickWelcome();
