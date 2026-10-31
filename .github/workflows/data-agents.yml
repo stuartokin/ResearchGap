@@ -118,11 +118,33 @@ jobs:
           REV=$(python -c "import json;print(json.load(open('data/data.json'))['meta']['revision'])")
           SUMMARY=$(python -c "import json;print(json.load(open('data/data.json'))['meta']['changelog'][-1]['summary'])")
           git commit -m "Data revision ${REV}: ${SUMMARY}"
+          # This run takes a while; if the repository moved on meanwhile (an upload, or a rebuild of the app),
+          # replay this run's results on top of the latest, rebuild the page from the latest source files, and retry.
+          for attempt in 1 2 3; do
+            if git push origin HEAD:main; then break; fi
+            if [ "$attempt" = 3 ]; then echo "Could not publish after three attempts."; exit 1; fi
+            echo "The repository moved on during this run; merging the latest and retrying ($attempt)."
+            git fetch origin main
+            git rebase -X theirs origin/main || { git rebase --abort; echo "Could not merge automatically."; exit 1; }   # this run's data wins any conflict
+            python tools/build.py && git add index.html && git commit --amend --no-edit
+            sleep 5
+          done
           git tag -a "data-r${REV}" -m "Data revision ${REV}: ${SUMMARY}"
-          git push origin main
           git push origin "data-r${REV}"
           echo "published=1" >> "$GITHUB_OUTPUT"
           echo "rev=${REV}" >> "$GITHUB_OUTPUT"
+
+      - name: Keep this run's results if publishing failed (download them from the run's Artifacts)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: unpublished-results-run-${{ github.run_number }}
+          path: |
+            data/
+            index.html
+            audio/
+          if-no-files-found: ignore
+          retention-days: 14
 
       - name: Weekly digest (a GitHub issue, which also emails you)
         if: steps.publish.outputs.published == '1'
