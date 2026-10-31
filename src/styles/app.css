@@ -600,3 +600,7 @@ body.kiosk #resetBtn,body.kiosk #winMenu [data-w="__load"],body.kiosk #winMenu [
 .colink{background:rgba(76,211,194,.16);border:0;border-bottom:2px solid #4CD3C2;color:#BFF5EC;font:inherit;font-weight:700;padding:0 .25em;border-radius:4px;cursor:pointer}.colink:hover{background:rgba(76,211,194,.32)}
 .dstory{border-left:3px solid #A891FF;padding:.3em 0 .3em .7em;margin:.7em 0}.dstory p{margin:.25em 0}.dstory a{color:#5FD8FF}
 @media (max-width:1000px) and (orientation:landscape){.wcards{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
+/* the version, small: on the welcome screen once acknowledged, and in the footer */
+.wver{margin:.2em auto .6em;font-size:12px;color:var(--faint);letter-spacing:.02em}#welcome.needack .wver{display:none}
+.fver{opacity:.75;margin-left:.4em;white-space:nowrap}

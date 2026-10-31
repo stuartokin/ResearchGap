@@ -52,7 +52,7 @@ async function ensureFresh(kind){
   return true;
 }
 async function generateReport(){
-  const msg = $('repMsg'); if (!window.PptxGenJS) { msg.textContent = 'The PowerPoint library did not load.'; return; }
+  const msg = $('repMsg'); msg.textContent = 'Loading the PowerPoint library…'; await loadPptx(); if (!window.PptxGenJS) { msg.textContent = 'The PowerPoint library could not load. It is fetched when needed, so check your connection (an offline copy of the page cannot make reports).'; return; }
   msg.textContent = 'Building your report…';
   const BG = '0B1724', PANEL = '13283A', LINE = '22384A', TXT = 'E9F2FF', MUTED = '8FA6B8', AMBER = 'F7C04A', TEAL = '4CD3C2', VIOLET = 'A891FF', CORAL = 'FF6B6B', GREEN = '7FD6A0';
   const R = reportData(), yrsTxt = v => v == null ? '–' : `${Math.round(v)} yr${Math.round(v) === 1 ? '' : 's'}`, gapOf = it => Math.max(0, Math.round(it.lag));

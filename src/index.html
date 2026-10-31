@@ -405,11 +405,12 @@
 <div id="winMenu" role="menu"></div>
 <div id="welcome" role="dialog" aria-modal="true" aria-labelledby="wTitle"><div class="wbox">
   <h1 id="wTitle">The Shrinking Gap from Research to Change</h1>
-  <p class="wsub">Five one-minute walk-throughs, narrated with subtitles. Or go straight to the tool.</p>
+  <p class="wsub" id="wSub">Guided walk-throughs of one to two minutes, narrated with subtitles. Or go straight to the tool.</p>
   <div id="wAck" class="wack" role="alertdialog" aria-labelledby="wAckT"><b id="wAckT">Before you start</b> This site is run and managed by AI agents, with <b>no human in the loop</b>. It uses <b>only publicly available sources</b>. Its data, narrative and voice are AI-generated and may contain errors. Please acknowledge to continue.
     <button id="wAckBtn" class="wrun">I understand and acknowledge</button></div>
   <p class="wai" role="note"><b>Fully AI-generated, with no human in the loop.</b> AI agents write and update these walk-throughs every week from their own findings, using only publicly available sources, and an AI voice speaks them. No person reviews the narration before you hear it.</p>
   <div class="wcards" id="wCards"></div>
+  <p class="wver" id="wVer"></p>
   <div class="wfoot"><button id="wRun" class="wrun">Run the tool</button><button id="wKiosk" class="wmute">Kiosk mode</button><button id="wMute" class="wmute"></button></div>
   <div id="wKioskOpts" class="wkiosk"><b>Kiosk mode</b> loops through the walk-throughs and arrangements, unattended. Visitors can explore at any time; it carries on after a minute without a touch. Press <b>Escape</b> to leave.
     <div class="kopts"><span>Sound:</span><label><input type="radio" name="kSound" value="narration" checked> AI narration</label><label><input type="radio" name="kSound" value="music"> Music (with subtitles)</label><label><input type="radio" name="kSound" value="silent"> Silent</label></div>
@@ -430,7 +431,7 @@
 <section class="win chromeless gripwin footwin" id="w-footer" data-title="Footer">
   <div class="wbody" id="foot">
     <span>Drag to rotate, scroll to zoom, right-drag to pan. Keys: P play, Space pause, ] and [ next and previous milestone, 1–9 single field, 0 all fields, L labels, M toolbar, T page title, Q thank you, R reset camera, H hide windows.</span>
-    <span>Stuart Okin, personal project. AI-maintained data from public sources only; may contain errors.</span>
+    <span>Stuart Okin, personal project. AI-maintained data from public sources only; may contain errors. <span class="fver" id="footVer"></span></span>
   </div>
 </section>
 
@@ -494,7 +495,6 @@
 <script>/*@include vendor/renderpass.js*/</script>
 <script>/*@include vendor/shaderpass.js*/</script>
 <script>/*@include vendor/unrealbloompass.js*/</script>
-<script>/*@include vendor/pptxgenjs.js*/</script>
 <script>/*@include vendor/qrcode.js*/</script>
 <script>/*@include js/00-start.js*//*@include js/01-data-loaded-from-data-data-json-or-the-e.js*//*@include js/02-state.js*//*@include js/03-three-setup.js*//*@include js/04-stage.js*//*@include js/05-items.js*//*@include js/06-filtering.js*//*@include js/07-window-manager.js*//*@include js/08-arrangements-five-presets-that-adapt-to-.js*//*@include js/09-windows-menu-arrangements-then-windows-i.js*//*@include js/10-filter-ui.js*//*@include js/11-refresh-targets-trends-stats-list.js*//*@include js/12-details.js*//*@include js/13-top-bar-keyboard.js*//*@include js/14-labels-dom.js*//*@include js/15-animation.js*//*@include js/16-time-linked-windows.js*//*@include js/17-ai-outlook-can-ai-and-digital-twins-shri.js*//*@include js/18-showcase-title.js*//*@include js/19-joke-ticker.js*//*@include js/20-music.js*//*@include js/21-powerpoint-report-three-slides-native-ed.js*//*@include js/22-data-changes-from-the-agents-change-log-.js*//*@include js/23-statistics-helpers-ranges-small-samples-.js*//*@include js/24-play-range-custom-from-and-to-the-whole-.js*//*@include js/25-colour-blind-safe-palette.js*//*@include js/26-next-and-previous-milestone-keyboard-and.js*//*@include js/27-shareable-links-the-current-filters-and-.js*//*@include js/28-help-one-source-for-hover-tips-press-and.js*//*@include js/29-readiness-gb-status-cyber-lens-and-forec.js*//*@include js/30-short-descriptions-long-explanatory-text.js*//*@include js/31-welcome-screen-and-guided-tours.js*//*@include js/31b-kiosk-mode-and-image-export.js*//*@include js/31c-data-export.js*//*@include js/31d-charts.js*//*@include js/31e-insights-and-weekly-analysis.js*//*@include js/32-saved-views-json.js*//*@include js/33-ideas-from-the-room-audience-form.js*//*@include js/34-countdown-and-thank-you.js*//*@include js/35-video-windows.js*//*@include js/36-start.js*/</script>
 </body>

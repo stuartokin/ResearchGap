@@ -36,6 +36,7 @@ function exportCsv(){
   toast(`Saved ${rows.length} milestones as CSV.`);
 }
 async function exportXlsx(){
+  await loadPptx();   // the PowerPoint library carries the zip engine an Excel file needs
   if (typeof JSZip !== 'function') { toast('Excel export is not available here; saving CSV instead.'); return exportCsv(); }
   const x = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;'}[c])).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, '');
   const col = n => { let s = ''; n++; while (n) { const m = (n - 1) % 26; s = String.fromCharCode(65 + m) + s; n = Math.floor((n - 1) / 26); } return s; };

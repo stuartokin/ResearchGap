@@ -3,6 +3,19 @@
  *  The words come from data/tours.json (refreshed weekly by the tour agent within fixed rules);
  *  every figure is filled in from the live data here.
  * ================================================================== */
+/* ---------- the PowerPoint library, loaded on demand: most visitors never make a report ---------- */
+let pptxLoading = null;
+function loadPptx(){
+  if (window.PptxGenJS) return Promise.resolve(true);
+  if (!pptxLoading) pptxLoading = new Promise(res => { const s = document.createElement('script'); s.src = 'src/vendor/pptxgenjs.js'; s.async = true; s.onload = () => res(!!window.PptxGenJS); s.onerror = () => { pptxLoading = null; res(false); }; document.head.appendChild(s); });
+  return pptxLoading;
+}
+/* ---------- the version, so you can tell which build you are using ---------- */
+function showVersion(){ const v = `Version ${APP_VERSION} · data revision ${DB.meta.revision} · ${fmtDate(DATA_AS_OF)}`; $('wVer').textContent = v; $('footVer').textContent = `v${APP_VERSION}, data r${DB.meta.revision}`; }
+showVersion();
+/* ---------- the welcome screen counts its walk-throughs ---------- */
+setTimeout(() => { const n = TOUR_LIST.filter(t => t.ready).length, words = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve'];
+  $('wSub').textContent = `${words[n] || n} walk-throughs of one to two minutes, narrated with subtitles. Or go straight to the tool.`; }, 0);   // after every tour has been added
 /* ---------- dates: UK by default, US as an option ---------- */
 function fmtDate(iso, kind){
   if (!iso) return ''; const s = String(iso), d = new Date(s.length <= 10 ? s + 'T12:00:00Z' : s); if (isNaN(d)) return s;

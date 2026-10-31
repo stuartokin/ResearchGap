@@ -86,7 +86,7 @@ $('attackT').addEventListener('change', e => { F.attackOnly = e.target.checked; 
 $('gapOnlyT').addEventListener('change', e => { F.gapOnly = e.target.checked; refresh(); });
 /* ---------- DESNZ briefing: one slide, five vision areas ---------- */
 async function generateDesnzSlide(){
-  const msg = $('repMsg'); if (!window.PptxGenJS) { msg.textContent = 'The PowerPoint library did not load.'; return; }
+  const msg = $('repMsg'); msg.textContent = 'Loading the PowerPoint library…'; await loadPptx(); if (!window.PptxGenJS) { msg.textContent = 'The PowerPoint library could not load. It is fetched when needed, so check your connection (an offline copy of the page cannot make reports).'; return; }
   msg.textContent = 'Building the AI for clean energy briefing…';
   const BG = '0B1724', PANEL = '13283A', TXT = 'E9F2FF', MUTED = '8FA6B8', LINE = '22384A';
   const SC = {research:'8FA6B8', pilot:'F2D38A', commercial:'5FD8FF', scale:'7FD6A0'};
