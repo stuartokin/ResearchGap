@@ -604,3 +604,15 @@ body.kiosk #resetBtn,body.kiosk #winMenu [data-w="__load"],body.kiosk #winMenu [
 /* the version, small: on the welcome screen once acknowledged, and in the footer */
 .wver{margin:.2em auto .6em;font-size:12px;color:var(--faint);letter-spacing:.02em}#welcome.needack .wver{display:none}
 .fver{opacity:.75;margin-left:.4em;white-space:nowrap}
+
+/* data inspector and documentation */
+#insBody,#docBody{display:flex;flex-direction:column;gap:.5em;font-size:.95em}.inscats{display:flex;flex-wrap:wrap;gap:.35em}
+.inscats button{background:rgba(255,255,255,.03);border:1px solid var(--line-strong);border-left:4px solid var(--c);color:var(--muted);border-radius:8px;padding:.3em .7em;font:inherit;font-size:.9em;cursor:pointer}
+.inscats button.on{color:var(--text);background:rgba(255,255,255,.08)}.inscats b{color:var(--text);margin-left:.2em}
+.inslist{flex:1;overflow:auto;display:flex;flex-direction:column;gap:.3em;min-height:8em}.insrow{border:1px solid var(--line);border-radius:10px;padding:.45em .6em;cursor:pointer;background:rgba(255,255,255,.02)}
+.insrow:hover,.insrow.open{border-color:var(--line-strong);background:rgba(255,255,255,.05)}.inshead{display:flex;flex-wrap:wrap;gap:.3em .6em;align-items:baseline}.inshead em{color:var(--muted);font-style:normal;font-size:.9em}
+.inscat{border:1px solid var(--c);color:var(--c);border-radius:999px;padding:0 .55em;font-size:.8em;white-space:nowrap}.insreason{color:var(--muted);font-size:.9em;margin-top:.2em}
+.insbody{margin-top:.5em;cursor:default}.insact{display:flex;flex-wrap:wrap;gap:.35em;margin-top:.5em}.insmine{color:#F7C04A;font-style:normal}.insdec{color:#4CD3C2;font-style:normal;font-size:.85em;border:1px solid #4CD3C2;border-radius:6px;padding:0 .4em}
+.doctoc{display:flex;flex-wrap:wrap;gap:.3em .9em;font-size:.9em}.doctoc a{color:#5FD8FF}.docsec{border:1px solid var(--line);border-radius:10px;padding:.5em .8em}.docsec summary{cursor:pointer;font-weight:600}
+.doctab{width:100%;border-collapse:collapse;margin:.5em 0;font-size:.92em}.doctab th,.doctab td{text-align:left;vertical-align:top;padding:.35em .4em;border-bottom:1px solid var(--line)}.doctab th{color:var(--muted);font-weight:500}.doclist{margin:.4em 0;padding-left:1.2em}
+#docBody code{font-size:.92em;color:#FFE7A8}#docBody p{line-height:1.5}

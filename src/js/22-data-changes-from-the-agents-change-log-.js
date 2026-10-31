@@ -2,7 +2,7 @@
  *  DATA CHANGES (from the agents' change log): window, highlighting, Play announcements
  * ================================================================== */
 const CHG_TYPES = {guidance:{label:'Guidance update', short:'GUIDANCE', cls:'gui'}, added:{label:'Added', short:'NEW', cls:'add'}, corrected:{label:'Corrected', short:'UPDATED', cls:'cor'}, reestimated:{label:'Re-estimated', short:'UPDATED', cls:'est'},
-  landed:{label:'Confirmed landed', short:'UPDATED', cls:'lan'}, source:{label:'Source added', short:'UPDATED', cls:'src'}, disputed:{label:'Disputed', short:'DISPUTED', cls:'dis'}};
+  landed:{label:'Confirmed landed', short:'UPDATED', cls:'lan'}, source:{label:'Source added', short:'UPDATED', cls:'src'}, disputed:{label:'Disputed', short:'DISPUTED', cls:'dis'}, retired:{label:'Retired', short:'RETIRED', cls:'dis'}, restored:{label:'Restored', short:'UPDATED', cls:'src'}};
 function fieldName(k){ return (FIELDS[k] && FIELDS[k].name) || k; }
 function parseChange(d){
   let m;
@@ -12,6 +12,7 @@ function parseChange(d){
   if ((m = d.match(/^(f-[a-z0-9-]+): (founded|fortuneYear) (\d{4}) → (\d{4})/))) return {type:'corrected', key:m[1], founder:true, text:`${m[2] === 'founded' ? 'Founding year' : 'Fortune year'} ${m[3]} → ${m[4]}`};
   if ((m = d.match(/^added: (.+)$/))) return {type:'added', key:m[1], text:''};
   if ((m = d.match(/^re-estimated: ([a-z0-9-]+) → (\d{4})/))) return {type:'reestimated', key:m[1], text:`Outlook year re-estimated to ${m[2]}`};
+  if ((m = d.match(/^(retired|restored): (\S+)(?: \((.+)\))?$/))) return {type:m[1], key:m[2], text:m[3] || (m[1] === 'retired' ? 'Retired by the owner' : 'Restored by the owner')};
   if ((m = d.match(/^disputed: (\S+)(?: \((.+)\))?$/))) return {type:'disputed', key:m[1], text:m[2] ? m[2].charAt(0).toUpperCase() + m[2].slice(1) : 'Marked as disputed by the QA agent'};   // with the reason, when given
   if ((m = d.match(/^([a-z0-9-]+): confirmed landed in (\d{4})/))) return {type:'landed', key:m[1], text:`Confirmed as landed in ${m[2]}`};
   if ((m = d.match(/^([a-z0-9-]+): source added/))) return {type:'source', key:m[1], text:''};

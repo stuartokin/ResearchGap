@@ -13,7 +13,7 @@ Hard checks (code, not the model):
 """
 import sys, json, re
 from common import norm
-from common import (record_funnel, reject_reason, save_db, load_pending_founders, save_pending_founders, founder_runs, load_db, load_pending, save_pending, call_claude, fetch_text, evidence_in, is_duplicate, new_id, CONFIG, TODAY)
+from common import (record_funnel, record_rejection, reject_reason, save_db, load_pending_founders, save_pending_founders, founder_runs, load_db, load_pending, save_pending, call_claude, fetch_text, evidence_in, is_duplicate, new_id, CONFIG, TODAY)
 
 SUBMIT = {
   'name': 'submit_candidates',
@@ -183,6 +183,7 @@ def run():
             why = safe_check(db, f['id'], c, as_of, horizon, cfg['minSources'])
             if why:
                 rr = funnel['recent']['rejected']; rr[reject_reason(why)] = rr.get(reject_reason(why), 0) + 1
+                record_rejection('claude', 'recent', c, why)
                 report.append(f"rejected [{f['id']}] {c.get('title')}: {why}"); continue
             fields_by_id = {x['id']: x for x in db['fields']}
             fld = c.get('field') if f.get('vision') and c.get('field') in fields_by_id else f['id']
@@ -216,6 +217,7 @@ def run():
                 if not why and c.get('change_year') != y: why = 'first use outside the period asked for'
                 if why:
                     rr = funnel['catchup']['rejected']; rr[reject_reason(why)] = rr.get(reject_reason(why), 0) + 1
+                    record_rejection('claude', 'catch-up', c, why)
                     report.append(f"rejected [catch-up {f['id']} {y}Q{q}] {c.get('title')}: {why}"); continue
                 pending.append(pending_record(db, f, c, f['id'], fields_by_id)); queued_cu += 1; funnel['catchup']['queued'] += 1
                 report.append(f"pending  [catch-up {f['id']} {y}Q{q}] {c['title']}")
@@ -241,6 +243,7 @@ def run():
                 if not why and not (d <= (c.get('change_year') or 0) < d + 10): why = 'first use outside the decade asked for'
                 if why:
                     rr = funnel['backfill']['rejected']; rr[reject_reason(why)] = rr.get(reject_reason(why), 0) + 1
+                    record_rejection('claude', 'backfill', c, why)
                     report.append(f"rejected [backfill {f['id']} {d}s] {c.get('title')}: {why}"); continue
                 pending.append(pending_record(db, f, c, f['id'], fields_by_id)); queued_bf += 1; funnel['backfill']['queued'] += 1
                 report.append(f"pending  [backfill {f['id']} {d}s] {c['title']}")
@@ -264,7 +267,7 @@ def near_duplicate(db, title, c=None):
     for m in db['milestones'] + load_pending():
         b = words(m['title'])
         if not b: continue
-        if len(a) >= 2 and len(a & b) / len(a | b) >= 0.5: return m['title']
+        if len(a) >= 2 and len(b) >= 2 and len(a & b) / len(a | b) >= 0.5: return m['title']   # word overlap needs two key words on both sides; one-word titles use the rule below
         if c and ((b <= a and b - GENERIC) or (len(a) >= 2 and a <= b and a - GENERIC)):   # one title inside the other, on distinctive words
             mine = [y for y in (c.get('research_year'), c.get('change_year')) if isinstance(y, int)]
             theirs = [y for y in ((m.get('research') or {}).get('year'), (m.get('change') or {}).get('year')) if isinstance(y, int)]

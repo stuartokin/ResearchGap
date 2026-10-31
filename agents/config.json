@@ -28,7 +28,8 @@
     "maxCorrectionsPerRun": 15,
     "maxYearShift": 10,
     "pendingMaxAttempts": 4,
-    "deepAuditBatchSize": 100
+    "deepAuditBatchSize": 100,
+    "batchSize": 12
   },
   "publish": {
     "maxAdditionsPerRun": 35,
@@ -100,5 +101,15 @@
     "researchPerRun": 10,
     "secondOpinion": true,
     "checksPerRun": 20
+  },
+  "deepSearch": {
+    "_note": "The deep search workflow: by hand or every six months. maxCalls bounds the cost (each call can run searchesPerCall web searches).",
+    "targetTotal": 200,
+    "targetClean": 50,
+    "maxCalls": 100,
+    "searchesPerCall": 4,
+    "maxQueue": 350,
+    "maxAdditions": 350,
+    "gemini": true
   }
 }

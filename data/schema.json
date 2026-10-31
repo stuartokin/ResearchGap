@@ -278,6 +278,23 @@
               },
               "hidden": {
                 "type": "boolean"
+              },
+              "retired": {
+                "type": "object",
+                "properties": {
+                  "reason": {
+                    "type": "string"
+                  },
+                  "duplicateOf": {
+                    "type": "string"
+                  },
+                  "date": {
+                    "type": "string"
+                  },
+                  "by": {
+                    "type": "string"
+                  }
+                }
               }
             },
             "additionalProperties": false
@@ -309,6 +326,7 @@
               },
               "addedBy": {
                 "enum": [
+                  "deep-search",
                   "gemini-research",
                   "initial-build",
                   "qa-agent",
@@ -337,6 +355,7 @@
                   "verdict": {
                     "enum": [
                       "supported",
+                      "contradicted",
                       "not_supported",
                       "unclear",
                       "unavailable"
@@ -347,6 +366,9 @@
                   },
                   "date": {
                     "type": "string"
+                  },
+                  "rules": {
+                    "type": "integer"
                   }
                 }
               }

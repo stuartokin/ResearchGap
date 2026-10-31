@@ -5,7 +5,7 @@ const WIN_GROUPS = [
   ['present', 'Presenting', ['toolbar', 'footer', 'pagetitle', 'title', 'ticker', 'player', 'music', 'vid1', 'vid2']],
   ['insight', 'Insights', ['charts', 'findings', 'summary', 'gapchart', 'outlook', 'fortunes', 'vision', 'radar', 'cyber']],
   ['explore', 'Explore', ['filters', 'display', 'milestones', 'details', 'table', 'key', 'context', 'landing', 'sources']],
-  ['data', 'Data and agents', ['changes', 'quality', 'audience']],
+  ['data', 'Data and agents', ['inspect', 'changes', 'quality', 'docs', 'audience']],
   ['share', 'Share and export', ['report']]
 ];
 const PRESETS = [['explore', 'Exploring', 'The default: filters and key findings'], ['play', 'Play the century', 'Timeline windows around the model'], ['wait', 'Waiting (kiosk)', 'Both videos, joke ticker, plays on a loop'], ['charts', 'Charts', 'Eight interactive charts, with each milestone’s story beside them'], ['analysis', 'Analysis', 'Findings, summary and charts side by side'], ['desnz', 'AI for clean energy', 'Vision radar, areas and changes; plays from 1980']];
@@ -46,7 +46,7 @@ winMenu.addEventListener('click', e => {
   else if (w === '__wait') applyPreset('wait');
   else if (w === '__play') applyPreset('play');
   else if (w === '__all') { WIN_IDS.forEach(id => { layout[id].open = true; placeWin(id); }); saveLayout(); buildWinMenu(); syncVideos(); }
-  else setOpen(w, !layout[w].open);
+  else { setOpen(w, !layout[w].open); if (layout[w] && layout[w].open) { raise(w); winMenu.classList.remove('open'); $('winBtn').setAttribute('aria-expanded', false); } }   // opened: in front, with the menu out of the way
 });
 function positionWinMenu(){
   const r = $('winBtn').getBoundingClientRect(), below = innerHeight - r.bottom, above = r.top;

@@ -6,7 +6,7 @@ no duplicates) and into the same queue; Claude's QA agent then confirms or rejec
 Claude's searches tend to miss: UK, European and Asian work, and sources outside the English-speaking press.
 """
 import sys, json
-from common import load_db, load_pending, save_pending, call_gemini, record_funnel, reject_reason, CONFIG, TODAY
+from common import load_db, load_pending, save_pending, call_gemini, record_funnel, record_rejection, reject_reason, CONFIG, TODAY
 import research_agent as ra
 
 EXAMPLE = {'title': 'Example: first commercial solid-state transformer in a distribution network', 'field': 'energy', 'subfield': 'grids', 'origin': 'academic', 'status': 'landed',
@@ -50,7 +50,7 @@ def run():
         f = fields.get(c.get('field'))
         if not f: report.append(f"rejected {c.get('title')}: unknown field"); continue
         why = ra.safe_check(db, f['id'], c, as_of, horizon, cfg['minSources'])
-        if why: rej[reject_reason(why)] = rej.get(reject_reason(why), 0) + 1; report.append(f"rejected [{f['id']}] {c.get('title')}: {why}"); continue
+        if why: record_rejection('gemini', 'recent', c, why); rej[reject_reason(why)] = rej.get(reject_reason(why), 0) + 1; report.append(f"rejected [{f['id']}] {c.get('title')}: {why}"); continue
         rec = ra.pending_record(db, f, c, f['id'], fields); rec['foundBy'] = 'gemini-research'
         pending.append(rec); queued += 1; report.append(f"pending  [gemini {f['id']}] {c['title']}")
     save_pending(pending)

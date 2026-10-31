@@ -4,7 +4,8 @@ Fails if any record disappeared, or if more were added than the run limit allows
 import json, subprocess, sys
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
-LIMIT = json.loads((ROOT / 'agents/config.json').read_text())['publish']['maxAdditionsPerRun']
+import os
+LIMIT = int(os.environ.get('MAX_ADDITIONS') or json.loads((ROOT / 'agents/config.json').read_text())['publish']['maxAdditionsPerRun'])   # the deep search raises it for its own run
 
 def main():
     try:

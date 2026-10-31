@@ -1,0 +1,19 @@
+{
+ "_note": "Your decisions about records, applied by the QA agent on the next weekly run. 'retire' hides a record (never deletes it) with the reason; 'restore' brings it back. The Data inspector in the app can download this file with your new decisions added; upload it here to apply them.",
+ "decisions": [
+  {
+   "id": "point-contact-transistor",
+   "action": "retire",
+   "reason": "Duplicate of \"Transistor\" (Bell Labs, 1947); filed under the wrong field.",
+   "duplicateOf": "transistor",
+   "date": "2026-11-01"
+  },
+  {
+   "id": "legged-inspection-robots",
+   "action": "retire",
+   "reason": "Duplicate of \"Legged robots\".",
+   "duplicateOf": "legged-robots",
+   "date": "2026-11-01"
+  }
+ ]
+}

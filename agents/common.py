@@ -264,3 +264,42 @@ def record_funnel(entry):
     """Append one funnel entry to the data (kept for the last 120 entries); shown in Data quality."""
     db = load_db(); f = db['meta'].setdefault('researchFunnel', [])
     f.append(dict(entry, date=TODAY)); db['meta']['researchFunnel'] = f[-120:]; save_db(db)
+
+
+# ---------- rejected candidates, kept for the Data inspector (the last 800) ----------
+def record_rejection(agent, mode, c, reason):
+    """Keep a rejected candidate and why, so it can be researched in the app's Data inspector."""
+    from pathlib import Path
+    p = Path(__file__).resolve().parents[1] / 'data' / 'rejected.json'
+    try: rows = json.loads(p.read_text(encoding='utf-8')) if p.exists() else []
+    except Exception: rows = []
+    c = c if isinstance(c, dict) else {'title': str(c)[:120]}
+    rows.append({'date': TODAY, 'agent': agent, 'mode': mode, 'title': str(c.get('title', ''))[:200], 'field': c.get('field'), 'status': c.get('status'),
+                 'research_year': c.get('research_year'), 'change_year': c.get('change_year'), 'research_origin': str(c.get('research_origin') or '')[:200],
+                 'research_what': str(c.get('research_what') or '')[:300], 'change_what': str(c.get('change_what') or '')[:300],
+                 'sources': [x.get('url') for x in (c.get('sources') or []) if isinstance(x, dict) and x.get('url')][:4], 'reason': str(reason)[:300], 'category': reject_reason(reason)})
+    p.write_text(json.dumps(rows[-800:], ensure_ascii=False, indent=1), encoding='utf-8')
+
+# ---------- your decisions: data/curation.json, applied by the QA agent each run ----------
+def apply_curation(db):
+    """Retire (hide, never delete) or restore records as decided in data/curation.json. Each decision is applied once."""
+    from pathlib import Path
+    p = Path(__file__).resolve().parents[1] / 'data' / 'curation.json'
+    if not p.exists(): return []
+    try: decisions = json.loads(p.read_text(encoding='utf-8')).get('decisions', [])
+    except Exception as e: print(f'curation.json could not be read ({e}); skipping.'); return []
+    done = db['meta'].setdefault('curationApplied', []); details = []
+    ms = {m['id']: m for m in db['milestones']}
+    for d in decisions:
+        key = f"{d.get('id')}|{d.get('action')}|{d.get('date', '')}"
+        m = ms.get(d.get('id'))
+        if key in done or not m: continue
+        f = m.setdefault('flags', {})
+        if d.get('action') == 'retire':
+            f['hidden'] = True; f['retired'] = {k: v for k, v in {'reason': str(d.get('reason', ''))[:300], 'duplicateOf': d.get('duplicateOf'), 'date': TODAY}.items() if v}   # no empty values: the schema expects text
+            details.append(f"retired: {m['id']} ({d.get('reason', 'retired by the owner')})"[:300])
+        elif d.get('action') == 'restore':
+            f.pop('hidden', None); f.pop('retired', None); details.append(f"restored: {m['id']} ({d.get('reason', 'restored by the owner')})"[:300])
+        else: continue
+        done.append(key)
+    return details

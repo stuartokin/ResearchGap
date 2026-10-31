@@ -4,7 +4,7 @@ the cited source pages and checks the ESSENTIALS of each one Claude found: that 
 first-use years are right to within a year. Only a contradiction marks a record disputed (never deleted); a page too
 thin to judge gives "unclear", which is recorded but does not dispute. Gemini's own finds were confirmed by Claude's QA.
 """
-import sys, re
+import os, sys, re
 from common import load_db, save_db, call_gemini, fetch_text, log_change, CONFIG, TODAY
 
 RULES = 2   # version of these rules: records checked under older, stricter rules are checked once more
@@ -28,13 +28,14 @@ def run():
     db = load_db()
     def due(m):
         p = m.get('provenance') or {}; so = p.get('secondOpinion')
-        if p.get('addedBy') != 'research-agent': return False
+        if p.get('addedBy') not in ('research-agent', 'deep-search'): return False   # Claude's finds (Gemini's own were confirmed by Claude)
         if p.get('added') == TODAY and not so: return True
         return bool(so) and so.get('model') == 'gemini' and so.get('verdict') in ('not_supported', 'unclear') and so.get('rules', 1) < RULES   # judged under the old rules
     todo = [m for m in db['milestones'] if due(m)]
     if not todo: print('No Claude additions to check.'); return 0
     counts, details = {'supported': 0, 'contradicted': 0, 'unclear': 0, 'unavailable': 0}, []
-    for m in todo[:g.get('checksPerRun', 20)]:
+    import os
+    for m in todo[:int(os.environ.get('GEMINI_CHECKS') or g.get('checksPerRun', 20))]:
         pages = []
         for r in (m.get('refs') or [])[:3]:
             code, text = fetch_text(r['url'])
