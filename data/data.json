@@ -2,15 +2,15 @@
  "$schema": "./schema.json",
  "meta": {
   "title": "The Shrinking Gap from Research to Change",
-  "revision": 25,
+  "revision": 26,
   "version": "8.0",
-  "asOf": "2026-10-30",
+  "asOf": "2026-10-31",
   "horizonYears": 10,
   "startYear": 1925,
   "author": "Stuart Okin",
   "maintainedBy": "AI agents using Claude (Anthropic), without human review",
   "disclaimer": "Personal project by Stuart Okin, not affiliated with or endorsed by any employer. Data is compiled and maintained by AI agents without human review and may contain errors. Outlook years are AI estimates, not forecasts.",
-  "lastAgentRun": "2026-10-30T23:54Z",
+  "lastAgentRun": "2026-10-31T01:31Z",
   "changelog": [
    {
     "date": "2026-10-28",
@@ -1155,6 +1155,93 @@
      "story    size-adjustable-pediatric-heart-valve-autus",
      "story    spatial-dataflow-processor-in-volume-electron-e1"
     ]
+   },
+   {
+    "date": "2026-10-31",
+    "time": "01:25",
+    "revision": 25,
+    "summary": "Gemini research: 0 of 8 candidates passed the source checks and were queued for Claude's QA.",
+    "stats": {
+     "milestones": 479,
+     "sourceCited": 194,
+     "aiCompiled": 207,
+     "aiEstimate": 78,
+     "adoptionKnown": 76,
+     "landed": 379,
+     "regionKnown": 479
+    },
+    "usage": {
+     "calls": 0,
+     "inputTokens": 0,
+     "outputTokens": 0,
+     "searches": 0,
+     "model": "claude-sonnet-5-5"
+    },
+    "deepAudit": false
+   },
+   {
+    "date": "2026-10-31",
+    "time": "01:31",
+    "revision": 26,
+    "summary": "6 added, 5 corrected, 0 outlook re-estimated, 0 disputed, 2 broken links.",
+    "stats": {
+     "milestones": 479,
+     "sourceCited": 194,
+     "aiCompiled": 207,
+     "aiEstimate": 78,
+     "adoptionKnown": 76,
+     "landed": 379,
+     "regionKnown": 479
+    },
+    "usage": {
+     "calls": 6,
+     "inputTokens": 508181,
+     "outputTokens": 41261,
+     "searches": 39,
+     "model": "claude-sonnet-5-5"
+    },
+    "deepAudit": false,
+    "details": [
+     "added: fayuvi-first-gene-therapy-for-sanfilippo-type-a",
+     "added: gyroscopic-rocket-guidance-goddard-1932",
+     "added: permanently-crewed-international-space-station",
+     "added: kepler-first-space-telescope-for-transit-exoplanets",
+     "added: transistor-point-contact-bell-labs",
+     "added: nuclear-magnetic-resonance-in-bulk-matter",
+     "microprocessor: sub-field compute → chips",
+     "finfet-transistors: note updated",
+     "web-search-ranking: sub-field data → web",
+     "web-search-ranking: readiness commercial → scale",
+     "statistical-machine-translation: note updated",
+     "tours: walk-through scripts refreshed (version 21)"
+    ]
+   },
+   {
+    "date": "2026-10-31",
+    "time": "01:34",
+    "revision": 26,
+    "summary": "AI levers researched for 2 technologies.",
+    "stats": {
+     "milestones": 479,
+     "sourceCited": 194,
+     "aiCompiled": 207,
+     "aiEstimate": 78,
+     "adoptionKnown": 76,
+     "landed": 379,
+     "regionKnown": 479
+    },
+    "usage": {
+     "calls": 8,
+     "inputTokens": 173468,
+     "outputTokens": 11194,
+     "searches": 14,
+     "model": "claude-sonnet-5-5"
+    },
+    "deepAudit": false,
+    "details": [
+     "levers   sodium-ion-grid-storage-at-scale: build; discovery, software, simulation",
+     "levers   robot-foundation-models-in-products: demo; simulation, software"
+    ]
    }
   ],
   "adoptionDefinition": "Mainstream adoption: the year the technology reached widespread, routine use, roughly 10% or more of its potential market or standard practice in its sector.",
@@ -1176,7 +1263,61 @@
     "name": "At scale"
    }
   ],
-  "securityGuidanceNote": "AI-generated research to prompt discussion, not security advice. References link to the official publishers; check the current version of each. Engage qualified cyber security experts, and your regulator where relevant, before acting."
+  "securityGuidanceNote": "AI-generated research to prompt discussion, not security advice. References link to the official publishers; check the current version of each. Engage qualified cyber security experts, and your regulator where relevant, before acting.",
+  "catchupSwept": {
+   "energy|2026Q3": "2026-10-31",
+   "hw|2026Q3": "2026-10-31",
+   "sw|2026Q3": "2026-10-31",
+   "ai|2026Q3": "2026-10-31",
+   "quantum|2026Q3": "2026-10-31",
+   "cyber|2026Q3": "2026-10-31"
+  },
+  "researchFunnel": [
+   {
+    "agent": "claude",
+    "recent_proposed": 2,
+    "recent_queued": 1,
+    "recent_rejected": {
+     "years": 1
+    },
+    "catchup_proposed": 0,
+    "catchup_queued": 0,
+    "catchup_rejected": {},
+    "backfill_proposed": 8,
+    "backfill_queued": 5,
+    "backfill_rejected": {
+     "sources": 1,
+     "years": 2
+    },
+    "date": "2026-10-31"
+   },
+   {
+    "agent": "gemini",
+    "recent_proposed": 8,
+    "recent_queued": 0,
+    "recent_rejected": {
+     "origin": 7,
+     "years": 1
+    },
+    "date": "2026-10-31"
+   },
+   {
+    "agent": "qa",
+    "confirmed_claude": 6,
+    "confirmed_gemini": 0,
+    "rejected": 0,
+    "retrying": 0,
+    "date": "2026-10-31"
+   }
+  ],
+  "secondOpinion": [
+   {
+    "date": "2026-10-31",
+    "kind": "gemini-research",
+    "proposed": 8,
+    "queued": 0
+   }
+  ]
  },
  "fields": [
   {
@@ -6782,6 +6923,45 @@
     "expandsAttackSurface": false,
     "note": "Same BMS and inverter controls as lithium-ion BESS; no extra attack surface from the chemistry itself.",
     "basis": "ai-compiled"
+   },
+   "aiLevers": {
+    "phase": "build",
+    "bottleneck": "Manufacturing scale-up and cost: hard-carbon anode supply and low factory utilisation keep cells dearer than LFP, while limited field data raises bankability risk.",
+    "levers": [
+     {
+      "k": "discovery",
+      "strength": "mid",
+      "note": "Screening hard-carbon and other anode precursors, and cheaper cathode compositions, for cost and cycle life. Literature-mining and hypothesis-generation tools are already being tried on scalable sodium-ion anode synthesis."
+     },
+     {
+      "k": "software",
+      "strength": "low",
+      "note": "Process-control and quality analytics on newly started cell lines, aimed at yield, utilisation and the week-long formation/ageing step. Plausible, but no sodium-specific source found."
+     },
+     {
+      "k": "simulation",
+      "strength": "low",
+      "note": "Degradation and lifetime models trained on early field data could support bankability. They could also help re-engineer battery management for sodium-ion voltage behaviour."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://www.mysteel.net/analysis/5138261-sodium-ion-battery-cost-analysis-and-scalability-barriers",
+      "label": "Mysteel: sodium-ion cost analysis and scalability barriers",
+      "quote": "the anode remains the main shortfall in sodium-ion battery cost structure"
+     },
+     {
+      "url": "https://pv-magazine-usa.com/2026/09/30/sodium-ion-batteries-the-next-frontier-or-the-next-risk/",
+      "label": "pv magazine USA: sodium-ion, next frontier or next risk (30 Sep 2026)",
+      "quote": "its lack of field-validated performance data transfers significant technology and bankability risks"
+     },
+     {
+      "url": "https://peakenergy.com/",
+      "label": "Peak Energy",
+      "quote": "4 GWh US factory · Q1 2027 SOP"
+     }
+    ],
+    "checked": "2026-10-31"
    }
   },
   {
@@ -9006,7 +9186,7 @@
     "label": "DESNZ: Vision for an AI-enabled clean energy system",
     "url": "https://www.gov.uk/government/calls-for-evidence/vision-for-an-ai-enabled-clean-energy-system/vision-for-an-ai-enabled-clean-energy-system-html",
     "status": "ok",
-    "checked": "2026-10-29"
+    "checked": "2026-10-31"
    },
    "provenance": {
     "verification": "source-cited",
@@ -9182,7 +9362,7 @@
      "label": "POWER: History of Power",
      "url": "https://www.powermag.com/history-of-power-the-evolution-of-the-electric-generation-industry/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ]
   },
@@ -9298,7 +9478,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -9320,7 +9500,7 @@
      "label": "CHM Storage Engine: 1956 First commercial hard disk drive shipped",
      "url": "https://www.computerhistory.org/storageengine/first-commercial-hard-disk-drive-shipped/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ]
   },
@@ -9344,7 +9524,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -9367,7 +9547,7 @@
      "label": "CHM Silicon Engine: 1963 Complementary MOS circuit configuration is invented",
      "url": "https://www.computerhistory.org/siliconengine/complementary-mos-circuit-configuration-is-invented/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ]
   },
@@ -9394,7 +9574,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "adoption": {
@@ -9406,7 +9586,7 @@
    "tags": [
     "semiconductors"
    ],
-   "subfield": "compute",
+   "subfield": "chips",
    "readiness": {
     "stage": "scale",
     "basis": "ai-estimate"
@@ -9422,13 +9602,13 @@
      "label": "Guinness World Records: First microprocessor",
      "url": "https://www.guinnessworldrecords.com/world-records/first-microprocessor",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     },
     {
      "label": "CHM Silicon Engine: 1971 Microprocessor integrates CPU function onto a single chip",
      "url": "https://www.computerhistory.org/siliconengine/microprocessor-integrates-cpu-function-onto-a-single-chip/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ]
   },
@@ -9452,7 +9632,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -9475,7 +9655,7 @@
      "label": "CHM Timeline 1987: Acorn Archimedes is released",
      "url": "https://www.computerhistory.org/timeline/1987/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ]
   },
@@ -9494,12 +9674,12 @@
     "what": "Intel ships 22 nm 3D transistors."
    },
    "confidence": "high",
-   "note": "Kept Moore’s law going for another decade.",
+   "note": "Intel announced 22 nm tri-gate (FinFET) in May 2011 and began volume production in late 2011. The first consumer CPUs (Ivy Bridge) went on sale in April 2012.",
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -9524,7 +9704,7 @@
      "label": "UC Berkeley: Radical new Intel transistor based on UC Berkeley's FinFET",
      "url": "https://vcresearch.berkeley.edu/news/radical-new-intel-transistor-based-uc-berkeleys-finfet",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ]
   },
@@ -9551,7 +9731,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "adoption": {
@@ -9579,13 +9759,13 @@
      "label": "arXiv 1305.4228: Brief history of cloud computing",
      "url": "https://arxiv.org/pdf/1305.4228",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     },
     {
      "label": "MIT Technology Review: The Cloud Imperative",
      "url": "https://www.technologyreview.com/2011/10/03/190237/the-cloud-imperative/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ]
   },
@@ -9645,17 +9825,18 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
    "tags": [
     "networks"
    ],
-   "subfield": "data",
+   "subfield": "web",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-31"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -9668,7 +9849,7 @@
      "label": "Computer Timeline: Larry Page and Sergey Brin (Google)",
      "url": "http://www.computer-timeline.com/timeline/larry-page-and-sergey-brin/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ]
   },
@@ -9687,12 +9868,12 @@
     "what": "Google Translate launches."
    },
    "confidence": "medium",
-   "note": "Data, not linguistics, won.",
+   "note": "Google Translate launched in April 2006. Most language pairs ran on SYSTRAN until the switch to Google's own statistical system in October 2007.",
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -9716,13 +9897,13 @@
      "label": "Google Translate (Wikipedia)",
      "url": "https://en.wikipedia.org/wiki/Google_Translate",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     },
     {
      "label": "Acutrans: history of machine translation",
      "url": "https://acutrans.com/history-of-google-translate/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ]
   },
@@ -9746,7 +9927,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -9769,7 +9950,7 @@
      "label": "Item-item collaborative filtering (Wikipedia)",
      "url": "https://en.wikipedia.org/wiki/Item-item_collaborative_filtering",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ]
   },
@@ -9793,7 +9974,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "europe",
@@ -9818,13 +9999,13 @@
      "label": "Google Research blog, Sept 2015",
      "url": "https://ai.googleblog.com/2015/09/google-voice-search-faster-and-more.html",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     },
     {
      "label": "Sak et al. 2015, Google LSTM acoustic models",
      "url": "https://arxiv.org/pdf/1507.06947",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ]
   },
@@ -9848,7 +10029,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -9872,7 +10053,7 @@
      "label": "SRI: 75 Years of Innovation – Siri",
      "url": "https://www.sri.com/75-years-of-innovation/75-years-of-innovation-siri/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ]
   },
@@ -9896,7 +10077,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": true
    },
    "region": "us",
@@ -9918,7 +10099,7 @@
      "label": "SQUID (Wikipedia)",
      "url": "https://en.wikipedia.org/wiki/SQUID",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ]
   },
@@ -9942,7 +10123,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "europe",
@@ -9962,7 +10143,7 @@
      "label": "IonQ press release, 2 Dec 2019",
      "url": "https://investors.ionq.com/news/news-details/2019/IonQ-Helps-Bring-Quantum-Computing-to-Life-on-Amazon-Web-Services/default.aspx",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ]
   },
@@ -9986,7 +10167,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -10005,7 +10186,7 @@
      "label": "Cipher Museum: DES",
      "url": "https://ciphermuseum.com/ciphers/des.html",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ]
   },
@@ -10029,7 +10210,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "europe",
@@ -10048,13 +10229,13 @@
      "label": "NIST: Rijndael submission document",
      "url": "https://csrc.nist.gov/csrc/media/projects/cryptographic-standards-and-guidelines/documents/aes-development/rijndael-ammended.pdf",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     },
     {
      "label": "NIST: Development of the Advanced Encryption Standard",
      "url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=931014",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "flags": {
@@ -10081,7 +10262,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -10099,13 +10280,13 @@
      "label": "Corbado – When are passkeys coming (FIDO 2012, iOS 16 2022)",
      "url": "https://www.corbado.com/faq/when-are-passkeys-coming",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     },
     {
      "label": "TechCrunch – Apple, Google and Microsoft team up on passwordless logins (May 2022)",
      "url": "https://www.bleepingcomputer.com/news/security/microsoft-apple-and-google-to-support-fido-passwordless-logins/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ]
   },
@@ -15509,6 +15690,35 @@
     "estimatedYear": 2027,
     "estimatedOn": "2026-10-27",
     "revisions": []
+   },
+   "aiLevers": {
+    "phase": "demo",
+    "bottleneck": "Showing reliable, safe, general behaviour in real, unstructured settings: robot-specific training data is scarce and no certifiable safety guarantees exist, so pilots rarely become production.",
+    "levers": [
+     {
+      "k": "simulation",
+      "strength": "high",
+      "note": "Simulation and synthetic data supply robot training experience and sim-to-real pipelines (e.g. Isaac Lab, Cosmos for GR00T), and allow safer pre-deployment testing. The sim-to-real gap remains a limit."
+     },
+     {
+      "k": "software",
+      "strength": "mid",
+      "note": "VLA models replace hand-coded teach-pendant programming with language-and-demonstration-driven policies, cutting integration effort. Models are still fine-tuned per task and often paired with narrow policies."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://www.evsint.com/embodied-ai-industrial-robotics-vla-models/",
+      "label": "EVS Int'l: Embodied AI in Industrial Robotics (2026)",
+      "quote": "the gap between a compelling VLA demonstration and a production deployment remains the defining feature of the field"
+     },
+     {
+      "url": "https://arxiv.org/pdf/2507.10087",
+      "label": "arXiv: Foundation Model Driven Robotics: A Comprehensive Review",
+      "quote": "simulation-generated experiences and collaborative data collection"
+     }
+    ],
+    "checked": "2026-10-31"
    }
   },
   {
@@ -15685,7 +15895,7 @@
      "label": "Open Climate Fix: Cloudcasting",
      "url": "https://new.openclimatefix.org/projects/cloud-forecasting",
      "status": "broken",
-     "checked": "2026-10-30"
+     "checked": "2026-10-31"
     }
    ],
    "provenance": {
@@ -15907,7 +16117,7 @@
      "label": "SP Energy Networks: drones on the transmission network",
      "url": "https://www.spenergynetworks.co.uk/news/pages/drones_transmission_network.aspx",
      "status": "broken",
-     "checked": "2026-10-30"
+     "checked": "2026-10-31"
     }
    ],
    "provenance": {

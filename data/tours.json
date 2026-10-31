@@ -1,6 +1,6 @@
 {
- "version": 20,
- "updated": "2026-10-30",
+ "version": 21,
+ "updated": "2026-10-31",
  "updatedBy": "tour-agent",
  "note": "Narration templates for the guided tours. Figures come from {placeholders} filled from the live data; conclusions are chosen by rules in the app ({\"by\": fact, \"cases\": {...}}). The weekly tour agent may refine wording and choose examples, within the rules checked by tools/validate.py.",
  "tours": {
@@ -14,7 +14,7 @@
    ],
    "steps": {
     "intro": {
-     "say": "Each arc is one research breakthrough, from a university, a government lab or industry. It starts when the research began and ends at the first product. Where mainstream use followed, a thinner arc continues to that date."
+     "say": "Each arc is one research breakthrough, coloured by where it began: a university, a government lab or industry. It runs from the start of research to the first product. Where mainstream use followed, a thinner arc continues to that date."
     },
     "example": {
      "say": {
@@ -140,7 +140,7 @@
      "say": "The government's AI for clean energy vision is split into distinct areas. Diamonds mark stories linked to it, playing through from 1980 onwards."
     },
     "radar": {
-     "say": "The Vision radar shows how close each area's technologies are to everyday use: {nResearch} in research, {nPilot} in pilots, {nCommercial} in early commercial use and {nScale} in wide use. {nGB} of these are already used in Great Britain."
+     "say": "The Vision radar shows how close the technologies in each area are to everyday use: {nResearch} still in research, {nPilot} in pilots, {nCommercial} in early commercial use and {nScale} widely used. Of these, {nGB} are already used in Great Britain."
     },
     "new": {
      "say": {
@@ -180,7 +180,7 @@
      ]
     },
     "pipechart": {
-     "say": "The pipeline traces each technology from its area, through its readiness, to whether Great Britain has deployed it: {pipeGB} of {pipeTotal} so far."
+     "say": "The pipeline chart follows each technology from its area, through its readiness, to whether Great Britain has deployed it. So far, {pipeGB} of {pipeTotal} have been deployed there."
     }
    }
   },
@@ -214,7 +214,7 @@
      }
     },
     "example": {
-     "say": "Each card names a risk and suggests ways to reduce it, mapped to recognised guidance: the NCSC's Cyber Assessment Framework (CAF), Ofgem's CAF Overlay, NIST, NERC CIP and IEC 62443."
+     "say": "Each story card names a risk and suggests ways to reduce it, mapped to recognised guidance: the National Cyber Security Centre's Cyber Assessment Framework (CAF), Ofgem's CAF Overlay, NIST, NERC CIP and IEC 62443."
     },
     "guidance": {
      "say": {
@@ -243,7 +243,7 @@
      ]
     },
     "secchart": {
-     "say": "The security lag chart shows how many years each technology waited before a security response appeared. The longest wait here was for {secLongestTitle}, at {secLongestYears} years."
+     "say": "This chart shows how many years each technology waited before a security response was recorded. Of those that have one, the longest wait was for {secLongestTitle}, at {secLongestYears} years."
     }
    }
   },
@@ -268,7 +268,7 @@
      }
     },
     "fastest": {
-     "say": "Sort by speed and the quickest journey so far comes first: {fastestCo}, which took {fastestTime} to go from founding to fortune."
+     "say": "Sorted by speed, the quickest journey so far comes first: {fastestCo}, which took {fastestTime} to go from founding to fortune."
     },
     "uk": {
      "say": {
@@ -277,7 +277,7 @@
        "faster": "With the filter set to the UK only, research that began in the UK reached a product in {ukYears} years, faster than the {rowYears} years in the rest of the world.",
        "slower": "With the filter set to the UK only, research that began in the UK took {ukYears} years to reach a product, slower than the {rowYears} years in the rest of the world.",
        "similar": "With the filter set to the UK only, research that began in the UK reached a product in about the same time as in the rest of the world: {ukYears} years against {rowYears}.",
-       "unclear": "With the filter set to the UK only, you can compare research that began in the UK with research from the rest of the world."
+       "unclear": "With the filter set to the UK only, there is not yet enough evidence to say whether UK research reaches a product faster or slower than research elsewhere."
       }
      }
     },
@@ -467,7 +467,7 @@
      ]
     },
     "whatif": {
-     "say": "With practical AI levers, projected technologies arrive about {wiAvg} years sooner on average: {wi2030AI} by 2030 rather than {wi2030Now}. The biggest lever is {wiTopLever}. An illustration, not a forecast."
+     "say": "In this scenario, practical AI levers bring projected technologies forward by about {wiAvg} years on average, with {wi2030AI} arriving by 2030 rather than {wi2030Now}. The biggest lever is {wiTopLever}. It is an illustration, not a forecast."
     }
    }
   },
@@ -513,7 +513,7 @@
    "title": "How the charts work",
    "steps": {
     "open": {
-     "say": "These charts make the data easier to read. Choose a tab at the top. Every chart follows your filters, and selecting a milestone opens its story and moves the model to it."
+     "say": "This is the Gap explorer. Use the tabs at the top to move between charts. Every chart follows your filters, and selecting a milestone opens its story and moves the model to that point."
     },
     "gapsort": {
      "say": "In the Gap explorer you can sort and colour the bars. Drag across the chart to zoom into years; double-click to reset."
@@ -549,7 +549,7 @@
   },
   "cleanweek": {
    "title": "AI for clean energy analysis",
-   "updated": "2026-10-30T23:57Z",
+   "updated": "2026-10-31T01:32Z",
    "steps": {
     "intro": {
      "say": [
@@ -573,19 +573,19 @@
     },
     "c3": {
      "view": "radar",
-     "say": "One shift this week on the AI for clean energy radar: AI assurance for energy, the work of checking that AI tools can be trusted on the grid, moved from research to pilot."
+     "say": "One shift on the AI for clean energy radar: AI assurance for energy, the work of checking that AI tools can be trusted on the grid, moved from research to pilot."
     },
     "c4": {
      "view": "sec",
-     "say": "Security has typically trailed deployment by about {secMedian} years. The longest wait was {secLongestTitle}, at {secLongestYears} years. The agents logged several new guidance updates this week, but that gap is still where the risk sits."
+     "say": "Security has typically trailed deployment by about {secMedian} years. The longest wait was {secLongestTitle}, at {secLongestYears} years. Several guidance updates were logged this week, but that gap is still where the risk sits."
     },
     "c5": {
      "view": "whatif",
-     "say": "What if AI levers were pulled harder? In this scenario, {wiTopLever} matters most, moving the outcome from {wi2030Now} to {wi2030AI}. It is a model, not a forecast, and levers have so far been researched for only a few technologies."
+     "say": "What if AI levers were pulled harder? In this scenario, {wiTopLever} matters most, moving the outcome from {wi2030Now} to {wi2030AI}. It is a model, not a forecast, and levers are researched for only a few technologies."
     },
     "c6": {
      "view": "main",
-     "say": "No researched stories are ready yet, so select any arc in the model to follow a technology from the lab to first use."
+     "say": "No researched stories are ready to retell yet, so select any arc in the model to follow a technology from the lab to first use."
     }
    }
   }
