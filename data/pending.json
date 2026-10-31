@@ -53,40 +53,1229 @@
    "NMPA"
   ],
   "proposed": "2026-10-31",
-  "attempts": 1
+  "attempts": 2
  },
  {
-  "id": "v-2-a-4-first-object-to-reach-space",
+  "id": "solid-state-transformers-for-ai-data-centres-and-grids",
+  "field": "energy",
+  "origin": "academic",
+  "status": "outlook",
+  "title": "Solid-state transformers for AI data centres and grids",
+  "research": {
+   "year": 2008,
+   "what": "Power-electronics transformers using fast semiconductor switching to convert medium-voltage AC straight to DC or low-voltage AC, studied in university labs such as NC State's for roughly two decades. Origin: University prototype work including the NC State (Lukic lab) solid-state transformer test and the long-running FREEDM-type research programmes (c. 2008 onward); year approximate."
+  },
+  "change": {
+   "year": 2027,
+   "what": "Vendors plan customer pilots in 2027 and volume shipments from 2028; Heron Power's US factory is due to begin production in 2027 and reach 40 GW a year in 2029."
+  },
+  "confidence": "medium",
+  "note": "Could replace bulky iron-and-copper transformers, which face waits of up to five years, and cut conversion losses in data centres, solar and batteries.",
+  "desnz": "asset",
+  "refs": [
+   {
+    "label": "MIT Technology Review: How solid-state transformers could help power the AI boom (27 Oct 2026)",
+    "url": "https://www.technologyreview.com/2026/10/27/1147684/solid-state-transformers/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Latitude Media: Does the market finally have an opening for solid-state transformers?",
+    "url": "https://www.latitudemedia.com/news/does-the-market-finally-have-an-opening-for-solid-state-transformers/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "DG Matrix: Solid State Transformers Could Reshape AI Infrastructure",
+    "url": "https://www.dgmatrix.com/news-and-media/news/solid-state-transformers-could-reshape-ai-infrastructure/1223",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "grids",
+  "region": "us",
+  "readiness": {
+   "stage": "pilot",
+   "basis": "ai-estimate"
+  },
+  "gb": {
+   "status": "unknown",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": true,
+   "note": "Software-controlled, networked power-electronics at grid and data-centre connection points add remotely reachable control and firmware surfaces.",
+   "basis": "ai-compiled"
+  },
+  "forecast": {
+   "estimatedYear": 2027,
+   "estimatedOn": "2026-10-31",
+   "revisions": []
+  },
+  "evidence_terms": [
+   "solid-state transformer",
+   "Heron Power",
+   "DG Matrix",
+   "Enphase"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "brest-od-300-lead-cooled-fast-reactor-with-closed-fuel-cycle",
+  "field": "energy",
+  "origin": "industry",
+  "status": "outlook",
+  "title": "BREST-OD-300 lead-cooled fast reactor with closed fuel cycle",
+  "research": {
+   "year": 2011,
+   "what": "A lead-cooled fast reactor with on-site mixed nitride uranium-plutonium fuel fabrication and reprocessing, developed by NIKIET under Rosatom's Proryv (Breakthrough) project. Origin: NIKIET BREST fast-reactor design (1990s) and Rosatom's 'Proryv' project (c. 2011); year approximate."
+  },
+  "change": {
+   "year": 2028,
+   "what": "Rosatom has said physical start-up is planned for 2026-2027, with grid connection stated as the first half of 2027 in earlier statements and 2028 in a later one, at the Siberian Chemical Combine in Seversk."
+  },
+  "confidence": "medium",
+  "note": "It would be the first Generation IV reactor energy complex with a closed fuel cycle; the schedule has repeatedly moved and sanctions are cited as a difficulty.",
+  "refs": [
+   {
+    "label": "Atomic-Energy.ru: Physical start-up of BREST-OD-300 in Seversk set for 2026 (1 Mar 2024)",
+    "url": "https://www.atomic-energy.ru/news/2024/03/01/143633",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Strana Rosatom: Fuel fabrication module launched in Seversk for BREST-OD-300 (25 Dec 2024)",
+    "url": "https://strana-rosatom.ru/2024/12/25/v-severske-zapustili-zavod-po-proizvo/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Atomic-Energy.ru: BREST-OD-300 technology to be replicated in Siberia (25 Jul 2024)",
+    "url": "https://www.atomic-energy.ru/news/2024/07/25/147954",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "grids",
+  "region": "europe",
+  "readiness": {
+   "stage": "pilot",
+   "basis": "ai-estimate"
+  },
+  "gb": {
+   "status": "not-yet",
+   "basis": "ai-estimate"
+  },
+  "forecast": {
+   "estimatedYear": 2028,
+   "estimatedOn": "2026-10-31",
+   "revisions": []
+  },
+  "evidence_terms": [
+   "БРЕСТ-ОД-300",
+   "Северске",
+   "Прорыв"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "first-commercial-natural-geologic-hydrogen-production",
+  "field": "energy",
+  "origin": "industry",
+  "status": "outlook",
+  "title": "First commercial natural (geologic) hydrogen production",
+  "research": {
+   "year": 2012,
+   "what": "Exploiting hydrogen that forms naturally underground and collects in reservoirs, rather than manufacturing it, following the first known commercial use in Mali. Origin: Bourakébougou well in Mali, the first known commercial use of naturally occurring hydrogen (drilled c. 2012, as described in the Oxford Institute for Energy Studies paper and the EFI Foundation report)."
+  },
+  "change": {
+   "year": 2028,
+   "what": "French developer FDE targets independent resource certification in 2027 and first commercial production in late 2028 in Lorraine, subject to permits; Mantle8 also aims to make natural hydrogen a reality by 2028."
+  },
+  "confidence": "medium",
+  "note": "Targets are company projections; commentators note that no engineered or natural subsurface hydrogen project has yet reached commercial production at scale.",
+  "refs": [
+   {
+    "label": "Geologic Hydrogen (FDE Lorraine milestones 2026–2028)",
+    "url": "https://geologic-hydrogen.com/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Mantle8 company site",
+    "url": "https://mantle8.com/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Oxford Institute for Energy Studies ET38: Natural (geologic) hydrogen and its potential role in a net-zero carbon future",
+    "url": "https://www.oxfordenergy.org/wpcms/wp-content/uploads/2024/09/ET38-Natural-geologic-hydrogen-and-its-potential-role-in-a-net-zero-carbon-future.pdf",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "grids",
+  "region": "global",
+  "readiness": {
+   "stage": "pilot",
+   "basis": "ai-estimate"
+  },
+  "gb": {
+   "status": "not-yet",
+   "basis": "ai-estimate"
+  },
+  "forecast": {
+   "estimatedYear": 2028,
+   "estimatedOn": "2026-10-31",
+   "revisions": []
+  },
+  "evidence_terms": [
+   "first commercial production",
+   "late 2028",
+   "Mantle8",
+   "Bourakébougou"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "west-to-east-pure-hydrogen-pipeline-ulanqab-to-beijing-tianjin-hebei",
+  "field": "energy",
+  "origin": "industry",
+  "status": "outlook",
+  "title": "West-to-East pure hydrogen pipeline (Ulanqab to Beijing-Tianjin-Hebei)",
+  "research": {
+   "year": 2015,
+   "what": "Transporting pure hydrogen over long distances by dedicated steel pipeline, building on short industrial hydrogen pipelines in China. Origin: Sinopec's earlier short pure-hydrogen industrial pipelines (for example Jiyuan–Luoyang, 2015). This origin is from general knowledge and is not confirmed in the cited pages."
+  },
+  "change": {
+   "year": 2027,
+   "what": "Sinopec's roughly 1,145 km Ulanqab to Beijing-Tianjin-Hebei pipeline demonstration is planned to be built and put into operation in December 2027, starting at 100,000 tonnes of hydrogen a year."
+  },
+  "confidence": "medium",
+  "note": "It would be China's first long-distance, cross-provincial pure-hydrogen pipeline, linking green hydrogen from Inner Mongolia to refineries in the east.",
+  "desnz": "asset",
+  "refs": [
+   {
+    "label": "Solarbe: three pure-hydrogen pipelines to start construction (Chinese)",
+    "url": "https://news.solarbe.com/news/20250819/50006416.html",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Sohu: 2025 hydrogen pipeline progress, safety review passed (Chinese)",
+    "url": "https://www.sohu.com/a/967920572_120717004",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "grids",
+  "region": "asia",
+  "readiness": {
+   "stage": "pilot",
+   "basis": "ai-estimate"
+  },
+  "gb": {
+   "status": "not-yet",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": true,
+   "note": "It adds a networked, remotely monitored pipeline with SCADA and control systems, which become an operational technology target.",
+   "basis": "ai-compiled"
+  },
+  "forecast": {
+   "estimatedYear": 2027,
+   "estimatedOn": "2026-10-31",
+   "revisions": []
+  },
+  "evidence_terms": [
+   "西氢东送",
+   "乌兰察布",
+   "输氢管道",
+   "2027年12月"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "first-phone-npu-huawei-kirin-970-cambricon-ip",
+  "field": "hw",
+  "origin": "industry",
+  "status": "landed",
+  "title": "First phone NPU: Huawei Kirin 970 (Cambricon IP)",
+  "research": {
+   "year": 2013,
+   "what": "A Chinese Academy of Sciences team built a dedicated deep-learning processor architecture, which won a top architecture-conference best paper award. Origin: Cambricon / CAS Institute of Computing Technology deep-learning processor (2013 work, ASPLOS best paper)"
+  },
+  "change": {
+   "year": 2017,
+   "what": "Huawei launched the Kirin 970 phone chip with a dedicated neural processing unit built on Cambricon IP, and shipped it at scale in the Mate 10."
+  },
+  "confidence": "high",
+  "note": "It put a dedicated neural accelerator into a mass-market phone SoC and started on-device AI as a standard phone chip block.",
+  "flags": {
+   "aiDriven": true
+  },
+  "refs": [
+   {
+    "label": "PingWest: how the Kirin 970 phone AI chip came about",
+    "url": "https://www.pingwest.com/a/131989",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "ScienceNet: Can China lead the AI chip ecosystem",
+    "url": "https://news.sciencenet.cn/htmlnews/2017/9/387372.shtm",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "chips",
+  "region": "asia",
+  "readiness": {
+   "stage": "scale",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": false,
+   "note": "Local neural processing moves sensitive data handling and models onto handsets, creating new on-device model and firmware attack targets.",
+   "basis": "ai-compiled"
+  },
+  "evidence_terms": [
+   "麒麟970",
+   "寒武纪",
+   "NPU"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "intel-optane-first-3d-xpoint-storage-class-memory",
+  "field": "hw",
+  "origin": "industry",
+  "status": "landed",
+  "title": "Intel Optane: first 3D XPoint storage-class memory",
+  "research": {
+   "year": 2012,
+   "what": "Intel and Micron began developing a stackable cross-point non-volatile memory built on chalcogenide phase-change/threshold-switch materials, positioned between DRAM and NAND. Origin: Intel–Micron 3D XPoint development from around 2012 (announced July 2015), building on earlier phase-change memory work"
+  },
+  "change": {
+   "year": 2017,
+   "what": "Intel shipped the first Optane products based on 3D XPoint in 2017, starting with data-centre and consumer SSDs and later memory modules."
+  },
+  "confidence": "high",
+  "note": "It was the first volume storage-class memory with latency between NAND and DRAM, even though it was later discontinued.",
+  "refs": [
+   {
+    "label": "SiliconANGLE: Intel announces Optane, the first 3D XPoint SSD",
+    "url": "https://siliconangle.com/2017/03/20/intel-announces-optane-dc-4800x-first-storage-device-based-3d-xpoint-memory/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "TechTarget: 3D XPoint",
+    "url": "https://www.techtarget.com/it-infrastructure/definition/3D-XPoint",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "chips",
+  "region": "us",
+  "readiness": {
+   "stage": "commercial",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": false,
+   "note": "Persistent memory keeps data in memory across power cycles, which changes the threat model for memory scraping and encryption.",
+   "basis": "ai-compiled"
+  },
+  "evidence_terms": [
+   "3D Xpoint",
+   "Optane",
+   "Micron"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "gate-all-around-nanosheet-transistors-in-volume-samsung-3nm",
+  "field": "hw",
+  "origin": "industry",
+  "status": "landed",
+  "title": "Gate-all-around nanosheet transistors in volume (Samsung 3nm)",
+  "research": {
+   "year": 2017,
+   "what": "Gate-all-around transistors wrap the gate around all four sides of the channel; Samsung's version uses wide nanosheet channels (its MBCFET design). Origin: Samsung's proprietary MBCFET nanosheet GAA transistor development (start year approximate, not stated in the sources)"
+  },
+  "change": {
+   "year": 2022,
+   "what": "On 30 June 2022 Samsung started initial mass production of 3nm foundry chips using GAA, the first in the world to do so, replacing FinFET."
+  },
+  "confidence": "medium",
+  "note": "This was the first commercial move beyond FinFET transistor structure, and the industry has since followed with nanosheet GAA.",
+  "refs": [
+   {
+    "label": "Samsung Semiconductor Korea newsroom: 삼성전자, 세계 최초 3나노 파운드리 양산",
+    "url": "https://news.samsungsemiconductor.com/kr/%EC%82%BC%EC%84%B1%EC%A0%84%EC%9E%90-%EC%84%B8%EA%B3%84-%EC%B5%9C%EC%B4%88-3%EB%82%98%EB%85%B8-%ED%8C%8C%EC%9A%B4%EB%93%9C%EB%A6%AC-%EC%96%91%EC%82%B0/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Electronic Times (etnews): 삼성전자, 세계 최초 3나노 파운드리 양산 시작",
+    "url": "https://www.etnews.com/20220630000256",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Bloter: 세계 최초 3나노가 넘지 못한 수율의 벽",
+    "url": "https://www.bloter.net/news/articleView.html?idxno=667822",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "chips",
+  "region": "asia",
+  "readiness": {
+   "stage": "commercial",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": false,
+   "note": "No direct cyber security implications; it is a transistor process change.",
+   "basis": "ai-compiled"
+  },
+  "evidence_terms": [
+   "GAA",
+   "3나노",
+   "MBCFET",
+   "나노시트"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "processing-in-memory-hbm-samsung-hbm-pim-in-amd-mi100",
+  "field": "hw",
+  "origin": "industry",
+  "status": "landed",
+  "title": "Processing-in-memory HBM (Samsung HBM-PIM in AMD MI100)",
+  "research": {
+   "year": 2021,
+   "what": "HBM memory with AI processing engines built into the DRAM so some computation happens inside the memory, which cuts data movement. Origin: Samsung HBM-PIM, announced February 2021 on HBM2 Aquabolt; later presented at ISSCC with AMD"
+  },
+  "change": {
+   "year": 2022,
+   "what": "Samsung put HBM-PIM into AMD Instinct MI100 accelerator cards and built a cluster of them, which Samsung and AMD reported cut energy use while raising performance in large AI/HPC tests."
+  },
+  "confidence": "medium",
+  "note": "This is the first in-DRAM AI compute demonstrated in accelerator systems. Sources describe the use as limited or prototype, so commercial volume is not shown.",
+  "flags": {
+   "aiDriven": true
+  },
+  "refs": [
+   {
+    "label": "Samsung Newsroom Korea: 삼성전자, 세계 최초 인공지능 HBM-PIM 개발",
+    "url": "https://news.samsung.com/medialibrary/kr/photo/49762?page=77",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Digital Daily: 삼성전자, 기술로 메모리 1위 지킨다…AMD 협력 확대",
+    "url": "https://m.ddaily.co.kr/page/view/2022102017594838428",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Asia Economy: [AI혁명](25) AI 미래 책임지는 'HBM-PIM'",
+    "url": "https://www.asiae.co.kr/article/2023042619161228138",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "chips",
+  "region": "asia",
+  "readiness": {
+   "stage": "pilot",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": false,
+   "note": "No direct cyber security implications.",
+   "basis": "ai-compiled"
+  },
+  "evidence_terms": [
+   "HBM-PIM",
+   "MI100",
+   "프로세싱 인 메모리",
+   "PIM"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "wasi-1-0-and-component-model-1-0-stable-standards",
+  "field": "sw",
+  "origin": "industry",
+  "status": "outlook",
+  "title": "WASI 1.0 and Component Model 1.0 stable standards",
+  "research": {
+   "year": 2019,
+   "what": "WASI defines a standard system interface for WebAssembly outside the browser. The Component Model adds language-neutral interfaces so modules written in different languages can be composed. Origin: The WASI system interface for WebAssembly, first published as 'preview1' in about 2019. It became WASI 0.2 with the Component Model in January 2024 and WASI 0.3 with native async in June 2026, under the Bytecode Alliance and the W3C WebAssembly WASI subgroup."
+  },
+  "change": {
+   "year": 2027,
+   "what": "The WASI roadmap plans two-monthly 0.3.x releases through 2027, and WASI 1.0 may be scheduled outside that cycle. Other coverage expects 1.0 in late 2026 or early 2027. 1.0 depends on the Component Model reaching 1.0 first."
+  },
+  "confidence": "medium",
+  "note": "A 1.0 release would give a stable, portable server-side and edge runtime interface with compatibility guarantees. No firm 1.0 date has been published.",
+  "refs": [
+   {
+    "label": "WASI.dev Roadmap (release schedule through 2027)",
+    "url": "https://wasi.dev/roadmap",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Uno Platform: The State of WebAssembly 2025 and 2026",
+    "url": "https://platform.uno/blog/the-state-of-webassembly-2025-2026/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Bytecode Alliance: The Road to Component Model 1.0 (draft blog PR, Apr 2026)",
+    "url": "https://github.com/bytecodealliance/bytecodealliance.org/pull/147/files",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "apps",
+  "region": "global",
+  "readiness": {
+   "stage": "commercial",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": false,
+   "note": "Capability-based, sandboxed components could reduce supply-chain risk, but a wider ecosystem of third-party components also adds packaging and dependency risk.",
+   "basis": "ai-compiled"
+  },
+  "forecast": {
+   "estimatedYear": 2027,
+   "estimatedOn": "2026-10-31",
+   "revisions": []
+  },
+  "evidence_terms": [
+   "WASI 1.0",
+   "Component Model",
+   "WASI 0.3",
+   "Roadmap"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "koreas-independent-ai-foundation-model-programme-ai",
+  "field": "sw",
+  "origin": "government",
+  "status": "outlook",
+  "title": "Korea's Independent AI Foundation Model programme (독자 AI 파운데이션 모델)",
+  "research": {
+   "year": 2025,
+   "what": "Korea's science ministry funds competing elite teams (Naver, Upstage, SK Telecom, NC AI, LG AI Research) to build foundation models designed and trained wholly in Korea, with GPUs, data and talent support. Origin: MSIT 'Independent AI Foundation Model' project, announced 20 June 2025 (formerly called World Best LLM)"
+  },
+  "change": {
+   "year": 2027,
+   "what": "The programme runs in six-month competitive evaluation rounds through 2027. It targets about 95% of the performance of leading global models, with open-source release to spread them into public and commercial services."
+  },
+  "confidence": "medium",
+  "note": "It is a state-backed route to nationally owned LLMs deployed in public and commercial services, with staged milestones through 2027.",
+  "flags": {
+   "aiDriven": true
+  },
+  "refs": [
+   {
+    "label": "전자신문 – [ICT 시사용어] 독자 AI 파운데이션 모델",
+    "url": "https://www.etnews.com/20250729000217",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "정책브리핑 – 독자 AI 파운데이션 모델 프로젝트 1차 단계 평가 결과",
+    "url": "https://www.korea.kr/briefing/policyBriefingView.do?newsId=156740468",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "apps",
+  "region": "asia",
+  "readiness": {
+   "stage": "pilot",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": false,
+   "note": "Fully domestic model stacks reduce supply-chain dependence but make the models a concentrated target for tampering and misuse.",
+   "basis": "ai-compiled"
+  },
+  "forecast": {
+   "estimatedYear": 2027,
+   "estimatedOn": "2026-10-31",
+   "revisions": []
+  },
+  "evidence_terms": [
+   "독자 AI 파운데이션 모델",
+   "정예팀",
+   "2027년"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "furiosaai-rngd-inference-chip-adopted-for-lg-exaone",
+  "field": "ai",
+  "origin": "industry",
+  "status": "landed",
+  "title": "FuriosaAI RNGD inference chip adopted for LG EXAONE",
+  "research": {
+   "year": 2023,
+   "what": "FuriosaAI designed its second-generation RNGD inference accelerator around its own Tensor Contraction Processor architecture, and LG AI Research began co-development and evaluation with it before the product was commercialised. Origin: FuriosaAI Tensor Contraction Processor architecture; LG AI Research collaboration and evaluation starting about two years before July 2025"
+  },
+  "change": {
+   "year": 2025,
+   "what": "In July 2025 LG AI Research confirmed adoption of RNGD for EXAONE after months of pilot testing, claiming 2.25x better performance per watt than GPUs, with enterprise EXAONE solutions planned on it."
+  },
+  "confidence": "medium",
+  "note": "A non-GPU Korean AI accelerator accepted for production large-language-model inference at a major conglomerate.",
+  "refs": [
+   {
+    "label": "Electronic Times (etnews): LG EXAONE confirms adoption of FuriosaAI RNGD",
+    "url": "https://www.etnews.com/20250722000329",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Autodaily (엠투데이): FuriosaAI supplies RNGD to LG EXAONE",
+    "url": "https://www.autodaily.co.kr/news/articleView.html?idxno=533900",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "methods",
+  "region": "asia",
+  "readiness": {
+   "stage": "commercial",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": false,
+   "note": "Adds a non-GPU accelerator stack with its own firmware and software supply chain to enterprise AI infrastructure.",
+   "basis": "ai-compiled"
+  },
+  "evidence_terms": [
+   "레니게이드",
+   "RNGD",
+   "엑사원",
+   "퓨리오사AI"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "tesla-ai5-inference-chip-in-volume-production",
+  "field": "ai",
+  "origin": "industry",
+  "status": "outlook",
+  "title": "Tesla AI5 inference chip in volume production",
+  "research": {
+   "year": 2025,
+   "what": "Tesla designed AI5, a 2nm-class inference chip rated at about 2,000–2,500 TOPS, to run its self-driving stack, the Optimus robot and data-centre inference. Origin: Tesla's in-house AI5 design, following its earlier AI4 self-driving computer, taped out in April 2026 with trial production at Samsung's Taylor fab"
+  },
+  "change": {
+   "year": 2027,
+   "what": "Tesla and its foundry partners (TSMC and Samsung) are targeting volume production of AI5 from mid-2027. Meaningful deployment in vehicles is expected later, and the schedule has slipped before."
+  },
+  "confidence": "medium",
+  "note": "This would be a vertically integrated automotive and robot AI chip made in volume at two foundries on a 2nm-class process.",
+  "refs": [
+   {
+    "label": "autoevolution: AI5 enters trial production at Samsung Taylor, volume in 2027",
+    "url": "https://www.autoevolution.com/news/tesla-s-ai5-chip-enters-trial-production-as-samsung-gets-the-taylor-fab-running-275799.html",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Electrek: Tesla taped out AI5, volume production still over a year away",
+    "url": "https://electrek.co/2026/04/15/tesla-ai5-chip-taped-out-musk-ai6-dojo3/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "methods",
+  "region": "us",
+  "readiness": {
+   "stage": "research",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": true,
+   "note": "Putting more powerful on-board AI compute in vehicles and robots widens the attack surface for over-the-air updates and model tampering.",
+   "basis": "ai-compiled"
+  },
+  "forecast": {
+   "estimatedYear": 2027,
+   "estimatedOn": "2026-10-31",
+   "revisions": []
+  },
+  "evidence_terms": [
+   "AI5",
+   "Samsung",
+   "Taylor",
+   "volume production"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "spinq-gemini-desktop-nmr-quantum-computer",
+  "field": "quantum",
+  "origin": "academic",
+  "status": "landed",
+  "title": "SpinQ Gemini desktop NMR quantum computer (双子座)",
+  "research": {
+   "year": 2017,
+   "what": "Room-temperature nuclear-magnetic-resonance quantum computing in a spin-qubit lab at Shenzhen was turned into a small permanent-magnet two-qubit machine for teaching. Origin: Spin Quantum Computing Laboratory, founded Sept 2017 at SUSTech / Shenzhen Institute for Quantum Science and Engineering / Peng Cheng Laboratory (NMR and ODMR platforms)"
+  },
+  "change": {
+   "year": 2020,
+   "what": "Shenzhen SpinQ (量旋科技) launched Gemini in January 2020, billed as the first commercially available desktop quantum computer, and sold it to universities."
+  },
+  "confidence": "high",
+  "note": "It put a real, maintenance-free quantum processor into classrooms at a price universities could afford, opening a quantum-education hardware market.",
+  "refs": [
+   {
+    "label": "阿里云创新中心：量旋科技再获千万融资 (Chinese)",
+    "url": "https://startup.aliyun.com/info/107699.html",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "arXiv: SpinQ Gemini: a desktop quantum computer for education and research",
+    "url": "https://arxiv.org/abs/2101.10017",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "The Quantum Insider: Scientists Fire Up a Commercially Available Desktop Quantum Computer",
+    "url": "https://thequantuminsider.com/2020/01/29/scientists-fire-up-a-commercially-available-desktop-quantum-computer/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "devices",
+  "region": "asia",
+  "readiness": {
+   "stage": "commercial",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": false,
+   "note": "It is an educational device with little direct security impact. It does widen the pool of people trained in quantum computing.",
+   "basis": "ai-compiled"
+  },
+  "evidence_terms": [
+   "量旋科技",
+   "双子座",
+   "SpinQ Gemini"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "quantum-origin-verifiable-quantum-randomness-for-keys",
+  "field": "quantum",
+  "origin": "industry",
+  "status": "landed",
+  "title": "Quantum Origin: verifiable quantum randomness for keys",
+  "research": {
+   "year": 2007,
+   "what": "Randomness certified by Bell tests and processed with seeded extractors, so that key material is provably random. Origin: Device-independent randomness work from Cambridge (Colbeck's 2007 Cambridge thesis), later commercialised by Cambridge Quantum, now Quantinuum."
+  },
+  "change": {
+   "year": 2021,
+   "what": "Cambridge Quantum launched Quantum Origin as a commercial cryptographic key platform seeded with verifiable randomness from a trapped-ion quantum computer. It later gained NIST SP 800-90B validation in 2025."
+  },
+  "confidence": "medium",
+  "note": "Described by its maker as the first commercial product built on a quantum computer to deliver a result that classical machines cannot match.",
+  "refs": [
+   {
+    "label": "Quantinuum: Introducing Quantum Origin",
+    "url": "https://www.quantinuum.com/blog/introducing-quantum-origin",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "HPCwire: NIST Validates Quantinuum Cryptography Solution – Origin",
+    "url": "https://www.hpcwire.com/2025/04/02/nist-validates-quantinuum-cryptography-solution-origin/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "devices",
+  "region": "uk",
+  "readiness": {
+   "stage": "commercial",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": false,
+   "note": "It strengthens cryptographic key generation against weak-entropy failures, and it supports post-quantum migration.",
+   "basis": "ai-compiled"
+  },
+  "evidence_terms": [
+   "Quantum Origin",
+   "Cambridge Quantum",
+   "verifiable quantum randomness",
+   "Quantum Seed"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "kaiser-kernel-isolation-basis-of-linux-kpti-against-meltdown",
+  "field": "cyber",
+  "origin": "academic",
+  "status": "landed",
+  "title": "KAISER kernel isolation, basis of Linux KPTI against Meltdown",
+  "research": {
+   "year": 2017,
+   "what": "TU Graz researchers proposed KAISER, which unmaps most kernel memory while user code runs, to close side channels that defeat kernel address randomisation. Origin: Gruss, Lipp, Schwarz, Fellner, Maurice, Mangard, 'KASLR is Dead: Long Live KASLR', ESSoS 2017 (TU Graz)"
+  },
+  "change": {
+   "year": 2018,
+   "what": "KAISER became the basis of kernel page-table isolation, merged into Linux 4.15 and backported to stable kernels (the commit landed on 29 Dec 2017), with similar fixes in Windows and macOS, as the main Meltdown mitigation."
+  },
+  "confidence": "high",
+  "note": "It was the first widely deployed software defence against Meltdown, reaching almost all PCs, servers and cloud hosts.",
+  "refs": [
+   {
+    "label": "TU Graz: TU Graz researchers discover serious security vulnerabilities",
+    "url": "https://www.tugraz.at/en/news/article/tu-graz-researchers-discover-serious-security-vulnerabilities",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "LWN.net: A look at the handling of Meltdown and Spectre",
+    "url": "https://lwn.net/Articles/743363/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "network",
+  "region": "europe",
+  "readiness": {
+   "stage": "scale",
+   "basis": "ai-estimate"
+  },
+  "evidence_terms": [
+   "KAISER",
+   "Meltdown",
+   "KPTI",
+   "TU Graz"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "on-device-ai-detection-of-fake-voices-in-calls-lg-u-ixi-o",
+  "field": "cyber",
+  "origin": "industry",
+  "status": "landed",
+  "title": "On-device AI detection of fake voices in calls (LG U+ ixi-O)",
+  "research": {
+   "year": 2024,
+   "what": "Anti-spoofing models that tell synthetic or altered voices from real ones, shrunk enough to run on a phone, so the call audio never leaves the device. Origin: LG Uplus in-house Anti-DeepVoice work with LG AI Research (voice activity detection, speech-to-text and anti-spoofing, trained on about 3,000 hours of call data), first shown at MWC in March 2025"
+  },
+  "change": {
+   "year": 2025,
+   "what": "LG Uplus released Anti-DeepVoice in its ixi-O AI call app on 30 June 2025. It flags forged voices within about 5 seconds, and the company says it is the first on-device commercial release of the technology."
+  },
+  "confidence": "medium",
+  "note": "It moves defence against AI voice-cloning phone fraud onto the handset, so no call data has to be uploaded to a server.",
+  "flags": {
+   "aiDriven": true
+  },
+  "refs": [
+   {
+    "label": "전자신문 (ETNews): LG유플러스, AI로 보이스피싱 잡는 '안티딥보이스' 세계최초 상용화",
+    "url": "https://www.etnews.com/20250626000334",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "중앙이코노미뉴스: LG유플러스, 온디바이스 AI 기반 '안티딥보이스' 세계 최초 상용화",
+    "url": "https://www.joongangenews.com/news/articleView.html?idxno=429383",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "network",
+  "region": "asia",
+  "readiness": {
+   "stage": "commercial",
+   "basis": "ai-estimate"
+  },
+  "evidence_terms": [
+   "안티딥보이스",
+   "익시오",
+   "온디바이스",
+   "LG유플러스"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "european-cybersecurity-alert-system-cross-border-cyber-hubs",
+  "field": "cyber",
+  "origin": "government",
+  "status": "outlook",
+  "title": "European Cybersecurity Alert System (cross-border cyber hubs)",
+  "research": {
+   "year": 2021,
+   "what": "A pilot funded by the European Commission linked national security operations centres (SOCs) across EU states, to share threat data and build joint detection tools. Origin: European Commission cross-border SOC pilot project launched in 2021; first phase of Digital Europe Programme consortia selected November 2022 (ATHENA, ENSOC)"
+  },
+  "change": {
+   "year": 2028,
+   "what": "The hubs are meant to become a working EU-wide network that pools threat data and issues real-time alerts. The European Court of Auditors says it is not yet functioning, and the ENSOC platform project runs to June 2028."
+  },
+  "confidence": "medium",
+  "note": "It would be Europe's first shared, near-real-time cyber threat detection layer across national SOCs. Delays in procurement, cooperation agreements and standards put the timing at risk.",
+  "refs": [
+   {
+    "label": "European Court of Auditors, Special Report 19/2026 on detecting and responding to cybersecurity incidents",
+    "url": "https://www.eca.europa.eu/ECAPublications/SR-2026-19/SR-2026-19_EN.pdf",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "ENSOC - European Network of SOC (project page)",
+    "url": "https://ensoc.eu/index.html",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Computer Weekly: EU states failing to exchange information on cross-border cyber security attacks",
+    "url": "https://www.computerweekly.com/news/366650821/EU-states-failing-to-exchange-information-on-cross-border-cyber-security-attacks",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "network",
+  "region": "europe",
+  "readiness": {
+   "stage": "pilot",
+   "basis": "ai-estimate"
+  },
+  "forecast": {
+   "estimatedYear": 2028,
+   "estimatedOn": "2026-10-31",
+   "revisions": []
+  },
+  "evidence_terms": [
+   "European Cybersecurity Alert System",
+   "ATHENA",
+   "ENSOC",
+   "Cross-Border Cyber Hubs"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "nasa-dsoc-laser-communications-across-deep-space",
+  "field": "comms",
+  "origin": "government",
+  "status": "landed",
+  "title": "NASA DSOC: laser communications across deep space",
+  "research": {
+   "year": 2015,
+   "what": "JPL developed a flight laser transceiver and ground laser terminals to test near-infrared optical links from beyond the Moon, building on earlier NASA optical-communication demos. Origin: NASA JPL Deep Space Optical Communications (DSOC) technology demonstration, described in a 2015 NASA/JPL project paper"
+  },
+  "change": {
+   "year": 2023,
+   "what": "On 14 November 2023 the DSOC transceiver aboard the Psyche spacecraft reached 'first light' and exchanged laser data from about 16 million km away, the first optical link in deep space."
+  },
+  "confidence": "high",
+  "note": "First demonstration of laser (optical) communications across deep space, a route to much higher data rates than radio for future missions.",
+  "refs": [
+   {
+    "label": "NASA: DSOC sends, receives first data",
+    "url": "https://www.nasa.gov/missions/psyche-mission/nasas-deep-space-optical-comm-demo-sends-receives-first-data",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "CNN: most distant demo of laser communications",
+    "url": "https://www.cnn.com/2023/11/24/world/nasa-psyche-dsoc-first-light-scn/index.html",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "internet",
+  "region": "us",
+  "tags": [
+   "space"
+  ],
+  "readiness": {
+   "stage": "pilot",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": false,
+   "note": "Narrow laser beams are hard to intercept or jam, but pointing and ground-station control systems become new targets.",
+   "basis": "ai-compiled"
+  },
+  "evidence_terms": [
+   "Deep Space Optical Communications",
+   "first light",
+   "Psyche",
+   "DSOC"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "queqiao-lunar-comms-navigation-sensing-constellation",
+  "field": "comms",
+  "origin": "government",
+  "status": "outlook",
+  "title": "Queqiao lunar comms-navigation-sensing constellation",
+  "research": {
+   "year": 2018,
+   "what": "Queqiao relay satellites in Earth-Moon space, followed by the Queqiao-2 relay and the Tiandu-1 and Tiandu-2 test satellites, which were used to validate a lunar communication and navigation constellation design. Origin: Queqiao-1 lunar relay (2018) and Queqiao-2 with Tiandu-1/2 (2024), China's lunar exploration programme; the integrated constellation concept was presented in 2023 at the first Tiandu deep-space exploration conference."
+  },
+  "change": {
+   "year": 2030,
+   "what": "China plans a pilot Queqiao constellation of lunar communication, navigation and remote-sensing satellites around 2030. It would support Chang'e-7/8 follow-on lunar missions and the International Lunar Research Station, with a fuller lunar backbone link by about 2040."
+  },
+  "confidence": "medium",
+  "note": "This would be China's lunar data-relay and positioning infrastructure. It is a published, staged national plan, not speculation.",
+  "refs": [
+   {
+    "label": "CNSA (Wu Weiren on the International Lunar Research Station and Queqiao constellation)",
+    "url": "https://www.cnsa.gov.cn/n6758823/n6758844/n10663475/n10663516/c10668780/content.html",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Tencent News: Queqiao, Chang'e-6 and the three-step constellation plan",
+    "url": "https://news.qq.com/rain/a/20240625A067ZV00",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Journal of Deep Space Exploration 2025 (Queqiao constellation information system)",
+    "url": "https://jdse.bit.edu.cn/sktcxb/cn/article/pdf/preview/10.3724/j.issn.2096-9287.2025.20250083.pdf",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "internet",
+  "region": "asia",
+  "readiness": {
+   "stage": "pilot",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": true,
+   "note": "It adds a space-based relay and navigation link for lunar missions, which creates new communication links and ground-segment targets to protect.",
+   "basis": "ai-compiled"
+  },
+  "forecast": {
+   "estimatedYear": 2030,
+   "estimatedOn": "2026-10-31",
+   "revisions": []
+  },
+  "evidence_terms": [
+   "鹊桥通导遥综合星座",
+   "2030年前后",
+   "嫦娥",
+   "国际月球科研站"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "reconfigurable-intelligent-surfaces-ris-for-6g-coverage",
+  "field": "comms",
+  "origin": "academic",
+  "status": "outlook",
+  "title": "Reconfigurable intelligent surfaces (RIS) for 6G coverage",
+  "research": {
+   "year": 2014,
+   "what": "Programmable metasurfaces that steer radio waves passively or semi-actively to extend and shape wireless coverage. They grew out of Chinese information-metamaterial research and theoretical RIS work from 2014 onward. Origin: Southeast University information-metamaterials team (Cui Tiejun) with China Mobile, whose 2021 Nanjing field trial of a tunable RIS followed the 2020 IMT-2030 (6G) Promotion Group RIS task force."
+  },
+  "change": {
+   "year": 2030,
+   "what": "RIS is a listed key 6G technology within China's IMT-2030 programme, which is in its second trial stage (2026–2027). The first commercial 6G systems are expected around 2030, which is when RIS is expected to see real network use, with scaled deployment around 2035."
+  },
+  "confidence": "medium",
+  "note": "RIS is on China's 6G standardisation and trial roadmap. It is a coverage-enhancement component, not the whole of 6G.",
+  "refs": [
+   {
+    "label": "Sanpijiang report: 6G definition, key technologies, timeline (RIS, 2030 commercial launch)",
+    "url": "https://www.sgpjbg.com/news/7030721.html",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "2026 Global 6G Technology and Industry Ecosystem Conference: RIS standardisation and industrialisation",
+    "url": "https://www.g6gconference.com/index/Details/index.html?id=1086",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Sina Tech: China Mobile and Cui Tiejun's team complete RIS trial",
+    "url": "https://finance.sina.com.cn/tech/2021-07-19/doc-ikqciyzk6336841.shtml",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "internet",
+  "region": "asia",
+  "readiness": {
+   "stage": "pilot",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": true,
+   "note": "Programmable surfaces in the radio path add a new controllable element that attackers could misconfigure or spoof, so they need authenticated control channels.",
+   "basis": "ai-compiled"
+  },
+  "forecast": {
+   "estimatedYear": 2030,
+   "estimatedOn": "2026-10-31",
+   "revisions": []
+  },
+  "evidence_terms": [
+   "智能超表面",
+   "IMT-2030",
+   "RIS",
+   "6G"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "rare-earth-free-iron-nitride-magnets-first-full-scale-plant",
+  "field": "materials",
+  "origin": "industry",
+  "status": "outlook",
+  "title": "Rare-earth-free iron nitride magnets: first full-scale plant",
+  "research": {
+   "year": 2016,
+   "what": "Permanent magnets made from iron and nitrogen, with no rare earths, moved from lab-scale research to a pilot line. Origin: Niron Magnetics' lab-scale iron nitride magnet research, backed by the Shakopee Mdewakanton Sioux Community from 2016, then a Minneapolis commercial pilot plant opened in 2024"
+  },
+  "change": {
+   "year": 2027,
+   "what": "Niron's Sartell, Minnesota Plant 1 is due to begin production in 2027 at up to 1,500 tonnes of magnets a year."
+  },
+  "confidence": "high",
+  "note": "It would be the first commercial-scale alternative to NdFeB magnets for motors, wind turbines and electronics.",
+  "refs": [
+   {
+    "label": "Niron Magnetics press release (Feb 2026): Sartell facility expected to begin production in 2027",
+    "url": "https://nironmagnetics.com/niron-magnetics-strengthens-local-ties-by-joining-sartell-chamber-of-commerce-ahead-of-new-facility/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Wood: EPCM contract for the world's first iron nitride magnet plant",
+    "url": "https://www.woodgroup.com/news/niron-iron-nitride-permanent-magnet-plant",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "InForum/Echo Press: Sartell steel-raising event, 9 Sept 2026",
+    "url": "https://www.echopress.com/business/minnesota-city-celebrates-manufacturer-at-steel-raising-event",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "polymers",
+  "region": "us",
+  "readiness": {
+   "stage": "commercial",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": false,
+   "note": "Supply-chain resilience for magnet-dependent defence and energy equipment; no direct cyber attack surface.",
+   "basis": "ai-compiled"
+  },
+  "forecast": {
+   "estimatedYear": 2027,
+   "estimatedOn": "2026-10-31",
+   "revisions": []
+  },
+  "evidence_terms": [
+   "Iron Nitride",
+   "Sartell",
+   "Niron Magnetics",
+   "1,500 tons"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "proba-3-artificial-solar-eclipse-by-formation-flying",
   "field": "space",
   "origin": "government",
   "status": "landed",
-  "title": "V-2 (A-4): first object to reach space",
+  "title": "Proba-3: artificial solar eclipse by formation flying",
   "research": {
-   "year": 1936,
-   "what": "German army engineers at Peenemünde began developing the large liquid-propellant A-4 rocket, building on the earlier Aggregat test vehicles. Origin: Peenemünde Army Research Center A-series (A1–A4) programme under Wernher von Braun, development from 1936"
+   "year": 2017,
+   "what": "Two ESA spacecraft flying in precise formation about 150 m apart so that one blocks the Sun for the other, forming a space-based coronagraph. Origin: ESA Proba-3 precision formation-flying mission with the ASPIICS coronagraph (Centre Spatial de Liège); described as a planned mission in a 2017 literature review"
   },
   "change": {
-   "year": 1944,
-   "what": "Test launch MW 18014 on 20 June 1944 took an A-4/V-2 to about 176 km, above the later 100 km Kármán line, making it the first human-made object to reach space; the V-2 then entered service as the first long-range ballistic missile."
+   "year": 2025,
+   "what": "In June 2025 ESA released the first images of the solar corona taken during an artificial total eclipse created autonomously in orbit."
   },
   "confidence": "high",
-  "note": "The V-2 was the technical and personnel basis for the US and Soviet rocket programmes that led to satellites and crewed flight.",
+  "note": "First demonstration of autonomous millimetre-class formation flying used to make an on-demand eclipse for science, with a hold time of up to 6 hours per orbit.",
   "refs": [
    {
-    "label": "MW 18014 (Wikipedia)",
-    "url": "https://en.wikipedia.org/wiki/MW_18014",
+    "label": "ESA France – Première éclipse solaire artificielle de Proba-3",
+    "url": "https://www.esa.int/Space_in_Member_States/France/Premiere_eclipse_solaire_artificielle_de_Proba-3",
     "status": "ok",
     "checked": "2026-10-31"
    },
    {
-    "label": "Astronomy: Remembering MW 18014, 80 years later",
-    "url": "https://www.astronomy.com/space-exploration/devils-bargain-remembering-mw-18014-80-years-later/",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "Space.com: V2 rocket origin, history and legacy",
-    "url": "https://www.space.com/v2-rocket",
+    "label": "RTBF – Proba-3 : une première éclipse artificielle pour observer la couronne du soleil",
+    "url": "https://www.rtbf.be/article/proba-3-une-premiere-eclipse-artificielle-pour-observer-la-couronne-du-soleil-11562757",
     "status": "ok",
     "checked": "2026-10-31"
    }
@@ -94,21 +1283,1195 @@
   "subfield": "launch",
   "region": "europe",
   "readiness": {
+   "stage": "commercial",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": false,
+   "note": "Autonomous formation control without ground intervention adds a software-dependent spacecraft control chain that would need protecting against tampering.",
+   "basis": "ai-compiled"
+  },
+  "evidence_terms": [
+   "éclipse solaire artificielle",
+   "Proba-3",
+   "ASPIICS",
+   "couronne solaire"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "tianwen-2-chinas-first-asteroid-sample-return",
+  "field": "space",
+  "origin": "government",
+  "status": "outlook",
+  "title": "Tianwen-2: China's first asteroid sample return",
+  "research": {
+   "year": 2018,
+   "what": "Chinese concept studies for a mission to sample near-Earth asteroid 2016 HO3 and then visit a main-belt comet, with three sampling modes: touch-and-go, hovering and anchoring. Origin: China's planetary exploration programme: the mission was first known as 'Zheng He' (2018–2020) and was formally approved in 2023."
+  },
+  "change": {
+   "year": 2027,
+   "what": "The Tianwen-2 return capsule is planned to land on Earth in late 2027 with at least 100 g of asteroid material, which would be China's first asteroid sample return."
+  },
+  "confidence": "high",
+  "note": "It would be the third national programme to return asteroid material, and it tests sampling methods suited to uncertain asteroid surfaces.",
+  "refs": [
+   {
+    "label": "国家国防科技工业局 (SASTIND): 天问二号为啥要去小行星",
+    "url": "https://www.sastind.gov.cn/n10086205/n10086408/n10104265/c10706560/content.html",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "新华网: 中国航天史上最长任务开启 谁来接力“天问”？",
+    "url": "https://www.news.cn/politics/20250530/09773b4d15464a199f7f077ebc2dd225/c.html",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "launch",
+  "region": "asia",
+  "readiness": {
+   "stage": "pilot",
+   "basis": "ai-estimate"
+  },
+  "forecast": {
+   "estimatedYear": 2027,
+   "estimatedOn": "2026-10-31",
+   "revisions": []
+  },
+  "evidence_terms": [
+   "天问二号",
+   "2016HO3",
+   "采样",
+   "2027年底"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "fission-surface-power-nuclear-reactor-on-the-moon-by-2030",
+  "field": "space",
+  "origin": "government",
+  "status": "outlook",
+  "title": "Fission Surface Power: nuclear reactor on the Moon by 2030",
+  "research": {
+   "year": 2018,
+   "what": "NASA and the US Department of Energy have developed small space fission reactors, including the Fission Surface Power project begun in 2018, to supply continuous power through the two-week lunar night. Origin: NASA's Fission Surface Power Project (from 2018), which led to three 40 kW design contracts in 2022 and the 2025 NASA–DOE agreement."
+  },
+  "change": {
+   "year": 2030,
+   "what": "NASA and DOE aim to have a lunar surface fission reactor, now with a target of at least 100 kW, ready for launch by 2030. A separate US directive also asks for a reactor that powers a spacecraft's electric thrusters."
+  },
+  "confidence": "medium",
+  "note": "Continuous power is needed for long-term lunar bases and for extracting resources. The schedule has been accelerated and carries technical and fuelling risk.",
+  "refs": [
+   {
+    "label": "US Department of Energy: DOE and NASA to Develop Lunar Surface Reactor by 2030",
+    "url": "https://www.energy.gov/node/4855740",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Aviation Week: NASA Aims To Launch Lunar Fission Reactor By 2030",
+    "url": "https://aviationweek.com/space/budget-policy-regulation/nasa-aims-launch-lunar-fission-reactor-2030",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "launch",
+  "region": "us",
+  "readiness": {
+   "stage": "pilot",
+   "basis": "ai-estimate"
+  },
+  "forecast": {
+   "estimatedYear": 2030,
+   "estimatedOn": "2026-10-31",
+   "revisions": []
+  },
+  "evidence_terms": [
+   "fission surface power",
+   "lunar surface reactor",
+   "2030",
+   "NASA"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "naver-1784-cloud-brained-brainless-robots-at-work",
+  "field": "robotics",
+  "origin": "industry",
+  "status": "landed",
+  "title": "NAVER 1784: cloud-brained 'brainless' robots at work",
+  "research": {
+   "year": 2019,
+   "what": "NAVER LABS developed a cloud-based multi-robot intelligence system (ARC: AI, Robot, Cloud) in which robots carry no onboard 'brain' and are controlled over low-latency 5G. Origin: NAVER LABS ARC (AI·Robot·Cloud) brainless-robot / 5G cloud control research, around 2019 (year approximate, not stated in the cited pages)"
+  },
+  "change": {
+   "year": 2022,
+   "what": "In 2022 NAVER opened its robot-friendly 1784 headquarters, where about 100 'Rookie' brainless robots deliver parcels, lunch boxes and coffee, using a robot-only elevator and a private 5G network."
+  },
+  "confidence": "medium",
+  "note": "First large-scale building where a cloud 'brain' runs roughly a hundred service robots in daily office work, later offered as a commercial robot-cloud service.",
+  "flags": {
+   "aiDriven": true
+  },
+  "refs": [
+   {
+    "label": "전자신문 (etnews) – 네이버 1784, 거대한 로봇 실험장 (2022)",
+    "url": "https://www.etnews.com/20220414000243",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "서울경제 (sedaily) – [2022 한국건축문화대상] 네이버 1784",
+    "url": "https://www.sedaily.com/article/13509205",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "industrial",
+  "region": "asia",
+  "readiness": {
+   "stage": "commercial",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": true,
+   "note": "Moving robot control into the cloud over 5G means a compromise of the cloud or network could take over a whole fleet and connected building systems such as lifts and doors.",
+   "basis": "ai-compiled"
+  },
+  "evidence_terms": [
+   "브레인리스",
+   "아크",
+   "ARC",
+   "루키",
+   "1784"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "baloxavir-xofluza-single-dose-cap-endonuclease-flu-drug",
+  "field": "life",
+  "origin": "industry",
+  "status": "landed",
+  "title": "Baloxavir (Xofluza): single-dose cap-endonuclease flu drug",
+  "research": {
+   "year": 2015,
+   "what": "Shionogi created an influenza antiviral that blocks the virus's cap-dependent endonuclease, a different mechanism from neuraminidase inhibitors such as Tamiflu. Origin: Shionogi (Osaka) in-house discovery of S-033188 (baloxavir marboxil); designated for Japan's Sakigake fast-track review in October 2015 (the discovery itself started earlier)."
+  },
+  "change": {
+   "year": 2018,
+   "what": "Japan approved it on 23 Feb 2018 and Shionogi launched it on 14 Mar 2018, the first flu treatment completed with one tablet dose."
+  },
+  "confidence": "medium",
+  "note": "First new-mechanism flu antiviral in years, developed in Japan and launched there first.",
+  "refs": [
+   {
+    "label": "Nikkei – Shionogi launch press release (14 Mar 2018)",
+    "url": "https://www.nikkei.com/article/DGXLRSP474307_U8A310C1000000/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "薬事日報 – ゾフルーザ錠が国内承認",
+    "url": "https://www.yakuji.co.jp/entry63561.html",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Nikkei Bio Tech ONLINE – キャップ依存性エンドヌクレアーゼ阻害薬",
+    "url": "https://bio.nikkeibp.co.jp/atcl/report/16/011900001/18/02/08/00157/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "medicines",
+  "region": "asia",
+  "readiness": {
    "stage": "scale",
    "basis": "ai-estimate"
   },
   "security": {
    "expandsAttackSurface": false,
-   "note": "It started the ballistic-missile era and the military dependence on space-launch and guidance technology.",
+   "note": "Not a connected system, so there is little direct cyber relevance.",
    "basis": "ai-compiled"
   },
   "evidence_terms": [
-   "V-2",
-   "MW 18014",
-   "Peenemünde",
-   "A-4"
+   "ゾフルーザ",
+   "キャップ依存性エンドヌクレアーゼ阻害",
+   "バロキサビル マルボキシル",
+   "塩野義製薬"
   ],
   "proposed": "2026-10-31",
-  "attempts": 1
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "m72-as01e-first-new-tb-vaccine-in-a-century",
+  "field": "life",
+  "origin": "academic",
+  "status": "outlook",
+  "title": "M72/AS01E: first new TB vaccine in a century",
+  "research": {
+   "year": 2018,
+   "what": "A two-dose adjuvanted protein vaccine (M72/AS01E) cut progression to active pulmonary TB by about half in infected adults in a phase 2b trial. Origin: GSK-developed M72/AS01E phase 2b placebo-controlled trial in adults with latent TB infection, published 2018 (licensed to Gates MRI in 2020)"
+  },
+  "change": {
+   "year": 2029,
+   "what": "If the ~20,000-person phase 3 succeeds (results late 2028), regulatory submissions start in 2029 and Serum Institute of India is lined up to manufacture; licensure is projected for 2029–2030."
+  },
+  "confidence": "medium",
+  "note": "It would be the first new TB vaccine in over 100 years and the first aimed at adolescents and adults.",
+  "refs": [
+   {
+    "label": "Gates Medical Research Institute – manufacturing agreement with Serum Institute of India",
+    "url": "https://www.gatesmri.org/gates-medical-research-institute-and-the-serum-institute-of-india-reach-agreement/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "IOL – New TB vaccines could save millions of lives by 2050",
+    "url": "https://iol.co.za/news/south-africa/2026-09-16-new-tb-vaccines-could-save-millions-of-lives-by-2050--what-to-know/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "medicines",
+  "region": "global",
+  "readiness": {
+   "stage": "pilot",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": false,
+   "note": "Little direct cyber impact; vaccine cold-chain and manufacturing data systems are the only exposure.",
+   "basis": "ai-compiled"
+  },
+  "forecast": {
+   "estimatedYear": 2029,
+   "estimatedOn": "2026-10-31",
+   "revisions": []
+  },
+  "evidence_terms": [
+   "M72/AS01E",
+   "Serum Institute of India",
+   "Phase 3"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "room-temperature-artificial-red-blood-cells-nara",
+  "field": "life",
+  "origin": "academic",
+  "status": "outlook",
+  "title": "Room-temperature artificial red blood cells (Nara)",
+  "research": {
+   "year": 2015,
+   "what": "Nara Medical University developed a stockpilable artificial red-cell product that wraps haemoglobin in an artificial membrane, stays stable at room temperature for about two years and needs no blood-type matching. Origin: Nara Medical University (Prof. Hiromi Sakai) research group, supported by AMED from around 2015"
+  },
+  "change": {
+   "year": 2030,
+   "what": "Nara Medical University and partners aim for practical use and insurance coverage around 2030, after investigator-led trials that started in 2025."
+  },
+  "confidence": "high",
+  "note": "It could give emergency, remote-island and disaster medicine a blood substitute that does not depend on donations.",
+  "refs": [
+   {
+    "label": "Nikkei: Nara Medical University to run artificial red-cell trial, practical use around 2030",
+    "url": "https://www.nikkei.com/article/DGXZQOUF020KO0S4A700C2000000/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "JST Science Portal: artificial red-cell product trials, target insurance coverage 2030",
+    "url": "https://scienceportal.jst.go.jp/gateway/clip/20240801_g01/index.html",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "medicines",
+  "region": "asia",
+  "readiness": {
+   "stage": "pilot",
+   "basis": "ai-estimate"
+  },
+  "forecast": {
+   "estimatedYear": 2030,
+   "estimatedOn": "2026-10-31",
+   "revisions": []
+  },
+  "evidence_terms": [
+   "人工赤血球",
+   "奈良県立医科大学",
+   "2030年"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "china-brain-computer-interface-products-2027-2030-plan",
+  "field": "life",
+  "origin": "government",
+  "status": "outlook",
+  "title": "China brain-computer interface products (2027/2030 plan)",
+  "research": {
+   "year": 2025,
+   "what": "Seven Chinese ministries set a two-step national plan to move brain-computer interface electrodes, chips and complete devices from research into applied products. Origin: MIIT et al. 'Implementation Opinions on Promoting Innovative Development of the Brain-Computer Interface Industry' (工信部联科〔2025〕164号), 2025; the underlying lab programmes are not named in the sources"
+  },
+  "change": {
+   "year": 2027,
+   "what": "By 2027 BCI products are to be applied faster in industry, healthcare and consumer use; by 2030 a secure industry system with 2–3 globally influential firms is targeted."
+  },
+  "confidence": "low",
+  "note": "It is a national programme to commercialise implantable and non-implantable BCI devices, including medical ones.",
+  "refs": [
+   {
+    "label": "China Daily (Chinese): seven ministries, BCI key technology breakthroughs by 2027",
+    "url": "https://cn.chinadaily.com.cn/a/202508/07/WS6894af99a310ebef36290e9e.html",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Xinhua: seven ministries promote BCI industry innovation, 2027 and 2030 targets",
+    "url": "http://www.news.cn/tech/20250808/3bd25fa307d14f32b2dd67f480212cbd/c.html",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "medicines",
+  "region": "asia",
+  "readiness": {
+   "stage": "pilot",
+   "basis": "ai-estimate"
+  },
+  "forecast": {
+   "estimatedYear": 2027,
+   "estimatedOn": "2026-10-31",
+   "revisions": []
+  },
+  "evidence_terms": [
+   "脑机接口",
+   "实施意见",
+   "2027年"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "china-ai-energy-plan-grid-dispatch-ai-models-by-2027-30",
+  "field": "energy",
+  "origin": "government",
+  "status": "outlook",
+  "title": "China 'AI+ Energy' plan: grid dispatch AI models by 2027-30",
+  "research": {
+   "year": 2025,
+   "what": "China's State Council 'AI+' action opinion led to a dedicated energy implementation opinion that sets 2027 and 2030 goals for AI in power-grid dispatch, new-energy forecasting and planning. Origin: State Council 'AI+' action opinion (国发〔2025〕11号) and NDRC/NEA implementation opinion 国能发科技〔2025〕73号, 4 Sep 2025"
+  },
+  "change": {
+   "year": 2027,
+   "what": "By 2027 at least five sector-specific AI models are to be in deep use across grid, generation, coal and oil and gas, with ten or more replicable demonstration projects; by 2030 AI for intelligent grid control and new-energy forecasting is to be at scale."
+  },
+  "confidence": "medium",
+  "note": "It is a national programme with dated, countable targets for AI in power-system operation, so it is a published plan rather than speculation.",
+  "desnz": "opt",
+  "flags": {
+   "policy": true
+  },
+  "refs": [
+   {
+    "label": "NEA Q&A on the AI+ Energy implementation opinion (国家能源局)",
+    "url": "https://www.nea.gov.cn/20250908/781c61eb8d0c4c25a7c98a350169790e/c.html",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "NEA news: two departments issue AI+ Energy opinion (两部门发文推进“人工智能+”能源高质量发展)",
+    "url": "https://www.nea.gov.cn/20250912/c31a8448ceba4fba9081ee2206abc521/c.html",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "gov.cn full text of the implementation opinion",
+    "url": "https://www.gov.cn/zhengce/zhengceku/202509/content_7040253.htm",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "grids",
+  "region": "asia",
+  "readiness": {
+   "stage": "pilot",
+   "basis": "ai-estimate"
+  },
+  "gb": {
+   "status": "not-yet",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": true,
+   "note": "Putting AI models into dispatch and control adds new model, data and supply-chain attack paths to grid operations.",
+   "basis": "ai-compiled"
+  },
+  "forecast": {
+   "estimatedYear": 2027,
+   "estimatedOn": "2026-10-31",
+   "revisions": []
+  },
+  "evidence_terms": [
+   "人工智能+",
+   "五十百",
+   "电力智能调控",
+   "2027",
+   "2030"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "opengridfm-open-foundation-models-for-the-power-grid",
+  "field": "energy",
+  "origin": "industry",
+  "status": "outlook",
+  "title": "OpenGridFM: open foundation models for the power grid",
+  "research": {
+   "year": 2024,
+   "what": "IBM Research and Hydro-Québec started GridFM, an open framework for pre-training foundation models on solved power-flow and optimal-power-flow problems for grid analysis and operation. Origin: GridFM, originated by Hydro-Québec and IBM and contributed to Linux Foundation Energy; Joule perspective paper on grid foundation models (IBM Research)"
+  },
+  "change": {
+   "year": 2029,
+   "what": "A three-year US Genesis Mission Phase II project led by Brookhaven Lab aims to take grid foundation models from proof of concept to real-world use, simulating scenarios for adding new loads to the grid."
+  },
+  "confidence": "medium",
+  "note": "A funded multi-year programme with national-lab, utility and industry partners is moving a neural grid solver towards operational use.",
+  "desnz": "opt",
+  "refs": [
+   {
+    "label": "Brookhaven Lab to Lead $14M AI Project for Nation's Electric Grid",
+    "url": "https://www.bnl.gov/newsroom/news.php?a=123136",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "IBM Research: From vision to reality: a unified AI solver for the grid",
+    "url": "https://research.ibm.com/blog/gridfm-neural-solver-power-grid",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "LF Energy announcement of GridFM and other open source grid projects",
+    "url": "https://lfenergy.org/linux-foundation-energy-announces-open-source-power-grid-projects-for-ai-modeling-and-edge-applications-plus-scope-3-emissions-visibility/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "grids",
+  "region": "us",
+  "readiness": {
+   "stage": "pilot",
+   "basis": "ai-estimate"
+  },
+  "gb": {
+   "status": "unknown",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": true,
+   "note": "Shared pre-trained grid models add risks of poisoned training data and of wrong model outputs being trusted in operational decisions.",
+   "basis": "ai-compiled"
+  },
+  "forecast": {
+   "estimatedYear": 2029,
+   "estimatedOn": "2026-10-31",
+   "revisions": []
+  },
+  "evidence_terms": [
+   "GridFM",
+   "Genesis Mission",
+   "OpenGridFM",
+   "Hydro-Québec",
+   "GENCO"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "maximo-ai-vision-robot-fleet-for-solar-module-installation",
+  "field": "energy",
+  "origin": "industry",
+  "status": "landed",
+  "title": "Maximo: AI-vision robot fleet for solar module installation",
+  "research": {
+   "year": 2024,
+   "what": "AES developed Maximo, an AI-enabled robot that uses computer vision and generative image reconstruction to place and attach solar modules alongside crews. Origin: AES Corporation's in-house solar robotics programme (spun out as Maximo), unveiled in 2024 and developed with NVIDIA Isaac Sim simulation and AWS"
+  },
+  "change": {
+   "year": 2025,
+   "what": "AES deployed a fleet at the Bellefield solar and storage project in California. In March 2026 it announced 100 MW installed, which AES described as the move to sustained commercial production."
+  },
+  "confidence": "medium",
+  "note": "This is construction rather than O&M, but it is an AI-driven robot delivering clean-energy assets at utility scale. The research origin year is only loosely sourced.",
+  "desnz": "asset",
+  "flags": {
+   "aiDriven": true
+  },
+  "refs": [
+   {
+    "label": "Renewable Energy World: AES sends world's first AI-powered solar robot fleet to California project",
+    "url": "https://www.renewableenergyworld.com/solar/utility-scale/aes-sends-worlds-first-ai-powered-solar-robot-fleet-to-california-project/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "PR Newswire: Maximo Completes 100 MW of Robotic Solar Installation",
+    "url": "https://www.prnewswire.com/news-releases/maximo-completes-100-mw-of-robotic-solar-installation-302723835.html",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "PV Tech: Maximo on robotic installation at utility-scale solar projects",
+    "url": "https://www.pv-tech.org/youre-going-to-see-a-lot-more-of-these-maximo-on-robotic-installation-utility-scale-solar-projects/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "grids",
+  "region": "us",
+  "readiness": {
+   "stage": "commercial",
+   "basis": "ai-estimate"
+  },
+  "gb": {
+   "status": "not-yet",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": true,
+   "note": "Cloud-connected field robots running AI software add remotely updatable devices to construction sites and project networks.",
+   "basis": "ai-compiled"
+  },
+  "evidence_terms": [
+   "Maximo",
+   "Bellefield",
+   "AES"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "fully-autonomous-wind-blade-inspection-and-repair-robots-lebo",
+  "field": "energy",
+  "origin": "industry",
+  "status": "outlook",
+  "title": "Fully autonomous wind-blade inspection and repair robots (LEBO)",
+  "research": {
+   "year": 2018,
+   "what": "A Japanese startup built blade-crawling inspection and repair robots, paired with AI analysis of camera and drone images, to plan maintenance for each wind turbine. Origin: LEBO ROBOTICS Inc., a Japanese startup founded in 2018, which developed its own wind-turbine maintenance robots"
+  },
+  "change": {
+   "year": 2028,
+   "what": "Repair robots now run by a ground operator by remote control are expected to become fully autonomous within a few years of the August 2025 article, so around 2027-2028."
+  },
+  "confidence": "low",
+  "note": "It would move wind-blade maintenance from remote-controlled robots to AI-planned work that runs without an operator.",
+  "desnz": "asset",
+  "refs": [
+   {
+    "label": "JapanGov (Kizuna): Robots and AI Take Wind Turbine Maintenance Tech to New Heights",
+    "url": "https://www.japan.go.jp/kizuna/2025/08/robots_ai_wind_turbine_maintenance.html",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Oxmaint: Best Wind Turbine Maintenance Robots for Reducing Downtime in 2026",
+    "url": "https://oxmaint.com/industries/power-plant/best-wind-turbine-maintenance-robots-for-reducing-downtime-in-2026",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "grids",
+  "region": "asia",
+  "readiness": {
+   "stage": "pilot",
+   "basis": "ai-estimate"
+  },
+  "gb": {
+   "status": "unknown",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": true,
+   "note": "Autonomous robots with remote links and AI image analysis add connected devices and data feeds that attackers could target.",
+   "basis": "ai-compiled"
+  },
+  "forecast": {
+   "estimatedYear": 2028,
+   "estimatedOn": "2026-10-31",
+   "revisions": []
+  },
+  "evidence_terms": [
+   "LEBO ROBOTICS",
+   "fully autonomous robots",
+   "wind turbine maintenance robots"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "ai-run-oandm-for-remote-renewable-and-grid-stations",
+  "field": "energy",
+  "origin": "government",
+  "status": "outlook",
+  "title": "AI-run O&M for remote renewable and grid stations",
+  "research": {
+   "year": 2025,
+   "what": "Combines large models, voiceprint detection, remote sensing, robots and smart wearables to monitor equipment and surroundings at stations in remote or harsh areas. Origin: NDRC/NEA 'AI+ Energy' Implementation Opinions (国能发科技〔2025〕73号), remote-station O&M task"
+  },
+  "change": {
+   "year": 2027,
+   "what": "China's plan sets AI-enabled intelligent O&M for stations in remote areas as an application scenario to be piloted under the 2027 and 2030 targets, supporting desert and offshore renewable bases."
+  },
+  "confidence": "low",
+  "note": "The sources describe the scenario and the remote-base context, but no named deployment date or operator beyond the plan's 2027/2030 phases.",
+  "desnz": "asset",
+  "flags": {
+   "aiDriven": true
+  },
+  "refs": [
+   {
+    "label": "Beijing Municipal Development and Reform Commission (PDF): NDRC/NEA Implementation Opinions",
+    "url": "https://fgw.beijing.gov.cn/gzdt/tztg/202512/P020251211620917761405.pdf",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Trivium China: Deep dive on China's 'AI + Energy' plan",
+    "url": "https://triviumchina.com/2025/09/12/deep-dive-chinas-ai-energy-plan/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "grids",
+  "region": "asia",
+  "readiness": {
+   "stage": "pilot",
+   "basis": "ai-estimate"
+  },
+  "gb": {
+   "status": "not-yet",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": true,
+   "note": "Unmanned remote stations tied to AI and robots add remote-access and sensor-spoofing risks.",
+   "basis": "ai-compiled"
+  },
+  "forecast": {
+   "estimatedYear": 2027,
+   "estimatedOn": "2026-10-31",
+   "revisions": []
+  },
+  "evidence_terms": [
+   "偏远地区场站智能运维",
+   "声纹检测",
+   "remote, harsh environments",
+   "deserts"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "secai-edge-cloud-ai-heating-control-for-housing-stock",
+  "field": "energy",
+  "origin": "academic",
+  "status": "outlook",
+  "title": "SECAI: edge-cloud AI heating control for housing stock",
+  "research": {
+   "year": 2024,
+   "what": "A German research consortium is building an AI heating controller that learns each flat's heat demand locally on an edge device and combines it with a cloud model and weather forecasts. Origin: SECAI (Sustainable heating through Edge-Cloud-based AI systems), a ZVEI research association project; first monitored heating season Oct 2024–Mar 2025"
+  },
+  "change": {
+   "year": 2027,
+   "what": "AI-based heating schedules and AI-recommended savings targets become a default service for landlords and tenants in existing buildings. The 2027 date is my estimate, not a date stated in the sources."
+  },
+  "confidence": "low",
+  "note": "The project reports savings of up to 18% of heating energy. The sources describe a demonstrator and whitepaper, not a dated product launch.",
+  "desnz": "demand",
+  "flags": {
+   "aiDriven": true
+  },
+  "refs": [
+   {
+    "label": "SECAI press release (ISH 2025)",
+    "url": "https://www.secai-energy.de/pressemitteilung/ish-2025/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "SI SHK: Forschungsprojekt SECAI",
+    "url": "https://www.si-shk.de/forschungsprojekt-secai-effizient-heizen-mit-ki-234704/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "SECAI whitepaper (May 2026)",
+    "url": "https://www.secai-energy.de/wp-content/uploads/2026/05/SECAI-Whitepaper.pdf",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "grids",
+  "region": "europe",
+  "readiness": {
+   "stage": "pilot",
+   "basis": "ai-estimate"
+  },
+  "gb": {
+   "status": "not-yet",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": true,
+   "note": "Cloud-connected heating controllers and tenant sensor data add remote-control and privacy attack surface. Keeping raw data on the edge device limits some of that exposure.",
+   "basis": "ai-compiled"
+  },
+  "forecast": {
+   "estimatedYear": 2027,
+   "estimatedOn": "2026-10-31",
+   "revisions": []
+  },
+  "evidence_terms": [
+   "SECAI",
+   "Edge-Cloud",
+   "Heizungssteuerung",
+   "18"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "set-pilot-4-reinforcement-learning-control-of-non-domestic-building-fl",
+  "field": "energy",
+  "origin": "academic",
+  "status": "outlook",
+  "title": "SET Pilot 4: reinforcement-learning control of non-domestic building flexibility",
+  "research": {
+   "year": 2026,
+   "what": "Fraunhofer IEE developed an AI agent, using reinforcement learning, that runs an office building's heat pump and storage against dynamic electricity prices through the smart-meter infrastructure. Origin: SET Pilot 4 (Fraunhofer IEE Kassel with Smartplace and Teleseo), documented in a dena study published in 2026"
+  },
+  "change": {
+   "year": 2028,
+   "what": "AI energy management for non-domestic buildings that shifts load and sells flexibility, using the smart-meter gateway and a controllable edge component. The 2028 date is my estimate, not a date stated in the sources."
+  },
+  "confidence": "low",
+  "note": "The pilot shifted load significantly. The sources frame wider use as future potential and give no dated rollout plan.",
+  "desnz": "demand",
+  "flags": {
+   "aiDriven": true
+  },
+  "refs": [
+   {
+    "label": "dena: SET Pilot 4 – KI-basierte Steuerung von Flexibilitäten im Nichtwohngebäude",
+    "url": "https://www.dena.de/fileadmin/dena/Publikationen/PDFs/2026/SETPilot4_Studie.pdf",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Treffpunkt Kommune: KI-gestütztes Energiemanagement in Nichtwohngebäuden",
+    "url": "https://www.treffpunkt-kommune.de/ki-gestuetztes-energiemanagement-in-nichtwohngebaeuden-pilotprojekt/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "grids",
+  "region": "europe",
+  "readiness": {
+   "stage": "pilot",
+   "basis": "ai-estimate"
+  },
+  "gb": {
+   "status": "not-yet",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": true,
+   "note": "An AI agent on an edge device that controls building plant and trades flexibility over smart-meter links adds a remote-control path to protect.",
+   "basis": "ai-compiled"
+  },
+  "forecast": {
+   "estimatedYear": 2028,
+   "estimatedOn": "2026-10-31",
+   "revisions": []
+  },
+  "evidence_terms": [
+   "SET Pilot 4",
+   "KI-basierte Steuerung",
+   "Nichtwohngebäude",
+   "Fraunhofer IEE"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "ia-eco-pilot-ai-control-of-public-buildings-grand-paris",
+  "field": "energy",
+  "origin": "industry",
+  "status": "outlook",
+  "title": "IA Eco-Pilot: AI control of public buildings (Grand Paris)",
+  "research": {
+   "year": 2024,
+   "what": "A French consortium (advizeo, Métropole du Grand Paris, Tilt) is developing AI that automates energy monitoring across about 7,000 public buildings. It is also developing predictive HVAC control, to be tested on about a dozen buildings in 6 local authorities. Origin: IA Eco-Pilot demonstrator, one of 8 winners of a French call for AI projects for the energy transition of territories, 2024"
+  },
+  "change": {
+   "year": 2028,
+   "what": "If the demonstrator succeeds, remote AI control of buildings combined with a flexibility offer is to be deployed more widely in the coming years. The 2028 date is my estimate, not a date stated in the sources."
+  },
+  "confidence": "low",
+  "note": "The sources give only a vague 'coming years' timeline for scale-up.",
+  "desnz": "demand",
+  "flags": {
+   "aiDriven": true
+  },
+  "refs": [
+   {
+    "label": "advizeo: IA Eco-Pilot press release",
+    "url": "https://www.advizeo.io/articles-de-presse/advizeo-la-metropole-du-grand-paris-et-tilt-selectionnes-pour-creer-un-demonstrateur-dia-pilote-de-la-performance-energetique/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Construction21: IA Eco-Pilot",
+    "url": "https://www.construction21.org/france/articles/h/ia-eco-pilot-un-nouveau-demonstrateur-d-ia-pilote-de-la-performance-energetique.html",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Environnement Magazine: démonstrateur d'IA pilote de la performance énergétique",
+    "url": "https://www.environnement-magazine.fr/cleantech/article/2024/09/24/150170/projet-demonstrateur-ia-pilote-performance-energetique",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "grids",
+  "region": "europe",
+  "readiness": {
+   "stage": "pilot",
+   "basis": "ai-estimate"
+  },
+  "gb": {
+   "status": "not-yet",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": true,
+   "note": "Remote automated control of HVAC across many public sites creates a centrally reachable control layer.",
+   "basis": "ai-compiled"
+  },
+  "forecast": {
+   "estimatedYear": 2028,
+   "estimatedOn": "2026-10-31",
+   "revisions": []
+  },
+  "evidence_terms": [
+   "IA Eco-Pilot",
+   "advizeo",
+   "Métropole du Grand Paris",
+   "Tilt"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "ai-digital-convergence-platform-for-a-fusion-pilot-plant",
+  "field": "energy",
+  "origin": "government",
+  "status": "outlook",
+  "title": "AI Digital Convergence Platform for a fusion pilot plant",
+  "research": {
+   "year": 2025,
+   "what": "The Princeton Plasma Physics Laboratory is building a fusion foundation model, a digital twin of the NSTX-U experiment and an AI computing infrastructure called STELLAR-AI to speed fusion pilot-plant development. Origin: Genesis Mission fusion work at PPPL (2025): NSTX-U digital twin, a fusion foundation model and STELLAR-AI"
+  },
+  "change": {
+   "year": 2030,
+   "what": "The DOE's Genesis Mission frameworks report ties AI-guided fusion engineering to a national milestone of an operational US fusion pilot plant on the grid between 2030 and 2035."
+  },
+  "confidence": "low",
+  "note": "It treats whole-facility AI design and simulation as a way to shorten the fusion innovation cycle, which is separate from AI plasma control; 2030 is the start of the stated pilot-plant window.",
+  "desnz": "rd",
+  "flags": {
+   "aiDriven": true
+  },
+  "refs": [
+   {
+    "label": "US DOE Office of Science: Genesis Mission Frameworks",
+    "url": "https://www.energy.gov/science/articles/genesis-mission-frameworks-advancing-frontiers-american-discovery",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "POWER magazine: DOE details 26 Genesis Mission AI challenges",
+    "url": "https://www.powermag.com/doe-details-26-genesis-mission-ai-challenges-targeting-nuclear-timelines-grid-planning-and-energy-systems/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "PPPL: Genesis Mission launch",
+    "url": "https://www.pppl.gov/news/2025/energy-department-launches-%E2%80%98genesis-mission%E2%80%99-transform-american-science-and-innovation-through-the-ai-computing-revolution",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "grids",
+  "region": "us",
+  "readiness": {
+   "stage": "research",
+   "basis": "ai-estimate"
+  },
+  "gb": {
+   "status": "not-yet",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": false,
+   "note": "A shared national AI platform that connects facilities and sensitive experimental data concentrates the data and models an attacker would target.",
+   "basis": "ai-compiled"
+  },
+  "forecast": {
+   "estimatedYear": 2030,
+   "estimatedOn": "2026-10-31",
+   "revisions": []
+  },
+  "evidence_terms": [
+   "Digital Convergence Platform",
+   "Genesis Mission",
+   "STELLAR-AI",
+   "fusion pilot plant"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "envision-galileo-ai-turbine-with-tianji-tianshu-models",
+  "field": "energy",
+  "origin": "industry",
+  "status": "landed",
+  "title": "Envision Galileo AI turbine with Tianji/Tianshu models",
+  "research": {
+   "year": 2022,
+   "what": "Envision built an energy-specific weather foundation model and a wind, solar, storage and power-market energy model, and fed live turbine data back into the weather model to improve forecasts. Origin: Envision Energy's in-house AI forecasting programme, which ranked first in China Southern Grid's power and load forecasting contests in 2022–2024."
+  },
+  "change": {
+   "year": 2025,
+   "what": "In October 2025 Envision launched the Galileo AI wind turbine, which runs on its Tianji weather model and Tianshu energy model, after a demonstration wind farm had fitted the Tianshu control module to half its turbines since 2024."
+  },
+  "confidence": "medium",
+  "note": "It is a field-tested case of AI foundation models used for energy-asset design, control and forecasting. The company reports a revenue gain of about 20.9% against unmodified turbines at the same farm.",
+  "desnz": "rd",
+  "refs": [
+   {
+    "label": "People's Daily (China Energy News): 以AI重构风电价值链引领行业确定性增长",
+    "url": "http://paper.people.com.cn/zgnyb/pc/content/202510/27/content_30112438.html",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Tencent News: 重磅！远景发布行业首个伽利略AI风机",
+    "url": "https://news.qq.com/rain/a/20251020A03GL600",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "NetEase: 从“预测风雨”到“预知电价”，远景用物理AI为风电收益注入“确定性”",
+    "url": "https://m.163.com/dy/article/KGH34AGS05509P99.html?clickfrom=subscribe",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "grids",
+  "region": "asia",
+  "readiness": {
+   "stage": "commercial",
+   "basis": "ai-estimate"
+  },
+  "gb": {
+   "status": "unknown",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": true,
+   "note": "AI models that control turbines and take live data feedback from them add cloud-connected control paths that attackers could target.",
+   "basis": "ai-compiled"
+  },
+  "evidence_terms": [
+   "远景天机",
+   "远景天枢",
+   "伽利略AI风机",
+   "气象大模型"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "power-industry-cybersecurity-large-model-cepri-china",
+  "field": "energy",
+  "origin": "industry",
+  "status": "landed",
+  "title": "Power-industry cybersecurity large model (CEPRI, China)",
+  "research": {
+   "year": 2024,
+   "what": "A power-sector cybersecurity model was fine-tuned from the State Grid Guangming power large model on ten kinds of grid security corpora, and paired with the GridGraph power graph database to curb hallucination. Origin: China Electric Power Research Institute 'cybersecurity professional AI application' special research programme, built on the State Grid Guangming Power Large Model (released December 2024)"
+  },
+  "change": {
+   "year": 2025,
+   "what": "In May 2025 CEPRI reported that the first power-industry cybersecurity large model was in live use; its intelligence-analysis, vulnerability-verification and attack/defence Q&A agents supported grid protection during the Asian Winter Games and the national 'Two Sessions'."
+  },
+  "confidence": "medium",
+  "note": "It is a reported first sector-specific LLM security assistant for the grid, with stated gains: intelligence analysis cut from 1-2 days to half an hour, and vulnerability-check accuracy up an average of 25%.",
+  "desnz": "gov",
+  "flags": {
+   "aiDriven": true
+  },
+  "refs": [
+   {
+    "label": "科技日报 (Science and Technology Daily): 电力行业网络安全大模型落地",
+    "url": "https://www.stdaily.com/web/gdxw/2025-05/08/content_336201.html",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "北极星电力新闻网 (BJX): 基于光明电力大模型的网络安全模型落地应用",
+    "url": "https://m.bjx.com.cn/mnews/20250508/1440281.shtml",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "中国能源网 (China5e): 电力行业网络安全大模型落地",
+    "url": "https://www.china5e.com/news/news-1188448-1.html",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "grids",
+  "region": "asia",
+  "tags": [
+   "grid"
+  ],
+  "readiness": {
+   "stage": "commercial",
+   "basis": "ai-estimate"
+  },
+  "gb": {
+   "status": "not-yet",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": true,
+   "note": "It speeds up threat intelligence, vulnerability checking and repair for grid operators, but adds an LLM and its agents as a new component that must itself be secured.",
+   "basis": "ai-compiled"
+  },
+  "evidence_terms": [
+   "电力行业网络安全大模型",
+   "光明电力大模型",
+   "GridGraph",
+   "中国电力科学研究院"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
+ },
+ {
+  "id": "eu-network-code-on-cybersecurity-first-grid-wide-cyber-risk-cycle",
+  "field": "energy",
+  "origin": "government",
+  "status": "outlook",
+  "title": "EU Network Code on Cybersecurity: first grid-wide cyber risk cycle",
+  "research": {
+   "year": 2019,
+   "what": "ENTSO-E, the EU DSO Entity and ACER drafted a sector-specific code for cyber-security risk assessment, minimum and advanced controls, and incident reporting for cross-border electricity flows. Origin: Network code on cybersecurity mandated by the Electricity Regulation (EU) 2019/943 and drafted by ENTSO-E/EU DSO Entity with ACER (2019–2022), adopted as Delegated Regulation (EU) 2024/1366"
+  },
+  "change": {
+   "year": 2029,
+   "what": "After the Union-wide report due December 2026, Member State-level risk assessments follow by mid-2029 and designated high- and critical-impact entities must then apply the controls, which in practice reaches real-world use in 2027–2031."
+  },
+  "confidence": "medium",
+  "note": "This is the EU's first sector-specific cyber rulebook for electricity, and it is the compliance baseline for any AI-enabled or automated grid operations. Sources do not describe AI-specific requirements.",
+  "desnz": "gov",
+  "flags": {
+   "policy": true
+  },
+  "refs": [
+   {
+    "label": "European Commission: Critical infrastructure and cybersecurity (network code on cybersecurity)",
+    "url": "https://energy.ec.europa.eu/topics/energy-security/critical-infrastructure-and-cybersecurity_en",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "OpenKRITIS: EU Network Code on Cybersecurity (NCCS) deadlines",
+    "url": "https://www.openkritis.de/eu/nccs_network-code-cybersecurity.html",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Democrata: CNMC approves cybersecurity risk methodologies for the electricity sector",
+    "url": "https://www.democrata.es/en/economy/the-cnmc-gives-the-green-light-to-the-methodologies-for-measuring-cybersecurity-risks-in-the-electricity-sector/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "grids",
+  "region": "europe",
+  "tags": [
+   "regulation"
+  ],
+  "readiness": {
+   "stage": "research",
+   "basis": "ai-estimate"
+  },
+  "gb": {
+   "status": "not-yet",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": false,
+   "note": "It sets a recurring, Europe-wide cyber risk assessment and control baseline for entities that digitally operate cross-border electricity flows.",
+   "basis": "ai-compiled"
+  },
+  "forecast": {
+   "estimatedYear": 2029,
+   "estimatedOn": "2026-10-31",
+   "revisions": []
+  },
+  "evidence_terms": [
+   "Network Code on Cybersecurity",
+   "cybersecurity risk assessment",
+   "high-impact",
+   "cross-border electricity flows"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1,
+  "foundBy": "deep-search"
  }
 ]
