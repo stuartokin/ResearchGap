@@ -84,6 +84,23 @@ def catchup_units(db, swept, months_back):
     order = {yq: i for i, yq in enumerate(quarters)}
     return sorted(units, key=lambda u: (swept.get(f"{u[0]['id']}|{u[1][0]}Q{u[1][1]}", ''), order[u[1]]))
 
+def candidates_of(out, n):
+    """The candidates in a model's answer, whatever shape they arrived in: a list, the list written as text,
+    or wrapped in another object. Anything that is not a candidate object is ignored."""
+    c = (out or {}).get('candidates', []) if isinstance(out, dict) else out
+    if isinstance(c, str):
+        try: c = json.loads(c)
+        except Exception:
+            from common import parse_json_text
+            c = parse_json_text(c, 'candidates') or []
+    if isinstance(c, dict): c = c.get('candidates', [c])
+    return [x for x in (c if isinstance(c, list) else []) if isinstance(x, dict)][:n]
+
+def safe_check(db, field, c, as_of, horizon, min_sources):
+    """check(), but a malformed candidate is rejected rather than stopping the run."""
+    try: return check(db, field, c, as_of, horizon, min_sources)
+    except Exception as e: return f'could not be checked ({type(e).__name__})'
+
 def thin_cells(db, as_of, n):
     """The thinnest field-and-decade cells, thinnest first; ties rotate weekly so coverage builds evenly.
     Only decades from ten years before a field's earliest research, up to the last full decade."""
@@ -133,9 +150,9 @@ def run():
                   f"These milestones already exist in any field; do not propose them or close variants of them: {json.dumps(existing, ensure_ascii=False)}\n"
                   f"Return at most {cfg['maxProposalsPerField']} candidates via submit_candidates. Return an empty list if nothing qualifies.")
         out = call_claude(system, prompt, SUBMIT, max_searches=cfg['searchesPerField']) or {'candidates': []}
-        for c in out.get('candidates', [])[:cfg['maxProposalsPerField']]:
+        for c in candidates_of(out, cfg['maxProposalsPerField']):
             funnel['recent']['proposed'] += 1
-            why = check(db, f['id'], c, as_of, horizon, cfg['minSources'])
+            why = safe_check(db, f['id'], c, as_of, horizon, cfg['minSources'])
             if why:
                 rr = funnel['recent']['rejected']; rr[reject_reason(why)] = rr.get(reject_reason(why), 0) + 1
                 report.append(f"rejected [{f['id']}] {c.get('title')}: {why}"); continue
@@ -164,10 +181,10 @@ def run():
             out = call_claude('You research technology milestones carefully and cite readable public sources exactly.', prompt, SUBMIT, max_searches=cu.get('searchesPerSweep', 4))
             if out is None: print(f"catch-up {f['id']} {y}Q{q}: no answer from Claude"); out = {'candidates': []}
             swept[f"{f['id']}|{y}Q{q}"] = TODAY
-            print(f"catch-up {f['id']} {y}Q{q}: " + (f"{len(out.get('candidates', []))} candidate(s)" if out.get('candidates') is not None else 'no answer'))
-            for c in out.get('candidates', [])[:3]:
+            print(f"catch-up {f['id']} {y}Q{q}: {len(candidates_of(out, 99))} candidate(s)")
+            for c in candidates_of(out, 3):
                 funnel['catchup']['proposed'] += 1
-                why = check(db, f['id'], c, as_of, horizon, cfg['minSources'])
+                why = safe_check(db, f['id'], c, as_of, horizon, cfg['minSources'])
                 if not why and c.get('change_year') != y: why = 'first use outside the period asked for'
                 if why:
                     rr = funnel['catchup']['rejected']; rr[reject_reason(why)] = rr.get(reject_reason(why), 0) + 1
@@ -189,10 +206,10 @@ def run():
                       f"These already exist; do not propose them or close variants: {json.dumps(existing, ensure_ascii=False)}\n"
                       "Return at most 2 candidates via submit_candidates, or an empty list if nothing important is missing.")
             out = call_claude('You research the history of technology carefully and cite readable public sources exactly.', prompt, SUBMIT, max_searches=bf.get('searchesPerCell', 3)) or {'candidates': []}
-            print(f"filling gaps {f['id']} {d}s: {len(out.get('candidates', []))} candidate(s)")
-            for c in out.get('candidates', [])[:2]:
+            print(f"filling gaps {f['id']} {d}s: {len(candidates_of(out, 99))} candidate(s)")
+            for c in candidates_of(out, 2):
                 funnel['backfill']['proposed'] += 1
-                why = check(db, f['id'], c, as_of, horizon, cfg['minSources'])
+                why = safe_check(db, f['id'], c, as_of, horizon, cfg['minSources'])
                 if not why and not (d <= (c.get('change_year') or 0) < d + 10): why = 'first use outside the decade asked for'
                 if why:
                     rr = funnel['backfill']['rejected']; rr[reject_reason(why)] = rr.get(reject_reason(why), 0) + 1

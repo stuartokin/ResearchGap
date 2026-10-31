@@ -45,19 +45,19 @@ def run():
     out = call_gemini(prompt, search=True, max_tokens=g.get('researchMaxTokens', 32000), want='candidates')
     if out is None: print('Gemini research: no usable answer this week (see the Gemini lines above for why); skipping.'); return 0
     queued, report, rej = 0, [], {}
-    for c in [normalise(x) for x in (out.get('candidates') or []) if isinstance(x, dict)][:cap * 2]:
+    for c in [normalise(x) for x in ra.candidates_of(out, cap * 2)]:
         if queued >= cap: break
         f = fields.get(c.get('field'))
         if not f: report.append(f"rejected {c.get('title')}: unknown field"); continue
-        why = ra.check(db, f['id'], c, as_of, horizon, cfg['minSources'])
+        why = ra.safe_check(db, f['id'], c, as_of, horizon, cfg['minSources'])
         if why: rej[reject_reason(why)] = rej.get(reject_reason(why), 0) + 1; report.append(f"rejected [{f['id']}] {c.get('title')}: {why}"); continue
         rec = ra.pending_record(db, f, c, f['id'], fields); rec['foundBy'] = 'gemini-research'
         pending.append(rec); queued += 1; report.append(f"pending  [gemini {f['id']}] {c['title']}")
     save_pending(pending)
-    record_funnel({'agent':'gemini', 'recent_proposed':len(out.get('candidates') or []), 'recent_queued':queued, 'recent_rejected':rej}); db = load_db()
-    db['meta'].setdefault('secondOpinion', []).append({'date':TODAY, 'kind':'gemini-research', 'proposed':len(out.get('candidates') or []), 'queued':queued})
+    record_funnel({'agent':'gemini', 'recent_proposed':len(ra.candidates_of(out, 99)), 'recent_queued':queued, 'recent_rejected':rej}); db = load_db()
+    db['meta'].setdefault('secondOpinion', []).append({'date':TODAY, 'kind':'gemini-research', 'proposed':len(ra.candidates_of(out, 99)), 'queued':queued})
     from common import save_db, log_change
-    log_change(db, f"Gemini research: {queued} of {len(out.get('candidates') or [])} candidates passed the source checks and were queued for Claude's QA.", [r for r in report if r.startswith('pending')])
+    log_change(db, f"Gemini research: {queued} of {len(ra.candidates_of(out, 99))} candidates passed the source checks and were queued for Claude's QA.", [r for r in report if r.startswith('pending')])
     save_db(db)
     print('\n'.join(report) or 'Gemini found nothing new.'); print(f'{queued} Gemini candidates queued for Claude\'s QA.')
     return 0
