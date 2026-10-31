@@ -38,6 +38,11 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Remember the data revision this run starts from
+        run: |
+          echo "START_REV=$(python3 -c "import json;print(json.load(open('data/data.json'))['meta']['revision'])")" >> "$GITHUB_ENV"
+          echo "START_HASH=$(sha256sum data/data.json | cut -d' ' -f1)" >> "$GITHUB_ENV"
+
       - name: Install tools
         run: |
           pip install -r requirements.txt
@@ -118,15 +123,24 @@ jobs:
           REV=$(python -c "import json;print(json.load(open('data/data.json'))['meta']['revision'])")
           SUMMARY=$(python tools/run_summary.py)   # what this whole run changed, compared with the last published data
           git commit -m "Data revision ${REV}: ${SUMMARY}"
-          # This run takes a while; if the repository moved on meanwhile (an upload, or a rebuild of the app),
-          # replay this run's results on top of the latest, rebuild the page from the latest source files, and retry.
+          # This run takes a while. If the repository moved on meanwhile (an upload, or a rebuild of the app), lay this run's
+          # data files on top of the latest WHOLE (data files are never merged line by line), and rebuild the page from the
+          # latest code. If another agent run published data meanwhile, stop rather than overwrite it; the results are kept.
           for attempt in 1 2 3; do
             if git push origin HEAD:main; then break; fi
             if [ "$attempt" = 3 ]; then echo "Could not publish after three attempts."; exit 1; fi
-            echo "The repository moved on during this run; merging the latest and retrying ($attempt)."
             git fetch origin main
-            git rebase -X theirs origin/main || { git rebase --abort; echo "Could not merge automatically."; exit 1; }   # this run's data wins any conflict
-            python tools/build.py && git add index.html && git commit --amend --no-edit
+            MAIN_HASH=$(git show origin/main:data/data.json | sha256sum | cut -d' ' -f1)
+            if [ "$MAIN_HASH" != "$START_HASH" ]; then echo "The data on main changed since this run started (another run or an edit), so this run will not overwrite it. Its results are kept as an artifact; run the workflow again to redo them on the latest data."; exit 1; fi
+            echo "The repository moved on during this run, but the data did not; putting this run's data on top of the latest and retrying ($attempt)."
+            KEEP=$(mktemp -d); cp -r data "$KEEP/"; if [ -d audio ]; then cp -r audio "$KEEP/"; fi
+            git reset --hard origin/main
+            cp "$KEEP/data/data.json" "$KEEP/data/pending.json" "$KEEP/data/pending_founders.json" "$KEEP/data/tours.json" data/
+            if [ -d "$KEEP/audio" ]; then rm -rf audio && cp -r "$KEEP/audio" audio; fi
+            python tools/build.py
+            git add data/data.json data/pending.json data/pending_founders.json data/tours.json index.html
+            if [ -d audio ]; then git add -A audio; fi
+            git commit -m "Data revision ${REV}: ${SUMMARY}"
             sleep 5
           done
           git tag -a "data-r${REV}" -m "Data revision ${REV}: ${SUMMARY}"
