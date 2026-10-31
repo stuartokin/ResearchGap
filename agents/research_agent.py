@@ -175,7 +175,9 @@ def run():
                   f"Topic tags must come from this list: {vocab}. Give the region where the research began. Sub-field must be one of: {sub_guide}.\n"
                   f"These milestones already exist in any field; do not propose them or close variants of them: {json.dumps(existing, ensure_ascii=False)}\n"
                   f"Return at most {cfg['maxProposalsPerField']} candidates via submit_candidates. Return an empty list if nothing qualifies.")
-        out = call_claude(system, prompt, SUBMIT, max_searches=cfg['searchesPerField']) or {'candidates': []}
+        out = call_claude(system, prompt, SUBMIT, max_searches=cfg['searchesPerField'])
+        print(f"recent {f['id']}: " + (f"{len(candidates_of(out, 99))} candidate(s)" if out is not None else 'no answer from Claude'))
+        out = out or {'candidates': []}
         for c in candidates_of(out, cfg['maxProposalsPerField']):
             funnel['recent']['proposed'] += 1
             why = safe_check(db, f['id'], c, as_of, horizon, cfg['minSources'])
@@ -250,13 +252,23 @@ def run():
     print(f'{accepted} candidates queued for QA.')
 
 STOP = {'the', 'and', 'for', 'with', 'first', 'new', 'of', 'in', 'to', 'a', 'an', 'at', 'scale', 'commercial', 'service', 'launch', 'launched'}
-def near_duplicate(db, title):
-    words = lambda t: {w for w in re.findall(r'[a-z0-9]+', t.lower().replace('-', ' ')) if w not in STOP and len(w) > 2}
+GENERIC = set('network networks system systems computing computer computers data energy power digital technology technologies service services platform platforms model models device devices storage control grid grids smart'.split())   # too general to identify a milestone on their own
+
+def near_duplicate(db, title, c=None):
+    """Similar titles in any field; or an existing title whose key words are all inside the new one ("Transistor" in
+    "Point-contact transistor") with years within five of each other."""
+    # key words: longer words, plus two-character acronyms written in capitals (CT, 6G)
+    words = lambda t: {w.lower() for w in re.findall(r'[A-Za-z0-9]+', t.replace('-', ' ')) if w.lower() not in STOP and (len(w) > 2 or re.fullmatch(r'[A-Z0-9]{2}', w))}
     a = words(title)
-    if len(a) < 2: return None
+    if not a: return None
     for m in db['milestones'] + load_pending():
         b = words(m['title'])
-        if b and len(a & b) / len(a | b) >= 0.5: return m['title']
+        if not b: continue
+        if len(a) >= 2 and len(a & b) / len(a | b) >= 0.5: return m['title']
+        if c and ((b <= a and b - GENERIC) or (len(a) >= 2 and a <= b and a - GENERIC)):   # one title inside the other, on distinctive words
+            mine = [y for y in (c.get('research_year'), c.get('change_year')) if isinstance(y, int)]
+            theirs = [y for y in ((m.get('research') or {}).get('year'), (m.get('change') or {}).get('year')) if isinstance(y, int)]
+            if any(abs(x - y) <= 5 for x in mine for y in theirs): return m['title']
     return None
 
 def check(db, field, c, as_of, horizon, min_sources):
@@ -265,7 +277,7 @@ def check(db, field, c, as_of, horizon, min_sources):
     if c['status'] == 'landed' and p > as_of + 1: return 'landed with a future change year'
     if c['status'] == 'outlook' and not (as_of < p <= horizon): return 'outlook year outside the window'
     if not (c.get('research_origin') or '').strip(): return 'no identifiable research origin'
-    dup = is_duplicate(db, c['title']) or near_duplicate(db, c['title'])
+    dup = is_duplicate(db, c['title']) or near_duplicate(db, c['title'], c)
     if dup: return f'duplicate of "{dup}"'
     srcs = [s for s in c.get('sources', []) if s.get('url', '').startswith('http')]
     if len({s['url'].split('/')[2] for s in srcs}) < min_sources: return 'fewer than two independent sources'
