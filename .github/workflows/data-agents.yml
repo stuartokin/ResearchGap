@@ -51,9 +51,23 @@ jobs:
         working-directory: agents
         run: python research_agent.py
 
+      - name: Gemini research (a second model finds up to 10; Claude's QA confirms them)
+        continue-on-error: true
+        working-directory: agents
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python gemini_research.py
+
       - name: QA agent (confirms candidates, audits a rotating batch)
         working-directory: agents
         run: python qa_agent.py
+
+      - name: Gemini second opinion (checks Claude's additions; anything not supported is marked disputed)
+        continue-on-error: true
+        working-directory: agents
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python gemini_check.py
 
       - name: Guidance agent (new and updated security guidance, CAF and Ofgem first)
         working-directory: agents
