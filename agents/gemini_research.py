@@ -22,9 +22,9 @@ def run():
               "Favour what an English-language search tends to miss: work from the UK, Europe and Asia, and reputable sources in other languages (give the English title). "
               "Include AI for the clean energy system where you can. Each needs at least two independent, reputable public sources, and evidence_terms that appear on those pages.\n"
               f"Do not repeat any of these existing titles: {json.dumps(known, ensure_ascii=False)}\n"
-              f"Reply with JSON only, in the form {{\"candidates\": [...]}}, where each candidate follows this schema: {schema}")
-    out = call_gemini(prompt, search=True)
-    if out is None: print('Gemini research: no reply (no key, an outage or an unreadable answer); skipping.'); return 0
+              f"Reply with one JSON object only, no commentary, in the form {{\"candidates\": [...]}}, where each candidate follows this schema: {schema}")
+    out = call_gemini(prompt, search=True, max_tokens=g.get('researchMaxTokens', 32000), want='candidates')
+    if out is None: print('Gemini research: no usable answer this week (see the Gemini lines above for why); skipping.'); return 0
     queued, report = 0, []
     for c in (out.get('candidates') or [])[:cap * 2]:
         if queued >= cap: break

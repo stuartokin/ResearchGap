@@ -23,7 +23,7 @@ def run():
                  f"{'first product or real-world use' if m['status'] == 'landed' else 'expected'} in {m['change']['year']} ({m['change'].get('what', '')}).")
         out = call_gemini("You are checking a claim against its sources, for a public dataset. Use only the source text given, not other knowledge.\n"
                           f"CLAIM: {claim}\n\n" + '\n\n'.join(pages) +
-                          "\n\nDo these sources support the claim, including its years? Reply with JSON only: {\"verdict\": \"supported\" | \"not_supported\" | \"unclear\", \"reason\": \"one sentence\"}") if pages else None
+                          "\n\nDo these sources support the claim, including its years? Reply with JSON only: {\"verdict\": \"supported\" | \"not_supported\" | \"unclear\", \"reason\": \"one sentence\"}", want='verdict') if pages else None
         v = (out or {}).get('verdict') if isinstance(out, dict) else None
         verdict = v if v in ('supported', 'not_supported', 'unclear') else 'unavailable'
         counts[verdict] += 1

@@ -191,31 +191,65 @@ def _gemini_models(key):
     flash = [n for n in names if 'flash' in n and not any(x in n for x in ('lite', 'image', 'tts', 'audio', 'live', 'thinking', 'exp'))]
     return sorted(flash, reverse=True)
 
-def parse_json_text(text):
-    """The first JSON object in a model's reply, with or without code fences."""
-    t = re.sub(r'^```(?:json)?|```$', '', (text or '').strip(), flags=re.M).strip()
-    i, j = t.find('{'), t.rfind('}')
-    if i < 0 or j <= i: return None
-    try: return json.loads(t[i:j + 1])
-    except Exception: return None
+def json_objects(text):
+    """Every complete top-level JSON object in a reply, in order (braces inside strings are ignored)."""
+    out, depth, start, in_str, esc = [], 0, None, False, False
+    for k, ch in enumerate(text or ''):
+        if in_str:
+            if esc: esc = False
+            elif ch == '\\': esc = True
+            elif ch == '"': in_str = False
+            continue
+        if ch == '"' and depth: in_str = True
+        elif ch == '{':
+            if depth == 0: start = k
+            depth += 1
+        elif ch == '}' and depth:
+            depth -= 1
+            if depth == 0:
+                try: out.append(json.loads(text[start:k + 1]))
+                except Exception: pass
+    return out
 
-def call_gemini(prompt, search=False, max_tokens=8192):
-    """Ask Gemini, optionally grounded in Google Search. Returns the parsed JSON reply, or None (no key, outage or bad reply)."""
-    import os, requests
+def parse_json_text(text, want=None):
+    """The JSON object in a model's reply: the first containing the key `want` if given, otherwise the largest."""
+    objs = json_objects(re.sub(r'```(?:json)?', '', text or ''))
+    if want: objs = [o for o in objs if isinstance(o, dict) and want in o] or objs
+    return max(objs, key=lambda o: len(json.dumps(o))) if objs else None
+
+def _gemini_post(key, model, body):
+    import requests
+    return requests.post(f'https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent', headers={'x-goog-api-key': key, 'Content-Type': 'application/json'}, json=body, timeout=300)
+
+def call_gemini(prompt, search=False, max_tokens=8192, want=None):
+    """Ask Gemini, optionally grounded in Google Search. Returns the parsed JSON reply, or None, and always logs why."""
+    import os
     key = os.environ.get('GEMINI_API_KEY')
-    if not key: return None
+    if not key: print('Gemini: no GEMINI_API_KEY secret, so skipping.'); return None
     g = CONFIG.get('gemini', {}); model = g.get('model', 'gemini-2.5-flash')
     body = {'contents': [{'role': 'user', 'parts': [{'text': prompt}]}], 'generationConfig': {'temperature': 0.2, 'maxOutputTokens': max_tokens}}
     if search: body['tools'] = [{'google_search': {}}]
     for attempt in range(2):
-        r = requests.post(f'https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent', headers={'x-goog-api-key': key, 'Content-Type': 'application/json'}, json=body, timeout=240)
+        r = _gemini_post(key, model, body)
         if r.status_code == 404 and attempt == 0:
             found = _gemini_models(key)
-            if found: print(f'Gemini model {model} not available; using {found[0]}.'); model = found[0]; continue
-        if r.status_code != 200: print(f'Gemini error {r.status_code}: {r.text[:200]}'); return None
+            if found: print(f'Gemini: model {model} not available; using {found[0]}.'); model = found[0]; continue
+        if r.status_code != 200: print(f'Gemini: error {r.status_code}: {r.text[:300]}'); return None
         break
-    data = r.json()
-    text = ''.join(p.get('text', '') for c in data.get('candidates', [])[:1] for p in (c.get('content') or {}).get('parts', []))
-    u = data.get('usageMetadata') or {}
-    print(f"Gemini ({model}): {u.get('promptTokenCount', 0)} in, {u.get('candidatesTokenCount', 0)} out{', with search' if search else ''}.")
-    return parse_json_text(text)
+    data = r.json(); cand = (data.get('candidates') or [{}])[0]
+    text = ''.join(p.get('text', '') for p in (cand.get('content') or {}).get('parts', []) if not p.get('thought'))
+    finish = cand.get('finishReason', ''); u = data.get('usageMetadata') or {}
+    print(f"Gemini ({model}): {u.get('promptTokenCount', 0)} in, {u.get('candidatesTokenCount', 0)} out{', with search' if search else ''}; finished: {finish or 'unknown'}.")
+    out = parse_json_text(text, want)
+    if out is None and text.strip():
+        # a cheap rescue, without searching again: ask Gemini to turn its own answer into clean JSON
+        print(f"Gemini: answer {'cut off at the length limit' if finish == 'MAX_TOKENS' else 'not clean JSON'}; asking for a clean copy. It began: {text.strip()[:160]!r}")
+        fix = {'contents': [{'role': 'user', 'parts': [{'text': 'Convert the following into one valid JSON object only, with no commentary' + (f', containing the key "{want}"' if want else '') + '. Drop any item that is incomplete.\n\n' + text[:60000]}]}],
+               'generationConfig': {'temperature': 0, 'maxOutputTokens': max_tokens, 'responseMimeType': 'application/json'}}
+        r2 = _gemini_post(key, model, fix)
+        if r2.status_code == 200:
+            c2 = (r2.json().get('candidates') or [{}])[0]
+            out = parse_json_text(''.join(p.get('text', '') for p in (c2.get('content') or {}).get('parts', []) if not p.get('thought')), want)
+        print('Gemini: clean copy ' + ('read successfully.' if out is not None else 'still unreadable.'))
+    elif out is None: print('Gemini: the answer was empty' + (f' (finished: {finish})' if finish else '') + '.')
+    return out
