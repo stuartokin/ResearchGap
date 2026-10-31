@@ -2,7 +2,7 @@
  "$schema": "./schema.json",
  "meta": {
   "title": "The Shrinking Gap from Research to Change",
-  "revision": 24,
+  "revision": 25,
   "version": "8.0",
   "asOf": "2026-10-30",
   "horizonYears": 10,
@@ -10,7 +10,7 @@
   "author": "Stuart Okin",
   "maintainedBy": "AI agents using Claude (Anthropic), without human review",
   "disclaimer": "Personal project by Stuart Okin, not affiliated with or endorsed by any employer. Data is compiled and maintained by AI agents without human review and may contain errors. Outlook years are AI estimates, not forecasts.",
-  "lastAgentRun": "2026-10-30T20:54Z",
+  "lastAgentRun": "2026-10-30T23:54Z",
   "changelog": [
    {
     "date": "2026-10-28",
@@ -1030,6 +1030,131 @@
      "levers   agentic-ai-in-everyday-work: demo; software",
      "levers   exploit-windows-collapse: deploy; software"
     ]
+   },
+   {
+    "date": "2026-10-30",
+    "time": "23:54",
+    "revision": 25,
+    "summary": "4 added, 33 corrected, 0 outlook re-estimated, 2 disputed, 2 broken links, 1 guidance update.",
+    "stats": {
+     "milestones": 479,
+     "sourceCited": 194,
+     "aiCompiled": 207,
+     "aiEstimate": 78,
+     "adoptionKnown": 76,
+     "landed": 379,
+     "regionKnown": 479
+    },
+    "usage": {
+     "calls": 15,
+     "inputTokens": 2536641,
+     "outputTokens": 103096,
+     "searches": 120,
+     "model": "claude-opus-5-5"
+    },
+    "deepAudit": true,
+    "details": [
+     "added: atomic-6-space-armor-debris-shield-flies",
+     "added: digital-in-memory-compute-inference-d-matrix-corsair",
+     "added: korean-kpqc-post-quantum-algorithms-on-military-sims",
+     "added: first-plasmid-dna-immunotherapy-approved-voceryq",
+     "ai-designed-chip-layouts: source added",
+     "email: source added",
+     "java-and-portable-code: readiness commercial → scale",
+     "android: source added",
+     "containers-and-kubernetes: source added",
+     "containers-and-kubernetes: readiness commercial → scale",
+     "generative-adversarial-networks: source added",
+     "quantum-dots: source added",
+     "quantum-dots: source added",
+     "float-glass: source added",
+     "float-glass: readiness commercial → scale",
+     "3d-printing: source added",
+     "silicon-carbide-power-devices: source added",
+     "weather-satellites: readiness commercial → scale",
+     "satellite-radar-imaging: source added",
+     "satellite-radar-imaging: source added",
+     "collaborative-robots: research.year 2005 → 1996",
+     "collaborative-robots: research.what updated",
+     "collaborative-robots: source added",
+     "risc-v-open-chip-architecture: readiness commercial → scale",
+     "quantum-secured-metro-network: readiness commercial → pilot",
+     "trusted-platform-module: sub-field crypto → identity",
+     "radar: sub-field internet → broadcast",
+     "radar: tags added",
+     "fully-reusable-heavy-launch: readiness research → pilot",
+     "fully-reusable-heavy-launch: tags added",
+     "computer-weather-forecasting: readiness commercial → scale",
+     "computer-weather-forecasting: GB status unknown → deployed",
+     "wind-power-forecasting: sub-field renewables → ops",
+     "wind-power-forecasting: readiness commercial → scale",
+     "wind-power-forecasting: GB status unknown → deployed",
+     "f-dell: net worth 120 → 268.0",
+     "f-nvidia: net worth 154 → 200.0",
+     "disputed: online-maps",
+     "disputed: f-cognition",
+     "guidance: Cyber Adversary Simulation (CyAS) guidance and Scheme Standard v1.1 / Working Practices Document",
+     "tours: walk-through scripts refreshed (version 20)"
+    ]
+   },
+   {
+    "date": "2026-10-30",
+    "time": "23:59",
+    "revision": 25,
+    "summary": "AI levers researched for 4 technologies.",
+    "stats": {
+     "milestones": 479,
+     "sourceCited": 194,
+     "aiCompiled": 207,
+     "aiEstimate": 78,
+     "adoptionKnown": 76,
+     "landed": 379,
+     "regionKnown": 479
+    },
+    "usage": {
+     "calls": 8,
+     "inputTokens": 203975,
+     "outputTokens": 9757,
+     "searches": 15,
+     "model": "claude-opus-5-5"
+    },
+    "deepAudit": true,
+    "details": [
+     "levers   ai-in-grid-control-rooms: demo; software, simulation, approvals",
+     "levers   agent-interoperability-standards: deploy; software, deploy, approvals",
+     "levers   on-device-ai-as-default: deploy; software, discovery, simulation",
+     "levers   verified-quantum-advantage: demo; simulation, software, discovery"
+    ]
+   },
+   {
+    "date": "2026-10-30",
+    "time": "00:02",
+    "revision": 25,
+    "summary": "Stories researched for 5 milestones.",
+    "stats": {
+     "milestones": 479,
+     "sourceCited": 194,
+     "aiCompiled": 207,
+     "aiEstimate": 78,
+     "adoptionKnown": 76,
+     "landed": 379,
+     "regionKnown": 479
+    },
+    "usage": {
+     "calls": 10,
+     "inputTokens": 298630,
+     "outputTokens": 18730,
+     "searches": 21,
+     "model": "claude-opus-5-5"
+    },
+    "deepAudit": true,
+    "details": [
+     "story    mandatory-c2pa-style-provenance-in-ai-media-connecticut",
+     "story    uk-robotaxis",
+     "story    plastic-free-moulded-pulp-fibre-bottles-pulpex",
+     "story    size-adjustable-pediatric-heart-valve-autus",
+     "story    spatial-dataflow-processor-in-volume-electron-e1"
+    ]
    }
   ],
   "adoptionDefinition": "Mainstream adoption: the year the technology reached widespread, routine use, roughly 10% or more of its potential market or standard practice in its sector.",
@@ -2009,6 +2134,45 @@
     "estimatedYear": 2027,
     "estimatedOn": "2026-10-27",
     "revisions": []
+   },
+   "aiLevers": {
+    "phase": "demo",
+    "bottleneck": "Moving validated ML forecasting and optimiser prototypes into live control room systems: real-time data integration, verification and validation, explainability and operator trust.",
+    "levers": [
+     {
+      "k": "software",
+      "strength": "high",
+      "note": "ML demand and renewables forecasters, Faculty's Advanced Scheduling Adviser and Tapestry's Grand Optimiser give operators dispatch suggestions in one security-constrained optimisation, with humans still in control."
+     },
+     {
+      "k": "simulation",
+      "strength": "mid",
+      "note": "Co-simulating multiple digital models across operational timescales, plus cross-validation that simulates live retraining, to test optimiser and forecast behaviour before it touches real dispatch."
+     },
+     {
+      "k": "approvals",
+      "strength": "low",
+      "note": "Structured verification and validation (Smith Institute), audit trails and explainable outputs build the assurance evidence that NESO operators need before they sign off on operational use."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://smarter.energynetworks.org/projects/nia2_neso105/",
+      "label": "ENA Smarter Networks Portal – Volta: Real Time Prediction (NIA2_NESO105)",
+      "quote": "to meet the next TRL level, the prediction models need to be integrated into the real control room systems"
+     },
+     {
+      "url": "https://smarter.energynetworks.org/projects/nia2_neso107/",
+      "label": "ENA Smarter Networks Portal – Volta: Grand Optimiser Design Philosophy (NIA2_NESO107)",
+      "quote": "it is necessary to conduct a validation and verification stage, where the design is tested in a modular approach"
+     },
+     {
+      "url": "https://www.neso.energy/about/innovation/our-innovation-projects/ai-first-design-discovery-and-prototyping",
+      "label": "NESO – AI First design discovery and prototyping",
+      "quote": "trust in AI grows when outputs are explainable and traceable"
+     }
+    ],
+    "checked": "2026-10-30"
    }
   },
   {
@@ -3466,7 +3630,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -3513,7 +3677,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -3531,6 +3695,40 @@
     "estimatedYear": 2027,
     "estimatedOn": "2026-10-27",
     "revisions": []
+   },
+   "aiLevers": {
+    "phase": "deploy",
+    "bottleneck": "Enterprise identity, authorisation and audit for agents are still immature. Specs leave access policy to each implementer, so pilots stall before production.",
+    "levers": [
+     {
+      "k": "software",
+      "strength": "high",
+      "note": "Coding agents write MCP servers and A2A adapters, produce conformance tests, and scan server code for broken authentication, tool poisoning and over-broad scopes before release."
+     },
+     {
+      "k": "deploy",
+      "strength": "mid",
+      "note": "Continuously finding unapproved 'shadow' MCP servers on endpoints and in repos, writing gateway policies, and spotting unusual agent tool calls in audit logs while rolling out."
+     },
+     {
+      "k": "approvals",
+      "strength": "low",
+      "note": "Putting together evidence for each MCP tool's security review and compliance audit (scopes, logs, test results) so human reviewers can sign off faster."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://theagentics.co/insights/the-enterprise-mcp-guide-2026",
+      "label": "The Agentics: Enterprise MCP Guide 2026",
+      "quote": "only 11-14% of pilots reaching production due to challenges in identity management, auditability, and vendor lock-in"
+     },
+     {
+      "url": "https://www.pillar.security/blog/the-security-risks-of-model-context-protocol-mcp",
+      "label": "Pillar Security: MCP security risks and incidents (2026)",
+      "quote": "Continuous discovery on endpoints and in repositories"
+     }
+    ],
+    "checked": "2026-10-30"
    }
   },
   {
@@ -3553,7 +3751,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -3594,7 +3792,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "global",
@@ -4084,7 +4282,41 @@
      "status": "ok",
      "checked": "2026-10-30"
     }
-   ]
+   ],
+   "aiLevers": {
+    "phase": "deploy",
+    "bottleneck": "Device memory. Limited DRAM capacity and bandwidth cap local model size, and data-centre demand is pushing memory prices up and slowing device sales.",
+    "levers": [
+     {
+      "k": "software",
+      "strength": "high",
+      "note": "AI-assisted quantisation, distillation and compiler/kernel tuning to shrink models to 4-bit and fit them into NPU memory, DRAM and flash on mid-range devices."
+     },
+     {
+      "k": "discovery",
+      "strength": "mid",
+      "note": "ML-driven chip design and architecture search for NPUs and memory layouts, e.g. bigger on-NPU shared memory for KV cache, cutting trips to external DRAM."
+     },
+     {
+      "k": "simulation",
+      "strength": "low",
+      "note": "Performance and thermal models of SoCs used to explore NPU/memory trade-offs and battery impact before tape-out."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://www.digitaltoday.co.kr/en/view/107233/snapdragon-summit-2026-smartphones-can-run-30-billion-parameter-ai-models",
+      "label": "DigitalToday: Snapdragon Summit 2026, NPU memory expansion",
+      "quote": "Qualcomm said shared memory on the Hexagon NPU has expanded by 50%."
+     },
+     {
+      "url": "https://aiweekly.co/alerts/idc-q3-pc-shipments-plunge-201-yoy-to-627m-units-as-ai-data-center-costs-choke",
+      "label": "AI Weekly reporting IDC Q3 2026 PC shipments",
+      "quote": "elevated pricing driven by AI data-center construction competing for memory and components"
+     }
+    ],
+    "checked": "2026-10-30"
+   }
   },
   {
    "id": "eu-high-risk-ai-rules-apply",
@@ -4558,7 +4790,46 @@
      "status": "ok",
      "checked": "2026-10-30"
     }
-   ]
+   ],
+   "aiLevers": {
+    "phase": "demo",
+    "bottleneck": "Independent verification: classical simulation keeps catching up with noisy-hardware claims. Advantage needs certified classical hardness plus error bounds on today's low-fidelity processors.",
+    "levers": [
+     {
+      "k": "simulation",
+      "strength": "mid",
+      "note": "Neural-network quantum states and ML-guided tensor-network contraction act as strong classical challengers. They stress-test tracker claims and help find where classical methods truly fail."
+     },
+     {
+      "k": "software",
+      "strength": "mid",
+      "note": "ML for error mitigation, calibration, circuit compilation and layout could raise effective fidelity and close loopholes, such as the geometry shortcut behind the GPU reproduction."
+     },
+     {
+      "k": "discovery",
+      "strength": "low",
+      "note": "AI search could help design classically hard yet verifiable circuit families and problem instances. Hardness proofs still come from human complexity theory."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://quantumtimeline.org/milestones/2026-ibm-trusted-quantum-advantage/",
+      "label": "Quantum Timeline – IBM advantage claim (Disputed)",
+      "quote": "IBM's authors acknowledged it and revised the paper with a layout that blocks that shortcut."
+     },
+     {
+      "url": "https://postquantum.com/industry-news/ibm-three-quantum-advantage-papers/",
+      "label": "PostQuantum – IBM's three advantage claims fact-checked",
+      "quote": "The \"era\" remains a claim awaiting community adjudication."
+     },
+     {
+      "url": "https://wiredfrontier.blog/2026/09/20/ibm-says-quantum-advantage-has-arrived-its-three-papers-dont-carry-equal-weight/",
+      "label": "Wired Frontier – IBM's three papers don't carry equal weight",
+      "quote": "Treat July as the start of a verification contest rather than the end of one."
+     }
+    ],
+    "checked": "2026-10-30"
+   }
   },
   {
    "id": "fault-tolerant-quantum-computer",
@@ -5176,7 +5447,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "refs": [
@@ -5184,7 +5455,7 @@
      "label": "https://www.ncsc.gov.uk/collection/ncsc-annual-review-2025/chapter-03-keeping-pace-with-evolving-technology/migrating-to-post-quantum-cryptography",
      "url": "https://www.ncsc.gov.uk/collection/ncsc-annual-review-2025/chapter-03-keeping-pace-with-evolving-technology/migrating-to-post-quantum-cryptography",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ],
    "region": "uk",
@@ -5224,7 +5495,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -5246,7 +5517,7 @@
      "label": "Swimlane: Agentic AI in the SOC",
      "url": "https://swimlane.com/blog/agentic-ai-in-soc/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ]
   },
@@ -5270,7 +5541,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "global",
@@ -5292,7 +5563,7 @@
      "label": "Rapid7 Q3 2026 Threat Update",
      "url": "https://www.rapid7.com/blog/post/tr-q3-2026-threat-update-attackers-exploiting-vulnerabilities-within-3-days/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ],
    "aiLevers": {
@@ -5345,7 +5616,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -5369,7 +5640,7 @@
      "label": "DARPA AIxCC final competition winners",
      "url": "https://aicyberchallenge.com/finals-winners-announcement/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ]
   },
@@ -5394,7 +5665,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "global",
@@ -5422,7 +5693,7 @@
      "label": "Industrial Cyber: AI/ML anomaly detection across OT and ICS",
      "url": "https://industrialcyber.co/features/integrating-ai-and-ml-technologies-across-ot-ics-environments-to-enhance-anomaly-detection-and-operational-resilience/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ]
   },
@@ -5449,7 +5720,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "adoption": {
@@ -5473,7 +5744,7 @@
      "label": "Google Arts & Culture / Alexandra Palace Television Society: Opening Night of Television",
      "url": "https://artsandculture.google.com/story/opening-night-of-television-alexandra-palace/GgXhGoPtscXvLw?hl=en",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ],
    "tags": [
@@ -5503,7 +5774,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "refs": [
@@ -5511,7 +5782,7 @@
      "label": "https://en.wikipedia.org/wiki/Chain_Home",
      "url": "https://en.wikipedia.org/wiki/Chain_Home",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ],
    "adoption": {
@@ -5520,7 +5791,7 @@
     "basis": "ai-estimate"
    },
    "region": "uk",
-   "subfield": "internet",
+   "subfield": "broadcast",
    "readiness": {
     "stage": "scale",
     "basis": "ai-estimate"
@@ -5530,7 +5801,10 @@
     "note": "Connects systems to the internet and to each other, the root of most remote attacks.",
     "basis": "ai-compiled",
     "guidance": "it"
-   }
+   },
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "cellular-networks",
@@ -5774,7 +6048,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "refs": [
@@ -5782,7 +6056,7 @@
      "label": "https://www.comsoc.org/node/20051",
      "url": "https://www.comsoc.org/node/20051",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ],
    "region": "us",
@@ -5863,7 +6137,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -5892,13 +6166,13 @@
      "label": "T-Mobile: Reaching for the Stars (T-Satellite)",
      "url": "https://www.t-mobile.com/news/un-carrier/reaching-for-the-stars-with-t-satellite",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     },
     {
      "label": "Consultant Alliance: Direct-to-cell in 2026 (O2 Satellite UK)",
      "url": "https://www.consultant-alliance.com/2026/07/satellite-internet-on-your-smartphone-how-direct-to-cell-works-in-2026/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ]
   },
@@ -5926,7 +6200,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "global",
@@ -5955,7 +6229,7 @@
      "label": "Light Reading: 6G specs are set for early 2029",
      "url": "https://www.lightreading.com/6g/it-s-official-6g-specs-are-set-for-early-2029",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ]
   },
@@ -6441,7 +6715,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "asia",
@@ -6485,7 +6759,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "asia",
@@ -6530,7 +6804,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "refs": [
@@ -6538,7 +6812,7 @@
      "label": "https://www.basf.com/global/en/media/news-releases/2023/10/p-23-327",
      "url": "https://www.basf.com/global/en/media/news-releases/2023/10/p-23-327",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ],
    "region": "other",
@@ -6579,7 +6853,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -6898,7 +7172,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "refs": [
@@ -6906,7 +7180,7 @@
      "label": "https://www.spacebandits.io/post/what-is-satellite-refuelling-and-how-close-are-we-to-solving-it",
      "url": "https://www.spacebandits.io/post/what-is-satellite-refuelling-and-how-close-are-we-to-solving-it",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ],
    "region": "us",
@@ -6946,14 +7220,15 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
    "subfield": "launch",
    "readiness": {
-    "stage": "research",
-    "basis": "ai-estimate"
+    "stage": "pilot",
+    "basis": "ai-estimate",
+    "checked": "2026-10-30"
    },
    "forecast": {
     "estimatedYear": 2028,
@@ -6965,7 +7240,10 @@
     "note": "Concentrating heavy-lift capacity in one operator creates a single point of failure for access to space. The ground systems that control autonomous recovery and flight termination are high-value cyber targets.",
     "basis": "ai-compiled",
     "guidance": "data"
-   }
+   },
+   "tags": [
+    "space"
+   ]
   },
   {
    "id": "in-orbit-refuelling",
@@ -6987,7 +7265,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "refs": [
@@ -6995,7 +7273,7 @@
      "label": "https://www.spacebandits.io/post/what-is-satellite-refuelling-and-how-close-are-we-to-solving-it",
      "url": "https://www.spacebandits.io/post/what-is-satellite-refuelling-and-how-close-are-we-to-solving-it",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ],
    "region": "us",
@@ -7041,7 +7319,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -7215,7 +7493,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -7238,7 +7516,7 @@
      "label": "Waymo blog, 8 Oct 2020",
      "url": "https://waymo.com/blog/2020/10/waymo-is-opening-its-fully-driverless-service-in-phoenix/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ]
   },
@@ -7262,7 +7540,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": true
    },
    "region": "asia",
@@ -7274,7 +7552,7 @@
      "label": "DJI press release: Phantom launch (7 Jan 2013)",
      "url": "https://www.dji.com/newsroom/news/dji-launches-industry-best-easiest-to-fly-quadcopter-for-consumer-use",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ],
    "subfield": "drones",
@@ -7318,14 +7596,14 @@
      "label": "Wikipedia: Wayve",
      "url": "https://en.wikipedia.org/wiki/Wayve",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ],
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "uk",
@@ -7345,6 +7623,24 @@
     "note": "Remote updates and sensors can be attacked to cause physical harm.",
     "basis": "ai-compiled",
     "guidance": "autonomy"
+   },
+   "story": {
+    "research": "Cambridge machine-learning PhD students Amar Shah and Alex Kendall founding Wayve in 2017, using machine learning for every layer of driving instead of hand-coded rules.",
+    "deploy": "in London on 3 September 2026, when Uber began matching riders with Wayve-powered Ford Mustang Mach-Es, with safety drivers on board.",
+    "impact": "London became Europe's second robotaxi city after Zagreb, though only 15 supervised cars are authorised. Driverless service still awaits Transport for London approval, and Wayve plans Tokyo next.",
+    "refs": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Wayve",
+      "label": "Wikipedia – Wayve",
+      "quote": "by Amar Shah and Alex Kendall, two machine learning PhD students at the University of Cambridge"
+     },
+     {
+      "url": "https://www.thestar.com.my/tech/tech-news/2026/09/03/uber-wayve-launch-london039s-first-robotaxi-service",
+      "label": "AFP via The Star – Uber, Wayve launch London's first robotaxi service",
+      "quote": "Wayve and Uber currently have safety authorisation for 15 supervised vehicles."
+     }
+    ],
+    "checked": "2026-10-30"
    }
   },
   {
@@ -7371,7 +7667,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "uk",
@@ -7416,7 +7712,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false,
     "qaNote": "The change as written ('paid humanoid deployments in warehouses and factories, in small numbers') already happened in 2024. Agility's Digit has worked under a multi-year Robots-as-a-Service contract at GXO since June 2024, and other paying customers include Schaeffler and Toyota Canada. GXO is expanding to two more sites in 2027. Either mark this record landed in 2024, or reword the outlook to sca"
    },
@@ -7465,7 +7761,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "global",
@@ -7514,7 +7810,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "adoption": {
@@ -7531,13 +7827,18 @@
      "label": "CDC Emerging Infectious Diseases: The Discovery of Penicillin (2017)",
      "url": "https://wwwnc.cdc.gov/eid/article/23/5/16-1556_article",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ],
    "subfield": "medicines",
    "readiness": {
     "stage": "scale",
     "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Not a digital technology; no cyber attack surface.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -7563,7 +7864,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "adoption": {
@@ -7581,13 +7882,18 @@
      "label": "Science History Institute: Herbert W. Boyer and Stanley N. Cohen",
      "url": "https://www.sciencehistory.org/education/scientific-biographies/herbert-w-boyer-and-stanley-n-cohen/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ],
    "subfield": "genetics",
    "readiness": {
     "stage": "scale",
     "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Mainly a biosecurity concern rather than a cyber one; no direct digital attack surface.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -7613,7 +7919,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "adoption": {
@@ -7631,13 +7937,18 @@
      "label": "FONAR company history",
      "url": "https://www.fonar.com/history.html",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ],
    "subfield": "imaging",
    "readiness": {
     "stage": "scale",
     "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Networked scanners and PACS imaging systems often run legacy operating systems and are a known target for ransomware in hospitals.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -7660,7 +7971,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "uk",
@@ -7672,7 +7983,7 @@
      "label": "An (2017), Protein & Cell: 'Magic Bullets' special issue on therapeutic antibodies",
      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5777979/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ],
    "subfield": "medicines",
@@ -7680,6 +7991,11 @@
     "stage": "scale",
     "basis": "ai-estimate",
     "checked": "2026-10-29"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "A biologic medicine, so it adds little digital attack surface; the main risks are in biomanufacturing process-control systems and supply chains.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -7702,7 +8018,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -7711,7 +8027,7 @@
      "label": "Thermo Fisher: PCR thermal cycler history",
      "url": "https://commerce.thermofisher.com/us/en/home/life-science/cloning/cloning-learning-center/invitrogen-school-of-molecular-biology/pcr-education/pcr-thermal-cyclers.html",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ],
    "subfield": "genetics",
@@ -7750,7 +8066,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -7763,7 +8079,7 @@
      "label": "Stanford GSB case study: 23andMe (2017)",
      "url": "https://gsb.stanford.edu/faculty-research/case-studies/23andme",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ],
    "subfield": "genetics",
@@ -7800,7 +8116,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "adoption": {
@@ -7817,7 +8133,7 @@
      "label": "Nobel Prize facts: Karikó",
      "url": "https://www.nobelprize.org/prizes/medicine/2023/kariko/facts/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ],
    "subfield": "vaccines",
@@ -7854,7 +8170,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "uk",
@@ -7868,7 +8184,7 @@
      "label": "HLK: Casgevy world's first CRISPR approval",
      "url": "https://www.hlk-ip.com/news-and-insights/casgevy-worlds-first-approval-of-a-crispr-cas9-gene-editing-therapy/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ],
    "subfield": "genetics",
@@ -7905,7 +8221,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "adoption": {
@@ -7922,7 +8238,7 @@
      "label": "EMBL: AlphaFold Nobel and database history",
      "url": "https://www.embl.org/news/science-technology/alphafold-wins-nobel-prize-chemistry-2024/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ],
    "subfield": "ai-bio",
@@ -7957,7 +8273,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "global",
@@ -8002,7 +8318,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -8048,7 +8364,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -8058,11 +8374,12 @@
    ],
    "subfield": "ops",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-30"
    },
    "gb": {
-    "status": "unknown",
+    "status": "deployed",
     "basis": "ai-estimate",
     "note": "Weather model output underpins GB wind, solar and demand forecasts used for system balancing."
    },
@@ -8077,7 +8394,7 @@
      "label": "NOAA: History of Numerical Weather Prediction",
      "url": "https://www.vos.noaa.gov/MWL/dec_07/weatherprediction.shtml",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ]
   },
@@ -8102,7 +8419,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -8130,7 +8447,7 @@
      "label": "Springer: State Estimation",
      "url": "https://link.springer.com/chapter/10.1007/978-3-319-93922-3_2",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ]
   },
@@ -8205,7 +8522,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": true
    },
    "region": "europe",
@@ -8213,13 +8530,14 @@
     "wind",
     "ai-models"
    ],
-   "subfield": "renewables",
+   "subfield": "ops",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-30"
    },
    "gb": {
-    "status": "unknown",
+    "status": "deployed",
     "basis": "ai-estimate",
     "note": "Wind forecasts feed GB balancing and reserve decisions as offshore wind capacity grows."
    },
@@ -8234,19 +8552,19 @@
      "label": "https://www.osti.gov/etdeweb/servlets/purl/20599421",
      "url": "https://www.osti.gov/etdeweb/servlets/purl/20599421",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     },
     {
      "label": "http://www.drgiebel.de/ShortTermPredLiterature.htm",
      "url": "http://www.drgiebel.de/ShortTermPredLiterature.htm",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     },
     {
      "label": "DTU Orbit: WPPT, a tool for on-line wind power prediction",
      "url": "https://orbit.dtu.dk/en/publications/wppt-a-tool-for-on-line-wind-power-prediction/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ]
   },
@@ -8271,7 +8589,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": true
    },
    "region": "europe",
@@ -8284,7 +8602,7 @@
      "label": "CORDIS: Providing Predictive Maintenance for Wind Turbines Over Cloud (2015)",
      "url": "https://cordis.europa.eu/project/id/673137",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ],
    "subfield": "renewables",
@@ -8325,7 +8643,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -8337,7 +8655,7 @@
      "label": "ACHR News, Aug 2016",
      "url": "https://www.achrnews.com/articles/133132-machine-learning-reduces-google-data-center-cooling-bill-by-40",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ],
    "subfield": "demand",
@@ -8378,7 +8696,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false,
     "qaNote": "I could not support 2020 as the date when smart EV tariffs reached GB households at scale. Octopus launched its first EV tariff in 2018, and Ofgem reported 653k customers on smart time-of-use EV tariffs in July 2025, which points to scale later than 2020. The record is GB-specific, so the region should be uk rather than global. The 'ai-models' tag does not fit."
    },
@@ -8407,7 +8725,7 @@
      "label": "Octopus Energy: Intelligent Octopus Go",
      "url": "https://octopus.energy/smart/intelligent-octopus-go/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ],
    "flags": {
@@ -8435,7 +8753,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "uk",
@@ -8464,7 +8782,7 @@
      "label": "pv magazine: AI solar forecasting at NESO",
      "url": "https://www.pv-magazine.com/2025/11/07/ai-powered-solar-forecasting-helps-uk-grid-operator-reduce-balancing-costs/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-30"
     }
    ]
   },
@@ -8489,7 +8807,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "uk",
@@ -8534,7 +8852,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "global",
@@ -8584,7 +8902,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "uk",
@@ -8634,13 +8952,13 @@
     "label": "DESNZ: Vision for an AI-enabled clean energy system",
     "url": "https://www.gov.uk/government/calls-for-evidence/vision-for-an-ai-enabled-clean-energy-system/vision-for-an-ai-enabled-clean-energy-system-html",
     "status": "ok",
-    "checked": "2026-10-29"
+    "checked": "2026-10-30"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "uk",
@@ -13794,10 +14112,10 @@
    "confidence": "medium",
    "note": "AI already shortens part of hardware design.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -13815,7 +14133,15 @@
     "note": "Concentrates valuable data and workloads, making it a high-value target.",
     "basis": "ai-compiled",
     "guidance": "hw"
-   }
+   },
+   "refs": [
+    {
+     "label": "Google Research AlphaChip / Circuit Training repository",
+     "url": "https://github.com/google-research/circuit_training",
+     "status": "ok",
+     "checked": "2026-10-30"
+    }
+   ]
   },
   {
    "id": "email",
@@ -13834,10 +14160,10 @@
    "confidence": "medium",
    "note": "Also the start of phishing.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -13851,7 +14177,15 @@
     "note": "Software and online services are a primary route for remote attack and data theft.",
     "basis": "ai-compiled",
     "guidance": "it"
-   }
+   },
+   "refs": [
+    {
+     "label": "Raytheon BBN: Tomlinson inducted into Internet Hall of Fame",
+     "url": "https://raytheon.mediaroom.com/index.php?s=43&item=2085",
+     "status": "ok",
+     "checked": "2026-10-30"
+    }
+   ]
   },
   {
    "id": "java-and-portable-code",
@@ -13873,14 +14207,15 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
    "subfield": "dev",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-30"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -13909,10 +14244,10 @@
     "major": true
    },
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "adoption": {
@@ -13931,7 +14266,15 @@
     "note": "Software and online services are a primary route for remote attack and data theft.",
     "basis": "ai-compiled",
     "guidance": "it"
-   }
+   },
+   "refs": [
+    {
+     "label": "Centre for Computing History: HTC releases first Android smartphone",
+     "url": "https://www.computinghistory.org.uk/det/32762/HTC-releases-the-first-Android-smartphone/",
+     "status": "ok",
+     "checked": "2026-10-30"
+    }
+   ]
   },
   {
    "id": "containers-and-kubernetes",
@@ -13950,24 +14293,33 @@
    "confidence": "medium",
    "note": "How most cloud software is now run.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
    "subfield": "cloud",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-30"
    },
    "security": {
     "expandsAttackSurface": true,
     "note": "Software and online services are a primary route for remote attack and data theft.",
     "basis": "ai-compiled",
     "guidance": "it"
-   }
+   },
+   "refs": [
+    {
+     "label": "Aqua Security: The History of Kubernetes",
+     "url": "https://www.aquasec.com/blog/kubernetes-history-how-it-conquered-cloud-native-orchestration/",
+     "status": "ok",
+     "checked": "2026-10-30"
+    }
+   ]
   },
   {
    "id": "face-detection-in-cameras",
@@ -13989,7 +14341,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -14026,10 +14378,10 @@
    "confidence": "medium",
    "note": "And with them, deepfakes and new fraud risks.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "other",
@@ -14046,7 +14398,15 @@
     "note": "Models can be fooled by manipulated inputs, and the data behind them can be poisoned.",
     "basis": "ai-compiled",
     "guidance": "ai"
-   }
+   },
+   "refs": [
+    {
+     "label": "Wikipedia: Generative adversarial network",
+     "url": "https://en.wikipedia.org/wiki/Generative_adversarial_network",
+     "status": "ok",
+     "checked": "2026-10-30"
+    }
+   ]
   },
   {
    "id": "quantum-dots",
@@ -14065,10 +14425,10 @@
    "confidence": "medium",
    "note": "2023 Nobel Prize in Chemistry.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -14084,7 +14444,21 @@
     "expandsAttackSurface": false,
     "note": "Little direct attack surface.",
     "basis": "ai-compiled"
-   }
+   },
+   "refs": [
+    {
+     "label": "MIT News: QD Vision and Sony Triluminos",
+     "url": "https://news.mit.edu/2014/startup-quantum-dot-tv-displays-1119",
+     "status": "ok",
+     "checked": "2026-10-30"
+    },
+    {
+     "label": "MRS Bulletin: Quantum dots, discovery to impact",
+     "url": "https://link.springer.com/article/10.1557/s43577-025-01007-5",
+     "status": "ok",
+     "checked": "2026-10-30"
+    }
+   ]
   },
   {
    "id": "smart-cards",
@@ -14270,7 +14644,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -14312,7 +14686,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "adoption": {
@@ -14353,10 +14727,10 @@
    "confidence": "high",
    "note": "A British process now used for almost all flat glass.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "uk",
@@ -14365,8 +14739,22 @@
    ],
    "subfield": "construction",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-30"
+   },
+   "refs": [
+    {
+     "label": "Pilkington: The inventor of float glass",
+     "url": "https://www.pilkington.com/en/gbl/about-us/pilkington-history/the-inventor-of-float-glass",
+     "status": "ok",
+     "checked": "2026-10-30"
+    }
+   ],
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Manufacturing process for a physical material, with no meaningful cyber exposure.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -14386,10 +14774,10 @@
    "confidence": "high",
    "note": "Now used for turbine parts and spares.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -14401,6 +14789,19 @@
    "readiness": {
     "stage": "commercial",
     "basis": "ai-estimate"
+   },
+   "refs": [
+    {
+     "label": "3DPrint.com: Beyond Chuck Hull's legacy",
+     "url": "https://3dprint.com/311301/beyond-chuck-hulls-legacy-the-unsung-heroes-who-paved-the-way-for-3d-printing/",
+     "status": "ok",
+     "checked": "2026-10-30"
+    }
+   ],
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Networked printers and digital design files can be tampered with (sabotaged part geometry) or stolen as intellectual property. The exposure is mostly limited to manufacturing.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -14420,10 +14821,10 @@
    "confidence": "medium",
    "note": "Now in EV inverters, chargers and grid converters.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -14434,6 +14835,19 @@
    "readiness": {
     "stage": "commercial",
     "basis": "ai-estimate"
+   },
+   "refs": [
+    {
+     "label": "Semiconductor Today: Cree launches first commercial SiC power MOSFET",
+     "url": "https://www.semiconductor-today.com/news_items/2011/JAN/CREE_180111.htm",
+     "status": "ok",
+     "checked": "2026-10-30"
+    }
+   ],
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "A semiconductor device technology with no direct cyber exposure. The risk lies in the controllers and inverters that use it.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -14456,7 +14870,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -14465,8 +14879,9 @@
    ],
    "subfield": "eo",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-30"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -14492,10 +14907,10 @@
    "confidence": "medium",
    "note": "Sees through cloud: useful for asset and vegetation monitoring.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -14512,7 +14927,21 @@
     "note": "Imagery and data services add supply chain and data integrity dependencies.",
     "basis": "ai-compiled",
     "guidance": "data"
-   }
+   },
+   "refs": [
+    {
+     "label": "eoPortal: SeaSat",
+     "url": "https://www.eoportal.org/satellite-missions/seasat",
+     "status": "ok",
+     "checked": "2026-10-30"
+    },
+    {
+     "label": "Geoawesome: history of SAR",
+     "url": "https://geoawesome.com/eo-hub/everything-you-ever-wanted-to-know-about-sar-satellite-data-and-the-ecosystem-but-were-afraid-to-ask/",
+     "status": "ok",
+     "checked": "2026-10-30"
+    }
+   ]
   },
   {
    "id": "collaborative-robots",
@@ -14521,8 +14950,8 @@
    "status": "landed",
    "title": "Collaborative robots",
    "research": {
-    "year": 2005,
-    "what": "Universal Robots is founded in Denmark."
+    "year": 1996,
+    "what": "Colgate and Peshkin at Northwestern University patent the cobot concept."
    },
    "change": {
     "year": 2008,
@@ -14532,10 +14961,10 @@
    "note": "Robots that work safely beside people.",
    "company": "Universal Robots",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "europe",
@@ -14552,7 +14981,21 @@
     "note": "Networked factory robots add operational technology exposure.",
     "basis": "ai-compiled",
     "guidance": "ot"
-   }
+   },
+   "refs": [
+    {
+     "label": "https://www.thebotscout.com/industrial-robots/history-of-industrial-robots/",
+     "url": "https://www.thebotscout.com/industrial-robots/history-of-industrial-robots/",
+     "status": "ok",
+     "checked": "2026-10-30"
+    },
+    {
+     "label": "The Robot Report: Evolution of Universal Robots cobot arms",
+     "url": "https://www.therobotreport.com/the-evolution-of-universal-robots-cobot-arms/",
+     "status": "ok",
+     "checked": "2026-10-30"
+    }
+   ]
   },
   {
    "id": "legged-inspection-robots",
@@ -15242,7 +15685,7 @@
      "label": "Open Climate Fix: Cloudcasting",
      "url": "https://new.openclimatefix.org/projects/cloud-forecasting",
      "status": "broken",
-     "checked": "2026-10-28"
+     "checked": "2026-10-30"
     }
    ],
    "provenance": {
@@ -15464,7 +15907,7 @@
      "label": "SP Energy Networks: drones on the transmission network",
      "url": "https://www.spenergynetworks.co.uk/news/pages/drones_transmission_network.aspx",
      "status": "broken",
-     "checked": "2026-10-28"
+     "checked": "2026-10-30"
     }
    ],
    "provenance": {
@@ -16338,7 +16781,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -16500,7 +16943,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": true
    },
    "region": "other",
@@ -16705,7 +17148,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -16917,7 +17360,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "asia",
@@ -16956,7 +17399,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -16965,8 +17408,9 @@
    ],
    "subfield": "chips",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-30"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -16995,7 +17439,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -17035,7 +17479,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "adoption": {
@@ -17128,8 +17572,9 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
-    "approximate": false
+    "lastChecked": "2026-10-30",
+    "approximate": false,
+    "qaNote": "The Google Maps facts check out: Where 2 was founded in Sydney in early 2003, acquired by Google in October 2004, and Google Maps launched on 8 Feb 2005. But the title 'Online maps' is wrong as a milestone, because MapQuest launched the first commercial web mapping service in 1996. Either retitle to 'Google Maps / interactive web maps' or move the change to 1996 (MapQuest). Adding refs and a clari"
    },
    "region": "us",
    "tags": [
@@ -17146,6 +17591,9 @@
     "note": "Software and online services are a primary route for remote attack and data theft.",
     "basis": "ai-compiled",
     "guidance": "it"
+   },
+   "flags": {
+    "disputed": true
    }
   },
   {
@@ -17598,7 +18046,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -17638,7 +18086,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -17724,7 +18172,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "asia",
@@ -17733,8 +18181,9 @@
    ],
    "subfield": "comms",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "pilot",
+    "basis": "ai-estimate",
+    "checked": "2026-10-30"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -17763,7 +18212,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": true
    },
    "region": "us",
@@ -17793,7 +18242,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -17827,14 +18276,14 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": true
    },
    "region": "us",
    "tags": [
     "semiconductors"
    ],
-   "subfield": "crypto",
+   "subfield": "identity",
    "readiness": {
     "stage": "scale",
     "basis": "ai-estimate",
@@ -17861,7 +18310,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -17894,7 +18343,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -17928,7 +18377,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "uk",
@@ -17958,7 +18407,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "approximate": false
    },
    "region": "us",
@@ -22881,6 +23330,29 @@
     "expandsAttackSurface": false,
     "note": "No meaningful new digital attack surface; this is a packaging material.",
     "basis": "ai-compiled"
+   },
+   "story": {
+    "research": "a 2020 venture by Diageo and Pilot Lite, which formed Pulpex Limited to develop a plastic-free, single-mould paper bottle made from sustainably sourced wood pulp.",
+    "deploy": "commercially at Pulpex's Westway plant near Glasgow, which opened on 8 October 2026 with launch customers Purely Scottish mineral water and laundry brand smol.",
+    "impact": "the Glasgow plant has opened with capacity for up to 40 million bottles a year, over 90% of initial capacity already committed, and a target of one billion units globally via licensing.",
+    "refs": [
+     {
+      "url": "https://www.diageo.com/en/news-and-media/press-releases/2020/diageo-announces-creation-of-worlds-first-ever-100-plastic-free-paper-based-spirits-bottle",
+      "label": "Diageo press release, July 2020",
+      "quote": "a variety of plastic-free, single mould bottles that can be used across a range of consumer goods"
+     },
+     {
+      "url": "https://www.packagingeurope.com/pulpex-opens-first-commercial-facility-for-paper-bottle-manufacturing/",
+      "label": "Packaging Europe, October 2026",
+      "quote": "Launch customers include Purely Scottish Natural Mineral Water"
+     },
+     {
+      "url": "https://www.packaginginsights.com/news/pulpex-commercial-fiber-bottle-plant.html",
+      "label": "Packaging Insights, October 2026",
+      "quote": "More than 90% of the site’s initial capacity for the current financial year is already committed."
+     }
+    ],
+    "checked": "2026-10-30"
    }
   },
   {
@@ -22946,6 +23418,29 @@
     "expandsAttackSurface": false,
     "note": "A standalone device with little direct cyber exposure.",
     "basis": "ai-compiled"
+   },
+   "story": {
+    "research": "lab research by Sophie Hofferberth in Pedro del Nido's Boston Children's lab: a venous-valve-inspired expandable valve tested on bench, in simulations and growing lambs (2020).",
+    "deploy": "in December 2021 at Nationwide Children's Hospital, where surgeon Mark Galantowicz implanted it in a young patient in the first-in-human early feasibility study.",
+    "impact": "a 62-patient pivotal trial at 12 U.S. centers led to FDA approval on 1 October 2026, the first expandable heart valve and first approved polymer-leaflet valve; Edwards bought Autus for $128.9 million.",
+    "refs": [
+     {
+      "url": "https://answers.childrenshospital.org/bileaflet-heart-valve/",
+      "label": "Boston Children's Answers (Feb 2020): Breakthrough bileaflet heart valve could be the only one a child needs",
+      "quote": "the valve underwent extensive benchtop studies, computer simulations, and testing in large animal models."
+     },
+     {
+      "url": "https://pediatricsnationwide.org/2022/01/31/first-in-human/",
+      "label": "Pediatrics Nationwide (Nationwide Children's): First In Human",
+      "quote": "It was the first time the device has been implanted in a human."
+     },
+     {
+      "url": "https://cardiovascularbusiness.com/topics/congenital-heart-disease/fda-approves-first-heart-valve-grows-children",
+      "label": "Cardiovascular Business: FDA approves first heart valve that grows with children",
+      "quote": "The FDA said the clinical study enrolled 62 pediatric patients across 12 U.S."
+     }
+    ],
+    "checked": "2026-10-30"
    }
   },
   {
@@ -23071,6 +23566,29 @@
     "note": "Hardware supply chains and flaws such as side channels can undermine everything built on top.",
     "basis": "ai-compiled",
     "guidance": "hw"
+   },
+   "story": {
+    "research": "NSF-funded Carnegie Mellon research, begun around 2016, in which Brandon Lucia, Nathan Beckmann and PhD student Graham Gobieski studied energy-minimal, programmable dataflow architectures.",
+    "deploy": "in September 2026, when Efficient Computer said Electron E1 had entered volume production, shipping to customers in physical AI, space and defence, and wearables.",
+    "impact": "the company raised a Series B of over $97 million at a $650 million valuation (total funding $173 million); it claims 10–100x energy savings, not yet independently verified.",
+    "refs": [
+     {
+      "url": "https://convergedigest.com/efficient-computer-97m-series-b-data-center-fabric/",
+      "label": "Converge Digest: Efficient Computer Raises $97M Series B for its Spatial Dataflow",
+      "quote": "jointly advised Graham Gobieski during his Ph.D. research beginning in 2016"
+     },
+     {
+      "url": "https://www.unite.ai/efficient-computer-raises-97m-plus-series-b-at-650m-valuation-to-scale-processors/",
+      "label": "Unite.AI: Efficient Computer Raises $97M+ Series B at $650M Valuation",
+      "quote": "Efficient said the Electron E1 is in volume production and that customers are adopting it for physical AI and autonomy"
+     },
+     {
+      "url": "https://aiweekly.co/alerts/efficient-computer-lands-97m-at-650m-for-dataflow-chips",
+      "label": "AI Weekly: Efficient Computer lands $97M at $650M for dataflow chips",
+      "quote": "Efficient Computer raised a $97M Series B at a $650M valuation, bringing total funding to $173M"
+     }
+    ],
+    "checked": "2026-10-30"
    }
   },
   {
@@ -23329,6 +23847,29 @@
     "added": "2026-10-28",
     "lastChecked": "2026-10-29",
     "approximate": false
+   },
+   "story": {
+    "research": "an industry standards effort: in February 2021, Adobe, Arm, BBC, Intel, Microsoft and Truepic formed C2PA to specify cryptographically signed, tamper-evident provenance metadata.",
+    "deploy": "in Connecticut from 1 October 2026, under SB 5, by generative AI providers with over one million monthly users, who must embed tamper-resistant provenance data.",
+    "impact": "C2PA has become a leading provenance reference; the Adobe-led Content Authenticity Initiative promoting it reported over 6,000 members in January 2026. Connecticut's mandate is too new for measured effects.",
+    "refs": [
+     {
+      "url": "https://msi.dublincore.org/standards/c2pa/",
+      "label": "Dublin Core Metadata Standards Index – C2PA Content Credentials",
+      "quote": "Adobe joined with Arm, BBC, Intel, Microsoft, and Truepic to establish the Coalition for Content Provenance and Authenticity"
+     },
+     {
+      "url": "https://datamatters.sidley.com/2026/08/21/trending-issues-in-state-ai-regulation-as-seen-through-connecticuts-omnibus-ai-law-sb5/",
+      "label": "Sidley Austin, Data Matters – Connecticut's Omnibus AI Law (SB5)",
+      "quote": "commercially and technically reasonable methods, such as those established by the Coalition for Content Provenance and Authenticity"
+     },
+     {
+      "url": "https://truescreen.io/articles/c2pa-standard-history-limitations/",
+      "label": "TrueScreen – What Is C2PA? The Standard, Its Metadata and Real Limits",
+      "quote": "reported more than 6,000 members in January 2026"
+     }
+    ],
+    "checked": "2026-10-30"
    }
   },
   {
@@ -24267,6 +24808,244 @@
     "lastChecked": "2026-10-30",
     "approximate": false
    }
+  },
+  {
+   "id": "atomic-6-space-armor-debris-shield-flies",
+   "field": "space",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Atomic-6 Space Armor debris shield flies",
+   "research": {
+    "year": 1947,
+    "what": "The Whipple shield, a sacrificial bumper that breaks up fast debris before it reaches a spacecraft wall, is the conceptual origin of modern debris shielding. Origin: Fred Whipple's meteoroid bumper shield concept, 1947. This is a conceptual origin only: I found no named paper or patent for Atomic-6's own composite tile."
+   },
+   "change": {
+    "year": 2026,
+    "what": "Atomic-6's composite Space Armor tiles were launched on Portal Space Systems' Starburst-1 on 20–21 October 2026 (Falcon 9, Bandwagon-5). The company describes this as their first operational deployment in orbit after ground hypervelocity testing."
+   },
+   "confidence": "low",
+   "note": "This is the first in-orbit use of a lightweight composite debris shield that is also transparent to radio signals. The research lineage is loose, and the mission is a one-year flight demonstration rather than a commercial fleet rollout.",
+   "refs": [
+    {
+     "label": "PR Newswire: First Ever Launch of Atomic-6 Space Armor",
+     "url": "https://www.prnewswire.com/news-releases/first-ever-launch-of-atomic-6-space-armor-takes-aim-at-growing-threat-of-space-debris-302915755.html",
+     "status": "ok",
+     "checked": "2026-10-30"
+    },
+    {
+     "label": "CompositesWorld: Atomic-6 Composite Space Armor Is Deployed on Starburst-1",
+     "url": "https://www.compositesworld.com/news/atomic-6-composite-space-armor-is-deployed-on-starburst-1-spacecraft",
+     "status": "ok",
+     "checked": "2026-10-30"
+    },
+    {
+     "label": "Interesting Engineering: Atomic-6 space armor makes orbital debut",
+     "url": "https://interestingengineering.com/innovation/atomic-6-space-armor-orbital-debut",
+     "status": "ok",
+     "checked": "2026-10-30"
+    }
+   ],
+   "subfield": "in-space",
+   "region": "us",
+   "tags": [
+    "space",
+    "materials"
+   ],
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Passive shielding adds no new cyber attack surface.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-30",
+    "lastChecked": "2026-10-30",
+    "approximate": false
+   }
+  },
+  {
+   "id": "digital-in-memory-compute-inference-d-matrix-corsair",
+   "field": "hw",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Digital in-memory compute inference (d-Matrix Corsair)",
+   "research": {
+    "year": 2021,
+    "what": "d-Matrix demonstrated Nighthawk, a proof-of-concept chiplet that performs matrix maths inside SRAM using digital in-memory computing for transformer inference. Origin: d-Matrix Nighthawk digital in-memory compute chiplet platform, launched/demonstrated 2021 (followed by Jayhawk 2022)"
+   },
+   "change": {
+    "year": 2026,
+    "what": "Corsair digital in-memory compute servers and SquadRack systems became generally available in October 2026, with multi-rack Squadron clusters shipping to priority customers, after full production began in June 2026."
+   },
+   "confidence": "medium",
+   "note": "Marks a non-GPU, SRAM-based compute-in-memory architecture reaching general commercial availability for data-centre AI inference.",
+   "refs": [
+    {
+     "label": "d-Matrix press release: Squadron shipping, Corsair servers and SquadRacks generally available (Oct 2026)",
+     "url": "https://www.prnewswire.com/news-releases/d-matrix-announces-squadron-compute-clusters-for-ai-inference-at-data-center-scale-302906041.html",
+     "status": "ok",
+     "checked": "2026-10-30"
+    },
+    {
+     "label": "IN Electronics: d-Matrix starts shipping Squadron clusters (Oct 14, 2026)",
+     "url": "https://www.inelectronics.co.uk/d-matrix-starts-shipping-squadron-rack-scale-inference-clusters/",
+     "status": "ok",
+     "checked": "2026-10-30"
+    },
+    {
+     "label": "HPCwire: Corsair enters full production (June 2026)",
+     "url": "https://www.hpcwire.com/off-the-wire/d-matrix-corsair-ai-inference-platform-enters-full-production-to-meet-customer-demand/",
+     "status": "ok",
+     "checked": "2026-10-30"
+    },
+    {
+     "label": "eeNews Europe: Jayhawk builds on Nighthawk chiplet platform launched in 2021",
+     "url": "https://www.eenewseurope.com/en/second-generation-chiplet-platform-targets-generative-ai/",
+     "status": "ok",
+     "checked": "2026-10-30"
+    }
+   ],
+   "subfield": "compute",
+   "region": "us",
+   "tags": [
+    "semiconductors",
+    "ai-models"
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "New accelerator hardware and its proprietary software stack and NICs add new firmware and supply-chain components for data-centre operators to secure.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-30",
+    "lastChecked": "2026-10-30",
+    "approximate": false
+   }
+  },
+  {
+   "id": "korean-kpqc-post-quantum-algorithms-on-military-sims",
+   "field": "cyber",
+   "origin": "government",
+   "status": "landed",
+   "title": "Korean KpqC post-quantum algorithms on military SIMs",
+   "research": {
+    "year": 2021,
+    "what": "South Korea's KpqC research group ran a national competition to develop Korean post-quantum cryptographic algorithms. Origin: KpqC national post-quantum algorithm competition, research group established 2021"
+   },
+   "change": {
+    "year": 2026,
+    "what": "IDEMIA Secure Transactions and KT are putting KpqC and NIST post-quantum algorithms on quantum-resistant SIM/eSIM secure elements in a South Korean defence pilot, reported as the first KpqC smart-card implementation."
+   },
+   "confidence": "medium",
+   "note": "It is the first reported use of a national, non-NIST post-quantum algorithm suite inside a tamper-resistant SIM, so fielded military devices can be upgraded without being redesigned.",
+   "company": "IDEMIA Secure Transactions; KT",
+   "refs": [
+    {
+     "label": "Quantum Computing Report, 27 Oct 2026",
+     "url": "https://quantumcomputingreport.com/idemia-and-kt-deploy-quantum-resistant-sims-supporting-dual-nist-and-kpqc-algorithms-for-south-korean-military-networks/",
+     "status": "ok",
+     "checked": "2026-10-30"
+    },
+    {
+     "label": "The Quantum Insider, 26 Oct 2026",
+     "url": "https://thequantuminsider.com/2026/10/26/idemia-secure-transactions-collaborates-with-kt-in-advancing-post-quantum-security-for-south-koreas-defense-communications/",
+     "status": "ok",
+     "checked": "2026-10-30"
+    },
+    {
+     "label": "Quantum Zeitgeist, 26 Oct 2026",
+     "url": "https://quantumzeitgeist.com/kt-quantum-safe-sims-idemia-test/",
+     "status": "ok",
+     "checked": "2026-10-30"
+    }
+   ],
+   "subfield": "crypto",
+   "region": "asia",
+   "tags": [
+    "cryptography",
+    "networks"
+   ],
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-30",
+    "lastChecked": "2026-10-30",
+    "approximate": false
+   }
+  },
+  {
+   "id": "first-plasmid-dna-immunotherapy-approved-voceryq",
+   "field": "life",
+   "origin": "industry",
+   "status": "landed",
+   "title": "First plasmid DNA immunotherapy approved (Voceryq)",
+   "research": {
+    "year": 1990,
+    "what": "Researchers showed that naked plasmid DNA injected into muscle is taken up by cells and expresses the encoded protein, the basis of DNA vaccines and immunotherapies later boosted by in vivo electroporation. Origin: Wolff et al., 'Direct gene transfer into mouse muscle in vivo', Science 1990 (later developed by Inovio with CELLECTRA electroporation delivery)"
+   },
+   "change": {
+    "year": 2026,
+    "what": "On 30 October 2026 the FDA granted accelerated approval to Inovio's Voceryq, two plasmids encoding HPV antigens and IL-12 delivered intramuscularly by CELLECTRA 5PSP electroporation, for adults with recurrent respiratory papillomatosis."
+   },
+   "confidence": "medium",
+   "note": "It is the first plasmid DNA-based immunotherapy cleared in the US, validating a DNA medicine platform that has been in development for over three decades.",
+   "refs": [
+    {
+     "label": "FDA press release: first plasmid DNA-based immunotherapy for RRP",
+     "url": "https://www.fda.gov/news-events/press-announcements/fda-approves-first-plasmid-dna-based-immunotherapy-adults-recurrent-respiratory-papillomatosis",
+     "status": "ok",
+     "checked": "2026-10-30"
+    },
+    {
+     "label": "HCPLive: Voceryq gains FDA accelerated approval",
+     "url": "https://www.hcplive.com/view/voceryq-gains-fda-accelerated-approval-for-recurrent-respiratory-papillomatosis",
+     "status": "ok",
+     "checked": "2026-10-30"
+    },
+    {
+     "label": "Yahoo Finance: FDA clears Inovio's first product",
+     "url": "https://finance.yahoo.com/markets/stocks/articles/pgen-stock-craters-27-hours-222420610.html",
+     "status": "ok",
+     "checked": "2026-10-30"
+    }
+   ],
+   "subfield": "vaccines",
+   "region": "us",
+   "tags": [
+    "medicine",
+    "genetics"
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Limited cyber relevance; the electroporation delivery device is a standalone medical device with no reported network connectivity.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-30",
+    "lastChecked": "2026-10-30",
+    "approximate": false
+   }
   }
  ],
  "founders": [
@@ -24284,7 +25063,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-10-30"
    }
   },
   {
@@ -24301,7 +25080,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-10-30"
    }
   },
   {
@@ -24317,7 +25096,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-10-30"
    }
   },
   {
@@ -24333,7 +25112,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-10-30"
    }
   },
   {
@@ -24356,7 +25135,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-10-30"
    }
   },
   {
@@ -24378,7 +25157,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-10-30"
    }
   },
   {
@@ -24400,7 +25179,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-10-30"
    }
   },
   {
@@ -24418,7 +25197,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-10-30"
    }
   },
   {
@@ -24440,7 +25219,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-10-30"
    }
   },
   {
@@ -24453,16 +25232,20 @@
    "how": "Stock market listing",
    "confidence": "high",
    "netWorth": {
-    "usdBn": 120,
+    "usdBn": 268.0,
     "who": "Michael Dell",
-    "basis": "estimate",
-    "asOf": "2026-10-27"
+    "basis": "Forbes Top 10, October 2026",
+    "asOf": "2026-10-30",
+    "source": {
+     "label": "Forbes Top 10, October 2026",
+     "url": "https://www.forbes.com.au/news/billionaires/top-10-richest-people-in-world/"
+    }
    },
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-10-30"
    }
   },
   {
@@ -24486,7 +25269,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-10-30"
    }
   },
   {
@@ -24502,7 +25285,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-10-30"
    }
   },
   {
@@ -24519,7 +25302,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-10-30"
    }
   },
   {
@@ -24532,16 +25315,20 @@
    "how": "Stock market listing",
    "confidence": "high",
    "netWorth": {
-    "usdBn": 154,
+    "usdBn": 200.0,
     "who": "Jensen Huang",
-    "basis": "Forbes 2026",
-    "asOf": "2026-10-27"
+    "basis": "Forbes Top 10, October 2026",
+    "asOf": "2026-10-30",
+    "source": {
+     "label": "Forbes Top 10, October 2026",
+     "url": "https://www.forbes.com.au/news/billionaires/top-10-richest-people-in-world/"
+    }
    },
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-10-30"
    }
   },
   {
@@ -24563,7 +25350,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-10-30"
    }
   },
   {
@@ -24586,7 +25373,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-10-30"
    }
   },
   {
@@ -25418,7 +26205,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-28"
+    "lastChecked": "2026-10-30"
    }
   },
   {
@@ -25434,7 +26221,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-28"
+    "lastChecked": "2026-10-30"
    }
   },
   {
@@ -25859,7 +26646,7 @@
     "verification": "source-cited",
     "addedBy": "research-agent",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "sources": [
      {
       "label": "Quartz: Youngest billionaires in America are mostly AI founders (Oct 2026)",
@@ -25869,7 +26656,8 @@
       "label": "CEOWORLD Magazine: AI Founders Now Dominate America's Youngest Billionaires (26 Oct 2026)",
       "url": "https://ceoworld.biz/2026/10/26/ai-founders-now-dominate-americas-youngest-billionaires/"
      }
-    ]
+    ],
+    "qaNote": "Founded 2023 and fortuneYear 2026 are confirmed: Forbes first estimated Hao to be a billionaire in January 2026. The $5.8bn is right, but it is Steven Hao's fortune alone, from the Forbes 400 with figures as of Sept 4, 2026. It is not a figure for Hao and his co-founders. Forbes says Scott Wu and Wa"
    }
   },
   {
@@ -25891,7 +26679,7 @@
     "verification": "source-cited",
     "addedBy": "research-agent",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-30",
     "sources": [
      {
       "label": "Forbes – The Megadeals Behind Europe's AI Billionaire Boom (Oct 2, 2026)",
@@ -27109,6 +27897,15 @@
    "title": "One does not simply defend agentically",
    "summary": "NCSC's CTO for Architecture explains why defenders cannot adopt agentic AI as freely as attackers, and sets out a risk-based way to judge which defensive actions are safe to automate. It supports safer AI adoption in security operations, including for critical infrastructure operators, by pointing to human oversight and provably low-risk automation, and it previews the NCSC and DCMS Cyber Shield e",
    "url": "https://www.ncsc.gov.uk/blogs/one-does-not-simply-defend-agentically",
+   "added": "2026-10-30",
+   "by": "guidance-agent"
+  },
+  {
+   "date": "2026-09-17",
+   "framework": "NCSC (UK) assurance scheme",
+   "title": "Cyber Adversary Simulation (CyAS) guidance and Scheme Standard v1.1 / Working Practices Document",
+   "summary": "The NCSC published guidance for buyers on how to plan, control, deliver and report adversary simulation (red teaming), plus the first documents for its assured CyAS scheme, which is due to launch in November 2026. The scheme is aimed at operators of essential services and regulated critical national infrastructure (CNI). It helps them get trustworthy evidence of how well they can prevent, detect a",
+   "url": "https://www.ncsc.gov.uk/blogs/cyber-adversary-simulation-cyas-scheme-documents-now-available",
    "added": "2026-10-30",
    "by": "guidance-agent"
   }
