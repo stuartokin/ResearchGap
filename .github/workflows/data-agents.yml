@@ -116,7 +116,7 @@ jobs:
           if [ -d audio ]; then git add -A audio; fi
           if git diff --cached --quiet; then echo "No changes to publish."; exit 0; fi
           REV=$(python -c "import json;print(json.load(open('data/data.json'))['meta']['revision'])")
-          SUMMARY=$(python -c "import json;print(json.load(open('data/data.json'))['meta']['changelog'][-1]['summary'])")
+          SUMMARY=$(python tools/run_summary.py)   # what this whole run changed, compared with the last published data
           git commit -m "Data revision ${REV}: ${SUMMARY}"
           # This run takes a while; if the repository moved on meanwhile (an upload, or a rebuild of the app),
           # replay this run's results on top of the latest, rebuild the page from the latest source files, and retry.
