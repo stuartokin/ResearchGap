@@ -1,5 +1,5 @@
 {
- "version": 22,
+ "version": 23,
  "updated": "2026-10-31",
  "updatedBy": "tour-agent",
  "note": "Narration templates for the guided tours. Figures come from {placeholders} filled from the live data; conclusions are chosen by rules in the app ({\"by\": fact, \"cases\": {...}}). The weekly tour agent may refine wording and choose examples, within the rules checked by tools/validate.py.",
@@ -8,8 +8,8 @@
    "title": "Is AI shrinking the gap from research to change?",
    "exampleIds": [
     "penicillin",
-    "computer-mouse",
-    "television",
+    "radar",
+    "integrated-circuit",
     "mrna-vaccines"
    ],
    "steps": {
@@ -137,7 +137,7 @@
    "title": "What AI-assisted products are on the horizon for the energy system?",
    "steps": {
     "intro": {
-     "say": "The government's AI for clean energy vision is split into distinct areas. Diamonds mark stories linked to it, playing through from 1980 onwards."
+     "say": "The government's AI for clean energy vision is split into distinct areas. Diamonds mark stories linked to those areas, and they play through from 1980 onwards."
     },
     "radar": {
      "say": "The Vision radar shows how close the technologies in each area are to everyday use: {nResearch} still in research, {nPilot} in pilots, {nCommercial} in early commercial use and {nScale} widely used. Of these, {nGB} are already used in Great Britain."
@@ -214,7 +214,7 @@
      }
     },
     "example": {
-     "say": "Each story card names a risk and suggests ways to reduce it, mapped to recognised guidance: the National Cyber Security Centre's Cyber Assessment Framework (CAF), Ofgem's CAF Overlay, NIST, NERC CIP and IEC 62443."
+     "say": "This story card names a risk and suggests ways to reduce it, mapped to recognised guidance: the National Cyber Security Centre's Cyber Assessment Framework (CAF), Ofgem's CAF Overlay, NIST, NERC CIP and IEC 62443."
     },
     "guidance": {
      "say": {
@@ -282,7 +282,7 @@
      }
     },
     "uni": {
-     "say": "Now the filter shows university projects: {nUni} of them are still under way. They could become the next breakthroughs, and perhaps the next fortunes."
+     "say": "Now the filter shows university projects. {nUni} of them are still under way, so they could yet become the next breakthroughs, and perhaps the next fortunes."
     },
     "table": {
      "say": "The Table lists every milestone. Sort by any column, such as the gap between milestones, and select a row to read its story."
@@ -343,7 +343,7 @@
      "say": "Help and the 'i' information buttons explain each feature. This model is maintained by AI, so it may contain errors. Check anything important against the original sources."
     },
     "whatifchart": {
-     "say": "The What if? chart estimates how much sooner projected technologies could arrive if practical AI levers, such as faster discovery, simulation and approvals, were applied. An agent researches these levers every week."
+     "say": "The What if? chart estimates how much sooner expected technologies could arrive if AI sped up key steps, such as discovery, simulation and approvals. An agent researches these possible speed-ups every week."
     }
    }
   },
@@ -387,9 +387,9 @@
       {
        "by": "aiCase",
        "cases": {
-        "faster": "Among research-led milestones since 2010, AI-driven work took about {aiMed} years to reach a product, against {restMed} for everything else. The AI-driven group is still small: {aiCount} milestones.",
-        "similar": "Among research-led milestones since 2010, AI-driven work has taken about as long to reach a product as the rest: {aiMed} years against {restMed}.",
-        "slower": "Among research-led milestones since 2010, AI-driven work has taken longer to reach a product: {aiMed} years against {restMed}.",
+        "faster": "Among research-led milestones since 2010, AI-driven work typically took about {aiMed} years to reach a product, against {restMed} years for everything else. The AI-driven group is still small, with only {aiCount} milestones.",
+        "similar": "Among research-led milestones since 2010, AI-driven work has typically taken about as long to reach a product as the rest: {aiMed} years against {restMed}.",
+        "slower": "Among research-led milestones since 2010, AI-driven work has typically taken longer to reach a product: {aiMed} years against {restMed}.",
         "unclear": "There are not yet enough AI-driven milestones to compare."
        }
       },
@@ -473,7 +473,7 @@
   },
   "week": {
    "title": "This week's analysis",
-   "updated": "2026-10-30T23:56Z",
+   "updated": "2026-10-31T02:42Z",
    "steps": {
     "intro": {
      "say": [
@@ -488,24 +488,24 @@
      ]
     },
     "w1": {
-     "view": "main",
-     "say": "Across {nGap} milestones that have reached real use, the longest journey from lab to first use was {longestTitle}, at {longestYears} years. The quickest recent arrival, {quickRecentTitle}, made it in {quickRecentYears}."
+     "view": "ai",
+     "say": "AI-driven milestones since 2010 reached real use in a median of {aiMed} years, against {restMed} for the rest. Only {aiCount} are AI-driven, so read this as a hint, not proof."
     },
     "w2": {
-     "view": "radar",
-     "say": "For AI for clean energy, {pipeTotal} technologies are tracked. {pipeResearch} are still at the research stage and only {pipeScale} have reached scale, so most of the vision is still ahead of us."
+     "view": "gaps",
+     "say": "Orca-T (Tregzi) began in a Stanford lab studying regulatory T cells, more than two decades ago. The FDA approved it this year, Stanford Medicine gave the first commercial infusion, and in the late-stage trial far more patients avoided serious chronic graft-versus-host disease."
     },
     "w3": {
-     "view": "whatif",
-     "say": "The what-if scenario asks how much AI could speed things up. On today's pace, {wi2030Now} arrive by 2030; with the AI levers, {wi2030AI}. The biggest lever is {wiTopLever}. This is a scenario, not a forecast."
+     "view": "main",
+     "say": "Autus's size-adjustable pediatric heart valve started with research on growing lambs in a Boston Children's lab. It was first implanted in a young patient at Nationwide Children's Hospital, and this October the FDA approved it as the first expandable heart valve."
     },
     "w4": {
-     "view": "drift",
-     "say": "Forecasts move. Of {driftCount} predictions tracked, {driftRevised} have been revised and {driftSlipped} have slipped. Expected dates are best treated as moving targets."
+     "view": "fortunes",
+     "say": "Among {fortCount} tracked fortunes, research often pays off late. Efficient Computer's Spatial dataflow processor in volume (Electron E1) grew from Carnegie Mellon research and entered volume production in September. It raised a Series B, but its energy-saving claims aren't independently verified."
     },
     "w5": {
-     "view": "sec",
-     "say": "Security still trails new technology by about {secMedian} years, and {secOpen} gaps remain open. The longest lag is {secLongestTitle}, at {secLongestYears} years."
+     "view": "findings",
+     "say": "UK robotaxis show a mixed picture. Wayve, founded by Cambridge PhD students, uses machine learning for every layer of driving. Uber began matching London riders with its cars in September, but with safety drivers; driverless service still awaits Transport for London approval."
     }
    }
   },
@@ -513,7 +513,7 @@
    "title": "How the charts work",
    "steps": {
     "open": {
-     "say": "This is the Gap explorer. Use the tabs at the top to switch between charts. Your filters apply to every chart. Selecting a milestone opens its story and also moves the What if? model to that point."
+     "say": "This is the Gap explorer. Use the tabs at the top to switch charts; your filters carry across all of them. Select a milestone to open its story, and the What if? model moves to that same point."
     },
     "gapsort": {
      "say": "In the Gap explorer you can sort and colour the bars. Drag across the chart to zoom into years; double-click to reset."
@@ -540,7 +540,7 @@
      "say": "Press play to watch the race to a fortune unfold over time, or select a bubble to read that company's story."
     },
     "whatif": {
-     "say": "What if? applies practical AI levers. Switch the scenario or the levers, and select a row to see the reasoning and any research behind it."
+     "say": "What if? shows how timelines could shift when practical AI levers are applied. Switch the scenario or adjust the levers, then select a row to see the reasoning and any research behind it."
     },
     "insight": {
      "say": "Finally, the Insight button gives this week's analysis of each chart, with subtitles and speech. Select any number to see what lies behind it. You can also save any chart as an image or CSV."
@@ -549,7 +549,7 @@
   },
   "cleanweek": {
    "title": "AI for clean energy analysis",
-   "updated": "2026-10-31T02:15Z",
+   "updated": "2026-10-31T02:43Z",
    "steps": {
     "intro": {
      "say": [
@@ -581,7 +581,7 @@
     },
     "c5": {
      "view": "drift",
-     "say": "Can we trust forecasts? We track {driftCount} of them. Expectations were revised {driftRevised} times and {driftSlipped} slipped. That is a reminder that arrival dates for clean energy technologies are best read as estimates."
+     "say": "Can we trust forecasts? We track {driftCount} of them. Expectations were revised {driftRevised} times and {driftSlipped} slipped. Arrival dates for clean energy technologies are best read as estimates."
     },
     "c6": {
      "view": "whatif",

@@ -2,7 +2,7 @@
  "$schema": "./schema.json",
  "meta": {
   "title": "The Shrinking Gap from Research to Change",
-  "revision": 27,
+  "revision": 28,
   "version": "8.0",
   "asOf": "2026-10-31",
   "horizonYears": 10,
@@ -10,7 +10,7 @@
   "author": "Stuart Okin",
   "maintainedBy": "AI agents using Claude (Anthropic), without human review",
   "disclaimer": "Personal project by Stuart Okin, not affiliated with or endorsed by any employer. Data is compiled and maintained by AI agents without human review and may contain errors. Outlook years are AI estimates, not forecasts.",
-  "lastAgentRun": "2026-10-31T02:13Z",
+  "lastAgentRun": "2026-10-31T02:39Z",
   "changelog": [
    {
     "date": "2026-10-28",
@@ -1373,6 +1373,175 @@
      "story    google-project-suncatcher-tpu-satellite-in-orbit",
      "story    dynamic-line-rating-on-gb-transmission-lines"
     ]
+   },
+   {
+    "date": "2026-10-31",
+    "time": "02:33",
+    "revision": 27,
+    "summary": "Gemini research: 2 of 10 candidates passed the source checks and were queued for Claude's QA.",
+    "stats": {
+     "milestones": 479,
+     "sourceCited": 198,
+     "aiCompiled": 203,
+     "aiEstimate": 78,
+     "adoptionKnown": 77,
+     "landed": 379,
+     "regionKnown": 479
+    },
+    "usage": {
+     "calls": 0,
+     "inputTokens": 0,
+     "outputTokens": 0,
+     "searches": 0,
+     "model": "claude-sonnet-5-5"
+    },
+    "deepAudit": false,
+    "details": [
+     "pending  [gemini space] First European lunar orbiter (SMART-1)",
+     "pending  [gemini quantum] Lamb Shift discovery and measurement"
+    ]
+   },
+   {
+    "date": "2026-10-31",
+    "time": "02:39",
+    "revision": 28,
+    "summary": "10 added, 16 corrected, 0 outlook re-estimated, 1 disputed, 2 broken links.",
+    "stats": {
+     "milestones": 489,
+     "sourceCited": 221,
+     "aiCompiled": 190,
+     "aiEstimate": 78,
+     "adoptionKnown": 77,
+     "landed": 389,
+     "regionKnown": 489
+    },
+    "usage": {
+     "calls": 6,
+     "inputTokens": 675363,
+     "outputTokens": 48967,
+     "searches": 43,
+     "model": "claude-sonnet-5-5"
+    },
+    "deepAudit": false,
+    "details": [
+     "added: socamm2-modular-lpddr-memory-for-ai-servers",
+     "added: quantum-diamond-microscope-for-chip-failure-analysis",
+     "added: zero-knowledge-proofs-in-the-eu-age-verification-app",
+     "added: cluster-based-disaggregated-backbone-routers-kddi",
+     "added: radio-astronomy-janskys-cosmic-radio-detection",
+     "added: continuous-human-presence-on-the-iss",
+     "added: mars-exploration-rovers-spirit-and-opportunity",
+     "added: point-contact-transistor",
+     "added: nuclear-magnetic-resonance-nmr-detection",
+     "added: lamb-shift-discovery-and-measurement",
+     "legged-inspection-robots: source added",
+     "polio-vaccine: source added",
+     "polio-vaccine: readiness commercial → scale",
+     "polio-vaccine: major → True",
+     "ai-cloudcasting: source added",
+     "demand-flexibility-service: source added",
+     "drone-inspection-of-transmission-towers: source added",
+     "cyber-assessment-framework: source added",
+     "liquid-air-energy-storage: source added",
+     "distributed-version-control: source added",
+     "distributed-version-control: source added",
+     "optical-character-recognition: source added",
+     "neural-network-fraud-detection: source added",
+     "machine-learning-spam-filters: source added",
+     "natural-sounding-ai-voices: source added",
+     "josephson-voltage-standard: source added",
+     "disputed: machine-learning-spam-filters"
+    ]
+   },
+   {
+    "date": "2026-10-31",
+    "time": "02:41",
+    "revision": 28,
+    "summary": "Gemini second opinion on 9 new additions: 1 supported, 8 disputed, 1 guidance update.",
+    "stats": {
+     "milestones": 489,
+     "sourceCited": 221,
+     "aiCompiled": 190,
+     "aiEstimate": 78,
+     "adoptionKnown": 77,
+     "landed": 389,
+     "regionKnown": 489
+    },
+    "usage": {
+     "calls": 0,
+     "inputTokens": 0,
+     "outputTokens": 0,
+     "searches": 0,
+     "model": "claude-sonnet-5-5"
+    },
+    "deepAudit": false,
+    "details": [
+     "disputed: socamm2-modular-lpddr-memory-for-ai-servers (second opinion from Gemini: not supported. The sources confirm SK hynix's mass production of SOCAMM2 in April 2026 for NVIDIA's Vera Rubin platform, but do not mention Dell's CAMM design, JEDEC standardization, or research beginning in 2022.)",
+     "disputed: quantum-diamond-microscope-for-chip-failure-analysis (second opinion from Gemini: not supported. The sources confirm the QDm.1 system's deployment in Taiwan in April 2026 as the first Asian install after a US install, and the company's spin-out from TU Munich in 2022, but they do not menti",
+     "disputed: zero-knowledge-proofs-in-the-eu-age-verification-app (second opinion from Gemini: not supported. The sources confirm the EU age-verification app was declared technically ready in April 2026 and uses zero-knowledge proofs for age verification without revealing personal data, but they do not",
+     "disputed: cluster-based-disaggregated-backbone-routers-kddi (second opinion from Gemini: not supported. While KDDI began driving the development of open, disaggregated routing technologies through TIP in 2020, its strategic partnership with DriveNets was established in May 2025, not at the start of ",
+     "disputed: radio-astronomy-janskys-cosmic-radio-detection (second opinion from Gemini: not supported. While many details are supported, one source states Jansky began tackling the problem in 1932, not 1931, and the sources do not mention 'Proc. IRE' as the publication journal or 'Bruce array' for the",
+     "disputed: mars-exploration-rovers-spirit-and-opportunity (second opinion from Gemini: not supported. The provided source text consists primarily of navigation links and article headlines, and does not contain the specific details about research beginning in 1997 with the Sojourner rover, nor does it",
+     "disputed: point-contact-transistor (second opinion from Gemini: not supported. While the sources confirm Shockley revived the idea in 1939 and Bardeen and Brattain demonstrated the point-contact transistor in December 1947 with a public announcement in 1948, they do not explicitly mention quantum ba",
+     "disputed: nuclear-magnetic-resonance-nmr-detection (second opinion from Gemini: not supported. The sources confirm Rabi's 1938 work at Columbia and the 1946 breakthrough by Bloch and Purcell, but do not explicitly state 'first product or real-world use' or that they detected NMR in 'bulk matter (wat",
+     "guidance: Cyber Assessment Framework: Core Profile (v4.0)",
+     "tours: walk-through scripts refreshed (version 23)"
+    ]
+   },
+   {
+    "date": "2026-10-31",
+    "time": "02:44",
+    "revision": 28,
+    "summary": "AI levers researched for 4 technologies.",
+    "stats": {
+     "milestones": 489,
+     "sourceCited": 221,
+     "aiCompiled": 190,
+     "aiEstimate": 78,
+     "adoptionKnown": 77,
+     "landed": 389,
+     "regionKnown": 489
+    },
+    "usage": {
+     "calls": 8,
+     "inputTokens": 181267,
+     "outputTokens": 11073,
+     "searches": 14,
+     "model": "claude-sonnet-5-5"
+    },
+    "deepAudit": false,
+    "details": [
+     "levers   eu-high-risk-ai-rules-apply: approvals; approvals",
+     "levers   satellite-direct-to-phones: build; simulation, deploy, software",
+     "levers   microsoft-maia-300-in-house-ai-inference-chip: build; software",
+     "levers   xona-pulsar-commercial-leo-navigation-pnt-service: deploy; simulation, deploy"
+    ]
+   },
+   {
+    "date": "2026-10-31",
+    "time": "02:47",
+    "revision": 28,
+    "summary": "Stories researched for 1 milestone.",
+    "stats": {
+     "milestones": 489,
+     "sourceCited": 221,
+     "aiCompiled": 190,
+     "aiEstimate": 78,
+     "adoptionKnown": 77,
+     "landed": 389,
+     "regionKnown": 489
+    },
+    "usage": {
+     "calls": 10,
+     "inputTokens": 283819,
+     "outputTokens": 16497,
+     "searches": 23,
+     "model": "claude-sonnet-5-5"
+    },
+    "deepAudit": false,
+    "details": [
+     "story    icotrokinra-oral-il-23-receptor-peptide-approved-uk"
+    ]
    }
   ],
   "adoptionDefinition": "Mainstream adoption: the year the technology reached widespread, routine use, roughly 10% or more of its potential market or standard practice in its sector.",
@@ -1407,7 +1576,13 @@
    "space|2026Q3": "2026-10-31",
    "robotics|2026Q3": "2026-10-31",
    "life|2026Q3": "2026-10-31",
-   "energy|2026Q2": "2026-10-31"
+   "energy|2026Q2": "2026-10-31",
+   "hw|2026Q2": "2026-10-31",
+   "sw|2026Q2": "2026-10-31",
+   "ai|2026Q2": "2026-10-31",
+   "quantum|2026Q2": "2026-10-31",
+   "cyber|2026Q2": "2026-10-31",
+   "comms|2026Q2": "2026-10-31"
   },
   "researchFunnel": [
    {
@@ -1481,6 +1656,42 @@
     "rejected": 0,
     "retrying": 1,
     "date": "2026-10-31"
+   },
+   {
+    "agent": "claude",
+    "recent_proposed": 0,
+    "recent_queued": 0,
+    "recent_rejected": {},
+    "catchup_proposed": 5,
+    "catchup_queued": 4,
+    "catchup_rejected": {
+     "sources": 1
+    },
+    "backfill_proposed": 8,
+    "backfill_queued": 5,
+    "backfill_rejected": {
+     "sources": 1,
+     "years": 2
+    },
+    "date": "2026-10-31"
+   },
+   {
+    "agent": "gemini",
+    "recent_proposed": 10,
+    "recent_queued": 2,
+    "recent_rejected": {
+     "sources": 7,
+     "years": 1
+    },
+    "date": "2026-10-31"
+   },
+   {
+    "agent": "qa",
+    "confirmed_claude": 9,
+    "confirmed_gemini": 1,
+    "rejected": 1,
+    "retrying": 1,
+    "date": "2026-10-31"
    }
   ],
   "secondOpinion": [
@@ -1495,6 +1706,20 @@
     "kind": "gemini-research",
     "proposed": 7,
     "queued": 1
+   },
+   {
+    "date": "2026-10-31",
+    "kind": "gemini-research",
+    "proposed": 10,
+    "queued": 2
+   },
+   {
+    "date": "2026-10-31",
+    "kind": "gemini-check",
+    "supported": 1,
+    "not_supported": 8,
+    "unclear": 0,
+    "unavailable": 0
    }
   ]
  },
@@ -4693,6 +4918,30 @@
     "estimatedYear": 2027,
     "estimatedOn": "2026-10-27",
     "revisions": []
+   },
+   "aiLevers": {
+    "phase": "approvals",
+    "bottleneck": "Harmonised standards and national supervisory authorities weren't ready, so the law was delayed. Providers must still finish conformity assessments and documentation before 2 December 2027.",
+    "levers": [
+     {
+      "k": "approvals",
+      "strength": "low",
+      "note": "AI could help assemble and cross-check conformity evidence, such as risk-management records and test results, for notified bodies and authorities. Conformity decisions stay human, and standards are still maturing."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://www.joneswalker.com/en/insights/blogs/ai-law-blog/yes-august-2-still-matters-the-eu-approved-a-high-risk-ai-delay-but-most-trans.html",
+      "label": "Jones Walker – EU approved a high-risk AI delay",
+      "quote": "national authorities and harmonized technical standards were not ready"
+     },
+     {
+      "url": "https://www.orrick.com/en/Insights/2026/07/EU-AI-Act-Update-Digital-Omnibus-Finalizes-8-Compliance-Changes",
+      "label": "Orrick – Digital Omnibus finalizes 8 compliance changes",
+      "quote": "its amendments to the EU AI Act (Regulation (EU) 2024/1689) are now in force."
+     }
+    ],
+    "checked": "2026-10-31"
    }
   },
   {
@@ -6494,7 +6743,46 @@
      "status": "ok",
      "checked": "2026-10-30"
     }
-   ]
+   ],
+   "aiLevers": {
+    "phase": "build",
+    "bottleneck": "Building and launching enough satellites, with spectrum access, to move beyond basic messaging to broadband; AST's rollout has slipped to 2027 after launch setbacks.",
+    "levers": [
+     {
+      "k": "simulation",
+      "strength": "mid",
+      "note": "Link-budget, beam and interference modelling of large LEO constellations sharing spectrum with terrestrial networks can be run as digital twins to size capacity and coverage before launch."
+     },
+     {
+      "k": "deploy",
+      "strength": "mid",
+      "note": "Automating beam steering, handover, spectrum sharing and capacity planning across thousands of satellites and partner mobile networks during roll-out."
+     },
+     {
+      "k": "software",
+      "strength": "low",
+      "note": "AI-assisted coding and test automation for satellite network software and core-network integration; useful but not what limits progress."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://www.ecofinagency.com/news-digital/0903-53584-satellite-direct-to-device-telecoms-promise-momentum-and-hard-limits",
+      "label": "Ecofin Agency – Satellite D2D: promise, momentum and hard limits",
+      "quote": "The technology is still in the testing phase worldwide."
+     },
+     {
+      "url": "https://www.rvmobileinternet.com/summer-2026-satellite-mobile-internet-update-starlink-mobile-targets-cell-carriers-hughesnet-goes-bankrupt-viasat-struggles-ast-spacemobile-slips/",
+      "label": "RV Mobile Internet – Summer 2026 satellite update",
+      "quote": "will delay its direct-to-cell broadband service rollout until sometime in 2027"
+     },
+     {
+      "url": "https://www.satellitetoday.com/connectivity/2026/10/07/fcc-grants-spacex-approval-for-15000-direct-to-device-satellites-in-mss-spectrum/",
+      "label": "Via Satellite – FCC approves SpaceX 15,000 D2D satellites",
+      "quote": "approved SpaceX’s request to deploy 15,000 satellites for direct-to-device (D2D) services"
+     }
+    ],
+    "checked": "2026-10-31"
+   }
   },
   {
    "id": "first-6g-networks",
@@ -13265,7 +13553,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -13302,7 +13590,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -13315,7 +13603,7 @@
      "label": "Cisco Innovation Timeline",
      "url": "https://newsroom.cisco.com/c/r/newsroom/en/us/interactive/cisco-innovation-timeline.html",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "readiness": {
@@ -13350,7 +13638,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -13363,7 +13651,7 @@
      "label": "Telecompaper, 13 Nov 1995",
      "url": "https://www.telecompaper.com/news/qualcomm-supplies-hutchison-with-phones--69187",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "adoption": {
@@ -13414,7 +13702,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "europe",
@@ -13427,7 +13715,7 @@
      "label": "http://www.computer-timeline.com/timeline/niklas-zennstrom-and-janus-friis-skype/",
      "url": "http://www.computer-timeline.com/timeline/niklas-zennstrom-and-janus-friis-skype/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "readiness": {
@@ -13556,7 +13844,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "uk",
@@ -13569,7 +13857,7 @@
      "label": "SSTL, 30 years of space innovation",
      "url": "https://www.sstl.co.uk/media-hub/latest-news/2015/sstl-celebrates-30-years-of-space-innovation",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "readiness": {
@@ -13603,7 +13891,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -13616,7 +13904,7 @@
      "label": "Falcon 1 (Wikipedia)",
      "url": "https://en.wikipedia.org/wiki/Falcon_1",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "flags": {
@@ -13693,7 +13981,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -13707,7 +13995,7 @@
      "label": "Boston Globe: Spot on sale; company founded 1992",
      "url": "https://www.bostonglobe.com/2020/06/16/business/boston-dynamics-turns-spot-robot-loose/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "readiness": {
@@ -13742,7 +14030,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "asia",
@@ -13755,7 +14043,7 @@
      "label": "DroneXL: DJI timeline",
      "url": "https://dronexl.co/guides/who-owns-dji-frank-wang/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "readiness": {
@@ -13791,7 +14079,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": true
    },
    "region": "uk",
@@ -13806,13 +14094,13 @@
      "label": "https://newatlas.com/video-tour-ocado-automated-warehouse-andover/54568/",
      "url": "https://newatlas.com/video-tour-ocado-automated-warehouse-andover/54568/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     },
     {
      "label": "New Atlas: Ocado Andover fulfilment centre",
      "url": "https://newatlas.com/video-tour-ocado-automated-warehouse-andover/54568/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "readiness": {
@@ -14158,7 +14446,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "europe",
@@ -14186,7 +14474,7 @@
      "label": "MIT CCS programme: Sleipner fact sheet",
      "url": "https://sequestration.mit.edu/tools/projects/sleipner.html",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ]
   },
@@ -14210,7 +14498,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -14239,7 +14527,7 @@
      "label": "A123Systems Nov 2005 press release: first LFP-type cells to DeWalt, tools available 2006",
      "url": "https://megavolt.co.il/articles/A123.html",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ]
   },
@@ -14266,7 +14554,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "adoption": {
@@ -14300,13 +14588,13 @@
      "label": "https://evobsession.com/tesla-roadster-specs-history-prices/",
      "url": "https://evobsession.com/tesla-roadster-specs-history-prices/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     },
     {
      "label": "The Autopian: Tesla Roadster derived from AC Propulsion tzero",
      "url": "https://www.theautopian.com/tesla-wouldnt-exist-if-it-werent-for-this-man-and-this-car/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ]
   },
@@ -14330,7 +14618,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "uk",
@@ -14359,7 +14647,7 @@
      "label": "reNEWS: First power for Atlantis at MeyGen (15 Nov 2016)",
      "url": "https://renews.biz/39945/first-power-for-atlantis-at-meygen/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ]
   },
@@ -14386,7 +14674,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "europe",
@@ -14414,7 +14702,7 @@
      "label": "Equinor: Hywind Scotland",
      "url": "https://www.equinor.com/energy/hywind-scotland",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ]
   },
@@ -15461,10 +15749,10 @@
    "note": "Used for autonomous plant and substation rounds.",
    "company": "ANYbotics",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -15482,7 +15770,15 @@
     "note": "Robots operating on live networks combine physical and cyber risk.",
     "basis": "ai-compiled",
     "guidance": "ot"
-   }
+   },
+   "refs": [
+    {
+     "label": "ETH Zurich: ANYmal",
+     "url": "https://ethz.ch/en/news-and-events/eth-news/news/2018/12/anymal.html",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ]
   },
   {
    "id": "polio-vaccine",
@@ -15501,10 +15797,10 @@
    "confidence": "high",
    "note": "Fast because the need was overwhelming.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -15513,8 +15809,20 @@
    ],
    "subfield": "vaccines",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-31"
+   },
+   "refs": [
+    {
+     "label": "History of Vaccines: Salk timeline",
+     "url": "https://historyofvaccines.org/history/jonas-salk-md/timeline/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "flags": {
+    "major": true
    }
   },
   {
@@ -15540,7 +15848,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "adoption": {
@@ -15578,7 +15886,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "uk",
@@ -15592,13 +15900,13 @@
      "label": "History.com: World's first test tube baby born",
      "url": "https://www.history.com/this-day-in-history/july-25/worlds-first-test-tube-baby-born",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     },
     {
      "label": "Wikipedia: History of in vitro fertilisation",
      "url": "https://en.wikipedia.org/wiki/History_of_in_vitro_fertilisation",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "security": {
@@ -15627,7 +15935,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -15645,7 +15953,7 @@
      "label": "ScienceBlog: AZT history",
      "url": "https://scienceblog.com/m-a-compound-tested-as-a-cancer-drug-in-the-1960s-failed-and-drew-little-interest-for-two-decades-when-the-hiv-epidemic-arrived-researchers-tested-azt-against-the-virus-and-found-it/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "security": {
@@ -15677,7 +15985,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "europe",
@@ -15694,7 +16002,7 @@
      "label": "https://www.middlewaynutrition.com/glp-1/glp-1-history",
      "url": "https://www.middlewaynutrition.com/glp-1/glp-1-history",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "security": {
@@ -15731,7 +16039,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -15786,7 +16094,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "uk",
@@ -15838,7 +16146,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "global",
@@ -16161,13 +16469,19 @@
      "url": "https://new.openclimatefix.org/projects/cloud-forecasting",
      "status": "broken",
      "checked": "2026-10-31"
+    },
+    {
+     "label": "Open Climate Fix: Cloudcasting",
+     "url": "https://www.openclimatefix.org/insights/meet-cloudcasting-our-newest-forecasting-innovation",
+     "status": "ok",
+     "checked": "2026-10-31"
     }
    ],
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-31",
     "approximate": false,
     "qaNote": "All cited links are broken; downgraded until a new source is found."
    },
@@ -16184,7 +16498,8 @@
    },
    "gb": {
     "status": "deployed",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "Better short-term solar forecasts let NESO hold less reserve and cut balancing costs, which matters as GB solar capacity grows towards 2035 targets."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -16271,13 +16586,19 @@
     {
      "label": "NESO (formerly National Grid ESO) programme records",
      "url": null
+    },
+    {
+     "label": "NESO: DFS launch",
+     "url": "https://www.neso.energy/news/esos-demand-flexibility-service-launches",
+     "status": "ok",
+     "checked": "2026-10-31"
     }
    ],
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "uk",
@@ -16383,13 +16704,19 @@
      "url": "https://www.spenergynetworks.co.uk/news/pages/drones_transmission_network.aspx",
      "status": "broken",
      "checked": "2026-10-31"
+    },
+    {
+     "label": "World Pipelines: Cyberhawk founded 2008",
+     "url": "https://www.worldpipelines.com/business-news/20112018/cyberhawk-celebrates-a-decade-in-business/",
+     "status": "ok",
+     "checked": "2026-10-31"
     }
    ],
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-31",
     "approximate": false,
     "qaNote": "All cited links are broken; downgraded until a new source is found."
    },
@@ -16405,7 +16732,8 @@
    },
    "gb": {
     "status": "deployed",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "Drone surveys replace helicopter and climbing inspections on GB transmission lines, cutting cost, carbon and safety risk, and supplying data for AI-based asset condition assessment."
    },
    "security": {
     "expandsAttackSurface": true,
@@ -16492,13 +16820,19 @@
     {
      "label": "NCSC: Cyber Assessment Framework",
      "url": null
+    },
+    {
+     "label": "NCSC: CAF v2.0",
+     "url": "https://www.ncsc.gov.uk/files/NCSC_CAF_2.pdf",
+     "status": "ok",
+     "checked": "2026-10-31"
     }
    ],
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "uk",
@@ -16588,10 +16922,10 @@
    "note": "A larger UK plant at Carrington is under construction for long-duration storage.",
    "company": "Highview Power",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "uk",
@@ -16614,7 +16948,15 @@
     "note": "Battery management and dispatch systems are networked and remotely controllable.",
     "basis": "ai-compiled",
     "guidance": "ot"
-   }
+   },
+   "refs": [
+    {
+     "label": "Renewable Energy World: Pilsworth LAES",
+     "url": "https://www.renewableenergyworld.com/energy-storage/first-gridscale-liquid-air-energy-storage-plant-commissioned/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ]
   },
   {
    "id": "utility-scale-battery-product",
@@ -18089,10 +18431,10 @@
    "note": "Now central to software supply chain security.",
    "company": "GitHub",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -18110,6 +18452,20 @@
    },
    "tags": [
     "networks"
+   ],
+   "refs": [
+    {
+     "label": "Timeline of GitHub",
+     "url": "https://en.wikipedia.org/wiki/Timeline_of_GitHub",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "Stack Overflow Developer Survey 2015 (Git 69.3%)",
+     "url": "https://survey.stackoverflow.co/2015/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
    ]
   },
   {
@@ -18183,10 +18539,10 @@
    "confidence": "high",
    "note": "Kurzweil is often credited with inventing omni-font OCR, though companies such as CompuScan used it earlier. A commercial version of the OCR software went on sale in 1978.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -18204,7 +18560,15 @@
     "note": "Models can be fooled by manipulated inputs, and the data behind them can be poisoned.",
     "basis": "ai-compiled",
     "guidance": "ai"
-   }
+   },
+   "refs": [
+    {
+     "label": "NIHF: Raymond Kurzweil",
+     "url": "https://www.invent.org/inductees/raymond-kurzweil",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ]
   },
   {
    "id": "industrial-machine-vision",
@@ -18273,10 +18637,10 @@
    "confidence": "medium",
    "note": "Quietly protected billions of payments before the AI boom.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -18295,7 +18659,15 @@
     "basis": "ai-compiled",
     "guidance": "ai"
    },
-   "company": "HNC Software"
+   "company": "HNC Software",
+   "refs": [
+    {
+     "label": "Robert Hecht-Nielsen",
+     "url": "https://en.wikipedia.org/wiki/Robert_Hecht-Nielsen",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ]
   },
   {
    "id": "machine-learning-spam-filters",
@@ -18314,11 +18686,12 @@
    "confidence": "medium",
    "note": "An early AI defence against phishing.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
-    "approximate": true
+    "lastChecked": "2026-10-31",
+    "approximate": true,
+    "qaNote": "The 1998 research is confirmed: Sahami (Stanford) with Dumais, Heckerman and Horvitz (Microsoft). The 2002 date for shipping in mainstream email software is doubtful. Graham's essay appeared in August 2002 and a student report says Bayesian filters were 'brand new and untested' in September 2002. Mainstream clients most likely shipped learning filters in 2003. I found no source that states a year,"
    },
    "region": "us",
    "tags": [
@@ -18335,6 +18708,17 @@
     "note": "New model capabilities also help attackers find and exploit weaknesses.",
     "basis": "ai-compiled",
     "guidance": "ai"
+   },
+   "refs": [
+    {
+     "label": "A Bayesian Approach to Filtering Junk E-mail (1998)",
+     "url": "http://erichorvitz.com/junkfilter.htm",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "flags": {
+    "disputed": true
    }
   },
   {
@@ -18360,7 +18744,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "adoption": {
@@ -18401,10 +18785,10 @@
    "confidence": "high",
    "note": "The same technology now powers voice cloning scams.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "uk",
@@ -18422,7 +18806,15 @@
     "note": "Prompt injection, data leakage and misuse at scale are new kinds of risk.",
     "basis": "ai-compiled",
     "guidance": "ai"
-   }
+   },
+   "refs": [
+    {
+     "label": "TechCrunch: WaveNet comes to Assistant",
+     "url": "https://techcrunch.com/2017/10/04/googles-wavenet-machine-learning-based-speech-synthesis-comes-to-assistant/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ]
   },
   {
    "id": "josephson-voltage-standard",
@@ -18441,10 +18833,10 @@
    "confidence": "medium",
    "note": "Nobel Prize in Physics 1973; quantum effects now define the volt.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-31",
     "approximate": true
    },
    "region": "uk",
@@ -18460,7 +18852,15 @@
     "expandsAttackSurface": false,
     "note": "Can reduce risk, for example timing that does not depend on jammable satellite signals.",
     "basis": "ai-compiled"
-   }
+   },
+   "refs": [
+    {
+     "label": "Josephson voltage standard",
+     "url": "https://en.wikipedia.org/wiki/Josephson_voltage_standard",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ]
   },
   {
    "id": "quantum-hall-resistance-standard",
@@ -18482,7 +18882,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "europe",
@@ -19133,7 +19533,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "uk",
@@ -19172,7 +19572,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "uk",
@@ -19211,7 +19611,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "europe",
@@ -19250,7 +19650,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -23424,6 +23824,30 @@
     "estimatedYear": 2027,
     "estimatedOn": "2026-10-28",
     "revisions": []
+   },
+   "aiLevers": {
+    "phase": "build",
+    "bottleneck": "Ramping volume manufacturing for 2027: securing TSMC N2P capacity, tight advanced packaging and HBM4 supply, and proving unbenchmarked efficiency claims in real deployments.",
+    "levers": [
+     {
+      "k": "software",
+      "strength": "mid",
+      "note": "Microsoft lists AI-assisted kernel optimisation in Maia 300's software-defined dataflow design, using AI to tune inference kernels and cut data movement. Evidence is a single line and gives few details."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://news.microsoft.com/source/emea/2026/10/microsoft-announces-maia-300-its-next-generation-custom-ai-chip/",
+      "label": "Microsoft Source EMEA: Maia 300 announcement",
+      "quote": "plans to expand Azure Maia to multi-gigawatt deployments beginning in 2027"
+     },
+     {
+      "url": "https://thenextweb.com/news/microsoft-maia-300-chip-tsmc-production-boost-nvidia",
+      "label": "The Next Web: Microsoft ordering 300,000+ Maia 300 chips from TSMC",
+      "quote": "TSMC’s advanced packaging capacity is tight through 2027"
+     }
+    ],
+    "checked": "2026-10-31"
    }
   },
   {
@@ -24945,6 +25369,24 @@
     "added": "2026-10-29",
     "lastChecked": "2026-10-29",
     "approximate": false
+   },
+   "story": {
+    "research": "Protagonist Therapeutics and Janssen jointly discovered the oral peptide blocker of the IL-23 receptor, JNJ-2113 (icotrokinra), under a collaboration agreement made in 2017.",
+    "deploy": "In the UK, the MHRA granted authorisation for Icotyde (icotrokinra) to Janssen-Cilag Limited on 23 October 2026, for moderate-to-severe plaque psoriasis in adults and adolescents.",
+    "impact": "Too soon for real-world impact data. The UK approval rested on four phase 3 trials of 2,500 people, including 72 adolescents, all showing better efficacy than placebo at week 16.",
+    "refs": [
+     {
+      "url": "https://www.gov.uk/government/news/mhra-approves-new-oral-treatment-for-moderate-to-severe-plaque-psoriasis",
+      "label": "GOV.UK / MHRA news (UK authorisation)",
+      "quote": "was granted on 23 October 2026 to Janssen-Cilag Limited"
+     },
+     {
+      "url": "https://www.medscape.com/viewarticle/mhra-approves-new-oral-treatment-plaque-psoriasis-2026a10014cs",
+      "label": "Medscape: MHRA Approves a New Oral Treatment for Plaque Psoriasis (trial evidence)",
+      "quote": "four phase 3 clinical trials involving 2500 people with moderate-to-severe plaque psoriasis"
+     }
+    ],
+    "checked": "2026-10-31"
    }
   },
   {
@@ -25303,6 +25745,30 @@
     "url": "https://spacenews.com/xona-launches-six-satellites-to-begin-commercial-navigation-service/",
     "status": "ok",
     "checked": "2026-10-29"
+   },
+   "aiLevers": {
+    "phase": "deploy",
+    "bottleneck": "Scaling manufacturing and launches from six satellites to the 258-satellite constellation; four satellites give only intermittent coverage (~12-hour revisit), so continuous service waits on build-out.",
+    "levers": [
+     {
+      "k": "simulation",
+      "strength": "mid",
+      "note": "Signal and interference modelling next to GPS L1/L5, plus constellation coverage and revisit simulation, can guide phasing of the 258-satellite build-out. Public sources don't say Xona uses AI for this."
+     },
+     {
+      "k": "deploy",
+      "strength": "low",
+      "note": "Machine-learning tools could help with orbit and clock determination, ground-network monitoring and launch/production scheduling during ramp-up. No source confirms Xona does this."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://www.xonaspace.com/news/pulsars-first-deployment",
+      "label": "Xona: Pulsar's First Deployment",
+      "quote": "Four satellites are not a global navigation constellation"
+     }
+    ],
+    "checked": "2026-10-31"
    }
   },
   {
@@ -25663,6 +26129,623 @@
     "addedBy": "research-agent",
     "added": "2026-10-30",
     "lastChecked": "2026-10-30",
+    "approximate": false
+   }
+  },
+  {
+   "id": "socamm2-modular-lpddr-memory-for-ai-servers",
+   "field": "hw",
+   "origin": "industry",
+   "status": "landed",
+   "title": "SOCAMM2 modular LPDDR memory for AI servers",
+   "research": {
+    "year": 2022,
+    "what": "Compression-attached memory modules were devised to give thin, swappable, low-power memory, and were later adapted to put LPDDR DRAM into servers as a modular format. Origin: Dell's compression-attached memory module (CAMM) design of 2022, later standardised by JEDEC as CAMM2 and then as the SOCAMM2 server module (JESD328)."
+   },
+   "change": {
+    "year": 2026,
+    "what": "SK hynix announced mass production of a 192GB SOCAMM2 module on 1cnm LPDDR5X on 20 April 2026, aimed at NVIDIA's Vera Rubin AI platform."
+   },
+   "confidence": "medium",
+   "note": "It brings phone-class low-power DRAM into servers as a serviceable module, adding a new memory tier between HBM and DDR5 RDIMM in AI data centres.",
+   "refs": [
+    {
+     "label": "SK hynix newsroom: mass production of 192GB SOCAMM2",
+     "url": "https://news.skhynix.com/en/mass-production-socamm2-192gb/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "TrendForce: SK hynix starts mass production of 192GB SOCAMM2",
+     "url": "https://www.trendforce.com/news/2026/04/20/news-sk-hynix-starts-mass-production-of-192gb-socamm2-tapping-1c-dram-and-nvidia-rubin-optimization/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "Korea Times: SK hynix begins mass production of 1c SOCAMM2",
+     "url": "https://www.koreatimes.co.kr/business/tech-science/20260420/sk-hynix-begins-mass-production-of-1c-socamm2-ai-server-chips",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "subfield": "chips",
+   "region": "global",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Modular, field-swappable memory adds a supply-chain and physical-tampering consideration, although it is not a new remote attack surface.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-31",
+    "lastChecked": "2026-10-31",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "not_supported",
+     "reason": "The sources confirm SK hynix's mass production of SOCAMM2 in April 2026 for NVIDIA's Vera Rubin platform, but do not mention Dell's CAMM design, JEDEC standardization, or research beginning in 2022.",
+     "date": "2026-10-31"
+    },
+    "qaNote": "Second opinion (Gemini): not supported. The sources confirm SK hynix's mass production of SOCAMM2 in April 2026 for NVIDIA's Vera Rubin platform, but do not mention Dell's CAMM design, JEDEC standardization, or research beginning in 2022."
+   },
+   "flags": {
+    "disputed": true
+   }
+  },
+  {
+   "id": "quantum-diamond-microscope-for-chip-failure-analysis",
+   "field": "quantum",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Quantum diamond microscope for chip failure analysis",
+   "research": {
+    "year": 2008,
+    "what": "Nitrogen-vacancy centres in diamond were shown to work as nanoscale magnetic-field sensors, which later led to wide-field quantum diamond microscopy of current paths. Origin: Nitrogen-vacancy diamond nanoscale magnetometry (Maze et al., Nature, 2008), later developed at TU Munich before the 2022 QuantumDiamonds spin-out"
+   },
+   "change": {
+    "year": 2026,
+    "what": "QuantumDiamonds' QDm.1 quantum diamond microscope went live in a Taiwanese failure-analysis lab (iST, Hsinchu) in April 2026, its first Asian install after a first US install."
+   },
+   "confidence": "low",
+   "note": "It is a commercial quantum-sensing tool in a semiconductor production workflow. The first US install seems to have come about a month earlier, so the April to June timing is only certain for the Asian deployment.",
+   "refs": [
+    {
+     "label": "QuantumDiamonds press release (21 April 2026)",
+     "url": "https://www.qd-st.com/press/quantumdiamonds-deploys-failure-analysis-technology-at-leading-taiwan-semiconductor-test-house",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "Data Center Dynamics: QuantumDiamonds installs QDm.1 system in Taiwan",
+     "url": "https://www.datacenterdynamics.com/en/news/quantum-chip-testing-startup-quantumdiamonds-installs-qdm1-system-in-taiwan/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "Quantum Computing Report: QDm.1 at Taiwan's iST",
+     "url": "https://quantumcomputingreport.com/quantumdiamonds-deploys-first-asian-quantum-sensing-system-qd-m-1-at-taiwans-ist/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "subfield": "devices",
+   "region": "europe",
+   "tags": [
+    "semiconductors"
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "It adds connected lab instruments to fabs, and the data on chip current paths is commercially sensitive.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-31",
+    "lastChecked": "2026-10-31",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "not_supported",
+     "reason": "The sources confirm the QDm.1 system's deployment in Taiwan in April 2026 as the first Asian install after a US install, and the company's spin-out from TU Munich in 2022, but they do not mention research beginning in 2008 or reference 'Maze et al., Nature, 2008'.",
+     "date": "2026-10-31"
+    },
+    "qaNote": "Second opinion (Gemini): not supported. The sources confirm the QDm.1 system's deployment in Taiwan in April 2026 as the first Asian install after a US install, and the company's spin-out from TU Munich in 2022, but they do not mention research beginning in 2008 or reference 'Maze et al., Nature, 20"
+   },
+   "flags": {
+    "disputed": true
+   }
+  },
+  {
+   "id": "zero-knowledge-proofs-in-the-eu-age-verification-app",
+   "field": "cyber",
+   "origin": "academic",
+   "status": "landed",
+   "title": "Zero-knowledge proofs in the EU age-verification app",
+   "research": {
+    "year": 1985,
+    "what": "Goldwasser, Micali and Rackoff introduced zero-knowledge proofs, which let someone show a statement is true without revealing anything else. Origin: Goldwasser, Micali and Rackoff, 'The Knowledge Complexity of Interactive Proof-Systems' (STOC 1985)"
+   },
+   "change": {
+    "year": 2026,
+    "what": "On 15 April 2026 the European Commission declared its open-source age-verification app technically ready. It uses zero-knowledge proofs so users can prove they are above an age threshold without revealing their identity or birthdate."
+   },
+   "confidence": "medium",
+   "note": "This is one of the first state-backed uses of zero-knowledge proofs for everyday online age checks.",
+   "refs": [
+    {
+     "label": "The Next Web: The EU says its age verification app is ready (15 Apr 2026)",
+     "url": "https://thenextweb.com/news/eu-age-verification-app-children-social-media",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "European Commission: Blueprint for an age verification solution",
+     "url": "https://digital-strategy.ec.europa.eu/en/factpages/blueprint-age-verification-solution-help-protect-minors-online",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "subfield": "network",
+   "region": "us",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-31",
+    "lastChecked": "2026-10-31",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "not_supported",
+     "reason": "The sources confirm the EU age-verification app was declared technically ready in April 2026 and uses zero-knowledge proofs for age verification without revealing personal data, but they do not mention the 1985 research origin or state that this is the first product or real-world use of zero-knowled",
+     "date": "2026-10-31"
+    },
+    "qaNote": "Second opinion (Gemini): not supported. The sources confirm the EU age-verification app was declared technically ready in April 2026 and uses zero-knowledge proofs for age verification without revealing personal data, but they do not mention the 1985 research origin or state that this is the first p"
+   },
+   "flags": {
+    "disputed": true
+   }
+  },
+  {
+   "id": "cluster-based-disaggregated-backbone-routers-kddi",
+   "field": "comms",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Cluster-based disaggregated backbone routers (KDDI)",
+   "research": {
+    "year": 2020,
+    "what": "Telecom Infra Project work on distributed disaggregated backbone routers (DDBR), replacing monolithic chassis routers with clusters of smaller white-box routers running separate software. Origin: Telecom Infra Project DDBR programme, in which KDDI began development and testing in 2020 (DriveNets software on white-box hardware)"
+   },
+   "change": {
+    "year": 2026,
+    "what": "In June 2026 KDDI began commercial deployment of cluster-based DDBR core routers (DriveNets software on UfiSpace hardware) at major backbone sites in Japan, with nationwide rollout targeted by end of FY2027."
+   },
+   "confidence": "medium",
+   "note": "First large-scale commercial use of disaggregated router clusters as core routers in a Tier 1 operator backbone, reportedly cutting equipment deployment costs by about 50%.",
+   "refs": [
+    {
+     "label": "KDDI newsroom: launch of DDBR cluster commercial deployment",
+     "url": "https://newsroom.kddi.com/english/news/detail/kddi_nr-1052_4563.html",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "Telecompaper: KDDI deploys disaggregated core router architecture",
+     "url": "https://www.telecompaper.com/news/kddi-deploys-disaggregated-core-router-architecture-across-backbone-network--1573597",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "The Fast Mode: KDDI rolls out DDBR cluster architecture",
+     "url": "https://www.thefastmode.com/technology-solutions/48916-kddi-rolls-out-ddbr-cluster-architecture-to-scale-backbone-networks-for-ai-traffic-growth",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "subfield": "internet",
+   "region": "global",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Software-defined, distributed routing with automated configuration adds a larger software supply chain and management plane to protect, but removes single-chassis points of failure.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-31",
+    "lastChecked": "2026-10-31",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "not_supported",
+     "reason": "While KDDI began driving the development of open, disaggregated routing technologies through TIP in 2020, its strategic partnership with DriveNets was established in May 2025, not at the start of development in 2020.",
+     "date": "2026-10-31"
+    },
+    "qaNote": "Second opinion (Gemini): not supported. While KDDI began driving the development of open, disaggregated routing technologies through TIP in 2020, its strategic partnership with DriveNets was established in May 2025, not at the start of development in 2020."
+   },
+   "flags": {
+    "disputed": true
+   }
+  },
+  {
+   "id": "radio-astronomy-janskys-cosmic-radio-detection",
+   "field": "space",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Radio astronomy (Jansky's cosmic radio detection)",
+   "research": {
+    "year": 1931,
+    "what": "Bell Labs engineer Karl Jansky built a rotating 20.5 MHz antenna array to track sources of static interfering with transatlantic shortwave telephony. Origin: Bell Telephone Laboratories static-source study with the rotating 'merry-go-round' Bruce array, Holmdel NJ, 1931–32; published in Proc. IRE 1933"
+   },
+   "change": {
+    "year": 1933,
+    "what": "Jansky's announcement and 1933 paper showed that radio waves arrive from the Milky Way's centre, opening a new way to observe space and starting radio astronomy."
+   },
+   "confidence": "high",
+   "note": "It was the first detection of radio emission from beyond the solar system and led to radio telescopes, a major observing route for space science.",
+   "refs": [
+    {
+     "label": "NRAO – Karl Jansky and his Merry-go-Round",
+     "url": "https://public.nrao.edu/gallery/karl-jansky-and-his-merrygoround/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "NRAO – The History of Radio Astronomy",
+     "url": "https://public.nrao.edu/radio-astronomy/the-history-of-radio-astronomy/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "AIP – Scenes from the making of astrophysics, part 2",
+     "url": "https://www.aip.org/history/scenes-making-astrophysics-2",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "subfield": "launch",
+   "region": "us",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Radio telescopes and the radio spectrum they depend on are exposed to interference and to signal-spoofing risks.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-31",
+    "lastChecked": "2026-10-31",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "not_supported",
+     "reason": "While many details are supported, one source states Jansky began tackling the problem in 1932, not 1931, and the sources do not mention 'Proc. IRE' as the publication journal or 'Bruce array' for the antenna.",
+     "date": "2026-10-31"
+    },
+    "qaNote": "Second opinion (Gemini): not supported. While many details are supported, one source states Jansky began tackling the problem in 1932, not 1931, and the sources do not mention 'Proc. IRE' as the publication journal or 'Bruce array' for the antenna."
+   },
+   "flags": {
+    "disputed": true
+   }
+  },
+  {
+   "id": "continuous-human-presence-on-the-iss",
+   "field": "space",
+   "origin": "government",
+   "status": "landed",
+   "title": "Continuous human presence on the ISS",
+   "research": {
+    "year": 1984,
+    "what": "NASA began planning a permanently crewed Earth-orbit station (Space Station Freedom), later merged with Russian and partner programmes into the International Space Station. Origin: US Space Station Freedom programme announced 1984; merged into the international ISS partnership agreed 1998"
+   },
+   "change": {
+    "year": 2000,
+    "what": "The Expedition 1 crew boarded the ISS on 2 November 2000, starting an unbroken human presence in orbit."
+   },
+   "confidence": "high",
+   "note": "It created the first permanently inhabited orbital research platform, run by five space agencies.",
+   "refs": [
+    {
+     "label": "ISS National Lab: ISS history and timeline",
+     "url": "https://issnationallab.org/about/iss-national-lab-overview/iss-history-timeline/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "History.com: first residential crew arrives aboard the ISS",
+     "url": "https://www.history.com/this-day-in-history/november-2/first-residential-crew-arrives-aboard-international-space-station",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "NASA: ISS marks 25 years of continuous human presence",
+     "url": "https://www.nasa.gov/centers-and-facilities/johnson/the-international-space-station-marks-25-years-of-continuous-human-presence",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "subfield": "launch",
+   "region": "global",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "A permanently crewed, internationally networked orbital platform adds a long-lived target for communications and control-system attacks.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-31",
+    "lastChecked": "2026-10-31",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "supported",
+     "reason": "Sources confirm President Reagan directed NASA to build an international space station in 1984, the international partnership was agreed upon and first components launched in 1998, and the Expedition 1 crew boarded the ISS on November 2, 2000, starting continuous human presence.",
+     "date": "2026-10-31"
+    }
+   }
+  },
+  {
+   "id": "mars-exploration-rovers-spirit-and-opportunity",
+   "field": "space",
+   "origin": "government",
+   "status": "landed",
+   "title": "Mars Exploration Rovers Spirit and Opportunity",
+   "research": {
+    "year": 1997,
+    "what": "JPL's Sojourner rover on Mars Pathfinder showed that a small solar-powered rover could operate on Mars, leading to larger, longer-range geology rovers. Origin: NASA/JPL Mars Pathfinder Sojourner rover (1997), precursor to the Mars Exploration Rover project"
+   },
+   "change": {
+    "year": 2004,
+    "what": "Spirit and Opportunity landed on Mars in January 2004. They drove across the surface and found evidence of past liquid water."
+   },
+   "confidence": "high",
+   "note": "They proved long-lived mobile robotic geology on another planet. Opportunity worked for nearly 15 years, far beyond its 90-day plan.",
+   "refs": [
+    {
+     "label": "NASA Mars: Mars Exploration Rovers overview",
+     "url": "https://mars.nasa.gov/mer/mission/overview/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "Britannica: Mars Exploration Rover",
+     "url": "https://www.britannica.com/topic/Mars-Exploration-Rover",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "NASA: 20 years after landing, how the twin rovers changed Mars science",
+     "url": "https://www.nasa.gov/missions/mer/20-years-after-landing-how-nasas-twin-rovers-changed-mars-science/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "subfield": "launch",
+   "region": "us",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Remote-commanded autonomous rovers depend on long-distance command links, so command authentication and link integrity matter.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-31",
+    "lastChecked": "2026-10-31",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "not_supported",
+     "reason": "The provided source text consists primarily of navigation links and article headlines, and does not contain the specific details about research beginning in 1997 with the Sojourner rover, nor does it explicitly state that Spirit and Opportunity landed in January 2004 or found evidence of past liquid",
+     "date": "2026-10-31"
+    },
+    "qaNote": "Second opinion (Gemini): not supported. The provided source text consists primarily of navigation links and article headlines, and does not contain the specific details about research beginning in 1997 with the Sojourner rover, nor does it explicitly state that Spirit and Opportunity landed in Janua"
+   },
+   "flags": {
+    "disputed": true
+   }
+  },
+  {
+   "id": "point-contact-transistor",
+   "field": "quantum",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Point-contact transistor",
+   "research": {
+    "year": 1939,
+    "what": "Shockley at Bell Labs revived the idea of a semiconductor amplifier to replace vacuum tubes, building on quantum band-theory understanding of semiconductors and earlier field-effect patents. Origin: Bell Labs solid-state programme from 1939 under William Shockley, following Lilienfeld's 1925 field-effect patents"
+   },
+   "change": {
+    "year": 1947,
+    "what": "Bardeen and Brattain demonstrated the first working semiconductor amplifier, a germanium point-contact transistor, at Bell Labs in December 1947; Bell Labs announced it publicly in 1948."
+   },
+   "confidence": "high",
+   "note": "The first solid-state amplifier applied quantum solid-state physics and underpins all later electronics, including the control hardware of quantum computers.",
+   "refs": [
+    {
+     "label": "ETHW Milestone: Invention of the First Transistor at Bell Labs, 1947",
+     "url": "https://ethw.org/Milestones:Invention_of_the_First_Transistor_at_Bell_Telephone_Laboratories,_Inc.,_1947",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "Computer History Museum: Inventing the Transistor",
+     "url": "https://www.computerhistory.org/revolution/digital-logic/12/273",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "Bell Labs history of the transistor",
+     "url": "https://memorial.bellsystem.com/belllabs_transistor.html",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "subfield": "devices",
+   "region": "us",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Transistor-based digital electronics made modern networked computing, and therefore cyber attack surfaces, possible.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-31",
+    "lastChecked": "2026-10-31",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "not_supported",
+     "reason": "While the sources confirm Shockley revived the idea in 1939 and Bardeen and Brattain demonstrated the point-contact transistor in December 1947 with a public announcement in 1948, they do not explicitly mention quantum band-theory, Lilienfeld's 1925 field-effect patents, or a 'solid-state programme'",
+     "date": "2026-10-31"
+    },
+    "qaNote": "Second opinion (Gemini): not supported. While the sources confirm Shockley revived the idea in 1939 and Bardeen and Brattain demonstrated the point-contact transistor in December 1947 with a public announcement in 1948, they do not explicitly mention quantum band-theory, Lilienfeld's 1925 field-effe"
+   },
+   "flags": {
+    "disputed": true
+   }
+  },
+  {
+   "id": "nuclear-magnetic-resonance-nmr-detection",
+   "field": "quantum",
+   "origin": "academic",
+   "status": "landed",
+   "title": "Nuclear magnetic resonance (NMR) detection",
+   "research": {
+    "year": 1938,
+    "what": "Rabi's molecular-beam magnetic resonance method showed that nuclear magnetic moments could be measured by resonance, a quantum effect of nuclear spin in a magnetic field. Origin: Isidor Rabi's atomic/molecular-beam magnetic resonance experiments at Columbia University, 1938"
+   },
+   "change": {
+    "year": 1946,
+    "what": "Bloch's Stanford team and Purcell's Harvard team independently detected NMR in bulk matter (water and paraffin) in late 1945 and early 1946, which led to NMR spectroscopy."
+   },
+   "confidence": "medium",
+   "note": "Bloch and Purcell shared the 1952 Nobel Prize in Physics; NMR became a core tool in chemistry and, later, MRI, and underlies NMR quantum-computing experiments.",
+   "refs": [
+    {
+     "label": "Questions and Answers in MRI: Discovery of NMR",
+     "url": "https://mriquestions.com/who-discovered-nmr.html",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "Britannica: E. M. Purcell",
+     "url": "https://www.britannica.com/biography/E-M-Purcell",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "Magnetic Resonance in Medicine: History of MRI",
+     "url": "https://magnetic-resonance.org/ch/20-02.html",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "subfield": "devices",
+   "region": "us",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "No direct cyber security implications.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-31",
+    "lastChecked": "2026-10-31",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "not_supported",
+     "reason": "The sources confirm Rabi's 1938 work at Columbia and the 1946 breakthrough by Bloch and Purcell, but do not explicitly state 'first product or real-world use' or that they detected NMR in 'bulk matter (water and paraffin)'.",
+     "date": "2026-10-31"
+    },
+    "qaNote": "Second opinion (Gemini): not supported. The sources confirm Rabi's 1938 work at Columbia and the 1946 breakthrough by Bloch and Purcell, but do not explicitly state 'first product or real-world use' or that they detected NMR in 'bulk matter (water and paraffin)'."
+   },
+   "flags": {
+    "disputed": true
+   }
+  },
+  {
+   "id": "lamb-shift-discovery-and-measurement",
+   "field": "quantum",
+   "origin": "academic",
+   "status": "landed",
+   "title": "Lamb Shift discovery and measurement",
+   "research": {
+    "year": 1947,
+    "what": "Willis Lamb and Robert Retherford performed experiments that revealed a small energy difference between two quantum states of the hydrogen atom, known as the Lamb Shift. Origin: Willis Lamb and Robert Retherford's experiments at Columbia University, 1947."
+   },
+   "change": {
+    "year": 1947,
+    "what": "The precise measurement of the Lamb Shift provided crucial experimental evidence for quantum electrodynamics (QED), a foundational theory in quantum physics."
+   },
+   "confidence": "high",
+   "note": "This discovery was vital for the development and validation of quantum electrodynamics, one of the most accurate theories in physics.",
+   "refs": [
+    {
+     "label": "Nobel Prize: Willis Lamb Biography",
+     "url": "https://www.nobelprize.org/prizes/physics/1955/lamb/biographical/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "Wikipedia: Lamb Shift",
+     "url": "https://en.wikipedia.org/wiki/Lamb_shift",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "subfield": "devices",
+   "region": "us",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "gemini-research",
+    "added": "2026-10-31",
+    "lastChecked": "2026-10-31",
     "approximate": false
    }
   }
@@ -28526,6 +29609,15 @@
    "summary": "The NCSC published guidance for buyers on how to plan, control, deliver and report adversary simulation (red teaming), plus the first documents for its assured CyAS scheme, which is due to launch in November 2026. The scheme is aimed at operators of essential services and regulated critical national infrastructure (CNI). It helps them get trustworthy evidence of how well they can prevent, detect a",
    "url": "https://www.ncsc.gov.uk/blogs/cyber-adversary-simulation-cyas-scheme-documents-now-available",
    "added": "2026-10-30",
+   "by": "guidance-agent"
+  },
+  {
+   "date": "2026-10-30",
+   "framework": "NCSC CAF",
+   "title": "Cyber Assessment Framework: Core Profile (v4.0)",
+   "summary": "The NCSC published a CAF Core Profile that sets a common minimum baseline of cyber resilience, built on CAF v4.0, for organisations facing moderately sophisticated adversaries. It draws on sector-specific profile work and targets ransomware, supply chain compromise, legacy technology exploitation and emerging-technology-enabled attacks, giving regulators a base on which to add sector-specific requ",
+   "url": "https://www.ncsc.gov.uk/collection/cyber-assessment-framework/core-profile",
+   "added": "2026-10-31",
    "by": "guidance-agent"
   }
  ]
