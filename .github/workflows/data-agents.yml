@@ -118,6 +118,7 @@ jobs:
           git config user.name  "shrinking-gap-data-agent"
           git config user.email "data-agent@users.noreply.github.com"
           git add data/data.json data/pending.json data/pending_founders.json data/tours.json index.html
+          if [ -f data/rejected.json ]; then git add data/rejected.json; fi
           if [ -d audio ]; then git add -A audio; fi
           if git diff --cached --quiet; then echo "No changes to publish."; exit 0; fi
           REV=$(python -c "import json;print(json.load(open('data/data.json'))['meta']['revision'])")
@@ -136,9 +137,11 @@ jobs:
             KEEP=$(mktemp -d); cp -r data "$KEEP/"; if [ -d audio ]; then cp -r audio "$KEEP/"; fi
             git reset --hard origin/main
             cp "$KEEP/data/data.json" "$KEEP/data/pending.json" "$KEEP/data/pending_founders.json" "$KEEP/data/tours.json" data/
+            if [ -f "$KEEP/data/rejected.json" ]; then cp "$KEEP/data/rejected.json" data/; fi
             if [ -d "$KEEP/audio" ]; then rm -rf audio && cp -r "$KEEP/audio" audio; fi
             python tools/build.py
             git add data/data.json data/pending.json data/pending_founders.json data/tours.json index.html
+          if [ -f data/rejected.json ]; then git add data/rejected.json; fi
             if [ -d audio ]; then git add -A audio; fi
             git commit -m "Data revision ${REV}: ${SUMMARY}"
             sleep 5

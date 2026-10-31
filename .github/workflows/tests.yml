@@ -1,0 +1,32 @@
+name: Test suite
+
+# Never runs on its own: run it by hand before or after a significant change. It does not publish anything.
+on:
+  workflow_dispatch:
+    inputs:
+      suites:
+        description: 'Which tests'
+        type: choice
+        options: [all, agents, browser]
+        default: all
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install tools
+        run: |
+          pip install -r requirements.txt
+          python -m playwright install --with-deps chromium
+      - name: Build the app from the current source
+        run: python tools/build.py
+      - name: Run the tests
+        run: python tests/run_tests.py ${{ github.event.inputs.suites || 'all' }}

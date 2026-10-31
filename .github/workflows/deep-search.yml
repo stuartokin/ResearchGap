@@ -1,0 +1,162 @@
+name: Deep search
+
+# Runs every Monday at 06:00 UTC, or manually from the Actions tab.
+# Never runs on pull requests, so the API key is never exposed to forks or outside contributors.
+# A broad, worldwide, multi-language sweep of the last 10 years and the next 10: by hand, or every six months.
+on:
+  workflow_dispatch:
+    inputs:
+      start_year:
+        description: 'Year to search from (blank: this year)'
+        required: false
+      target_total:
+        description: 'Aim for at least this many new milestones'
+        required: false
+        default: '200'
+      target_clean:
+        description: 'Of which at least this many for AI in clean energy'
+        required: false
+        default: '50'
+  schedule:
+    - cron: '0 4 1 1,7 *'      # 1 January and 1 July, 04:00 UTC
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: data-agents
+  cancel-in-progress: false
+
+env:
+  MAX_ADDITIONS: 350      # this run only: QA, the publishing guard and the second opinion handle the larger batch
+  GEMINI_CHECKS: 350
+
+jobs:
+  update:
+    # Kill switch: the weekly schedule only runs when the repository variable AGENTS_ENABLED is 'true'.
+    if: github.event_name == 'workflow_dispatch' || vars.AGENTS_ENABLED == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 300
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      AGENT_MODEL: ${{ vars.AGENT_MODEL }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Remember the data revision this run starts from
+        run: |
+          echo "START_REV=$(python3 -c "import json;print(json.load(open('data/data.json'))['meta']['revision'])")" >> "$GITHUB_ENV"
+          echo "START_HASH=$(sha256sum data/data.json | cut -d' ' -f1)" >> "$GITHUB_ENV"
+
+      - name: Install tools
+        run: |
+          pip install -r requirements.txt
+          python -m playwright install --with-deps chromium
+
+      - name: Deep search (worldwide, multi-language; queues candidates for QA)
+        working-directory: agents
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          START_YEAR: ${{ github.event.inputs.start_year }}
+          TARGET_TOTAL: ${{ github.event.inputs.target_total }}
+          TARGET_CLEAN: ${{ github.event.inputs.target_clean }}
+        run: python deep_search.py
+
+      - name: QA agent (confirms candidates, audits a rotating batch)
+        working-directory: agents
+        run: python qa_agent.py
+
+      - name: Gemini second opinion (checks Claude's additions; anything not supported is marked disputed)
+        continue-on-error: true
+        working-directory: agents
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python gemini_check.py
+
+      - name: Gate 1 - schema and data rules
+        run: python tools/validate.py
+
+      - name: Gate 2 - nothing deleted, additions within limits
+        run: python tools/change_guard.py
+
+      - name: Build the offline snapshot into index.html
+        run: python tools/build.py
+
+      - name: Gate 3 - the app loads and renders the new data
+        run: python tools/smoke_test.py
+
+      - name: Voice (records changed narration; skipped without a key, never blocks publishing)
+        continue-on-error: true
+        env:
+          TTS_API_KEY: ${{ secrets.TTS_API_KEY }}
+          TTS_REGION: ${{ vars.TTS_REGION }}
+        run: python tools/make_voice.py
+
+      - name: Publish (only reached if every gate passed)
+        id: publish
+        run: |
+          git config user.name  "shrinking-gap-data-agent"
+          git config user.email "data-agent@users.noreply.github.com"
+          git add data/data.json data/pending.json data/pending_founders.json data/tours.json index.html
+          if [ -f data/rejected.json ]; then git add data/rejected.json; fi
+          if [ -d audio ]; then git add -A audio; fi
+          if git diff --cached --quiet; then echo "No changes to publish."; exit 0; fi
+          REV=$(python -c "import json;print(json.load(open('data/data.json'))['meta']['revision'])")
+          SUMMARY=$(python tools/run_summary.py)   # what this whole run changed, compared with the last published data
+          git commit -m "Data revision ${REV}: ${SUMMARY}"
+          # This run takes a while. If the repository moved on meanwhile (an upload, or a rebuild of the app), lay this run's
+          # data files on top of the latest WHOLE (data files are never merged line by line), and rebuild the page from the
+          # latest code. If another agent run published data meanwhile, stop rather than overwrite it; the results are kept.
+          for attempt in 1 2 3; do
+            if git push origin HEAD:main; then break; fi
+            if [ "$attempt" = 3 ]; then echo "Could not publish after three attempts."; exit 1; fi
+            git fetch origin main
+            MAIN_HASH=$(git show origin/main:data/data.json | sha256sum | cut -d' ' -f1)
+            if [ "$MAIN_HASH" != "$START_HASH" ]; then echo "The data on main changed since this run started (another run or an edit), so this run will not overwrite it. Its results are kept as an artifact; run the workflow again to redo them on the latest data."; exit 1; fi
+            echo "The repository moved on during this run, but the data did not; putting this run's data on top of the latest and retrying ($attempt)."
+            KEEP=$(mktemp -d); cp -r data "$KEEP/"; if [ -d audio ]; then cp -r audio "$KEEP/"; fi
+            git reset --hard origin/main
+            cp "$KEEP/data/data.json" "$KEEP/data/pending.json" "$KEEP/data/pending_founders.json" "$KEEP/data/tours.json" data/
+            if [ -f "$KEEP/data/rejected.json" ]; then cp "$KEEP/data/rejected.json" data/; fi
+            if [ -d "$KEEP/audio" ]; then rm -rf audio && cp -r "$KEEP/audio" audio; fi
+            python tools/build.py
+            git add data/data.json data/pending.json data/pending_founders.json data/tours.json index.html
+          if [ -f data/rejected.json ]; then git add data/rejected.json; fi
+            if [ -d audio ]; then git add -A audio; fi
+            git commit -m "Data revision ${REV}: ${SUMMARY}"
+            sleep 5
+          done
+          git tag -a "data-r${REV}" -m "Data revision ${REV}: ${SUMMARY}"
+          git push origin "data-r${REV}"
+          echo "published=1" >> "$GITHUB_OUTPUT"
+          echo "rev=${REV}" >> "$GITHUB_OUTPUT"
+
+      - name: Keep this run's results if publishing failed (download them from the run's Artifacts)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: unpublished-results-run-${{ github.run_number }}
+          path: |
+            data/
+            index.html
+            audio/
+          if-no-files-found: ignore
+          retention-days: 14
+
+      - name: Weekly digest (a GitHub issue, which also emails you)
+        if: steps.publish.outputs.published == '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python tools/digest.py > digest.md
+          gh label create data-update --color 5FD8FF --description "Weekly data agent digest" --force || true
+          gh issue create --title "Data revision ${{ steps.publish.outputs.rev }}: $(head -1 digest.md | tr -d '*')" --body-file digest.md --label data-update
+
