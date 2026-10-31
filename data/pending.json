@@ -1,1 +1,53 @@
-[]
+[
+ {
+  "id": "xatryx-bio-based-ptmeg-first-commercial-batches",
+  "field": "materials",
+  "origin": "industry",
+  "status": "landed",
+  "title": "Xatryx bio-based PTMEG: first commercial batches",
+  "research": {
+   "year": 2026,
+   "what": "CovationBio developed a new process to make bio-based THF and PTMEG, a drop-in replacement for fossil PTMEG used in spandex, polyurethanes and elastomers. Origin: CovationBio's in-house C4 platform process technology (described as new-to-the-world). The start year is not stated in the sources, so 2026 is a placeholder, not a verified date."
+  },
+  "change": {
+   "year": 2026,
+   "what": "The 50,000 t/yr Qidong plant in China made its first commercial on-spec batches of Xatryx bioTHF and bioPTMEG in August 2026, and the first partly bio-based athletic insole using it was shown in September."
+  },
+  "confidence": "low",
+  "note": "This is the first commercial-scale production of non-food bio-based PTMEG, a key spandex and polyurethane building block. The research start year is unverified.",
+  "refs": [
+   {
+    "label": "PR Newswire: CovationBio Xatryx mass production on spec (2 Sep 2026)",
+    "url": "http://www.prnewswire.com/news-releases/covationbios-xatryx-mass-production-on-spec-to-debut-first-nonfood-biobased-athletic-insole-at-nw-materials-show-in-the-us-302867455.html",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Biofuels Digest: CovationBio achieves on-spec biobased THF and PTMEG at Qidong",
+    "url": "https://biofuelsdigest.com/covationbio-achieves-on-spec-biobased-thf-and-ptmeg-production-at-qidong-gets-its-foot-into-door-of-the-footwear-market/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "ChemAnalyst: CovationBio begins mass production of bio-based PTMEG",
+    "url": "https://www.chemanalyst.com/NewsAndDeals/NewsDetails/covationbio-begins-mass-production-of-bio-based-ptmeg-44264",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "polymers",
+  "region": "asia",
+  "readiness": {
+   "stage": "commercial",
+   "basis": "ai-estimate"
+  },
+  "evidence_terms": [
+   "CovationBio",
+   "Xatryx",
+   "bioPTMEG",
+   "Qidong"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1
+ }
+]

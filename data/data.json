@@ -2,7 +2,7 @@
  "$schema": "./schema.json",
  "meta": {
   "title": "The Shrinking Gap from Research to Change",
-  "revision": 26,
+  "revision": 27,
   "version": "8.0",
   "asOf": "2026-10-31",
   "horizonYears": 10,
@@ -10,7 +10,7 @@
   "author": "Stuart Okin",
   "maintainedBy": "AI agents using Claude (Anthropic), without human review",
   "disclaimer": "Personal project by Stuart Okin, not affiliated with or endorsed by any employer. Data is compiled and maintained by AI agents without human review and may contain errors. Outlook years are AI estimates, not forecasts.",
-  "lastAgentRun": "2026-10-31T01:31Z",
+  "lastAgentRun": "2026-10-31T02:13Z",
   "changelog": [
    {
     "date": "2026-10-28",
@@ -1242,6 +1242,137 @@
      "levers   sodium-ion-grid-storage-at-scale: build; discovery, software, simulation",
      "levers   robot-foundation-models-in-products: demo; simulation, software"
     ]
+   },
+   {
+    "date": "2026-10-31",
+    "time": "02:07",
+    "revision": 26,
+    "summary": "Gemini research: 1 of 7 candidates passed the source checks and were queued for Claude's QA.",
+    "stats": {
+     "milestones": 479,
+     "sourceCited": 194,
+     "aiCompiled": 207,
+     "aiEstimate": 78,
+     "adoptionKnown": 76,
+     "landed": 379,
+     "regionKnown": 479
+    },
+    "usage": {
+     "calls": 0,
+     "inputTokens": 0,
+     "outputTokens": 0,
+     "searches": 0,
+     "model": "claude-sonnet-5-5"
+    },
+    "deepAudit": false,
+    "details": [
+     "pending  [gemini energy] First Nuclear Reactor in Western Europe (GLEEP)"
+    ]
+   },
+   {
+    "date": "2026-10-31",
+    "time": "02:13",
+    "revision": 27,
+    "summary": "7 added, 15 corrected, 0 outlook re-estimated, 1 disputed, 3 broken links.",
+    "stats": {
+     "milestones": 479,
+     "sourceCited": 198,
+     "aiCompiled": 203,
+     "aiEstimate": 78,
+     "adoptionKnown": 77,
+     "landed": 379,
+     "regionKnown": 479
+    },
+    "usage": {
+     "calls": 6,
+     "inputTokens": 669708,
+     "outputTokens": 45454,
+     "searches": 41,
+     "model": "claude-sonnet-5-5"
+    },
+    "deepAudit": false,
+    "details": [
+     "added: first-propane-fuelled-rocket-reaches-orbit-isar-spectrum",
+     "added: sodium-ion-grid-battery-system-goes-commercial-tener-sodium",
+     "added: mars-exploration-rovers-spirit-and-opportunity",
+     "added: international-space-station-first-resident-crew",
+     "added: point-contact-transistor",
+     "added: typex-rotor-cipher-machine-british",
+     "added: first-nuclear-reactor-in-western-europe-gleep",
+     "text-messaging-sms: source added",
+     "text-messaging-sms: source added",
+     "fibre-to-the-home: source added",
+     "global-satellite-phones: source added",
+     "software-defined-networking: source added",
+     "software-defined-networking: source added",
+     "ai-for-clean-energy-strategy: research.year 2025 → 2026",
+     "ai-for-clean-energy-strategy: source added",
+     "ai-for-clean-energy-strategy: source added",
+     "ai-for-clean-energy-strategy: sub-field ops → grids",
+     "machine-speed-flexibility-markets: source added",
+     "postscript-and-desktop-publishing: readiness commercial → scale",
+     "microsoft-windows: adoption estimate 1990",
+     "microsoft-windows: readiness commercial → scale",
+     "music-streaming: source added",
+     "disputed: fibre-to-the-home",
+     "tours: walk-through scripts refreshed (version 22)"
+    ]
+   },
+   {
+    "date": "2026-10-31",
+    "time": "02:16",
+    "revision": 27,
+    "summary": "AI levers researched for 2 technologies.",
+    "stats": {
+     "milestones": 479,
+     "sourceCited": 198,
+     "aiCompiled": 203,
+     "aiEstimate": 78,
+     "adoptionKnown": 77,
+     "landed": 379,
+     "regionKnown": 479
+    },
+    "usage": {
+     "calls": 8,
+     "inputTokens": 183830,
+     "outputTokens": 10140,
+     "searches": 15,
+     "model": "claude-sonnet-5-5"
+    },
+    "deepAudit": false,
+    "details": [
+     "levers   ai-for-clean-energy-strategy: rd; deploy, simulation, software, approvals",
+     "levers   network-wide-satellite-ai-tree-management-in-gb: demo; software, deploy"
+    ]
+   },
+   {
+    "date": "2026-10-31",
+    "time": "02:19",
+    "revision": 27,
+    "summary": "Stories researched for 4 milestones.",
+    "stats": {
+     "milestones": 479,
+     "sourceCited": 198,
+     "aiCompiled": 203,
+     "aiEstimate": 78,
+     "adoptionKnown": 77,
+     "landed": 379,
+     "regionKnown": 479
+    },
+    "usage": {
+     "calls": 10,
+     "inputTokens": 260308,
+     "outputTokens": 19819,
+     "searches": 23,
+     "model": "claude-sonnet-5-5"
+    },
+    "deepAudit": false,
+    "details": [
+     "story    bepirovirsen-first-antisense-drug-for-hepatitis-b",
+     "story    orca-t-tregzi-regulatory-t-cell-transplant-therapy",
+     "story    google-project-suncatcher-tpu-satellite-in-orbit",
+     "story    dynamic-line-rating-on-gb-transmission-lines"
+    ]
    }
   ],
   "adoptionDefinition": "Mainstream adoption: the year the technology reached widespread, routine use, roughly 10% or more of its potential market or standard practice in its sector.",
@@ -1270,7 +1401,13 @@
    "sw|2026Q3": "2026-10-31",
    "ai|2026Q3": "2026-10-31",
    "quantum|2026Q3": "2026-10-31",
-   "cyber|2026Q3": "2026-10-31"
+   "cyber|2026Q3": "2026-10-31",
+   "comms|2026Q3": "2026-10-31",
+   "materials|2026Q3": "2026-10-31",
+   "space|2026Q3": "2026-10-31",
+   "robotics|2026Q3": "2026-10-31",
+   "life|2026Q3": "2026-10-31",
+   "energy|2026Q2": "2026-10-31"
   },
   "researchFunnel": [
    {
@@ -1308,6 +1445,42 @@
     "rejected": 0,
     "retrying": 0,
     "date": "2026-10-31"
+   },
+   {
+    "agent": "claude",
+    "recent_proposed": 0,
+    "recent_queued": 0,
+    "recent_rejected": {},
+    "catchup_proposed": 5,
+    "catchup_queued": 3,
+    "catchup_rejected": {
+     "sources": 2
+    },
+    "backfill_proposed": 10,
+    "backfill_queued": 4,
+    "backfill_rejected": {
+     "sources": 3,
+     "years": 3
+    },
+    "date": "2026-10-31"
+   },
+   {
+    "agent": "gemini",
+    "recent_proposed": 7,
+    "recent_queued": 1,
+    "recent_rejected": {
+     "sources": 5,
+     "years": 1
+    },
+    "date": "2026-10-31"
+   },
+   {
+    "agent": "qa",
+    "confirmed_claude": 6,
+    "confirmed_gemini": 1,
+    "rejected": 0,
+    "retrying": 1,
+    "date": "2026-10-31"
    }
   ],
   "secondOpinion": [
@@ -1316,6 +1489,12 @@
     "kind": "gemini-research",
     "proposed": 8,
     "queued": 0
+   },
+   {
+    "date": "2026-10-31",
+    "kind": "gemini-research",
+    "proposed": 7,
+    "queued": 1
    }
   ]
  },
@@ -9169,7 +9348,7 @@
    "status": "outlook",
    "title": "AI for Clean Energy Strategy",
    "research": {
-    "year": 2025,
+    "year": 2026,
     "what": "Lucy Yu’s review of AI in electricity networks and the DESNZ vision call for evidence (closes 6 November 2026)."
    },
    "change": {
@@ -9192,14 +9371,14 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "uk",
    "tags": [
     "ai-models"
    ],
-   "subfield": "ops",
+   "subfield": "grids",
    "readiness": {
     "stage": "research",
     "basis": "ai-estimate"
@@ -9213,6 +9392,70 @@
     "estimatedYear": 2027,
     "estimatedOn": "2026-10-27",
     "revisions": []
+   },
+   "refs": [
+    {
+     "label": "https://www.gov.uk/government/calls-for-evidence/vision-for-an-ai-enabled-clean-energy-system",
+     "url": "https://www.gov.uk/government/calls-for-evidence/vision-for-an-ai-enabled-clean-energy-system",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "GOV.UK: Vision for an AI-enabled clean energy system (call for evidence)",
+     "url": "https://www.gov.uk/government/calls-for-evidence/vision-for-an-ai-enabled-clean-energy-system",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "Environment Analyst: government seeks views on AI in the energy system",
+     "url": "https://environment-analyst.com/uk/111691/news-roundup-government-seeks-views-on-ai-in-the-energy-system",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "aiLevers": {
+    "phase": "rd",
+    "bottleneck": "The strategy is still at evidence-gathering stage. The vision names six adoption barriers: data access, incentives, regulation, security, systems integration and skills.",
+    "levers": [
+     {
+      "k": "deploy",
+      "strength": "high",
+      "note": "Core focus of the vision and review: AI for forecasting, planning, optimisation and coordination of flexibility and network operation. The review urges faster roll-out of already-proven AI applications."
+     },
+     {
+      "k": "simulation",
+      "strength": "mid",
+      "note": "Yu says AI surrogates can replicate complex physical simulations and run power-system studies orders of magnitude faster. This supports grid planning and scenario testing."
+     },
+     {
+      "k": "software",
+      "strength": "mid",
+      "note": "Automated algorithms, such as EV charging optimisation and automated demand response, and AI control-room assistance. The review also flags market-gaming risks and a need for governance of autonomy."
+     },
+     {
+      "k": "approvals",
+      "strength": "low",
+      "note": "The vision asks how consenting and appraisal, which work to fixed decision points, cope with fast-changing AI modelling. No concrete AI approvals tool is described, and decisions stay human."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://environment-analyst.com/uk/111691/news-roundup-government-seeks-views-on-ai-in-the-energy-system",
+      "label": "Environment Analyst: government seeks views on AI in the energy system",
+      "quote": "That raises questions for consenting and appraisal, which work to fixed decision points."
+     },
+     {
+      "url": "https://sustainabilitymag.com/news/lcaw-how-ai-is-reshaping-energy-systems",
+      "label": "Sustainability Magazine: How AI is Reshaping Energy Systems (Lucy Yu)",
+      "quote": "This can enable us to run power system simulations at many orders of magnitude higher than we can currently."
+     },
+     {
+      "url": "https://www.gov.uk/government/publications/ai-deployment-in-electricity-networks-independent-review",
+      "label": "GOV.UK: AI deployment in electricity networks independent review",
+      "quote": "accelerating the deployment of proven AI solutions"
+     }
+    ],
+    "checked": "2026-10-31"
    }
   },
   {
@@ -9239,7 +9482,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "uk",
@@ -9260,7 +9503,15 @@
     "estimatedYear": 2030,
     "estimatedOn": "2026-10-27",
     "revisions": []
-   }
+   },
+   "refs": [
+    {
+     "label": "Ofgem Future Insights: Flexibility Platforms in electricity markets (2019)",
+     "url": "https://www.ofgem.gov.uk/sites/default/files/docs/2019/09/ofgem_fi_flexibility_platforms_in_electricity_markets.pdf",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ]
   },
   {
    "id": "ai-plasma-control-for-fusion",
@@ -9283,7 +9534,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "uk",
@@ -9334,7 +9585,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": true
    },
    "region": "us",
@@ -10310,7 +10561,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "uk",
@@ -10334,13 +10585,13 @@
      "label": "Wikipedia – NPL network (Davies 1965 proposal)",
      "url": "https://en.wikipedia.org/wiki/NPL_network",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     },
     {
      "label": "Wikipedia – Telenet (1975)",
      "url": "https://en.wikipedia.org/wiki/Telenet",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "flags": {
@@ -10831,7 +11082,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "adoption": {
@@ -10849,13 +11100,13 @@
      "label": "Wikipedia: Sanger sequencing",
      "url": "https://en.wikipedia.org/wiki/Sanger_sequencing",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     },
     {
      "label": "History of genome sequencing",
      "url": "https://the-odin.com/blogs/blog/from-3-billion-to-599-the-complete-history-of-genome-sequencing",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "readiness": {
@@ -10888,7 +11139,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "asia",
@@ -10898,7 +11149,7 @@
      "label": "Lasker Foundation: Getting to the Heart of Cardiovascular Disease",
      "url": "https://laskerfoundation.org/getting-to-the-heart-of-cardiovascular-disease/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "tags": [
@@ -10935,7 +11186,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "uk",
@@ -10948,7 +11199,7 @@
      "label": "Cambridge Enterprise: Solexa case study",
      "url": "https://www.enterprise.cam.ac.uk/case-studies/solexa-second-generation-genetic-sequencing/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "company": "Solexa (acquired by Illumina)",
@@ -10984,7 +11235,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -10994,13 +11245,13 @@
      "label": "Wikipedia: SAP",
      "url": "https://en.wikipedia.org/wiki/SAP",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     },
     {
      "label": "SAP's History",
      "url": "https://www.sap-ps.net/sap-history",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "readiness": {
@@ -11036,7 +11287,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -11046,7 +11297,7 @@
      "label": "Computer Timeline: Dan Bricklin",
      "url": "http://www.computer-timeline.com/timeline/dan-bricklin/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "readiness": {
@@ -11082,7 +11333,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -11092,12 +11343,13 @@
      "label": "Computer History Museum: Charles M. Geschke",
      "url": "https://computerhistory.org/profile/charles-m-geschke/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-31"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -11127,7 +11379,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -11137,18 +11389,24 @@
      "label": "SoftwareKeep: Windows OS history",
      "url": "https://softwarekeep.com/blogs/news/history-of-windows-operating-system",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-10-31"
    },
    "security": {
     "expandsAttackSurface": true,
     "note": "Software and online services are a primary route for remote attack and data theft.",
     "basis": "ai-compiled",
     "guidance": "it"
+   },
+   "adoption": {
+    "year": 1990,
+    "what": "Windows 3.0 makes the graphical Windows environment the mainstream PC platform.",
+    "basis": "ai-estimate"
    }
   },
   {
@@ -11172,7 +11430,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -11185,7 +11443,7 @@
      "label": "Reference for Business: History of salesforce.com",
      "url": "https://www.referenceforbusiness.com/history2/84/salesforce-com-Inc.html",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "readiness": {
@@ -11223,7 +11481,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "adoption": {
@@ -11238,7 +11496,7 @@
      "label": "First Versions: Facebook",
      "url": "https://www.firstversions.com/2015/04/facebook.html",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "tags": [
@@ -11317,7 +11575,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -11327,7 +11585,7 @@
      "label": "History.com: Twitter launches",
      "url": "https://www.history.com/this-day-in-history/july-15/twitter-launches",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "tags": [
@@ -11366,8 +11624,9 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
-    "approximate": false
+    "lastChecked": "2026-10-31",
+    "approximate": false,
+    "qaNote": "All cited links are broken; downgraded until a new source is found."
    },
    "region": "europe",
    "subfield": "apps",
@@ -11375,8 +11634,14 @@
     {
      "label": "99founder: Spotify profile",
      "url": "https://99founder.com/articles/spotify.html",
+     "status": "broken",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "Wikipedia: History of Spotify",
+     "url": "https://en.wikipedia.org/wiki/History_of_Spotify",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "readiness": {
@@ -11456,7 +11721,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -11466,7 +11731,7 @@
      "label": "Wikipedia: Stewart Butterfield",
      "url": "https://en.wikipedia.org/wiki/Stewart_Butterfield",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "readiness": {
@@ -11975,7 +12240,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -11999,7 +12264,7 @@
      "label": "https://www.cerebras.ai/company",
      "url": "https://www.cerebras.ai/company",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ]
   },
@@ -12027,7 +12292,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "adoption": {
@@ -12055,13 +12320,13 @@
      "label": "OpenAI API launch",
      "url": "https://techcrunch.com/2020/06/11/openai-makes-an-all-purpose-api-for-its-text-based-ai-capabilities/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     },
     {
      "label": "GPT-3 / GPT-1 history",
      "url": "https://en.wikipedia.org/wiki/GPT-3",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ]
   },
@@ -12955,7 +13220,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "uk",
@@ -12965,7 +13230,7 @@
      "label": "The Quantum Insider, 7 July 2021",
      "url": "https://thequantuminsider.com/2021/07/07/oqc-delivers-the-uks-first-quantum-computing-as-a-service/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "readiness": {
@@ -18652,10 +18917,10 @@
     "major": true
    },
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "adoption": {
@@ -18677,7 +18942,21 @@
     "note": "Wide-area connectivity extends networks to every device and site.",
     "basis": "ai-compiled",
     "guidance": "it"
-   }
+   },
+   "refs": [
+    {
+     "label": "Vodafone: 25 years since the world's first text message",
+     "url": "https://www.vodafone.com/news/newsroom/technology/25-anniversary-text-message",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "Wikipedia: SMS (1984 concept by Hillebrand and Ghillebaert)",
+     "url": "https://en.wikipedia.org/wiki/SMS",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ]
   },
   {
    "id": "fibre-to-the-home",
@@ -18696,11 +18975,12 @@
    "confidence": "medium",
    "note": "British research behind today’s full-fibre broadband.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
-    "approximate": false
+    "lastChecked": "2026-10-31",
+    "approximate": false,
+    "qaNote": "The change entry is vague and the 2005 date does not fit the record's UK region. Ofcom-reported UK full-fibre coverage was only about 3% in 2017 and 10% in 2019, so large-scale UK FTTH did not launch in 2005. The date could only fit Japan, Korea or the US. Either re-scope the entry as global or move the UK change year to roughly 2009–2013, when Openreach FTTP trials and rollout began. I could not "
    },
    "region": "uk",
    "tags": [
@@ -18717,6 +18997,17 @@
     "note": "Carries critical traffic; physical and routing integrity matter.",
     "basis": "ai-compiled",
     "guidance": "comms"
+   },
+   "refs": [
+    {
+     "label": "ISPreview: Connected Nations 2019 (UK full fibre 10%)",
+     "url": "https://www.ispreview.co.uk/index.php/2019/12/connected-nations-2019-3-million-uk-premises-can-get-full-fibre.html",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "flags": {
+    "disputed": true
    }
   },
   {
@@ -18737,10 +19028,10 @@
    "note": "Commercially troubled at first; now vital for remote and emergency work.",
    "company": "Iridium",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -18757,7 +19048,15 @@
     "note": "Ground stations and links can be jammed, spoofed or hacked.",
     "basis": "ai-compiled",
     "guidance": "comms"
-   }
+   },
+   "refs": [
+    {
+     "label": "Wireless Design: Motorola readies Iridium for commercial launch (30 Oct 1998)",
+     "url": "https://www.wirelessdesignonline.com/doc/motorola-readies-iridium-system-for-commercia-0001",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ]
   },
   {
    "id": "software-defined-networking",
@@ -18776,10 +19075,10 @@
    "confidence": "high",
    "note": "Networks became programmable, and so did their attack surface.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -18797,6 +19096,20 @@
    },
    "tags": [
     "networks"
+   ],
+   "refs": [
+    {
+     "label": "Stanford (McKeown): papers on OpenFlow and SDN",
+     "url": "https://yuba.stanford.edu/~nickm/papers.html",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "Princeton: OpenFlow, Enabling Innovation in Campus Networks (2008)",
+     "url": "https://collaborate.princeton.edu/en/publications/openflow-enabling-innovation-in-campus-networks/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
    ]
   },
   {
@@ -21396,6 +21709,35 @@
     "estimatedYear": 2027,
     "estimatedOn": "2026-10-27",
     "revisions": []
+   },
+   "aiLevers": {
+    "phase": "demo",
+    "bottleneck": "Pilot covered only 400km in two areas; a business case and scale-up beyond UKPN are needed to move to roll-out across GB networks.",
+    "levers": [
+     {
+      "k": "software",
+      "strength": "high",
+      "note": "AI on satellite imagery measures conductor-to-vegetation clearances, scores criticality and produces prioritised trim plans, delivered through a SaaS platform already demoed to operational teams."
+     },
+     {
+      "k": "deploy",
+      "strength": "mid",
+      "note": "In operations, AI growth models time trims for fast and slow growers, on-demand imagery spot-checks after storms, and automated post-trim audits would support roll-out."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://innovation.ukpowernetworks.co.uk/projects/satelline",
+      "label": "UKPN Innovation – Satelline",
+      "quote": "Satelline leverages satellite imagery and AI to measure clearances between conductors and vegetation."
+     },
+     {
+      "url": "https://smarter.energynetworks.org/projects/nia_ukpn0091/",
+      "label": "ENA Smarter Networks Portal – Satelline (NIA UKPN0091)",
+      "quote": "working satellite and AI-based SaaS platform for the pilot area, which was successfully demoed to operational teams"
+     }
+    ],
+    "checked": "2026-10-31"
    }
   },
   {
@@ -23475,6 +23817,19 @@
     "expandsAttackSurface": false,
     "note": "No meaningful new digital attack surface; this is a pharmaceutical.",
     "basis": "ai-compiled"
+   },
+   "story": {
+    "research": "Ionis developed an antisense oligonucleotide against hepatitis B, licensed to GSK, whose Phase 2b B-Clear trial reported positive end-of-study results in November 2022.",
+    "deploy": "in the US, where the FDA approved GSK's Hibsago on 20 October 2026 for adults with chronic hepatitis B without cirrhosis, alongside nucleos(t)ide analogue therapy.",
+    "impact": "Approval rested on Phase 3 B-Well trials: 19–20% functional cure at week 72 versus 0% with placebo, and 91% of responders still off-treatment cured at week 96.",
+    "refs": [
+     {
+      "url": "https://www.clinicaladvisor.com/news/fda-approves-hibsago-bepirovirsen-chronic-hepatitis-b/",
+      "label": "Clinical Advisor: Hibsago FDA approval",
+      "quote": "19% to 20% functional cure rate at week 72 vs 0% with placebo"
+     }
+    ],
+    "checked": "2026-10-31"
    }
   },
   {
@@ -23929,6 +24284,24 @@
     "expandsAttackSurface": false,
     "note": "Patient-specific cell therapy that depends on a chain-of-identity and cold-chain logistics. Mainly IT and supply-chain integrity risk, not a new technical attack surface.",
     "basis": "ai-compiled"
+   },
+   "story": {
+    "research": "Robert Negrin's Stanford lab studied regulatory T cells to prevent graft-versus-host disease after donor transplants, publishing first discoveries more than 20 years ago.",
+    "deploy": "The FDA approved Orca Bio's Tregzi on June 30, 2026; Stanford Medicine, with physician Lori Muffly treating, then gave the world's first commercial Orca-T infusion.",
+    "impact": "In the phase 3 trial, 78% of Tregzi patients were alive and free of moderate-to-severe chronic GVHD at one year, versus 38.4% with standard transplant.",
+    "refs": [
+     {
+      "url": "https://med.stanford.edu/cancer/about/news/stanford-developed-therapy-treats-first-patient-after-fda-approv1.html",
+      "label": "Stanford Cancer Institute: first patient after FDA approval",
+      "quote": "publishing his first discoveries more than 20 years ago"
+     },
+     {
+      "url": "https://www.hcplive.com/view/fda-approves-orca-t-phase-3-trial-improves-chronic-gvhd-free-survival",
+      "label": "HCPLive: FDA approves Orca-T",
+      "quote": "On June 30, 2026, the US Food and Drug Administration (FDA) approved"
+     }
+    ],
+    "checked": "2026-10-31"
    }
   },
   {
@@ -24149,6 +24522,29 @@
     "added": "2026-10-28",
     "lastChecked": "2026-10-29",
     "approximate": false
+   },
+   "story": {
+    "research": "a Google research design study (preprint, November 2025) of solar-powered TPU satellite fleets linked by free-space optics, illustrated by an 81-satellite cluster.",
+    "deploy": "on 1 October 2026, when Google and Planet launched a four-TPU prototype satellite on SpaceX's Transporter-18 rideshare mission; Google confirmed contact that day.",
+    "impact": "Google reports it has commanded the orbiting four-TPU prototype to boot, run a prompt and return a complete response (a haiku), an early in-orbit proof of working AI hardware.",
+    "refs": [
+     {
+      "url": "https://arxiv.org/pdf/2511.19468",
+      "label": "arXiv preprint: Towards a future space-based, highly scalable AI infrastructure system design (Google)",
+      "quote": "using fleets of satellites equipped with solar arrays, inter-satellite links using free-space optics"
+     },
+     {
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-research/project-suncatcher-prototype/",
+      "label": "Google blog: Project Suncatcher prototype satellite is in orbit (1 Oct 2026)",
+      "quote": "Our team has confirmed contact with the satellite and it is operating as expected."
+     },
+     {
+      "url": "https://officechai.com/ai/google-successfully-runs-inference-from-a-tpu-in-space-under-project-suncatcher/",
+      "label": "OfficeChai: Google runs inference from a TPU in space",
+      "quote": "booted up the TPU, ran the prompt, and received our first complete response back on earth"
+     }
+    ],
+    "checked": "2026-10-31"
    }
   },
   {
@@ -24271,6 +24667,19 @@
     "added": "2026-10-29",
     "lastChecked": "2026-10-29",
     "approximate": false
+   },
+   "story": {
+    "research": "M. W. Davis at Detroit Edison published 1977–1980 papers on rating overhead lines in real time, building on earlier conductor-heating studies by other researchers.",
+    "deploy": "In September 2026 SSEN Transmission announced DLR live north of Beauly, its first DLR-enabled circuit in northern Scotland, covering 300km+ between Beauly and Dounreay.",
+    "impact": "National Grid's April 2026 five-year contract extends DLR to 39 circuits and over 900km, with up to £50 million projected consumer savings in constraint costs over five years.",
+    "refs": [
+     {
+      "url": "https://www.energy-pedia.com/news/united-kingdom/new-technology-helps-unlock-more-capacity-on-north-of-scotland-electricity-network-205441",
+      "label": "energy-pedia: SSEN Transmission DLR north of Beauly",
+      "quote": "the first DLR-enabled circuit in the business’s north of Scotland transmission area"
+     }
+    ],
+    "checked": "2026-10-31"
    }
   },
   {

@@ -1,5 +1,5 @@
 {
- "version": 21,
+ "version": 22,
  "updated": "2026-10-31",
  "updatedBy": "tour-agent",
  "note": "Narration templates for the guided tours. Figures come from {placeholders} filled from the live data; conclusions are chosen by rules in the app ({\"by\": fact, \"cases\": {...}}). The weekly tour agent may refine wording and choose examples, within the rules checked by tools/validate.py.",
@@ -8,8 +8,8 @@
    "title": "Is AI shrinking the gap from research to change?",
    "exampleIds": [
     "penicillin",
-    "radar",
-    "integrated-circuit",
+    "computer-mouse",
+    "television",
     "mrna-vaccines"
    ],
    "steps": {
@@ -126,10 +126,10 @@
      ]
     },
     "heatchart": {
-     "say": "The heatmap shows where it changed, field by field and decade by decade. Since 2010, {fastField} has been quickest, and {slowField} slowest."
+     "say": "The heatmap shows how the typical gap varies by field and by decade. Since 2010, {fastField} has been quickest and {slowField} slowest."
     },
     "aichart": {
-     "say": "Here every milestone is a dot. The teal ones are AI-driven: for research since 2010, they typically took about {aiMed} years to reach a first product, against {restMed} for the rest."
+     "say": "Each dot is one milestone, and the teal dots are AI-driven. For research since 2010, those typically took about {aiMed} years to reach a first product, against {restMed} for the rest."
     }
    }
   },
@@ -254,7 +254,7 @@
      "say": "Research does not just change products; it can also make fortunes. This chart, Time to a fortune, follows founders from starting a company to the stock market listing, sale or valuation that made them rich."
     },
     "research": {
-     "say": "Of {nFortunes} fortunes here, {nResearch} began in a university or research lab. Gold rings mark the founders whose companies grew out of that research."
+     "say": "Of {nFortunes} fortunes here, {nResearch} began in a university or research lab. So research is not only a route to new products: for some founders, it is where the money began."
     },
     "speed": {
      "say": {
@@ -343,7 +343,7 @@
      "say": "Help and the 'i' information buttons explain each feature. This model is maintained by AI, so it may contain errors. Check anything important against the original sources."
     },
     "whatifchart": {
-     "say": "The What if? chart estimates how far practical AI levers, such as faster discovery, simulation and approvals, could bring projected technologies forward. An agent researches these levers every week."
+     "say": "The What if? chart estimates how much sooner projected technologies could arrive if practical AI levers, such as faster discovery, simulation and approvals, were applied. An agent researches these levers every week."
     }
    }
   },
@@ -387,9 +387,9 @@
       {
        "by": "aiCase",
        "cases": {
-        "faster": "For research since 2010, AI-driven work reached a product in about {aiMed} years, against {restMed} for everything else. It is a small group so far: {aiCount} milestones.",
-        "similar": "For research since 2010, AI-driven work has taken about as long as the rest: {aiMed} years against {restMed}.",
-        "slower": "For research since 2010, AI-driven work has taken longer: {aiMed} years against {restMed}.",
+        "faster": "Among research-led milestones since 2010, AI-driven work took about {aiMed} years to reach a product, against {restMed} for everything else. The AI-driven group is still small: {aiCount} milestones.",
+        "similar": "Among research-led milestones since 2010, AI-driven work has taken about as long to reach a product as the rest: {aiMed} years against {restMed}.",
+        "slower": "Among research-led milestones since 2010, AI-driven work has taken longer to reach a product: {aiMed} years against {restMed}.",
         "unclear": "There are not yet enough AI-driven milestones to compare."
        }
       },
@@ -467,7 +467,7 @@
      ]
     },
     "whatif": {
-     "say": "In this scenario, practical AI levers bring projected technologies forward by about {wiAvg} years on average, with {wi2030AI} arriving by 2030 rather than {wi2030Now}. The biggest lever is {wiTopLever}. It is an illustration, not a forecast."
+     "say": "In this scenario, practical AI levers bring projected technologies forward by about {wiAvg} years on average. By 2030, {wi2030AI} would arrive, against {wi2030Now} on current trends. The biggest lever is {wiTopLever}. It is an illustration, not a forecast."
     }
    }
   },
@@ -513,7 +513,7 @@
    "title": "How the charts work",
    "steps": {
     "open": {
-     "say": "This is the Gap explorer. Use the tabs at the top to move between charts. Every chart follows your filters, and selecting a milestone opens its story and moves the model to that point."
+     "say": "This is the Gap explorer. Use the tabs at the top to switch between charts. Your filters apply to every chart. Selecting a milestone opens its story and also moves the What if? model to that point."
     },
     "gapsort": {
      "say": "In the Gap explorer you can sort and colour the bars. Drag across the chart to zoom into years; double-click to reset."
@@ -543,13 +543,13 @@
      "say": "What if? applies practical AI levers. Switch the scenario or the levers, and select a row to see the reasoning and any research behind it."
     },
     "insight": {
-     "say": "Finally, the Insight button gives this week's analysis for each chart, with subtitles and speech; select a number to see what is behind it. Any chart saves as an image or CSV."
+     "say": "Finally, the Insight button gives this week's analysis of each chart, with subtitles and speech. Select any number to see what lies behind it. You can also save any chart as an image or CSV."
     }
    }
   },
   "cleanweek": {
    "title": "AI for clean energy analysis",
-   "updated": "2026-10-31T01:32Z",
+   "updated": "2026-10-31T02:15Z",
    "steps": {
     "intro": {
      "say": [
@@ -564,12 +564,12 @@
      ]
     },
     "c1": {
-     "view": "pipe",
-     "say": "Where does the pipeline stand? Of {pipeTotal} clean energy technologies, {pipeResearch} are in research and {pipePilot} piloting, against {pipeCommercial} in first commercial use and {pipeScale} at scale. {pipeGB} are deployed in Great Britain."
+     "view": "findings",
+     "say": "Does AI speed things up? Since 2010, the {aiCount} AI-driven milestones took a median of {aiMed} years to land, against {restMed} for the rest. The group is small and the evidence is mixed, so treat this as a hint, not proof."
     },
     "c2": {
-     "view": "findings",
-     "say": "Does AI speed things up? Since 2010, the {aiCount} AI-driven milestones took a median of {aiMed} years to land, against {restMed} for the rest. The group is small, so treat the comparison with caution."
+     "view": "main",
+     "say": "Journeys vary hugely. {longestTitle} took {longestYears} years, while {quickRecentTitle} arrived in {quickRecentYears}. No researched stories are ready to retell this week, so pick any arc to follow a technology from lab to first use."
     },
     "c3": {
      "view": "radar",
@@ -577,15 +577,15 @@
     },
     "c4": {
      "view": "sec",
-     "say": "Security has typically trailed deployment by about {secMedian} years. The longest wait was {secLongestTitle}, at {secLongestYears} years. Several guidance updates were logged this week, but that gap is still where the risk sits."
+     "say": "Security has typically trailed deployment by about {secMedian} years. The longest wait was {secLongestTitle}, at {secLongestYears} years. Guidance updates were logged this week, but that gap is still where the risk sits."
     },
     "c5": {
-     "view": "whatif",
-     "say": "What if AI levers were pulled harder? In this scenario, {wiTopLever} matters most, moving the outcome from {wi2030Now} to {wi2030AI}. It is a model, not a forecast, and levers are researched for only a few technologies."
+     "view": "drift",
+     "say": "Can we trust forecasts? We track {driftCount} of them. Expectations were revised {driftRevised} times and {driftSlipped} slipped. That is a reminder that arrival dates for clean energy technologies are best read as estimates."
     },
     "c6": {
-     "view": "main",
-     "say": "No researched stories are ready to retell yet, so select any arc in the model to follow a technology from the lab to first use."
+     "view": "whatif",
+     "say": "What if AI levers were pulled harder? In this scenario, {wiTopLever} matters most, moving the outcome from {wi2030Now} to {wi2030AI}. It is a model, not a forecast, and levers are researched for only some technologies."
     }
    }
   }
