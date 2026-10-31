@@ -1,5 +1,5 @@
 {
- "version": 23,
+ "version": 24,
  "updated": "2026-10-31",
  "updatedBy": "tour-agent",
  "note": "Narration templates for the guided tours. Figures come from {placeholders} filled from the live data; conclusions are chosen by rules in the app ({\"by\": fact, \"cases\": {...}}). The weekly tour agent may refine wording and choose examples, within the rules checked by tools/validate.py.",
@@ -7,10 +7,10 @@
   "gap": {
    "title": "Is AI shrinking the gap from research to change?",
    "exampleIds": [
-    "penicillin",
-    "radar",
+    "mrna-vaccines",
+    "computer-mouse",
     "integrated-circuit",
-    "mrna-vaccines"
+    "large-language-model-api"
    ],
    "steps": {
     "intro": {
@@ -161,7 +161,7 @@
      }
     },
     "changes": {
-     "say": "The Forecast drift chart shows when each clean energy technology is expected to arrive, and how those dates have moved as the agents re-estimate them."
+     "say": "The Forecast drift chart tracks when each clean energy technology is expected to arrive. Each time the agents re-estimate, any shift in those dates shows up here, so you can see which forecasts are holding steady."
     },
     "slide": {
      "say": "For a briefing, the PowerPoint report window creates a single-slide summary covering every area of the vision, ready to drop into a deck."
@@ -188,7 +188,7 @@
    "title": "Securing the future energy system",
    "steps": {
     "intro": {
-     "say": "New technology can give attackers new ways in. The filter on screen picks out the {attackPct} per cent of technologies here that widen this 'attack surface', from smart devices at the edge of the grid to AI agents."
+     "say": "New technology can give attackers new ways in, known as the attack surface. The filter keeps the {attackPct} per cent of technologies here that widen it, from smart devices at the edge of the grid to AI agents."
     },
     "lens": {
      "say": [
@@ -243,7 +243,7 @@
      ]
     },
     "secchart": {
-     "say": "This chart shows how many years each technology waited before a security response was recorded. Of those that have one, the longest wait was for {secLongestTitle}, at {secLongestYears} years."
+     "say": "This chart shows how many years each technology waited for a security response to be recorded. Among those that have one, the longest wait was for {secLongestTitle}, at {secLongestYears} years."
     }
    }
   },
@@ -302,7 +302,7 @@
      ]
     },
     "fortchart": {
-     "say": "Play the race through time. Each bubble is a fortune, sized by net worth. Gold rings mark the {fortResearch} of {fortCount} founders whose companies grew out of research."
+     "say": "Play the race through time. Each bubble is a fortune, sized by net worth. Gold rings mark founders whose companies grew out of research: {fortResearch} of {fortCount}."
     }
    }
   },
@@ -387,7 +387,7 @@
       {
        "by": "aiCase",
        "cases": {
-        "faster": "Among research-led milestones since 2010, AI-driven work typically took about {aiMed} years to reach a product, against {restMed} years for everything else. The AI-driven group is still small, with only {aiCount} milestones.",
+        "faster": "Among research-led milestones since 2010, AI-driven work has typically reached a product faster: about {aiMed} years, against {restMed} years for everything else. The AI-driven group is still small, with only {aiCount} milestones.",
         "similar": "Among research-led milestones since 2010, AI-driven work has typically taken about as long to reach a product as the rest: {aiMed} years against {restMed}.",
         "slower": "Among research-led milestones since 2010, AI-driven work has typically taken longer to reach a product: {aiMed} years against {restMed}.",
         "unclear": "There are not yet enough AI-driven milestones to compare."
@@ -467,7 +467,7 @@
      ]
     },
     "whatif": {
-     "say": "In this scenario, practical AI levers bring projected technologies forward by about {wiAvg} years on average. By 2030, {wi2030AI} would arrive, against {wi2030Now} on current trends. The biggest lever is {wiTopLever}. It is an illustration, not a forecast."
+     "say": "In this scenario, levers from AI for clean energy bring projected technologies forward by about {wiAvg} years on average. By 2030, {wi2030AI} would arrive, against {wi2030Now} on current trends. The biggest lever is {wiTopLever}. It is an illustration, not a forecast."
     }
    }
   },
@@ -540,7 +540,7 @@
      "say": "Press play to watch the race to a fortune unfold over time, or select a bubble to read that company's story."
     },
     "whatif": {
-     "say": "What if? shows how timelines could shift when practical AI levers are applied. Switch the scenario or adjust the levers, then select a row to see the reasoning and any research behind it."
+     "say": "What if? shows how arrival dates could shift when practical AI levers are applied. The ambitious scenario is on screen. Switch scenario or adjust the levers, then select a row to see the reasoning and any research behind it."
     },
     "insight": {
      "say": "Finally, the Insight button gives this week's analysis of each chart, with subtitles and speech. Select any number to see what lies behind it. You can also save any chart as an image or CSV."
@@ -549,7 +549,7 @@
   },
   "cleanweek": {
    "title": "AI for clean energy analysis",
-   "updated": "2026-10-31T02:43Z",
+   "updated": "2026-10-31T14:30Z",
    "steps": {
     "intro": {
      "say": [
@@ -577,7 +577,7 @@
     },
     "c4": {
      "view": "sec",
-     "say": "Security has typically trailed deployment by about {secMedian} years. The longest wait was {secLongestTitle}, at {secLongestYears} years. Guidance updates were logged this week, but that gap is still where the risk sits."
+     "say": "Security has typically trailed deployment by about {secMedian} years. The longest wait was {secLongestTitle}, at {secLongestYears} years. Guidance updates were logged again this week, but that gap is still where the risk sits."
     },
     "c5": {
      "view": "drift",

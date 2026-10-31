@@ -1,53 +1,114 @@
 [
  {
-  "id": "xatryx-bio-based-ptmeg-first-commercial-batches",
-  "field": "materials",
+  "id": "satri-cel-first-car-t-approved-for-a-solid-tumour",
+  "field": "life",
   "origin": "industry",
   "status": "landed",
-  "title": "Xatryx bio-based PTMEG: first commercial batches",
+  "title": "Satri-cel: first CAR-T approved for a solid tumour",
   "research": {
-   "year": 2026,
-   "what": "CovationBio developed a new process to make bio-based THF and PTMEG, a drop-in replacement for fossil PTMEG used in spandex, polyurethanes and elastomers. Origin: CovationBio's in-house C4 platform process technology (described as new-to-the-world). The start year is not stated in the sources, so 2026 is a placeholder, not a verified date."
+   "year": 2018,
+   "what": "CARsgen identified Claudin18.2 as a CAR-T target in solid tumours and took the CT041 product into early clinical trials. Origin: CARsgen's CT041 Claudin18.2-targeted CAR-T programme and early clinical trials from about 2018, followed by the CT041-ST-01 randomised phase 2 trial published in The Lancet"
   },
   "change": {
    "year": 2026,
-   "what": "The 50,000 t/yr Qidong plant in China made its first commercial on-spec batches of Xatryx bioTHF and bioPTMEG in August 2026, and the first partly bio-based athletic insole using it was shown in September."
+   "what": "China's NMPA approved satri-cel on 22 June 2026 for Claudin18.2-positive advanced gastric or gastro-oesophageal junction cancer, the first CAR-T approval for a solid tumour anywhere."
   },
-  "confidence": "low",
-  "note": "This is the first commercial-scale production of non-food bio-based PTMEG, a key spandex and polyurethane building block. The research start year is unverified.",
+  "confidence": "medium",
+  "note": "It extends CAR-T cell therapy beyond blood cancers to a solid tumour, which had been the main barrier for the field.",
   "refs": [
    {
-    "label": "PR Newswire: CovationBio Xatryx mass production on spec (2 Sep 2026)",
-    "url": "http://www.prnewswire.com/news-releases/covationbios-xatryx-mass-production-on-spec-to-debut-first-nonfood-biobased-athletic-insole-at-nw-materials-show-in-the-us-302867455.html",
+    "label": "Fierce Pharma",
+    "url": "https://www.fiercepharma.com/pharma/carsgens-gastric-cancer-car-t-nabs-world-first-approval-china-checking-landmark-solid-tumor",
     "status": "ok",
     "checked": "2026-10-31"
    },
    {
-    "label": "Biofuels Digest: CovationBio achieves on-spec biobased THF and PTMEG at Qidong",
-    "url": "https://biofuelsdigest.com/covationbio-achieves-on-spec-biobased-thf-and-ptmeg-production-at-qidong-gets-its-foot-into-door-of-the-footwear-market/",
+    "label": "Inside Precision Medicine",
+    "url": "https://www.insideprecisionmedicine.com/topics/oncology/solid-tumor-car-t-therapy-approved-in-china-a-world-first/",
     "status": "ok",
     "checked": "2026-10-31"
    },
    {
-    "label": "ChemAnalyst: CovationBio begins mass production of bio-based PTMEG",
-    "url": "https://www.chemanalyst.com/NewsAndDeals/NewsDetails/covationbio-begins-mass-production-of-bio-based-ptmeg-44264",
+    "label": "European Pharmaceutical Review",
+    "url": "https://www.europeanpharmaceuticalreview.com/carsgen-wins-first-global-approval-of-car-t-therapy-for-solid-tumours/2135788.article",
     "status": "ok",
     "checked": "2026-10-31"
    }
   ],
-  "subfield": "polymers",
+  "subfield": "medicines",
   "region": "asia",
   "readiness": {
    "stage": "commercial",
    "basis": "ai-estimate"
   },
+  "security": {
+   "expandsAttackSurface": false,
+   "note": "No notable cyber implications beyond routine clinical and manufacturing data security.",
+   "basis": "ai-compiled"
+  },
   "evidence_terms": [
-   "CovationBio",
-   "Xatryx",
-   "bioPTMEG",
-   "Qidong"
+   "satri-cel",
+   "CARsgen",
+   "Claudin18.2",
+   "NMPA"
   ],
   "proposed": "2026-10-31",
-  "attempts": 2
+  "attempts": 1
+ },
+ {
+  "id": "v-2-a-4-first-object-to-reach-space",
+  "field": "space",
+  "origin": "government",
+  "status": "landed",
+  "title": "V-2 (A-4): first object to reach space",
+  "research": {
+   "year": 1936,
+   "what": "German army engineers at Peenemünde began developing the large liquid-propellant A-4 rocket, building on the earlier Aggregat test vehicles. Origin: Peenemünde Army Research Center A-series (A1–A4) programme under Wernher von Braun, development from 1936"
+  },
+  "change": {
+   "year": 1944,
+   "what": "Test launch MW 18014 on 20 June 1944 took an A-4/V-2 to about 176 km, above the later 100 km Kármán line, making it the first human-made object to reach space; the V-2 then entered service as the first long-range ballistic missile."
+  },
+  "confidence": "high",
+  "note": "The V-2 was the technical and personnel basis for the US and Soviet rocket programmes that led to satellites and crewed flight.",
+  "refs": [
+   {
+    "label": "MW 18014 (Wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/MW_18014",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Astronomy: Remembering MW 18014, 80 years later",
+    "url": "https://www.astronomy.com/space-exploration/devils-bargain-remembering-mw-18014-80-years-later/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Space.com: V2 rocket origin, history and legacy",
+    "url": "https://www.space.com/v2-rocket",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "launch",
+  "region": "europe",
+  "readiness": {
+   "stage": "scale",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": false,
+   "note": "It started the ballistic-missile era and the military dependence on space-launch and guidance technology.",
+   "basis": "ai-compiled"
+  },
+  "evidence_terms": [
+   "V-2",
+   "MW 18014",
+   "Peenemünde",
+   "A-4"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1
  }
 ]

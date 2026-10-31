@@ -1,0 +1,255 @@
+[
+ {
+  "date": "2026-10-31",
+  "agent": "claude",
+  "mode": "recent",
+  "title": "UK 6 GHz standard-power Wi-Fi under AFC",
+  "field": null,
+  "status": "outlook",
+  "research_year": 2020,
+  "change_year": 2026,
+  "research_origin": "US FCC 6 GHz rules (2020) introducing AFC-controlled standard-power Wi-Fi, building on earlier geolocation-database spectrum sharing",
+  "research_what": "Automated frequency coordination, a database-driven control that lets higher-power Wi-Fi share 6 GHz with incumbent users, was first enabled by US regulators and then adopted in Canada.",
+  "change_what": "UK regulations (SI 2026/1132) licence-exempt standard-power Wi-Fi across 5925–7125 MHz for AFC-controlled devices, coming into force on 10 November 2026; Ofcom AFC provider registration opened from 1 September 2026.",
+  "sources": [
+   "https://www.ofcom.org.uk/spectrum/innovative-use-of-spectrum/enabling-automated-frequency-coordination-afc-in-the-6-ghz-band",
+   "https://www.gmalabs.com/post/uk-6-ghz-standard-power-wi-fi-afc-rules-from-10-nov",
+   "https://wifinowglobal.com/news-blog/big-win-for-wi-fi-in-the-uk-ofcom-approves-regulation-enabling-full-band-6-ghz-indoor-outdoor-wi-fi-operation/"
+  ],
+  "reason": "outlook year outside the window",
+  "category": "years"
+ },
+ {
+  "date": "2026-10-31",
+  "agent": "claude",
+  "mode": "catch-up",
+  "title": "Otarmeni: first dual-AAV gene therapy for deafness",
+  "field": null,
+  "status": "landed",
+  "research_year": 2019,
+  "change_year": 2026,
+  "research_origin": "Dual-AAV OTOF gene therapy in Otof-knockout mice (Akil et al., PNAS 2019; Al-Moyed et al., EMBO Mol Med 2019), later developed as DB-OTO by Akouos and Regeneron",
+  "research_what": "Mouse studies showed that splitting the large OTOF gene across two AAV vectors could restore hearing in a model of OTOF deafness.",
+  "change_what": "The FDA granted accelerated approval to Regeneron's Otarmeni on 23 April 2026, the first gene therapy for genetic hearing loss, given as a one-time dose into the cochlea.",
+  "sources": [
+   "https://www.fda.gov/news-events/press-announcements/fda-approves-first-ever-gene-therapy-treatment-genetic-hearing-loss-under-national-priority-voucher",
+   "https://www.aabb.org/news-resources/news/article/2026/04/28/fda-approves-first-gene-therapy-for-genetic-hearing-loss",
+   "https://medicalxpress.com/news/2026-04-gene-therapy-rare-loss.html"
+  ],
+  "reason": "only 1 source(s) confirmed the key facts",
+  "category": "sources"
+ },
+ {
+  "date": "2026-10-31",
+  "agent": "claude",
+  "mode": "catch-up",
+  "title": "ER-100: first human trial of partial cell reprogramming",
+  "field": null,
+  "status": "landed",
+  "research_year": 2016,
+  "change_year": 2026,
+  "research_origin": "Partial reprogramming work derived from Yamanaka factors (2006), with Ocampo et al., Cell 2016, and Lu et al., Nature 2020 on optic nerve regeneration; developed as ER-100 by Life Biosciences",
+  "research_what": "Partial, cyclic expression of Yamanaka reprogramming factors was shown to reverse ageing features in mice, and later to restore vision in mouse optic nerve injury and glaucoma models.",
+  "change_what": "Life Biosciences announced on 9 June 2026 that it had dosed the first participant in its phase 1 trial of ER-100 for optic neuropathies such as glaucoma, the first human use of a partial-reprogramming therapy.",
+  "sources": [
+   "https://www.scientificamerican.com/article/world-first-therapy-to-make-cells-young-again-given-to-a-person/",
+   "https://www.jerrycards.com/news/life-biosciences-er-100-first-human-cellular-reprogramming-trial-reverse-aging-eyes-2026"
+  ],
+  "reason": "only 1 source(s) confirmed the key facts",
+  "category": "sources"
+ },
+ {
+  "date": "2026-10-31",
+  "agent": "claude",
+  "mode": "catch-up",
+  "title": "Sodium-ion batteries in mass-produced vehicles",
+  "field": null,
+  "status": "landed",
+  "research_year": 2016,
+  "change_year": 2026,
+  "research_origin": "CATL sodium-ion R&D programme from 2016; first-generation sodium-ion cell introduced July 2021 (160 Wh/kg)",
+  "research_what": "CATL began research and development of sodium-ion cells as a lithium-free alternative chemistry, and introduced a first-generation cell in 2021.",
+  "change_what": "In February 2026 CATL and Changan unveiled what CATL called the first mass-production passenger car with sodium-ion batteries. CATL also launched a mass-produced sodium battery for light commercial vehicles in early 2026.",
+  "sources": [
+   "https://www.ess-news.com/2026/04/20/a-closer-look-at-catls-new-sodium-ion-battery/",
+   "https://carnewschina.com/2026/04/22/catl-to-mass-produce-sodium-ion-batteries-in-2026-targeting-600-km-range-in-the-future/"
+  ],
+  "reason": "duplicate of \"Sodium-ion batteries\"",
+  "category": "duplicate"
+ },
+ {
+  "date": "2026-10-31",
+  "agent": "claude",
+  "mode": "backfill",
+  "title": "Sulfonamide drugs (Prontosil)",
+  "field": null,
+  "status": "landed",
+  "research_year": 1932,
+  "change_year": 1935,
+  "research_origin": "IG Farben/Bayer dye-based antibacterial programme: Klarer and Mietzsch synthesis (1932) and Domagk's 1935 paper on bacterial chemotherapy",
+  "research_what": "IG Farben/Bayer chemists made the azo dye Prontosil in 1932, and Gerhard Domagk found it protected mice against streptococcal infection.",
+  "change_what": "Prontosil was patented and went on sale in 1935 as the first drug to cure systemic bacterial infections, with clinical use in Germany, France, Britain and the US from 1935 to 1936.",
+  "sources": [
+   "https://www.sciencehistory.org/stories/magazine/soldier-sulfa/",
+   "https://www.britannica.com/biography/Gerhard-Domagk",
+   "https://www.whatisbiotechnology.org/index.php/exhibitions/antimicrobial/index/sulphonamides"
+  ],
+  "reason": "only 1 source(s) confirmed the key facts",
+  "category": "sources"
+ },
+ {
+  "date": "2026-10-31",
+  "agent": "claude",
+  "mode": "backfill",
+  "title": "Yellow fever 17D vaccine",
+  "field": null,
+  "status": "landed",
+  "research_year": 1930,
+  "change_year": 1937,
+  "research_origin": "Rockefeller Foundation International Health Division programme led by Max Theiler and Hugh Smith; three J. Exp. Med. papers in 1937",
+  "research_what": "Max Theiler at the Rockefeller Foundation worked from 1930 to weaken yellow fever virus by repeated passage in tissue culture so it could immunise without causing disease.",
+  "change_what": "The attenuated 17D strain was first produced in 1937, field-tested in Brazil with Rockefeller Foundation funding, then licensed and manufactured at scale.",
+  "sources": [
+   "https://www.nature.com/articles/d42859-020-00012-9",
+   "https://dimes.rockarch.org/agents/Pk4vM2hPAHKrh5BnNd2PRp?inheritRedirct=fealse",
+   "https://www.britannica.com/biography/Max-Theiler"
+  ],
+  "reason": "only 1 source(s) confirmed the key facts",
+  "category": "sources"
+ },
+ {
+  "date": "2026-10-31",
+  "agent": "claude",
+  "mode": "backfill",
+  "title": "Computer passwords (CTSS)",
+  "field": "cyber-security",
+  "status": "landed",
+  "research_year": 1961,
+  "change_year": 1961,
+  "research_origin": "MIT Compatible Time-Sharing System (CTSS), led by Fernando Corbató, first demonstrated in November 1961",
+  "research_what": "MIT researchers building a time-sharing system needed a way to give each user private files, so they added a per-user password check.",
+  "change_what": "CTSS put per-user password login into live use on a shared MIT computer, the first widely credited password system on a computer and the model for later multi-user logins.",
+  "sources": [
+   "https://www.britannica.com/technology/password-computing",
+   "https://en.wikipedia.org/wiki/Compatible_Time-Sharing_System"
+  ],
+  "reason": "only 1 source(s) confirmed the key facts",
+  "category": "sources"
+ },
+ {
+  "date": "2026-10-31",
+  "agent": "claude",
+  "mode": "backfill",
+  "title": "Protection rings (Multics)",
+  "field": "cyber-security",
+  "status": "landed",
+  "research_year": 1967,
+  "change_year": 1969,
+  "research_origin": "R. M. Graham's 1967 protection-ring proposal within the MIT/Bell Labs/GE Multics project, whose design was laid out in 1964-1967",
+  "research_what": "Graham proposed concentric rings of decreasing privilege to isolate programs and data inside a shared computer utility, within the Multics design.",
+  "change_what": "Multics, which used protection rings first in software and later in hardware, was in operation by 1969. Hitachi built a hardware ring system in 1968, and rings later appeared in mainstream processors.",
+  "sources": [
+   "https://link.springer.com/rwe/10.1007/978-1-4419-5906-5_788",
+   "https://www.cs.virginia.edu/~evans/cs551/saltzer/",
+   "https://web.mit.edu/saltzer/www/publications/multics/M0126.pdf"
+  ],
+  "reason": "only 1 source(s) confirmed the key facts",
+  "category": "sources"
+ },
+ {
+  "date": "2026-10-31",
+  "agent": "claude",
+  "mode": "backfill",
+  "title": "Coal-to-liquid fuel: Bergius hydrogenation at Leuna",
+  "field": null,
+  "status": "landed",
+  "research_year": 1913,
+  "change_year": 1927,
+  "research_origin": "Friedrich Bergius's 1913 German patent on high-pressure coal hydrogenation; BASF's Matthias Pier later adapted it to industrial scale.",
+  "research_what": "Friedrich Bergius patented a way to turn coal into liquid fuel by hydrogenating it at high temperature and pressure.",
+  "change_what": "IG Farben's Leuna works began commercial hydrogenation of lignite on 1 April 1927, giving the first industrial-scale synthetic petrol.",
+  "sources": [
+   "https://www.basf.com/global/en/who-we-are/history/chronology/1925-1944/1927",
+   "https://www.soci.org/chemistry-and-industry/cni-data/2009/22/liquid-fuel-revival",
+   "https://www.sciencedirect.com/topics/engineering/direct-coal-liquefaction"
+  ],
+  "reason": "invalid years",
+  "category": "years"
+ },
+ {
+  "date": "2026-10-31",
+  "agent": "claude",
+  "mode": "backfill",
+  "title": "Reflection seismograph for oil exploration",
+  "field": null,
+  "status": "landed",
+  "research_year": 1921,
+  "change_year": 1928,
+  "research_origin": "J. Clarence Karcher's June 1921 reflection field test at Belle Isle, Oklahoma City, building on Reginald Fessenden's 1917 patent.",
+  "research_what": "Karcher's team recorded the first reflection seismograph field test near Oklahoma City in June 1921, building on Fessenden's 1917 patent work.",
+  "change_what": "Amerada's drilling in the Seminole area of Oklahoma in 1928 produced the first oil well located using a reflection seismograph, after seismic refraction had found Texas salt-dome oil in 1924.",
+  "sources": [
+   "https://library.seg.org/doi/10.1190/tle40060404.1",
+   "https://ethw.org/Geophysics_Enters_the_Fray",
+   "https://aoghs.org/technology/exploring-reflection-seismography/"
+  ],
+  "reason": "invalid years",
+  "category": "years"
+ },
+ {
+  "date": "2026-10-31",
+  "agent": "claude",
+  "mode": "backfill",
+  "title": "Project Diana: first radar echo from the Moon",
+  "field": "space",
+  "status": "landed",
+  "research_year": 1940,
+  "change_year": 1946,
+  "research_origin": "US Army Signal Corps Evans Signal Laboratory, wartime radar development (SCR-271), Project Diana planning 1945",
+  "research_what": "US Army Signal Corps radar engineers at Evans Signal Laboratory adapted wartime long-range radar (the modified SCR-271 set) to try to reach the Moon.",
+  "change_what": "On 10 January 1946 the Project Diana team detected radar echoes returning from the Moon after about 2.5 seconds, the first experiment in radar astronomy and the first active probe of another celestial body.",
+  "sources": [
+   "https://www.nationalww2museum.org/war/articles/project-diana-moon-and-soviet-union",
+   "https://www.dvidshub.net/news/461381/project-diana-inspires-future-technologies-10-jan-1946",
+   "https://en.wikipedia.org/wiki/Project_Diana"
+  ],
+  "reason": "duplicate of \"Radar\"",
+  "category": "duplicate"
+ },
+ {
+  "date": "2026-10-31",
+  "agent": "claude",
+  "mode": "backfill",
+  "title": "Electron microscope (matter-wave imaging)",
+  "field": null,
+  "status": "landed",
+  "research_year": 1924,
+  "change_year": 1939,
+  "research_origin": "Louis de Broglie's 1924 doctoral thesis on matter waves, followed by Ruska and Knoll's 1931 electron lens and microscope prototype at TU Berlin",
+  "research_what": "Louis de Broglie proposed that electrons behave as waves with very short wavelengths, which implied that electron imaging could resolve far finer detail than light.",
+  "change_what": "Siemens delivered its first serially produced commercial electron microscope, the Siemens Super Microscope, to I.G. Farben in Frankfurt-Höchst in late 1939.",
+  "sources": [
+   "https://www.nobelprize.org/prizes/physics/1986/perspectives/",
+   "https://www.britannica.com/biography/Ernst-Ruska",
+   "https://en.wikipedia.org/wiki/Transmission_electron_microscopy"
+  ],
+  "reason": "invalid years",
+  "category": "years"
+ },
+ {
+  "date": "2026-10-31",
+  "agent": "qa",
+  "mode": "confirm",
+  "title": "Xatryx bio-based PTMEG: first commercial batches",
+  "field": "materials",
+  "status": "landed",
+  "research_year": null,
+  "change_year": null,
+  "research_origin": "",
+  "research_what": "",
+  "change_what": "",
+  "sources": [],
+  "reason": "The change is verified: the Sept 2 2026 PR Newswire release says the Qidong plant began its first commercial batches in August 2026. The 50,000 t/yr capacity and the INSITE insole show are also confirmed. The research year is wrong. The entry itself calls 2026 a placeholder, and the source (Sports T",
+  "category": "sources"
+ }
+]

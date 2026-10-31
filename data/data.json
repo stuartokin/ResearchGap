@@ -2,7 +2,7 @@
  "$schema": "./schema.json",
  "meta": {
   "title": "The Shrinking Gap from Research to Change",
-  "revision": 28,
+  "revision": 29,
   "version": "8.0",
   "asOf": "2026-10-31",
   "horizonYears": 10,
@@ -10,7 +10,7 @@
   "author": "Stuart Okin",
   "maintainedBy": "AI agents using Claude (Anthropic), without human review",
   "disclaimer": "Personal project by Stuart Okin, not affiliated with or endorsed by any employer. Data is compiled and maintained by AI agents without human review and may contain errors. Outlook years are AI estimates, not forecasts.",
-  "lastAgentRun": "2026-10-31T02:39Z",
+  "lastAgentRun": "2026-10-31T14:26Z",
   "changelog": [
    {
     "date": "2026-10-28",
@@ -1542,6 +1542,168 @@
     "details": [
      "story    icotrokinra-oral-il-23-receptor-peptide-approved-uk"
     ]
+   },
+   {
+    "date": "2026-10-31",
+    "time": "14:20",
+    "revision": 28,
+    "summary": "Gemini research: 0 of 0 candidates passed the source checks and were queued for Claude's QA.",
+    "stats": {
+     "milestones": 489,
+     "sourceCited": 221,
+     "aiCompiled": 190,
+     "aiEstimate": 78,
+     "adoptionKnown": 77,
+     "landed": 389,
+     "regionKnown": 489
+    },
+    "usage": {
+     "calls": 0,
+     "inputTokens": 0,
+     "outputTokens": 0,
+     "searches": 0,
+     "model": "claude-sonnet-5-5"
+    },
+    "deepAudit": false
+   },
+   {
+    "date": "2026-10-31",
+    "time": "14:26",
+    "revision": 29,
+    "summary": "4 added, 15 corrected, 0 outlook re-estimated, 0 disputed, 0 broken links. 2 curation decision(s) applied.",
+    "stats": {
+     "milestones": 491,
+     "sourceCited": 229,
+     "aiCompiled": 184,
+     "aiEstimate": 78,
+     "adoptionKnown": 77,
+     "landed": 391,
+     "regionKnown": 491
+    },
+    "usage": {
+     "calls": 6,
+     "inputTokens": 856537,
+     "outputTokens": 49133,
+     "searches": 47,
+     "model": "claude-sonnet-5-5"
+    },
+    "deepAudit": false,
+    "details": [
+     "added: tandem-pv-us-perovskite-silicon-demo-factory",
+     "added: artemis-ii-first-crewed-orion-flight-round-the-moon",
+     "added: fully-humanless-commercial-truckload-bot-auto-texas",
+     "added: backside-power-delivery-intel-powervia-in-shipping-chips",
+     "oled-displays: source added",
+     "oled-displays: source added",
+     "aerogel-insulation: source added",
+     "aerogel-insulation: source added",
+     "self-healing-concrete: source added",
+     "self-healing-concrete: source added",
+     "commercial-cargo-to-the-space-station: source added",
+     "commercial-cargo-to-the-space-station: source added",
+     "commercial-crew-spaceflight: source added",
+     "radar-microsatellites: source added",
+     "100-hour-iron-air-battery: source added",
+     "weather-driven-fault-forecasting: source added",
+     "weather-driven-fault-forecasting: source added",
+     "ensign-energy-system-digital-twin: source added",
+     "heat-flexibility-and-thermal-storage: source added",
+     "retired: point-contact-transistor (Duplicate of \"Transistor\" (Bell Labs, 1947); filed under the wrong field.)",
+     "retired: legged-inspection-robots (Duplicate of \"Legged robots\".)"
+    ]
+   },
+   {
+    "date": "2026-10-31",
+    "time": "14:28",
+    "revision": 29,
+    "summary": "Gemini second opinion on 12 additions: 4 supported, 1 contradicted (disputed), 7 unclear.",
+    "stats": {
+     "milestones": 491,
+     "sourceCited": 229,
+     "aiCompiled": 184,
+     "aiEstimate": 78,
+     "adoptionKnown": 77,
+     "landed": 391,
+     "regionKnown": 491
+    },
+    "usage": {
+     "calls": 0,
+     "inputTokens": 0,
+     "outputTokens": 0,
+     "searches": 0,
+     "model": "claude-sonnet-5-5"
+    },
+    "deepAudit": false,
+    "details": [
+     "socamm2-modular-lpddr-memory-for-ai-servers: dispute lifted on re-check (Gemini: unclear)",
+     "quantum-diamond-microscope-for-chip-failure-analysis: dispute lifted on re-check (Gemini: unclear)",
+     "zero-knowledge-proofs-in-the-eu-age-verification-app: dispute lifted on re-check (Gemini: unclear)",
+     "cluster-based-disaggregated-backbone-routers-kddi: dispute lifted on re-check (Gemini: supported)",
+     "radio-astronomy-janskys-cosmic-radio-detection: dispute lifted on re-check (Gemini: supported)",
+     "mars-exploration-rovers-spirit-and-opportunity: dispute lifted on re-check (Gemini: unclear)",
+     "point-contact-transistor: dispute lifted on re-check (Gemini: supported)",
+     "disputed: nuclear-magnetic-resonance-nmr-detection (second opinion from Gemini: contradicted. The sources confirm NMR detection and research beginning around 1938, but state that 1946 was the 'final breakthrough' in describing the phenomenon, with applications developing 'during the next few decades",
+     "tours: walk-through scripts refreshed (version 24)"
+    ]
+   },
+   {
+    "date": "2026-10-31",
+    "time": "14:32",
+    "revision": 29,
+    "summary": "AI levers researched for 3 technologies.",
+    "stats": {
+     "milestones": 491,
+     "sourceCited": 229,
+     "aiCompiled": 184,
+     "aiEstimate": 78,
+     "adoptionKnown": 77,
+     "landed": 391,
+     "regionKnown": 491
+    },
+    "usage": {
+     "calls": 8,
+     "inputTokens": 210757,
+     "outputTokens": 11942,
+     "searches": 16,
+     "model": "claude-sonnet-5-5"
+    },
+    "deepAudit": false,
+    "details": [
+     "levers   100-hour-iron-air-battery: demo; simulation, deploy",
+     "levers   tandem-solar-at-volume: demo; discovery, software",
+     "levers   grid-forming-inverters-as-standard: approvals; simulation, approvals, software"
+    ]
+   },
+   {
+    "date": "2026-10-31",
+    "time": "14:35",
+    "revision": 29,
+    "summary": "Stories researched for 6 milestones.",
+    "stats": {
+     "milestones": 491,
+     "sourceCited": 229,
+     "aiCompiled": 184,
+     "aiEstimate": 78,
+     "adoptionKnown": 77,
+     "landed": 391,
+     "regionKnown": 491
+    },
+    "usage": {
+     "calls": 10,
+     "inputTokens": 251437,
+     "outputTokens": 18233,
+     "searches": 22,
+     "model": "claude-sonnet-5-5"
+    },
+    "deepAudit": false,
+    "details": [
+     "story    first-approved-protac-protein-degrader-vepdegestrant",
+     "story    google-open-source-coral-npu-in-commercial-edge-chips",
+     "story    hollow-core-fibre-in-commercial-networks",
+     "story    anymal-x-explosion-proof-legged-inspection-robot",
+     "story    power-flexible-ai-data-centres-emerald-conductor",
+     "story    fully-autonomous-excavators-doing-paid-site-work"
+    ]
    }
   ],
   "adoptionDefinition": "Mainstream adoption: the year the technology reached widespread, routine use, roughly 10% or more of its potential market or standard practice in its sector.",
@@ -1582,7 +1744,13 @@
    "ai|2026Q2": "2026-10-31",
    "quantum|2026Q2": "2026-10-31",
    "cyber|2026Q2": "2026-10-31",
-   "comms|2026Q2": "2026-10-31"
+   "comms|2026Q2": "2026-10-31",
+   "materials|2026Q2": "2026-10-31",
+   "space|2026Q2": "2026-10-31",
+   "robotics|2026Q2": "2026-10-31",
+   "life|2026Q2": "2026-10-31",
+   "energy|2026Q1": "2026-10-31",
+   "hw|2026Q1": "2026-10-31"
   },
   "researchFunnel": [
    {
@@ -1692,6 +1860,44 @@
     "rejected": 1,
     "retrying": 1,
     "date": "2026-10-31"
+   },
+   {
+    "agent": "claude",
+    "recent_proposed": 1,
+    "recent_queued": 0,
+    "recent_rejected": {
+     "years": 1
+    },
+    "catchup_proposed": 8,
+    "catchup_queued": 5,
+    "catchup_rejected": {
+     "sources": 2,
+     "duplicate": 1
+    },
+    "backfill_proposed": 9,
+    "backfill_queued": 1,
+    "backfill_rejected": {
+     "sources": 4,
+     "years": 3,
+     "duplicate": 1
+    },
+    "date": "2026-10-31"
+   },
+   {
+    "agent": "gemini",
+    "recent_proposed": 0,
+    "recent_queued": 0,
+    "recent_rejected": {},
+    "date": "2026-10-31"
+   },
+   {
+    "agent": "qa",
+    "confirmed_claude": 4,
+    "confirmed_gemini": 0,
+    "confirmed_deep": 0,
+    "rejected": 1,
+    "retrying": 2,
+    "date": "2026-10-31"
    }
   ],
   "secondOpinion": [
@@ -1720,7 +1926,25 @@
     "not_supported": 8,
     "unclear": 0,
     "unavailable": 0
+   },
+   {
+    "date": "2026-10-31",
+    "kind": "gemini-research",
+    "proposed": 0,
+    "queued": 0
+   },
+   {
+    "date": "2026-10-31",
+    "kind": "gemini-check",
+    "supported": 4,
+    "not_supported": 1,
+    "unclear": 7,
+    "unavailable": 0
    }
+  ],
+  "curationApplied": [
+   "point-contact-transistor|retire|2026-11-01",
+   "legged-inspection-robots|retire|2026-11-01"
   ]
  },
  "fields": [
@@ -2606,7 +2830,36 @@
      "status": "ok",
      "checked": "2026-10-30"
     }
-   ]
+   ],
+   "aiLevers": {
+    "phase": "demo",
+    "bottleneck": "No proof yet that perovskite-silicon tandem modules last 25 years outdoors; accelerated tests designed for silicon don't capture perovskite-specific degradation, and outdoor data covers months.",
+    "levers": [
+     {
+      "k": "discovery",
+      "strength": "mid",
+      "note": "ML screening of capping layers, interface and passivation chemistries, and encapsulant choices for stability. Published work covers capping-layer selection; tandem-scale gains remain unproven."
+     },
+     {
+      "k": "software",
+      "strength": "low",
+      "note": "Deep-learning analysis of luminescence images to track degradation, proposed for production-line quality control and yield. Currently lab-stage research on perovskite cells, not tandem factories."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://www.solarpowerworldonline.com/2026/04/tandem-pv-begins-perovskite-silicon-solar-panel-demonstration-manufacturing/",
+      "label": "Solar Power World – Tandem PV demonstration manufacturing (Apr 2026)",
+      "quote": "is targeting high-volume manufacturing in 2028"
+     },
+     {
+      "url": "https://www.patsnap.com/resources/blog/articles/perovskite-silicon-tandem-solar-cell-stability-barriers/",
+      "label": "PatSnap – Technical barriers to long-term tandem stability",
+      "quote": "current perovskite-silicon tandem prototypes have demonstrated stability over periods measured in months, not decades"
+     }
+    ],
+    "checked": "2026-10-31"
+   }
   },
   {
    "id": "ai-in-grid-control-rooms",
@@ -2837,7 +3090,46 @@
      "status": "ok",
      "checked": "2026-10-30"
     }
-   ]
+   ],
+   "aiLevers": {
+    "phase": "approvals",
+    "bottleneck": "Grid-forming rules and compliance tests are still being written and harmonised across countries, and manufacturers need stable, detailed specifications before mass production of compliant products.",
+    "levers": [
+     {
+      "k": "simulation",
+      "strength": "high",
+      "note": "Compliance and grid studies lean on electromagnetic-transient (EMT) simulation and envelope-curve tests. AI surrogate models could speed up system-strength studies and controller tuning across many grid cases."
+     },
+     {
+      "k": "approvals",
+      "strength": "mid",
+      "note": "AI could help assemble and check simulation-based compliance evidence against grid-code requirements. Operators still make the connection decisions. No source shows this in use yet."
+     },
+     {
+      "k": "software",
+      "strength": "mid",
+      "note": "AEMO's core grid-forming functions need only software changes. AI-assisted coding and automated test generation could speed firmware updates and retrofits."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://www.esig.energy/wp-content/uploads/2025/12/GFTSF_251006_SUMMARY.pdf",
+      "label": "ESIG – Grid Forming Technology and System Stability session summary",
+      "quote": "lack of harmonization across countries creates complexity and cost"
+     },
+     {
+      "url": "https://ideas.repec.org/a/eee/rensus/v227y2026ics1364032125011827.html",
+      "label": "Renewable and Sustainable Energy Reviews (2026) – grid codes, compliance testing and GFM IBRs",
+      "quote": "Large-scale deployment of IBRs requires standardized, well-defined compliance verification requirements and testing procedures."
+     },
+     {
+      "url": "https://cdn.misoenergy.org/20240723%20IPWG%20Item%2004b%20DRAFT%20GFM%20BESS%20Performance%20Requirements%20Whitepaper%20(PAC-2024-2)_CLEAN639646.pdf",
+      "label": "MISO – draft GFM BESS performance requirements whitepaper",
+      "quote": "require only software changes"
+     }
+    ],
+    "checked": "2026-10-31"
+   }
   },
   {
    "id": "long-duration-storage-at-scale",
@@ -15778,7 +16070,15 @@
      "status": "ok",
      "checked": "2026-10-31"
     }
-   ]
+   ],
+   "flags": {
+    "hidden": true,
+    "retired": {
+     "reason": "Duplicate of \"Legged robots\".",
+     "duplicateOf": "legged-robots",
+     "date": "2026-10-31"
+    }
+   }
   },
   {
    "id": "polio-vaccine",
@@ -16412,14 +16712,14 @@
      "label": "ECMWF: AI forecasts become operational",
      "url": "https://www.ecmwf.int/node/29308",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "uk",
@@ -16531,14 +16831,14 @@
      "label": "NESO: Open Balancing Platform goes live",
      "url": "https://www.neso.energy/news/first-stages-open-balancing-platform-go-live",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "uk",
@@ -16646,14 +16946,14 @@
      "label": "Flexitricity: the past, present and future of flexibility",
      "url": "https://flexitricity.com/more/blog/the-past-present-and-future-of-energy-flexibility/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "uk",
@@ -16765,14 +17065,14 @@
      "label": "Transport & Energy: National Grid AI drone inspection",
      "url": "https://transportandenergy.com/2025/09/04/national-grid-uses-ai-drone-aerial-inspection/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "uk",
@@ -16876,14 +17176,14 @@
      "label": "SecurityWeek: Radiflow intrusion detection",
      "url": "https://www.securityweek.com/radiflow-launches-new-intrusion-detection-system-icsscada-networks/amp/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "other",
@@ -16979,7 +17279,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -17009,7 +17309,7 @@
      "label": "Wikipedia: Tesla Megapack",
      "url": "https://en.wikipedia.org/wiki/Tesla_Megapack",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ]
   },
@@ -17034,7 +17334,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "asia",
@@ -17062,13 +17362,13 @@
      "label": "Wikipedia: Blade battery",
      "url": "https://en.wikipedia.org/wiki/Blade_battery",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     },
     {
      "label": "Gasgoo: BYD launches blade battery",
      "url": "https://autonews.gasgoo.com/articles/news/byd-launches-blade-battery-to-put-end-to-spontaneous-combustions-in-evs-70017000",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ]
   },
@@ -17093,13 +17393,13 @@
     "label": "Great River Energy: Cambridge energy storage project",
     "url": "https://greatriverenergy.com/what-we-do/cambridge-energy-storage-project",
     "status": "ok",
-    "checked": "2026-10-29"
+    "checked": "2026-10-31"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -17126,6 +17426,38 @@
     "estimatedYear": 2027,
     "estimatedOn": "2026-10-27",
     "revisions": []
+   },
+   "refs": [
+    {
+     "label": "Latitude Media: Form's first 100-hour batteries hit the grid",
+     "url": "https://www.latitudemedia.com/news/forms-first-100-hour-batteries-are-hitting-the-grid/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "aiLevers": {
+    "phase": "demo",
+    "bottleneck": "Proving multi-day performance, efficiency and durability in the first field pilot, which is still commissioning, while ramping factory output toward volume deliveries in 2027.",
+    "levers": [
+     {
+      "k": "simulation",
+      "strength": "mid",
+      "note": "Form's Formware tool models least-cost grid portfolios with multi-day storage. Pilot data from Cambridge could calibrate digital twins of cell degradation and dispatch for utility and data-centre studies."
+     },
+     {
+      "k": "deploy",
+      "strength": "low",
+      "note": "Once many systems are running, ML forecasting could optimise charge and discharge over multi-day windows and help plan siting and grid connection. No public evidence shows this in use yet."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://www.renewableenergyworld.com/energy-storage/battery/form-energy-and-crusoe-reach-deal-for-12-gwh-of-ai-data-center-batteries/",
+      "label": "Renewable Energy World – Form Energy and Crusoe deal",
+      "quote": "commenced delivery of its first commercial pilot system in Minnesota"
+     }
+    ],
+    "checked": "2026-10-31"
    }
   },
   {
@@ -17153,13 +17485,13 @@
     "label": "University of Glasgow: Strategic Innovation Fund projects",
     "url": "https://www.gla.ac.uk/news/headline_837214_en.html",
     "status": "ok",
-    "checked": "2026-10-29"
+    "checked": "2026-10-31"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "uk",
@@ -17183,7 +17515,21 @@
     "estimatedYear": 2028,
     "estimatedOn": "2026-10-27",
     "revisions": []
-   }
+   },
+   "refs": [
+    {
+     "label": "Smarter Networks Portal: Predict4Resilience (SIF Discovery)",
+     "url": "https://smarter.energynetworks.org/projects/10025656/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "Sia Partners: Predict4Resilience",
+     "url": "https://www.sia-partners.com/en/insights/publications/predict4resilience-leveraging-ai-and-weather-data-strengthen-grid-resilience",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ]
   },
   {
    "id": "ensign-energy-system-digital-twin",
@@ -17210,13 +17556,13 @@
     "label": "Enlit: ENSIGN digital twin project",
     "url": "https://www.enlit.world/library/ensign-digital-twin-project-to-model-future-uk-energy-system",
     "status": "ok",
-    "checked": "2026-10-29"
+    "checked": "2026-10-31"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "uk",
@@ -17244,7 +17590,15 @@
     "estimatedYear": 2028,
     "estimatedOn": "2026-10-27",
     "revisions": []
-   }
+   },
+   "refs": [
+    {
+     "label": "University of Strathclyde: ENSIGN digital twin project",
+     "url": "https://www.strath.ac.uk/whystrathclyde/news/2023/digitaltwinprojectwillinformfutureinnovationintheukenergyindustry/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ]
   },
   {
    "id": "heat-flexibility-and-thermal-storage",
@@ -17271,13 +17625,13 @@
     "label": "University of Glasgow: Strategic Innovation Fund projects",
     "url": "https://www.gla.ac.uk/news/headline_837214_en.html",
     "status": "ok",
-    "checked": "2026-10-29"
+    "checked": "2026-10-31"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "uk",
@@ -17306,7 +17660,15 @@
     "estimatedYear": 2030,
     "estimatedOn": "2026-10-27",
     "revisions": []
-   }
+   },
+   "refs": [
+    {
+     "label": "Digit: Glasgow University to help make energy networks smarter",
+     "url": "https://www.digit.fyi/glasgow-university-to-help-make-energy-networks-smarter/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ]
   },
   {
    "id": "spen-university-of-glasgow-cyber-defence-lab",
@@ -17334,13 +17696,13 @@
     "label": "University of Glasgow: SPEN strategic partnership",
     "url": "https://www.gla.ac.uk/news/headline_1248646_en.html",
     "status": "ok",
-    "checked": "2026-10-29"
+    "checked": "2026-10-31"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "uk",
@@ -17385,14 +17747,14 @@
      "label": "Solar Power Portal: Zenobē Blackhillock",
      "url": "https://www.solarpowerportal.co.uk/zenobe-200mw-bess-operational-first-to-provide-stability-services-for-neso",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "uk",
@@ -17438,13 +17800,13 @@
     "label": "Construction Enquirer: EGL1 targeted for 2029",
     "url": "https://constructionenquirer.com/2023/09/13/build-deal-for-2-5bn-eastern-green-link-1-converter-stations",
     "status": "ok",
-    "checked": "2026-10-29"
+    "checked": "2026-10-31"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "uk",
@@ -17499,13 +17861,13 @@
     "label": "UK Parliament: Cyber Security and Resilience (NIS) Bill",
     "url": "https://bills.parliament.uk/Bills/4035",
     "status": "ok",
-    "checked": "2026-10-29"
+    "checked": "2026-10-31"
    },
    "provenance": {
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false,
     "qaNote": "All cited links are broken; downgraded until a new source is found."
    },
@@ -17550,7 +17912,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -17573,7 +17935,7 @@
      "label": "ORNL – Frontier",
      "url": "https://www.olcf.ornl.gov/olcf-resources/compute-systems/frontier/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ]
   },
@@ -19689,10 +20051,10 @@
     "major": true
    },
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "adoption": {
@@ -19713,7 +20075,21 @@
     "expandsAttackSurface": false,
     "note": "A display material; it does not add network exposure in itself.",
     "basis": "ai-compiled"
-   }
+   },
+   "refs": [
+    {
+     "label": "Pioneer company history: 1997 first OLED-equipped car audio",
+     "url": "https://pioneer-car.eu/uk/about-pioneer/history",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "OLED (Wikipedia): Tang and Van Slyke 1987 device",
+     "url": "https://en.wikipedia.org/wiki/OLED",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ]
   },
   {
    "id": "gallium-nitride-power-transistors",
@@ -19735,7 +20111,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -19770,10 +20146,10 @@
    "confidence": "low",
    "note": "Seventy years waiting for affordable manufacturing.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-31",
     "approximate": true
    },
    "region": "us",
@@ -19786,7 +20162,21 @@
     "expandsAttackSurface": false,
     "note": "A bulk material, so it has no cyber relevance.",
     "basis": "ai-compiled"
-   }
+   },
+   "refs": [
+    {
+     "label": "Aspen Aerogels: originally developed 1931 by Kistler",
+     "url": "https://www.aerogel.com/about-aerogel/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "History of Aerogels: Aspen blanket production from 2000",
+     "url": "http://www.aerogel.si/index.php/en/aerogel/history",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ]
   },
   {
    "id": "self-healing-concrete",
@@ -19805,10 +20195,10 @@
    "confidence": "medium",
    "note": "Could extend the life of foundations and cable tunnels.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-31",
     "approximate": true
    },
    "region": "europe",
@@ -19821,7 +20211,21 @@
     "expandsAttackSurface": false,
     "note": "A bulk material, so it has no cyber relevance.",
     "basis": "ai-compiled"
-   }
+   },
+   "refs": [
+    {
+     "label": "Ingenia: Delft bacteria-based self-healing concrete since 2006",
+     "url": "https://www.ingenia.org.uk/articles/self-healing-concrete/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "Smithsonian: self-healing concrete ready to hit the market (2015)",
+     "url": "https://www.smithsonianmag.com/innovation/with-this-self-healing-concrete-buildings-repair-themselves-180955474/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ]
   },
   {
    "id": "commercial-cargo-to-the-space-station",
@@ -19840,10 +20244,10 @@
    "confidence": "high",
    "note": "A government buying a service rather than owning the vehicle.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -19860,7 +20264,21 @@
     "expandsAttackSurface": true,
     "note": "Commercial ISS logistics depends on vendor ground segments, command links and supply chains. Compromising these could disrupt resupply to the station.",
     "basis": "ai-compiled"
-   }
+   },
+   "refs": [
+    {
+     "label": "NASA/ScienceDaily: first contracted CRS resupply mission, Oct 2012",
+     "url": "https://www.sciencedaily.com/releases/2012/10/121010103807.htm",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "COTS Demo Flight 2: COTS contract signed 2006",
+     "url": "https://en.wikipedia.org/wiki/SpaceX_COTS_Demo_Flight_2",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ]
   },
   {
    "id": "commercial-crew-spaceflight",
@@ -19882,10 +20300,10 @@
     "major": true
    },
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -19902,7 +20320,15 @@
     "expandsAttackSurface": true,
     "note": "Crewed commercial vehicles rely on software-heavy avionics and contractor ground systems. Cyber compromise could put crew safety at risk.",
     "basis": "ai-compiled"
-   }
+   },
+   "refs": [
+    {
+     "label": "House Science Committee: CCDev initiated February 2010",
+     "url": "https://republicans-science.house.gov/sites/republicans.science.house.gov/files/documents/hearings/102611_Charter_0.pdf",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ]
   },
   {
    "id": "suborbital-space-tourism",
@@ -19924,7 +20350,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -19960,10 +20386,10 @@
    "note": "Day-and-night, all-weather monitoring of assets and flooding.",
    "company": "ICEYE",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-28",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "europe",
@@ -19980,7 +20406,15 @@
     "note": "Imagery and data services add supply chain and data integrity dependencies.",
     "basis": "ai-compiled",
     "guidance": "data"
-   }
+   },
+   "refs": [
+    {
+     "label": "ICEYE (Wikipedia): commercial SAR imagery offered Oct 2019",
+     "url": "https://en.wikipedia.org/wiki/ICEYE",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ]
   },
   {
    "id": "methane-detecting-satellites",
@@ -24176,6 +24610,24 @@
     "expandsAttackSurface": false,
     "note": "No meaningful new digital attack surface; this is a pharmaceutical.",
     "basis": "ai-compiled"
+   },
+   "story": {
+    "research": "chemical-biology research in 2001, when Sakamoto, Crews, Deshaies and colleagues designed chimeric \"Protac\" molecules that bring a chosen protein to a ubiquitin ligase for destruction.",
+    "deploy": "in the US, when the FDA approved Arvinas's Veppanu (vepdegestrant) on 1 May 2026 for ESR1-mutated ER+/HER2- advanced breast cancer, with the Guardant360 CDx test.",
+    "impact": "it became the first FDA-approved PROTAC. In the phase 3 VERITAC-2 trial, ESR1-mutated patients had median progression-free survival of 5 months versus 2.1 months on fulvestrant (hazard ratio 0.57).",
+    "refs": [
+     {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8190915/",
+      "label": "PMC review: PROTACs come of age (cites Sakamoto et al., PNAS 2001)",
+      "quote": "offered a new chemical biology approach to control protein function"
+     },
+     {
+      "url": "https://www.cancernetwork.com/view/fda-approves-vepdegestrant-in-er-her2-esr1-mutated-breast-cancer",
+      "label": "CancerNetwork: FDA approves vepdegestrant",
+      "quote": "the FDA has approved the Guardant360 CDx as a companion diagnostic"
+     }
+    ],
+    "checked": "2026-10-31"
    }
   },
   {
@@ -24496,6 +24948,29 @@
     "note": "Hardware supply chains and flaws such as side channels can undermine everything built on top.",
     "basis": "ai-compiled",
     "guidance": "hw"
+   },
+   "story": {
+    "research": "Google Research, co-designed with Google DeepMind, extended its Coral work into an open-source RISC-V NPU platform for low-power, always-on edge AI, announced October 2025.",
+    "deploy": "In Synaptics' Astra SL2619 chip, the first Coral NPU implementation; Coralboard SL went on sale via DigiKey on 20 October 2026, alongside SR200 unveiling.",
+    "impact": "Synaptics unveiled the second-generation Astra SR200 microcontrollers (400 GOPS) with a Coralboard SR kit, while the Coralboard SL (1 TOPS NPU) became generally available worldwide through DigiKey.",
+    "refs": [
+     {
+      "url": "https://research.google/blog/coral-npu-a-full-stack-platform-for-edge-ai/",
+      "label": "Google Research blog: Coral NPU",
+      "quote": "a full-stack, open-source platform designed to address the core performance, fragmentation, and privacy challenges"
+     },
+     {
+      "url": "https://www.manilatimes.net/2026/10/20/tmt-newswire/globenewswire/synaptics-and-google-research-expand-the-coralboard-ecosystem/2449756/amp",
+      "label": "Synaptics press release (GlobeNewswire via Manila Times), 20 Oct 2026",
+      "quote": "integrates the 1 TOPS Synaptics Torq™ NPU featuring the first implementation of the Coral NPU"
+     },
+     {
+      "url": "https://developers.googleblog.com/unifying-edge-ai-how-coral-npus-open-standard-brings-portable-energy-viable-intelligence-from-model-to-silicon/",
+      "label": "Google Developers Blog: Unifying Edge AI",
+      "quote": "Unveiling the 2nd-gen Synaptics Astra® SR200 series (400 GOPS) microcontroller chips."
+     }
+    ],
+    "checked": "2026-10-31"
    }
   },
   {
@@ -25170,6 +25645,19 @@
     "added": "2026-10-29",
     "lastChecked": "2026-10-29",
     "approximate": false
+   },
+   "story": {
+    "research": "In 2014 Francesco Poletti, Southampton, published a design study of a nested antiresonant nodeless hollow-core fibre, comparing it with other hollow-core fibre types.",
+    "deploy": "In a Microsoft Azure pilot with Southampton researchers, over 1,200 km of hollow-core fibre was installed underground and carrying live traffic, reported in 2025.",
+    "impact": "Hollow-core fibre has entered commercial use: CCTV reported on 5 October 2026 a link between Zhongwei, Ningxia computing centres, cutting latency and loss by over 30%.",
+    "refs": [
+     {
+      "url": "https://www.networkworld.com/article/4049666/microsofts-hollow-core-fiber-delivers-the-lowest-signal-loss-ever.html",
+      "label": "Network World: Microsoft's hollow core fiber delivers the lowest signal loss ever",
+      "quote": "now installed underground and actively carrying live traffic"
+     }
+    ],
+    "checked": "2026-10-31"
    }
   },
   {
@@ -25242,6 +25730,24 @@
     "added": "2026-10-29",
     "lastChecked": "2026-10-29",
     "approximate": false
+   },
+   "story": {
+    "research": "ANYbotics engineers, partnering with PETRONAS from 2019, developed an explosion-protected ANYmal quadruped, unveiled 2022; the company cites four years' engineering and 10+ patents.",
+    "deploy": "Early-access customers trialled it from 2023; ANYbotics began customer deliveries on 27 October 2026 to Equinor and DSM-Firmenich, with a Bureau Veritas ATEX certificate.",
+    "impact": "Since 2023, BP, Shell, PETRONAS, Petrobras, BASF and SLB evaluated it across hundreds of onshore and offshore missions; it now ships to Equinor and DSM-Firmenich, ATEX-certified for Zones 1 and 2.",
+    "refs": [
+     {
+      "url": "https://www.marinelink.com/news/anybotics-delivers-explosionprotected-543927",
+      "label": "MarineLink: ANYbotics delivers explosion-protected inspection robots",
+      "quote": "Since 2023, participating companies have evaluated the technology across hundreds of onshore and offshore inspection missions."
+     },
+     {
+      "url": "https://www.siliconreport.com/anybotics-ships-legged-robot-where-sparks-could-trigger-an-explosion",
+      "label": "Silicon Report: ANYbotics ships legged robot for explosive zones",
+      "quote": "announced on Oct. 27, 2026, that it has begun shipping ANYmal X"
+     }
+    ],
+    "checked": "2026-10-31"
    }
   },
   {
@@ -25598,6 +26104,24 @@
     "added": "2026-10-29",
     "lastChecked": "2026-10-29",
     "approximate": false
+   },
+   "story": {
+    "research": "In 2025, Emerald AI, EPRI's DCFlex, NVIDIA, Oracle and SRP field-tested software that orchestrates AI workloads, cutting a GPU cluster's power 25% for three hours.",
+    "deploy": "In Phoenix, Arizona, in May 2025, by Emerald AI with Oracle Cloud, NVIDIA, SRP and EPRI, on a GPU cluster during SRP's summer peak.",
+    "impact": "By 2026 Emerald says its Conductor is commercially deployed at full data-centre scale, including a California site. It raised a $150M Series A and claims over 100 GW of US grid capacity could be unlocked.",
+    "refs": [
+     {
+      "url": "https://finance.yahoo.com/technology/ai/articles/emerald-ai-raises-150-million-131500249.html",
+      "label": "Emerald AI $150M Series A announcement",
+      "quote": "now deployed commercially"
+     },
+     {
+      "url": "https://www.datacenterdynamics.com/en/news/emerald-ai-to-conduct-pilot-program-with-silicon-valley-power-in-santa-clara-california/",
+      "label": "DCD: Emerald AI pilot with Silicon Valley Power",
+      "quote": "pilot program with California municipal utility Silicon Valley Power"
+     }
+    ],
+    "checked": "2026-10-31"
    }
   },
   {
@@ -25838,6 +26362,29 @@
     "added": "2026-10-29",
     "lastChecked": "2026-10-29",
     "approximate": false
+   },
+   "story": {
+    "research": "Carnegie Mellon roboticists (Stentz, Bares, Singh, Rowe) built a laser-sensing, 25-ton hydraulic excavator that automated truck loading, reported in 1998.",
+    "deploy": "Bedrock Robotics ran excavators with no operator in the cab on paid work at three live commercial sites in Nevada and Texas, from mid-August 2026.",
+    "impact": "Bedrock raised a $600 million Series C at a $4.1 billion valuation, reported around 13 October 2026, to take operator-free excavators to more U.S. job sites.",
+    "refs": [
+     {
+      "url": "https://publications.ri.cmu.edu/a-robotic-excavator-for-autonomous-truck-loading",
+      "label": "CMU Robotics Institute: A Robotic Excavator for Autonomous Truck Loading (IROS, Oct 1998)",
+      "quote": "The system was fully implemented and was demonstrated to load trucks as fast as human operators."
+     },
+     {
+      "url": "https://www.therobotreport.com/bedrock-robotics-first-operator-free-excavator-deployments-take-off/",
+      "label": "The Robot Report: Bedrock Robotics' first operator-free excavator deployments",
+      "quote": "Bedrock Robotics Inc. has deployed fully autonomous, retrofitted heavy excavators onto active infrastructure projects in Texas and Nevada."
+     },
+     {
+      "url": "https://cryptobriefing.com/bedrock-robotics-raises-600m-series-c/",
+      "label": "Crypto Briefing: Bedrock Robotics raises $600M Series C",
+      "quote": "its first excavator deployments on active commercial sites with no human operator in the cab"
+     }
+    ],
+    "checked": "2026-10-31"
    }
   },
   {
@@ -26187,15 +26734,13 @@
     "approximate": false,
     "secondOpinion": {
      "model": "gemini",
-     "verdict": "not_supported",
-     "reason": "The sources confirm SK hynix's mass production of SOCAMM2 in April 2026 for NVIDIA's Vera Rubin platform, but do not mention Dell's CAMM design, JEDEC standardization, or research beginning in 2022.",
-     "date": "2026-10-31"
-    },
-    "qaNote": "Second opinion (Gemini): not supported. The sources confirm SK hynix's mass production of SOCAMM2 in April 2026 for NVIDIA's Vera Rubin platform, but do not mention Dell's CAMM design, JEDEC standardization, or research beginning in 2022."
+     "verdict": "unclear",
+     "reason": "The sources confirm mass production of SOCAMM2 modular LPDDR memory for AI servers began in 2026, but they do not provide information on when research for it began.",
+     "date": "2026-10-31",
+     "rules": 2
+    }
    },
-   "flags": {
-    "disputed": true
-   }
+   "flags": {}
   },
   {
    "id": "quantum-diamond-microscope-for-chip-failure-analysis",
@@ -26255,15 +26800,13 @@
     "approximate": false,
     "secondOpinion": {
      "model": "gemini",
-     "verdict": "not_supported",
-     "reason": "The sources confirm the QDm.1 system's deployment in Taiwan in April 2026 as the first Asian install after a US install, and the company's spin-out from TU Munich in 2022, but they do not mention research beginning in 2008 or reference 'Maze et al., Nature, 2008'.",
-     "date": "2026-10-31"
-    },
-    "qaNote": "Second opinion (Gemini): not supported. The sources confirm the QDm.1 system's deployment in Taiwan in April 2026 as the first Asian install after a US install, and the company's spin-out from TU Munich in 2022, but they do not mention research beginning in 2008 or reference 'Maze et al., Nature, 20"
+     "verdict": "unclear",
+     "reason": "While the deployment of quantum diamond microscopy for chip failure analysis in 2026 is supported, the sources do not provide information regarding research beginning around 2008.",
+     "date": "2026-10-31",
+     "rules": 2
+    }
    },
-   "flags": {
-    "disputed": true
-   }
+   "flags": {}
   },
   {
    "id": "zero-knowledge-proofs-in-the-eu-age-verification-app",
@@ -26309,15 +26852,13 @@
     "approximate": false,
     "secondOpinion": {
      "model": "gemini",
-     "verdict": "not_supported",
-     "reason": "The sources confirm the EU age-verification app was declared technically ready in April 2026 and uses zero-knowledge proofs for age verification without revealing personal data, but they do not mention the 1985 research origin or state that this is the first product or real-world use of zero-knowled",
-     "date": "2026-10-31"
-    },
-    "qaNote": "Second opinion (Gemini): not supported. The sources confirm the EU age-verification app was declared technically ready in April 2026 and uses zero-knowledge proofs for age verification without revealing personal data, but they do not mention the 1985 research origin or state that this is the first p"
+     "verdict": "unclear",
+     "reason": "The sources confirm zero-knowledge proofs are used in the EU age-verification app and that its first real-world use is around 2026, but they do not provide information on when research into zero-knowledge proofs began around 1985.",
+     "date": "2026-10-31",
+     "rules": 2
+    }
    },
-   "flags": {
-    "disputed": true
-   }
+   "flags": {}
   },
   {
    "id": "cluster-based-disaggregated-backbone-routers-kddi",
@@ -26374,15 +26915,13 @@
     "approximate": false,
     "secondOpinion": {
      "model": "gemini",
-     "verdict": "not_supported",
-     "reason": "While KDDI began driving the development of open, disaggregated routing technologies through TIP in 2020, its strategic partnership with DriveNets was established in May 2025, not at the start of development in 2020.",
-     "date": "2026-10-31"
-    },
-    "qaNote": "Second opinion (Gemini): not supported. While KDDI began driving the development of open, disaggregated routing technologies through TIP in 2020, its strategic partnership with DriveNets was established in May 2025, not at the start of development in 2020."
+     "verdict": "supported",
+     "reason": "KDDI launched commercial deployment of cluster-based disaggregated backbone routers in June 2026, and research began in 2020, as stated in the sources.",
+     "date": "2026-10-31",
+     "rules": 2
+    }
    },
-   "flags": {
-    "disputed": true
-   }
+   "flags": {}
   },
   {
    "id": "radio-astronomy-janskys-cosmic-radio-detection",
@@ -26439,15 +26978,13 @@
     "approximate": false,
     "secondOpinion": {
      "model": "gemini",
-     "verdict": "not_supported",
-     "reason": "While many details are supported, one source states Jansky began tackling the problem in 1932, not 1931, and the sources do not mention 'Proc. IRE' as the publication journal or 'Bruce array' for the antenna.",
-     "date": "2026-10-31"
-    },
-    "qaNote": "Second opinion (Gemini): not supported. While many details are supported, one source states Jansky began tackling the problem in 1932, not 1931, and the sources do not mention 'Proc. IRE' as the publication journal or 'Bruce array' for the antenna."
+     "verdict": "supported",
+     "reason": "Sources confirm Karl Jansky's cosmic radio detection led to radio astronomy, with his specific research into the puzzling signal beginning in 1932 and the discovery and its publication occurring in 1933, fitting the 'around 1931' and 'around 1933' dates within one year.",
+     "date": "2026-10-31",
+     "rules": 2
+    }
    },
-   "flags": {
-    "disputed": true
-   }
+   "flags": {}
   },
   {
    "id": "continuous-human-presence-on-the-iss",
@@ -26565,15 +27102,13 @@
     "approximate": false,
     "secondOpinion": {
      "model": "gemini",
-     "verdict": "not_supported",
-     "reason": "The provided source text consists primarily of navigation links and article headlines, and does not contain the specific details about research beginning in 1997 with the Sojourner rover, nor does it explicitly state that Spirit and Opportunity landed in January 2004 or found evidence of past liquid",
-     "date": "2026-10-31"
-    },
-    "qaNote": "Second opinion (Gemini): not supported. The provided source text consists primarily of navigation links and article headlines, and does not contain the specific details about research beginning in 1997 with the Sojourner rover, nor does it explicitly state that Spirit and Opportunity landed in Janua"
+     "verdict": "unclear",
+     "reason": "The sources confirm the Mars Exploration Rovers Spirit and Opportunity landed in 2004, but do not provide information on when research for the mission began.",
+     "date": "2026-10-31",
+     "rules": 2
+    }
    },
-   "flags": {
-    "disputed": true
-   }
+   "flags": {}
   },
   {
    "id": "point-contact-transistor",
@@ -26630,14 +27165,19 @@
     "approximate": false,
     "secondOpinion": {
      "model": "gemini",
-     "verdict": "not_supported",
-     "reason": "While the sources confirm Shockley revived the idea in 1939 and Bardeen and Brattain demonstrated the point-contact transistor in December 1947 with a public announcement in 1948, they do not explicitly mention quantum band-theory, Lilienfeld's 1925 field-effect patents, or a 'solid-state programme'",
-     "date": "2026-10-31"
-    },
-    "qaNote": "Second opinion (Gemini): not supported. While the sources confirm Shockley revived the idea in 1939 and Bardeen and Brattain demonstrated the point-contact transistor in December 1947 with a public announcement in 1948, they do not explicitly mention quantum band-theory, Lilienfeld's 1925 field-effe"
+     "verdict": "supported",
+     "reason": "Sources confirm research began in 1939 and the point-contact transistor was demonstrated in 1947 and introduced to the world in 1948, fitting 'around 1947' for its first real-world use.",
+     "date": "2026-10-31",
+     "rules": 2
+    }
    },
    "flags": {
-    "disputed": true
+    "hidden": true,
+    "retired": {
+     "reason": "Duplicate of \"Transistor\" (Bell Labs, 1947); filed under the wrong field.",
+     "duplicateOf": "transistor",
+     "date": "2026-10-31"
+    }
    }
   },
   {
@@ -26695,11 +27235,12 @@
     "approximate": false,
     "secondOpinion": {
      "model": "gemini",
-     "verdict": "not_supported",
-     "reason": "The sources confirm Rabi's 1938 work at Columbia and the 1946 breakthrough by Bloch and Purcell, but do not explicitly state 'first product or real-world use' or that they detected NMR in 'bulk matter (water and paraffin)'.",
-     "date": "2026-10-31"
+     "verdict": "contradicted",
+     "reason": "The sources confirm NMR detection and research beginning around 1938, but state that 1946 was the 'final breakthrough' in describing the phenomenon, with applications developing 'during the next few decades' thereafter, contradicting 'first product or real-world use around 1946'.",
+     "date": "2026-10-31",
+     "rules": 2
     },
-    "qaNote": "Second opinion (Gemini): not supported. The sources confirm Rabi's 1938 work at Columbia and the 1946 breakthrough by Bloch and Purcell, but do not explicitly state 'first product or real-world use' or that they detected NMR in 'bulk matter (water and paraffin)'."
+    "qaNote": "Second opinion (Gemini): contradicted. The sources confirm NMR detection and research beginning around 1938, but state that 1946 was the 'final breakthrough' in describing the phenomenon, with applications developing 'during the next few decades' thereafter, contradicting 'first product or real-worl"
    },
    "flags": {
     "disputed": true
@@ -26748,6 +27289,255 @@
     "lastChecked": "2026-10-31",
     "approximate": false
    }
+  },
+  {
+   "id": "tandem-pv-us-perovskite-silicon-demo-factory",
+   "field": "materials",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Tandem PV US perovskite-silicon demo factory",
+   "research": {
+    "year": 2015,
+    "what": "Researchers first reported perovskite-on-silicon tandem solar cells that stack a thin perovskite absorber on a silicon cell to capture more of the solar spectrum. Origin: Bailie et al. 2015 perovskite-silicon tandem cell paper (as cited in a 2026 industry overview)"
+   },
+   "change": {
+    "year": 2026,
+    "what": "In April 2026 Tandem PV opened a roughly 40 MW demonstration factory in Fremont, California, and began producing perovskite-silicon tandem panels, with validation-trial shipments planned later in the year."
+   },
+   "confidence": "medium",
+   "note": "It moves perovskite-silicon tandems from lab devices to repeatable US manufacturing, though Oxford PV shipped earlier tandem modules in Europe, so this is a US first rather than a world first.",
+   "refs": [
+    {
+     "label": "Solar Power World: Tandem PV begins demonstration manufacturing",
+     "url": "https://www.solarpowerworldonline.com/2026/04/tandem-pv-begins-perovskite-silicon-solar-panel-demonstration-manufacturing/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "pv magazine USA: Tandem PV launches commercial perovskite-silicon manufacturing",
+     "url": "https://pv-magazine-usa.com/2026/04/20/tandem-pv-launches-commercial-perovskite-silicon-manufacturing-in-california/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "subfield": "polymers",
+   "region": "us",
+   "tags": [
+    "solar"
+   ],
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-31",
+    "lastChecked": "2026-10-31",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "unclear",
+     "reason": "The sources confirm the opening of the demonstration factory and the planned first product/use in 2026, but do not provide information about when research began around 2015.",
+     "date": "2026-10-31",
+     "rules": 2
+    }
+   },
+   "flags": {}
+  },
+  {
+   "id": "artemis-ii-first-crewed-orion-flight-round-the-moon",
+   "field": "space",
+   "origin": "government",
+   "status": "landed",
+   "title": "Artemis II: first crewed Orion flight round the Moon",
+   "research": {
+    "year": 2005,
+    "what": "NASA developed a crew capsule and heavy-lift rocket for deep-space human flight, which became Orion and the Space Launch System. Origin: NASA Constellation Program (2005), which began the Orion crew vehicle; the Space Launch System followed under the NASA Authorization Act of 2010"
+   },
+   "change": {
+    "year": 2026,
+    "what": "Artemis II launched on 1 April 2026 with four astronauts and flew them around the Moon, the first crewed flight beyond low Earth orbit since 1972, before splashing down on 10 April."
+   },
+   "confidence": "high",
+   "note": "It was the first crewed flight of Orion and SLS and a distance record for humans, which clears the way for later Artemis landings.",
+   "refs": [
+    {
+     "label": "NASA: Artemis II mission page",
+     "url": "https://www.nasa.gov/mission/artemis-ii/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "Britannica: Artemis II",
+     "url": "https://www.britannica.com/topic/Artemis-II",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "NASA: Artemis II Mission Milestones recap",
+     "url": "https://www.nasa.gov/centers-and-facilities/johnson/artemis-ii-mission-milestones-an-image-and-video-recap/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "subfield": "launch",
+   "region": "us",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Crewed deep-space flight depends on long-distance communications and navigation links, including the optical communications test on Orion, so those links need protection from interference and spoofing.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-31",
+    "lastChecked": "2026-10-31",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "unclear",
+     "reason": "The sources confirm Artemis II as the first crewed Orion flight around the Moon and its launch in 2026, but provide no information regarding when research for the mission began.",
+     "date": "2026-10-31",
+     "rules": 2
+    }
+   },
+   "flags": {}
+  },
+  {
+   "id": "fully-humanless-commercial-truckload-bot-auto-texas",
+   "field": "robotics",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Fully humanless commercial truckload (Bot Auto, Texas)",
+   "research": {
+    "year": 2023,
+    "what": "Bot Auto began developing a Level-4 autonomous heavy-truck driving stack with no reliance on in-cab or remote human fallback. Origin: Bot Auto's L4 autonomy stack, developed from the company's 2023 founding, which passed a humanless hub-to-hub validation run in Houston in September 2025."
+   },
+   "change": {
+    "year": 2026,
+    "what": "On 29 April 2026 Bot Auto hauled a paid 230-mile load from Houston to near Dallas with no driver, in-cab observer or low-latency remote operator."
+   },
+   "confidence": "medium",
+   "note": "It is the first claimed fully humanless paid over-the-road truckload in the US, which goes beyond supervised or remotely backed freight pilots.",
+   "flags": {
+    "aiDriven": true
+   },
+   "refs": [
+    {
+     "label": "CCJ Digital: Bot Auto completes first humanless commercial truck delivery in Texas",
+     "url": "https://www.ccjdigital.com/equipment-controls/autonomous/article/15823774/bot-auto-completes-first-humanless-commercial-truck-delivery-in-texas",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "Robotics & Automation News: Bot Auto completes driverless commercial truck delivery between Houston and Dallas",
+     "url": "https://roboticsandautomationnews.com/2026/05/14/bot-auto-completes-driverless-commercial-truck-delivery-between-houston-and-dallas/101503/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "Road to Autonomy: Bot Auto launch field report",
+     "url": "https://www.roadtoautonomy.com/bot-auto-commercial-launch-field-report/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "subfield": "industrial",
+   "region": "us",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Trucks with no human onboard or remote fallback depend wholly on onboard software and sensors, so a compromised or spoofed system has no human check.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-31",
+    "lastChecked": "2026-10-31",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "unclear",
+     "reason": "The sources confirm Bot Auto completed a fully humanless commercial truckload in Texas in April/May 2026, supporting the milestone's description and the 'first product or real-world use around 2026' date, but they do not provide information on when Bot Auto's research began, making the 'Research beg",
+     "date": "2026-10-31",
+     "rules": 2
+    }
+   }
+  },
+  {
+   "id": "backside-power-delivery-intel-powervia-in-shipping-chips",
+   "field": "hw",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Backside power delivery (Intel PowerVia) in shipping chips",
+   "research": {
+    "year": 2023,
+    "what": "Intel showed that moving power wiring to the back of the wafer works on a product-like test chip, with over 90% cell utilisation. Origin: Intel PowerVia product-like test chip results (2023), building on earlier imec backside power-rail research"
+   },
+   "change": {
+    "year": 2026,
+    "what": "Intel's Panther Lake (Core Ultra Series 3) on 18A, the first client chip with PowerVia backside power, launched in laptops in January 2026. Xeon 6+ Clearwater Forest followed as the first server product."
+   },
+   "confidence": "medium",
+   "note": "Backside power delivery moved from lab test chips to shipping consumer silicon, easing the interconnect and power-routing bottleneck at angstrom-class nodes.",
+   "refs": [
+    {
+     "label": "Intel: PowerVia test shows industry-leading performance",
+     "url": "https://www.intc.com/news-events/press-releases/detail/1623/powervia-test-shows-industry-leading-performance",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "Inside Deep Tech: Backside Power Delivery full guide (2026)",
+     "url": "https://www.insidedeeptech.com/backside-power-delivery-powervia-full-guide/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "XDA Developers: Backside power delivery is the CPU innovation I'm excited for",
+     "url": "https://www.xda-developers.com/backside-power-delivery-is-the-cpu-innovation-im-actually-excited-for/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "subfield": "chips",
+   "region": "us",
+   "tags": [
+    "semiconductors"
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "It adds no new attack surface by itself, but it does make new process-node supply chains and foundry dependencies more important.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-31",
+    "lastChecked": "2026-10-31",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "supported",
+     "reason": "Sources confirm Intel PowerVia is in shipping chips (Panther Lake) by 2026, and Intel's Blue Sky Creek test chip was presented in 2023, indicating research and development around that time.",
+     "date": "2026-10-31",
+     "rules": 2
+    }
+   },
+   "flags": {}
   }
  ],
  "founders": [
