@@ -31,7 +31,7 @@ def run():
         if verdict in ('not_supported', 'unclear'):   # both models must agree to publish undisputed
             m.setdefault('flags', {})['disputed'] = True
             m['provenance']['qaNote'] = f"Second opinion (Gemini): {verdict.replace('_', ' ')}. {m['provenance']['secondOpinion']['reason']}"[:300]
-            details.append(f"disputed {m['id']}: Gemini judged it {verdict.replace('_', ' ')}")
+            details.append(f"disputed: {m['id']} (second opinion from Gemini: {verdict.replace('_', ' ')}. {m['provenance']['secondOpinion']['reason']})"[:300])
     db['meta'].setdefault('secondOpinion', []).append({'date':TODAY, 'kind':'gemini-check', **counts})
     log_change(db, f"Gemini second opinion on {len(todo)} new additions: {counts['supported']} supported, {counts['not_supported'] + counts['unclear']} disputed.", details)
     save_db(db); print(counts); return 0

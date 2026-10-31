@@ -12,7 +12,7 @@ function parseChange(d){
   if ((m = d.match(/^(f-[a-z0-9-]+): (founded|fortuneYear) (\d{4}) → (\d{4})/))) return {type:'corrected', key:m[1], founder:true, text:`${m[2] === 'founded' ? 'Founding year' : 'Fortune year'} ${m[3]} → ${m[4]}`};
   if ((m = d.match(/^added: (.+)$/))) return {type:'added', key:m[1], text:''};
   if ((m = d.match(/^re-estimated: ([a-z0-9-]+) → (\d{4})/))) return {type:'reestimated', key:m[1], text:`Outlook year re-estimated to ${m[2]}`};
-  if ((m = d.match(/^disputed: (.+)$/))) return {type:'disputed', key:m[1], text:'Marked as disputed by the QA agent'};
+  if ((m = d.match(/^disputed: (\S+)(?: \((.+)\))?$/))) return {type:'disputed', key:m[1], text:m[2] ? m[2].charAt(0).toUpperCase() + m[2].slice(1) : 'Marked as disputed by the QA agent'};   // with the reason, when given
   if ((m = d.match(/^([a-z0-9-]+): confirmed landed in (\d{4})/))) return {type:'landed', key:m[1], text:`Confirmed as landed in ${m[2]}`};
   if ((m = d.match(/^([a-z0-9-]+): source added/))) return {type:'source', key:m[1], text:''};
   if ((m = d.match(/^([a-z0-9-]+): (research|change)\.year (\d{4}) → (\d{4})/))) return {type:'corrected', key:m[1], text:`${m[2] === 'research' ? 'Research' : 'Change'} year ${m[3]} → ${m[4]}`};

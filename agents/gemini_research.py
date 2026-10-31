@@ -36,7 +36,9 @@ def run():
         pending.append(rec); queued += 1; report.append(f"pending  [gemini {f['id']}] {c['title']}")
     save_pending(pending)
     db['meta'].setdefault('secondOpinion', []).append({'date':TODAY, 'kind':'gemini-research', 'proposed':len(out.get('candidates') or []), 'queued':queued})
-    from common import save_db; save_db(db)
+    from common import save_db, log_change
+    log_change(db, f"Gemini research: {queued} of {len(out.get('candidates') or [])} candidates passed the source checks and were queued for Claude's QA.", [r for r in report if r.startswith('pending')])
+    save_db(db)
     print('\n'.join(report) or 'Gemini found nothing new.'); print(f'{queued} Gemini candidates queued for Claude\'s QA.')
     return 0
 
