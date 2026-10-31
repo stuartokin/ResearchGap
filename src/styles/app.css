@@ -616,3 +616,47 @@ body.kiosk #resetBtn,body.kiosk #winMenu [data-w="__load"],body.kiosk #winMenu [
 .doctoc{display:flex;flex-wrap:wrap;gap:.3em .9em;font-size:.9em}.doctoc a{color:#5FD8FF}.docsec{border:1px solid var(--line);border-radius:10px;padding:.5em .8em}.docsec summary{cursor:pointer;font-weight:600}
 .doctab{width:100%;border-collapse:collapse;margin:.5em 0;font-size:.92em}.doctab th,.doctab td{text-align:left;vertical-align:top;padding:.35em .4em;border-bottom:1px solid var(--line)}.doctab th{color:var(--muted);font-weight:500}.doclist{margin:.4em 0;padding-left:1.2em}
 #docBody code{font-size:.92em;color:#FFE7A8}#docBody p{line-height:1.5}
+
+/* the Present and Share menus share the Views menu's look */
+.dropmenu{min-width:280px;position:fixed;top:60px;right:16px;width:280px;background:var(--panel-solid);border:1px solid var(--line-strong);border-radius:12px;padding:6px;display:none;z-index:1600;box-shadow:0 18px 40px rgba(0,0,0,.4);max-height:calc(100vh - 90px);overflow:auto}
+.dropmenu.open{display:block}
+.dropmenu .wmh{display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin:6px 8px 4px}
+.dropmenu .wmpre{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin:0 4px 6px}
+.dropmenu .wmpre button b{display:block;font-weight:600}
+.dropmenu .wmpre button.cur{border-color:#FFD166;background:rgba(255,209,102,.1)}
+.dropmenu .wmg .car{width:1em;color:var(--muted)}
+.dropmenu .wmitems{padding-left:14px;border-left:1px solid var(--line);margin:0 0 4px 12px}
+.dropmenu.open{display:block}
+.dropmenu button:hover{background:rgba(255,255,255,.05)}
+.dropmenu .tick.on{background:var(--proj);color:#0A1622;border-color:transparent}
+.dropmenu small{display:block;color:var(--faint);font-size:12px;padding:4px 10px 6px;line-height:1.4}
+.dropmenu .dmrow{display:flex;align-items:center;gap:2px}.dropmenu .dmrow>button:first-child{flex:1}
+.dropmenu .pin{width:auto!important;flex:0 0 auto;opacity:.35;font-size:13px;padding:6px 8px!important}.dropmenu .pin.on{opacity:1;background:rgba(255,209,102,.14)}
+.dropmenu [aria-pressed="true"]{color:#FFD166}
+/* status chips and pinned items on the toolbar */
+.tbchips{display:inline-flex;gap:6px;align-items:center;margin-right:4px}.tbchips:empty{display:none}
+.tbchip{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line-strong);background:rgba(255,255,255,.04);border-radius:999px;padding:4px 10px;font-size:12px;cursor:pointer;white-space:nowrap;color:#DCE8F5}
+.tbchip.on{border-color:#FFD166;color:#FFE3A1;background:rgba(255,209,102,.12)}.tbchip i{font-style:normal}
+@media (max-width:1000px){.tbchip span{display:none}.tbchip{padding:4px 8px}}
+body.touring .dropmenu,body.touring .tbchips{pointer-events:none}
+body.kiosk #presentMenu [data-act="kiosk"],body.kiosk #winMenu [data-w="__reset_all"]{display:none!important}
+
+/* the save-status sign, and My views in the Views menu */
+.savesign{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line-strong);border-radius:999px;padding:4px 10px;font-size:12px;background:rgba(255,255,255,.04);color:#DCE8F5;cursor:pointer;white-space:nowrap}
+.savesign.warn{border-color:#FFB454;color:#FFD9A0;background:rgba(255,180,84,.1)}.savesign.ok{border-color:#58C48A;color:#BFF0D3;background:rgba(88,196,138,.08)}
+.savesign .admpend{font-weight:600;color:#FFD166;border-left:1px solid var(--line-strong);padding-left:6px}
+#winMenu .mvrow{display:flex;align-items:center;gap:0}#winMenu .mvrow>button:first-child{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis}
+#winMenu .mvrow .mvi{width:auto!important;flex:0 0 auto;padding:6px 6px!important;opacity:.6;font-size:13px}#winMenu .mvrow .mvi:hover{opacity:1}
+#winMenu .mvrow button.cur{color:#FFD166}#winMenu .mvstart{font-size:10px;color:#FFD166;border:1px solid #FFD166;border-radius:6px;padding:0 4px;margin-left:4px}
+@media (max-width:1000px){.savesign span{max-width:9em;overflow:hidden;text-overflow:ellipsis}}
+
+/* reviews in the Data inspector; admin-only items */
+.insrow.reviewed{opacity:.72}.insrv{font-size:11px;border:1px solid #58C48A;color:#BFF0D3;border-radius:6px;padding:0 5px;margin-left:6px}.insrv.lapsed{border-color:#FFB454;color:#FFD9A0}
+.insshowrev{border-style:dashed!important}.insshowrev.on{border-style:solid!important}
+.insadm{margin-top:.5em;padding-top:.4em;border-top:1px dashed var(--line)}.insadmh{font-size:12px;color:#FFD166;margin-right:.3em}.insadmpend{font-size:12px;color:#FFD166}
+.admonly{display:none}body.admin .admonly{display:block}
+.dreviewed{border-left:3px solid #58C48A;padding-left:.6em;color:#BFF0D3}
+
+#w-toolbar .actions{flex-wrap:nowrap}
+@media (max-width:560px){#w-toolbar .actions{flex-wrap:wrap;justify-content:flex-end;row-gap:6px}#winMenu,.dropmenu{min-width:0}}
+.savesign[hidden]{display:none!important}

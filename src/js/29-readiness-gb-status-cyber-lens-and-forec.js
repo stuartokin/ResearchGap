@@ -47,7 +47,7 @@ function renderRadar(){
   $('radarBody').innerHTML = html + '<p class="note-s">Readiness stages and GB status are AI estimates, refined weekly by the data agents. Stages: research, pilot or demonstration, first commercial use, at scale.</p>';
 }
 $('radarSince').addEventListener('change', e => { view.radarSince = e.target.value; renderRadar(); });
-$('radarReviewed').onclick = () => { view.radarSeenRev = DB.meta.revision; try { store.set('sg.radarSeen', view.radarSeenRev); } catch (e) {} view.radarSince = 'review'; renderRadar(); toast('Marked as reviewed. Save your view to keep this.'); };
+$('radarReviewed').onclick = () => { view.radarSeenRev = DB.meta.revision; try { store.set('sg.radarSeen', view.radarSeenRev); } catch (e) {} view.radarSince = 'review'; renderRadar(); markDirty(); toast('Marked as reviewed. Save your file to keep this on any device.'); };
 $('radarBody').addEventListener('click', e => { const r = e.target.closest('[data-id]'); if (r) { const it = items[+r.dataset.id]; hidden.delete(it.id); openDetail(it); } });
 /* ---------- Cyber lens ---------- */
 function renderCyber(){

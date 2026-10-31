@@ -304,7 +304,7 @@ function resetToDefaults(){
 function returnFromTour(){
   resetToDefaults();
   if (tour.returnTo) { const s = tour.returnTo; tour.returnTo = null; applyView(s); }   // launched from inside the app: back exactly as it was
-  else applyPreset('explore');   // launched from the welcome screen on loading: the defaults, with Play running
+  else if (!applyStartView()) applyPreset('explore');   // launched from the welcome screen on loading: your start view if you have one, otherwise the defaults with Play running
 }
 function endTour(how){
   if (!tour.on) return;

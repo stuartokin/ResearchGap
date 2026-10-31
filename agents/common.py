@@ -291,13 +291,23 @@ def apply_curation(db):
     done = db['meta'].setdefault('curationApplied', []); details = []
     ms = {m['id']: m for m in db['milestones']}
     for d in decisions:
-        key = f"{d.get('id')}|{d.get('action')}|{d.get('date', '')}"
+        key = f"{d.get('id')}|{d.get('action')}|{d.get('date', '')}" + (f"|{d.get('other')}" if d.get('other') else '')
+        if key in done: continue
+        if d.get('action') == 'not-duplicate':   # a pair judged genuinely different: never flagged again
+            if d.get('id') in ms and d.get('other') in ms:
+                db['meta'].setdefault('notDuplicates', []).append({k: v for k, v in {'a': d['id'], 'b': d['other'], 'date': d.get('date') or TODAY, 'note': str(d.get('note', ''))[:300]}.items() if v})
+                details.append(f"{d['id']}: not a duplicate of {d['other']} (judged by the owner)"[:300]); done.append(key)
+            continue
         m = ms.get(d.get('id'))
-        if key in done or not m: continue
+        if not m: continue
         f = m.setdefault('flags', {})
         if d.get('action') == 'retire':
             f['hidden'] = True; f['retired'] = {k: v for k, v in {'reason': str(d.get('reason', ''))[:300], 'duplicateOf': d.get('duplicateOf'), 'date': TODAY}.items() if v}   # no empty values: the schema expects text
             details.append(f"retired: {m['id']} ({d.get('reason', 'retired by the owner')})"[:300])
+        elif d.get('action') in ('reviewed', 'clear-dispute'):   # recorded, and shown to everyone; the record itself is unchanged
+            f['reviewed'] = {k: v for k, v in {'date': d.get('date') or TODAY, 'note': str(d.get('note', ''))[:300], 'sig': d.get('sig'), 'by': 'owner', 'cleared': d.get('action') == 'clear-dispute' or None}.items() if v}
+            if d.get('action') == 'clear-dispute' and f.pop('disputed', None): details.append(f"{m['id']}: dispute cleared by the owner ({d.get('note', 'reviewed')})"[:300])
+            else: details.append(f"{m['id']}: reviewed by the owner ({d.get('note', 'no change')})"[:300])
         elif d.get('action') == 'restore':
             f.pop('hidden', None); f.pop('retired', None); details.append(f"restored: {m['id']} ({d.get('reason', 'restored by the owner')})"[:300])
         else: continue

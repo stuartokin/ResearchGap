@@ -3,7 +3,7 @@
  *  only partly confirmed, waiting for QA, rejected by the agents, possible duplicates), with search, filters,
  *  the reasons, and decisions you can download as data/curation.json or as your own list.
  * ================================================================== */
-const INS = {q:'', cats:new Set(['retired', 'disputed', 'unclear', 'pending', 'rejected', 'duplicates', 'hidden']), field:'', agent:'', since:'all', open:null, pending:null, rejected:null, curation:null, decisions:{}, mine:new Set(), limit:150};
+const INS = {q:'', cats:new Set(['retired', 'disputed', 'unclear', 'pending', 'rejected', 'duplicates', 'hidden']), field:'', agent:'', since:'all', open:null, pending:null, rejected:null, curation:null, decisions:{}, mine:new Set(), reviewed:{}, showReviewed:false, limit:150};
 const INS_CATS = {
   retired:['Retired', 'You (or a curation decision) retired it: hidden from the display, never deleted.', '#8FA6B8'],
   hidden:['Hidden', 'Hidden from the display by a flag in the data, without a retirement reason.', '#8FA6B8'],
@@ -32,7 +32,8 @@ function insRows(){
     date:c.proposed, agent:c.foundBy || 'research-agent', reason:c.attempts ? `Waiting for QA (tried ${c.attempts} time${c.attempts > 1 ? 's' : ''}).` : 'Waiting for QA.', rec:c}));
   (INS.rejected || []).forEach((c, k) => rows.push({cat:'rejected', id:'rej-' + k, title:c.title, field:c.field, status:c.status, ry:c.research_year, cy:c.change_year, refs:c.sources || [], date:c.date, agent:c.agent + (c.mode ? ' · ' + c.mode : ''),
     reason:c.reason, rec:c}));
-  possibleDuplicatePairs().forEach(([a, b], k) => rows.push({cat:'duplicates', id:'dup-' + a.id + '-' + b.id, title:`${a.t} / ${b.t}`, field:a.v, ry:a.r, cy:a.p, refs:[], date:'', agent:'', reason:`Compare “${a.t}” (${a.r}–${a.p ?? '?'}) with “${b.t}” (${b.r}–${b.p ?? '?'}).`, pair:[a, b]}));
+  const distinctPairs = new Set((DB.meta.notDuplicates || []).map(x => [x.a, x.b].sort().join('|')));
+  possibleDuplicatePairs().filter(([a, b]) => !distinctPairs.has([a.uid || a.id, b.uid || b.id].sort().join('|'))).forEach(([a, b], k) => rows.push({cat:'duplicates', id:'dup-' + a.id + '-' + b.id, title:`${a.t} / ${b.t}`, field:a.v, ry:a.r, cy:a.p, refs:[], date:'', agent:'', reason:`Compare “${a.t}” (${a.r}–${a.p ?? '?'}) with “${b.t}” (${b.r}–${b.p ?? '?'}).`, pair:[a, b]}));
   rows.forEach(r => { r.fieldName = fieldOf(r.field); });
   return rows;
 }
@@ -57,56 +58,65 @@ function renderInspector(){
   if (!layout.inspect || !layout.inspect.open) return;
   insLoad().then(() => {
     const all = INS.rows && INS.rowsFor === DB.meta.revision + ':' + items.length ? INS.rows : (INS.rowsFor = DB.meta.revision + ':' + items.length, INS.rows = insRows()), since = INS.since === 'all' ? '' : new Date(new Date(DATA_AS_OF + 'T12:00:00Z') - (+INS.since) * 864e5).toISOString().slice(0, 10), q = INS.q.toLowerCase();
-    const shown = all.filter(r => INS.cats.has(r.cat) && (!INS.field || r.field === INS.field) && (!INS.agent || String(r.agent || '').startsWith(INS.agent)) && (!since || !r.date || r.date >= since)
+    all.forEach(r => { r.rv = reviewState(r); });
+    const nReviewed = all.filter(r => r.rv && !r.rv.lapsed).length;
+    const shown = all.filter(r => (INS.showReviewed || !r.rv || r.rv.lapsed) && INS.cats.has(r.cat) && (!INS.field || r.field === INS.field) && (!INS.agent || String(r.agent || '').startsWith(INS.agent)) && (!since || !r.date || r.date >= since)
       && (!q || `${r.title} ${r.reason} ${r.fieldName} ${r.agent}`.toLowerCase().includes(q)));
     const count = c => all.filter(r => r.cat === c).length, agents = [...new Set(all.map(r => String(r.agent || '').split(' · ')[0]).filter(Boolean))].sort();
     if (!$('insQ')) $('insCtl').innerHTML = `<div class="cfilt"><input id="insQ" type="search" placeholder="Search titles, reasons, fields" value="${esc(INS.q)}">
       <select id="insField"><option value="">All fields</option>${FKEYS.filter(k => FIELDS[k] && !FIELDS[k].custom).map(k => `<option value="${k}"${INS.field === k ? ' selected' : ''}>${esc(FIELDS[k].name)}</option>`).join('')}</select>
       <select id="insAgent"><option value="">All agents</option>${agents.map(a => `<option${INS.agent === a ? ' selected' : ''}>${esc(a)}</option>`).join('')}</select>
       <select id="insSince">${[['all', 'Any date'], ['7', 'Last 7 days'], ['30', 'Last 30 days'], ['90', 'Last 90 days']].map(([v, n]) => `<option value="${v}"${INS.since === v ? ' selected' : ''}>${n}</option>`).join('')}</select></div>
-      <div class="inscats">${Object.entries(INS_CATS).map(([k, [n, , col]]) => `<button data-cat="${k}" class="${INS.cats.has(k) ? 'on' : ''}" style="--c:${col}">${n} <b>${count(k)}</b></button>`).join('')}</div>
+      <div class="inscats"><button data-showrev="1" class="insshowrev${INS.showReviewed ? ' on' : ''}" title="Reviewed items are hidden until something about them changes">Show reviewed <b>${nReviewed}</b></button>${Object.entries(INS_CATS).map(([k, [n, , col]]) => `<button data-cat="${k}" class="${INS.cats.has(k) ? 'on' : ''}" style="--c:${col}">${n} <b>${count(k)}</b></button>`).join('')}</div>
       ${location.protocol.indexOf('http') !== 0 ? '<p class="note-s">Offline copy: the queue and the rejected candidates are only available online.</p>' : ''}`;
+    const sr = $('insCtl').querySelector('[data-showrev]'); if (sr) { sr.classList.toggle('on', INS.showReviewed); sr.querySelector('b').textContent = nReviewed; }
     $('insCtl').querySelectorAll('[data-cat]').forEach(btn => { const k = btn.dataset.cat; btn.classList.toggle('on', INS.cats.has(k)); btn.querySelector('b').textContent = count(k); });
     $('insList').innerHTML = shown.length ? shown.slice(0, INS.limit).map(r => {
       const [cn, why, col] = INS_CATS[r.cat], open = INS.open === r.id, dec = INS.decisions[r.id];
-      return `<div class="insrow${open ? ' open' : ''}" data-row="${esc(r.id)}"><div class="inshead"><span class="inscat" style="--c:${col}">${cn}</span><b>${esc(r.title)}</b><em>${esc(r.fieldName)}${r.ry ? ` · ${r.ry}–${r.cy ?? '?'}` : ''}${r.date ? ' · ' + fmtDate(r.date, 'short') : ''}</em>${INS.mine.has(r.id) ? '<i class="insmine">★</i>' : ''}${dec ? `<i class="insdec">${dec}</i>` : ''}</div>
+      return `<div class="insrow${open ? ' open' : ''}${r.rv && !r.rv.lapsed ? ' reviewed' : ''}" data-row="${esc(r.id)}"><div class="inshead"><span class="inscat" style="--c:${col}">${cn}</span>${r.rv ? (r.rv.lapsed ? '<span class="insrv lapsed" title="Something changed after it was reviewed, so it needs looking at again">Review lapsed: changed since</span>' : `<span class="insrv" title="${esc(r.rv.note || '')}">✓ Reviewed${r.rv.by === 'owner' ? ' by the owner' : ''}</span>`) : ''}<b>${esc(r.title)}</b><em>${esc(r.fieldName)}${r.ry ? ` · ${r.ry}–${r.cy ?? '?'}` : ''}${r.date ? ' · ' + fmtDate(r.date, 'short') : ''}</em>${INS.mine.has(r.id) ? '<i class="insmine">★</i>' : ''}${dec ? `<i class="insdec">${dec}</i>` : ''}</div>
         <div class="insreason">${esc(r.reason || '')}</div>
         ${open ? `<div class="insbody"><p class="note-s">${why}</p><dl class="csdl">${r.agent ? `<dt>Found by</dt><dd>${esc(r.agent)}</dd>` : ''}${r.status ? `<dt>Status</dt><dd>${esc(r.status)}</dd>` : ''}
           ${r.rec && (r.rec.research_what || (r.rec.research || {}).what) ? `<dt>Research</dt><dd>${esc(r.rec.research_what || r.rec.research.what)}${r.rec.research_origin ? ' <span class="note-s">Origin: ' + esc(r.rec.research_origin) + '</span>' : ''}</dd>` : ''}
           ${r.rec && (r.rec.change_what || (r.rec.change || {}).what) ? `<dt>First use</dt><dd>${esc(r.rec.change_what || r.rec.change.what)}</dd>` : ''}
           ${r.refs.length ? `<dt>Sources</dt><dd>${r.refs.map(u => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(u.replace(/^https?:\/\//, '').slice(0, 60))}</a>`).join('<br>')}</dd>` : ''}</dl>
-          <div class="insact">${r.pair ? r.pair.map(it => `<button class="mini" data-show="${it.id}">Open “${esc(it.t.slice(0, 30))}”</button> <button class="mini" data-retire="${it.id}" data-dupof="${(r.pair.find(x => x !== it) || {}).id}">Retire this one</button>`).join(' ')
-            : `${r.cat === 'retired' || r.cat === 'hidden' ? `<button class="mini" data-restore="${esc(r.id)}">Restore</button>` : ''}${['disputed', 'unclear'].includes(r.cat) ? `<button class="mini" data-retire="${esc(r.id)}">Retire</button> <button class="mini" data-keep="${esc(r.id)}">Keep</button>` : ''}
-              ${DB.milestones.some(m => m.id === r.id) ? `<button class="mini" data-show="${esc(r.id)}">Open its story</button>` : ''}`}
-            <button class="mini" data-mine="${esc(r.id)}">${INS.mine.has(r.id) ? '★ In my list' : '☆ Add to my list'}</button></div></div>` : ''}</div>`; }).join('') + (shown.length > INS.limit ? `<button class="mini" id="insMore">Show more (${shown.length - INS.limit} hidden)</button>` : '')
+          <div class="insact">${insActions(r)}</div>` : ''}</div>`; }).join('') + (shown.length > INS.limit ? `<button class="mini" id="insMore">Show more (${shown.length - INS.limit} hidden)</button>` : '')
       : '<p class="empty">Nothing matches these filters.</p>';
     $('insFoot').innerHTML = `<span class="note-s">${shown.length} of ${all.length} items. Select a row for the details.</span> <button class="mini" id="insMineDl"${INS.mine.size ? '' : ' disabled'}>Download my list (${INS.mine.size})</button>
-      <button class="mini" id="insCurDl"${Object.keys(INS.decisions).length ? '' : ' disabled'}>Download curation.json (${Object.keys(INS.decisions).length} decision${Object.keys(INS.decisions).length === 1 ? '' : 's'})</button>`;
+      ${view.admin ? `<button class="mini" id="insCurDl"${Object.keys(INS.decisions).length ? '' : ' disabled'}>Download system file for GitHub (${Object.keys(INS.decisions).length} decision${Object.keys(INS.decisions).length === 1 ? '' : 's'})</button>` : ''}`;
   });
 }
 $('insBody').addEventListener('input', e => { if (e.target.id === 'insQ') { INS.q = e.target.value; clearTimeout(INS.t); INS.t = setTimeout(renderInspector, 200); } });
 $('insBody').addEventListener('change', e => { if (e.target.id === 'insField') INS.field = e.target.value; if (e.target.id === 'insAgent') INS.agent = e.target.value; if (e.target.id === 'insSince') INS.since = e.target.value; renderInspector(); });
 $('insBody').addEventListener('click', e => {
   const t = e.target, cat = t.closest('[data-cat]');
+  if (t.closest('[data-showrev]')) { INS.showReviewed = !INS.showReviewed; renderInspector(); return; }
+  if (t.dataset.review) { const r = insRows().find(x => x.id === t.dataset.review); if (!r) return; const note = (prompt('Mark as reviewed. A note for yourself (optional):', '') ?? null); if (note === null) return;
+    INS.reviewed[r.id] = {at:new Date().toISOString(), note:note.trim().slice(0, 300), sig:rowSig(r)}; markDirty(); renderInspector(); toast('Marked as reviewed. It stays hidden until something about it changes.'); return; }
+  if (t.dataset.unreview) { delete INS.reviewed[t.dataset.unreview]; markDirty(); renderInspector(); return; }
+  if (t.dataset.adm) { const r = insRows().find(x => x.id === t.dataset.id); if (!r) return; const act = t.dataset.adm; const note = (prompt({reviewed:'Reviewed for everyone. A note that will be published (optional):', 'clear-dispute':'Clear the dispute for everyone. Why are you satisfied with it?', 'not-duplicate':'Not a duplicate. How do they differ (optional)?'}[act] || 'A note (optional):', '') ?? null); if (note === null) return;
+    INS.decisions[r.id] = act; INS.extra = INS.extra || {}; INS.extra[r.id] = Object.assign({note:note.trim().slice(0, 300), sig:rowSig(r), reason:note.trim().slice(0, 300) || undefined}, r.pair ? {a:r.pair[0].uid, b:r.pair[1].uid} : {}); markDirty(); renderInspector(); toast('Added to the system file. Download it for GitHub when you are ready.'); return; }
   if (cat) { const k = cat.dataset.cat; INS.cats.has(k) ? INS.cats.delete(k) : INS.cats.add(k); renderInspector(); return; }
   if (t.id === 'insMore') { INS.limit += 150; renderInspector(); return; }
-  const decide = (id, action, extra) => { INS.decisions[id] = action; INS.extra = INS.extra || {}; INS.extra[id] = extra || {}; renderInspector(); toast(`Marked to ${action}. Download curation.json to apply it.`); };
-  if (t.dataset.retire) { decide(t.dataset.retire, 'retire', t.dataset.dupof ? {duplicateOf:t.dataset.dupof, reason:'Duplicate of ' + ((items.find(x => x.id == t.dataset.dupof) || {}).t || t.dataset.dupof)} : {}); return; }
+  const decide = (id, action, extra) => { INS.decisions[id] = action; INS.extra = INS.extra || {}; INS.extra[id] = extra || {}; markDirty(); renderInspector(); toast(`Marked to ${action}. Download curation.json to apply it.`); };
+  if (t.dataset.retire) { decide(t.dataset.retire, 'retire', t.dataset.dupof ? {duplicateOf:t.dataset.dupof, reason:'Duplicate of ' + ((items.find(x => x.uid === t.dataset.dupof) || {}).t || t.dataset.dupof)} : {}); return; }
   if (t.dataset.restore) { decide(t.dataset.restore, 'restore'); return; }
   if (t.dataset.keep) { decide(t.dataset.keep, 'keep'); return; }
-  if (t.dataset.mine) { INS.mine.has(t.dataset.mine) ? INS.mine.delete(t.dataset.mine) : INS.mine.add(t.dataset.mine); renderInspector(); return; }
+  if (t.dataset.mine) { INS.mine.has(t.dataset.mine) ? INS.mine.delete(t.dataset.mine) : INS.mine.add(t.dataset.mine); markDirty(); renderInspector(); return; }
   if (t.dataset.show) { const it = items.find(x => x.id == t.dataset.show); if (it) { hidden.delete(it.id); openDetail(it); setOpen('details', true); } return; }
   if (t.id === 'insMineDl') { const all = insRows().filter(r => INS.mine.has(r.id)).map(({pair, rec, ...r}) => Object.assign(r, {record:rec || null}));
     saveBlob(new Blob([JSON.stringify({saved:new Date().toISOString(), dataRevision:DB.meta.revision, items:all}, null, 1)], {type:'application/json'}), `my-research-list-${stamp()}.json`); return; }
   if (t.id === 'insCurDl') { const cur = JSON.parse(JSON.stringify(INS.curation || {decisions:[]})); cur.decisions = cur.decisions || [];
-    Object.entries(INS.decisions).forEach(([id, action]) => { if (action === 'keep') return; cur.decisions.push(Object.assign({id, action, reason:(INS.extra[id] || {}).reason || (action === 'retire' ? 'Retired after review in the Data inspector.' : 'Restored after review in the Data inspector.'), date:new Date().toISOString().slice(0, 10)}, (INS.extra[id] || {}).duplicateOf ? {duplicateOf:INS.extra[id].duplicateOf} : {})); });
+    Object.entries(INS.decisions).forEach(([id, action]) => { if (action === 'keep') return; const x = INS.extra[id] || {};
+      if (action === 'not-duplicate') { cur.decisions.push({id:x.a, other:x.b, action, note:x.note || '', date:new Date().toISOString().slice(0, 10)}); return; }
+      if (action === 'reviewed' || action === 'clear-dispute') { cur.decisions.push({id, action, note:x.note || '', sig:x.sig, date:new Date().toISOString().slice(0, 10)}); return; }
+      cur.decisions.push(Object.assign({id, action, reason:(INS.extra[id] || {}).reason || (action === 'retire' ? 'Retired after review in the Data inspector.' : 'Restored after review in the Data inspector.'), date:new Date().toISOString().slice(0, 10)}, (INS.extra[id] || {}).duplicateOf ? {duplicateOf:INS.extra[id].duplicateOf} : {})); });
     saveBlob(new Blob([JSON.stringify(cur, null, 1)], {type:'application/json'}), 'curation.json'); toast('Upload curation.json to the data folder in GitHub; the next weekly run applies it.'); return; }
   const row = t.closest('[data-row]'); if (row && !t.closest('a, button')) { INS.open = INS.open === row.dataset.row ? null : row.dataset.row; renderInspector(); }
 });
 /* ==================================================================
  *  HOW IT WORKS: documentation of the app, its files, workflows and agents. Maintained with each material change.
  * ================================================================== */
-const DOCS_UPDATED = 'Version 11.8, 1 November 2026';   // update with every material change
+const DOCS_UPDATED = 'Version 12.0, 1 November 2026';   // update with every material change
 const DOCS = [
  ['overview', 'Overview', `<p>The Shrinking Gap measures how long research takes to become real-world change, and whether AI is shortening the journey. It is run by AI agents with no human in the loop, using public sources only.</p>
   <p><b>The flow:</b> AI agents (GitHub Actions, weekly) research, check and correct <code>data/data.json</code> → safety gates → <code>tools/build.py</code> assembles <code>index.html</code> from <code>src/</code> with the data embedded → GitHub Pages publishes it. Your uploads to <code>src/</code> trigger the same build.</p>`],
@@ -114,14 +124,14 @@ const DOCS = [
   <tr><td><code>index.html</code></td><td>The built app (generated; never edit by hand).</td></tr>
   <tr><td><code>src/index.html</code></td><td>The page template: markup with include markers that the build replaces with the CSS and JavaScript.</td></tr>
   <tr><td><code>src/styles/app.css</code></td><td>All styles.</td></tr>
-  <tr><td><code>src/js/NN-*.js</code></td><td>The app's code in numbered sections, assembled in order: data loading (01), state (02), the 3D scene, window manager (07), arrangements (08), Windows menu (09), details (12), reports (21), data changes (22), data quality (27), help (28), cyber lens and readiness (29), tours (31), kiosk and image export (31b), data export (31c), charts (31d), insights and weekly analyses (31e), this inspector and documentation (31f), saved views (32), start-up (36).</td></tr>
+  <tr><td><code>src/js/NN-*.js</code></td><td>The app's code in numbered sections, assembled in order: data loading (01), state (02), the 3D scene, panel manager (07), ready-made views (08), the Views menu (09), details (12), reports (21), data changes (22), data quality (27), help (28), cyber lens and readiness (29), tours (31), kiosk and image export (31b), data export (31c), charts (31d), insights and weekly analyses (31e), this inspector and documentation (31f), the toolbar, Present and Share menus, chips and pins (31g), My file and My views (31h), saved views (32), start-up (36).</td></tr>
   <tr><td><code>src/vendor/</code></td><td>Fonts and libraries (three.js, PptxGenJS loaded on demand, QR code).</td></tr>
   <tr><td><code>data/data.json</code></td><td>The dataset: milestones, fortunes, guidance, change log, funnel and settings history.</td></tr>
   <tr><td><code>data/schema.json</code></td><td>The rules the data must follow (checked by Gate 1).</td></tr>
   <tr><td><code>data/tours.json</code></td><td>Narration templates for the walk-throughs and chart insights (refreshed weekly by the tour agent).</td></tr>
   <tr><td><code>data/pending.json</code></td><td>Candidates waiting for QA.</td></tr>
   <tr><td><code>data/rejected.json</code></td><td>The last 800 rejected candidates and why (for this inspector).</td></tr>
-  <tr><td><code>data/curation.json</code></td><td>Your retire and restore decisions, applied by the QA agent.</td></tr>
+  <tr><td><code>data/curation.json</code></td><td>The system file: your decisions for everyone (retire, restore, reviewed, clear a dispute, not a duplicate), applied by the QA agent.</td></tr>
   <tr><td><code>agents/</code></td><td>The agents (Python) and <code>config.json</code>, which holds every limit and setting.</td></tr>
   <tr><td><code>tools/</code></td><td>build, validate (Gate 1), change_guard (Gate 2), smoke_test (Gate 3), make_voice, digest, run_summary.</td></tr>
   <tr><td><code>.github/workflows/</code></td><td>data-agents.yml (weekly), deep-search.yml (manual and six-monthly), build.yml (on upload), tests.yml (by hand only).</td></tr>
@@ -140,13 +150,18 @@ const DOCS = [
   <tr><td>AI levers</td><td>Researches what holds each projected technology up and which AI levers apply.</td><td>Fixed lists of levers and phases; quotes verified on the page.</td></tr>
   <tr><td>Story</td><td>Research → first use → impact, most recent first.</td><td>Short fields; quotes verified on the page.</td></tr>
   <tr><td>Deep search</td><td>Worldwide, multi-language sweep of the last 10 and next 10 years; aims for 200+ and 50+ for clean energy.</td><td>The same checks; then QA, the second opinion and the gates.</td></tr></table>`],
- ['rules', 'Where each rule lives', `<p class="note-s">When you want an agent to behave differently, this is where the rule lives. Settings in <code>config.json</code> can be changed directly; changes to code are best made with Claude, then checked with the test suite.</p><table class="doctab"><tr><th>Rule</th><th>Where it lives</th></tr><tr><td>Two independent sources, facts found on both pages</td><td><code>agents/config.json</code> → <code>research.minSources</code>; the page check is <code>check()</code> in <code>agents/research_agent.py</code></td></tr><tr><td>Years: from 1925, in order, approximate years accepted</td><td><code>check()</code> and <code>read_year()</code> in <code>agents/research_agent.py</code>; the start year is <code>meta.startYear</code> in <code>data/data.json</code></td></tr><tr><td>Duplicates</td><td><code>near_duplicate()</code> in <code>agents/research_agent.py</code> (word overlap with two or more key words, and one title inside another with years within five); <code>is_duplicate()</code> in <code>agents/common.py</code></td></tr><tr><td>How many additions a week, and from where</td><td><code>publish.maxAdditionsPerRun</code>, <code>claudeAdditionsPerRun</code>, <code>reservedForVision</code>; <code>research.catchup.perRun</code>, <code>research.backfill.perRun</code>; <code>gemini.researchPerRun</code> (all in <code>config.json</code>)</td></tr><tr><td>Search windows</td><td><code>research.lookbackDays</code> (news), <code>research.catchup.monthsBack</code> (catch-up); gap-filling cells in <code>thin_cells()</code></td></tr><tr><td>QA: what it confirms and how many corrections</td><td><code>agents/qa_agent.py</code>; <code>publish.maxCorrectionsPerRun</code> in <code>config.json</code></td></tr><tr><td>The second opinion: what counts as supported</td><td>The prompt and <code>RULES</code> version in <code>agents/gemini_check.py</code> (raising <code>RULES</code> re-checks earlier verdicts once)</td></tr><tr><td>Narration: placeholders, word limits, banned wording</td><td><code>agents/tour_rules.py</code> (the tour agent cannot change these)</td></tr><tr><td>Gates</td><td><code>tools/validate.py</code> and <code>data/schema.json</code> (Gate 1), <code>tools/change_guard.py</code> (Gate 2), <code>tools/smoke_test.py</code> (Gate 3)</td></tr><tr><td>Deep search: targets and cost bounds</td><td><code>deepSearch</code> in <code>config.json</code> (<code>targetTotal</code>, <code>targetClean</code>, <code>maxCalls</code>, <code>searchesPerCall</code>, <code>maxAdditions</code>); the schedule in <code>.github/workflows/deep-search.yml</code></td></tr><tr><td>Switching the agents off</td><td>The repository variable <code>AGENTS_ENABLED</code>: scheduled runs only happen when it is <code>true</code></td></tr></table>`],
+ ['rules', 'Where each rule lives', `<p class="note-s">When you want an agent to behave differently, this is where the rule lives. Settings in <code>config.json</code> can be changed directly; changes to code are best made with Claude, then checked with the test suite.</p><table class="doctab"><tr><th>Rule</th><th>Where it lives</th></tr><tr><td>Two independent sources, facts found on both pages</td><td><code>agents/config.json</code> → <code>research.minSources</code>; the page check is <code>check()</code> in <code>agents/research_agent.py</code></td></tr><tr><td>Years: from 1925, in order, approximate years accepted</td><td><code>check()</code> and <code>read_year()</code> in <code>agents/research_agent.py</code>; the start year is <code>meta.startYear</code> in <code>data/data.json</code></td></tr><tr><td>Duplicates</td><td><code>near_duplicate()</code> in <code>agents/research_agent.py</code> (word overlap with two or more key words, and one title inside another with years within five); <code>is_duplicate()</code> in <code>agents/common.py</code></td></tr><tr><td>How many additions a week, and from where</td><td><code>publish.maxAdditionsPerRun</code>, <code>claudeAdditionsPerRun</code>, <code>reservedForVision</code>; <code>research.catchup.perRun</code>, <code>research.backfill.perRun</code>; <code>gemini.researchPerRun</code> (all in <code>config.json</code>)</td></tr><tr><td>Search windows</td><td><code>research.lookbackDays</code> (news), <code>research.catchup.monthsBack</code> (catch-up); gap-filling cells in <code>thin_cells()</code></td></tr><tr><td>QA: what it confirms and how many corrections</td><td><code>agents/qa_agent.py</code>; <code>publish.maxCorrectionsPerRun</code> in <code>config.json</code></td></tr><tr><td>The second opinion: what counts as supported</td><td>The prompt and <code>RULES</code> version in <code>agents/gemini_check.py</code> (raising <code>RULES</code> re-checks earlier verdicts once)</td></tr><tr><td>Narration: placeholders, word limits, banned wording</td><td><code>agents/tour_rules.py</code> (the tour agent cannot change these)</td></tr><tr><td>Gates</td><td><code>tools/validate.py</code> and <code>data/schema.json</code> (Gate 1), <code>tools/change_guard.py</code> (Gate 2), <code>tools/smoke_test.py</code> (Gate 3)</td></tr><tr><td>Deep search: targets and cost bounds</td><td><code>deepSearch</code> in <code>config.json</code> (<code>targetTotal</code>, <code>targetClean</code>, <code>maxCalls</code>, <code>searchesPerCall</code>, <code>maxAdditions</code>); the schedule in <code>.github/workflows/deep-search.yml</code></td></tr><tr><td>The owner’s decisions (system file)</td><td><code>apply_curation()</code> in <code>agents/common.py</code>; the decisions themselves in <code>data/curation.json</code></td></tr><tr><td>Switching the agents off</td><td>The repository variable <code>AGENTS_ENABLED</code>: scheduled runs only happen when it is <code>true</code></td></tr></table>`],
  ['gates', 'Gates and safety', `<p><b>Gate 1</b> checks the schema, the tour rules, that mitigation references link to official publishers, and that no text contains markup. <b>Gate 2</b> checks that nothing was deleted and additions are within the limit. <b>Gate 3</b> loads the built app in a browser and checks it renders. Agents treat everything they read as data, never as instructions; keys stay in GitHub secrets.</p>`],
  ['narration', 'Narration, tours and voice', `<p>Narration lives in <code>data/tours.json</code> as templates. The app fills every figure from live data and chooses each conclusion by rules, so the words can change weekly but the numbers cannot be invented. Recordings are keyed by a fingerprint of the exact sentence and voice; changed sentences are re-recorded by <code>tools/make_voice.py</code>, and the app falls back to the browser voice only if a recording never starts. Pronunciations (DESNZ, CAF, NERC, CIP) are in <code>tours.json</code>.</p>`],
  ['data', 'The data model', `<p>Each milestone has a title, field and sub-field, origin, status (landed or outlook), research (year, what), change (first use: year, what), sources, verification (source-cited, AI-compiled or AI estimate), and optional readiness, GB status, security note, forecast record, AI levers and story. <code>flags</code> mark it disputed, hidden or retired; <code>provenance</code> records who added it, when, whether dates are approximate, and any second opinion.</p>`],
- ['curation', 'Curation and the Data inspector', `<p>The Data inspector lists what is not on the display. Mark items to retire, restore or keep, then download <code>curation.json</code> and upload it to <code>data/</code>; the QA agent applies each decision once on the next run (retiring hides a record, never deletes it). "Add to my list" builds your own research file.</p>`],
+ ['curation', 'Views, My file, reviews and the system file', `<p><b>The toolbar:</b> Tours, Play the century, Views, Present, Share and Help. Chips appear while music, rotation, full screen or the ticker is on; 📌 in Present pins any item.</p>
+  <p><b>My file</b> (Views → Save my file / Open my file) holds your views, settings, review marks, notes, My list, pins and kiosk options. The app keeps nothing in the browser unless Autosave is on (Display): then it keeps a connected file updated (Chrome or Edge on a computer) or a copy in this browser, written at once when the page closes. The sign beside Views shows anything unsaved.</p>
+  <p><b>My views</b> are named arrangements with their own panels, positions, chart tab, filters and display settings. ☆ opens one at start; ⤓ exports one to share; old saved view files join My views when opened.</p>
+  <p><b>Reviews:</b> “Mark as reviewed” in the Data inspector hides an item from your list, saved in My file. Each review keeps a fingerprint of the record (title, years, status, dispute, second opinion, QA note); if the agents change any of these, the review lapses and the item returns.</p>
+  <p><b>Admin tools</b> (Display): decisions for everyone (reviewed, clear the dispute, not a duplicate, retire, restore) build the system file, <code>curation.json</code>. Upload it to <code>data/</code>; the QA agent applies each decision once, records it in Data changes, and the app shows it to everyone. Published reviews lapse the same way; “not a duplicate” pairs are never flagged again.</p>`],
  ['settings', 'Current settings (live)', `<div id="docSettings"><p class="note-s">Loading the agents' settings from config.json…</p></div>`],
- ['history', 'Recent changes', `<ul class="doclist"><li><b>11.8</b> Data inspector, this documentation, deep search agent, QA in batches, curation decisions, rejected candidates kept, window layering fix, test rig, schema fix for the “contradicted” verdict, tighter duplicate check.</li>
+ ['history', 'Recent changes', `<ul class="doclist"><li><b>12.0</b> The toolbar becomes Tours, Play the century, Views, Present, Share and Help, with status chips and pins; the Windows menu becomes Views and windows become panels; My file, with a save sign and autosave; My views, each with its own filters; reviews that lapse when a record changes; admin tools, and the system file’s new decisions (reviewed, clear a dispute, not a duplicate).</li>
+  <li><b>11.8</b> Data inspector, this documentation, deep search agent, QA in batches, curation decisions, rejected candidates kept, window layering fix, test rig, schema fix for the “contradicted” verdict, tighter duplicate check.</li>
   <li><b>11.7</b> Recalibrated second opinion; duplicates across fields; per-field news logging.</li><li><b>11.6</b> Data changes grouped per item; possible duplicates.</li>
   <li><b>11.4–11.5</b> Gap-filling, three-year catch-up, research funnel, approximate years, PowerPoint on demand, version label.</li><li><b>11.0–11.3</b> Charts in tours, weekly analyses, stories, AI levers, two-model checks.</li></ul>`]];
 function renderDocs(){
@@ -174,4 +189,44 @@ function clearOfPlayer(id){
   r.y = Math.max(top, Math.round(limit - r.h));                         // move it up first
   if (r.y + r.h > limit) r.h = Math.max(300, Math.round(limit - r.y));   // then shorten it if it still reaches the bar
   placeWin(id); raise(id);
+}
+
+/* ---------- reviews: personal (in My file) and published (applied by the agents from the system file) ----------
+   Each review remembers a fingerprint of what mattered when it was made; if that changes, the review lapses. */
+function hashStr(t){ let h = 5381; for (let i = 0; i < t.length; i++) h = ((h << 5) + h + t.charCodeAt(i)) | 0; return (h >>> 0).toString(36); }
+function rowSig(r){
+  if (r.cat === 'duplicates' && r.pair) return hashStr(JSON.stringify(r.pair.map(it => [it.t, it.r, it.p])));
+  if (r.cat === 'rejected') return hashStr(JSON.stringify([r.reason, r.date, r.title]));
+  if (r.cat === 'pending') return hashStr(JSON.stringify([r.title, r.reason]));
+  const m = r.rec || {}, f = m.flags || {}, p = m.provenance || {};
+  return hashStr(JSON.stringify([m.title, (m.research || {}).year, (m.change || {}).year, m.status, !!f.disputed, !!f.hidden, (p.secondOpinion || {}).verdict || '', p.qaNote || '']));
+}
+function reviewState(r){
+  const sig = rowSig(r), mine = INS.reviewed[r.id], pub = r.cat !== 'duplicates' && r.rec && r.rec.flags && r.rec.flags.reviewed;
+  if (pub && pub.sig === sig) return {by:'owner', at:pub.date, note:pub.note || ''};
+  if (mine) return mine.sig === sig ? {by:'you', at:mine.at, note:mine.note} : {lapsed:true, by:'you', at:mine.at};
+  if (pub) return {lapsed:true, by:'owner', at:pub.date};
+  return null;
+}
+function insActions(r){
+  const isRec = DB.milestones.some(m => m.id === r.id), rv = r.rv, mine = INS.reviewed[r.id], adm = view.admin, b = (attrs, label, tip) => `<button class="mini" ${attrs}${tip ? ` title="${tip}"` : ''}>${label}</button>`;
+  let h = '';
+  if (r.pair) h += r.pair.map(it => b(`data-show="${it.id}"`, `Open “${esc(it.t.slice(0, 30))}”`)).join(' ') + ' ';
+  else if (isRec) h += b(`data-show="${esc(r.id)}"`, 'Open its story') + ' ';
+  h += mine ? b(`data-unreview="${esc(r.id)}"`, mine.sig === rowSig(r) ? 'Undo my review' : 'Clear my lapsed review') : b(`data-review="${esc(r.id)}"`, '✓ Mark as reviewed', 'Hidden from your list until something about it changes; saved in your file');
+  h += ' ' + b(`data-mine="${esc(r.id)}"`, INS.mine.has(r.id) ? '★ In my list' : '☆ Add to my list');
+  if (adm) {
+    const pend = INS.decisions[r.id] ? ` <span class="insadmpend">In the system file: ${esc(INS.decisions[r.id])}</span>` : '';
+    h += '<div class="insadm"><span class="insadmh">Admin, for everyone:</span> ';
+    if (r.pair) h += b(`data-adm="not-duplicate" data-id="${esc(r.id)}"`, 'Not a duplicate') + ' ' + r.pair.map(it => b(`data-retire="${it.uid}" data-dupof="${(r.pair.find(x => x !== it) || {}).uid}"`, `Retire “${esc(it.t.slice(0, 24))}”`)).join(' ');
+    else if (isRec) {
+      h += b(`data-adm="reviewed" data-id="${esc(r.id)}"`, 'Reviewed', 'Published to everyone; the record is not changed');
+      if (r.cat === 'disputed') h += ' ' + b(`data-adm="clear-dispute" data-id="${esc(r.id)}"`, 'Clear the dispute', 'You have checked it and accept the record as it stands');
+      h += ' ' + (r.cat === 'retired' || r.cat === 'hidden' ? b(`data-restore="${esc(r.id)}"`, 'Restore') : b(`data-retire="${esc(r.id)}"`, 'Retire'));
+    } else h += '<span class="note-s">Not yet in the data, so there is nothing to decide for everyone.</span>';
+    h += pend + '</div>';
+  }
+  if (rv && !rv.lapsed) h += `<p class="note-s">Reviewed${rv.by === 'owner' ? ' by the owner' : ' by you'}${rv.at ? ' on ' + fmtDate(String(rv.at).slice(0, 10)) : ''}${rv.note ? ': ' + esc(rv.note) : '.'}</p>`;
+  if (rv && rv.lapsed) h += `<p class="note-s">The ${rv.by === 'owner' ? 'owner’s' : ''} review${rv.at ? ' of ' + fmtDate(String(rv.at).slice(0, 10)) : ''} lapsed: the record has changed since.</p>`;
+  return h;
 }

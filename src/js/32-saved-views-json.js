@@ -96,7 +96,7 @@ function applyView(o){
 $('viewFile').addEventListener('change', e => {
   const f = e.target.files && e.target.files[0]; if (!f) return;
   const rd = new FileReader();
-  rd.onload = () => { try { applyView(JSON.parse(rd.result)); } catch (err) { alert('Could not read that view file.'); } e.target.value = ''; };
+  rd.onload = () => { let o = null; try { o = JSON.parse(rd.result); } catch (err) { alert('Could not read that file.'); } if (o) openMyFileObject(o); e.target.value = ''; };
   rd.readAsText(f);
 });
 

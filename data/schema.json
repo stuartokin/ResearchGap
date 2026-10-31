@@ -295,6 +295,26 @@
                     "type": "string"
                   }
                 }
+              },
+              "reviewed": {
+                "type": "object",
+                "properties": {
+                  "date": {
+                    "type": "string"
+                  },
+                  "note": {
+                    "type": "string"
+                  },
+                  "sig": {
+                    "type": "string"
+                  },
+                  "by": {
+                    "type": "string"
+                  },
+                  "cleared": {
+                    "type": "boolean"
+                  }
+                }
               }
             },
             "additionalProperties": false

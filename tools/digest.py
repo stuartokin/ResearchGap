@@ -26,7 +26,7 @@ if DESNZ:
                 mid = rest.split(' ')[0] if head == 'added' else head
                 if mid in ms and ms[mid].get('desnz') == aid: lines.append(f"- {ch['date']}: {tidy(d)}")
         print('\n'.join(lines) if lines else '- Nothing new this month.'); print()
-    print('Open the app and choose Windows, Arrange for, AI for clean energy, to explore.'); sys.exit(0)
+    print('Open the app and choose Views, then the ready-made view AI for clean energy, to explore.'); sys.exit(0)
 print(f"**{e['summary']}**\n")
 print(f"Data revision {db['meta']['revision']}, {e['date']} {e.get('time', '')} UTC{', monthly deep audit' if e.get('deepAudit') else ''}.\n")
 s = e.get('stats') or {}

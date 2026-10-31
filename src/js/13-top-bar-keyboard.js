@@ -5,7 +5,7 @@ function setAutoRotate(on){ state.autoRotate = on; controls.autoRotate = on && v
 $('rotBtn').onclick = () => setAutoRotate(!state.autoRotate);
 $('resetBtn').onclick = resetAll;
 function resetAll(){
-  if (!confirm('Reset everything to the original defaults: windows, positions, text sizes, colours, filters, music and settings? Saved view files are not affected.')) return;
+  if (!confirm('Reset everything to the original defaults: panels, positions, text sizes, colours, filters, music and settings? Saved view files are not affected.')) return;
   try { Object.keys(localStorage).filter(k => k.indexOf('sg.') === 0).forEach(k => localStorage.removeItem(k)); } catch (e) {}
   location.href = location.pathname;
 }

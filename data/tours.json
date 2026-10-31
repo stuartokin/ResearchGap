@@ -1,5 +1,5 @@
 {
- "version": 24,
+ "version": 25,
  "updated": "2026-10-31",
  "updatedBy": "tour-agent",
  "note": "Narration templates for the guided tours. Figures come from {placeholders} filled from the live data; conclusions are chosen by rules in the app ({\"by\": fact, \"cases\": {...}}). The weekly tour agent may refine wording and choose examples, within the rules checked by tools/validate.py.",
@@ -337,7 +337,7 @@
      "say": "Every record is labelled to show how it was produced and checked: source-cited, AI-compiled or AI estimate. You can filter records by these labels."
     },
     "arrange": {
-     "say": "Choose an arrangement to lay out the windows for exploring, presenting, analysing or an AI for clean energy briefing. You can save any view or share it as a link."
+     "say": "Choose a ready-made view to lay out the panels for exploring, presenting, analysing or an AI for clean energy briefing, or save your own as My views. Your file keeps them, and any view can be shared as a link."
     },
     "answer": {
      "say": "Help and the 'i' information buttons explain each feature. This model is maintained by AI, so it may contain errors. Check anything important against the original sources."

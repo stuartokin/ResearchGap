@@ -1,30 +1,31 @@
 /* ==================================================================
- *  WINDOWS MENU: arrangements, then windows in collapsible groups
+ *  VIEWS MENU (was the Windows menu): ready-made views, then panels in collapsible groups, then your file
  * ================================================================== */
 const WIN_GROUPS = [
   ['present', 'Presenting', ['toolbar', 'footer', 'pagetitle', 'title', 'ticker', 'player', 'music', 'vid1', 'vid2']],
   ['insight', 'Insights', ['charts', 'findings', 'summary', 'gapchart', 'outlook', 'fortunes', 'vision', 'radar', 'cyber']],
   ['explore', 'Explore', ['filters', 'display', 'milestones', 'details', 'table', 'key', 'context', 'landing', 'sources']],
   ['data', 'Data and agents', ['inspect', 'changes', 'quality', 'docs', 'audience']],
-  ['share', 'Share and export', ['report']]
+  ['share', 'Reports', ['report']]
 ];
-const PRESETS = [['explore', 'Exploring', 'The default: filters and key findings'], ['play', 'Play the century', 'Timeline windows around the model'], ['wait', 'Waiting (kiosk)', 'Both videos, joke ticker, plays on a loop'], ['charts', 'Charts', 'Eight interactive charts, with each milestone’s story beside them'], ['analysis', 'Analysis', 'Findings, summary and charts side by side'], ['desnz', 'AI for clean energy', 'Vision radar, areas and changes; plays from 1980']];
+const PRESETS = [['explore', 'Exploring', 'The default: filters and key findings'], ['play', 'Play the century', 'Timeline panels around the model'], ['wait', 'Waiting (kiosk)', 'Both videos, joke ticker, plays on a loop'], ['charts', 'Charts', 'Eight interactive charts, with each milestone’s story beside them'], ['analysis', 'Analysis', 'Findings, summary and charts side by side'], ['desnz', 'AI for clean energy', 'Vision radar, areas and changes; plays from 1980']];
 function buildWinMenu(){
   view.menuGroups = view.menuGroups || {};
   const item = id => `<button data-w="${id}"><span class="tick ${layout[id].open ? 'on' : ''}">${layout[id].open ? '✓' : ''}</span>${WIN_NAMES[id]}</button>`;
-  let h = '<div class="wmh">Arrange for</div><div class="wmpre">' + PRESETS.map(([k, n, t]) => `<button data-w="__p_${k}" class="${view.preset === k ? 'cur' : ''}" title="${t}"><b>${n}</b><span>${t}</span></button>`).join('') + '</div>';
+  let h = '<div class="wmh">Ready-made views</div><div class="wmpre">' + PRESETS.map(([k, n, t]) => `<button data-w="__p_${k}" class="${view.preset === k ? 'cur' : ''}" title="${t}"><b>${n}</b><span>${t}</span></button>`).join('') + '</div>';
+  h += myViewsMenuHtml();   // your own named views, after the ready-made ones
   const any = WIN_GROUPS.some(([g]) => view.menuGroups[g]);
-  h += `<div class="wmh">Windows<button class="wmall" data-x="all">${any ? 'Collapse all' : 'Expand all'}</button></div>`;
+  h += `<div class="wmh">Panels<button class="wmall" data-x="all">${any ? 'Collapse all' : 'Expand all'}</button></div>`;
   const listed = new Set(), groups = WIN_GROUPS.map(x => [x[0], x[1], x[2].filter(id => WIN_IDS.includes(id))]);
   groups.forEach(([, , ids]) => ids.forEach(id => listed.add(id)));
   const rest = WIN_IDS.filter(id => !listed.has(id)); if (rest.length) groups.push(['other', 'Other', rest]);
   groups.forEach(([g, name, ids]) => {
     const open = ids.filter(id => layout[id].open).length, ex = !!view.menuGroups[g];
     h += `<button class="wmg" data-g="${g}" aria-expanded="${ex}"><span class="car">${ex ? '▾' : '▸'}</span>${name}<span class="cnt">${open} of ${ids.length} open</span></button>`;
-    if (ex) h += '<div class="wmitems">' + ids.map(item).join('') + (g === 'share' ? '<button data-w="__csv"><span class="tick"></span>Download the data (CSV)</button><button data-w="__xlsx"><span class="tick"></span>Download the data (Excel)</button>' : '') + '</div>';
+    if (ex) h += '<div class="wmitems">' + ids.map(item).join('') + '</div>';
   });
-  h += '<hr><button data-w="__all">Open all windows</button><button data-w="__link">Copy a link to this view</button><button data-w="__img">Save an image of the view</button><button data-w="__kiosk">Kiosk mode…</button><button data-w="__save">Save this view to a file…</button><button data-w="__load">Load a view from a file…</button>' +
-    '<small>Saved views remember windows, positions, text sizes, filters and display settings. Open one with index.html?view=yourfile.json. Drag a title bar to move a window, its corner to resize, A− and A+ for text size; double-click a title bar to restore its place.</small>';
+  h += '<button data-w="__all">Open all panels</button><hr><div class="wmh">Your file</div><button data-w="__save">Save my file…</button><button data-w="__load">Open my file…</button><hr><button data-w="__reset_all">Reset everything…</button>' +
+    '<small>Your file keeps your views, panels, positions, text sizes, filters and display settings; open one with index.html?view=yourfile.json. Drag a panel’s title bar to move it, its corner to resize, A− and A+ for text size; double-click a title bar to restore its place.</small>';
   winMenu.innerHTML = h;
 }
 buildWinMenu();
@@ -33,15 +34,17 @@ winMenu.addEventListener('click', e => {
   const b = e.target.closest('button'); if (!b) return;
   if (b.dataset.g) { view.menuGroups = view.menuGroups || {}; view.menuGroups[b.dataset.g] = !view.menuGroups[b.dataset.g]; buildWinMenu(); return; }
   if (b.dataset.x === 'all') { const any = WIN_GROUPS.some(([g]) => view.menuGroups[g]); WIN_GROUPS.concat([['other']]).forEach(([g]) => { view.menuGroups[g] = !any; }); buildWinMenu(); return; }
+  if (b.dataset.mvact) { handleMyView(b.dataset.mv, b.dataset.mvact); return; }
   const w = b.dataset.w;
   if (w === '__csv' || w === '__xlsx') { winMenu.classList.remove('open'); (w === '__csv' ? exportCsv : exportXlsx)(); return; }
   if (w === '__img') { winMenu.classList.remove('open'); setTimeout(exportImage, 150); return; }
   if (w === '__kiosk') { winMenu.classList.remove('open'); showWelcome(); $('wKioskOpts').classList.add('on'); clearTimeout(welcomeTimer); $('wAuto').textContent = ''; return; }
   if (w && w.startsWith('__p_')) { applyPreset(w.slice(4)); winMenu.classList.remove('open'); $('winBtn').setAttribute('aria-expanded', false); return; }
+  if (w === '__reset_all') { winMenu.classList.remove('open'); if (confirm('Reset everything to the original defaults? Anything not saved to your file will be lost.')) $('resetBtn').click(); return; }
   if (w === '__reset') applyPreset('explore');
   else if (w === '__title') togglePageTitle();
   else if (w === '__link') { winMenu.classList.remove('open'); copyLink(); }
-  else if (w === '__save') { winMenu.classList.remove('open'); saveViewFile(); }
+  else if (w === '__save') { winMenu.classList.remove('open'); saveMyFile(); }
   else if (w === '__load') { winMenu.classList.remove('open'); $('viewFile').click(); }
   else if (w === '__wait') applyPreset('wait');
   else if (w === '__play') applyPreset('play');

@@ -60,25 +60,27 @@ const HELP = {
   chgAnnounceT:'Shows a banner when Play reaches the year of a changed milestone.',
   rotR:'How fast the model turns when auto-rotate is on.',
   glowR:'Strength of the glow around arcs and lights.',
-  liteT:'Turns off glow and window blur and lowers resolution. Use it on slower laptops.',
+  liteT:'Turns off glow and panel blur and lowers resolution. Use it on slower laptops.',
   titleShowT:'Shows or hides the page title in the top-left corner (T key).',
   barAutoT:'Hides the toolbar buttons until the mouse moves near them.',
   thanksIconT:'Shows the speech-bubble button that opens the thank-you screen (Q key).',
-  fullTextT:'Long explanations in windows show their first few words and an i button for the rest. Switch this on to always show the full text.',
-  flashNewT:'A newly opened window glows briefly and comes to the front, so it is easy to spot on a busy screen.',
+  fullTextT:'Long explanations in panels show their first few words and an i button for the rest. Switch this on to always show the full text.',
+  flashNewT:'A newly opened panel glows briefly and comes to the front, so it is easy to spot on a busy screen.',
   expCsv:'Downloads the milestones as a CSV file, which opens in Excel or any spreadsheet. Tick "Only the current selection" to follow your filters.',
   expXlsx:'Downloads an Excel workbook with three sheets: the milestones, the fortunes, and a note about the data. Tick "Only the current selection" to follow your filters.',
   imgBtn:'Saves a picture of the model as it is now, with its labels, a title, the current verdict and the attribution, as a PNG file.',
-  smartPlaceT:'When you open a window, it is placed in free space where possible, without covering other windows or the centre of the model.',
-  keepPosT:'Windows keep their distance from the nearest edges when the screen size changes, such as leaving full screen.',
-  fitLoadT:'When opening a view saved on a different screen size, brings every window fully into view.',
+  smartPlaceT:'When you open a panel, it is placed in free space where possible, without covering other panels or the centre of the model.',
+  keepPosT:'Panels keep their distance from the nearest edges when the screen size changes, such as leaving full screen.',
+  fitLoadT:'When opening a view saved on a different screen size, brings every panel fully into view.',
   copyLinkBtn:'Copies a web link that reopens this view with your filters and key settings.',
   // Toolbar
   playBtn:'Plays the timeline from the first year to the last (or your chosen range). P key.',
+  presentBtn:'Presenting: full screen, auto-rotate, music, the joke ticker, the showcase title, thank you and questions, audience ideas and kiosk mode. 📌 pins any of them to the toolbar.',
+  shareBtn:'Share and export: the PowerPoint report, the clean energy briefing slide, an image of the view, a link to it, and the data as CSV or Excel.',
   thanksBtn:'Opens the thank-you and questions screen. Q key.',
   ideasBtn:'Add your own milestones by hand, with an icon, description and source.',
   musicBtn:'Starts or stops the background music.',
-  winBtn:'Open, close and arrange windows, or save and load a view.',
+  winBtn:'Ready-made views, your own My views, the panels, and your file (save and open it).',
   rotBtn:'Turns the model slowly. Drag the model to look around.',
   resetBtn:'Reloads the app with its default settings.',
   fsBtn:'Uses the whole screen.',
@@ -88,9 +90,9 @@ const HELP = {
 const FAQ_EXTRA = [
   ['Getting started', [
     ['What am I looking at?', 'Each arc is one breakthrough. It rises from the year the research began and lands when it first reached real-world use. A thinner arc carries on to mainstream adoption. The height of an arc is the gap in years.'],
-    ['How do I explore?', 'Drag to rotate, scroll or pinch to zoom, right-drag to pan. Click an arc or label for its details. Use Filters to narrow the view and Windows to open more panels.'],
-    ['What are arrangements?', 'Ready-made window layouts under Windows: Exploring (the default), Play the century, Waiting (a kiosk mode with videos and the ticker), Analysis and AI for clean energy. Each adapts to phones, tablets, laptops and large screens.']]],
-  ['Windows', [
+    ['How do I explore?', 'Drag to rotate, scroll or pinch to zoom, right-drag to pan. Click an arc or label for its details. Use Filters to narrow the view and Views to open more panels.'],
+    ['What are ready-made views and My views?', 'Ready-made views, under Views: Exploring (the default), Play the century, Waiting (a kiosk mode with videos and the ticker), Charts, Analysis and AI for clean energy. Each adapts to phones, tablets, laptops and large screens. My views are your own: arrange the panels and filters, then Views, “Save this view as…”. Each keeps its own filters and display settings, so it opens exactly as you left it; mark one ☆ to open it at start.']]],
+  ['Panels', [
     ['Key findings', 'The headline numbers and a chart by field. Follows your filters.'],
     ['Summary', 'Median years from research to change in a table. Choose the measure, group by the year a milestone landed or the year research began, and show rows by source, field or region. With one field selected, rows show its sub-fields.'],
     ['Gap over time', 'The median gap for milestones landing in each preceding ten years, with a scenario beyond today.'],
@@ -105,20 +107,24 @@ const FAQ_EXTRA = [
     ['Vision radar', 'For each area of AI for clean energy (the five areas of DESNZ’s Vision for an AI-enabled clean energy system): readiness of its technologies, how many are deployed in GB, what is new since your last review, and what is coming in the next five years.'],
     ['Cyber lens', 'Technologies that expand the attack surface, possible mitigations mapped to the NCSC CAF, Ofgem’s CAF Overlay, NIST, NERC CIP, IEC 62443 and ISO/IEC (AI research: engage experts), how long security responses took to follow in their category, and open gaps with no response yet.'],
     ['Walk-throughs (Tours)', 'Five one-minute guided tours. They are fully AI-generated: AI agents write and update the narration every week from their own findings, within fixed rules, and an AI voice speaks it. No person reviews them, so check anything important against the sources.'],
-    ['Charts', 'Eight interactive charts that make the data readable: a gap explorer, a field-by-decade heatmap, AI against the rest, the clean energy pipeline, forecast drift, the security lag, the race to a fortune, and a what-if scenario. They follow your filters; select any milestone to see its story and move the 3D view to its arc. Each saves as an image or CSV. Open them from Windows, under Insights.'],
+    ['Charts', 'Eight interactive charts that make the data readable: a gap explorer, a field-by-decade heatmap, AI against the rest, the clean energy pipeline, forecast drift, the security lag, the race to a fortune, and a what-if scenario. They follow your filters; select any milestone to see its story and move the 3D view to its arc. Each saves as an image or CSV. Open them from Views, under Panels, Insights.'],
     ['Two AI models', 'Two AI models maintain the data and check each other. Claude (Anthropic) and Gemini (Google) each search for new milestones; whichever finds one, the other must agree before it is published undisputed. Each record says who found it, and Data quality shows how often they agree.'],
+    ['What are Views, Present and Share?', 'The toolbar has six buttons. Views: ready-made views, your own My views, the panels, and your file. Present: full screen, auto-rotate, music, the joke ticker, the showcase title, thank you and questions, audience ideas and kiosk mode; 📌 pins any of them to the toolbar. Share: the PowerPoint report, the clean energy briefing slide, an image, a link, and the data. While music, rotation, full screen or the ticker is on, a small chip on the toolbar shows it and switches it off in one click.'],
+    ['How do I keep my work between visits?', 'The app starts from its defaults on every visit and keeps nothing in the browser unless you ask it to. Save your file (Views, “Save my file…”): it holds your views, settings, review marks and My list, and works on any device. The sign beside Views shows anything unsaved. In Display, Autosave can keep a file updated automatically (Chrome or Edge on a computer) or keep a copy in this browser.'],
+    ['What does “Mark as reviewed” do?', 'In the Data inspector, marking an item as reviewed hides it from your list, with an optional note, and saves the mark in your file. If the agents later change the record, the review lapses and it comes back for you to look at again. “Show reviewed” lists what you have reviewed.'],
+    ['What are admin tools?', 'For the owner. Switch them on in Display to make decisions for everyone in the Data inspector: reviewed, clear a dispute, not a duplicate, retire or restore. They build a system file (Share, “Download system file for GitHub”) to upload to the data folder; the next weekly run applies it and records each decision. Anyone can download one, but only someone who can upload to the repository can apply it.'],
     ['Where does the data come from?', 'Only from publicly available sources: published research, company and product announcements, official publications and reputable news. The agents search the open web and record a link for every source; no confidential, non-public or regulatory information is used. Each record says whether it is source-cited, AI-compiled or an AI estimate.'],
-    ['Kiosk mode', 'An unattended loop for stands and waiting areas: it plays the walk-throughs and arrangements in turn, with AI narration, music or silence, the ticker on or off, and a QR code to the site. Visitors can explore at any time; it resumes after a minute without a touch. Only Escape works on the keyboard, and it leaves kiosk mode. Start it from the welcome screen or the Windows menu.'],
+    ['Kiosk mode', 'An unattended loop for stands and waiting areas: it plays the walk-throughs and ready-made views in turn, with AI narration, music or silence, the ticker on or off, and a QR code to the site. Visitors can explore at any time; it resumes after a minute without a touch. Only Escape works on the keyboard, and it leaves kiosk mode. Start it from the welcome screen or Present.'],
     ['Ticker', 'A scrolling line of news (new milestones, click one to open it), jokes, or both. Choose in its Settings.']]],
   ['Data and agents', [
     ['Where does the data come from?', 'Two AI agents run every week. One looks for new breakthroughs and products; the other independently checks them and re-checks older records before anything is published.'],
     ['How reliable is it?', 'New items need two independent sources that the code reads itself, and corrections need quoted evidence. Every record shows whether it is source-cited, AI-compiled or an AI estimate. It may still contain errors.'],
     ['What do NEW and UPDATED mean?', 'Badges on labels for milestones the agents added or corrected recently. Click a highlighted label to open its details. Choose what is highlighted in Display, Data changes.']]],
   ['Saving and sharing', [
-    ['How do I save my layout?', 'Windows, then “Save this view to a file”. It keeps windows, positions, filters and settings. Load it again from the same menu, or open index.html?view=yourfile.json.'],
-    ['How do I share a view?', 'Display, Presenting, “Copy a link to this view”, or the same option in Windows.']]],
+    ['How do I save my layout?', 'Views, then “Save my file…”. It keeps your views, panels, positions, filters, settings, review marks and My list. Open it again with Views, “Open my file…”, or open index.html?view=yourfile.json. The sign beside Views shows anything unsaved; Display has an Autosave option.'],
+    ['How do I share a view?', 'Share, then “Copy a link to this view”.']]],
   ['Keyboard shortcuts', [
-    ['Keys', 'P play, Space pause, ] and [ next and previous milestone, 1–9 a single field, 0 all fields, L labels, M toolbar, T page title, Q thank you, R reset camera, H hide windows, Escape close overlays.']]]
+    ['Keys', 'P play, Space pause, ] and [ next and previous milestone, 1–9 a single field, 0 all fields, L labels, M toolbar, T page title, Q thank you, R reset camera, H hide panels, Escape close overlays.']]]
 ];
 function helpLabel(id){
   const el = $(id); if (!el) return id;

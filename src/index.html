@@ -16,15 +16,15 @@
 
 <section class="win chromeless keep gripwin toolwin" id="w-toolbar" data-title="Toolbar">
   <div class="wbody" id="top"><div class="actions">
+    <button class="savesign" id="saveSign" hidden></button>
+    <span class="tbchips" id="tbChips" aria-live="polite"></span>
+    <button class="btn" id="toursBtn" title="Guided walk-throughs">Tours</button>
     <button class="btn primary" id="playBtn">Play the century</button>
-    <button class="btn" id="thanksBtn" title="Thank you and questions (Q)" aria-label="Show the thank you message">💬</button>
-    <button class="btn" id="ideasBtn" title="Add your own milestones by hand">✚ Add</button>
-    <button class="btn" id="musicBtn" aria-pressed="false">♪ Music</button>
-    <button class="btn" id="winBtn" aria-haspopup="true" aria-expanded="false">Windows</button>
-    <button class="btn wide" id="rotBtn" aria-pressed="true">Auto-rotate</button>
-    <button class="btn wide" id="resetBtn" title="Return everything to the original defaults">Reset all</button>
-    <button class="btn wide" id="fsBtn">Full screen</button>
-    <button class="btn" id="toursBtn" title="One-minute guided walk-throughs">Tours</button><button class="btn" id="aboutBtn">Help</button>
+    <button class="btn" id="winBtn" aria-haspopup="true" aria-expanded="false">Views ▾</button>
+    <button class="btn" id="presentBtn" aria-haspopup="true" aria-expanded="false">Present ▾</button>
+    <button class="btn" id="shareBtn" aria-haspopup="true" aria-expanded="false">Share ▾</button>
+    <button class="btn" id="aboutBtn">Help</button>
+    <button class="btn" id="resetBtn" hidden title="Return everything to the original defaults">Reset all</button>
   </div></div>
 </section>
 
@@ -290,15 +290,17 @@
       <div class="slider"><label>Glow <b id="glowV">0.75</b></label><input type="range" id="glowR" min="0" max="1.6" step="0.05" value="0.75"></div>
       <label class="toggle">Performance mode <input type="checkbox" id="liteT"></label>
     </details>
-    <details class="psec" data-sec="present"><summary>Presenting, windows and sharing</summary>
+    <details class="psec" data-sec="present"><summary>Presenting, panels and sharing</summary>
       <label class="toggle">Show page title <input type="checkbox" id="titleShowT"></label>
       <label class="toggle">Hide top buttons until the mouse is near <input type="checkbox" id="barAutoT"></label>
       <label class="toggle">Show the thank-you icon (Q key) <input type="checkbox" id="thanksIconT" checked></label>
-      <label class="toggle">Show full descriptions in windows <input type="checkbox" id="fullTextT"></label>
-      <label class="toggle">Highlight a window when it opens <input type="checkbox" id="flashNewT" checked></label>
-      <label class="toggle">Open new windows in free space <input type="checkbox" id="smartPlaceT" checked></label>
+      <label class="toggle">Show full descriptions in panels <input type="checkbox" id="fullTextT"></label>
+      <label class="toggle">Highlight a panel when it opens <input type="checkbox" id="flashNewT" checked></label>
+      <label class="toggle">Open new panels in free space <input type="checkbox" id="smartPlaceT" checked></label>
       <label class="toggle">Keep window positions when the screen size changes <input type="checkbox" id="keepPosT" checked></label>
-      <label class="toggle">Fit windows to this screen when loading a saved view <input type="checkbox" id="fitLoadT" checked></label>
+      <label class="toggle">Fit panels to this screen when opening a saved view <input type="checkbox" id="fitLoadT" checked></label>
+      <div class="exprow">Admin tools: <select id="adminS" aria-label="Admin tools"><option value="off">Off</option><option value="on">On</option></select> <span class="note-s">For the owner: decisions for everyone, and the system file for GitHub.</span></div>
+      <div class="exprow">Autosave my file: <select id="autosaveS" aria-label="Autosave my file"><option value="off">Off</option><option value="on">On (this browser)</option><option value="file">Keep a file updated (Chrome or Edge)…</option></select> <span class="note-s" id="autosaveNote"></span></div>
       <div class="exprow">Dates: <select id="dateFmtS" aria-label="Date format"><option value="uk">UK (30 October 2026)</option><option value="us">US (October 30, 2026)</option></select></div>
       <div class="exprow">Download the data: <button class="mini" id="expCsv">CSV</button> <button class="mini" id="expXlsx">Excel</button> <label class="toggle inl">Only the current selection <input type="checkbox" id="expSel"></label></div>
       <button class="mini" id="copyLinkBtn">Copy a link to this view</button> <button class="mini" id="imgBtn">Save an image of the view</button>
@@ -405,6 +407,30 @@
 <div id="disc" role="status"><div class="dmeta" id="discMeta"></div><b>AI-maintained data.</b> This personal project’s data is compiled by AI agents from publicly available sources only, without human review, and may contain errors. <button id="discAbout">About</button><button id="discX" aria-label="Dismiss">✕</button></div>
 <div id="nogl" role="alert"><div><h2>3D view unavailable</h2><p>This device or browser can’t show the 3D model. Try a recent version of Chrome, Edge, Safari or Firefox on a laptop or desktop.</p></div></div>
 <div id="winMenu" role="menu"></div>
+<div id="presentMenu" class="dropmenu" role="menu">
+  <div class="wmh">Presenting</div>
+  <div class="dmrow"><button id="fsBtn">Full screen</button><button class="pin" data-pin="fullscreen" title="Pin to the toolbar">📌</button></div>
+  <div class="dmrow"><button id="rotBtn" aria-pressed="true">Auto-rotate</button><button class="pin" data-pin="rotate" title="Pin to the toolbar">📌</button></div>
+  <div class="dmrow"><button id="musicBtn" aria-pressed="false">♪ Music</button><button class="pin" data-pin="music" title="Pin to the toolbar">📌</button></div>
+  <div class="dmrow"><button data-act="ticker"><span class="tick" id="pmTick"></span>Joke ticker</button><button class="pin" data-pin="ticker" title="Pin to the toolbar">📌</button></div>
+  <div class="dmrow"><button data-act="title"><span class="tick" id="pmTitle"></span>Showcase title</button><button class="pin" data-pin="title" title="Pin to the toolbar">📌</button></div>
+  <hr>
+  <div class="dmrow"><button id="thanksBtn" title="Thank you and questions (Q)" aria-label="Show the thank you message">💬 Thank you and questions</button><button class="pin" data-pin="thanks" title="Pin to the toolbar">📌</button></div>
+  <div class="dmrow"><button id="ideasBtn" title="Add your own milestones by hand">✚ Add an idea from the room</button><button class="pin" data-pin="add" title="Pin to the toolbar">📌</button></div>
+  <div class="dmrow"><button data-act="kiosk">Kiosk mode…</button><button class="pin" data-pin="kiosk" title="Pin to the toolbar">📌</button></div>
+  <small>📌 pins an item to the toolbar. Music, rotation, full screen and the ticker also show on the toolbar while they are on.</small>
+</div>
+<div id="shareMenu" class="dropmenu" role="menu">
+  <div class="wmh">Share and export</div>
+  <button data-act="report">PowerPoint report…</button>
+  <button data-act="briefing">Clean energy briefing slide</button>
+  <button data-act="img">Save an image of the view</button>
+  <button data-act="link">Copy a link to this view</button>
+  <hr><div class="wmh">Download the data</div>
+  <button data-act="csv">CSV (one row per milestone)</button>
+  <button data-act="xlsx">Excel (milestones, fortunes and notes)</button>
+  <div class="admonly"><hr><div class="wmh">Admin</div><button data-act="system">Download system file for GitHub</button></div>
+</div>
 <div id="welcome" role="dialog" aria-modal="true" aria-labelledby="wTitle"><div class="wbox">
   <h1 id="wTitle">The Shrinking Gap from Research to Change</h1>
   <p class="wsub" id="wSub">Guided walk-throughs of one to two minutes, narrated with subtitles. Or go straight to the tool.</p>
@@ -414,7 +440,7 @@
   <div class="wcards" id="wCards"></div>
   <p class="wver" id="wVer"></p>
   <div class="wfoot"><button id="wRun" class="wrun">Run the tool</button><button id="wKiosk" class="wmute">Kiosk mode</button><button id="wMute" class="wmute"></button></div>
-  <div id="wKioskOpts" class="wkiosk"><b>Kiosk mode</b> loops through the walk-throughs and arrangements, unattended. Visitors can explore at any time; it carries on after a minute without a touch. Press <b>Escape</b> to leave.
+  <div id="wKioskOpts" class="wkiosk"><b>Kiosk mode</b> loops through the walk-throughs and ready-made views, unattended. Visitors can explore at any time; it carries on after a minute without a touch. Press <b>Escape</b> to leave.
     <div class="kopts"><span>Sound:</span><label><input type="radio" name="kSound" value="narration" checked> AI narration</label><label><input type="radio" name="kSound" value="music"> Music (with subtitles)</label><label><input type="radio" name="kSound" value="silent"> Silent</label></div>
     <div class="kopts"><label><input type="checkbox" id="kTicker" checked> Ticker (news and jokes)</label><label><input type="checkbox" id="kQr" checked> QR code to the site</label></div>
     <details><summary>The kiosk script</summary><ol id="wKioskScript"></ol></details>
@@ -432,7 +458,7 @@
 <div id="tip" role="tooltip"></div>
 <section class="win chromeless gripwin footwin" id="w-footer" data-title="Footer">
   <div class="wbody" id="foot">
-    <span>Drag to rotate, scroll to zoom, right-drag to pan. Keys: P play, Space pause, ] and [ next and previous milestone, 1–9 single field, 0 all fields, L labels, M toolbar, T page title, Q thank you, R reset camera, H hide windows.</span>
+    <span>Drag to rotate, scroll to zoom, right-drag to pan. Keys: P play, Space pause, ] and [ next and previous milestone, 1–9 single field, 0 all fields, L labels, M toolbar, T page title, Q thank you, R reset camera, H hide panels.</span>
     <span>Stuart Okin, personal project. AI-maintained data from public sources only; may contain errors. <span class="fver" id="footVer"></span></span>
   </div>
 </section>
@@ -469,7 +495,7 @@
     </ul>
     <h3>Recent data changes</h3>
     <div id="changeLog" class="clog"></div>
-    <p><button class="btn" id="aboutSources">View all sources</button> <span class="note-s">Opens a window you can move, resize and keep open.</span></p>
+    <p><button class="btn" id="aboutSources">View all sources</button> <span class="note-s">Opens a panel you can move, resize and keep open.</span></p>
     <h3>Credits and licences</h3>
     <ul class="attrib">
       <li>3D graphics: <a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> r128, MIT licence.</li>
@@ -499,6 +525,6 @@
 <script>/*@include vendor/shaderpass.js*/</script>
 <script>/*@include vendor/unrealbloompass.js*/</script>
 <script>/*@include vendor/qrcode.js*/</script>
-<script>/*@include js/00-start.js*//*@include js/01-data-loaded-from-data-data-json-or-the-e.js*//*@include js/02-state.js*//*@include js/03-three-setup.js*//*@include js/04-stage.js*//*@include js/05-items.js*//*@include js/06-filtering.js*//*@include js/07-window-manager.js*//*@include js/08-arrangements-five-presets-that-adapt-to-.js*//*@include js/09-windows-menu-arrangements-then-windows-i.js*//*@include js/10-filter-ui.js*//*@include js/11-refresh-targets-trends-stats-list.js*//*@include js/12-details.js*//*@include js/13-top-bar-keyboard.js*//*@include js/14-labels-dom.js*//*@include js/15-animation.js*//*@include js/16-time-linked-windows.js*//*@include js/17-ai-outlook-can-ai-and-digital-twins-shri.js*//*@include js/18-showcase-title.js*//*@include js/19-joke-ticker.js*//*@include js/20-music.js*//*@include js/21-powerpoint-report-three-slides-native-ed.js*//*@include js/22-data-changes-from-the-agents-change-log-.js*//*@include js/23-statistics-helpers-ranges-small-samples-.js*//*@include js/24-play-range-custom-from-and-to-the-whole-.js*//*@include js/25-colour-blind-safe-palette.js*//*@include js/26-next-and-previous-milestone-keyboard-and.js*//*@include js/27-shareable-links-the-current-filters-and-.js*//*@include js/28-help-one-source-for-hover-tips-press-and.js*//*@include js/29-readiness-gb-status-cyber-lens-and-forec.js*//*@include js/30-short-descriptions-long-explanatory-text.js*//*@include js/31-welcome-screen-and-guided-tours.js*//*@include js/31b-kiosk-mode-and-image-export.js*//*@include js/31c-data-export.js*//*@include js/31d-charts.js*//*@include js/31e-insights-and-weekly-analysis.js*//*@include js/31f-inspector-and-docs.js*//*@include js/32-saved-views-json.js*//*@include js/33-ideas-from-the-room-audience-form.js*//*@include js/34-countdown-and-thank-you.js*//*@include js/35-video-windows.js*//*@include js/36-start.js*/</script>
+<script>/*@include js/00-start.js*//*@include js/01-data-loaded-from-data-data-json-or-the-e.js*//*@include js/02-state.js*//*@include js/03-three-setup.js*//*@include js/04-stage.js*//*@include js/05-items.js*//*@include js/06-filtering.js*//*@include js/07-window-manager.js*//*@include js/08-arrangements-five-presets-that-adapt-to-.js*//*@include js/09-windows-menu-arrangements-then-windows-i.js*//*@include js/10-filter-ui.js*//*@include js/11-refresh-targets-trends-stats-list.js*//*@include js/12-details.js*//*@include js/13-top-bar-keyboard.js*//*@include js/14-labels-dom.js*//*@include js/15-animation.js*//*@include js/16-time-linked-windows.js*//*@include js/17-ai-outlook-can-ai-and-digital-twins-shri.js*//*@include js/18-showcase-title.js*//*@include js/19-joke-ticker.js*//*@include js/20-music.js*//*@include js/21-powerpoint-report-three-slides-native-ed.js*//*@include js/22-data-changes-from-the-agents-change-log-.js*//*@include js/23-statistics-helpers-ranges-small-samples-.js*//*@include js/24-play-range-custom-from-and-to-the-whole-.js*//*@include js/25-colour-blind-safe-palette.js*//*@include js/26-next-and-previous-milestone-keyboard-and.js*//*@include js/27-shareable-links-the-current-filters-and-.js*//*@include js/28-help-one-source-for-hover-tips-press-and.js*//*@include js/29-readiness-gb-status-cyber-lens-and-forec.js*//*@include js/30-short-descriptions-long-explanatory-text.js*//*@include js/31-welcome-screen-and-guided-tours.js*//*@include js/31b-kiosk-mode-and-image-export.js*//*@include js/31c-data-export.js*//*@include js/31d-charts.js*//*@include js/31e-insights-and-weekly-analysis.js*//*@include js/31f-inspector-and-docs.js*//*@include js/31g-toolbar-menus-chips-and-pins.js*//*@include js/31h-my-file-and-my-views.js*//*@include js/32-saved-views-json.js*//*@include js/33-ideas-from-the-room-audience-form.js*//*@include js/34-countdown-and-thank-you.js*//*@include js/35-video-windows.js*//*@include js/36-start.js*/</script>
 </body>
 </html>

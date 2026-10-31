@@ -64,7 +64,7 @@ JS = r"""async () => {
  ok('D12b auto-rotate actually turns the camera', await (async () => { if (!T.state.autoRotate) $('rotBtn').click(); await waitUntil(() => true, 0); await sleep(4500); const az = () => Math.atan2(T.camera.position.x - T.controls.target.x, T.camera.position.z - T.controls.target.z); const a0 = az(); await frames(8); return Math.abs(az() - a0) > 1e-4; })());
  $('rotBtn').click();
  // ---------- PRESENTING ----------
- $('playBtn').click(); await frames(1); ok('P1 countdown shows 3', $('countdown').classList.contains('on') && $('cdNum').textContent === '3');
+ $('playBtn').click(); await waitUntil(() => $('countdown').classList.contains('on'), 1000); ok('P1 countdown shows 3', $('countdown').classList.contains('on') && $('cdNum').textContent === '3');
  await waitUntil(() => T.state.playing, 9000); await frames(2); ok('P2 Play starts after countdown', T.state.playing && !$('countdown').classList.contains('on'));
  $('tbStop').click(); $('countdownT').click(); $('playBtn').click(); await sleep(150); ok('P3 countdown can be switched off', T.state.playing && !$('countdown').classList.contains('on')); $('tbStop').click(); $('countdownT').click();
  $('thanksBtn').click(); ok('P4 thank-you opens', $('thanks').classList.contains('on'));

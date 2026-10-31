@@ -36,7 +36,7 @@ STEP_VISUALS = {
              'guidance':'the Cyber lens, latest guidance', 'caution':'the Cyber lens caution', 'answer':'the Cyber lens'},
   'fortune': {'intro':'Time to a fortune', 'research':'Time to a fortune', 'speed':'Time to a fortune', 'fortchart':'the Race to a fortune chart playing', 'fastest':'Time to a fortune sorted by speed', 'uk':'the Filters window, UK only',
               'uni':'the Filters window, university projects', 'table':'the Table', 'answer':'Time to a fortune'},
-  'how': {'intro':'the model', 'research':'Data changes', 'qa':'Data changes', 'more':'the Cyber lens', 'quality':'Data quality', 'labels':'the Filters window', 'arrange':'the Windows menu', 'whatifchart':'the What if? chart', 'answer':'the toolbar'},
+  'how': {'intro':'the model', 'research':'Data changes', 'qa':'Data changes', 'more':'the Cyber lens', 'quality':'Data quality', 'labels':'the Filters panel', 'arrange':'the Views menu (ready-made views, My views, panels)', 'whatifchart':'the What if? chart', 'answer':'the toolbar'},
   'charts': {k: f'the {k} chart' for k in ['gaps', 'heat', 'ai', 'pipe', 'drift', 'sec', 'fort', 'whatif']},
   'charthow': {'open':'the Gap explorer', 'gapsort':'the Gap explorer, sorted and zoomed', 'filter':'the Gap explorer, energy only', 'heat':'the Heatmap with a cell list', 'ai':'AI vs the rest, zoomed', 'pipe':'the pipeline with a flow list',
                'drift':'Forecast drift with a year list', 'sec':'Security lag, open gaps first', 'fort':'the Race to a fortune playing', 'whatif':'What if?, ambitious scenario', 'insight':'the Heatmap with its Insight callout'}}

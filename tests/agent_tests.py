@@ -49,5 +49,20 @@ try:
     ok('R2 a decision is applied only once', len(d1) == 1 and d2 == [])
     ok('R3 no empty values are written', None not in cdb['milestones'][0]['flags']['retired'].values())
 finally: common.__file__ = real
+# the owner's review decisions
+cdb2 = {'meta': {}, 'milestones': [{'id': 'a', 'title': 'A', 'flags': {'disputed': True}}, {'id': 'b', 'title': 'B'}, {'id': 'c', 'title': 'C'}]}
+(tmp / 'data/curation.json').write_text(json.dumps({'decisions': [
+    {'id': 'a', 'action': 'clear-dispute', 'note': 'checked', 'sig': 'x1', 'date': '2026-11-02'},
+    {'id': 'b', 'action': 'reviewed', 'note': 'fine', 'sig': 'x2', 'date': '2026-11-02'},
+    {'id': 'b', 'other': 'c', 'action': 'not-duplicate', 'note': 'different', 'date': '2026-11-02'}]}))
+common.__file__ = str(tmp / 'agents/common.py')
+try:
+    d1 = common.apply_curation(cdb2); d2 = common.apply_curation(cdb2)
+    a, b_ = cdb2['milestones'][0], cdb2['milestones'][1]
+    ok('R4 "clear the dispute" lifts it and records the review', 'disputed' not in a['flags'] and a['flags']['reviewed']['cleared'] is True and a['flags']['reviewed']['sig'] == 'x1')
+    ok('R5 "reviewed" records it without changing the record', b_['flags']['reviewed']['note'] == 'fine' and b_['title'] == 'B')
+    ok('R6 "not a duplicate" is kept for the pair', cdb2['meta']['notDuplicates'][0]['a'] == 'b' and cdb2['meta']['notDuplicates'][0]['b'] == 'c')
+    ok('R7 each decision applies once', len(d1) == 3 and d2 == [])
+finally: common.__file__ = real
 print(f'PASSED {sum(results)} of {len(results)}')
 sys.exit(0 if all(results) else 1)
