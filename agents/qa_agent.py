@@ -11,7 +11,7 @@ Rules enforced in code (the model only proposes):
   - Outlook records whose year has passed are confirmed as landed (with evidence) or re-estimated.
 """
 import sys, json
-from common import (load_pending_founders, save_pending_founders, founder_runs, slug, DEEP, load_db, save_db, load_pending, save_pending, call_claude, fetch_text, link_ok, quote_in, evidence_in, log_change, CONFIG, TODAY)
+from common import (record_funnel, load_pending_founders, save_pending_founders, founder_runs, slug, DEEP, load_db, save_db, load_pending, save_pending, call_claude, fetch_text, link_ok, quote_in, evidence_in, log_change, CONFIG, TODAY)
 
 CORR = {'type': 'object', 'required': ['path', 'value', 'evidence_url', 'evidence_quote'], 'properties': {
   'path': {'enum': ['research.year', 'change.year', 'research.what', 'change.what', 'note', 'company', 'status', 'add_ref', 'adoption.year']},
@@ -58,6 +58,8 @@ def run():
                 if c['attempts'] < cfg['pendingMaxAttempts']: keep.append(c)
                 else: notes.append(f"dropped unconfirmed candidate {c['title']}")
         save_pending(keep)
+        by = lambda who: sum(1 for i in added if next((m for m in db['milestones'] if m['id'] == i), {}).get('provenance', {}).get('addedBy') == who)
+        record_funnel({'agent':'qa', 'confirmed_claude':by('research-agent'), 'confirmed_gemini':by('gemini-research'), 'rejected':sum(1 for n in notes if n.startswith('rejected candidate')), 'retrying':len(keep)}); db = load_db()
 
     # ---------- 2. rotating audit of existing records ----------
     live = [m for m in db['milestones'] if not (m.get('flags') or {}).get('hidden')]

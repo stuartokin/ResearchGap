@@ -148,7 +148,16 @@ function renderQuality(){
     html += `<h3>Two-model checks</h3><p class="note-s">Claude and Google Gemini check each other: Gemini's finds are confirmed by Claude, and Claude's are given a second opinion by Gemini. Anything they disagree on is marked disputed.</p>
       <div class="kbars"><div><b>${gA}</b> of ${gQ} Gemini finds confirmed by Claude</div><div><b>${cS}</b> of ${cAll} Claude finds supported by Gemini${cAll ? ` (${Math.round(cS / cAll * 100)}% agreement)` : ''}</div><div><b>${cD}</b> disputed after a second opinion</div></div>`;
   }
-  $('qualBody').innerHTML = html;
+const fun = DB.meta.researchFunnel || [];
+  if (fun.length) {   // where finds are found, and where they are lost
+    const since = new Date(new Date(DATA_AS_OF + 'T12:00:00Z') - 30 * 864e5).toISOString().slice(0, 10), last = fun.filter(e => e.date >= since);
+    const sum = (agent, k) => last.filter(e => e.agent === agent).reduce((a, e) => a + (e[k] || 0), 0);
+    const why = (agent, mode) => { const r = {}; last.filter(e => e.agent === agent).forEach(e => Object.entries(e[mode + '_rejected'] || {}).forEach(([k, v]) => { r[k] = (r[k] || 0) + v; })); return Object.entries(r).sort((a, b) => b[1] - a[1]).map(([k, v]) => `${v} ${({duplicate:'already in the data', sources:'sources could not confirm', years:'years outside the rules', origin:'no clear research origin', other:'other'})[k] || k}`).join(', ') || 'none'; };
+    const row = (label, agent, mode) => `<tr><td>${label}</td><td>${sum(agent, mode + '_proposed')}</td><td>${sum(agent, mode + '_queued')}</td><td class="note-s">${why(agent, mode)}</td></tr>`;
+    html += `<h3>Research funnel (last 30 days)</h3><p class="note-s">What the agents proposed, what passed the source checks, and why the rest were rejected. Claude's QA then confirms: ${sum('qa', 'confirmed_claude')} from Claude and ${sum('qa', 'confirmed_gemini')} from Gemini.</p>
+      <table class="cstab"><tr><th>Search</th><th>Proposed</th><th>Passed checks</th><th>Rejected because</th></tr>${row('Claude: recent news', 'claude', 'recent')}${row('Claude: filling gaps in the past', 'claude', 'backfill')}${row('Gemini', 'gemini', 'recent')}</table>`;
+  }
+    $('qualBody').innerHTML = html;
 }
 /* ---------- Table of milestones ---------- */
 let tabSort = {k:'r', dir:1};

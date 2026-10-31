@@ -7,7 +7,13 @@
     "searchesPerField": 4,
     "maxProposalsPerField": 3,
     "minSources": 2,
-    "visionSearches": true
+    "visionSearches": true,
+    "backfill": {
+      "enabled": true,
+      "cellsPerRun": 5,
+      "perRun": 5,
+      "searchesPerCell": 3
+    }
   },
   "qa": {
     "auditBatchSize": 40,
@@ -18,7 +24,7 @@
     "deepAuditBatchSize": 100
   },
   "publish": {
-    "maxAdditionsPerRun": 25,
+    "maxAdditionsPerRun": 30,
     "minTitleSimilarityForDuplicate": 0.82,
     "reservedForVision": 5,
     "claudeAdditionsPerRun": 15

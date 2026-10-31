@@ -13,7 +13,7 @@ Hard checks (code, not the model):
 """
 import sys, json, re
 from common import norm
-from common import (load_pending_founders, save_pending_founders, founder_runs, load_db, load_pending, save_pending, call_claude, fetch_text, evidence_in, is_duplicate, new_id, CONFIG, TODAY)
+from common import (record_funnel, reject_reason, load_pending_founders, save_pending_founders, founder_runs, load_db, load_pending, save_pending, call_claude, fetch_text, evidence_in, is_duplicate, new_id, CONFIG, TODAY)
 
 SUBMIT = {
   'name': 'submit_candidates',
@@ -71,10 +71,25 @@ def pending_record(db, f, c, fld, fields_by_id):
       'evidence_terms': c['evidence_terms'][:6], 'proposed': TODAY, 'attempts': 0
     }
 
+def thin_cells(db, as_of, n):
+    """The thinnest field-and-decade cells, thinnest first; ties rotate weekly so coverage builds evenly.
+    Only decades from ten years before a field's earliest research, up to the last full decade."""
+    import random
+    hist = [m for m in db['milestones'] if m['status'] == 'landed' and not (m.get('flags') or {}).get('hidden') and not m.get('company')]
+    last = (as_of // 10) * 10 - 10; cells = []
+    for f in db['fields']:
+        ys = [m['research']['year'] for m in hist if m['field'] == f['id']]
+        if not ys: continue
+        for d in range(max((min(ys) // 10) * 10, (db['meta']['startYear'] // 10) * 10), last + 1, 10):
+            cells.append((sum(1 for m in hist if m['field'] == f['id'] and d <= m['change']['year'] < d + 10), f, d))
+    random.Random(TODAY[:8] + str(int(TODAY[8:]) // 7)).shuffle(cells)   # a different order each week
+    return sorted(cells, key=lambda x: x[0])[:n]
+
 def run():
     db = load_db(); cfg = CONFIG['research']; pub = CONFIG['publish']
     as_of = int(db['meta']['asOf'][:4]); horizon = as_of + db['meta']['horizonYears']
     pending = load_pending(); accepted = 0; report = []
+    funnel = {'recent': {'proposed':0, 'queued':0, 'rejected':{}}, 'backfill': {'proposed':0, 'queued':0, 'rejected':{}}}
     vision_runs = [{'id': fid, 'name': fname, 'subfields': next((x.get('subfields', []) for x in db['fields'] if x['id'] == fid), []), 'vision': a} for a in (db.get('visionAreas', []) if cfg.get('visionSearches', True) else []) for fid, fname in [('energy', 'Energy')]]
     # DESNZ vision areas first, with places reserved for them; the general field searches then fill the rest
     reserved, vision_accepted = pub.get('reservedForVision', 0), 0
@@ -106,8 +121,10 @@ def run():
                   f"Return at most {cfg['maxProposalsPerField']} candidates via submit_candidates. Return an empty list if nothing qualifies.")
         out = call_claude(system, prompt, SUBMIT, max_searches=cfg['searchesPerField']) or {'candidates': []}
         for c in out.get('candidates', [])[:cfg['maxProposalsPerField']]:
+            funnel['recent']['proposed'] += 1
             why = check(db, f['id'], c, as_of, horizon, cfg['minSources'])
             if why:
+                rr = funnel['recent']['rejected']; rr[reject_reason(why)] = rr.get(reject_reason(why), 0) + 1
                 report.append(f"rejected [{f['id']}] {c.get('title')}: {why}"); continue
             fields_by_id = {x['id']: x for x in db['fields']}
             fld = c.get('field') if f.get('vision') and c.get('field') in fields_by_id else f['id']
@@ -115,10 +132,34 @@ def run():
                 ids2 = [x['id'] for x in fields_by_id[fld].get('subfields', [])]
                 c['subfield'] = c.get('subfield') if c.get('subfield') in ids2 else (ids2[-1] if ids2 else None)
             pending.append(pending_record(db, f, c, fld, fields_by_id))
-            accepted += 1; vision_accepted += 1 if f.get('vision') else 0
+            accepted += 1; vision_accepted += 1 if f.get('vision') else 0; funnel['recent']['queued'] += 1
             report.append(f"pending  [{'vision ' if f.get('vision') else ''}{f['id']}] {c['title']}")
             if accepted >= pub.get('claudeAdditionsPerRun', pub['maxAdditionsPerRun']) or (f.get('vision') and reserved and vision_accepted >= reserved): break
+    # ---------- fill the gaps: important past milestones missing from the thinnest field-and-decade cells ----------
+    bf = cfg.get('backfill', {})
+    if bf.get('enabled', True):
+        fields_by_id = {x['id']: x for x in db['fields']}; queued_bf = 0
+        for k, f, d in thin_cells(db, as_of, bf.get('cellsPerRun', 5)):
+            if queued_bf >= bf.get('perRun', 5): break
+            existing = [m['title'] for m in db['milestones'] if m['field'] == f['id']] + [c['title'] for c in pending]
+            prompt = (f"Fill a gap in a historical dataset of research breakthroughs. Field: {f['name']}. Find up to 2 important milestones whose first product or real-world use came in the {d}s "
+                      f"(the research may have begun earlier) and which are missing from the dataset; it currently has {k} for this field in that decade. Prefer milestones that changed the field, with a well-documented research origin. "
+                      "Use reputable sources that can be read without a login: encyclopaedias, institutional, company and museum histories, archives, and journal or learned-society pages. Use status 'landed'.\n"
+                      f"These already exist; do not propose them or close variants: {json.dumps(existing, ensure_ascii=False)}\n"
+                      "Return at most 2 candidates via submit_candidates, or an empty list if nothing important is missing.")
+            out = call_claude('You research the history of technology carefully and cite readable public sources exactly.', prompt, SUBMIT, max_searches=bf.get('searchesPerCell', 3)) or {'candidates': []}
+            for c in out.get('candidates', [])[:2]:
+                funnel['backfill']['proposed'] += 1
+                why = check(db, f['id'], c, as_of, horizon, cfg['minSources'])
+                if not why and not (d <= (c.get('change_year') or 0) < d + 10): why = 'first use outside the decade asked for'
+                if why:
+                    rr = funnel['backfill']['rejected']; rr[reject_reason(why)] = rr.get(reject_reason(why), 0) + 1
+                    report.append(f"rejected [backfill {f['id']} {d}s] {c.get('title')}: {why}"); continue
+                pending.append(pending_record(db, f, c, f['id'], fields_by_id)); queued_bf += 1; funnel['backfill']['queued'] += 1
+                report.append(f"pending  [backfill {f['id']} {d}s] {c['title']}")
+                if queued_bf >= bf.get('perRun', 5): break
     save_pending(pending)
+    record_funnel({'agent':'claude', **{f'{m}_{k}': v for m, x in funnel.items() for k, v in x.items()}})
     if founder_runs(): report += research_founders(db)
     print('\n'.join(report) or 'No candidates this run.')
     print(f'{accepted} candidates queued for QA.')

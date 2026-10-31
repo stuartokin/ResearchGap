@@ -253,3 +253,14 @@ def call_gemini(prompt, search=False, max_tokens=8192, want=None):
         print('Gemini: clean copy ' + ('read successfully.' if out is not None else 'still unreadable.'))
     elif out is None: print('Gemini: the answer was empty' + (f' (finished: {finish})' if finish else '') + '.')
     return out
+
+
+# ---------- the research funnel: proposed → rejected (by reason) → queued → confirmed, per agent and mode ----------
+def reject_reason(why):
+    w = (why or '').lower()
+    return 'duplicate' if 'duplicate' in w else 'sources' if 'source' in w else 'years' if ('year' in w or 'window' in w or 'decade' in w) else 'origin' if 'origin' in w else 'other'
+
+def record_funnel(entry):
+    """Append one funnel entry to the data (kept for the last 120 entries); shown in Data quality."""
+    db = load_db(); f = db['meta'].setdefault('researchFunnel', [])
+    f.append(dict(entry, date=TODAY)); db['meta']['researchFunnel'] = f[-120:]; save_db(db)
