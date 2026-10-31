@@ -18,9 +18,10 @@
     "deepAuditBatchSize": 100
   },
   "publish": {
-    "maxAdditionsPerRun": 15,
+    "maxAdditionsPerRun": 25,
     "minTitleSimilarityForDuplicate": 0.82,
-    "reservedForVision": 5
+    "reservedForVision": 5,
+    "claudeAdditionsPerRun": 15
   },
   "deepModel": "claude-opus-5-5",
   "pricing": {
@@ -78,5 +79,13 @@
     "perRun": 10,
     "maxSearches": 3,
     "refreshDays": 180
+  },
+  "gemini": {
+    "_note": "Google Gemini as a second model: it searches for up to researchPerRun milestones (confirmed by Claude's QA), and gives a second opinion on Claude's additions. Needs the GitHub secret GEMINI_API_KEY. If the model is retired, the newest Flash model is used.",
+    "enabled": true,
+    "model": "gemini-2.5-flash",
+    "researchPerRun": 10,
+    "secondOpinion": true,
+    "checksPerRun": 20
   }
 }

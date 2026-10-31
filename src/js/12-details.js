@@ -34,7 +34,8 @@ function sourceHtml(it){
   let h = it.kind === 'proj' ? 'Basis: ' + (m ? srcLink(m[0], m[1]) : 'our estimate; no published target found.')
     : 'Source: ' + (m ? srcLink(m[0], m[1]) : 'compiled by AI from standard references: institutional and company histories, Nobel and award citations, and regulator approval records.');
   if (it.story) h += `<div class="dstory"><b>The story</b><p><b>Research:</b> ${esc(it.story.research)}</p><p><b>First used:</b> ${esc(it.story.deploy)}</p><p><b>Impact:</b> ${esc(it.story.impact)}</p>${(it.story.refs || []).map(r => `<a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.label || r.url)}</a>`).join(' · ')}</div>`;
-  if (it.checked) h += `<br>Last checked by the data agents: ${fmtDate(it.checked)}${it.addedBy === 'research-agent' ? ' (added by the research agent)' : ''}.`;
+  if (it.checked) h += `<br>Last checked by the data agents: ${fmtDate(it.checked)}${it.addedBy === 'research-agent' ? ' (found by Claude' + (it.second && it.second.verdict === 'supported' ? ', confirmed by Gemini' : '') + ')' : it.addedBy === 'gemini-research' ? ' (found by Gemini, confirmed by Claude)' : ''}.`;
+  if (it.second && it.second.verdict !== 'supported' && it.second.verdict !== 'unavailable') h += `<br><b>Second opinion (Gemini):</b> ${esc(it.second.verdict.replace('_', ' '))}. ${esc(it.second.reason || '')}`;
   const q = it.t.replace(/\s*\(.*?\)\s*/g, ' ').trim();
   h += `<br>Further reading: <a href="https://en.wikipedia.org/w/index.php?search=${encodeURIComponent(q)}" target="_blank" rel="noopener">look up “${esc(q)}”</a> (online)`;
   return h;

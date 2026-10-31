@@ -141,6 +141,13 @@ function renderQuality(){
   } else html += '<h3>Source-cited share over time</h3><p class="note-s">Recorded from the next agent run onwards.</p>';
   const use = (DB.meta.changelog || []).filter(e => e.usage);
   html += '<h3>Agent runs</h3>' + (use.length ? '<table class="qtab"><tr><th>Run</th><th>Calls</th><th>Searches</th><th>Tokens</th><th>Est. cost</th></tr>' + use.slice(-8).reverse().map(e => `<tr><td>${e.date}${e.time ? ' ' + e.time : ''}</td><td>${e.usage.calls}</td><td>${e.usage.searches}</td><td>${Math.round((e.usage.inputTokens + e.usage.outputTokens) / 1000)}k</td><td>${e.usage.costUsd != null ? '$' + e.usage.costUsd.toFixed(2) : '–'}</td></tr>`).join('') + '</table><p class="note-s">Estimates from token counts; the Claude Console shows the exact charge.</p>' : '<p class="note-s">Usage is recorded from the next agent run onwards.</p>');
+  const so = DB.meta.secondOpinion || [], soTot = (kind, k) => so.filter(e => e.kind === kind).reduce((a, e) => a + (e[k] || 0), 0);
+  if (so.length) {   // two models: each checks the other's finds
+    const gQ = soTot('gemini-research', 'queued'), gA = DB.milestones.filter(m => (m.provenance || {}).addedBy === 'gemini-research').length;
+    const cS = soTot('gemini-check', 'supported'), cD = soTot('gemini-check', 'not_supported') + soTot('gemini-check', 'unclear'), cAll = cS + cD;
+    html += `<h3>Two-model checks</h3><p class="note-s">Claude and Google Gemini check each other: Gemini's finds are confirmed by Claude, and Claude's are given a second opinion by Gemini. Anything they disagree on is marked disputed.</p>
+      <div class="kbars"><div><b>${gA}</b> of ${gQ} Gemini finds confirmed by Claude</div><div><b>${cS}</b> of ${cAll} Claude finds supported by Gemini${cAll ? ` (${Math.round(cS / cAll * 100)}% agreement)` : ''}</div><div><b>${cD}</b> disputed after a second opinion</div></div>`;
+  }
   $('qualBody').innerHTML = html;
 }
 /* ---------- Table of milestones ---------- */

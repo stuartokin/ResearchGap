@@ -50,6 +50,27 @@ SUBMIT = {
   }
 }
 
+def pending_record(db, f, c, fld, fields_by_id):
+    """A checked candidate as a queued record for the QA agent (shared with the Gemini research agent)."""
+    return {
+      'id': new_id(db, c['title']), 'field': fld, 'origin': c['origin'], 'status': c['status'], 'title': c['title'][:90],
+      'research': {'year': c['research_year'], 'what': (c['research_what'] + (' Origin: ' + c['research_origin'] if c.get('research_origin') and c['research_origin'] not in c['research_what'] else ''))[:600]},
+      'change': {'year': c['change_year'], 'what': c['change_what'][:600]},
+      'confidence': c['confidence'], 'note': c['note'][:600],
+      **({'company': c['company'][:80]} if c.get('company') else {}),
+      **({'desnz': c['desnz']} if c.get('desnz') and c['desnz'] != 'none' else ({'desnz': f['vision']['id']} if f.get('vision') else {})),
+      **({'flags': {k: True for k, v in (('aiDriven', c.get('ai_driven')), ('policy', c.get('is_policy'))) if v}} if (c.get('ai_driven') or c.get('is_policy')) else {}),
+      'refs': [{'label': s['label'][:200], 'url': s['url'], 'status': 'ok', 'checked': TODAY} for s in c['sources'][:4]],
+      'subfield': (lambda ids: c.get('subfield') if c.get('subfield') in ids else (ids[-1] if ids else None))([x['id'] for x in fields_by_id[fld].get('subfields', [])]),
+      **({'region': c['region']} if c.get('region') in ('uk', 'us', 'europe', 'asia', 'other', 'global') else {'region': 'unknown'}),
+      **({'tags': [t for t in c.get('tags', []) if t in db.get('tagVocabulary', [])][:4]} if any(t in db.get('tagVocabulary', []) for t in c.get('tags', [])) else {}),
+      'readiness': {'stage': c.get('readiness') if c.get('readiness') in ('research', 'pilot', 'commercial', 'scale') else ('commercial' if c['status'] == 'landed' else 'research'), 'basis': 'ai-estimate'},
+      **({'gb': {'status': c.get('gb_status') if c.get('gb_status') in ('deployed', 'trial', 'planned', 'not-yet', 'unknown') else 'unknown', 'basis': 'ai-estimate'}} if (f['id'] == 'energy' or c.get('desnz') not in (None, 'none')) else {}),
+      **({'security': {'expandsAttackSurface': bool(c.get('expands_attack_surface')), 'note': c['security_note'][:300], 'basis': 'ai-compiled'}} if c.get('security_note') and f['id'] != 'cyber' else {}),
+      **({'forecast': {'estimatedYear': c['change_year'], 'estimatedOn': TODAY, 'revisions': []}} if c['status'] == 'outlook' else {}),
+      'evidence_terms': c['evidence_terms'][:6], 'proposed': TODAY, 'attempts': 0
+    }
+
 def run():
     db = load_db(); cfg = CONFIG['research']; pub = CONFIG['publish']
     as_of = int(db['meta']['asOf'][:4]); horizon = as_of + db['meta']['horizonYears']
@@ -58,7 +79,7 @@ def run():
     # DESNZ vision areas first, with places reserved for them; the general field searches then fill the rest
     reserved, vision_accepted = pub.get('reservedForVision', 0), 0
     for f in vision_runs + list(db['fields'][:cfg['fieldsPerRun']]):
-        if accepted >= pub['maxAdditionsPerRun']: break
+        if accepted >= pub.get('claudeAdditionsPerRun', pub['maxAdditionsPerRun']): break
         if f.get('vision') and reserved and vision_accepted >= reserved: continue
         va = f.get('vision')
         existing = [m['title'] for m in db['milestones']]   # every field, so cross-field duplicates are visible
@@ -93,27 +114,10 @@ def run():
             if fld != f['id']:
                 ids2 = [x['id'] for x in fields_by_id[fld].get('subfields', [])]
                 c['subfield'] = c.get('subfield') if c.get('subfield') in ids2 else (ids2[-1] if ids2 else None)
-            pending.append({
-              'id': new_id(db, c['title']), 'field': fld, 'origin': c['origin'], 'status': c['status'], 'title': c['title'][:90],
-              'research': {'year': c['research_year'], 'what': (c['research_what'] + (' Origin: ' + c['research_origin'] if c.get('research_origin') and c['research_origin'] not in c['research_what'] else ''))[:600]},
-              'change': {'year': c['change_year'], 'what': c['change_what'][:600]},
-              'confidence': c['confidence'], 'note': c['note'][:600],
-              **({'company': c['company'][:80]} if c.get('company') else {}),
-              **({'desnz': c['desnz']} if c.get('desnz') and c['desnz'] != 'none' else ({'desnz': f['vision']['id']} if f.get('vision') else {})),
-              **({'flags': {k: True for k, v in (('aiDriven', c.get('ai_driven')), ('policy', c.get('is_policy'))) if v}} if (c.get('ai_driven') or c.get('is_policy')) else {}),
-              'refs': [{'label': s['label'][:200], 'url': s['url'], 'status': 'ok', 'checked': TODAY} for s in c['sources'][:4]],
-              'subfield': (lambda ids: c.get('subfield') if c.get('subfield') in ids else (ids[-1] if ids else None))([x['id'] for x in fields_by_id[fld].get('subfields', [])]),
-              **({'region': c['region']} if c.get('region') in ('uk', 'us', 'europe', 'asia', 'other', 'global') else {'region': 'unknown'}),
-              **({'tags': [t for t in c.get('tags', []) if t in db.get('tagVocabulary', [])][:4]} if any(t in db.get('tagVocabulary', []) for t in c.get('tags', [])) else {}),
-              'readiness': {'stage': c.get('readiness') if c.get('readiness') in ('research', 'pilot', 'commercial', 'scale') else ('commercial' if c['status'] == 'landed' else 'research'), 'basis': 'ai-estimate'},
-              **({'gb': {'status': c.get('gb_status') if c.get('gb_status') in ('deployed', 'trial', 'planned', 'not-yet', 'unknown') else 'unknown', 'basis': 'ai-estimate'}} if (f['id'] == 'energy' or c.get('desnz') not in (None, 'none')) else {}),
-              **({'security': {'expandsAttackSurface': bool(c.get('expands_attack_surface')), 'note': c['security_note'][:300], 'basis': 'ai-compiled'}} if c.get('security_note') and f['id'] != 'cyber' else {}),
-              **({'forecast': {'estimatedYear': c['change_year'], 'estimatedOn': TODAY, 'revisions': []}} if c['status'] == 'outlook' else {}),
-              'evidence_terms': c['evidence_terms'][:6], 'proposed': TODAY, 'attempts': 0
-            })
+            pending.append(pending_record(db, f, c, fld, fields_by_id))
             accepted += 1; vision_accepted += 1 if f.get('vision') else 0
             report.append(f"pending  [{'vision ' if f.get('vision') else ''}{f['id']}] {c['title']}")
-            if accepted >= pub['maxAdditionsPerRun'] or (f.get('vision') and reserved and vision_accepted >= reserved): break
+            if accepted >= pub.get('claudeAdditionsPerRun', pub['maxAdditionsPerRun']) or (f.get('vision') and reserved and vision_accepted >= reserved): break
     save_pending(pending)
     if founder_runs(): report += research_founders(db)
     print('\n'.join(report) or 'No candidates this run.')

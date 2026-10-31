@@ -7,7 +7,7 @@ const KIND_OF = {landed:'hist', outlook:'proj', 'in-lab':'flight'};
 const DATA = DB.milestones.filter(m => !(m.flags && m.flags.hidden)).map(m => {
   const fl = m.flags || {}, k = KIND_OF[m.status];
   const d = {uid:m.id, v:m.field, s:m.origin, kind:k, t:m.title, r:m.research.year, c:m.confidence, rw:m.research.what, pw:m.change.what, note:m.note,
-    ver:m.provenance.verification, checked:m.provenance.lastChecked, addedBy:m.provenance.addedBy, refs:m.refs || [], basisRef:m.basis || null};
+    ver:m.provenance.verification, checked:m.provenance.lastChecked, addedBy:m.provenance.addedBy, second:m.provenance.secondOpinion || null, refs:m.refs || [], basisRef:m.basis || null};
   if (k === 'flight') d.tg = m.change.year; else d.p = m.change.year;
   if (m.company) d.co = m.company;
   if (m.desnz) d.dv = m.desnz;
@@ -48,7 +48,7 @@ const FORTUNES = DB.founders.map(f => {
 });
 const fmtMoney = (bn, sym) => bn >= 1000 ? `${sym}${(bn / 1000).toFixed(1)}tn` : bn >= 1 ? `${sym}${bn >= 100 ? Math.round(bn) : Math.round(bn * 10) / 10}bn` : `${sym}${Math.round(bn * 1000)}m`;
 const DATA_AS_OF = DB.meta.asOf;
-const APP_VERSION = '11.1', APP_BUILD = '';
+const APP_VERSION = '11.2', APP_BUILD = '';
 // Screen-aware scaling: laptops slightly smaller, large screens larger
 const UI = (() => { const w = innerWidth; return w < 1280 ? .85 : w < 1500 ? .95 : w < 1800 ? 1.05 : w < 2300 ? 1.2 : 1.4; })();
 const LARGE = innerWidth >= 1700;

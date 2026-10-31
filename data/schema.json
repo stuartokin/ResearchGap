@@ -309,9 +309,10 @@
               },
               "addedBy": {
                 "enum": [
+                  "gemini-research",
                   "initial-build",
-                  "research-agent",
-                  "qa-agent"
+                  "qa-agent",
+                  "research-agent"
                 ]
               },
               "added": {
@@ -326,6 +327,28 @@
               "qaNote": {
                 "type": "string",
                 "maxLength": 400
+              },
+              "secondOpinion": {
+                "type": "object",
+                "properties": {
+                  "model": {
+                    "type": "string"
+                  },
+                  "verdict": {
+                    "enum": [
+                      "supported",
+                      "not_supported",
+                      "unclear",
+                      "unavailable"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string"
+                  },
+                  "date": {
+                    "type": "string"
+                  }
+                }
               }
             }
           },

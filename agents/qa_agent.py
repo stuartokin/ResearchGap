@@ -47,8 +47,8 @@ def run():
         for c in pending:
             d = dec.get(c['id'])
             if d and d['decision'] == 'confirm' and len(added) < pub['maxAdditionsPerRun'] and not any(m['id'] == c['id'] for m in db['milestones']):
-                rec = {k: v for k, v in c.items() if k not in ('evidence_terms', 'proposed', 'attempts')}
-                rec['provenance'] = {'verification': 'source-cited', 'addedBy': 'research-agent', 'added': TODAY, 'lastChecked': TODAY, 'approximate': False}
+                rec = {k: v for k, v in c.items() if k not in ('evidence_terms', 'proposed', 'attempts', 'foundBy')}
+                rec['provenance'] = {'verification': 'source-cited', 'addedBy': c.get('foundBy', 'research-agent'), 'added': TODAY, 'lastChecked': TODAY, 'approximate': False}
                 if rec['status'] == 'outlook': rec['basis'] = rec['refs'][0]
                 db['milestones'].append(rec); added.append(rec['id'])   # stable ID, shown by title in the app
             elif d and d['decision'] == 'reject':

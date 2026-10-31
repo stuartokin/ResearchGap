@@ -180,3 +180,42 @@ def log_change(db, summary, details=None):
                                              'summary': summary, 'stats': data_stats(db), 'usage': usage_summary(), 'deepAudit': DEEP,
                                              **({'details': details[:80]} if details else {})})
     meta['changelog'] = meta['changelog'][-60:]
+
+
+# ---------- Google Gemini: a second model, for searching and for second opinions ----------
+def _gemini_models(key):
+    """The current Flash models that can generate text, newest first (used if the configured model has been retired)."""
+    import requests
+    r = requests.get('https://generativelanguage.googleapis.com/v1beta/models?pageSize=200', headers={'x-goog-api-key': key}, timeout=30)
+    names = [m['name'].split('/')[-1] for m in r.json().get('models', []) if 'generateContent' in m.get('supportedGenerationMethods', [])]
+    flash = [n for n in names if 'flash' in n and not any(x in n for x in ('lite', 'image', 'tts', 'audio', 'live', 'thinking', 'exp'))]
+    return sorted(flash, reverse=True)
+
+def parse_json_text(text):
+    """The first JSON object in a model's reply, with or without code fences."""
+    t = re.sub(r'^```(?:json)?|```$', '', (text or '').strip(), flags=re.M).strip()
+    i, j = t.find('{'), t.rfind('}')
+    if i < 0 or j <= i: return None
+    try: return json.loads(t[i:j + 1])
+    except Exception: return None
+
+def call_gemini(prompt, search=False, max_tokens=8192):
+    """Ask Gemini, optionally grounded in Google Search. Returns the parsed JSON reply, or None (no key, outage or bad reply)."""
+    import os, requests
+    key = os.environ.get('GEMINI_API_KEY')
+    if not key: return None
+    g = CONFIG.get('gemini', {}); model = g.get('model', 'gemini-2.5-flash')
+    body = {'contents': [{'role': 'user', 'parts': [{'text': prompt}]}], 'generationConfig': {'temperature': 0.2, 'maxOutputTokens': max_tokens}}
+    if search: body['tools'] = [{'google_search': {}}]
+    for attempt in range(2):
+        r = requests.post(f'https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent', headers={'x-goog-api-key': key, 'Content-Type': 'application/json'}, json=body, timeout=240)
+        if r.status_code == 404 and attempt == 0:
+            found = _gemini_models(key)
+            if found: print(f'Gemini model {model} not available; using {found[0]}.'); model = found[0]; continue
+        if r.status_code != 200: print(f'Gemini error {r.status_code}: {r.text[:200]}'); return None
+        break
+    data = r.json()
+    text = ''.join(p.get('text', '') for c in data.get('candidates', [])[:1] for p in (c.get('content') or {}).get('parts', []))
+    u = data.get('usageMetadata') or {}
+    print(f"Gemini ({model}): {u.get('promptTokenCount', 0)} in, {u.get('candidatesTokenCount', 0)} out{', with search' if search else ''}.")
+    return parse_json_text(text)
