@@ -5431,7 +5431,7 @@ const FORTUNES = DB.founders.map(f => {
 });
 const fmtMoney = (bn, sym) => bn >= 1000 ? `${sym}${(bn / 1000).toFixed(1)}tn` : bn >= 1 ? `${sym}${bn >= 100 ? Math.round(bn) : Math.round(bn * 10) / 10}bn` : `${sym}${Math.round(bn * 1000)}m`;
 const DATA_AS_OF = DB.meta.asOf;
-const APP_VERSION = '11.6', APP_BUILD = '';
+const APP_VERSION = '11.7', APP_BUILD = '';
 // Screen-aware scaling: laptops slightly smaller, large screens larger
 const UI = (() => { const w = innerWidth; return w < 1280 ? .85 : w < 1500 ? .95 : w < 1800 ? 1.05 : w < 2300 ? 1.2 : 1.4; })();
 const LARGE = innerWidth >= 1700;
@@ -7646,12 +7646,17 @@ function renderQuality(){
       <div class="kbars"><div><b>${gA}</b> of ${gQ} Gemini finds confirmed by Claude</div><div><b>${cS}</b> of ${cAll} Claude finds supported by Gemini${cAll ? ` (${Math.round(cS / cAll * 100)}% agreement)` : ''}</div><div><b>${cD}</b> disputed after a second opinion</div></div>`;
   }
 { const STOPW = new Set(['the', 'and', 'for', 'with', 'first', 'new', 'of', 'in', 'to', 'a', 'an', 'at', 'scale', 'commercial', 'service', 'launch', 'launched', 'ai', 'by', 'on', 'as', 'uk', 'gb']);
-    const words = t => new Set((t.toLowerCase().replace(/-/g, ' ').match(/[a-z0-9]+/g) || []).filter(w => !STOPW.has(w) && w.length > 2));
+    const words = t => new Set((t.replace(/-/g, ' ').match(/[A-Za-z0-9]+/g) || []).filter(w => !STOPW.has(w.toLowerCase()) && (w.length > 2 || /^[A-Z0-9]{2}$/.test(w))).map(w => w.toLowerCase()));   // two-letter acronyms (CT, 6G) count
     const live = items.filter(it => !it.removed && !it.aud), pairs = [], yr = it => it.p ?? it.r;
-    for (let i = 0; i < live.length; i++) { const a = words(live[i].t); if (a.size < 2) continue;
-      for (let j = i + 1; j < live.length; j++) { const b = words(live[j].t); if (b.size < 2 || live[i].v !== live[j].v || Math.abs(yr(live[i]) - yr(live[j])) > 3) continue;
-        let n = 0; a.forEach(w => { if (b.has(w)) n++; }); if (n / Math.min(a.size, b.size) >= .8) pairs.push([live[i], live[j]]); } }
-    if (pairs.length) html += `<h3>Possible duplicates to review</h3><p class="note-s">Pairs with very similar titles, in the same field and within three years of each other. They may be genuinely different; nothing is merged or removed automatically. Select either to compare.</p>
+    for (let i = 0; i < live.length; i++) { const a = words(live[i].t); if (!a.size) continue;
+      for (let j = i + 1; j < live.length; j++) { const b = words(live[j].t); if (!b.size) continue;
+        const GENERIC = new Set('network networks system systems computing computer computers data energy power digital technology technologies service services platform platforms model models device devices storage control grid grids smart'.split(' ')), distinct = x => [...x].some(w => !GENERIC.has(w));
+        const yrs = it => [it.r, it.p].filter(v => v != null), near = Math.min(...yrs(live[i]).flatMap(x => yrs(live[j]).map(y => Math.abs(x - y))));
+        const sub = ([...a].every(w => b.has(w)) && distinct(a)) || ([...b].every(w => a.has(w)) && distinct(b));
+        let n = 0; a.forEach(w => { if (b.has(w)) n++; });
+        // similar titles in the same field, or one title inside the other in any field, with years close together
+        if ((live[i].v === live[j].v && a.size >= 2 && b.size >= 2 && Math.abs(yr(live[i]) - yr(live[j])) <= 3 && n / Math.min(a.size, b.size) >= .8) || (sub && near <= 5)) pairs.push([live[i], live[j]]); } }
+    if (pairs.length) html += `<h3>Possible duplicates to review</h3><p class="note-s">Pairs with very similar titles in the same field, or where one title sits inside the other in any field, with years close together. They may be genuinely different; nothing is merged or removed automatically. Select either to compare.</p>
       <div class="dups">${pairs.slice(0, 20).map(([a, b]) => `<div class="trow"><span><a href="#" data-dup="${a.id}">${esc(a.t)}</a> (${yr(a)}) <em>and</em> <a href="#" data-dup="${b.id}">${esc(b.t)}</a> (${yr(b)})</span></div>`).join('')}</div>`; }
   const fun = DB.meta.researchFunnel || [];
   if (fun.length) {   // where finds are found, and where they are lost
