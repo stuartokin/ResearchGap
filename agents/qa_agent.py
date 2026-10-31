@@ -11,7 +11,7 @@ Rules enforced in code (the model only proposes):
   - Outlook records whose year has passed are confirmed as landed (with evidence) or re-estimated.
 """
 import sys, json
-from common import (record_funnel, load_pending_founders, save_pending_founders, founder_runs, slug, DEEP, load_db, save_db, load_pending, save_pending, call_claude, fetch_text, link_ok, quote_in, evidence_in, log_change, CONFIG, TODAY)
+from common import (load_pending_founders, save_pending_founders, founder_runs, slug, DEEP, load_db, save_db, load_pending, save_pending, call_claude, fetch_text, link_ok, quote_in, evidence_in, log_change, CONFIG, TODAY)
 
 CORR = {'type': 'object', 'required': ['path', 'value', 'evidence_url', 'evidence_quote'], 'properties': {
   'path': {'enum': ['research.year', 'change.year', 'research.what', 'change.what', 'note', 'company', 'status', 'add_ref', 'adoption.year']},
@@ -47,8 +47,8 @@ def run():
         for c in pending:
             d = dec.get(c['id'])
             if d and d['decision'] == 'confirm' and len(added) < pub['maxAdditionsPerRun'] and not any(m['id'] == c['id'] for m in db['milestones']):
-                rec = {k: v for k, v in c.items() if k not in ('evidence_terms', 'proposed', 'attempts', 'foundBy')}
-                rec['provenance'] = {'verification': 'source-cited', 'addedBy': c.get('foundBy', 'research-agent'), 'added': TODAY, 'lastChecked': TODAY, 'approximate': False}
+                rec = {k: v for k, v in c.items() if k not in ('evidence_terms', 'proposed', 'attempts', 'foundBy', 'approximate')}
+                rec['provenance'] = {'verification': 'source-cited', 'addedBy': c.get('foundBy', 'research-agent'), 'added': TODAY, 'lastChecked': TODAY, 'approximate': bool(c.get('approximate'))}
                 if rec['status'] == 'outlook': rec['basis'] = rec['refs'][0]
                 db['milestones'].append(rec); added.append(rec['id'])   # stable ID, shown by title in the app
             elif d and d['decision'] == 'reject':
@@ -59,7 +59,8 @@ def run():
                 else: notes.append(f"dropped unconfirmed candidate {c['title']}")
         save_pending(keep)
         by = lambda who: sum(1 for i in added if next((m for m in db['milestones'] if m['id'] == i), {}).get('provenance', {}).get('addedBy') == who)
-        record_funnel({'agent':'qa', 'confirmed_claude':by('research-agent'), 'confirmed_gemini':by('gemini-research'), 'rejected':sum(1 for n in notes if n.startswith('rejected candidate')), 'retrying':len(keep)}); db = load_db()
+        # record the funnel on the data being worked on: never reload from disk here, or this run's additions are lost
+        fun = db['meta'].setdefault('researchFunnel', []); fun.append({'agent':'qa', 'confirmed_claude':by('research-agent'), 'confirmed_gemini':by('gemini-research'), 'rejected':sum(1 for n in notes if n.startswith('rejected candidate')), 'retrying':len(keep), 'date':TODAY}); db['meta']['researchFunnel'] = fun[-120:]
 
     # ---------- 2. rotating audit of existing records ----------
     live = [m for m in db['milestones'] if not (m.get('flags') or {}).get('hidden')]

@@ -53,6 +53,7 @@ SUBMIT = {
 def pending_record(db, f, c, fld, fields_by_id):
     """A checked candidate as a queued record for the QA agent (shared with the Gemini research agent)."""
     return {
+      **({'approximate': True} if c.get('approximate') else {}),
       'id': new_id(db, c['title']), 'field': fld, 'origin': c['origin'], 'status': c['status'], 'title': c['title'][:90],
       'research': {'year': c['research_year'], 'what': (c['research_what'] + (' Origin: ' + c['research_origin'] if c.get('research_origin') and c['research_origin'] not in c['research_what'] else ''))[:600]},
       'change': {'year': c['change_year'], 'what': c['change_what'][:600]},
@@ -96,9 +97,34 @@ def candidates_of(out, n):
     if isinstance(c, dict): c = c.get('candidates', [c])
     return [x for x in (c if isinstance(c, list) else []) if isinstance(x, dict)][:n]
 
+def read_year(v):
+    """A year as written by a model: (year, approximate) or (None, False). Exact years, 'c. 1934', 'circa', 'around',
+    'about', '1934?', ranges like '1934-35' (the start), and 'early/mid/late 1930s'. A bare decade is too vague."""
+    if isinstance(v, bool): return None, False
+    if isinstance(v, int): return v, False
+    if isinstance(v, float) and v.is_integer(): return int(v), False
+    t = str(v or '').strip().lower()
+    if re.fullmatch(r'\d{4}', t): return int(t), False
+    m = re.fullmatch(r'(early|mid|middle|late)[\s-]*(\d{3})0s', t)
+    if m: return int(m.group(2) + {'early': '2', 'mid': '5', 'middle': '5', 'late': '8'}[m.group(1)]), True
+    if re.fullmatch(r'\d{3}0s', t): return None, False
+    m = re.fullmatch(r'(?:c\.?|ca\.?|circa|around|about|approx(?:imately|\.)?)?\s*(\d{4})\s*\??\s*(?:(?:-|–|—|to)\s*\d{2,4})?', t)
+    if m: return int(m.group(1)), True
+    return None, False
+
+def read_years(c):
+    """Turn approximate years into numbers before the checks, and mark the candidate as approximate."""
+    approx = False
+    for k in ('research_year', 'change_year'):
+        if k in c and not isinstance(c[k], int):
+            y, a = read_year(c[k])
+            if y is not None: c[k] = y; approx = approx or a
+    if approx: c['approximate'] = True
+    return c
+
 def safe_check(db, field, c, as_of, horizon, min_sources):
     """check(), but a malformed candidate is rejected rather than stopping the run."""
-    try: return check(db, field, c, as_of, horizon, min_sources)
+    try: return check(db, field, read_years(c), as_of, horizon, min_sources)
     except Exception as e: return f'could not be checked ({type(e).__name__})'
 
 def thin_cells(db, as_of, n):
