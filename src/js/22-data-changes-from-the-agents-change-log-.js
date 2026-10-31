@@ -95,18 +95,31 @@ function chgRow(c, i){
   const meta = [c.text, it ? fieldName(it.v) : c.fo ? 'Time to a fortune' : null, it && it.dv ? 'Clean energy AI: ' + VISION[it.dv] : null].filter(Boolean).join(', ');
   return `<div class="trow chgrow" data-ci="${i}"><span class="chgb ${ty.cls}">${ty.label}</span><span>${it || c.fo || c.type === 'guidance' ? `<a href="#" data-ci="${i}">${esc(c.title)}</a>` : esc(c.title)}<em>${esc(meta)}</em></span></div>`;
 }
+function chgGroupRow(g){
+  if (g.all.length === 1) return chgRow(g.c, g.i);
+  const c = g.c, it = c.it, types = [...new Set(g.all.map(x => x.type))], counts = new Map();
+  g.all.forEach(x => { const t = x.text || CHG_TYPES[x.type].label; counts.set(t, (counts.get(t) || 0) + 1); });
+  const texts = [...counts].map(([t, n]) => n === 1 ? t : /^source added$/i.test(t) ? `${n} sources added` : `${t} (×${n})`);
+  const meta = texts.concat([it ? fieldName(it.v) : c.fo ? 'Time to a fortune' : null, it && it.dv ? 'Clean energy AI: ' + VISION[it.dv] : null].filter(Boolean)).join('; ');
+  return `<div class="trow chgrow" data-ci="${g.i}">${types.slice(0, 2).map(t => `<span class="chgb ${CHG_TYPES[t].cls}">${CHG_TYPES[t].label}</span>`).join('')}<span>${it || c.fo || c.type === 'guidance' ? `<a href="#" data-ci="${g.i}">${esc(c.title)}</a>` : esc(c.title)}<em>${esc(meta)}</em></span></div>`;
+}
 function renderChanges(){
   const q = $('chgQ').value.trim().toLowerCase(), desnz = $('chgDesnzT').checked;
   const list = CHANGES.map((c, i) => [c, i]).filter(([c]) => chgTypeOn.has(c.type) && (!desnz || (c.it && c.it.dv)) && (!q || (c.title + ' ' + c.text + ' ' + (c.it ? c.it.rw + c.it.pw : '')).toLowerCase().includes(q)));
   if (!CHANGES.length) { $('chgList').innerHTML = '<p class="empty">No agent changes yet. Each weekly run will appear here.</p>'; return; }
   if (!list.length) { $('chgList').innerHTML = '<p class="empty">No changes match these filters.</p>'; return; }
-  let html = '', run = -1;
+  // one row per item in each run, however many separate changes the agents made to it
+  let html = '', run = -1, rows = 0, groups = new Map();
+  const flush = () => { groups.forEach(g => { html += chgGroupRow(g); rows++; }); groups = new Map(); };
   list.forEach(([c, i]) => {
-    if (c.run !== run) { run = c.run; html += `<div class="chgrun"><b>${ukDay(c.date)}${c.time ? ', ' + c.time + ' UTC' : ''}</b><span>${c.rev ? 'Revision ' + c.rev + ': ' : ''}${esc(c.summary || '')}</span></div>`; }
-    html += chgRow(c, i);
+    if (c.run !== run) { flush(); run = c.run; html += `<div class="chgrun"><b>${ukDay(c.date)}${c.time ? ', ' + c.time + ' UTC' : ''}</b><span>${c.rev ? 'Revision ' + c.rev + ': ' : ''}${esc(c.summary || '')}</span></div>`; }
+    const k = c.it ? 'm:' + c.it.id : c.fo ? 'f:' + c.title : 'x:' + c.type + ':' + c.title;
+    if (!groups.has(k)) groups.set(k, {c, i, all:[]});
+    groups.get(k).all.push(c);
   });
+  flush();
   $('chgList').innerHTML = html;
-  $('chgCount').textContent = `${list.length} of ${CHANGES.length} changes`;
+  $('chgCount').textContent = `${list.length} of ${CHANGES.length} changes, in ${rows} rows`;
 }
 $('chgList').addEventListener('click', e => { const a = e.target.closest('[data-ci]'); if (!a) return; e.preventDefault(); const c = CHANGES[+a.dataset.ci]; if (c && c.it) { hidden.delete(c.it.id); openDetail(c.it); } else if (c && c.fo) { setOpen('fortunes', true); raise('fortunes'); } else if (c && c.type === 'guidance') { setOpen('cyber', true); raise('cyber'); } });
 /* ---------- Display settings for changes ---------- */

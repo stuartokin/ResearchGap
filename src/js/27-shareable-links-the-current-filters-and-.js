@@ -148,7 +148,15 @@ function renderQuality(){
     html += `<h3>Two-model checks</h3><p class="note-s">Claude and Google Gemini check each other: Gemini's finds are confirmed by Claude, and Claude's are given a second opinion by Gemini. Anything they disagree on is marked disputed.</p>
       <div class="kbars"><div><b>${gA}</b> of ${gQ} Gemini finds confirmed by Claude</div><div><b>${cS}</b> of ${cAll} Claude finds supported by Gemini${cAll ? ` (${Math.round(cS / cAll * 100)}% agreement)` : ''}</div><div><b>${cD}</b> disputed after a second opinion</div></div>`;
   }
-const fun = DB.meta.researchFunnel || [];
+{ const STOPW = new Set(['the', 'and', 'for', 'with', 'first', 'new', 'of', 'in', 'to', 'a', 'an', 'at', 'scale', 'commercial', 'service', 'launch', 'launched', 'ai', 'by', 'on', 'as', 'uk', 'gb']);
+    const words = t => new Set((t.toLowerCase().replace(/-/g, ' ').match(/[a-z0-9]+/g) || []).filter(w => !STOPW.has(w) && w.length > 2));
+    const live = items.filter(it => !it.removed && !it.aud), pairs = [], yr = it => it.p ?? it.r;
+    for (let i = 0; i < live.length; i++) { const a = words(live[i].t); if (a.size < 2) continue;
+      for (let j = i + 1; j < live.length; j++) { const b = words(live[j].t); if (b.size < 2 || live[i].v !== live[j].v || Math.abs(yr(live[i]) - yr(live[j])) > 3) continue;
+        let n = 0; a.forEach(w => { if (b.has(w)) n++; }); if (n / Math.min(a.size, b.size) >= .8) pairs.push([live[i], live[j]]); } }
+    if (pairs.length) html += `<h3>Possible duplicates to review</h3><p class="note-s">Pairs with very similar titles, in the same field and within three years of each other. They may be genuinely different; nothing is merged or removed automatically. Select either to compare.</p>
+      <div class="dups">${pairs.slice(0, 20).map(([a, b]) => `<div class="trow"><span><a href="#" data-dup="${a.id}">${esc(a.t)}</a> (${yr(a)}) <em>and</em> <a href="#" data-dup="${b.id}">${esc(b.t)}</a> (${yr(b)})</span></div>`).join('')}</div>`; }
+  const fun = DB.meta.researchFunnel || [];
   if (fun.length) {   // where finds are found, and where they are lost
     const since = new Date(new Date(DATA_AS_OF + 'T12:00:00Z') - 30 * 864e5).toISOString().slice(0, 10), last = fun.filter(e => e.date >= since);
     const sum = (agent, k) => last.filter(e => e.agent === agent).reduce((a, e) => a + (e[k] || 0), 0);
@@ -160,6 +168,7 @@ const fun = DB.meta.researchFunnel || [];
       <table class="cstab"><tr><th>Search</th><th>Proposed</th><th>Passed checks</th><th>Rejected because</th></tr>${row('Claude: recent news (45 days)', 'claude', 'recent')}${row('Claude: catching up (last three years)', 'claude', 'catchup')}${row('Claude: filling gaps in the past', 'claude', 'backfill')}${row('Gemini', 'gemini', 'recent')}</table>`;
   }
     $('qualBody').innerHTML = html;
+  $('qualBody').querySelectorAll('[data-dup]').forEach(el => el.onclick = e => { e.preventDefault(); const it = items.find(x => x.id == el.dataset.dup); if (it) { hidden.delete(it.id); openDetail(it); setOpen('details', true); } });
 }
 /* ---------- Table of milestones ---------- */
 let tabSort = {k:'r', dir:1};
