@@ -13,7 +13,7 @@ Hard checks (code, not the model):
 """
 import sys, json, re
 from common import norm
-from common import (record_funnel, reject_reason, load_pending_founders, save_pending_founders, founder_runs, load_db, load_pending, save_pending, call_claude, fetch_text, evidence_in, is_duplicate, new_id, CONFIG, TODAY)
+from common import (record_funnel, reject_reason, save_db, load_pending_founders, save_pending_founders, founder_runs, load_db, load_pending, save_pending, call_claude, fetch_text, evidence_in, is_duplicate, new_id, CONFIG, TODAY)
 
 SUBMIT = {
   'name': 'submit_candidates',
@@ -71,12 +71,25 @@ def pending_record(db, f, c, fld, fields_by_id):
       'evidence_terms': c['evidence_terms'][:6], 'proposed': TODAY, 'attempts': 0
     }
 
+def catchup_units(db, swept, months_back):
+    """Every field and quarter of the last `months_back` months: never searched first, then least recently searched; recent quarters first within that."""
+    from datetime import date
+    t = date.fromisoformat(TODAY); quarters = []
+    y, q = t.year, (t.month - 1) // 3   # the last completed quarter (the 45-day news search covers the current one)
+    if q == 0: y, q = y - 1, 4
+    for _ in range(max(1, months_back // 3)):
+        quarters.append((y, q)); q -= 1
+        if q == 0: y, q = y - 1, 4
+    units = [(f, yq) for yq in quarters for f in db['fields']]
+    order = {yq: i for i, yq in enumerate(quarters)}
+    return sorted(units, key=lambda u: (swept.get(f"{u[0]['id']}|{u[1][0]}Q{u[1][1]}", ''), order[u[1]]))
+
 def thin_cells(db, as_of, n):
     """The thinnest field-and-decade cells, thinnest first; ties rotate weekly so coverage builds evenly.
     Only decades from ten years before a field's earliest research, up to the last full decade."""
     import random
     hist = [m for m in db['milestones'] if m['status'] == 'landed' and not (m.get('flags') or {}).get('hidden') and not m.get('company')]
-    last = (as_of // 10) * 10 - 10; cells = []
+    last = (as_of // 10) * 10; cells = []   # including the current decade
     for f in db['fields']:
         ys = [m['research']['year'] for m in hist if m['field'] == f['id']]
         if not ys: continue
@@ -89,7 +102,7 @@ def run():
     db = load_db(); cfg = CONFIG['research']; pub = CONFIG['publish']
     as_of = int(db['meta']['asOf'][:4]); horizon = as_of + db['meta']['horizonYears']
     pending = load_pending(); accepted = 0; report = []
-    funnel = {'recent': {'proposed':0, 'queued':0, 'rejected':{}}, 'backfill': {'proposed':0, 'queued':0, 'rejected':{}}}
+    funnel = {m: {'proposed':0, 'queued':0, 'rejected':{}} for m in ('recent', 'catchup', 'backfill')}
     vision_runs = [{'id': fid, 'name': fname, 'subfields': next((x.get('subfields', []) for x in db['fields'] if x['id'] == fid), []), 'vision': a} for a in (db.get('visionAreas', []) if cfg.get('visionSearches', True) else []) for fid, fname in [('energy', 'Energy')]]
     # DESNZ vision areas first, with places reserved for them; the general field searches then fill the rest
     reserved, vision_accepted = pub.get('reservedForVision', 0), 0
@@ -135,6 +148,32 @@ def run():
             accepted += 1; vision_accepted += 1 if f.get('vision') else 0; funnel['recent']['queued'] += 1
             report.append(f"pending  [{'vision ' if f.get('vision') else ''}{f['id']}] {c['title']}")
             if accepted >= pub.get('claudeAdditionsPerRun', pub['maxAdditionsPerRun']) or (f.get('vision') and reserved and vision_accepted >= reserved): break
+    # ---------- catch up: sweep the last three years, field by field and quarter by quarter, least recently searched first ----------
+    cu = cfg.get('catchup', {})
+    if cu.get('enabled', True):
+        fields_by_id = {x['id']: x for x in db['fields']}; queued_cu = 0
+        swept = db['meta'].setdefault('catchupSwept', {})
+        for f, (y, q) in catchup_units(db, swept, cu.get('monthsBack', 36))[:cu.get('sweepsPerRun', 3)]:
+            if queued_cu >= cu.get('perRun', 5): break
+            m0, m1 = (q - 1) * 3 + 1, q * 3; period = f"{['January', 'April', 'July', 'October'][q - 1]} to {['March', 'June', 'September', 'December'][q - 1]} {y}"
+            existing = [m['title'] for m in db['milestones'] if m['field'] == f['id']] + [c['title'] for c in pending]
+            prompt = (f"Catch up on a dataset of research breakthroughs. Field: {f['name']}. Find up to 3 milestones whose first product or real-world use came in {period} "
+                      "(the research may have begun years earlier) and which are missing from the dataset. Each needs an identifiable research origin and two independent, readable public sources. Use status 'landed'.\n"
+                      f"These already exist; do not propose them or close variants: {json.dumps(existing, ensure_ascii=False)}\n"
+                      "Return at most 3 candidates via submit_candidates, or an empty list if nothing qualifies.")
+            out = call_claude('You research technology milestones carefully and cite readable public sources exactly.', prompt, SUBMIT, max_searches=cu.get('searchesPerSweep', 3)) or {'candidates': []}
+            swept[f"{f['id']}|{y}Q{q}"] = TODAY
+            for c in out.get('candidates', [])[:3]:
+                funnel['catchup']['proposed'] += 1
+                why = check(db, f['id'], c, as_of, horizon, cfg['minSources'])
+                if not why and c.get('change_year') != y: why = 'first use outside the period asked for'
+                if why:
+                    rr = funnel['catchup']['rejected']; rr[reject_reason(why)] = rr.get(reject_reason(why), 0) + 1
+                    report.append(f"rejected [catch-up {f['id']} {y}Q{q}] {c.get('title')}: {why}"); continue
+                pending.append(pending_record(db, f, c, f['id'], fields_by_id)); queued_cu += 1; funnel['catchup']['queued'] += 1
+                report.append(f"pending  [catch-up {f['id']} {y}Q{q}] {c['title']}")
+                if queued_cu >= cu.get('perRun', 5): break
+        sdb = load_db(); sdb['meta']['catchupSwept'] = swept; save_db(sdb)   # remember what has been searched
     # ---------- fill the gaps: important past milestones missing from the thinnest field-and-decade cells ----------
     bf = cfg.get('backfill', {})
     if bf.get('enabled', True):

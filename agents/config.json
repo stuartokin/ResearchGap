@@ -2,7 +2,7 @@
   "model": "claude-sonnet-5-5",
   "maxTokens": 8000,
   "research": {
-    "lookbackDays": 21,
+    "lookbackDays": 45,
     "fieldsPerRun": 11,
     "searchesPerField": 4,
     "maxProposalsPerField": 3,
@@ -13,6 +13,13 @@
       "cellsPerRun": 5,
       "perRun": 5,
       "searchesPerCell": 3
+    },
+    "catchup": {
+      "enabled": true,
+      "monthsBack": 36,
+      "sweepsPerRun": 6,
+      "perRun": 5,
+      "searchesPerSweep": 3
     }
   },
   "qa": {
@@ -24,7 +31,7 @@
     "deepAuditBatchSize": 100
   },
   "publish": {
-    "maxAdditionsPerRun": 30,
+    "maxAdditionsPerRun": 35,
     "minTitleSimilarityForDuplicate": 0.82,
     "reservedForVision": 5,
     "claudeAdditionsPerRun": 15
