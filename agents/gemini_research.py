@@ -9,6 +9,22 @@ import sys, json
 from common import load_db, load_pending, save_pending, call_gemini, record_funnel, reject_reason, CONFIG, TODAY
 import research_agent as ra
 
+EXAMPLE = {'title': 'Example: first commercial solid-state transformer in a distribution network', 'field': 'energy', 'subfield': 'grids', 'origin': 'academic', 'status': 'landed',
+           'research_year': 2016, 'research_what': 'Researchers demonstrated a medium-voltage solid-state transformer.', 'research_origin': 'ETH Zurich power electronics laboratory, 2016 conference paper',
+           'change_year': 2025, 'change_what': 'A network operator put the first unit into commercial service.', 'confidence': 'medium', 'note': 'One line on why it matters.', 'is_policy': False,
+           'readiness': 'commercial', 'gb_status': 'unknown', 'region': 'europe', 'sources': [{'url': 'https://example.org/a', 'label': 'Source A'}, {'url': 'https://example.com/b', 'label': 'Source B'}],
+           'evidence_terms': ['solid-state transformer', 'commercial service']}
+ALIASES = {'research_origin': ('researchOrigin', 'origin_of_research', 'research_source', 'research_institution', 'originating_research'), 'research_year': ('researchYear',), 'change_year': ('changeYear', 'first_use_year'),
+           'research_what': ('researchWhat',), 'change_what': ('changeWhat', 'first_use'), 'evidence_terms': ('evidenceTerms',)}
+
+def normalise(c):
+    """Accept the alternative field names Gemini sometimes uses."""
+    for k, alts in ALIASES.items():
+        if not c.get(k):
+            for a in alts:
+                if c.get(a): c[k] = c[a]; break
+    return c
+
 def run():
     g = CONFIG.get('gemini', {}); cap = g.get('researchPerRun', 10)
     if not g.get('enabled', True): print('Gemini research disabled.'); return 0
@@ -23,11 +39,13 @@ def run():
               f"Also fill gaps: the dataset is thinnest for these fields and decades of first use, so important past milestones there are welcome: {json.dumps([f'{f["name"]}, {d}s' for k, f, d in ra.thin_cells(db, as_of, 8)])}. "
               "Include AI for the clean energy system where you can. Each needs at least two independent, reputable public sources, and evidence_terms that appear on those pages.\n"
               f"Do not repeat any of these existing titles: {json.dumps(known, ensure_ascii=False)}\n"
-              f"Reply with one JSON object only, no commentary, in the form {{\"candidates\": [...]}}, where each candidate follows this schema: {schema}")
+              f"Reply with one JSON object only, no commentary, in the form {{\"candidates\": [...]}}, where each candidate follows this schema: {schema}\n"
+              "Every candidate MUST include research_origin: the specific paper, patent, laboratory or programme where the research began, with who did it and the year. Candidates without it are rejected. "
+              f"An example of one complete candidate: {json.dumps(EXAMPLE)}")
     out = call_gemini(prompt, search=True, max_tokens=g.get('researchMaxTokens', 32000), want='candidates')
     if out is None: print('Gemini research: no usable answer this week (see the Gemini lines above for why); skipping.'); return 0
     queued, report, rej = 0, [], {}
-    for c in (out.get('candidates') or [])[:cap * 2]:
+    for c in [normalise(x) for x in (out.get('candidates') or []) if isinstance(x, dict)][:cap * 2]:
         if queued >= cap: break
         f = fields.get(c.get('field'))
         if not f: report.append(f"rejected {c.get('title')}: unknown field"); continue

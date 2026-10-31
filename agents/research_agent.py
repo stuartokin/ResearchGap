@@ -161,8 +161,10 @@ def run():
                       "(the research may have begun years earlier) and which are missing from the dataset. Each needs an identifiable research origin and two independent, readable public sources. Use status 'landed'.\n"
                       f"These already exist; do not propose them or close variants: {json.dumps(existing, ensure_ascii=False)}\n"
                       "Return at most 3 candidates via submit_candidates, or an empty list if nothing qualifies.")
-            out = call_claude('You research technology milestones carefully and cite readable public sources exactly.', prompt, SUBMIT, max_searches=cu.get('searchesPerSweep', 3)) or {'candidates': []}
+            out = call_claude('You research technology milestones carefully and cite readable public sources exactly.', prompt, SUBMIT, max_searches=cu.get('searchesPerSweep', 4))
+            if out is None: print(f"catch-up {f['id']} {y}Q{q}: no answer from Claude"); out = {'candidates': []}
             swept[f"{f['id']}|{y}Q{q}"] = TODAY
+            print(f"catch-up {f['id']} {y}Q{q}: " + (f"{len(out.get('candidates', []))} candidate(s)" if out.get('candidates') is not None else 'no answer'))
             for c in out.get('candidates', [])[:3]:
                 funnel['catchup']['proposed'] += 1
                 why = check(db, f['id'], c, as_of, horizon, cfg['minSources'])
@@ -187,6 +189,7 @@ def run():
                       f"These already exist; do not propose them or close variants: {json.dumps(existing, ensure_ascii=False)}\n"
                       "Return at most 2 candidates via submit_candidates, or an empty list if nothing important is missing.")
             out = call_claude('You research the history of technology carefully and cite readable public sources exactly.', prompt, SUBMIT, max_searches=bf.get('searchesPerCell', 3)) or {'candidates': []}
+            print(f"filling gaps {f['id']} {d}s: {len(out.get('candidates', []))} candidate(s)")
             for c in out.get('candidates', [])[:2]:
                 funnel['backfill']['proposed'] += 1
                 why = check(db, f['id'], c, as_of, horizon, cfg['minSources'])
