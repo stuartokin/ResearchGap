@@ -1,5 +1,5 @@
 {
- "version": 25,
+ "version": 26,
  "updated": "2026-10-31",
  "updatedBy": "tour-agent",
  "note": "Narration templates for the guided tours. Figures come from {placeholders} filled from the live data; conclusions are chosen by rules in the app ({\"by\": fact, \"cases\": {...}}). The weekly tour agent may refine wording and choose examples, within the rules checked by tools/validate.py.",
@@ -7,8 +7,8 @@
   "gap": {
    "title": "Is AI shrinking the gap from research to change?",
    "exampleIds": [
-    "mrna-vaccines",
-    "computer-mouse",
+    "penicillin",
+    "radar",
     "integrated-circuit",
     "large-language-model-api"
    ],
@@ -188,7 +188,7 @@
    "title": "Securing the future energy system",
    "steps": {
     "intro": {
-     "say": "New technology can give attackers new ways in, known as the attack surface. The filter keeps the {attackPct} per cent of technologies here that widen it, from smart devices at the edge of the grid to AI agents."
+     "say": "New technology can give attackers more ways in. Together these are called the attack surface. The filter keeps the {attackPct} per cent of technologies here that widen it, from smart devices at the edge of the grid to AI agents."
     },
     "lens": {
      "say": [
@@ -282,7 +282,7 @@
      }
     },
     "uni": {
-     "say": "Now the filter shows university projects. {nUni} of them are still under way, so they could yet become the next breakthroughs, and perhaps the next fortunes."
+     "say": "Now the filter shows university projects. {nUni} of them have not yet reached a product, so they could still become the next breakthroughs, and perhaps the next fortunes."
     },
     "table": {
      "say": "The Table lists every milestone. Sort by any column, such as the gap between milestones, and select a row to read its story."
@@ -340,10 +340,10 @@
      "say": "Choose a ready-made view to lay out the panels for exploring, presenting, analysing or an AI for clean energy briefing, or save your own as My views. Your file keeps them, and any view can be shared as a link."
     },
     "answer": {
-     "say": "Help and the 'i' information buttons explain each feature. This model is maintained by AI, so it may contain errors. Check anything important against the original sources."
+     "say": "The toolbar has Help and the 'i' information buttons, which explain each feature. AI maintains this model, so it may contain errors. Check anything important against the original sources."
     },
     "whatifchart": {
-     "say": "The What if? chart estimates how much sooner expected technologies could arrive if AI sped up key steps, such as discovery, simulation and approvals. An agent researches these possible speed-ups every week."
+     "say": "The What if? chart gives estimates, not predictions, of how much sooner expected technologies could arrive if AI sped up steps such as discovery, simulation and approvals. An agent researches these possible speed-ups every week."
     }
    }
   },
@@ -387,7 +387,7 @@
       {
        "by": "aiCase",
        "cases": {
-        "faster": "Among research-led milestones since 2010, AI-driven work has typically reached a product faster: about {aiMed} years, against {restMed} years for everything else. The AI-driven group is still small, with only {aiCount} milestones.",
+        "faster": "Among research-led milestones since 2010, AI-driven work has typically reached a product faster: about {aiMed} years, against {restMed} years for everything else. That rests on {aiCount} AI-driven milestones, so treat it with caution.",
         "similar": "Among research-led milestones since 2010, AI-driven work has typically taken about as long to reach a product as the rest: {aiMed} years against {restMed}.",
         "slower": "Among research-led milestones since 2010, AI-driven work has typically taken longer to reach a product: {aiMed} years against {restMed}.",
         "unclear": "There are not yet enough AI-driven milestones to compare."
@@ -519,7 +519,7 @@
      "say": "In the Gap explorer you can sort and colour the bars. Drag across the chart to zoom into years; double-click to reset."
     },
     "filter": {
-     "say": "The filter bar narrows any chart by search, field or origin. With fewer items, the rows grow larger and the years zoom in automatically."
+     "say": "The filter bar narrows any chart by search, field or origin. Here it is set to energy only. With fewer items, the rows grow larger and the years zoom in automatically."
     },
     "heat": {
      "say": "In the heatmap, select a cell to list its milestones in the side panel. The panel stays while you open a story."
@@ -549,7 +549,7 @@
   },
   "cleanweek": {
    "title": "AI for clean energy analysis",
-   "updated": "2026-10-31T14:30Z",
+   "updated": "2026-10-31T22:35Z",
    "steps": {
     "intro": {
      "say": [
@@ -569,7 +569,7 @@
     },
     "c2": {
      "view": "main",
-     "say": "Journeys vary hugely. {longestTitle} took {longestYears} years, while {quickRecentTitle} arrived in {quickRecentYears}. No researched stories are ready to retell this week, so pick any arc to follow a technology from lab to first use."
+     "say": "Journeys vary hugely. {longestTitle} took {longestYears} years, while {quickRecentTitle} arrived in {quickRecentYears}. No researched stories are ready to retell this week, so explore any arc to follow a technology from lab to first use."
     },
     "c3": {
      "view": "radar",

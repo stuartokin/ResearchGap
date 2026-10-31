@@ -1,128 +1,5 @@
 [
  {
-  "id": "satri-cel-first-car-t-approved-for-a-solid-tumour",
-  "field": "life",
-  "origin": "industry",
-  "status": "landed",
-  "title": "Satri-cel: first CAR-T approved for a solid tumour",
-  "research": {
-   "year": 2018,
-   "what": "CARsgen identified Claudin18.2 as a CAR-T target in solid tumours and took the CT041 product into early clinical trials. Origin: CARsgen's CT041 Claudin18.2-targeted CAR-T programme and early clinical trials from about 2018, followed by the CT041-ST-01 randomised phase 2 trial published in The Lancet"
-  },
-  "change": {
-   "year": 2026,
-   "what": "China's NMPA approved satri-cel on 22 June 2026 for Claudin18.2-positive advanced gastric or gastro-oesophageal junction cancer, the first CAR-T approval for a solid tumour anywhere."
-  },
-  "confidence": "medium",
-  "note": "It extends CAR-T cell therapy beyond blood cancers to a solid tumour, which had been the main barrier for the field.",
-  "refs": [
-   {
-    "label": "Fierce Pharma",
-    "url": "https://www.fiercepharma.com/pharma/carsgens-gastric-cancer-car-t-nabs-world-first-approval-china-checking-landmark-solid-tumor",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "Inside Precision Medicine",
-    "url": "https://www.insideprecisionmedicine.com/topics/oncology/solid-tumor-car-t-therapy-approved-in-china-a-world-first/",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "European Pharmaceutical Review",
-    "url": "https://www.europeanpharmaceuticalreview.com/carsgen-wins-first-global-approval-of-car-t-therapy-for-solid-tumours/2135788.article",
-    "status": "ok",
-    "checked": "2026-10-31"
-   }
-  ],
-  "subfield": "medicines",
-  "region": "asia",
-  "readiness": {
-   "stage": "commercial",
-   "basis": "ai-estimate"
-  },
-  "security": {
-   "expandsAttackSurface": false,
-   "note": "No notable cyber implications beyond routine clinical and manufacturing data security.",
-   "basis": "ai-compiled"
-  },
-  "evidence_terms": [
-   "satri-cel",
-   "CARsgen",
-   "Claudin18.2",
-   "NMPA"
-  ],
-  "proposed": "2026-10-31",
-  "attempts": 2
- },
- {
-  "id": "solid-state-transformers-for-ai-data-centres-and-grids",
-  "field": "energy",
-  "origin": "academic",
-  "status": "outlook",
-  "title": "Solid-state transformers for AI data centres and grids",
-  "research": {
-   "year": 2008,
-   "what": "Power-electronics transformers using fast semiconductor switching to convert medium-voltage AC straight to DC or low-voltage AC, studied in university labs such as NC State's for roughly two decades. Origin: University prototype work including the NC State (Lukic lab) solid-state transformer test and the long-running FREEDM-type research programmes (c. 2008 onward); year approximate."
-  },
-  "change": {
-   "year": 2027,
-   "what": "Vendors plan customer pilots in 2027 and volume shipments from 2028; Heron Power's US factory is due to begin production in 2027 and reach 40 GW a year in 2029."
-  },
-  "confidence": "medium",
-  "note": "Could replace bulky iron-and-copper transformers, which face waits of up to five years, and cut conversion losses in data centres, solar and batteries.",
-  "desnz": "asset",
-  "refs": [
-   {
-    "label": "MIT Technology Review: How solid-state transformers could help power the AI boom (27 Oct 2026)",
-    "url": "https://www.technologyreview.com/2026/10/27/1147684/solid-state-transformers/",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "Latitude Media: Does the market finally have an opening for solid-state transformers?",
-    "url": "https://www.latitudemedia.com/news/does-the-market-finally-have-an-opening-for-solid-state-transformers/",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "DG Matrix: Solid State Transformers Could Reshape AI Infrastructure",
-    "url": "https://www.dgmatrix.com/news-and-media/news/solid-state-transformers-could-reshape-ai-infrastructure/1223",
-    "status": "ok",
-    "checked": "2026-10-31"
-   }
-  ],
-  "subfield": "grids",
-  "region": "us",
-  "readiness": {
-   "stage": "pilot",
-   "basis": "ai-estimate"
-  },
-  "gb": {
-   "status": "unknown",
-   "basis": "ai-estimate"
-  },
-  "security": {
-   "expandsAttackSurface": true,
-   "note": "Software-controlled, networked power-electronics at grid and data-centre connection points add remotely reachable control and firmware surfaces.",
-   "basis": "ai-compiled"
-  },
-  "forecast": {
-   "estimatedYear": 2027,
-   "estimatedOn": "2026-10-31",
-   "revisions": []
-  },
-  "evidence_terms": [
-   "solid-state transformer",
-   "Heron Power",
-   "DG Matrix",
-   "Enphase"
-  ],
-  "proposed": "2026-10-31",
-  "attempts": 1,
-  "foundBy": "deep-search"
- },
- {
   "id": "brest-od-300-lead-cooled-fast-reactor-with-closed-fuel-cycle",
   "field": "energy",
   "origin": "industry",
@@ -179,7 +56,7 @@
    "Прорыв"
   ],
   "proposed": "2026-10-31",
-  "attempts": 1,
+  "attempts": 2,
   "foundBy": "deep-search"
  },
  {
@@ -240,7 +117,7 @@
    "Bourakébougou"
   ],
   "proposed": "2026-10-31",
-  "attempts": 1,
+  "attempts": 2,
   "foundBy": "deep-search"
  },
  {
@@ -301,7 +178,7 @@
    "2027年12月"
   ],
   "proposed": "2026-10-31",
-  "attempts": 1,
+  "attempts": 2,
   "foundBy": "deep-search"
  },
  {
@@ -354,174 +231,7 @@
    "NPU"
   ],
   "proposed": "2026-10-31",
-  "attempts": 1,
-  "foundBy": "deep-search"
- },
- {
-  "id": "intel-optane-first-3d-xpoint-storage-class-memory",
-  "field": "hw",
-  "origin": "industry",
-  "status": "landed",
-  "title": "Intel Optane: first 3D XPoint storage-class memory",
-  "research": {
-   "year": 2012,
-   "what": "Intel and Micron began developing a stackable cross-point non-volatile memory built on chalcogenide phase-change/threshold-switch materials, positioned between DRAM and NAND. Origin: Intel–Micron 3D XPoint development from around 2012 (announced July 2015), building on earlier phase-change memory work"
-  },
-  "change": {
-   "year": 2017,
-   "what": "Intel shipped the first Optane products based on 3D XPoint in 2017, starting with data-centre and consumer SSDs and later memory modules."
-  },
-  "confidence": "high",
-  "note": "It was the first volume storage-class memory with latency between NAND and DRAM, even though it was later discontinued.",
-  "refs": [
-   {
-    "label": "SiliconANGLE: Intel announces Optane, the first 3D XPoint SSD",
-    "url": "https://siliconangle.com/2017/03/20/intel-announces-optane-dc-4800x-first-storage-device-based-3d-xpoint-memory/",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "TechTarget: 3D XPoint",
-    "url": "https://www.techtarget.com/it-infrastructure/definition/3D-XPoint",
-    "status": "ok",
-    "checked": "2026-10-31"
-   }
-  ],
-  "subfield": "chips",
-  "region": "us",
-  "readiness": {
-   "stage": "commercial",
-   "basis": "ai-estimate"
-  },
-  "security": {
-   "expandsAttackSurface": false,
-   "note": "Persistent memory keeps data in memory across power cycles, which changes the threat model for memory scraping and encryption.",
-   "basis": "ai-compiled"
-  },
-  "evidence_terms": [
-   "3D Xpoint",
-   "Optane",
-   "Micron"
-  ],
-  "proposed": "2026-10-31",
-  "attempts": 1,
-  "foundBy": "deep-search"
- },
- {
-  "id": "gate-all-around-nanosheet-transistors-in-volume-samsung-3nm",
-  "field": "hw",
-  "origin": "industry",
-  "status": "landed",
-  "title": "Gate-all-around nanosheet transistors in volume (Samsung 3nm)",
-  "research": {
-   "year": 2017,
-   "what": "Gate-all-around transistors wrap the gate around all four sides of the channel; Samsung's version uses wide nanosheet channels (its MBCFET design). Origin: Samsung's proprietary MBCFET nanosheet GAA transistor development (start year approximate, not stated in the sources)"
-  },
-  "change": {
-   "year": 2022,
-   "what": "On 30 June 2022 Samsung started initial mass production of 3nm foundry chips using GAA, the first in the world to do so, replacing FinFET."
-  },
-  "confidence": "medium",
-  "note": "This was the first commercial move beyond FinFET transistor structure, and the industry has since followed with nanosheet GAA.",
-  "refs": [
-   {
-    "label": "Samsung Semiconductor Korea newsroom: 삼성전자, 세계 최초 3나노 파운드리 양산",
-    "url": "https://news.samsungsemiconductor.com/kr/%EC%82%BC%EC%84%B1%EC%A0%84%EC%9E%90-%EC%84%B8%EA%B3%84-%EC%B5%9C%EC%B4%88-3%EB%82%98%EB%85%B8-%ED%8C%8C%EC%9A%B4%EB%93%9C%EB%A6%AC-%EC%96%91%EC%82%B0/",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "Electronic Times (etnews): 삼성전자, 세계 최초 3나노 파운드리 양산 시작",
-    "url": "https://www.etnews.com/20220630000256",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "Bloter: 세계 최초 3나노가 넘지 못한 수율의 벽",
-    "url": "https://www.bloter.net/news/articleView.html?idxno=667822",
-    "status": "ok",
-    "checked": "2026-10-31"
-   }
-  ],
-  "subfield": "chips",
-  "region": "asia",
-  "readiness": {
-   "stage": "commercial",
-   "basis": "ai-estimate"
-  },
-  "security": {
-   "expandsAttackSurface": false,
-   "note": "No direct cyber security implications; it is a transistor process change.",
-   "basis": "ai-compiled"
-  },
-  "evidence_terms": [
-   "GAA",
-   "3나노",
-   "MBCFET",
-   "나노시트"
-  ],
-  "proposed": "2026-10-31",
-  "attempts": 1,
-  "foundBy": "deep-search"
- },
- {
-  "id": "processing-in-memory-hbm-samsung-hbm-pim-in-amd-mi100",
-  "field": "hw",
-  "origin": "industry",
-  "status": "landed",
-  "title": "Processing-in-memory HBM (Samsung HBM-PIM in AMD MI100)",
-  "research": {
-   "year": 2021,
-   "what": "HBM memory with AI processing engines built into the DRAM so some computation happens inside the memory, which cuts data movement. Origin: Samsung HBM-PIM, announced February 2021 on HBM2 Aquabolt; later presented at ISSCC with AMD"
-  },
-  "change": {
-   "year": 2022,
-   "what": "Samsung put HBM-PIM into AMD Instinct MI100 accelerator cards and built a cluster of them, which Samsung and AMD reported cut energy use while raising performance in large AI/HPC tests."
-  },
-  "confidence": "medium",
-  "note": "This is the first in-DRAM AI compute demonstrated in accelerator systems. Sources describe the use as limited or prototype, so commercial volume is not shown.",
-  "flags": {
-   "aiDriven": true
-  },
-  "refs": [
-   {
-    "label": "Samsung Newsroom Korea: 삼성전자, 세계 최초 인공지능 HBM-PIM 개발",
-    "url": "https://news.samsung.com/medialibrary/kr/photo/49762?page=77",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "Digital Daily: 삼성전자, 기술로 메모리 1위 지킨다…AMD 협력 확대",
-    "url": "https://m.ddaily.co.kr/page/view/2022102017594838428",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "Asia Economy: [AI혁명](25) AI 미래 책임지는 'HBM-PIM'",
-    "url": "https://www.asiae.co.kr/article/2023042619161228138",
-    "status": "ok",
-    "checked": "2026-10-31"
-   }
-  ],
-  "subfield": "chips",
-  "region": "asia",
-  "readiness": {
-   "stage": "pilot",
-   "basis": "ai-estimate"
-  },
-  "security": {
-   "expandsAttackSurface": false,
-   "note": "No direct cyber security implications.",
-   "basis": "ai-compiled"
-  },
-  "evidence_terms": [
-   "HBM-PIM",
-   "MI100",
-   "프로세싱 인 메모리",
-   "PIM"
-  ],
-  "proposed": "2026-10-31",
-  "attempts": 1,
+  "attempts": 2,
   "foundBy": "deep-search"
  },
  {
@@ -583,7 +293,7 @@
    "Roadmap"
   ],
   "proposed": "2026-10-31",
-  "attempts": 1,
+  "attempts": 2,
   "foundBy": "deep-search"
  },
  {
@@ -641,114 +351,7 @@
    "2027년"
   ],
   "proposed": "2026-10-31",
-  "attempts": 1,
-  "foundBy": "deep-search"
- },
- {
-  "id": "furiosaai-rngd-inference-chip-adopted-for-lg-exaone",
-  "field": "ai",
-  "origin": "industry",
-  "status": "landed",
-  "title": "FuriosaAI RNGD inference chip adopted for LG EXAONE",
-  "research": {
-   "year": 2023,
-   "what": "FuriosaAI designed its second-generation RNGD inference accelerator around its own Tensor Contraction Processor architecture, and LG AI Research began co-development and evaluation with it before the product was commercialised. Origin: FuriosaAI Tensor Contraction Processor architecture; LG AI Research collaboration and evaluation starting about two years before July 2025"
-  },
-  "change": {
-   "year": 2025,
-   "what": "In July 2025 LG AI Research confirmed adoption of RNGD for EXAONE after months of pilot testing, claiming 2.25x better performance per watt than GPUs, with enterprise EXAONE solutions planned on it."
-  },
-  "confidence": "medium",
-  "note": "A non-GPU Korean AI accelerator accepted for production large-language-model inference at a major conglomerate.",
-  "refs": [
-   {
-    "label": "Electronic Times (etnews): LG EXAONE confirms adoption of FuriosaAI RNGD",
-    "url": "https://www.etnews.com/20250722000329",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "Autodaily (엠투데이): FuriosaAI supplies RNGD to LG EXAONE",
-    "url": "https://www.autodaily.co.kr/news/articleView.html?idxno=533900",
-    "status": "ok",
-    "checked": "2026-10-31"
-   }
-  ],
-  "subfield": "methods",
-  "region": "asia",
-  "readiness": {
-   "stage": "commercial",
-   "basis": "ai-estimate"
-  },
-  "security": {
-   "expandsAttackSurface": false,
-   "note": "Adds a non-GPU accelerator stack with its own firmware and software supply chain to enterprise AI infrastructure.",
-   "basis": "ai-compiled"
-  },
-  "evidence_terms": [
-   "레니게이드",
-   "RNGD",
-   "엑사원",
-   "퓨리오사AI"
-  ],
-  "proposed": "2026-10-31",
-  "attempts": 1,
-  "foundBy": "deep-search"
- },
- {
-  "id": "tesla-ai5-inference-chip-in-volume-production",
-  "field": "ai",
-  "origin": "industry",
-  "status": "outlook",
-  "title": "Tesla AI5 inference chip in volume production",
-  "research": {
-   "year": 2025,
-   "what": "Tesla designed AI5, a 2nm-class inference chip rated at about 2,000–2,500 TOPS, to run its self-driving stack, the Optimus robot and data-centre inference. Origin: Tesla's in-house AI5 design, following its earlier AI4 self-driving computer, taped out in April 2026 with trial production at Samsung's Taylor fab"
-  },
-  "change": {
-   "year": 2027,
-   "what": "Tesla and its foundry partners (TSMC and Samsung) are targeting volume production of AI5 from mid-2027. Meaningful deployment in vehicles is expected later, and the schedule has slipped before."
-  },
-  "confidence": "medium",
-  "note": "This would be a vertically integrated automotive and robot AI chip made in volume at two foundries on a 2nm-class process.",
-  "refs": [
-   {
-    "label": "autoevolution: AI5 enters trial production at Samsung Taylor, volume in 2027",
-    "url": "https://www.autoevolution.com/news/tesla-s-ai5-chip-enters-trial-production-as-samsung-gets-the-taylor-fab-running-275799.html",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "Electrek: Tesla taped out AI5, volume production still over a year away",
-    "url": "https://electrek.co/2026/04/15/tesla-ai5-chip-taped-out-musk-ai6-dojo3/",
-    "status": "ok",
-    "checked": "2026-10-31"
-   }
-  ],
-  "subfield": "methods",
-  "region": "us",
-  "readiness": {
-   "stage": "research",
-   "basis": "ai-estimate"
-  },
-  "security": {
-   "expandsAttackSurface": true,
-   "note": "Putting more powerful on-board AI compute in vehicles and robots widens the attack surface for over-the-air updates and model tampering.",
-   "basis": "ai-compiled"
-  },
-  "forecast": {
-   "estimatedYear": 2027,
-   "estimatedOn": "2026-10-31",
-   "revisions": []
-  },
-  "evidence_terms": [
-   "AI5",
-   "Samsung",
-   "Taylor",
-   "volume production"
-  ],
-  "proposed": "2026-10-31",
-  "attempts": 1,
+  "attempts": 2,
   "foundBy": "deep-search"
  },
  {
@@ -804,104 +407,7 @@
    "SpinQ Gemini"
   ],
   "proposed": "2026-10-31",
-  "attempts": 1,
-  "foundBy": "deep-search"
- },
- {
-  "id": "quantum-origin-verifiable-quantum-randomness-for-keys",
-  "field": "quantum",
-  "origin": "industry",
-  "status": "landed",
-  "title": "Quantum Origin: verifiable quantum randomness for keys",
-  "research": {
-   "year": 2007,
-   "what": "Randomness certified by Bell tests and processed with seeded extractors, so that key material is provably random. Origin: Device-independent randomness work from Cambridge (Colbeck's 2007 Cambridge thesis), later commercialised by Cambridge Quantum, now Quantinuum."
-  },
-  "change": {
-   "year": 2021,
-   "what": "Cambridge Quantum launched Quantum Origin as a commercial cryptographic key platform seeded with verifiable randomness from a trapped-ion quantum computer. It later gained NIST SP 800-90B validation in 2025."
-  },
-  "confidence": "medium",
-  "note": "Described by its maker as the first commercial product built on a quantum computer to deliver a result that classical machines cannot match.",
-  "refs": [
-   {
-    "label": "Quantinuum: Introducing Quantum Origin",
-    "url": "https://www.quantinuum.com/blog/introducing-quantum-origin",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "HPCwire: NIST Validates Quantinuum Cryptography Solution – Origin",
-    "url": "https://www.hpcwire.com/2025/04/02/nist-validates-quantinuum-cryptography-solution-origin/",
-    "status": "ok",
-    "checked": "2026-10-31"
-   }
-  ],
-  "subfield": "devices",
-  "region": "uk",
-  "readiness": {
-   "stage": "commercial",
-   "basis": "ai-estimate"
-  },
-  "security": {
-   "expandsAttackSurface": false,
-   "note": "It strengthens cryptographic key generation against weak-entropy failures, and it supports post-quantum migration.",
-   "basis": "ai-compiled"
-  },
-  "evidence_terms": [
-   "Quantum Origin",
-   "Cambridge Quantum",
-   "verifiable quantum randomness",
-   "Quantum Seed"
-  ],
-  "proposed": "2026-10-31",
-  "attempts": 1,
-  "foundBy": "deep-search"
- },
- {
-  "id": "kaiser-kernel-isolation-basis-of-linux-kpti-against-meltdown",
-  "field": "cyber",
-  "origin": "academic",
-  "status": "landed",
-  "title": "KAISER kernel isolation, basis of Linux KPTI against Meltdown",
-  "research": {
-   "year": 2017,
-   "what": "TU Graz researchers proposed KAISER, which unmaps most kernel memory while user code runs, to close side channels that defeat kernel address randomisation. Origin: Gruss, Lipp, Schwarz, Fellner, Maurice, Mangard, 'KASLR is Dead: Long Live KASLR', ESSoS 2017 (TU Graz)"
-  },
-  "change": {
-   "year": 2018,
-   "what": "KAISER became the basis of kernel page-table isolation, merged into Linux 4.15 and backported to stable kernels (the commit landed on 29 Dec 2017), with similar fixes in Windows and macOS, as the main Meltdown mitigation."
-  },
-  "confidence": "high",
-  "note": "It was the first widely deployed software defence against Meltdown, reaching almost all PCs, servers and cloud hosts.",
-  "refs": [
-   {
-    "label": "TU Graz: TU Graz researchers discover serious security vulnerabilities",
-    "url": "https://www.tugraz.at/en/news/article/tu-graz-researchers-discover-serious-security-vulnerabilities",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "LWN.net: A look at the handling of Meltdown and Spectre",
-    "url": "https://lwn.net/Articles/743363/",
-    "status": "ok",
-    "checked": "2026-10-31"
-   }
-  ],
-  "subfield": "network",
-  "region": "europe",
-  "readiness": {
-   "stage": "scale",
-   "basis": "ai-estimate"
-  },
-  "evidence_terms": [
-   "KAISER",
-   "Meltdown",
-   "KPTI",
-   "TU Graz"
-  ],
-  "proposed": "2026-10-31",
-  "attempts": 1,
+  "attempts": 2,
   "foundBy": "deep-search"
  },
  {
@@ -950,180 +456,7 @@
    "LG유플러스"
   ],
   "proposed": "2026-10-31",
-  "attempts": 1,
-  "foundBy": "deep-search"
- },
- {
-  "id": "european-cybersecurity-alert-system-cross-border-cyber-hubs",
-  "field": "cyber",
-  "origin": "government",
-  "status": "outlook",
-  "title": "European Cybersecurity Alert System (cross-border cyber hubs)",
-  "research": {
-   "year": 2021,
-   "what": "A pilot funded by the European Commission linked national security operations centres (SOCs) across EU states, to share threat data and build joint detection tools. Origin: European Commission cross-border SOC pilot project launched in 2021; first phase of Digital Europe Programme consortia selected November 2022 (ATHENA, ENSOC)"
-  },
-  "change": {
-   "year": 2028,
-   "what": "The hubs are meant to become a working EU-wide network that pools threat data and issues real-time alerts. The European Court of Auditors says it is not yet functioning, and the ENSOC platform project runs to June 2028."
-  },
-  "confidence": "medium",
-  "note": "It would be Europe's first shared, near-real-time cyber threat detection layer across national SOCs. Delays in procurement, cooperation agreements and standards put the timing at risk.",
-  "refs": [
-   {
-    "label": "European Court of Auditors, Special Report 19/2026 on detecting and responding to cybersecurity incidents",
-    "url": "https://www.eca.europa.eu/ECAPublications/SR-2026-19/SR-2026-19_EN.pdf",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "ENSOC - European Network of SOC (project page)",
-    "url": "https://ensoc.eu/index.html",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "Computer Weekly: EU states failing to exchange information on cross-border cyber security attacks",
-    "url": "https://www.computerweekly.com/news/366650821/EU-states-failing-to-exchange-information-on-cross-border-cyber-security-attacks",
-    "status": "ok",
-    "checked": "2026-10-31"
-   }
-  ],
-  "subfield": "network",
-  "region": "europe",
-  "readiness": {
-   "stage": "pilot",
-   "basis": "ai-estimate"
-  },
-  "forecast": {
-   "estimatedYear": 2028,
-   "estimatedOn": "2026-10-31",
-   "revisions": []
-  },
-  "evidence_terms": [
-   "European Cybersecurity Alert System",
-   "ATHENA",
-   "ENSOC",
-   "Cross-Border Cyber Hubs"
-  ],
-  "proposed": "2026-10-31",
-  "attempts": 1,
-  "foundBy": "deep-search"
- },
- {
-  "id": "nasa-dsoc-laser-communications-across-deep-space",
-  "field": "comms",
-  "origin": "government",
-  "status": "landed",
-  "title": "NASA DSOC: laser communications across deep space",
-  "research": {
-   "year": 2015,
-   "what": "JPL developed a flight laser transceiver and ground laser terminals to test near-infrared optical links from beyond the Moon, building on earlier NASA optical-communication demos. Origin: NASA JPL Deep Space Optical Communications (DSOC) technology demonstration, described in a 2015 NASA/JPL project paper"
-  },
-  "change": {
-   "year": 2023,
-   "what": "On 14 November 2023 the DSOC transceiver aboard the Psyche spacecraft reached 'first light' and exchanged laser data from about 16 million km away, the first optical link in deep space."
-  },
-  "confidence": "high",
-  "note": "First demonstration of laser (optical) communications across deep space, a route to much higher data rates than radio for future missions.",
-  "refs": [
-   {
-    "label": "NASA: DSOC sends, receives first data",
-    "url": "https://www.nasa.gov/missions/psyche-mission/nasas-deep-space-optical-comm-demo-sends-receives-first-data",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "CNN: most distant demo of laser communications",
-    "url": "https://www.cnn.com/2023/11/24/world/nasa-psyche-dsoc-first-light-scn/index.html",
-    "status": "ok",
-    "checked": "2026-10-31"
-   }
-  ],
-  "subfield": "internet",
-  "region": "us",
-  "tags": [
-   "space"
-  ],
-  "readiness": {
-   "stage": "pilot",
-   "basis": "ai-estimate"
-  },
-  "security": {
-   "expandsAttackSurface": false,
-   "note": "Narrow laser beams are hard to intercept or jam, but pointing and ground-station control systems become new targets.",
-   "basis": "ai-compiled"
-  },
-  "evidence_terms": [
-   "Deep Space Optical Communications",
-   "first light",
-   "Psyche",
-   "DSOC"
-  ],
-  "proposed": "2026-10-31",
-  "attempts": 1,
-  "foundBy": "deep-search"
- },
- {
-  "id": "queqiao-lunar-comms-navigation-sensing-constellation",
-  "field": "comms",
-  "origin": "government",
-  "status": "outlook",
-  "title": "Queqiao lunar comms-navigation-sensing constellation",
-  "research": {
-   "year": 2018,
-   "what": "Queqiao relay satellites in Earth-Moon space, followed by the Queqiao-2 relay and the Tiandu-1 and Tiandu-2 test satellites, which were used to validate a lunar communication and navigation constellation design. Origin: Queqiao-1 lunar relay (2018) and Queqiao-2 with Tiandu-1/2 (2024), China's lunar exploration programme; the integrated constellation concept was presented in 2023 at the first Tiandu deep-space exploration conference."
-  },
-  "change": {
-   "year": 2030,
-   "what": "China plans a pilot Queqiao constellation of lunar communication, navigation and remote-sensing satellites around 2030. It would support Chang'e-7/8 follow-on lunar missions and the International Lunar Research Station, with a fuller lunar backbone link by about 2040."
-  },
-  "confidence": "medium",
-  "note": "This would be China's lunar data-relay and positioning infrastructure. It is a published, staged national plan, not speculation.",
-  "refs": [
-   {
-    "label": "CNSA (Wu Weiren on the International Lunar Research Station and Queqiao constellation)",
-    "url": "https://www.cnsa.gov.cn/n6758823/n6758844/n10663475/n10663516/c10668780/content.html",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "Tencent News: Queqiao, Chang'e-6 and the three-step constellation plan",
-    "url": "https://news.qq.com/rain/a/20240625A067ZV00",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "Journal of Deep Space Exploration 2025 (Queqiao constellation information system)",
-    "url": "https://jdse.bit.edu.cn/sktcxb/cn/article/pdf/preview/10.3724/j.issn.2096-9287.2025.20250083.pdf",
-    "status": "ok",
-    "checked": "2026-10-31"
-   }
-  ],
-  "subfield": "internet",
-  "region": "asia",
-  "readiness": {
-   "stage": "pilot",
-   "basis": "ai-estimate"
-  },
-  "security": {
-   "expandsAttackSurface": true,
-   "note": "It adds a space-based relay and navigation link for lunar missions, which creates new communication links and ground-segment targets to protect.",
-   "basis": "ai-compiled"
-  },
-  "forecast": {
-   "estimatedYear": 2030,
-   "estimatedOn": "2026-10-31",
-   "revisions": []
-  },
-  "evidence_terms": [
-   "鹊桥通导遥综合星座",
-   "2030年前后",
-   "嫦娥",
-   "国际月球科研站"
-  ],
-  "proposed": "2026-10-31",
-  "attempts": 1,
+  "attempts": 2,
   "foundBy": "deep-search"
  },
  {
@@ -1185,69 +518,7 @@
    "6G"
   ],
   "proposed": "2026-10-31",
-  "attempts": 1,
-  "foundBy": "deep-search"
- },
- {
-  "id": "rare-earth-free-iron-nitride-magnets-first-full-scale-plant",
-  "field": "materials",
-  "origin": "industry",
-  "status": "outlook",
-  "title": "Rare-earth-free iron nitride magnets: first full-scale plant",
-  "research": {
-   "year": 2016,
-   "what": "Permanent magnets made from iron and nitrogen, with no rare earths, moved from lab-scale research to a pilot line. Origin: Niron Magnetics' lab-scale iron nitride magnet research, backed by the Shakopee Mdewakanton Sioux Community from 2016, then a Minneapolis commercial pilot plant opened in 2024"
-  },
-  "change": {
-   "year": 2027,
-   "what": "Niron's Sartell, Minnesota Plant 1 is due to begin production in 2027 at up to 1,500 tonnes of magnets a year."
-  },
-  "confidence": "high",
-  "note": "It would be the first commercial-scale alternative to NdFeB magnets for motors, wind turbines and electronics.",
-  "refs": [
-   {
-    "label": "Niron Magnetics press release (Feb 2026): Sartell facility expected to begin production in 2027",
-    "url": "https://nironmagnetics.com/niron-magnetics-strengthens-local-ties-by-joining-sartell-chamber-of-commerce-ahead-of-new-facility/",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "Wood: EPCM contract for the world's first iron nitride magnet plant",
-    "url": "https://www.woodgroup.com/news/niron-iron-nitride-permanent-magnet-plant",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "InForum/Echo Press: Sartell steel-raising event, 9 Sept 2026",
-    "url": "https://www.echopress.com/business/minnesota-city-celebrates-manufacturer-at-steel-raising-event",
-    "status": "ok",
-    "checked": "2026-10-31"
-   }
-  ],
-  "subfield": "polymers",
-  "region": "us",
-  "readiness": {
-   "stage": "commercial",
-   "basis": "ai-estimate"
-  },
-  "security": {
-   "expandsAttackSurface": false,
-   "note": "Supply-chain resilience for magnet-dependent defence and energy equipment; no direct cyber attack surface.",
-   "basis": "ai-compiled"
-  },
-  "forecast": {
-   "estimatedYear": 2027,
-   "estimatedOn": "2026-10-31",
-   "revisions": []
-  },
-  "evidence_terms": [
-   "Iron Nitride",
-   "Sartell",
-   "Niron Magnetics",
-   "1,500 tons"
-  ],
-  "proposed": "2026-10-31",
-  "attempts": 1,
+  "attempts": 2,
   "foundBy": "deep-search"
  },
  {
@@ -1298,58 +569,7 @@
    "couronne solaire"
   ],
   "proposed": "2026-10-31",
-  "attempts": 1,
-  "foundBy": "deep-search"
- },
- {
-  "id": "tianwen-2-chinas-first-asteroid-sample-return",
-  "field": "space",
-  "origin": "government",
-  "status": "outlook",
-  "title": "Tianwen-2: China's first asteroid sample return",
-  "research": {
-   "year": 2018,
-   "what": "Chinese concept studies for a mission to sample near-Earth asteroid 2016 HO3 and then visit a main-belt comet, with three sampling modes: touch-and-go, hovering and anchoring. Origin: China's planetary exploration programme: the mission was first known as 'Zheng He' (2018–2020) and was formally approved in 2023."
-  },
-  "change": {
-   "year": 2027,
-   "what": "The Tianwen-2 return capsule is planned to land on Earth in late 2027 with at least 100 g of asteroid material, which would be China's first asteroid sample return."
-  },
-  "confidence": "high",
-  "note": "It would be the third national programme to return asteroid material, and it tests sampling methods suited to uncertain asteroid surfaces.",
-  "refs": [
-   {
-    "label": "国家国防科技工业局 (SASTIND): 天问二号为啥要去小行星",
-    "url": "https://www.sastind.gov.cn/n10086205/n10086408/n10104265/c10706560/content.html",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "新华网: 中国航天史上最长任务开启 谁来接力“天问”？",
-    "url": "https://www.news.cn/politics/20250530/09773b4d15464a199f7f077ebc2dd225/c.html",
-    "status": "ok",
-    "checked": "2026-10-31"
-   }
-  ],
-  "subfield": "launch",
-  "region": "asia",
-  "readiness": {
-   "stage": "pilot",
-   "basis": "ai-estimate"
-  },
-  "forecast": {
-   "estimatedYear": 2027,
-   "estimatedOn": "2026-10-31",
-   "revisions": []
-  },
-  "evidence_terms": [
-   "天问二号",
-   "2016HO3",
-   "采样",
-   "2027年底"
-  ],
-  "proposed": "2026-10-31",
-  "attempts": 1,
+  "attempts": 2,
   "foundBy": "deep-search"
  },
  {
@@ -1400,7 +620,7 @@
    "NASA"
   ],
   "proposed": "2026-10-31",
-  "attempts": 1,
+  "attempts": 2,
   "foundBy": "deep-search"
  },
  {
@@ -1455,7 +675,7 @@
    "1784"
   ],
   "proposed": "2026-10-31",
-  "attempts": 1,
+  "attempts": 2,
   "foundBy": "deep-search"
  },
  {
@@ -1512,62 +732,7 @@
    "塩野義製薬"
   ],
   "proposed": "2026-10-31",
-  "attempts": 1,
-  "foundBy": "deep-search"
- },
- {
-  "id": "m72-as01e-first-new-tb-vaccine-in-a-century",
-  "field": "life",
-  "origin": "academic",
-  "status": "outlook",
-  "title": "M72/AS01E: first new TB vaccine in a century",
-  "research": {
-   "year": 2018,
-   "what": "A two-dose adjuvanted protein vaccine (M72/AS01E) cut progression to active pulmonary TB by about half in infected adults in a phase 2b trial. Origin: GSK-developed M72/AS01E phase 2b placebo-controlled trial in adults with latent TB infection, published 2018 (licensed to Gates MRI in 2020)"
-  },
-  "change": {
-   "year": 2029,
-   "what": "If the ~20,000-person phase 3 succeeds (results late 2028), regulatory submissions start in 2029 and Serum Institute of India is lined up to manufacture; licensure is projected for 2029–2030."
-  },
-  "confidence": "medium",
-  "note": "It would be the first new TB vaccine in over 100 years and the first aimed at adolescents and adults.",
-  "refs": [
-   {
-    "label": "Gates Medical Research Institute – manufacturing agreement with Serum Institute of India",
-    "url": "https://www.gatesmri.org/gates-medical-research-institute-and-the-serum-institute-of-india-reach-agreement/",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "IOL – New TB vaccines could save millions of lives by 2050",
-    "url": "https://iol.co.za/news/south-africa/2026-09-16-new-tb-vaccines-could-save-millions-of-lives-by-2050--what-to-know/",
-    "status": "ok",
-    "checked": "2026-10-31"
-   }
-  ],
-  "subfield": "medicines",
-  "region": "global",
-  "readiness": {
-   "stage": "pilot",
-   "basis": "ai-estimate"
-  },
-  "security": {
-   "expandsAttackSurface": false,
-   "note": "Little direct cyber impact; vaccine cold-chain and manufacturing data systems are the only exposure.",
-   "basis": "ai-compiled"
-  },
-  "forecast": {
-   "estimatedYear": 2029,
-   "estimatedOn": "2026-10-31",
-   "revisions": []
-  },
-  "evidence_terms": [
-   "M72/AS01E",
-   "Serum Institute of India",
-   "Phase 3"
-  ],
-  "proposed": "2026-10-31",
-  "attempts": 1,
+  "attempts": 2,
   "foundBy": "deep-search"
  },
  {
@@ -1617,260 +782,7 @@
    "2030年"
   ],
   "proposed": "2026-10-31",
-  "attempts": 1,
-  "foundBy": "deep-search"
- },
- {
-  "id": "china-brain-computer-interface-products-2027-2030-plan",
-  "field": "life",
-  "origin": "government",
-  "status": "outlook",
-  "title": "China brain-computer interface products (2027/2030 plan)",
-  "research": {
-   "year": 2025,
-   "what": "Seven Chinese ministries set a two-step national plan to move brain-computer interface electrodes, chips and complete devices from research into applied products. Origin: MIIT et al. 'Implementation Opinions on Promoting Innovative Development of the Brain-Computer Interface Industry' (工信部联科〔2025〕164号), 2025; the underlying lab programmes are not named in the sources"
-  },
-  "change": {
-   "year": 2027,
-   "what": "By 2027 BCI products are to be applied faster in industry, healthcare and consumer use; by 2030 a secure industry system with 2–3 globally influential firms is targeted."
-  },
-  "confidence": "low",
-  "note": "It is a national programme to commercialise implantable and non-implantable BCI devices, including medical ones.",
-  "refs": [
-   {
-    "label": "China Daily (Chinese): seven ministries, BCI key technology breakthroughs by 2027",
-    "url": "https://cn.chinadaily.com.cn/a/202508/07/WS6894af99a310ebef36290e9e.html",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "Xinhua: seven ministries promote BCI industry innovation, 2027 and 2030 targets",
-    "url": "http://www.news.cn/tech/20250808/3bd25fa307d14f32b2dd67f480212cbd/c.html",
-    "status": "ok",
-    "checked": "2026-10-31"
-   }
-  ],
-  "subfield": "medicines",
-  "region": "asia",
-  "readiness": {
-   "stage": "pilot",
-   "basis": "ai-estimate"
-  },
-  "forecast": {
-   "estimatedYear": 2027,
-   "estimatedOn": "2026-10-31",
-   "revisions": []
-  },
-  "evidence_terms": [
-   "脑机接口",
-   "实施意见",
-   "2027年"
-  ],
-  "proposed": "2026-10-31",
-  "attempts": 1,
-  "foundBy": "deep-search"
- },
- {
-  "id": "china-ai-energy-plan-grid-dispatch-ai-models-by-2027-30",
-  "field": "energy",
-  "origin": "government",
-  "status": "outlook",
-  "title": "China 'AI+ Energy' plan: grid dispatch AI models by 2027-30",
-  "research": {
-   "year": 2025,
-   "what": "China's State Council 'AI+' action opinion led to a dedicated energy implementation opinion that sets 2027 and 2030 goals for AI in power-grid dispatch, new-energy forecasting and planning. Origin: State Council 'AI+' action opinion (国发〔2025〕11号) and NDRC/NEA implementation opinion 国能发科技〔2025〕73号, 4 Sep 2025"
-  },
-  "change": {
-   "year": 2027,
-   "what": "By 2027 at least five sector-specific AI models are to be in deep use across grid, generation, coal and oil and gas, with ten or more replicable demonstration projects; by 2030 AI for intelligent grid control and new-energy forecasting is to be at scale."
-  },
-  "confidence": "medium",
-  "note": "It is a national programme with dated, countable targets for AI in power-system operation, so it is a published plan rather than speculation.",
-  "desnz": "opt",
-  "flags": {
-   "policy": true
-  },
-  "refs": [
-   {
-    "label": "NEA Q&A on the AI+ Energy implementation opinion (国家能源局)",
-    "url": "https://www.nea.gov.cn/20250908/781c61eb8d0c4c25a7c98a350169790e/c.html",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "NEA news: two departments issue AI+ Energy opinion (两部门发文推进“人工智能+”能源高质量发展)",
-    "url": "https://www.nea.gov.cn/20250912/c31a8448ceba4fba9081ee2206abc521/c.html",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "gov.cn full text of the implementation opinion",
-    "url": "https://www.gov.cn/zhengce/zhengceku/202509/content_7040253.htm",
-    "status": "ok",
-    "checked": "2026-10-31"
-   }
-  ],
-  "subfield": "grids",
-  "region": "asia",
-  "readiness": {
-   "stage": "pilot",
-   "basis": "ai-estimate"
-  },
-  "gb": {
-   "status": "not-yet",
-   "basis": "ai-estimate"
-  },
-  "security": {
-   "expandsAttackSurface": true,
-   "note": "Putting AI models into dispatch and control adds new model, data and supply-chain attack paths to grid operations.",
-   "basis": "ai-compiled"
-  },
-  "forecast": {
-   "estimatedYear": 2027,
-   "estimatedOn": "2026-10-31",
-   "revisions": []
-  },
-  "evidence_terms": [
-   "人工智能+",
-   "五十百",
-   "电力智能调控",
-   "2027",
-   "2030"
-  ],
-  "proposed": "2026-10-31",
-  "attempts": 1,
-  "foundBy": "deep-search"
- },
- {
-  "id": "opengridfm-open-foundation-models-for-the-power-grid",
-  "field": "energy",
-  "origin": "industry",
-  "status": "outlook",
-  "title": "OpenGridFM: open foundation models for the power grid",
-  "research": {
-   "year": 2024,
-   "what": "IBM Research and Hydro-Québec started GridFM, an open framework for pre-training foundation models on solved power-flow and optimal-power-flow problems for grid analysis and operation. Origin: GridFM, originated by Hydro-Québec and IBM and contributed to Linux Foundation Energy; Joule perspective paper on grid foundation models (IBM Research)"
-  },
-  "change": {
-   "year": 2029,
-   "what": "A three-year US Genesis Mission Phase II project led by Brookhaven Lab aims to take grid foundation models from proof of concept to real-world use, simulating scenarios for adding new loads to the grid."
-  },
-  "confidence": "medium",
-  "note": "A funded multi-year programme with national-lab, utility and industry partners is moving a neural grid solver towards operational use.",
-  "desnz": "opt",
-  "refs": [
-   {
-    "label": "Brookhaven Lab to Lead $14M AI Project for Nation's Electric Grid",
-    "url": "https://www.bnl.gov/newsroom/news.php?a=123136",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "IBM Research: From vision to reality: a unified AI solver for the grid",
-    "url": "https://research.ibm.com/blog/gridfm-neural-solver-power-grid",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "LF Energy announcement of GridFM and other open source grid projects",
-    "url": "https://lfenergy.org/linux-foundation-energy-announces-open-source-power-grid-projects-for-ai-modeling-and-edge-applications-plus-scope-3-emissions-visibility/",
-    "status": "ok",
-    "checked": "2026-10-31"
-   }
-  ],
-  "subfield": "grids",
-  "region": "us",
-  "readiness": {
-   "stage": "pilot",
-   "basis": "ai-estimate"
-  },
-  "gb": {
-   "status": "unknown",
-   "basis": "ai-estimate"
-  },
-  "security": {
-   "expandsAttackSurface": true,
-   "note": "Shared pre-trained grid models add risks of poisoned training data and of wrong model outputs being trusted in operational decisions.",
-   "basis": "ai-compiled"
-  },
-  "forecast": {
-   "estimatedYear": 2029,
-   "estimatedOn": "2026-10-31",
-   "revisions": []
-  },
-  "evidence_terms": [
-   "GridFM",
-   "Genesis Mission",
-   "OpenGridFM",
-   "Hydro-Québec",
-   "GENCO"
-  ],
-  "proposed": "2026-10-31",
-  "attempts": 1,
-  "foundBy": "deep-search"
- },
- {
-  "id": "maximo-ai-vision-robot-fleet-for-solar-module-installation",
-  "field": "energy",
-  "origin": "industry",
-  "status": "landed",
-  "title": "Maximo: AI-vision robot fleet for solar module installation",
-  "research": {
-   "year": 2024,
-   "what": "AES developed Maximo, an AI-enabled robot that uses computer vision and generative image reconstruction to place and attach solar modules alongside crews. Origin: AES Corporation's in-house solar robotics programme (spun out as Maximo), unveiled in 2024 and developed with NVIDIA Isaac Sim simulation and AWS"
-  },
-  "change": {
-   "year": 2025,
-   "what": "AES deployed a fleet at the Bellefield solar and storage project in California. In March 2026 it announced 100 MW installed, which AES described as the move to sustained commercial production."
-  },
-  "confidence": "medium",
-  "note": "This is construction rather than O&M, but it is an AI-driven robot delivering clean-energy assets at utility scale. The research origin year is only loosely sourced.",
-  "desnz": "asset",
-  "flags": {
-   "aiDriven": true
-  },
-  "refs": [
-   {
-    "label": "Renewable Energy World: AES sends world's first AI-powered solar robot fleet to California project",
-    "url": "https://www.renewableenergyworld.com/solar/utility-scale/aes-sends-worlds-first-ai-powered-solar-robot-fleet-to-california-project/",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "PR Newswire: Maximo Completes 100 MW of Robotic Solar Installation",
-    "url": "https://www.prnewswire.com/news-releases/maximo-completes-100-mw-of-robotic-solar-installation-302723835.html",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "PV Tech: Maximo on robotic installation at utility-scale solar projects",
-    "url": "https://www.pv-tech.org/youre-going-to-see-a-lot-more-of-these-maximo-on-robotic-installation-utility-scale-solar-projects/",
-    "status": "ok",
-    "checked": "2026-10-31"
-   }
-  ],
-  "subfield": "grids",
-  "region": "us",
-  "readiness": {
-   "stage": "commercial",
-   "basis": "ai-estimate"
-  },
-  "gb": {
-   "status": "not-yet",
-   "basis": "ai-estimate"
-  },
-  "security": {
-   "expandsAttackSurface": true,
-   "note": "Cloud-connected field robots running AI software add remotely updatable devices to construction sites and project networks.",
-   "basis": "ai-compiled"
-  },
-  "evidence_terms": [
-   "Maximo",
-   "Bellefield",
-   "AES"
-  ],
-  "proposed": "2026-10-31",
-  "attempts": 1,
+  "attempts": 2,
   "foundBy": "deep-search"
  },
  {
@@ -1930,7 +842,7 @@
    "wind turbine maintenance robots"
   ],
   "proposed": "2026-10-31",
-  "attempts": 1,
+  "attempts": 2,
   "foundBy": "deep-search"
  },
  {
@@ -1994,141 +906,7 @@
    "deserts"
   ],
   "proposed": "2026-10-31",
-  "attempts": 1,
-  "foundBy": "deep-search"
- },
- {
-  "id": "secai-edge-cloud-ai-heating-control-for-housing-stock",
-  "field": "energy",
-  "origin": "academic",
-  "status": "outlook",
-  "title": "SECAI: edge-cloud AI heating control for housing stock",
-  "research": {
-   "year": 2024,
-   "what": "A German research consortium is building an AI heating controller that learns each flat's heat demand locally on an edge device and combines it with a cloud model and weather forecasts. Origin: SECAI (Sustainable heating through Edge-Cloud-based AI systems), a ZVEI research association project; first monitored heating season Oct 2024–Mar 2025"
-  },
-  "change": {
-   "year": 2027,
-   "what": "AI-based heating schedules and AI-recommended savings targets become a default service for landlords and tenants in existing buildings. The 2027 date is my estimate, not a date stated in the sources."
-  },
-  "confidence": "low",
-  "note": "The project reports savings of up to 18% of heating energy. The sources describe a demonstrator and whitepaper, not a dated product launch.",
-  "desnz": "demand",
-  "flags": {
-   "aiDriven": true
-  },
-  "refs": [
-   {
-    "label": "SECAI press release (ISH 2025)",
-    "url": "https://www.secai-energy.de/pressemitteilung/ish-2025/",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "SI SHK: Forschungsprojekt SECAI",
-    "url": "https://www.si-shk.de/forschungsprojekt-secai-effizient-heizen-mit-ki-234704/",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "SECAI whitepaper (May 2026)",
-    "url": "https://www.secai-energy.de/wp-content/uploads/2026/05/SECAI-Whitepaper.pdf",
-    "status": "ok",
-    "checked": "2026-10-31"
-   }
-  ],
-  "subfield": "grids",
-  "region": "europe",
-  "readiness": {
-   "stage": "pilot",
-   "basis": "ai-estimate"
-  },
-  "gb": {
-   "status": "not-yet",
-   "basis": "ai-estimate"
-  },
-  "security": {
-   "expandsAttackSurface": true,
-   "note": "Cloud-connected heating controllers and tenant sensor data add remote-control and privacy attack surface. Keeping raw data on the edge device limits some of that exposure.",
-   "basis": "ai-compiled"
-  },
-  "forecast": {
-   "estimatedYear": 2027,
-   "estimatedOn": "2026-10-31",
-   "revisions": []
-  },
-  "evidence_terms": [
-   "SECAI",
-   "Edge-Cloud",
-   "Heizungssteuerung",
-   "18"
-  ],
-  "proposed": "2026-10-31",
-  "attempts": 1,
-  "foundBy": "deep-search"
- },
- {
-  "id": "set-pilot-4-reinforcement-learning-control-of-non-domestic-building-fl",
-  "field": "energy",
-  "origin": "academic",
-  "status": "outlook",
-  "title": "SET Pilot 4: reinforcement-learning control of non-domestic building flexibility",
-  "research": {
-   "year": 2026,
-   "what": "Fraunhofer IEE developed an AI agent, using reinforcement learning, that runs an office building's heat pump and storage against dynamic electricity prices through the smart-meter infrastructure. Origin: SET Pilot 4 (Fraunhofer IEE Kassel with Smartplace and Teleseo), documented in a dena study published in 2026"
-  },
-  "change": {
-   "year": 2028,
-   "what": "AI energy management for non-domestic buildings that shifts load and sells flexibility, using the smart-meter gateway and a controllable edge component. The 2028 date is my estimate, not a date stated in the sources."
-  },
-  "confidence": "low",
-  "note": "The pilot shifted load significantly. The sources frame wider use as future potential and give no dated rollout plan.",
-  "desnz": "demand",
-  "flags": {
-   "aiDriven": true
-  },
-  "refs": [
-   {
-    "label": "dena: SET Pilot 4 – KI-basierte Steuerung von Flexibilitäten im Nichtwohngebäude",
-    "url": "https://www.dena.de/fileadmin/dena/Publikationen/PDFs/2026/SETPilot4_Studie.pdf",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "Treffpunkt Kommune: KI-gestütztes Energiemanagement in Nichtwohngebäuden",
-    "url": "https://www.treffpunkt-kommune.de/ki-gestuetztes-energiemanagement-in-nichtwohngebaeuden-pilotprojekt/",
-    "status": "ok",
-    "checked": "2026-10-31"
-   }
-  ],
-  "subfield": "grids",
-  "region": "europe",
-  "readiness": {
-   "stage": "pilot",
-   "basis": "ai-estimate"
-  },
-  "gb": {
-   "status": "not-yet",
-   "basis": "ai-estimate"
-  },
-  "security": {
-   "expandsAttackSurface": true,
-   "note": "An AI agent on an edge device that controls building plant and trades flexibility over smart-meter links adds a remote-control path to protect.",
-   "basis": "ai-compiled"
-  },
-  "forecast": {
-   "estimatedYear": 2028,
-   "estimatedOn": "2026-10-31",
-   "revisions": []
-  },
-  "evidence_terms": [
-   "SET Pilot 4",
-   "KI-basierte Steuerung",
-   "Nichtwohngebäude",
-   "Fraunhofer IEE"
-  ],
-  "proposed": "2026-10-31",
-  "attempts": 1,
+  "attempts": 2,
   "foundBy": "deep-search"
  },
  {
@@ -2198,7 +976,7 @@
    "Tilt"
   ],
   "proposed": "2026-10-31",
-  "attempts": 1,
+  "attempts": 2,
   "foundBy": "deep-search"
  },
  {
@@ -2268,7 +1046,7 @@
    "fusion pilot plant"
   ],
   "proposed": "2026-10-31",
-  "attempts": 1,
+  "attempts": 2,
   "foundBy": "deep-search"
  },
  {
@@ -2330,7 +1108,7 @@
    "气象大模型"
   ],
   "proposed": "2026-10-31",
-  "attempts": 1,
+  "attempts": 2,
   "foundBy": "deep-search"
  },
  {
@@ -2398,7 +1176,7 @@
    "中国电力科学研究院"
   ],
   "proposed": "2026-10-31",
-  "attempts": 1,
+  "attempts": 2,
   "foundBy": "deep-search"
  },
  {
@@ -2471,7 +1249,228 @@
    "cross-border electricity flows"
   ],
   "proposed": "2026-10-31",
-  "attempts": 1,
+  "attempts": 2,
   "foundBy": "deep-search"
+ },
+ {
+  "id": "kepler-first-commercial-optical-data-relay-constellation",
+  "field": "comms",
+  "origin": "industry",
+  "status": "landed",
+  "title": "Kepler: first commercial optical data relay constellation",
+  "research": {
+   "year": 2024,
+   "what": "Kepler shifted to laser-based optical data relay, validating space-to-space, space-to-ground and space-to-air laser links and aligning with Space Development Agency optical standards. Origin: Kepler Communications optical relay programme and SDA-compatible optical inter-satellite link demonstrations (strategy shift announced 2024)"
+  },
+  "change": {
+   "year": 2026,
+   "what": "Kepler launched the first ten satellites of its optical relay network on 11 January 2026, starting the first commercial optical data relay constellation with on-orbit compute and hosted payloads."
+  },
+  "confidence": "medium",
+  "note": "It moves laser inter-satellite relay from demonstrations to a commercial network, with service due in 2026.",
+  "refs": [
+   {
+    "label": "Kepler: first tranche of optical relay satellites launched",
+    "url": "https://kepler.space/kepler-successfully-launches-first-tranche-of-optical-relay-satellites/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "DCD: Kepler plans January launch of optical satellites",
+    "url": "https://www.datacenterdynamics.com/en/news/kepler-communications-plans-january-launch-for-initial-phase-of-optical-satellites/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "SpaceQ: Kepler to launch 10 optical data relay satellites",
+    "url": "https://spaceq.ca/kepler-communications-to-launch-10-optical-data-relay-satellites-in-january-2026/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "internet",
+  "region": "other",
+  "readiness": {
+   "stage": "commercial",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": true,
+   "note": "Hosted compute and laser links between space, air and ground add new nodes and interfaces that attackers could target.",
+   "basis": "ai-compiled"
+  },
+  "evidence_terms": [
+   "Kepler",
+   "optical relay",
+   "Falcon 9",
+   "SDA"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1
+ },
+ {
+  "id": "computer-passwords-mit-ctss",
+  "field": "cyber",
+  "origin": "academic",
+  "status": "landed",
+  "title": "Computer passwords (MIT CTSS)",
+  "research": {
+   "year": 1961,
+   "what": "MIT's time-sharing project needed a way to give each user private files on a shared computer, so it gave each user a login and password. Origin: Compatible Time-Sharing System (CTSS) at the MIT Computation Center, led by Fernando Corbató, first demonstrated November 1961; described in Corbató et al., 'An Experimental Time-Sharing System' (1962)"
+  },
+  "change": {
+   "year": 1961,
+   "what": "CTSS is credited as the first computer system to use password login, and it ran for multiple users at MIT and at remote sites."
+  },
+  "confidence": "high",
+  "note": "The per-user password became the basic way computers check who is using them, and the first password-file leak (1962) was an early security incident.",
+  "refs": [
+   {
+    "label": "MIT News: Corbató obituary",
+    "url": "https://news.mit.edu/2019/mit-professor-emeritus-fernando-corby-corbato-computing-pioneer-dies-0715",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Wikipedia: Compatible Time-Sharing System",
+    "url": "https://en.wikipedia.org/wiki/Compatible_Time-Sharing_System",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Wikipedia: Fernando J. Corbató",
+    "url": "https://en.wikipedia.org/wiki/Fernando_J._Corbat%C3%B3",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "network",
+  "region": "us",
+  "readiness": {
+   "stage": "scale",
+   "basis": "ai-estimate"
+  },
+  "evidence_terms": [
+   "CTSS",
+   "Corbató",
+   "password",
+   "MIT"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1
+ },
+ {
+  "id": "hardware-protection-rings-multics",
+  "field": "cyber",
+  "origin": "academic",
+  "status": "landed",
+  "title": "Hardware protection rings (Multics)",
+  "research": {
+   "year": 1967,
+   "what": "Robert Graham proposed nested rings of privilege, so that code in outer rings cannot touch more protected inner rings, as part of the Multics design. Origin: Graham's 1967 proposal for protection rings in Multics (MIT Project MAC); later hardware design by Schroeder and Saltzer, 'A hardware architecture for implementing protection rings' (1971/1972)"
+  },
+  "change": {
+   "year": 1968,
+   "what": "Multics, developed in the 1960s, is widely seen as the first operating system with protection rings, and Hitachi built a hardware ring system on the HITAC 5020E in 1968."
+  },
+  "confidence": "medium",
+  "note": "Ring-based privilege separation became the model for the kernel and user modes found in mainstream processors and operating systems.",
+  "refs": [
+   {
+    "label": "Springer Encyclopedia: Protection Rings",
+    "url": "https://link.springer.com/rwe/10.1007/978-1-4419-5906-5_788",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Saltzer & Schroeder, The Protection of Information in Computer Systems (UVA copy)",
+    "url": "https://www.cs.virginia.edu/~evans/cs551/saltzer/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Schroeder & Saltzer, hardware architecture for protection rings (MIT)",
+    "url": "https://web.mit.edu/saltzer/www/publications/multics/M0126.pdf",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Multicians: Multics Security",
+    "url": "https://multicians.org/security.html",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "network",
+  "region": "us",
+  "readiness": {
+   "stage": "scale",
+   "basis": "ai-estimate"
+  },
+  "evidence_terms": [
+   "Multics",
+   "protection rings",
+   "Graham",
+   "Saltzer",
+   "Schroeder"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1
+ },
+ {
+  "id": "cyclotron-radioisotopes-for-medicine-1936-first-therapy",
+  "field": "quantum",
+  "origin": "academic",
+  "status": "landed",
+  "title": "Cyclotron radioisotopes for medicine (1936 first therapy)",
+  "research": {
+   "year": 1930,
+   "what": "Lawrence and Livingston built the first cyclotron in 1930, a magnetic resonance accelerator that later produced artificial radioactive isotopes. Origin: Lawrence and Livingston, first cyclotron, University of California Berkeley, 1930; 1932 paper on ions above 1 MeV"
+  },
+  "change": {
+   "year": 1936,
+   "what": "John Lawrence used cyclotron-made radioactive phosphorus to treat a leukaemia patient in 1936, the first therapeutic use of a cyclotron isotope, which started nuclear medicine."
+  },
+  "confidence": "medium",
+  "note": "Opened the way to radiotracers and radioisotope therapy, which are now routine in diagnosis and cancer treatment.",
+  "refs": [
+   {
+    "label": "Berkeley Lab: Physics Meets Biology",
+    "url": "https://biosciences.lbl.gov/biosciences-area-history/physics-meets-biology/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "CERN Courier: Medical-isotope cyclotron designs",
+    "url": "https://cerncourier.com/a/medical-isotope-cyclotron-designs-go-full-circle/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   {
+    "label": "Atomic Heritage Foundation: Nuclear Medicine Before the Manhattan Project",
+    "url": "https://ahf.nuclearmuseum.org/ahf/history/health-physics-nuclear-medicine-before-manhattan-project/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  ],
+  "subfield": "devices",
+  "region": "us",
+  "readiness": {
+   "stage": "commercial",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": false,
+   "note": "Little direct cyber relevance; modern medical cyclotron facilities use networked control systems.",
+   "basis": "ai-compiled"
+  },
+  "evidence_terms": [
+   "cyclotron",
+   "Lawrence",
+   "phosphorus-32",
+   "Berkeley"
+  ],
+  "proposed": "2026-10-31",
+  "attempts": 1
  }
 ]

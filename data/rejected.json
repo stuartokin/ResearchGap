@@ -3123,5 +3123,195 @@
   "sources": [],
   "reason": "CSIR-IGIB's own Gene Therapy page gives 2027, not 2028, for the BIRSA101 Phase I start. The page says 'Clinical trial Phase-I is expected to commence in 2027.' The 2028 year is therefore not supported. The 2017 origin year is also unverified. One news item says Phase 1 involved three patients, which",
   "category": "years"
+ },
+ {
+  "date": "2026-10-31",
+  "agent": "claude",
+  "mode": "catch-up",
+  "title": "QphoX Quantum Transducer: microwave-to-optical link",
+  "field": null,
+  "status": "landed",
+  "research_year": 2023,
+  "change_year": 2026,
+  "research_origin": "QphoX/TU Delft QuTech microwave-to-optics transducer paper in Nature Nanotechnology (2023), building on QuTech research",
+  "research_what": "Delft engineers showed a fully integrated transducer that converts single microwave photons from superconducting qubits to optical photons, reported in Nature Nanotechnology.",
+  "change_what": "QphoX launched its Quantum Transducer as a commercially available product on 12 March 2026, with IBM as the first user for linking superconducting qubits over optical fibre.",
+  "sources": [
+   "https://qphox.eu/news/qphox-launches-breakthrough-product-allowing-distributed-quantum-computing-over-long-distance-optical-networks/",
+   "https://thequantuminsider.com/2026/03/12/qphox-quantum-transducer-distributed-quantum-computing/",
+   "https://quantumdelta.nl/news/qphox-announces-an-integrated-microwave-to-optics-interface-for-scalable-quantum-computing"
+  ],
+  "reason": "only 1 source(s) confirmed the key facts",
+  "category": "sources"
+ },
+ {
+  "date": "2026-10-31",
+  "agent": "claude",
+  "mode": "backfill",
+  "title": "Prontosil: first sulfonamide antibacterial drug",
+  "field": null,
+  "status": "landed",
+  "research_year": 1932,
+  "change_year": 1935,
+  "research_origin": "Gerhard Domagk's screening of synthetic dyes at Bayer/IG Farben (1932 experiments, published 1935)",
+  "research_what": "Domagk at Bayer/IG Farben found that a synthetic azo dye with a sulfonamide group protected mice from streptococcal infection.",
+  "change_what": "Prontosil was introduced to the market in 1935 and became the first commercially available drug to treat serious bacterial infections such as childbed fever, meningitis and pneumonia.",
+  "sources": [
+   "https://www.bayer.com/en/history/gerhard-domagk",
+   "https://www.sciencehistory.org/education/scientific-biographies/gerhard-domagk/",
+   "https://www.britannica.com/biography/Gerhard-Domagk"
+  ],
+  "reason": "only 1 source(s) confirmed the key facts",
+  "category": "sources"
+ },
+ {
+  "date": "2026-10-31",
+  "agent": "claude",
+  "mode": "backfill",
+  "title": "17D yellow fever vaccine",
+  "field": null,
+  "status": "landed",
+  "research_year": 1930,
+  "change_year": 1937,
+  "research_origin": "Max Theiler's work at the Rockefeller Foundation International Health Division from 1930, with the 17D strain reported in the Journal of Experimental Medicine in 1937",
+  "research_what": "Theiler's team at the Rockefeller Foundation passed yellow fever virus through mice and then chick embryo tissue to obtain a weakened live strain.",
+  "change_what": "17D was first produced in 1937, field-tested in Brazil with Rockefeller Foundation funding, and licensed in 1938. It has been used for decades.",
+  "sources": [
+   "https://www.nature.com/articles/d42859-020-00012-9",
+   "https://dimes.rockarch.org/agents/Pk4vM2hPAHKrh5BnNd2PRp?inheritRedirct=fealse",
+   "https://www.britannica.com/biography/Max-Theiler"
+  ],
+  "reason": "only 1 source(s) confirmed the key facts",
+  "category": "sources"
+ },
+ {
+  "date": "2026-10-31",
+  "agent": "claude",
+  "mode": "backfill",
+  "title": "Kaplan adjustable-blade turbine at Lilla Edet",
+  "field": null,
+  "status": "landed",
+  "research_year": 1913,
+  "change_year": 1925,
+  "research_origin": "Viktor Kaplan's adjustable-blade turbine patents and 1912-13 work at Brno; first lab prototype 1913",
+  "research_what": "Viktor Kaplan conceived a propeller turbine with adjustable runner blades so efficiency holds across varying water flow at low head.",
+  "change_what": "An 8 MW-class Kaplan unit with a 5.8 m runner, then the world's largest, entered service at Lilla Edet in Sweden and drove wide adoption of Kaplan turbines at low-head hydropower sites.",
+  "sources": [
+   "https://brnotechregion.eu/en/news/viktor-kaplan-the-inventor-of-the-turbine-that-tra",
+   "https://www.energyencyclopedia.com/en/renewable-energy/water-energy/kaplan-turbine"
+  ],
+  "reason": "invalid years",
+  "category": "years"
+ },
+ {
+  "date": "2026-10-31",
+  "agent": "claude",
+  "mode": "backfill",
+  "title": "Reflection seismograph for oil exploration",
+  "field": null,
+  "status": "landed",
+  "research_year": 1919,
+  "change_year": 1928,
+  "research_origin": "Karcher's reflection seismograph patent applications (1919) and the 4 June 1921 field test near Oklahoma City",
+  "research_what": "J. Clarence Karcher developed a reflection seismograph and applied for patents in 1918-19. He drew on Fessenden's earlier reflection-seismology work and tested the method in the field in 1921.",
+  "change_what": "In December 1928 Amerada's Geophysical Research Corporation drilled the first oil well on a structure found by reflection seismography, at Seminole, Oklahoma. Seismic reflection then became the main oil-finding method.",
+  "sources": [
+   "https://www.tshaonline.org/handbook/entries/karcher-john-clarence",
+   "https://www.okhistory.org/publications/enc/entry?entry=SE008",
+   "https://library.seg.org/doi/10.1190/tle40060404.1"
+  ],
+  "reason": "invalid years",
+  "category": "years"
+ },
+ {
+  "date": "2026-10-31",
+  "agent": "claude",
+  "mode": "backfill",
+  "title": "Electron microscope (first commercial, Siemens 1939)",
+  "field": "quantum",
+  "status": "landed",
+  "research_year": 1924,
+  "change_year": 1939,
+  "research_origin": "de Broglie matter waves (1924); Knoll and Ruska's first electron lens and prototype, Technical University of Berlin, 1931",
+  "research_what": "De Broglie's matter-wave hypothesis showed electrons behave as waves far shorter than light, making electron-beam imaging beyond optical limits possible in principle.",
+  "change_what": "Siemens brought out the first commercially produced electron microscope, based on Ruska's work, giving laboratories routine access to imaging far beyond optical resolution.",
+  "sources": [
+   "https://www.britannica.com/biography/Ernst-Ruska",
+   "https://www.nobelprize.org/prizes/physics/1986/ruska/biographical/",
+   "https://micro.magnet.fsu.edu/optics/timeline/people/ruska.html"
+  ],
+  "reason": "invalid years",
+  "category": "years"
+ },
+ {
+  "date": "2026-10-31",
+  "agent": "claude",
+  "mode": "backfill",
+  "title": "AM radio broadcasting (KDKA)",
+  "field": null,
+  "status": "landed",
+  "research_year": 1906,
+  "change_year": 1920,
+  "research_origin": "Reginald Fessenden's Brant Rock, Massachusetts voice-and-music transmission, 24 December 1906",
+  "research_what": "Fessenden used continuous-wave transmission and amplitude modulation to send voice and music by radio, reported from Brant Rock on Christmas Eve 1906.",
+  "change_what": "Westinghouse's KDKA in Pittsburgh began scheduled commercial broadcasting in 1920, with election returns on 2 November, and this prompted many other stations to start.",
+  "sources": [
+   "https://www.britannica.com/topic/KDKA",
+   "https://www.pbs.org/wgbh/americanexperience/features/rescue-development-radio/",
+   "https://en.wikipedia.org/wiki/Golden_Age_of_Radio"
+  ],
+  "reason": "invalid years",
+  "category": "years"
+ },
+ {
+  "date": "2026-10-31",
+  "agent": "claude",
+  "mode": "backfill",
+  "title": "Transatlantic radiotelephone service",
+  "field": null,
+  "status": "landed",
+  "research_year": 1915,
+  "change_year": 1927,
+  "research_origin": "AT&T/Western Electric 1915 Arlington-to-Paris radiotelephony experiments, using the improved triode",
+  "research_what": "AT&T research used improved vacuum-tube (triode) apparatus to demonstrate the first transatlantic radiotelephone speech in 1915.",
+  "change_what": "A commercial radio-based telephone service between New York and London opened to the public on 7 January 1927.",
+  "sources": [
+   "https://www.comsoc.org/node/18956",
+   "https://www.ebsco.com/research-starters/history/first-demonstration-transatlantic-radiotelephony"
+  ],
+  "reason": "invalid years",
+  "category": "years"
+ },
+ {
+  "date": "2026-10-31",
+  "agent": "qa",
+  "mode": "confirm",
+  "title": "SECAI: edge-cloud AI heating control for housing stock",
+  "field": "energy",
+  "status": "outlook",
+  "research_year": null,
+  "change_year": null,
+  "research_origin": "",
+  "research_what": "",
+  "change_what": "",
+  "sources": [],
+  "reason": "The 2027 change year is admitted in the record to be the author's own estimate, with no source. The research year is also doubtful. The project term is 1 Dec 2022 to 30 Nov 2025, so it began in 2022, not 2024. The first monitored heating season (Oct 2024–Mar 2025) was only a project phase. The conso",
+  "category": "sources"
+ },
+ {
+  "date": "2026-10-31",
+  "agent": "qa",
+  "mode": "confirm",
+  "title": "SET Pilot 4: reinforcement-learning control of non-domestic building flexibility",
+  "field": "energy",
+  "status": "outlook",
+  "research_year": null,
+  "change_year": null,
+  "research_origin": "",
+  "research_what": "",
+  "change_what": "",
+  "sources": [],
+  "reason": "The reinforcement-learning pilot (Fraunhofer IEE, Smartrplace, Teleseo) is real. But the Fraunhofer IEE project page files it under 2024, and a dena closing event for the pilot took place in April 2025, so 2026 is only the dena report year, not the research year. The 2028 change year is flagged as t",
+  "category": "sources"
  }
 ]

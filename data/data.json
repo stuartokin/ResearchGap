@@ -2,7 +2,7 @@
  "$schema": "./schema.json",
  "meta": {
   "title": "The Shrinking Gap from Research to Change",
-  "revision": 30,
+  "revision": 31,
   "version": "8.0",
   "asOf": "2026-10-31",
   "horizonYears": 10,
@@ -10,7 +10,7 @@
   "author": "Stuart Okin",
   "maintainedBy": "AI agents using Claude (Anthropic), without human review",
   "disclaimer": "Personal project by Stuart Okin, not affiliated with or endorsed by any employer. Data is compiled and maintained by AI agents without human review and may contain errors. Outlook years are AI estimates, not forecasts.",
-  "lastAgentRun": "2026-10-31T16:54Z",
+  "lastAgentRun": "2026-10-31T22:28Z",
   "changelog": [
    {
     "date": "2026-10-28",
@@ -1848,6 +1848,139 @@
      "disputed: ml-optimised-stellarator-proxima-alpha-and-stellaris (second opinion from Gemini: contradicted. While the milestone accurately describes the project and the 2031 expectation for Alpha, the claim that research began around 2025 is contradicted, as seed funding was raised in April 2024 to ac",
      "disputed: sses-load-control-licence-assured-control-of-home-flexibility (second opinion from Gemini: contradicted. The milestone implies the SSES load-control licence is actively assuring control, but sources state the requirement to hold a licence is expected to come into effect by March 2028, mean"
     ]
+   },
+   {
+    "date": "2026-10-31",
+    "time": "22:19",
+    "revision": 30,
+    "summary": "Gemini research: 0 of 0 candidates passed the source checks and were queued for Claude's QA.",
+    "stats": {
+     "milestones": 597,
+     "sourceCited": 335,
+     "aiCompiled": 184,
+     "aiEstimate": 78,
+     "adoptionKnown": 77,
+     "landed": 469,
+     "regionKnown": 597
+    },
+    "usage": {
+     "calls": 0,
+     "inputTokens": 0,
+     "outputTokens": 0,
+     "searches": 0,
+     "model": "claude-sonnet-5-5"
+    },
+    "deepAudit": false
+   },
+   {
+    "date": "2026-10-31",
+    "time": "22:28",
+    "revision": 31,
+    "summary": "23 added, 2 corrected, 0 outlook re-estimated, 0 disputed, 0 broken links.",
+    "stats": {
+     "milestones": 620,
+     "sourceCited": 358,
+     "aiCompiled": 184,
+     "aiEstimate": 78,
+     "adoptionKnown": 77,
+     "landed": 482,
+     "regionKnown": 620
+    },
+    "usage": {
+     "calls": 9,
+     "inputTokens": 1109016,
+     "outputTokens": 70122,
+     "searches": 76,
+     "model": "claude-sonnet-5-5"
+    },
+    "deepAudit": false,
+    "details": [
+     "added: satri-cel-first-car-t-approved-for-a-solid-tumour",
+     "added: solid-state-transformers-for-ai-data-centres-and-grids",
+     "added: intel-optane-first-3d-xpoint-storage-class-memory",
+     "added: gate-all-around-nanosheet-transistors-in-volume-samsung-3nm",
+     "added: processing-in-memory-hbm-samsung-hbm-pim-in-amd-mi100",
+     "added: furiosaai-rngd-inference-chip-adopted-for-lg-exaone",
+     "added: tesla-ai5-inference-chip-in-volume-production",
+     "added: quantum-origin-verifiable-quantum-randomness-for-keys",
+     "added: kaiser-kernel-isolation-basis-of-linux-kpti-against-meltdown",
+     "added: european-cybersecurity-alert-system-cross-border-cyber-hubs",
+     "added: nasa-dsoc-laser-communications-across-deep-space",
+     "added: queqiao-lunar-comms-navigation-sensing-constellation",
+     "added: rare-earth-free-iron-nitride-magnets-first-full-scale-plant",
+     "added: tianwen-2-chinas-first-asteroid-sample-return",
+     "added: m72-as01e-first-new-tb-vaccine-in-a-century",
+     "added: china-brain-computer-interface-products-2027-2030-plan",
+     "added: china-ai-energy-plan-grid-dispatch-ai-models-by-2027-30",
+     "added: opengridfm-open-foundation-models-for-the-power-grid",
+     "added: maximo-ai-vision-robot-fleet-for-solar-module-installation",
+     "added: c-26-static-reflection-and-contracts-finalised",
+     "added: project-genie-interactive-world-models-for-consumers",
+     "added: taalas-hc1-model-hard-wired-into-silicon",
+     "added: welinq-qdrive-first-commercial-quantum-memory-sold",
+     "quantum-cascade-laser: source added",
+     "reinforcement-learning-control-room-assistants: source added"
+    ]
+   },
+   {
+    "date": "2026-10-31",
+    "time": "22:33",
+    "revision": 31,
+    "summary": "Gemini second opinion on 23 additions: 8 supported, 5 contradicted (disputed), 7 unclear.",
+    "stats": {
+     "milestones": 620,
+     "sourceCited": 358,
+     "aiCompiled": 184,
+     "aiEstimate": 78,
+     "adoptionKnown": 77,
+     "landed": 482,
+     "regionKnown": 620
+    },
+    "usage": {
+     "calls": 0,
+     "inputTokens": 0,
+     "outputTokens": 0,
+     "searches": 0,
+     "model": "claude-sonnet-5-5"
+    },
+    "deepAudit": false,
+    "details": [
+     "disputed: tesla-ai5-inference-chip-in-volume-production (second opinion from Gemini: contradicted. The milestone states the AI5 chip is in volume production, but sources confirm it is only in trial production or has just been taped out, with volume production expected in 2027; additionally, research",
+     "disputed: european-cybersecurity-alert-system-cross-border-cyber-hubs (second opinion from Gemini: contradicted. The sources confirm the existence and description of the European Cybersecurity Alert System as cross-border cyber hubs, but contradict the 'research began around 2021' date, with establi",
+     "disputed: rare-earth-free-iron-nitride-magnets-first-full-scale-plant (second opinion from Gemini: contradicted. The sources confirm the first full-scale plant for rare-earth-free iron nitride magnets and the 2027 operational date, but state the company was created in 2013 based on this technology, ",
+     "disputed: m72-as01e-first-new-tb-vaccine-in-a-century (second opinion from Gemini: contradicted. The sources state M72/AS01E has the potential to be the first new TB vaccine if successful, not that it already is, and its development began in the early 2000s, not around 2018.)",
+     "disputed: maximo-ai-vision-robot-fleet-for-solar-module-installation (second opinion from Gemini: contradicted. While the description of Maximo is supported, the sources state Maximo made its debut and was in real-world use in July 2024, which contradicts 'Research began around 2024' and 'first prod",
+     "tours: walk-through scripts refreshed (version 26)"
+    ]
+   },
+   {
+    "date": "2026-10-31",
+    "time": "22:39",
+    "revision": 31,
+    "summary": "Stories researched for 4 milestones.",
+    "stats": {
+     "milestones": 620,
+     "sourceCited": 358,
+     "aiCompiled": 184,
+     "aiEstimate": 78,
+     "adoptionKnown": 77,
+     "landed": 482,
+     "regionKnown": 620
+    },
+    "usage": {
+     "calls": 10,
+     "inputTokens": 277458,
+     "outputTokens": 16565,
+     "searches": 21,
+     "model": "claude-sonnet-5-5"
+    },
+    "deepAudit": false,
+    "details": [
+     "story    project-genie-interactive-world-models-for-consumers",
+     "story    100-mw-class-compressed-co2-energy-storage-on-grid",
+     "story    reclinker-cement-recycled-in-steel-furnaces",
+     "story    atomic-6-space-armor-debris-shield-flies"
+    ]
    }
   ],
   "adoptionDefinition": "Mainstream adoption: the year the technology reached widespread, routine use, roughly 10% or more of its potential market or standard practice in its sector.",
@@ -1894,7 +2027,12 @@
    "robotics|2026Q2": "2026-10-31",
    "life|2026Q2": "2026-10-31",
    "energy|2026Q1": "2026-10-31",
-   "hw|2026Q1": "2026-10-31"
+   "hw|2026Q1": "2026-10-31",
+   "sw|2026Q1": "2026-10-31",
+   "ai|2026Q1": "2026-10-31",
+   "quantum|2026Q1": "2026-10-31",
+   "cyber|2026Q1": "2026-10-31",
+   "comms|2026Q1": "2026-10-31"
   },
   "researchFunnel": [
    {
@@ -2051,6 +2189,40 @@
     "rejected": 12,
     "retrying": 42,
     "date": "2026-10-31"
+   },
+   {
+    "agent": "claude",
+    "recent_proposed": 0,
+    "recent_queued": 0,
+    "recent_rejected": {},
+    "catchup_proposed": 6,
+    "catchup_queued": 5,
+    "catchup_rejected": {
+     "sources": 1
+    },
+    "backfill_proposed": 10,
+    "backfill_queued": 3,
+    "backfill_rejected": {
+     "sources": 2,
+     "years": 5
+    },
+    "date": "2026-10-31"
+   },
+   {
+    "agent": "gemini",
+    "recent_proposed": 0,
+    "recent_queued": 0,
+    "recent_rejected": {},
+    "date": "2026-10-31"
+   },
+   {
+    "agent": "qa",
+    "confirmed_claude": 5,
+    "confirmed_gemini": 0,
+    "confirmed_deep": 18,
+    "rejected": 2,
+    "retrying": 25,
+    "date": "2026-10-31"
    }
   ],
   "secondOpinion": [
@@ -2100,6 +2272,20 @@
     "supported": 61,
     "not_supported": 14,
     "unclear": 31,
+    "unavailable": 0
+   },
+   {
+    "date": "2026-10-31",
+    "kind": "gemini-research",
+    "proposed": 0,
+    "queued": 0
+   },
+   {
+    "date": "2026-10-31",
+    "kind": "gemini-check",
+    "supported": 8,
+    "not_supported": 5,
+    "unclear": 7,
     "unavailable": 0
    }
   ],
@@ -21735,7 +21921,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -21754,7 +21940,13 @@
      "label": "https://nerites.eu/alpes-lasers-sa/",
      "url": "https://nerites.eu/alpes-lasers-sa/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "Laser Focus World: Alpes commercializes quantum-cascade laser",
+     "url": "https://www.laserfocusworld.com/home/article/16571092/alpes-commercializes-quantum-cascade-laser",
+     "status": "ok",
+     "checked": "2026-10-31"
     }
    ]
   },
@@ -21778,7 +21970,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -21795,7 +21987,7 @@
      "label": "Philip Zimmermann background",
      "url": "https://www.mit.edu/~prz/EN/background/background.html",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ]
   },
@@ -21819,7 +22011,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -21834,13 +22026,13 @@
      "label": "Tor Project history",
      "url": "https://www.torproject.org/about/history/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     },
     {
      "label": "A history of Tor",
      "url": "https://www.ssdnodes.com/learn/history-of-tor",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "tags": [
@@ -21868,7 +22060,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -21882,7 +22074,7 @@
      "label": "MacRumors: iPhone 5s with Touch ID",
      "url": "https://www.macrumors.com/2013/09/10/apple-announces-iphone-5s/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ]
   },
@@ -21906,7 +22098,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -21929,13 +22121,13 @@
      "label": "3Com first shipped Ethernet transceiver",
      "url": "https://www.theregister.com/off-prem/2007/10/03/3com-a-company-built-on-ether/1273063",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     },
     {
      "label": "The Register: 3Com",
      "url": "https://www.theregister.com/off-prem/2007/10/03/3com-a-company-built-on-ether/1273063",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ]
   },
@@ -21959,7 +22151,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -21979,7 +22171,7 @@
      "label": "PCWorld: Modems, 60 years",
      "url": "https://www.pcworld.com/article/494459/modems_through_the_years.html",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "adoption": {
@@ -22016,7 +22208,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "europe",
@@ -22039,13 +22231,13 @@
      "label": "Wikipedia: DTT in the UK",
      "url": "https://en.wikipedia.org/wiki/Digital_terrestrial_television_in_the_United_Kingdom",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     },
     {
      "label": "DVB Project history",
      "url": "https://dvb.org/about/history/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ]
   },
@@ -22069,7 +22261,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "asia",
@@ -22093,7 +22285,7 @@
      "label": "NTT DoCoMo history",
      "url": "https://www.docomo.ne.jp/english/corporate/about/outline/history/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ]
   },
@@ -22156,7 +22348,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -22170,7 +22362,7 @@
      "label": "Univ. of Illinois: Holonyak obituary",
      "url": "https://ece.illinois.edu/news/51161",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "security": {
@@ -22199,7 +22391,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": true
    },
    "region": "us",
@@ -22216,7 +22408,7 @@
      "label": "Wikipedia: SAGE Electrochromics",
      "url": "https://en.wikipedia.org/wiki/SAGE_Electrochromics",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "security": {
@@ -22245,7 +22437,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -22262,7 +22454,7 @@
      "label": "NatureWorks: About",
      "url": "https://natureworksllc.com/about",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "security": {
@@ -22329,7 +22521,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -22352,7 +22544,7 @@
      "label": "Komatsu: Los Bronces AHS announcement",
      "url": "https://www.komatsu.jp/en/newsroom/2022/20220603",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "company": "Komatsu"
@@ -22410,7 +22602,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -22429,7 +22621,7 @@
      "label": "Lasker Foundation: Herceptin",
      "url": "https://laskerfoundation.org/winners/herceptin-a-targeted-antibody-therapy-for-breast-cancer/",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ]
   },
@@ -22453,7 +22645,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -22471,7 +22663,7 @@
      "label": "JCI review: The long road to imatinib",
      "url": "https://www.jci.org/articles/view/31691",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "security": {
@@ -22500,7 +22692,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": false
    },
    "region": "us",
@@ -22520,7 +22712,7 @@
      "label": "Laser Focus World: Excimer eye surgery celebrates 25 years",
      "url": "https://www.laserfocusworld.com/home/article/14190186/laser-vision-correction-excimer-eye-surgery-celebrates-25-years",
      "status": "ok",
-     "checked": "2026-10-29"
+     "checked": "2026-10-31"
     }
    ],
    "adoption": {
@@ -22562,13 +22754,13 @@
     "label": "Artelys: L2RPN 2023 white paper",
     "url": "https://www.artelys.com/app/uploads/2024/04/White_paper_L2RPN_2023_.pdf",
     "status": "ok",
-    "checked": "2026-10-29"
+    "checked": "2026-10-31"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-10-31",
     "approximate": true
    },
    "region": "europe",
@@ -22595,7 +22787,15 @@
     "estimatedYear": 2029,
     "estimatedOn": "2026-10-27",
     "revisions": []
-   }
+   },
+   "refs": [
+    {
+     "label": "arXiv: Design and implementation of an environment for L2RPN",
+     "url": "https://arxiv.org/abs/2104.04080",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ]
   },
   {
    "id": "satellite-ai-vegetation-management",
@@ -26130,6 +26330,29 @@
     "added": "2026-10-29",
     "lastChecked": "2026-10-29",
     "approximate": false
+   },
+   "story": {
+    "research": "Energy Dome lab-tested a closed-loop CO2 storage cycle with Politecnico of Milan (2021), then completed a 2.5 MW/4 MWh demonstrator in Sardinia in June 2022.",
+    "deploy": "China Huadian's 100 MW/1,000 MWh compressed CO2 plant in Mulei, Xinjiang, first connected to the grid on 30 September 2026 (one report says 2 October).",
+    "impact": "Mulei is China's first 100 MW-class compressed CO2 plant. Reportedly it stores 290 million kWh and releases 180 million kWh a year, saving 50,000 tonnes of coal and 170,000 tonnes of CO2 yearly.",
+    "refs": [
+     {
+      "url": "https://www.sandia.gov/app/uploads/sites/256/2024/10/FINAL_MainRoom_Session3_Energy-Dome.pdf",
+      "label": "Energy Dome presentation (Sandia, 2024)",
+      "quote": "Completed: June 2022"
+     },
+     {
+      "url": "https://www.pv-magazine.com/2026/10/15/chinas-first-100-mw-1000-mwh-compressed-co2-storage-plant-connects-to-grid/",
+      "label": "pv magazine, 15 Oct 2026",
+      "quote": "Its rated capacity of 100 MW/1 GWh corresponds to a nominal discharge duration of 10 hours."
+     },
+     {
+      "url": "https://www.beyondheadlines.hk/inno-tech/2552/-Inno---Tech--China-s-Landmark-CO%E2%82%82Energy-Storage-Project-Powers-Up-in-Xinjiang-Desert",
+      "label": "Beyond Headlines, Mulei project",
+      "quote": "saves 50,000 tonnes of standard coal and cuts 170,000 tonnes of CO₂ emissions yearly"
+     }
+    ],
+    "checked": "2026-10-31"
    }
   },
   {
@@ -26606,6 +26829,29 @@
     "added": "2026-10-30",
     "lastChecked": "2026-10-30",
     "approximate": false
+   },
+   "story": {
+    "research": "Cambridge engineers led by Julian Allwood showed in a 2024 Nature study that used cement paste can re-form clinker in steel-recycling electric arc furnaces.",
+    "deploy": "Reclinker, the Cambridge spin-out, made thousands of tonnes in trials at 7 Steel UK's Cardiff plant and announced its first commercial sales in October 2026.",
+    "impact": "Reclinker raised a £10m Series A in October 2026 to scale Cardiff production and copy it at EAF sites in Europe and the US. It claims emissions are halved at conventional cost.",
+    "refs": [
+     {
+      "url": "https://reclinker.com/news/",
+      "label": "Reclinker news, 5 October 2026",
+      "quote": "turns demolition waste back into cement using the electric arc furnaces already recycling steel"
+     },
+     {
+      "url": "https://www.sciencedaily.com/releases/2024/05/240522130434.htm",
+      "label": "ScienceDaily (University of Cambridge release), 22 May 2024",
+      "quote": "uses the electrically-powered arc furnaces used for steel recycling to simultaneously recycle cement"
+     },
+     {
+      "url": "https://thenextweb.com/news/reclinker-10m-series-a-low-carbon-cement-cardiff",
+      "label": "The Next Web",
+      "quote": "cuts cement’s emissions in half, at the same cost as conventional cement"
+     }
+    ],
+    "checked": "2026-10-31"
    }
   },
   {
@@ -26665,6 +26911,19 @@
     "added": "2026-10-30",
     "lastChecked": "2026-10-30",
     "approximate": false
+   },
+   "story": {
+    "research": "astronomer Fred Whipple's 1947 bumper-shield concept: a thin sacrificial outer wall that breaks up fast debris. Conceptual origin only, not Atomic-6's tile.",
+    "deploy": "On 21 October 2026 aboard Portal Space Systems' Starburst-1, launched on a SpaceX Falcon 9 (Bandwagon-5 rideshare), as Atomic-6's first orbital deployment.",
+    "impact": "the tiles have flown on a live spacecraft, but no verified orbital debris impact has been reported, so no in-space protection figure exists yet; ground tests were reported at 16,000 mph.",
+    "refs": [
+     {
+      "url": "https://www.compositesworld.com/news/atomic-6-composite-space-armor-is-deployed-on-starburst-1-spacecraft",
+      "label": "CompositesWorld: Atomic-6 Space Armor deployed on Starburst-1",
+      "quote": "first operational deployment in space"
+     }
+    ],
+    "checked": "2026-10-31"
    }
   },
   {
@@ -34518,6 +34777,1528 @@
     "url": "https://www.ofgem.gov.uk/consultation/smart-secure-electricity-systems-implementing-load-control-licensing-regime",
     "status": "ok",
     "checked": "2026-10-31"
+   }
+  },
+  {
+   "id": "satri-cel-first-car-t-approved-for-a-solid-tumour",
+   "field": "life",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Satri-cel: first CAR-T approved for a solid tumour",
+   "research": {
+    "year": 2018,
+    "what": "CARsgen identified Claudin18.2 as a CAR-T target in solid tumours and took the CT041 product into early clinical trials. Origin: CARsgen's CT041 Claudin18.2-targeted CAR-T programme and early clinical trials from about 2018, followed by the CT041-ST-01 randomised phase 2 trial published in The Lancet"
+   },
+   "change": {
+    "year": 2026,
+    "what": "China's NMPA approved satri-cel on 22 June 2026 for Claudin18.2-positive advanced gastric or gastro-oesophageal junction cancer, the first CAR-T approval for a solid tumour anywhere."
+   },
+   "confidence": "medium",
+   "note": "It extends CAR-T cell therapy beyond blood cancers to a solid tumour, which had been the main barrier for the field.",
+   "refs": [
+    {
+     "label": "Fierce Pharma",
+     "url": "https://www.fiercepharma.com/pharma/carsgens-gastric-cancer-car-t-nabs-world-first-approval-china-checking-landmark-solid-tumor",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "Inside Precision Medicine",
+     "url": "https://www.insideprecisionmedicine.com/topics/oncology/solid-tumor-car-t-therapy-approved-in-china-a-world-first/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "European Pharmaceutical Review",
+     "url": "https://www.europeanpharmaceuticalreview.com/carsgen-wins-first-global-approval-of-car-t-therapy-for-solid-tumours/2135788.article",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "subfield": "medicines",
+   "region": "asia",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "No notable cyber implications beyond routine clinical and manufacturing data security.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-31",
+    "lastChecked": "2026-10-31",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "unclear",
+     "reason": "The sources confirm Satri-cel is the first CAR-T approved for a solid tumour and that its first product/real-world use was in 2026, but they do not provide information on when its research began.",
+     "date": "2026-10-31",
+     "rules": 2
+    }
+   },
+   "flags": {}
+  },
+  {
+   "id": "solid-state-transformers-for-ai-data-centres-and-grids",
+   "field": "energy",
+   "origin": "academic",
+   "status": "outlook",
+   "title": "Solid-state transformers for AI data centres and grids",
+   "research": {
+    "year": 2008,
+    "what": "Power-electronics transformers using fast semiconductor switching to convert medium-voltage AC straight to DC or low-voltage AC, studied in university labs such as NC State's for roughly two decades. Origin: University prototype work including the NC State (Lukic lab) solid-state transformer test and the long-running FREEDM-type research programmes (c. 2008 onward); year approximate."
+   },
+   "change": {
+    "year": 2027,
+    "what": "Vendors plan customer pilots in 2027 and volume shipments from 2028; Heron Power's US factory is due to begin production in 2027 and reach 40 GW a year in 2029."
+   },
+   "confidence": "medium",
+   "note": "Could replace bulky iron-and-copper transformers, which face waits of up to five years, and cut conversion losses in data centres, solar and batteries.",
+   "desnz": "asset",
+   "refs": [
+    {
+     "label": "MIT Technology Review: How solid-state transformers could help power the AI boom (27 Oct 2026)",
+     "url": "https://www.technologyreview.com/2026/10/27/1147684/solid-state-transformers/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "Latitude Media: Does the market finally have an opening for solid-state transformers?",
+     "url": "https://www.latitudemedia.com/news/does-the-market-finally-have-an-opening-for-solid-state-transformers/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "DG Matrix: Solid State Transformers Could Reshape AI Infrastructure",
+     "url": "https://www.dgmatrix.com/news-and-media/news/solid-state-transformers-could-reshape-ai-infrastructure/1223",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "subfield": "grids",
+   "region": "us",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Software-controlled, networked power-electronics at grid and data-centre connection points add remotely reachable control and firmware surfaces.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2027,
+    "estimatedOn": "2026-10-31",
+    "revisions": []
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "deep-search",
+    "added": "2026-10-31",
+    "lastChecked": "2026-10-31",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "supported",
+     "reason": "The sources confirm solid-state transformers are for AI data centers and grids, with research beginning around 2006 (within one year of 2008) and adoption at scale expected to start between 2027 and 2029.",
+     "date": "2026-10-31",
+     "rules": 2
+    }
+   },
+   "basis": {
+    "label": "MIT Technology Review: How solid-state transformers could help power the AI boom (27 Oct 2026)",
+    "url": "https://www.technologyreview.com/2026/10/27/1147684/solid-state-transformers/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   "flags": {}
+  },
+  {
+   "id": "intel-optane-first-3d-xpoint-storage-class-memory",
+   "field": "hw",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Intel Optane: first 3D XPoint storage-class memory",
+   "research": {
+    "year": 2012,
+    "what": "Intel and Micron began developing a stackable cross-point non-volatile memory built on chalcogenide phase-change/threshold-switch materials, positioned between DRAM and NAND. Origin: Intel–Micron 3D XPoint development from around 2012 (announced July 2015), building on earlier phase-change memory work"
+   },
+   "change": {
+    "year": 2017,
+    "what": "Intel shipped the first Optane products based on 3D XPoint in 2017, starting with data-centre and consumer SSDs and later memory modules."
+   },
+   "confidence": "high",
+   "note": "It was the first volume storage-class memory with latency between NAND and DRAM, even though it was later discontinued.",
+   "refs": [
+    {
+     "label": "SiliconANGLE: Intel announces Optane, the first 3D XPoint SSD",
+     "url": "https://siliconangle.com/2017/03/20/intel-announces-optane-dc-4800x-first-storage-device-based-3d-xpoint-memory/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "TechTarget: 3D XPoint",
+     "url": "https://www.techtarget.com/it-infrastructure/definition/3D-XPoint",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "subfield": "chips",
+   "region": "us",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Persistent memory keeps data in memory across power cycles, which changes the threat model for memory scraping and encryption.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "deep-search",
+    "added": "2026-10-31",
+    "lastChecked": "2026-10-31",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "unclear",
+     "reason": "The sources confirm Intel Optane was the first 3D XPoint storage-class memory product released around 2017, but do not mention when research began.",
+     "date": "2026-10-31",
+     "rules": 2
+    }
+   },
+   "flags": {}
+  },
+  {
+   "id": "gate-all-around-nanosheet-transistors-in-volume-samsung-3nm",
+   "field": "hw",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Gate-all-around nanosheet transistors in volume (Samsung 3nm)",
+   "research": {
+    "year": 2017,
+    "what": "Gate-all-around transistors wrap the gate around all four sides of the channel; Samsung's version uses wide nanosheet channels (its MBCFET design). Origin: Samsung's proprietary MBCFET nanosheet GAA transistor development (start year approximate, not stated in the sources)"
+   },
+   "change": {
+    "year": 2022,
+    "what": "On 30 June 2022 Samsung started initial mass production of 3nm foundry chips using GAA, the first in the world to do so, replacing FinFET."
+   },
+   "confidence": "medium",
+   "note": "This was the first commercial move beyond FinFET transistor structure, and the industry has since followed with nanosheet GAA.",
+   "refs": [
+    {
+     "label": "Samsung Semiconductor Korea newsroom: 삼성전자, 세계 최초 3나노 파운드리 양산",
+     "url": "https://news.samsungsemiconductor.com/kr/%EC%82%BC%EC%84%B1%EC%A0%84%EC%9E%90-%EC%84%B8%EA%B3%84-%EC%B5%9C%EC%B4%88-3%EB%82%98%EB%85%B8-%ED%8C%8C%EC%9A%B4%EB%93%9C%EB%A6%AC-%EC%96%91%EC%82%B0/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "Electronic Times (etnews): 삼성전자, 세계 최초 3나노 파운드리 양산 시작",
+     "url": "https://www.etnews.com/20220630000256",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "Bloter: 세계 최초 3나노가 넘지 못한 수율의 벽",
+     "url": "https://www.bloter.net/news/articleView.html?idxno=667822",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "subfield": "chips",
+   "region": "asia",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "No direct cyber security implications; it is a transistor process change.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "deep-search",
+    "added": "2026-10-31",
+    "lastChecked": "2026-10-31",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "unclear",
+     "reason": "The sources confirm that Samsung began initial mass production of 3nm Gate-All-Around (GAA) nanosheet transistors in June 2022, supporting the 'first product or real-world use around 2022' claim, but they do not provide any information regarding when research for this technology began.",
+     "date": "2026-10-31",
+     "rules": 2
+    }
+   },
+   "flags": {}
+  },
+  {
+   "id": "processing-in-memory-hbm-samsung-hbm-pim-in-amd-mi100",
+   "field": "hw",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Processing-in-memory HBM (Samsung HBM-PIM in AMD MI100)",
+   "research": {
+    "year": 2021,
+    "what": "HBM memory with AI processing engines built into the DRAM so some computation happens inside the memory, which cuts data movement. Origin: Samsung HBM-PIM, announced February 2021 on HBM2 Aquabolt; later presented at ISSCC with AMD"
+   },
+   "change": {
+    "year": 2022,
+    "what": "Samsung put HBM-PIM into AMD Instinct MI100 accelerator cards and built a cluster of them, which Samsung and AMD reported cut energy use while raising performance in large AI/HPC tests."
+   },
+   "confidence": "medium",
+   "note": "This is the first in-DRAM AI compute demonstrated in accelerator systems. Sources describe the use as limited or prototype, so commercial volume is not shown.",
+   "flags": {
+    "aiDriven": true
+   },
+   "refs": [
+    {
+     "label": "Samsung Newsroom Korea: 삼성전자, 세계 최초 인공지능 HBM-PIM 개발",
+     "url": "https://news.samsung.com/medialibrary/kr/photo/49762?page=77",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "Digital Daily: 삼성전자, 기술로 메모리 1위 지킨다…AMD 협력 확대",
+     "url": "https://m.ddaily.co.kr/page/view/2022102017594838428",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "Asia Economy: [AI혁명](25) AI 미래 책임지는 'HBM-PIM'",
+     "url": "https://www.asiae.co.kr/article/2023042619161228138",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "subfield": "chips",
+   "region": "asia",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "No direct cyber security implications.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "deep-search",
+    "added": "2026-10-31",
+    "lastChecked": "2026-10-31",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "supported",
+     "reason": "The sources confirm Samsung's HBM-PIM was first introduced in 2021, and it was equipped in AMD's MI-100 accelerator card for performance tests in October 2022.",
+     "date": "2026-10-31",
+     "rules": 2
+    }
+   }
+  },
+  {
+   "id": "furiosaai-rngd-inference-chip-adopted-for-lg-exaone",
+   "field": "ai",
+   "origin": "industry",
+   "status": "landed",
+   "title": "FuriosaAI RNGD inference chip adopted for LG EXAONE",
+   "research": {
+    "year": 2023,
+    "what": "FuriosaAI designed its second-generation RNGD inference accelerator around its own Tensor Contraction Processor architecture, and LG AI Research began co-development and evaluation with it before the product was commercialised. Origin: FuriosaAI Tensor Contraction Processor architecture; LG AI Research collaboration and evaluation starting about two years before July 2025"
+   },
+   "change": {
+    "year": 2025,
+    "what": "In July 2025 LG AI Research confirmed adoption of RNGD for EXAONE after months of pilot testing, claiming 2.25x better performance per watt than GPUs, with enterprise EXAONE solutions planned on it."
+   },
+   "confidence": "medium",
+   "note": "A non-GPU Korean AI accelerator accepted for production large-language-model inference at a major conglomerate.",
+   "refs": [
+    {
+     "label": "Electronic Times (etnews): LG EXAONE confirms adoption of FuriosaAI RNGD",
+     "url": "https://www.etnews.com/20250722000329",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "Autodaily (엠투데이): FuriosaAI supplies RNGD to LG EXAONE",
+     "url": "https://www.autodaily.co.kr/news/articleView.html?idxno=533900",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "subfield": "methods",
+   "region": "asia",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Adds a non-GPU accelerator stack with its own firmware and software supply chain to enterprise AI infrastructure.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "deep-search",
+    "added": "2026-10-31",
+    "lastChecked": "2026-10-31",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "supported",
+     "reason": "The sources confirm the adoption of FuriosaAI's Renegade chip by LG EXAONE, and state that testing began in late 2024 (within one year of 2023) with product launch and real-world use expected around 2025.",
+     "date": "2026-10-31",
+     "rules": 2
+    }
+   },
+   "flags": {}
+  },
+  {
+   "id": "tesla-ai5-inference-chip-in-volume-production",
+   "field": "ai",
+   "origin": "industry",
+   "status": "outlook",
+   "title": "Tesla AI5 inference chip in volume production",
+   "research": {
+    "year": 2025,
+    "what": "Tesla designed AI5, a 2nm-class inference chip rated at about 2,000–2,500 TOPS, to run its self-driving stack, the Optimus robot and data-centre inference. Origin: Tesla's in-house AI5 design, following its earlier AI4 self-driving computer, taped out in April 2026 with trial production at Samsung's Taylor fab"
+   },
+   "change": {
+    "year": 2027,
+    "what": "Tesla and its foundry partners (TSMC and Samsung) are targeting volume production of AI5 from mid-2027. Meaningful deployment in vehicles is expected later, and the schedule has slipped before."
+   },
+   "confidence": "medium",
+   "note": "This would be a vertically integrated automotive and robot AI chip made in volume at two foundries on a 2nm-class process.",
+   "refs": [
+    {
+     "label": "autoevolution: AI5 enters trial production at Samsung Taylor, volume in 2027",
+     "url": "https://www.autoevolution.com/news/tesla-s-ai5-chip-enters-trial-production-as-samsung-gets-the-taylor-fab-running-275799.html",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "Electrek: Tesla taped out AI5, volume production still over a year away",
+     "url": "https://electrek.co/2026/04/15/tesla-ai5-chip-taped-out-musk-ai6-dojo3/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "subfield": "methods",
+   "region": "us",
+   "readiness": {
+    "stage": "research",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Putting more powerful on-board AI compute in vehicles and robots widens the attack surface for over-the-air updates and model tampering.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2027,
+    "estimatedOn": "2026-10-31",
+    "revisions": []
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "deep-search",
+    "added": "2026-10-31",
+    "lastChecked": "2026-10-31",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "contradicted",
+     "reason": "The milestone states the AI5 chip is in volume production, but sources confirm it is only in trial production or has just been taped out, with volume production expected in 2027; additionally, research began earlier than 'around 2025' as the chip was in advanced stages by 2024.",
+     "date": "2026-10-31",
+     "rules": 2
+    },
+    "qaNote": "Second opinion (Gemini): contradicted. The milestone states the AI5 chip is in volume production, but sources confirm it is only in trial production or has just been taped out, with volume production expected in 2027; additionally, research began earlier than 'around 2025' as the chip was in advance"
+   },
+   "basis": {
+    "label": "autoevolution: AI5 enters trial production at Samsung Taylor, volume in 2027",
+    "url": "https://www.autoevolution.com/news/tesla-s-ai5-chip-enters-trial-production-as-samsung-gets-the-taylor-fab-running-275799.html",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   "flags": {
+    "disputed": true
+   }
+  },
+  {
+   "id": "quantum-origin-verifiable-quantum-randomness-for-keys",
+   "field": "quantum",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Quantum Origin: verifiable quantum randomness for keys",
+   "research": {
+    "year": 2007,
+    "what": "Randomness certified by Bell tests and processed with seeded extractors, so that key material is provably random. Origin: Device-independent randomness work from Cambridge (Colbeck's 2007 Cambridge thesis), later commercialised by Cambridge Quantum, now Quantinuum."
+   },
+   "change": {
+    "year": 2021,
+    "what": "Cambridge Quantum launched Quantum Origin as a commercial cryptographic key platform seeded with verifiable randomness from a trapped-ion quantum computer. It later gained NIST SP 800-90B validation in 2025."
+   },
+   "confidence": "medium",
+   "note": "Described by its maker as the first commercial product built on a quantum computer to deliver a result that classical machines cannot match.",
+   "refs": [
+    {
+     "label": "Quantinuum: Introducing Quantum Origin",
+     "url": "https://www.quantinuum.com/blog/introducing-quantum-origin",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "HPCwire: NIST Validates Quantinuum Cryptography Solution – Origin",
+     "url": "https://www.hpcwire.com/2025/04/02/nist-validates-quantinuum-cryptography-solution-origin/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "subfield": "devices",
+   "region": "uk",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "It strengthens cryptographic key generation against weak-entropy failures, and it supports post-quantum migration.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "deep-search",
+    "added": "2026-10-31",
+    "lastChecked": "2026-10-31",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "unclear",
+     "reason": "The sources confirm Quantum Origin provides verifiable quantum randomness for keys and its first product use was in 2021, but do not mention when research began around 2007.",
+     "date": "2026-10-31",
+     "rules": 2
+    }
+   },
+   "flags": {}
+  },
+  {
+   "id": "kaiser-kernel-isolation-basis-of-linux-kpti-against-meltdown",
+   "field": "cyber",
+   "origin": "academic",
+   "status": "landed",
+   "title": "KAISER kernel isolation, basis of Linux KPTI against Meltdown",
+   "research": {
+    "year": 2017,
+    "what": "TU Graz researchers proposed KAISER, which unmaps most kernel memory while user code runs, to close side channels that defeat kernel address randomisation. Origin: Gruss, Lipp, Schwarz, Fellner, Maurice, Mangard, 'KASLR is Dead: Long Live KASLR', ESSoS 2017 (TU Graz)"
+   },
+   "change": {
+    "year": 2018,
+    "what": "KAISER became the basis of kernel page-table isolation, merged into Linux 4.15 and backported to stable kernels (the commit landed on 29 Dec 2017), with similar fixes in Windows and macOS, as the main Meltdown mitigation."
+   },
+   "confidence": "high",
+   "note": "It was the first widely deployed software defence against Meltdown, reaching almost all PCs, servers and cloud hosts.",
+   "refs": [
+    {
+     "label": "TU Graz: TU Graz researchers discover serious security vulnerabilities",
+     "url": "https://www.tugraz.at/en/news/article/tu-graz-researchers-discover-serious-security-vulnerabilities",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "LWN.net: A look at the handling of Meltdown and Spectre",
+     "url": "https://lwn.net/Articles/743363/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "subfield": "network",
+   "region": "europe",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "deep-search",
+    "added": "2026-10-31",
+    "lastChecked": "2026-10-31",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "supported",
+     "reason": "The sources confirm that KAISER was the basis for Linux KPTI against Meltdown, with research beginning in 2017 and real-world use (patches and kernel merges) occurring in late 2017 and early 2018.",
+     "date": "2026-10-31",
+     "rules": 2
+    }
+   },
+   "flags": {}
+  },
+  {
+   "id": "european-cybersecurity-alert-system-cross-border-cyber-hubs",
+   "field": "cyber",
+   "origin": "government",
+   "status": "outlook",
+   "title": "European Cybersecurity Alert System (cross-border cyber hubs)",
+   "research": {
+    "year": 2021,
+    "what": "A pilot funded by the European Commission linked national security operations centres (SOCs) across EU states, to share threat data and build joint detection tools. Origin: European Commission cross-border SOC pilot project launched in 2021; first phase of Digital Europe Programme consortia selected November 2022 (ATHENA, ENSOC)"
+   },
+   "change": {
+    "year": 2028,
+    "what": "The hubs are meant to become a working EU-wide network that pools threat data and issues real-time alerts. The European Court of Auditors says it is not yet functioning, and the ENSOC platform project runs to June 2028."
+   },
+   "confidence": "medium",
+   "note": "It would be Europe's first shared, near-real-time cyber threat detection layer across national SOCs. Delays in procurement, cooperation agreements and standards put the timing at risk.",
+   "refs": [
+    {
+     "label": "European Court of Auditors, Special Report 19/2026 on detecting and responding to cybersecurity incidents",
+     "url": "https://www.eca.europa.eu/ECAPublications/SR-2026-19/SR-2026-19_EN.pdf",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "ENSOC - European Network of SOC (project page)",
+     "url": "https://ensoc.eu/index.html",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "Computer Weekly: EU states failing to exchange information on cross-border cyber security attacks",
+     "url": "https://www.computerweekly.com/news/366650821/EU-states-failing-to-exchange-information-on-cross-border-cyber-security-attacks",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "subfield": "network",
+   "region": "europe",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "forecast": {
+    "estimatedYear": 2028,
+    "estimatedOn": "2026-10-31",
+    "revisions": []
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "deep-search",
+    "added": "2026-10-31",
+    "lastChecked": "2026-10-31",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "contradicted",
+     "reason": "The sources confirm the existence and description of the European Cybersecurity Alert System as cross-border cyber hubs, but contradict the 'research began around 2021' date, with establishment shown around 2025 and related projects starting in 2024.",
+     "date": "2026-10-31",
+     "rules": 2
+    },
+    "qaNote": "Second opinion (Gemini): contradicted. The sources confirm the existence and description of the European Cybersecurity Alert System as cross-border cyber hubs, but contradict the 'research began around 2021' date, with establishment shown around 2025 and related projects starting in 2024."
+   },
+   "basis": {
+    "label": "European Court of Auditors, Special Report 19/2026 on detecting and responding to cybersecurity incidents",
+    "url": "https://www.eca.europa.eu/ECAPublications/SR-2026-19/SR-2026-19_EN.pdf",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   "flags": {
+    "disputed": true
+   }
+  },
+  {
+   "id": "nasa-dsoc-laser-communications-across-deep-space",
+   "field": "comms",
+   "origin": "government",
+   "status": "landed",
+   "title": "NASA DSOC: laser communications across deep space",
+   "research": {
+    "year": 2015,
+    "what": "JPL developed a flight laser transceiver and ground laser terminals to test near-infrared optical links from beyond the Moon, building on earlier NASA optical-communication demos. Origin: NASA JPL Deep Space Optical Communications (DSOC) technology demonstration, described in a 2015 NASA/JPL project paper"
+   },
+   "change": {
+    "year": 2023,
+    "what": "On 14 November 2023 the DSOC transceiver aboard the Psyche spacecraft reached 'first light' and exchanged laser data from about 16 million km away, the first optical link in deep space."
+   },
+   "confidence": "high",
+   "note": "First demonstration of laser (optical) communications across deep space, a route to much higher data rates than radio for future missions.",
+   "refs": [
+    {
+     "label": "NASA: DSOC sends, receives first data",
+     "url": "https://www.nasa.gov/missions/psyche-mission/nasas-deep-space-optical-comm-demo-sends-receives-first-data",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "CNN: most distant demo of laser communications",
+     "url": "https://www.cnn.com/2023/11/24/world/nasa-psyche-dsoc-first-light-scn/index.html",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "subfield": "internet",
+   "region": "us",
+   "tags": [
+    "space"
+   ],
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Narrow laser beams are hard to intercept or jam, but pointing and ground-station control systems become new targets.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "deep-search",
+    "added": "2026-10-31",
+    "lastChecked": "2026-10-31",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "unclear",
+     "reason": "The sources confirm that NASA's DSOC achieved laser communications across deep space in November 2023, supporting the milestone title and the 'first product or real-world use around 2023' timeline. However, the provided text does not mention when the research began, so 'Research began around 2015' c",
+     "date": "2026-10-31",
+     "rules": 2
+    }
+   },
+   "flags": {}
+  },
+  {
+   "id": "queqiao-lunar-comms-navigation-sensing-constellation",
+   "field": "comms",
+   "origin": "government",
+   "status": "outlook",
+   "title": "Queqiao lunar comms-navigation-sensing constellation",
+   "research": {
+    "year": 2018,
+    "what": "Queqiao relay satellites in Earth-Moon space, followed by the Queqiao-2 relay and the Tiandu-1 and Tiandu-2 test satellites, which were used to validate a lunar communication and navigation constellation design. Origin: Queqiao-1 lunar relay (2018) and Queqiao-2 with Tiandu-1/2 (2024), China's lunar exploration programme; the integrated constellation concept was presented in 2023 at the first Tiandu deep-space exploration conference."
+   },
+   "change": {
+    "year": 2030,
+    "what": "China plans a pilot Queqiao constellation of lunar communication, navigation and remote-sensing satellites around 2030. It would support Chang'e-7/8 follow-on lunar missions and the International Lunar Research Station, with a fuller lunar backbone link by about 2040."
+   },
+   "confidence": "medium",
+   "note": "This would be China's lunar data-relay and positioning infrastructure. It is a published, staged national plan, not speculation.",
+   "refs": [
+    {
+     "label": "CNSA (Wu Weiren on the International Lunar Research Station and Queqiao constellation)",
+     "url": "https://www.cnsa.gov.cn/n6758823/n6758844/n10663475/n10663516/c10668780/content.html",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "Tencent News: Queqiao, Chang'e-6 and the three-step constellation plan",
+     "url": "https://news.qq.com/rain/a/20240625A067ZV00",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "Journal of Deep Space Exploration 2025 (Queqiao constellation information system)",
+     "url": "https://jdse.bit.edu.cn/sktcxb/cn/article/pdf/preview/10.3724/j.issn.2096-9287.2025.20250083.pdf",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "subfield": "internet",
+   "region": "asia",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "It adds a space-based relay and navigation link for lunar missions, which creates new communication links and ground-segment targets to protect.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2030,
+    "estimatedOn": "2026-10-31",
+    "revisions": []
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "deep-search",
+    "added": "2026-10-31",
+    "lastChecked": "2026-10-31",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "supported",
+     "reason": "The sources consistently refer to the 'Queqiao communication-navigation-sensing integrated constellation system' and state that a pilot constellation is expected to be completed around 2030. The deployment of Queqiao-1 in 2018, a key component and predecessor to the constellation, supports the resea",
+     "date": "2026-10-31",
+     "rules": 2
+    }
+   },
+   "basis": {
+    "label": "CNSA (Wu Weiren on the International Lunar Research Station and Queqiao constellation)",
+    "url": "https://www.cnsa.gov.cn/n6758823/n6758844/n10663475/n10663516/c10668780/content.html",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   "flags": {}
+  },
+  {
+   "id": "rare-earth-free-iron-nitride-magnets-first-full-scale-plant",
+   "field": "materials",
+   "origin": "industry",
+   "status": "outlook",
+   "title": "Rare-earth-free iron nitride magnets: first full-scale plant",
+   "research": {
+    "year": 2016,
+    "what": "Permanent magnets made from iron and nitrogen, with no rare earths, moved from lab-scale research to a pilot line. Origin: Niron Magnetics' lab-scale iron nitride magnet research, backed by the Shakopee Mdewakanton Sioux Community from 2016, then a Minneapolis commercial pilot plant opened in 2024"
+   },
+   "change": {
+    "year": 2027,
+    "what": "Niron's Sartell, Minnesota Plant 1 is due to begin production in 2027 at up to 1,500 tonnes of magnets a year."
+   },
+   "confidence": "high",
+   "note": "It would be the first commercial-scale alternative to NdFeB magnets for motors, wind turbines and electronics.",
+   "refs": [
+    {
+     "label": "Niron Magnetics press release (Feb 2026): Sartell facility expected to begin production in 2027",
+     "url": "https://nironmagnetics.com/niron-magnetics-strengthens-local-ties-by-joining-sartell-chamber-of-commerce-ahead-of-new-facility/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "Wood: EPCM contract for the world's first iron nitride magnet plant",
+     "url": "https://www.woodgroup.com/news/niron-iron-nitride-permanent-magnet-plant",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "InForum/Echo Press: Sartell steel-raising event, 9 Sept 2026",
+     "url": "https://www.echopress.com/business/minnesota-city-celebrates-manufacturer-at-steel-raising-event",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "subfield": "polymers",
+   "region": "us",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Supply-chain resilience for magnet-dependent defence and energy equipment; no direct cyber attack surface.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2027,
+    "estimatedOn": "2026-10-31",
+    "revisions": []
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "deep-search",
+    "added": "2026-10-31",
+    "lastChecked": "2026-10-31",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "contradicted",
+     "reason": "The sources confirm the first full-scale plant for rare-earth-free iron nitride magnets and the 2027 operational date, but state the company was created in 2013 based on this technology, implying research began earlier than 2016.",
+     "date": "2026-10-31",
+     "rules": 2
+    },
+    "qaNote": "Second opinion (Gemini): contradicted. The sources confirm the first full-scale plant for rare-earth-free iron nitride magnets and the 2027 operational date, but state the company was created in 2013 based on this technology, implying research began earlier than 2016."
+   },
+   "basis": {
+    "label": "Niron Magnetics press release (Feb 2026): Sartell facility expected to begin production in 2027",
+    "url": "https://nironmagnetics.com/niron-magnetics-strengthens-local-ties-by-joining-sartell-chamber-of-commerce-ahead-of-new-facility/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   "flags": {
+    "disputed": true
+   }
+  },
+  {
+   "id": "tianwen-2-chinas-first-asteroid-sample-return",
+   "field": "space",
+   "origin": "government",
+   "status": "outlook",
+   "title": "Tianwen-2: China's first asteroid sample return",
+   "research": {
+    "year": 2018,
+    "what": "Chinese concept studies for a mission to sample near-Earth asteroid 2016 HO3 and then visit a main-belt comet, with three sampling modes: touch-and-go, hovering and anchoring. Origin: China's planetary exploration programme: the mission was first known as 'Zheng He' (2018–2020) and was formally approved in 2023."
+   },
+   "change": {
+    "year": 2027,
+    "what": "The Tianwen-2 return capsule is planned to land on Earth in late 2027 with at least 100 g of asteroid material, which would be China's first asteroid sample return."
+   },
+   "confidence": "high",
+   "note": "It would be the third national programme to return asteroid material, and it tests sampling methods suited to uncertain asteroid surfaces.",
+   "refs": [
+    {
+     "label": "国家国防科技工业局 (SASTIND): 天问二号为啥要去小行星",
+     "url": "https://www.sastind.gov.cn/n10086205/n10086408/n10104265/c10706560/content.html",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "新华网: 中国航天史上最长任务开启 谁来接力“天问”？",
+     "url": "https://www.news.cn/politics/20250530/09773b4d15464a199f7f077ebc2dd225/c.html",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "subfield": "launch",
+   "region": "asia",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "forecast": {
+    "estimatedYear": 2027,
+    "estimatedOn": "2026-10-31",
+    "revisions": []
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "deep-search",
+    "added": "2026-10-31",
+    "lastChecked": "2026-10-31",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "unclear",
+     "reason": "The sources confirm Tianwen-2 is China's first asteroid sample return and is expected to return around 2027, but they do not mention when research for the mission began.",
+     "date": "2026-10-31",
+     "rules": 2
+    }
+   },
+   "basis": {
+    "label": "国家国防科技工业局 (SASTIND): 天问二号为啥要去小行星",
+    "url": "https://www.sastind.gov.cn/n10086205/n10086408/n10104265/c10706560/content.html",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   "flags": {}
+  },
+  {
+   "id": "m72-as01e-first-new-tb-vaccine-in-a-century",
+   "field": "life",
+   "origin": "academic",
+   "status": "outlook",
+   "title": "M72/AS01E: first new TB vaccine in a century",
+   "research": {
+    "year": 2018,
+    "what": "A two-dose adjuvanted protein vaccine (M72/AS01E) cut progression to active pulmonary TB by about half in infected adults in a phase 2b trial. Origin: GSK-developed M72/AS01E phase 2b placebo-controlled trial in adults with latent TB infection, published 2018 (licensed to Gates MRI in 2020)"
+   },
+   "change": {
+    "year": 2029,
+    "what": "If the ~20,000-person phase 3 succeeds (results late 2028), regulatory submissions start in 2029 and Serum Institute of India is lined up to manufacture; licensure is projected for 2029–2030."
+   },
+   "confidence": "medium",
+   "note": "It would be the first new TB vaccine in over 100 years and the first aimed at adolescents and adults.",
+   "refs": [
+    {
+     "label": "Gates Medical Research Institute – manufacturing agreement with Serum Institute of India",
+     "url": "https://www.gatesmri.org/gates-medical-research-institute-and-the-serum-institute-of-india-reach-agreement/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "IOL – New TB vaccines could save millions of lives by 2050",
+     "url": "https://iol.co.za/news/south-africa/2026-09-16-new-tb-vaccines-could-save-millions-of-lives-by-2050--what-to-know/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "subfield": "medicines",
+   "region": "global",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Little direct cyber impact; vaccine cold-chain and manufacturing data systems are the only exposure.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2029,
+    "estimatedOn": "2026-10-31",
+    "revisions": []
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "deep-search",
+    "added": "2026-10-31",
+    "lastChecked": "2026-10-31",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "contradicted",
+     "reason": "The sources state M72/AS01E has the potential to be the first new TB vaccine if successful, not that it already is, and its development began in the early 2000s, not around 2018.",
+     "date": "2026-10-31",
+     "rules": 2
+    },
+    "qaNote": "Second opinion (Gemini): contradicted. The sources state M72/AS01E has the potential to be the first new TB vaccine if successful, not that it already is, and its development began in the early 2000s, not around 2018."
+   },
+   "basis": {
+    "label": "Gates Medical Research Institute – manufacturing agreement with Serum Institute of India",
+    "url": "https://www.gatesmri.org/gates-medical-research-institute-and-the-serum-institute-of-india-reach-agreement/",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   "flags": {
+    "disputed": true
+   }
+  },
+  {
+   "id": "china-brain-computer-interface-products-2027-2030-plan",
+   "field": "life",
+   "origin": "government",
+   "status": "outlook",
+   "title": "China brain-computer interface products (2027/2030 plan)",
+   "research": {
+    "year": 2025,
+    "what": "Seven Chinese ministries set a two-step national plan to move brain-computer interface electrodes, chips and complete devices from research into applied products. Origin: MIIT et al. 'Implementation Opinions on Promoting Innovative Development of the Brain-Computer Interface Industry' (工信部联科〔2025〕164号), 2025; the underlying lab programmes are not named in the sources"
+   },
+   "change": {
+    "year": 2027,
+    "what": "By 2027 BCI products are to be applied faster in industry, healthcare and consumer use; by 2030 a secure industry system with 2–3 globally influential firms is targeted."
+   },
+   "confidence": "low",
+   "note": "It is a national programme to commercialise implantable and non-implantable BCI devices, including medical ones.",
+   "refs": [
+    {
+     "label": "China Daily (Chinese): seven ministries, BCI key technology breakthroughs by 2027",
+     "url": "https://cn.chinadaily.com.cn/a/202508/07/WS6894af99a310ebef36290e9e.html",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "Xinhua: seven ministries promote BCI industry innovation, 2027 and 2030 targets",
+     "url": "http://www.news.cn/tech/20250808/3bd25fa307d14f32b2dd67f480212cbd/c.html",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "subfield": "medicines",
+   "region": "asia",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "forecast": {
+    "estimatedYear": 2027,
+    "estimatedOn": "2026-10-31",
+    "revisions": []
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "deep-search",
+    "added": "2026-10-31",
+    "lastChecked": "2026-10-31",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "supported",
+     "reason": "Both sources confirm that seven Chinese departments jointly issued a plan in August 2025, setting development goals for brain-computer interface products and the industry for 2027 and 2030, which aligns with the milestone's description and years.",
+     "date": "2026-10-31",
+     "rules": 2
+    }
+   },
+   "basis": {
+    "label": "China Daily (Chinese): seven ministries, BCI key technology breakthroughs by 2027",
+    "url": "https://cn.chinadaily.com.cn/a/202508/07/WS6894af99a310ebef36290e9e.html",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   "flags": {}
+  },
+  {
+   "id": "china-ai-energy-plan-grid-dispatch-ai-models-by-2027-30",
+   "field": "energy",
+   "origin": "government",
+   "status": "outlook",
+   "title": "China 'AI+ Energy' plan: grid dispatch AI models by 2027-30",
+   "research": {
+    "year": 2025,
+    "what": "China's State Council 'AI+' action opinion led to a dedicated energy implementation opinion that sets 2027 and 2030 goals for AI in power-grid dispatch, new-energy forecasting and planning. Origin: State Council 'AI+' action opinion (国发〔2025〕11号) and NDRC/NEA implementation opinion 国能发科技〔2025〕73号, 4 Sep 2025"
+   },
+   "change": {
+    "year": 2027,
+    "what": "By 2027 at least five sector-specific AI models are to be in deep use across grid, generation, coal and oil and gas, with ten or more replicable demonstration projects; by 2030 AI for intelligent grid control and new-energy forecasting is to be at scale."
+   },
+   "confidence": "medium",
+   "note": "It is a national programme with dated, countable targets for AI in power-system operation, so it is a published plan rather than speculation.",
+   "desnz": "opt",
+   "flags": {
+    "policy": true
+   },
+   "refs": [
+    {
+     "label": "NEA Q&A on the AI+ Energy implementation opinion (国家能源局)",
+     "url": "https://www.nea.gov.cn/20250908/781c61eb8d0c4c25a7c98a350169790e/c.html",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "NEA news: two departments issue AI+ Energy opinion (两部门发文推进“人工智能+”能源高质量发展)",
+     "url": "https://www.nea.gov.cn/20250912/c31a8448ceba4fba9081ee2206abc521/c.html",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "gov.cn full text of the implementation opinion",
+     "url": "https://www.gov.cn/zhengce/zhengceku/202509/content_7040253.htm",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "subfield": "grids",
+   "region": "asia",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "not-yet",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Putting AI models into dispatch and control adds new model, data and supply-chain attack paths to grid operations.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2027,
+    "estimatedOn": "2026-10-31",
+    "revisions": []
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "deep-search",
+    "added": "2026-10-31",
+    "lastChecked": "2026-10-31",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "supported",
+     "reason": "The sources confirm the 'AI+ Energy' plan and explicitly state targets for 'professional large models' to be deeply applied in 'power grids' by 2027, with overall AI application in the energy sector reaching world-leading levels by 2030. Source 1 also mentions 'real-time grid dispatch' as a core are",
+     "date": "2026-10-31",
+     "rules": 2
+    }
+   },
+   "basis": {
+    "label": "NEA Q&A on the AI+ Energy implementation opinion (国家能源局)",
+    "url": "https://www.nea.gov.cn/20250908/781c61eb8d0c4c25a7c98a350169790e/c.html",
+    "status": "ok",
+    "checked": "2026-10-31"
+   }
+  },
+  {
+   "id": "opengridfm-open-foundation-models-for-the-power-grid",
+   "field": "energy",
+   "origin": "industry",
+   "status": "outlook",
+   "title": "OpenGridFM: open foundation models for the power grid",
+   "research": {
+    "year": 2024,
+    "what": "IBM Research and Hydro-Québec started GridFM, an open framework for pre-training foundation models on solved power-flow and optimal-power-flow problems for grid analysis and operation. Origin: GridFM, originated by Hydro-Québec and IBM and contributed to Linux Foundation Energy; Joule perspective paper on grid foundation models (IBM Research)"
+   },
+   "change": {
+    "year": 2029,
+    "what": "A three-year US Genesis Mission Phase II project led by Brookhaven Lab aims to take grid foundation models from proof of concept to real-world use, simulating scenarios for adding new loads to the grid."
+   },
+   "confidence": "medium",
+   "note": "A funded multi-year programme with national-lab, utility and industry partners is moving a neural grid solver towards operational use.",
+   "desnz": "opt",
+   "refs": [
+    {
+     "label": "Brookhaven Lab to Lead $14M AI Project for Nation's Electric Grid",
+     "url": "https://www.bnl.gov/newsroom/news.php?a=123136",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "IBM Research: From vision to reality: a unified AI solver for the grid",
+     "url": "https://research.ibm.com/blog/gridfm-neural-solver-power-grid",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "LF Energy announcement of GridFM and other open source grid projects",
+     "url": "https://lfenergy.org/linux-foundation-energy-announces-open-source-power-grid-projects-for-ai-modeling-and-edge-applications-plus-scope-3-emissions-visibility/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "subfield": "grids",
+   "region": "us",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Shared pre-trained grid models add risks of poisoned training data and of wrong model outputs being trusted in operational decisions.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2029,
+    "estimatedOn": "2026-10-31",
+    "revisions": []
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "deep-search",
+    "added": "2026-10-31",
+    "lastChecked": "2026-10-31",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "supported",
+     "reason": "The sources confirm OpenGridFM is an open-source framework for foundation models for the power grid, with a vision laid out in late 2024 and a key project starting in September 2026 with a three-year duration, ending around 2029.",
+     "date": "2026-10-31",
+     "rules": 2
+    }
+   },
+   "basis": {
+    "label": "Brookhaven Lab to Lead $14M AI Project for Nation's Electric Grid",
+    "url": "https://www.bnl.gov/newsroom/news.php?a=123136",
+    "status": "ok",
+    "checked": "2026-10-31"
+   },
+   "flags": {}
+  },
+  {
+   "id": "maximo-ai-vision-robot-fleet-for-solar-module-installation",
+   "field": "energy",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Maximo: AI-vision robot fleet for solar module installation",
+   "research": {
+    "year": 2024,
+    "what": "AES developed Maximo, an AI-enabled robot that uses computer vision and generative image reconstruction to place and attach solar modules alongside crews. Origin: AES Corporation's in-house solar robotics programme (spun out as Maximo), unveiled in 2024 and developed with NVIDIA Isaac Sim simulation and AWS"
+   },
+   "change": {
+    "year": 2025,
+    "what": "AES deployed a fleet at the Bellefield solar and storage project in California. In March 2026 it announced 100 MW installed, which AES described as the move to sustained commercial production."
+   },
+   "confidence": "medium",
+   "note": "This is construction rather than O&M, but it is an AI-driven robot delivering clean-energy assets at utility scale. The research origin year is only loosely sourced.",
+   "desnz": "asset",
+   "flags": {
+    "aiDriven": true,
+    "disputed": true
+   },
+   "refs": [
+    {
+     "label": "Renewable Energy World: AES sends world's first AI-powered solar robot fleet to California project",
+     "url": "https://www.renewableenergyworld.com/solar/utility-scale/aes-sends-worlds-first-ai-powered-solar-robot-fleet-to-california-project/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "PR Newswire: Maximo Completes 100 MW of Robotic Solar Installation",
+     "url": "https://www.prnewswire.com/news-releases/maximo-completes-100-mw-of-robotic-solar-installation-302723835.html",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "PV Tech: Maximo on robotic installation at utility-scale solar projects",
+     "url": "https://www.pv-tech.org/youre-going-to-see-a-lot-more-of-these-maximo-on-robotic-installation-utility-scale-solar-projects/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "subfield": "grids",
+   "region": "us",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "not-yet",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Cloud-connected field robots running AI software add remotely updatable devices to construction sites and project networks.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "deep-search",
+    "added": "2026-10-31",
+    "lastChecked": "2026-10-31",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "contradicted",
+     "reason": "While the description of Maximo is supported, the sources state Maximo made its debut and was in real-world use in July 2024, which contradicts 'Research began around 2024' and 'first product or real-world use around 2025'.",
+     "date": "2026-10-31",
+     "rules": 2
+    },
+    "qaNote": "Second opinion (Gemini): contradicted. While the description of Maximo is supported, the sources state Maximo made its debut and was in real-world use in July 2024, which contradicts 'Research began around 2024' and 'first product or real-world use around 2025'."
+   }
+  },
+  {
+   "id": "c-26-static-reflection-and-contracts-finalised",
+   "field": "sw",
+   "origin": "industry",
+   "status": "landed",
+   "title": "C++26: static reflection and contracts finalised",
+   "research": {
+    "year": 2023,
+    "what": "Standards proposals P2996 (compile-time static reflection) and P2900 (contracts with pre- and postconditions) were developed within the ISO C++ committee for the language. Origin: ISO C++ WG21 proposals P2996 (static reflection) and P2900 (contracts), c. 2023, merged into the C++26 draft"
+   },
+   "change": {
+    "year": 2026,
+    "what": "The ISO C++ committee finished technical work on C++26 in London on 28 March 2026, and GCC already had reflection and contracts merged in trunk."
+   },
+   "confidence": "medium",
+   "note": "It is the biggest C++ revision since C++11, adding reflection, contracts, a hardened standard library and a unified std::execution async framework.",
+   "refs": [
+    {
+     "label": "Herb Sutter: C++26 is done (trip report, 29 Mar 2026)",
+     "url": "https://herbsutter.com/2026/03/29/c26-is-done-trip-report-march-2026-iso-c-standards-meeting-london-croydon-uk/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "InfoQ: C++26 Reflection, Memory Safety, Contracts, and a New Async Model",
+     "url": "https://www.infoq.com/news/2026/04/cpp-26-reflection-safety-async/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "subfield": "apps",
+   "region": "global",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Contracts and a hardened standard library with bounds safety aim to reduce memory-safety bugs in C++ code.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-31",
+    "lastChecked": "2026-10-31",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "unclear",
+     "reason": "The sources confirm that C++26 is finalized and includes static reflection and contracts, but they do not provide information about when research for these features began or when their first product or real-world use is expected.",
+     "date": "2026-10-31",
+     "rules": 2
+    }
+   },
+   "flags": {}
+  },
+  {
+   "id": "project-genie-interactive-world-models-for-consumers",
+   "field": "ai",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Project Genie: interactive world models for consumers",
+   "research": {
+    "year": 2024,
+    "what": "DeepMind showed that a model trained on internet video can generate controllable interactive environments, and in 2025 extended this to real-time interactive worlds with Genie 3. Origin: Google DeepMind 'Genie: Generative Interactive Environments' paper (2024), followed by the Genie 3 world model preview (August 2025)"
+   },
+   "change": {
+    "year": 2026,
+    "what": "Google opened Project Genie, a Labs web app powered by Genie 3, to US Google AI Ultra subscribers on 29 January 2026, so the public could create and explore generated interactive worlds."
+   },
+   "confidence": "high",
+   "note": "This was the first paid public access to a general-purpose real-time world model, and it has been treated as a market-moving event for games and simulation.",
+   "flags": {
+    "aiDriven": true
+   },
+   "refs": [
+    {
+     "label": "Google blog: Project Genie rollout",
+     "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/project-genie/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "TechCrunch: hands-on with Project Genie (29 Jan 2026)",
+     "url": "https://techcrunch.com/2026/01/29/i-built-marshmallow-castles-in-googles-new-ai-world-generator-project-genie",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "9to5Google: Project Genie rolling out",
+     "url": "https://9to5google.com/2026/01/29/google-project-genie/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "subfield": "methods",
+   "region": "global",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Generated interactive worlds and photo-based world creation add routes for synthetic-media misuse, and the service has to guard against abusive prompts and uploads.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-31",
+    "lastChecked": "2026-10-31",
+    "approximate": false
+   },
+   "story": {
+    "research": "Google DeepMind built Genie, a generative interactive-environments model introduced March 2024, then previewed the real-time Genie 3 world model in August 2025.",
+    "deploy": "Google rolled out Project Genie, a Genie 3-powered Google Labs prototype, to US Google AI Ultra subscribers aged 18+ on 29 January 2026.",
+    "impact": "Google widened access in May 2026 to eligible Google AI Ultra ($200/month) subscribers worldwide and added Street View-based worlds, built on nearly 20 years of imagery. No user-count figure was published.",
+    "refs": [
+     {
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/project-genie/",
+      "label": "Google blog: Project Genie launch",
+      "quote": "Starting today, we're rolling out access to Project Genie for Google AI Ultra subscribers in the U.S (18+)."
+     },
+     {
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/project-genie-expands/",
+      "label": "Google blog: Project Genie and Street View expansion",
+      "quote": "gradually rolling out to all eligible Google AI Ultra $200 subscribers globally (18+)"
+     }
+    ],
+    "checked": "2026-10-31"
+   }
+  },
+  {
+   "id": "taalas-hc1-model-hard-wired-into-silicon",
+   "field": "ai",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Taalas HC1: model hard-wired into silicon",
+   "research": {
+    "year": 2023,
+    "what": "Taalas, founded in 2023, developed a platform that turns a trained AI model into custom silicon, with weights stored on-chip in mask ROM. Origin: Taalas hardwired-model ('Hardcore Model') chip platform, company founded 2023 with patents filed"
+   },
+   "change": {
+    "year": 2026,
+    "what": "Taalas came out of stealth on 19 February 2026 with the HC1, a PCIe card with Llama 3.1 8B hard-wired into the chip, available for testing and demos at about 17,000 tokens per second per user."
+   },
+   "confidence": "medium",
+   "note": "It is the first working chip to bake a whole LLM into silicon, which trades flexibility for much faster and cheaper inference. The first part is a prototype, not a volume product.",
+   "flags": {
+    "aiDriven": true
+   },
+   "refs": [
+    {
+     "label": "Forbes: Taalas launches Hardcore chip",
+     "url": "https://www.forbes.com/sites/karlfreund/2026/02/19/taalas-launches-hardcore-chip-with-insane-ai-inference-performance/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "heise: Taalas announces HC1 chip",
+     "url": "https://www.heise.de/en/news/AI-inference-cast-in-silicon-Taalas-announces-HC1-chip-11185112.html",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "TrendForce: inference chip architecture",
+     "url": "https://insights.trendforce.com/p/ai-inference-chip-architecture",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "subfield": "methods",
+   "region": "other",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Weights fixed in silicon cannot be patched, so any flaw or unsafe behaviour in the model stays in the hardware, though the weights are harder to extract or tamper with.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-31",
+    "lastChecked": "2026-10-31",
+    "approximate": false
+   }
+  },
+  {
+   "id": "welinq-qdrive-first-commercial-quantum-memory-sold",
+   "field": "quantum",
+   "origin": "academic",
+   "status": "landed",
+   "title": "Welinq QDrive: first commercial quantum memory sold",
+   "research": {
+    "year": 2022,
+    "what": "Cold neutral-atom quantum memory research at Sorbonne University was spun out to store and retrieve single photons with high efficiency, aimed at quantum networks. Origin: Sorbonne University neutral-atom quantum memory research, spun out as Welinq (around 2022) with Quantum Internet Alliance support"
+   },
+   "change": {
+    "year": 2026,
+    "what": "In January 2026 Welinq made the first commercial sale of its rack-mounted QDrive quantum memory to the Slovak Academy of Sciences for the national quantum communication network (skQCI)."
+   },
+   "confidence": "medium",
+   "note": "It moves quantum memory from lab demonstration to a purchasable network component, a building block for quantum repeaters and distributed quantum computing.",
+   "refs": [
+    {
+     "label": "Quantum Computing Report: Welinq first commercial sale of QDrive",
+     "url": "https://quantumcomputingreport.com/welinq-executes-first-commercial-sale-of-qdrive-quantum-memory-to-slovak-academy-of-sciences/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "The Quantum Insider: Welinq sells QDrive quantum memory in Europe",
+     "url": "https://thequantuminsider.com/2026/01/14/welinq-qdrive-sale-slovak-academy/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    },
+    {
+     "label": "skQCI / QUTE.sk: QDrive Quantum Memory Arrives in Slovakia",
+     "url": "https://skqci.qute.sk/qdrive-quantum-memory-arrives-in-slovakia/",
+     "status": "ok",
+     "checked": "2026-10-31"
+    }
+   ],
+   "subfield": "devices",
+   "region": "europe",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Quantum memories enable longer-range quantum networks and repeaters that underpin quantum-secured communication, but add new networked hardware to secure.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-10-31",
+    "lastChecked": "2026-10-31",
+    "approximate": false
    }
   }
  ],
