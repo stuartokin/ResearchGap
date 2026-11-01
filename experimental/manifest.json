@@ -1,0 +1,6 @@
+{
+ "version": 1,
+ "features": [
+  {"id": "ai-by-readiness", "title": "AI by readiness", "description": "A chart of clean energy technologies at each stage of readiness, showing how many are AI-driven, with an insight comparing research and scale.", "added": "2026-11-02", "status": "active", "files": ["feature.js", "style.css", "README.md"]}
+ ]
+}
