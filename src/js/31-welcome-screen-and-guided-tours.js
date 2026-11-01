@@ -293,6 +293,7 @@ function startTour(id){
   tourStep(0);
 }
 function resetToDefaults(){
+  if (typeof destroyAllChartWindows === 'function') destroyAllChartWindows();
   if (typeof resetCharts === 'function') resetCharts();
   const keep = {radarSeenRev:view.radarSeenRev};
   Object.keys(view).forEach(k => delete view[k]); Object.assign(view, JSON.parse(JSON.stringify(VIEW_DEFAULTS)), keep);

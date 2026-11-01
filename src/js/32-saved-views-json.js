@@ -9,7 +9,7 @@ function snapshot(name){
     camera:{pos:camera.position.toArray(), target:controls.target.toArray()}, autoRotate:state.autoRotate, musicVolume:mus.vol,
     music:{volume:mus.vol, track:mus.track}, playSpeed, loopPlay:!!view.loopPlay, visionExpanded:[...visOpen],
     playState:{playing:state.playing, cursor:state.cursor, paused}, cleanMode:document.body.classList.contains('clean'),
-    charts:chartState(), scroll:scrollState(),
+    charts:chartState(), scroll:scrollState(), chartWindows:Object.keys(CHI.roots).map(k => ({id:k, state:chartStateOf(k)})),
     zOrder:WIN_IDS.slice().sort((a, b) => (+wins[a].style.zIndex || 0) - (+wins[b].style.zIndex || 0)),
     videos:Object.fromEntries(['vid1','vid2'].map(id => [id, {muted:$(id).muted, volume:$(id).volume}])),
     audience:audSnapshot(), customFields:FKEYS.filter(k => FIELDS[k].custom).map(k => FIELDS[k].name),
@@ -45,6 +45,10 @@ function syncDisplayUI(){
   applyLanes(false); applyColours(); $('floorT').dispatchEvent(new Event('change'));
 }
 function applyView(o){
+  /* chart windows first, so their positions apply below; old pop-outs open as chart windows */
+  destroyAllChartWindows();
+  (o.chartWindows || []).forEach(w => createChartWindow(w.state, Object.assign({}, (o.layout || {})[w.id] || {}), w.id));
+  const pops = (o.view && o.view.chartPops) || {}; Object.entries(pops).forEach(([n, tab]) => { const L = (o.layout || {})['chartpop' + n]; if (L && L.open) createChartWindow({tab}, {x:L.x, y:L.y, w:L.w, h:L.h, fs:L.fs || 1}); });
   if (!o || o.app !== 'the-shrinking-gap') { alert('That file is not a saved view from this app.'); return; }
   const d = defaultLayout(), fit = view.fitOnLoad !== false;   // the current user's setting, not the file's
   const sw = (o.screen && o.screen.w) || innerWidth, sh = (o.screen && o.screen.h) || innerHeight;

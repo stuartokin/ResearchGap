@@ -65,7 +65,7 @@ JS = r"""async () => {
  $('rotBtn').click();
  // ---------- PRESENTING ----------
  $('playBtn').click(); await waitUntil(() => $('countdown').classList.contains('on'), 1000); ok('P1 countdown shows 3', $('countdown').classList.contains('on') && $('cdNum').textContent === '3');
- await waitUntil(() => T.state.playing, 9000); await frames(2); ok('P2 Play starts after countdown', T.state.playing && !$('countdown').classList.contains('on'));
+ await waitUntil(() => T.state.playing, 15000);   /* a test machine drawing in software delays the countdown timer */ await frames(2); ok('P2 Play starts after countdown', T.state.playing && !$('countdown').classList.contains('on'));
  $('tbStop').click(); $('countdownT').click(); $('playBtn').click(); await sleep(150); ok('P3 countdown can be switched off', T.state.playing && !$('countdown').classList.contains('on')); $('tbStop').click(); $('countdownT').click();
  $('thanksBtn').click(); ok('P4 thank-you opens', $('thanks').classList.contains('on'));
  document.dispatchEvent(new KeyboardEvent('keydown', {key:'Escape'})); ok('P5 Escape closes it', !$('thanks').classList.contains('on'));

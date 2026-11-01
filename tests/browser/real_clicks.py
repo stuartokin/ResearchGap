@@ -16,7 +16,7 @@ async def main():
             except Exception as e: print(f'   {name}: the click did not land ({str(e)[:90]})'); return False
         await click('#wAckBtn', 'acknowledge'); await click('#wRun', 'Run the tool')
         await click('#winBtn', 'Views'); await click('#winMenu button[data-w="__p_charts"]', 'Charts')
-        ok('C1 Pop out opens a chart in its own panel', await click('#chPopOut', 'Pop out') and await pg.evaluate("!document.getElementById('w-chartpop1').classList.contains('closed') && !!document.querySelector('#chpop1 svg')"))
+        ok('C1 New window opens a full chart window', await click('#chNewWin', 'New window') and await pg.evaluate("(() => { const w = document.querySelector('[id^=w-chartw]'); return !!w && !w.classList.contains('closed') && !!w.querySelector('[id^=chartSvg] svg') && !!w.querySelector('[id^=chartTabs] button'); })()"))
         ok('C2 a chart tab switches the chart', await click('#chartTabs button[data-t="heat"]', 'tab') and await pg.evaluate("document.querySelector('#w-charts .wh h2').textContent.includes('Heatmap')"))
         # insights open by themselves on a new chart (the default); the button then closes and reopens it
         opened = await pg.evaluate("document.getElementById('chartCallout').classList.contains('on')")

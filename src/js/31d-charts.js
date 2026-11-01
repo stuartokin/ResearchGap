@@ -6,6 +6,33 @@
 const CHART_TABS = [['gaps', 'Gap explorer'], ['heat', 'Heatmap'], ['ai', 'AI vs the rest'], ['pipe', 'Clean energy pipeline'], ['drift', 'Forecast drift'], ['sec', 'Security lag'], ['fort', 'Race to a fortune'], ['whatif', 'What if?']];
 const CH = {tab:'gaps', sel:null, rows:[], head:[], note:'', q:'', field:'', origin:'', zoom:{}, zoom2:{}, panel:null, gapSort:'gap', gapColour:'field', heatBy:'p', aiLog:true, aiMode:'zoom', aiLabels:'auto', secSort:'arrival', fortYear:null, fortTimer:0, wiScen:'mid', wiOff:{}, lastW:0, lastFs:0};
 const CHC = {bg:'#0B1724', grid:'#1d3346', txt:'#D5E2EF', mut:'#8FA6B8', amber:'#F7C04A', teal:'#4CD3C2', coral:'#FF6B6B', green:'#7FD6A0', gold:'#FFD166', violet:'#A891FF', blue:'#5FD8FF'};
+/* ---------- chart windows: one engine, any number of windows ----------
+   The Charts panel is window 'main'; each extra chart window has its own settings and its own parts. The engine works on
+   the current window: its parts carry the standard ids (chartSvg, chQ and so on) and its settings are in CH. Every event,
+   timer and redraw switches to the window it belongs to, and back again afterwards. */
+const CHI = {cur:'main', states:{}, roots:{}, hooks:[]};
+function chRoot(k){ return CHI.roots[k || CHI.cur] || $('w-charts'); }
+function useChart(k){
+  k = k || 'main'; if (k === CHI.cur || (k !== 'main' && !CHI.roots[k])) return;
+  CHI.states[CHI.cur] = Object.assign({}, CH);
+  const oldK = CHI.cur; chRoot(oldK).querySelectorAll('[id]').forEach(e => { if (e.id.indexOf('~') < 0) e.id += '~' + oldK; });
+  chRoot(k).querySelectorAll('[id]').forEach(e => { const i = e.id.indexOf('~'); if (i >= 0) e.id = e.id.slice(0, i); });
+  Object.keys(CH).forEach(x => delete CH[x]); Object.assign(CH, CHI.states[k] || {}); CHI.cur = k;
+}
+function withChart(k, fn){ const prev = CHI.cur; useChart(k); try { return fn(); } finally { useChart(prev); } }
+function chLater(fn, ms){ const k = CHI.cur; return setTimeout(() => withChart(k, fn), ms); }   // a timer that runs in the window that set it
+function chartWinId(k){ return k === 'main' ? 'charts' : k; }
+function renderAllCharts(){ ['main', ...Object.keys(CHI.roots)].forEach(k => { const L = layout[chartWinId(k)]; if (L && L.open) withChart(k, renderCharts); }); }
+/* handlers registered once, attached to the Charts panel now and to every chart window created later */
+function chBind(k, kind, type, fn){
+  const root = chRoot(k), el = kind === 'root' ? root : kind === 'part' ? root.querySelector(`[id="${type}"], [id^="${type}~"]`) : root.querySelector(kind === 'body' ? '[id="chartBody"], [id^="chartBody~"]' : '[id="chartSvg"], [id^="chartSvg~"]');
+  if (el) el.addEventListener(kind === 'part' ? 'click' : type, e => withChart(k, () => fn(e)));
+}
+function onChartBody(type, fn){ CHI.hooks.push(['body', type, fn]); chBind('main', 'body', type, fn); }
+function onChartSvg(type, fn){ CHI.hooks.push(['svg', type, fn]); chBind('main', 'svg', type, fn); }
+function onChartPart(id, fn){ CHI.hooks.push(['part', id, fn]); chBind('main', 'part', id, fn); }
+function onChartRoot(type, fn){ CHI.hooks.push(['root', type, fn]); chBind('main', 'root', type, fn); }
+function bindChartWindow(k){ CHI.hooks.forEach(([kind, type, fn]) => chBind(k, kind, type, fn)); }
 const chEsc = s => esc(String(s == null ? '' : s));
 const chFind = id => items.find(it => it.id == id);
 const chFs = () => parseFloat(getComputedStyle($('chartBody')).fontSize) || 13;
@@ -20,7 +47,7 @@ function chMatch(it){
   return true;
 }
 const chPool = () => items.filter(it => !it.removed && !it.aud && shownFully(it) && chMatch(it));
-function chartSelect(it){ if (!it) return; CH.sel = it.id; openDetail(it); setOpen('details', true); renderCharts(); }
+function chartSelect(it){ if (!it) return; CH.sel = it.id; openDetail(it); setOpen('details', true); renderCharts(); if (CH.linked !== false && typeof linkSelection === 'function') linkSelection(it.id, CHI.cur); }
 /* ---------- the side panel: keeps what you clicked, even when you open a milestone's story ---------- */
 function setCtl(html){ const el = $('chartCtl'); if (el._h !== html) { el.innerHTML = html; el._h = html; } }   // only when something changed: rebuilding it on every redraw swallowed clicks
 function chPanel(title, html){ CH.panel = {tab:CH.tab, title, html}; drawPanel(); }
@@ -46,10 +73,10 @@ function chFilterBar(extra, opts){
 function renderCharts(){
   if (!layout.charts || !layout.charts.open) return;
   const box = $('chartSvg'), fs = chFs();
-  const tabName = (CHART_TABS.find(t => t[0] === CH.tab) || [])[1] || '', h2 = $('w-charts').querySelector('.wh h2'); if (h2) h2.textContent = 'Charts – ' + tabName;
-  const tabsHtml = CHART_TABS.map(([k, n]) => `<button data-t="${k}" class="${CH.tab === k ? 'on' : ''}" role="tab" aria-selected="${CH.tab === k}">${n}</button>`).join('') + '<button id="chPopOut" class="cinsight cpop" title="Open this chart in its own panel, to move and keep beside others">⧉ Pop out</button><button id="chInsight" class="cinsight" title="This week’s AI-generated insight for this chart, with subtitles and speech">★ Insight</button>';
+  const tabName = (CHART_TABS.find(t => t[0] === CH.tab) || [])[1] || '', h2 = chRoot().querySelector('.wh h2'); if (h2) h2.textContent = (CHI.cur === 'main' ? 'Charts' : (WIN_NAMES[CHI.cur] || 'Charts')) + ' – ' + tabName;
+  const tabsHtml = CHART_TABS.map(([k, n]) => `<button data-t="${k}" class="${CH.tab === k ? 'on' : ''}" role="tab" aria-selected="${CH.tab === k}">${n}</button>`).join('') + `<button id="chLink" class="cinsight clink${CH.linked === false ? ' off' : ''}" title="${CH.linked === false ? 'Unlinked: this window keeps its own highlighted milestone' : 'Linked: a milestone selected in any linked chart window is highlighted here too'}">${CH.linked === false ? '⛓ Unlinked' : '🔗 Linked'}</button><button id="chNewWin" class="cinsight cpop" title="Open a copy of this chart in a new window, with all its controls">⧉ New window</button>` + '<button id="chInsight" class="cinsight" title="This week’s AI-generated insight for this chart, with subtitles and speech">★ Insight</button>';
   if (CH._tabsHtml !== tabsHtml) { $('chartTabs').innerHTML = tabsHtml; CH._tabsHtml = tabsHtml; }   // only when something changed: rebuilding it on every redraw swallowed clicks while the century played
-  if (CH.insightOn && typeof showInsight === 'function') setTimeout(() => { const q = document.getElementById('qInsight'); if (!(q && q.classList.contains('on'))) showInsight(true); }, 0);   // a question’s insight, when showing, speaks for the chart
+  if (CH.insightOn && typeof showInsight === 'function') chLater(() => { const q = document.getElementById('qInsight'); if (!(q && q.classList.contains('on'))) showInsight(true); }, 0);   // a question’s insight, when showing, speaks for the chart
   drawPanel();
   const W = Math.max(300, box.clientWidth - 6), H = Math.max(260, box.clientHeight - 6);
   CH.note = ''; CH.rows = []; CH.head = [];
@@ -57,7 +84,7 @@ function renderCharts(){
   box.innerHTML = fn(W, H, fs); $('chartNote').textContent = CH.note;
   const q = $('chQ'); if (q && CH.qFocus) { q.focus(); q.setSelectionRange(q.value.length, q.value.length); }
 }
-let chartTimer = 0; function scheduleCharts(){ clearTimeout(chartTimer); chartTimer = setTimeout(renderCharts, 120); }
+let chartTimer = 0; function scheduleCharts(){ clearTimeout(chartTimer); chartTimer = setTimeout(renderAllCharts, 120); }   // every open chart window follows the filters
 
 /* ---------- a shared row chart: one row per item, with a year axis that zooms ---------- */
 function chRowChart(W, H, fs, rows, o){
@@ -320,9 +347,9 @@ function wiPanel(it){
 }
 /* ---------- interaction ---------- */
 const chTip = $('chartTip');
-$('chartBody').addEventListener('mousemove', e => { const t = e.target.closest('[data-tip]'); if (!t) { chTip.classList.remove('on'); return; } chTip.textContent = t.dataset.tip; chTip.classList.add('on'); chTip.style.left = Math.min(innerWidth - 320, e.clientX + 14) + 'px'; chTip.style.top = (e.clientY + 14) + 'px'; });
-$('chartBody').addEventListener('mouseleave', () => chTip.classList.remove('on'));
-$('chartBody').addEventListener('click', e => {
+onChartBody('mousemove', e => { const t = e.target.closest('[data-tip]'); if (!t) { chTip.classList.remove('on'); return; } chTip.textContent = t.dataset.tip; chTip.classList.add('on'); chTip.style.left = Math.min(innerWidth - 320, e.clientX + 14) + 'px'; chTip.style.top = (e.clientY + 14) + 'px'; });
+onChartBody('mouseleave', () => chTip.classList.remove('on'));
+onChartBody('click', e => {
   const tab = e.target.closest('#chartTabs [data-t]'); if (tab) { CH.tab = tab.dataset.t; CH.insightOn = view.autoInsight !== false; if (typeof hideQInsight === 'function') hideQInsight(); CH.box = null; clearInterval(CH.fortTimer); CH.fortTimer = 0; renderCharts(); return; }
   if (e.target.id === 'chSideX') { CH.panel = null; CH.selF = null; renderCharts(); return; }
   if (e.target.id === 'chZoomReset') { delete CH.zoom[CH.tab]; delete CH.zoom2[CH.tab]; renderCharts(); return; }
@@ -334,20 +361,21 @@ $('chartBody').addEventListener('click', e => {
   if (e.target.id === 'chFortPlay') { if (CH.fortTimer) { clearInterval(CH.fortTimer); CH.fortTimer = 0; renderCharts(); return; } CH.fortYear = 1890; CH.fortTimer = setInterval(() => { CH.fortYear += 2; if (CH.fortYear >= NOW) { CH.fortYear = NOW; clearInterval(CH.fortTimer); CH.fortTimer = 0; } renderCharts(); }, 160); return; }
   const r = e.target.closest('[data-id]'); if (r) { const it = chFind(r.dataset.id); if (CH.tab === 'whatif' && r.closest('svg')) { wiPanel(it); openDetail(it); return; } chartSelect(it); }
 });
-$('chartBody').addEventListener('change', e => {
+onChartBody('change', e => {
   if (e.target.id === 'chField') { CH.field = e.target.value; delete CH.zoom[CH.tab]; renderCharts(); }
   if (e.target.id === 'chOrigin') { CH.origin = e.target.value; delete CH.zoom[CH.tab]; renderCharts(); }
   if (e.target.id === 'chAiLog') { CH.aiLog = e.target.checked; delete CH.zoom2.ai; renderCharts(); }
   if (e.target.dataset.lever) { CH.wiOff[e.target.dataset.lever] = !e.target.checked; renderCharts(); }
 });
-$('chartBody').addEventListener('input', e => { if (e.target.id === 'chQ') { CH.q = e.target.value; CH.qFocus = true; delete CH.zoom[CH.tab]; clearTimeout(chartTimer); chartTimer = setTimeout(() => { renderCharts(); CH.qFocus = false; }, 250); } });
-$('w-charts').addEventListener('click', e => { if (e.target.closest('.wh')) setTimeout(renderCharts, 60); });   // A− and A+ change the text size: redraw to match
+onChartBody('input', e => { if (e.target.id === 'chQ') { CH.q = e.target.value; CH.qFocus = true; delete CH.zoom[CH.tab]; clearTimeout(chartTimer); chartTimer = setTimeout(() => { renderCharts(); CH.qFocus = false; }, 250); } });
+onChartRoot('click', e => { if (e.target.closest('.wh')) chLater(renderCharts, 60); });   // A− and A+ change the text size: redraw to match
 /* drag: zoom years (row charts), zoom a box (scatter, fortunes) or select (scatter) */
 let chDrag = null;
-$('chartSvg').addEventListener('pointerdown', e => { const svg = e.target.closest('.chzoomx, .chzoom2'); if (!svg || e.button) return; const b = svg.getBoundingClientRect(); chDrag = {svg, b, x0:e.clientX - b.left, y0:e.clientY - b.top}; });
-addEventListener('pointermove', e => { if (!chDrag) return; const r = chDrag.svg.querySelector('#chBox'); if (!r) return; const x1 = e.clientX - chDrag.b.left, y1 = e.clientY - chDrag.b.top;
+onChartSvg('pointerdown', e => { const svg = e.target.closest('.chzoomx, .chzoom2'); if (!svg || e.button) return; const b = svg.getBoundingClientRect(); chDrag = {svg, b, k:CHI.cur, x0:e.clientX - b.left, y0:e.clientY - b.top}; });
+addEventListener('pointermove', e => { if (!chDrag) return; const r = chDrag.svg.querySelector('[id="chBox"], [id^="chBox~"]'); if (!r) return; const x1 = e.clientX - chDrag.b.left, y1 = e.clientY - chDrag.b.top;
   r.setAttribute('display', ''); r.setAttribute('x', Math.min(chDrag.x0, x1)); r.setAttribute('y', Math.min(chDrag.y0, y1)); r.setAttribute('width', Math.abs(x1 - chDrag.x0)); r.setAttribute('height', Math.abs(y1 - chDrag.y0)); });
-addEventListener('pointerup', e => {
+addEventListener('pointerup', e => { if (chDrag) withChart(chDrag.k, () => chDragEnd(e)); });
+function chDragEnd(e){
   if (!chDrag) return; const d = chDrag, ds = d.svg.dataset; chDrag = null; const x1 = e.clientX - d.b.left, y1 = e.clientY - d.b.top; if (Math.abs(x1 - d.x0) < 12) { const r = d.svg.querySelector('#chBox'); if (r) r.setAttribute('display', 'none'); return; }
   const sx = chScale(+ds.x0, +ds.x1, +ds.l, +ds.r), xs = [sx.inv(Math.min(d.x0, x1)), sx.inv(Math.max(d.x0, x1))];
   if (d.svg.classList.contains('chzoomx')) { if (xs[1] - xs[0] >= 2) { CH.zoom[CH.tab] = [Math.floor(xs[0]), Math.ceil(xs[1])]; renderCharts(); } return; }
@@ -357,14 +385,14 @@ addEventListener('pointerup', e => {
     const list = CH.box.map(chFind).filter(Boolean).sort((p, q) => p.lag - q.lag); chPanel(`Selected: ${list.length}`, chItemsHtml(list)); renderCharts(); return;
   }
   if (Math.abs(y1 - d.y0) >= 12) { CH.zoom2[CH.tab] = {x:xs, y:ys}; renderCharts(); }
-});
-$('chartSvg').addEventListener('dblclick', () => { delete CH.zoom[CH.tab]; delete CH.zoom2[CH.tab]; CH.box = null; renderCharts(); });
+}
+onChartSvg('dblclick', () => { delete CH.zoom[CH.tab]; delete CH.zoom2[CH.tab]; CH.box = null; renderCharts(); });
 /* ---------- exports ---------- */
-$('chartCsv').onclick = () => {
+onChartPart('chartCsv', () => {
   const cell = v => { const s = String(v ?? ''); return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s; };
   saveBlob(new Blob(['\ufeff' + [CH.head].concat(CH.rows).map(r => r.map(cell).join(',')).join('\r\n')], {type:'text/csv;charset=utf-8'}), `shrinking-gap-${CH.tab}-${stamp()}.csv`);
-};
-$('chartPng').onclick = () => {
+});
+onChartPart('chartPng', () => {
   const svgs = [...$('chartSvg').querySelectorAll('svg')]; if (!svgs.length) return;
   const svg = svgs[svgs.length - 1], w = +svg.getAttribute('width'), h = +svg.getAttribute('height'), title = (CHART_TABS.find(t => t[0] === CH.tab) || [])[1], pad = 70;
   let xml = new XMLSerializer().serializeToString(svg);
@@ -379,6 +407,8 @@ $('chartPng').onclick = () => {
     c.toBlob(b => saveBlob(b, `shrinking-gap-${CH.tab}-${stamp()}.png`), 'image/png');
   };
   img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(xml);
-};
+});
 /* keep the charts current: redraw when the width or text size changes, and when the filters change (refresh calls scheduleCharts) */
-if (window.ResizeObserver) new ResizeObserver(() => { const w = $('chartSvg').clientWidth, f = chFs(); if (w && (w !== CH.lastW || f !== CH.lastFs)) { CH.lastW = w; CH.lastFs = f; scheduleCharts(); } }).observe($('chartBody'));
+function observeChartSize(k){ if (!window.ResizeObserver) return; const svg = chRoot(k).querySelector('[id="chartSvg"], [id^="chartSvg~"]'); if (!svg) return;
+  new ResizeObserver(() => withChart(k, () => { const w = svg.clientWidth, f = chFs(); if (w && (w !== CH.lastW || f !== CH.lastFs)) { CH.lastW = w; CH.lastFs = f; chLater(renderCharts, 120); } })).observe(svg); }
+observeChartSize('main');

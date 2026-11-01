@@ -1,8 +1,8 @@
 /* ==================================================================
  *  WINDOW MANAGER
  * ================================================================== */
-const WIN_IDS = ['toolbar','footer','questions','radar','cyber','charts','chartpop1','chartpop2','chartpop3','inspect','docs','docviz','help','findings','quality','table','changes','audience','pagetitle','title','ticker','player','sources','filters','display','summary','milestones','details','key','context','landing','gapchart','fortunes','vision','outlook','report','music','vid1','vid2'];
-const WIN_NAMES = {docviz:'How it works: at a glance', questions:'Start with a question', radar:'AI Energy Vision Radar', cyber:'Cyber lens', charts:'Charts', chartpop1:'Chart pop-out 1', chartpop2:'Chart pop-out 2', chartpop3:'Chart pop-out 3', inspect:'Data inspector', docs:'How it works', toolbar:'Toolbar', footer:'Footer', findings:'Key findings', quality:'Data quality', table:'Table of milestones', changes:'Data changes', audience:'Your milestones', pagetitle:'Page title', title:'Showcase title', ticker:'Ticker', player:'Play the century', sources:'Sources', filters:'Filters', display:'Display', summary:'Summary', milestones:'Milestones', details:'Details', key:'Reading the model', context:'Context', landing:'Landing and starting', gapchart:'Gap over time', fortunes:'Time to a fortune', vision:'AI for clean energy', outlook:'Can AI shrink the gap?', music:'Music', report:'PowerPoint report', vid1:'Countdown to Q-Day', vid2:'University Curated Cyber-attacks since 2000'};
+const WIN_IDS = ['toolbar','footer','questions','radar','cyber','charts','inspect','docs','docviz','help','findings','quality','table','changes','audience','pagetitle','title','ticker','player','sources','filters','display','summary','milestones','details','key','context','landing','gapchart','fortunes','vision','outlook','report','music','vid1','vid2'];
+const WIN_NAMES = {docviz:'How it works: at a glance', questions:'Start with a question', radar:'AI Energy Vision Radar', cyber:'Cyber lens', charts:'Charts', inspect:'Data inspector', docs:'How it works', toolbar:'Toolbar', footer:'Footer', findings:'Key findings', quality:'Data quality', table:'Table of milestones', changes:'Data changes', audience:'Your milestones', pagetitle:'Page title', title:'Showcase title', ticker:'Ticker', player:'Play the century', sources:'Sources', filters:'Filters', display:'Display', summary:'Summary', milestones:'Milestones', details:'Details', key:'Reading the model', context:'Context', landing:'Landing and starting', gapchart:'Gap over time', fortunes:'Time to a fortune', vision:'AI for clean energy', outlook:'Can AI shrink the gap?', music:'Music', report:'PowerPoint report', vid1:'Countdown to Q-Day', vid2:'University Curated Cyber-attacks since 2000'};
 function defaultLayout(){
   const W = innerWidth, H = innerHeight, Hh = innerHeight, u = UI, narrow = W < 820; let top = Math.round(72 * u);
   const rw = Math.min(Math.round(360 * u), W - 36), lw = Math.min(Math.round(330 * u), W - 36);
@@ -19,7 +19,7 @@ function defaultLayout(){
   const pw = Math.min(Math.round(560 * u), Math.round(W * .42)), ph = Math.round(250 * u);
   const tw = Math.min(Math.round(1000 * u), W - midX - 18);
   if (MOBILE) {
-    const o = {}; const all = ['toolbar','footer','questions','radar','cyber','charts','chartpop1','chartpop2','chartpop3','inspect','docs','docviz','help','findings','quality','table','changes','audience','pagetitle','title','ticker','player','sources','report','filters','display','summary','milestones','details','key','context','landing','gapchart','fortunes','vision','outlook','music','vid1','vid2'];
+    const o = {}; const all = ['toolbar','footer','questions','radar','cyber','charts','inspect','docs','docviz','help','findings','quality','table','changes','audience','pagetitle','title','ticker','player','sources','report','filters','display','summary','milestones','details','key','context','landing','gapchart','fortunes','vision','outlook','music','vid1','vid2'];
     const y0 = Math.max(Math.round(H * .18), tbH + 14);
     const land = W >= H, cw = Math.round(Math.max(250, Math.min(420, W * .34))), band = Math.max(y0, Math.round(H * .5));
     // windows open beside the model (landscape) or below it (portrait), never across the centre
@@ -57,9 +57,6 @@ function defaultLayout(){
     radar:{x:midX - 20, y:top + 10, w:Math.round(460 * u), h:Math.max(260, bottom - top - 10), fs:1, open:false},
     cyber:{x:midX + 10, y:top + 20, w:Math.round(470 * u), h:Math.min(Math.round(680 * u), bottom - top - 20), fs:1, open:false},
     charts:{x:Math.round(W * .36), y:top, w:W - Math.round(W * .36) - 18, h:bottom - top, fs:1, open:false},
-    chartpop1:{x:Math.round(W * .4), y:top + 40, w:Math.min(640, Math.round(W * .42)), h:Math.min(460, Math.round(H * .5)), fs:1, open:false},
-    chartpop2:{x:Math.round(W * .5), y:top + 80, w:Math.min(640, Math.round(W * .42)), h:Math.min(460, Math.round(H * .5)), fs:1, open:false},
-    chartpop3:{x:Math.round(W * .6), y:top + 120, w:Math.min(640, Math.round(W * .42)), h:Math.min(460, Math.round(H * .5)), fs:1, open:false},
     questions:{x:Math.round(W * .05), y:top, w:Math.min(600, Math.round(W * .44)), h:Math.max(320, Math.min(bottom, Math.round(H * .7)) - top), fs:1, open:false},
     docviz:{x:Math.round(W * .07), y:top, w:Math.min(1180, Math.round(W * .86)), h:Math.max(360, Math.min(bottom, Math.round(H * .78)) - top), fs:1, open:false},
     help:{x:Math.round(W * .06), y:top, w:Math.min(720, Math.round(W * .48)), h:Math.max(320, Math.min(bottom, Math.round(H * .66)) - top), fs:1, open:false},
@@ -76,6 +73,7 @@ function defaultLayout(){
     sources:{x:midX, y:top + 20, w:Math.round(440 * u), h:Math.min(Math.round(620 * u), bottom - top - 20), fs:1, open:false}
   };
   Object.values(o).forEach(L => { L.sw = W; L.sh = H; });
+  try { Object.keys(CHI.roots).forEach(k => { const L = layout && layout[k]; o[k] = Object.assign({fs:1}, L ? {x:L.x, y:L.y, w:L.w, h:L.h, fs:L.fs || 1} : chartWindowRect(), {open:L ? !!L.open : false}); }); } catch (e) { /* the chart windows are not loaded yet, at start-up */ }
   return o;
 }
 let layout = Object.assign(arrangeLayout('explore'), store.get('sg.layout.v4', {}));
@@ -131,14 +129,14 @@ function raise(id){
   wins[id].style.zIndex = ++zTop;
 }
 function setOpen(id, open){ const wasOpen = layout[id].open; layout[id].open = open; if (open && !wasOpen) setTimeout(() => { raise(id); if (id === 'charts') renderCharts(); if (id === 'inspect') renderInspector(); if (id === 'docs') renderDocs(); if (id === 'docviz') renderDocViz(); }, 0); if (open && !wasOpen && view.flashNew !== false && !['toolbar', 'footer', 'pagetitle'].includes(id)) setTimeout(() => flashWin(id), 30); if (open) setTimeout(() => { if (id === 'radar') renderRadar(); if (id === 'cyber') renderCyber(); }, 0); if (open && !wasOpen && document.body.classList.contains('touring')) wins[id].classList.add('tourwait'); else if (open && !wasOpen && view.smartPlace !== false) smartPlace(id); if (open && !wasOpen && ['inspect', 'docs', 'help', 'questions'].includes(id)) setTimeout(() => clearOfPlayer(id), 0); /* keep their footers clear of the player bar */ if (open) setTimeout(() => { if (id === 'findings') renderFindings(); if (id === 'quality') renderQuality(); if (id === 'table') renderTable(); }, 0); if (!open) wins[id].classList.remove('max'); placeWin(id); if (typeof syncVideos === 'function') syncVideos(); if (open) raise(id); saveLayout(); buildWinMenu(); if (open && typeof updateTimeWindows === 'function') updateTimeWindows(true); }
-WIN_IDS.forEach(id => {
+function initWin(id){   // a panel's frame: title bar, buttons, dragging; also used for chart windows created later
   const el = $('w-' + id); wins[id] = el;
   const head = document.createElement('div'); head.className = 'wh';
   head.innerHTML = `<h2>${el.dataset.title}</h2><button data-a="max" title="Maximise or restore" aria-label="Maximise or restore">⤢</button><button data-a="dn" title="Smaller text" aria-label="Smaller text">A−</button><button data-a="up" title="Larger text" aria-label="Larger text">A+</button><button data-a="x" title="Close" aria-label="Close window">✕</button>`;
   el.prepend(head);
   head.addEventListener('click', e => {
     const a = e.target.dataset && e.target.dataset.a; if (!a) return;
-    if (a === 'x') setOpen(id, false);
+    if (a === 'x') { if (/^chartw/.test(id) && typeof destroyChartWindow === 'function') { destroyChartWindow(id); return; } setOpen(id, false); }   // a chart window is removed when closed
     if (a === 'max') { const on = el.classList.toggle('max'); raise(id); e.target.textContent = on ? '⤡' : '⤢'; twKey = ''; }
     if (a === 'up' || a === 'dn') { commitWin(id); const old = layout[id].fs, nf = Math.round(clamp(old + (a === 'up' ? .1 : -.1), .7, 2.2) * 10) / 10, k = id === 'charts' ? 1 : nf / old; /* Charts keeps its size; only the text grows */ layout[id].fs = nf; layout[id].w = Math.max(220, layout[id].w * k); layout[id].h = Math.max(96, layout[id].h * k); if (layout[id].x + layout[id].w > innerWidth - 8) layout[id].x = Math.max(8, innerWidth - 8 - layout[id].w); if (layout[id].y + layout[id].h > innerHeight - 8) layout[id].y = Math.max(8, innerHeight - 8 - layout[id].h); placeWin(id); saveLayout(); updateTimeWindows(true); }
   });
@@ -149,20 +147,24 @@ WIN_IDS.forEach(id => {
   });
   head.addEventListener('pointermove', e => { if (!drag) return; layout[id].x = e.clientX - drag.dx; layout[id].y = e.clientY - drag.dy; placeWin(id); });
   head.addEventListener('pointerup', () => { if (drag) { drag = null; saveLayout(); } });
-  head.addEventListener('dblclick', e => { if (e.target.tagName !== 'BUTTON') { const d = defaultLayout()[id]; Object.assign(layout[id], {x:d.x, y:d.y, w:d.w, h:d.h}); placeWin(id); saveLayout(); } });
+  head.addEventListener('dblclick', e => { if (e.target.tagName !== 'BUTTON') { const d = defaultLayout()[id] || (typeof chartWindowRect === 'function' && chartWindowRect()); if (!d) return; Object.assign(layout[id], {x:d.x, y:d.y, w:d.w, h:d.h}); placeWin(id); saveLayout(); } });
   el.addEventListener('pointerdown', () => raise(id));
   placeWin(id);
-});
+  if (winRO) winRO.observe(el);
+}
+let winRO = null;
+WIN_IDS.forEach(initWin);
 if (window.ResizeObserver) {
   const ro = new ResizeObserver(entries => {
     entries.forEach(en => {
       const id = en.target.id.slice(2), el = en.target;
+      if (!layout[id]) return;   // a chart window that has just been removed
       if (el.classList.contains('closed') || el.classList.contains('max')) return;
       if (Math.abs(el.offsetWidth - (el._setW || 0)) <= 2 && Math.abs(el.offsetHeight - (el._setH || 0)) <= 2) return;   // our own placement, not a user resize
       commitWin(id); layout[id].w = el.offsetWidth; layout[id].h = el.offsetHeight; el._setW = el.offsetWidth; el._setH = el.offsetHeight;
     });
     clearTimeout(ro.t); ro.t = setTimeout(saveLayout, 300);
   });
-  WIN_IDS.forEach(id => ro.observe(wins[id]));
+  winRO = ro; WIN_IDS.forEach(id => ro.observe(wins[id]));
 }
 const winMenu = $('winMenu');

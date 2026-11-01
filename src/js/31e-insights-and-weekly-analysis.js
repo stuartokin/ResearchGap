@@ -88,7 +88,7 @@ let showInsight = function(on){
     <div class="cofoot"><button class="mini" id="coSpeak" data-speakbtn="1">${speakLabel()}</button><span class="note-s">AI-generated narrative, refreshed weekly by the agents${upd ? ` (updated ${fmtDate(upd)})` : ''}. No human review.</span></div>`;
   box.classList.add('on'); CH.insightOn = true;
 };
-$('chartBody').addEventListener('click', e => {
+onChartBody('click', e => {
   if (e.target.id === 'chInsight') { if ($('chartCallout').classList.contains('on')) { showInsight(false); CH.insightOn = false; } else showInsight(true); }
   else if (e.target.id === 'coX') { showInsight(false); CH.insightOn = false; }
   else if (e.target.id === 'coSpeak') { const p = $('chartCallout').querySelector('.cotext'); if (p) speakToggle(e.target, p.textContent); }
@@ -180,7 +180,7 @@ function renderSayHtml(tpl, f){
 }
 const LIST_TITLES = {pipeTotal:'Clean energy technologies', pipeResearch:'In research', pipePilot:'Piloting', pipeCommercial:'In first commercial use', pipeScale:'At scale', pipeGB:'Deployed in Great Britain', secOpen:'No security response yet',
   aiCount:'AI-driven milestones since 2010', driftCount:'Forecasts being tracked', driftRevised:'Forecasts revised', driftPeakCount:'Expected in the busiest year', newCount:'Added this week', cleanNewCount:'Clean energy additions this week'};
-$('chartBody').addEventListener('click', e => { const b = e.target.closest('.colink'); if (!b) return; const list = (LIST_PH[b.dataset.list] || (() => []))(); chPanel(`${LIST_TITLES[b.dataset.list] || 'Items'}: ${list.length}`, chItemsHtml(list, it => `${it.stage || ''}${it.p ? ' · ' + (it.kind === 'proj' ? '~' : '') + it.p : ''}`)); renderCharts(); });
+onChartBody('click', e => { const b = e.target.closest('.colink'); if (!b) return; const list = (LIST_PH[b.dataset.list] || (() => []))(); chPanel(`${LIST_TITLES[b.dataset.list] || 'Items'}: ${list.length}`, chItemsHtml(list, it => `${it.stage || ''}${it.p ? ' · ' + (it.kind === 'proj' ? '~' : '') + it.p : ''}`)); renderCharts(); });
 showInsight = function(on){
   const box = $('chartCallout'); if (!on) { box.classList.remove('on'); stopInsight(); return; }
   const t = ((tourText.tours.charts || TOUR_TEXT.tours.charts || {}).steps || {})[CH.tab], upd = (tourText.tours.charts || {}).updated || tourText.updated;

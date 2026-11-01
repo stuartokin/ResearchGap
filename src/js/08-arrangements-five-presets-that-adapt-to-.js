@@ -103,6 +103,8 @@ function arrangeLayout(name){
   return d;
 }
 function applyPreset(name){
+  if (name === 'compare') { applyCompare(); return; }   // two chart windows side by side
+  if (typeof destroyAllChartWindows === 'function' && name !== 'charts') destroyAllChartWindows();
   const wasDesnz = view.preset === 'desnz';
   view.preset = name; view.chgFlag = 'new'; view.conclusion = !(name === 'desnz' || name === 'analysis' || name === 'charts'); if ($('conclT')) $('conclT').checked = view.conclusion; syncChgUI(); applyChangeFlags();
   layout = arrangeLayout(name); WIN_IDS.forEach(placeWin); saveLayout(); syncVideos();

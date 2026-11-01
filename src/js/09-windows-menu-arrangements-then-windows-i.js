@@ -3,12 +3,12 @@
  * ================================================================== */
 const WIN_GROUPS = [
   ['present', 'Presenting', ['toolbar', 'footer', 'pagetitle', 'title', 'ticker', 'player', 'music', 'vid1', 'vid2']],
-  ['insight', 'Insights', ['charts', 'chartpop1', 'chartpop2', 'chartpop3', 'findings', 'summary', 'gapchart', 'outlook', 'fortunes', 'vision', 'radar', 'cyber']],
+  ['insight', 'Insights', ['charts', 'findings', 'summary', 'gapchart', 'outlook', 'fortunes', 'vision', 'radar', 'cyber']],
   ['explore', 'Explore', ['questions', 'filters', 'display', 'milestones', 'details', 'table', 'key', 'context', 'landing', 'sources', 'help']],
   ['data', 'Data and agents', ['inspect', 'changes', 'quality', 'docs', 'docviz', 'audience']],
   ['share', 'Reports', ['report']]
 ];
-const PRESETS = [['explore', 'Exploring', 'The default: filters and key findings'], ['play', 'Play the century', 'Timeline panels around the model'], ['wait', 'Waiting (kiosk)', 'Both videos, joke ticker, plays on a loop'], ['charts', 'Charts', 'Eight interactive charts, with each milestone’s story beside them'], ['analysis', 'Analysis', 'Findings, summary and charts side by side'], ['desnz', 'AI for clean energy', 'AI Energy Vision Radar, areas and changes; plays from 1980']];
+const PRESETS = [['explore', 'Exploring', 'The default: filters and key findings'], ['play', 'Play the century', 'Timeline panels around the model'], ['wait', 'Waiting (kiosk)', 'Both videos, joke ticker, plays on a loop'], ['charts', 'Charts', 'Eight interactive charts, with each milestone’s story beside them'], ['analysis', 'Analysis', 'Findings, summary and charts side by side'], ['compare', 'Compare', 'Two chart windows side by side, with the AI Energy Vision Radar'], ['desnz', 'AI for clean energy', 'AI Energy Vision Radar, areas and changes; plays from 1980']];
 function buildWinMenu(){
   view.menuGroups = view.menuGroups || {};
   const item = id => `<button data-w="${id}"><span class="tick ${layout[id].open ? 'on' : ''}">${layout[id].open ? '✓' : ''}</span>${WIN_NAMES[id]}</button>`;

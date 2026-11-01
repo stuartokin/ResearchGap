@@ -60,7 +60,7 @@ async def main():
         await J("winBtn.click()"); await pg.wait_for_timeout(300)
         heads = await J("[...document.querySelectorAll('#winMenu .wmh')].map(h => h.firstChild.textContent.trim())")
         ok('V1 the Views menu has Ready-made views, My views, Panels and Your file', heads == ['Ready-made views', 'My views', 'Panels', 'Your file'])
-        ok('V2 all six ready-made views are offered', await J("document.querySelectorAll('#winMenu [data-w^=\"__p_\"]').length") == 6)
+        ok('V2 all seven ready-made views are offered, Compare included', await J("document.querySelectorAll('#winMenu [data-w^=\"__p_\"]').length") == 7)
         ok('V3 Save my file, Open my file and Reset everything are offered', await J("['__save', '__load', '__reset_all', '__all'].every(k => !!document.querySelector(`#winMenu [data-w=\"${k}\"]`))"))
         await J("document.querySelector('#winMenu [data-w=\"__p_charts\"]').click()"); await pg.wait_for_timeout(900)
         ok('V4 a ready-made view still applies', await J("__getT().view.preset") == 'charts')
