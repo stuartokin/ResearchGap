@@ -36,6 +36,23 @@ def research(m):
               "Only include a lever where there is a real, specific application; it is fine to include none. Give one to three sources, each with a short exact quote from the page.")
     return call_claude('You research technology programmes carefully and cite public sources exactly.', prompt, TOOL, max_searches=CONFIG.get('levers', {}).get('maxSearches', 3)) or {}
 
+PHASE_WORDS = {'rd': ('research', 'r&d', 'r and d', 'development', 'lab'), 'demo': ('demo', 'pilot', 'trial', 'test'), 'build': ('build', 'construct', 'manufactur', 'scale-up', 'scale up'),
+               'approvals': ('approv', 'consent', 'regulat', 'licens', 'permit'), 'deploy': ('deploy', 'roll-out', 'rollout', 'roll out', 'commercial', 'operation')}
+
+def tidy_phase(out):
+    """Accept common wordings of a phase ("demonstration", "deployment") for the fixed list."""
+    p = str(out.get('phase') or '').strip().lower()
+    if p in PHASES: return out
+    for k, words_ in PHASE_WORDS.items():
+        if any(w in p for w in words_): out['phase'] = k; return out
+    return out
+
+def shorten(out):
+    """Ask once more, without searching, for the same answer within the limits."""
+    return call_claude('You edit text to fit limits without changing its meaning.',
+        f"Return the same answer, unchanged in substance, but with the bottleneck in at most 25 words, each lever note in at most 30 words, and the phase one of {sorted(PHASES)}. Keep the sources exactly as they are.\n{json.dumps(out, ensure_ascii=False)}",
+        TOOL, max_searches=0) or {}
+
 def verify(out):
     """Keep only sources whose quote really appears on the fetched page; reject anything outside the fixed lists."""
     if out.get('phase') not in PHASES or words(out.get('bottleneck')) > 25: return None, 'phase or bottleneck invalid'
@@ -56,7 +73,9 @@ def run():
     todo.sort(key=lambda m: ((m.get('aiLevers') or {}).get('checked') or '', m['change']['year']))
     done, report = 0, []
     for m in todo[:cfg.get('perRun', 8)]:
-        try: rec, why = verify(research(m))
+        try:
+            out = tidy_phase(research(m)); rec, why = verify(out)
+            if not rec and 'invalid' in why: out = tidy_phase(shorten(out)); rec, why = verify(out)   # one request for a shorter answer, not a rejection
         except Exception as e: rec, why = None, f'error: {e}'
         if rec: m['aiLevers'] = rec; done += 1; report.append(f"levers   {m['id']}: {rec['phase']}; {', '.join(l['k'] for l in rec['levers']) or 'none apply'}")
         else: report.append(f"skipped  {m['id']}: {why}")

@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parent.parent
 RUN = str(os.getpid())   # each run has its own test page and working folder, so runs never disturb each other
 WORK = ROOT / 'tests/_work' / RUN
 PAGE = f'_test-{RUN}.html'
-HOOK = "function boot(){ window.__getT=()=>({items,F,view,state,layout,LANEZ,trendGroup,AUD,FIELDS,FKEYS,wins,controls,camera,hidden,DB});"
+HOOK = "function boot(){ window.__getT=()=>({items,F,view,state,layout,LANEZ,trendGroup,AUD,FIELDS,FKEYS,wins,controls,camera,hidden,DB,tour});"
 
 def free_port():
     """Any free port, so runs never collide with each other or with anything else on the machine."""

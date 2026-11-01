@@ -66,13 +66,13 @@ function questionInsight(id){ const t = qTemplate(id); return t ? tidyText(rende
 function showQInsight(id){
   const Q = QUESTIONS.find(x => x.id === id), t = qTemplate(id); if (!Q || !t) return;
   $('qInsight').innerHTML = `<div class="qihead"><b>★ ${esc(Q.q)}</b><button class="mini" id="qiX" aria-label="Close this insight">✕</button></div><p class="qitext">${renderSayHtml(t.say, questionFacts())}</p>
-    <div class="qifoot"><button class="mini" id="qiSpeak">🔊 Speak</button><span class="note-s">${esc(Q.see)} Select a number to see what is behind it. AI-generated narrative, refreshed weekly by the agents; no human review.</span></div>`;
+    <div class="qifoot"><button class="mini" id="qiSpeak" data-speakbtn="1">${speakLabel()}</button><span class="note-s">${esc(Q.see)} Select a number to see what is behind it. AI-generated narrative, refreshed weekly by the agents; no human review.</span></div>`;
   $('qInsight').dataset.q = id; $('qInsight').classList.add('on');
 }
 function hideQInsight(){ $('qInsight').classList.remove('on'); stopInsight(); }
 $('qInsight').addEventListener('click', e => {
   if (e.target.id === 'qiX') { hideQInsight(); return; }
-  if (e.target.id === 'qiSpeak') { speakInsight(questionInsight($('qInsight').dataset.q)); return; }
+  if (e.target.id === 'qiSpeak') { speakToggle(e.target, questionInsight($('qInsight').dataset.q)); return; }
   const b = e.target.closest('.colink'); if (!b) return; const L = (LIST_PH[b.dataset.list] || (() => []))();
   if (!layout.charts.open) { setOpen('charts', true); raise('charts'); }
   chPanel(`${LIST_TITLES[b.dataset.list] || 'Items'}: ${L.length}`, chItemsHtml(L, fmtStage)); renderCharts();

@@ -17,7 +17,9 @@ async def main():
         cats = await pg.evaluate("[...document.querySelectorAll('#w-inspect [data-cat]')].length")
         ok('I3 all seven categories are offered', cats == 7)
         ok('I4 the inspector lists items', await pg.evaluate("document.querySelectorAll('#w-inspect .insrow').length") > 0)
-        await pg.fill('#insQ', 'zzzz-no-such-thing'); await pg.wait_for_timeout(1200)
+        await pg.fill('#insQ', 'zzzz-no-such-thing')
+        try: await pg.wait_for_function("/Nothing matches/.test((document.querySelector('#w-inspect .empty') || {}).textContent || '')", timeout=5000)
+        except Exception: pass
         ok('I5 a search with no match says so', 'Nothing matches' in (await pg.evaluate("(document.querySelector('#w-inspect .empty') || {}).textContent || ''")))
         await pg.fill('#insQ', ''); await pg.wait_for_timeout(1000)
         # with the player bar open (the default arrangement), the inspector's footer must be clear of it

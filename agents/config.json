@@ -29,7 +29,8 @@
     "maxYearShift": 10,
     "pendingMaxAttempts": 4,
     "deepAuditBatchSize": 100,
-    "batchSize": 12
+    "batchSize": 12,
+    "replaceLinksPerRun": 10
   },
   "publish": {
     "maxAdditionsPerRun": 35,

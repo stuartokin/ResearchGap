@@ -22,13 +22,15 @@ const PRESENT = {
   fullscreen:{label:'Full screen', icon:'⤢', run:() => $('fsBtn').click(), on:() => !!document.fullscreenElement, chipOn:'Exit full screen'},
   rotate:{label:'Auto-rotate', icon:'⟳', run:() => $('rotBtn').click(), on:() => !!state.autoRotate, chipOn:'Rotating · stop'},
   music:{label:'Music', icon:'♪', run:() => $('musicBtn').click(), on:() => $('musicBtn').getAttribute('aria-pressed') === 'true', chipOn:'Music · stop'},
+  mutespeech:{label:'Mute speech', icon:'🔇', run:() => setSpeechMuted(!view.muteSpeech), on:() => !!view.muteSpeech, chipOn:'Speech muted'},
   ticker:{label:'Joke ticker', icon:'≋', run:() => setOpen('ticker', !layout.ticker.open), on:() => !!(layout.ticker && layout.ticker.open), chipOn:'Ticker · hide'},
   title:{label:'Showcase title', icon:'T', run:() => setOpen('title', !layout.title.open), on:() => !!(layout.title && layout.title.open)},
   thanks:{label:'Thank you and questions', icon:'💬', run:() => $('thanksBtn').click()},
   add:{label:'Add an idea', icon:'✚', run:() => $('ideasBtn').click(), on:() => !!(layout.audience && layout.audience.open)},
   kiosk:{label:'Kiosk mode', icon:'▣', run:() => { closeDrops(); showWelcome(); $('wKioskOpts').classList.add('on'); clearTimeout(welcomeTimer); $('wAuto').textContent = ''; }}
 };
-function syncPresentTicks(){ $('pmTick').classList.toggle('on', PRESENT.ticker.on()); $('pmTick').textContent = PRESENT.ticker.on() ? '✓' : ''; $('pmTitle').classList.toggle('on', PRESENT.title.on()); $('pmTitle').textContent = PRESENT.title.on() ? '✓' : '';
+function setSpeechMuted(on){ view.muteSpeech = !!on; if (on) stopInsight(); tour.muted = !!on; if (typeof syncMute === 'function') syncMute(); toast(on ? 'Speech muted: insights and walk-throughs stay silent, with subtitles.' : 'Speech is back on.'); renderChips(true); }   // insights and tour narration together
+function syncPresentTicks(){ $('pmMute').textContent = view.muteSpeech ? '✓' : ''; $('pmTick').classList.toggle('on', PRESENT.ticker.on()); $('pmTick').textContent = PRESENT.ticker.on() ? '✓' : ''; $('pmTitle').classList.toggle('on', PRESENT.title.on()); $('pmTitle').textContent = PRESENT.title.on() ? '✓' : '';
   document.querySelectorAll('#presentMenu .pin').forEach(p => p.classList.toggle('on', (view.pins || []).includes(p.dataset.pin))); }
 $('presentMenu').addEventListener('click', e => {
   const pin = e.target.closest('.pin');

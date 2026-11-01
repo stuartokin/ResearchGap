@@ -63,6 +63,10 @@
         },
         "checked": {
           "$ref": "#/$defs/date"
+        },
+        "replaced": {
+          "type": "string",
+          "pattern": "^https?://"
         }
       },
       "additionalProperties": false

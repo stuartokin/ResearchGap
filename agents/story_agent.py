@@ -33,6 +33,12 @@ def research(m):
               "Do not invent anything; give one to three sources, each with a short exact quote from the page.")
     return call_claude('You research the history of technologies carefully and cite public sources exactly.', prompt, TOOL, max_searches=CONFIG.get('stories', {}).get('maxSearches', 3)) or {}
 
+def shorten(out):
+    """Ask once more, without searching, for the same story within the limits."""
+    return call_claude('You edit text to fit limits without changing its meaning.',
+        f"Return the same story, unchanged in substance, with research in at most {LIMITS['research']} words, deploy in at most {LIMITS['deploy']} and impact in at most {LIMITS['impact']}. Keep the sources exactly as they are.\n{json.dumps(out, ensure_ascii=False)}",
+        TOOL, max_searches=0) or {}
+
 def verify(out):
     for k, n in LIMITS.items():
         v = (out.get(k) or '').strip()
@@ -51,7 +57,9 @@ def run():
     if not cfg.get('enabled', True): print('Story agent disabled.'); return 0
     db = load_db(); done, report = 0, []
     for m in candidates(db, cfg.get('refreshDays', 180))[:cfg.get('perRun', 10)]:
-        try: rec, why = verify(research(m))
+        try:
+            out = research(m); rec, why = verify(out)
+            if not rec and 'too long' in why: out = shorten(out); rec, why = verify(out)   # one request for a shorter answer, not a rejection
         except Exception as e: rec, why = None, f'error: {e}'
         if rec: m['story'] = rec; done += 1; report.append(f"story    {m['id']}")
         else: report.append(f"skipped  {m['id']}: {why}")

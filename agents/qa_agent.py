@@ -89,6 +89,33 @@ def run():
         if m['provenance']['verification'] == 'source-cited' and not any(r.get('url') and r.get('status') != 'broken' for r in m.get('refs', []) + ([m['basis']] if m.get('basis') else [])):
             m['provenance']['verification'] = 'ai-compiled' if m['status'] == 'landed' else 'ai-estimate'
             m['provenance']['qaNote'] = 'All cited links are broken; downgraded until a new source is found.'
+    # replace broken links: a new page that supports the same facts, used only if its quoted evidence is on the page
+    REPL = {'name': 'submit_source', 'description': 'A replacement source.', 'input_schema': {'type': 'object', 'required': ['url', 'label', 'quote'], 'properties': {
+        'url': {'type': 'string'}, 'label': {'type': 'string'}, 'quote': {'type': 'string', 'description': 'A short exact quote from the page that supports the facts'}}}}
+    replaced = 0
+    for m in batch:
+        for ref in m.get('refs', []):
+            if ref.get('status') != 'broken' or replaced >= CONFIG.get('qa', {}).get('replaceLinksPerRun', 10): continue
+            try:
+                out = call_claude('You find reliable public sources and quote them exactly.',
+                    f"This source link is broken: {ref['url']}. Find one reputable page that supports these facts about \"{m['title']}\": research began around {m['research']['year']} "
+                    f"({m['research'].get('what', '')}); {'first product or real-world use' if m['status'] == 'landed' else 'expected'} around {m['change']['year']} ({m['change'].get('what', '')}). "
+                    "Give its address, a short label, and a short exact quote from the page.", REPL, max_searches=3) or {}
+            except Exception: out = {}
+            url, quote = str(out.get('url', '')), str(out.get('quote', ''))
+            if not url.startswith('http') or url == ref['url'] or len(quote) < 12: continue
+            code, text = fetch_text(url)
+            if code != 200 or not quote_in(text, quote): continue
+            old = ref['url']; ref.update({'url': url, 'label': (out.get('label') or ref.get('label') or url)[:200], 'status': 'ok', 'checked': TODAY, 'replaced': old}); replaced += 1
+            corrected.append(f"{m['id']}: broken source replaced ({old} → {url})")
+            if str(m['provenance'].get('qaNote', '')).startswith('All cited links are broken'):
+                m['provenance']['verification'] = 'source-cited'; m['provenance'].pop('qaNote', None)   # sourced again
+    # an in-lab record whose target falls inside the horizon is really an outlook
+    for m in db['milestones']:
+        y = (m.get('change') or {}).get('year')
+        if m.get('status') == 'in-lab' and isinstance(y, int) and y <= horizon:
+            m['status'] = 'outlook'; m['provenance']['qaNote'] = f"Reclassified as an outlook: its target, {y}, is within the {db['meta']['horizonYears']}-year horizon."
+            corrected.append(f"{m['id']}: status in-lab → outlook (its target, {y}, is within the horizon)")
     # model review in small groups
     budget = cfg['maxCorrectionsPerRun']
     for i in range(0, len(batch), 8):

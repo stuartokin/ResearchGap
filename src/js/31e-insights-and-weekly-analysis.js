@@ -64,24 +64,34 @@ function weekFacts(){
 /* ---------- the insight callout on each chart: subtitles, and speech if you want it ---------- */
 let chartInsight = function(tab){ const t = ((tourText.tours.charts || TOUR_TEXT.tours.charts || {}).steps || {})[tab]; return t ? renderSay(t.say, chartFacts()).replace(/\s+/g, ' ').trim() : ''; }
 let insightAudio = null;
-function speakInsight(text){
-  stopInsight(); const file = tourAudio.voice && tourAudio.files[textKey(text, tourAudio.voice)];
-  if (file) { insightAudio = new Audio('audio/' + file); insightAudio.play().catch(() => browserSpeak(text)); return; }
-  browserSpeak(text);
+function speakInsight(text, onEnd){
+  stopInsight(); if (view.muteSpeech) { toast('Speech is muted: Present, “Mute speech”, turns it back on.'); return false; }
+  const file = tourAudio.voice && tourAudio.files[textKey(text, tourAudio.voice)], done = () => { if (onEnd) onEnd(); };
+  if (file) { insightAudio = new Audio('audio/' + file); insightAudio.onended = done; insightAudio.play().catch(() => browserSpeak(text, done)); return true; }
+  browserSpeak(text, done); return true;
 };
-function browserSpeak(text){ if (!('speechSynthesis' in window)) return; speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(speechText(text)); if (tourVoice) { u.voice = tourVoice; u.lang = tourVoice.lang; } else u.lang = 'en-GB'; u.rate = .98; speechSynthesis.speak(u); }
-function stopInsight(){ if (insightAudio) { insightAudio.pause(); insightAudio = null; } if ('speechSynthesis' in window) speechSynthesis.cancel(); }
+function browserSpeak(text, onEnd){ if (!('speechSynthesis' in window)) { if (onEnd) onEnd(); return; } speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(speechText(text)); if (tourVoice) { u.voice = tourVoice; u.lang = tourVoice.lang; } else u.lang = 'en-GB'; u.rate = .98; u.onend = u.onerror = () => { if (onEnd) onEnd(); }; speechSynthesis.speak(u); }
+function stopInsight(){ if (insightAudio) { insightAudio.pause(); insightAudio = null; } if ('speechSynthesis' in window) speechSynthesis.cancel(); resetSpeakButtons(); }
+/* Speak buttons switch to Stop while speaking */
+/* whether an insight is being spoken is kept app-wide, so a card rebuilt mid-speech (charts redraw as the century plays) still shows Stop */
+let insightSpeaking = false;
+const speakLabel = () => insightSpeaking ? '■ Stop' : '🔊 Speak';
+function resetSpeakButtons(){ insightSpeaking = false; document.querySelectorAll('[data-speakbtn]').forEach(b => { b.textContent = speakLabel(); }); }
+function speakToggle(btn, text){
+  if (insightSpeaking) { stopInsight(); return; }
+  if (speakInsight(text, resetSpeakButtons)) { insightSpeaking = true; document.querySelectorAll('[data-speakbtn]').forEach(b => { b.textContent = speakLabel(); }); }
+}
 let showInsight = function(on){
   const box = $('chartCallout'); if (!on) { box.classList.remove('on'); stopInsight(); return; }
   const text = chartInsight(CH.tab), upd = (tourText.tours.charts || {}).updated || tourText.updated;
   box.innerHTML = `<div class="cohead"><b>★ Insight: ${chEsc((CHART_TABS.find(t => t[0] === CH.tab) || [])[1])}</b><button class="mini" id="coX" aria-label="Close insight">✕</button></div><p class="cotext">${chEsc(text)}</p>
-    <div class="cofoot"><button class="mini" id="coSpeak">🔊 Speak</button><span class="note-s">AI-generated narrative, refreshed weekly by the agents${upd ? ` (updated ${fmtDate(upd)})` : ''}. No human review.</span></div>`;
+    <div class="cofoot"><button class="mini" id="coSpeak" data-speakbtn="1">${speakLabel()}</button><span class="note-s">AI-generated narrative, refreshed weekly by the agents${upd ? ` (updated ${fmtDate(upd)})` : ''}. No human review.</span></div>`;
   box.classList.add('on'); CH.insightOn = true;
 };
 $('chartBody').addEventListener('click', e => {
   if (e.target.id === 'chInsight') { if ($('chartCallout').classList.contains('on')) { showInsight(false); CH.insightOn = false; } else showInsight(true); }
   else if (e.target.id === 'coX') { showInsight(false); CH.insightOn = false; }
-  else if (e.target.id === 'coSpeak') { const p = $('chartCallout').querySelector('.cotext'); if (p) speakInsight(p.textContent); }
+  else if (e.target.id === 'coSpeak') { const p = $('chartCallout').querySelector('.cotext'); if (p) speakToggle(e.target, p.textContent); }
 });
 /* ---------- charts inside the walk-throughs ---------- */
 function tourChart(tab, extra){ return () => { tourHighlight(null); Object.assign(CH, {tab, insightOn:false, q:'', field:'', origin:'', zoom:{}, zoom2:{}, panel:null, box:null, fortYear:null}); clearInterval(CH.fortTimer); CH.fortTimer = 0; tourFilters(); refresh(); setTimeout(() => { renderCharts(); if (extra) extra(); else setTimeout(() => chartFocus(tab), 400); }, 250); }; }
@@ -176,7 +186,7 @@ showInsight = function(on){
   const t = ((tourText.tours.charts || TOUR_TEXT.tours.charts || {}).steps || {})[CH.tab], upd = (tourText.tours.charts || {}).updated || tourText.updated;
   const html = t ? renderSayHtml(t.say, chartFacts()) : '';
   box.innerHTML = `<div class="cohead"><b>★ Insight: ${chEsc((CHART_TABS.find(x => x[0] === CH.tab) || [])[1])}</b><button class="mini" id="coX" aria-label="Close insight">✕</button></div><p class="cotext">${html}</p>
-    <div class="cofoot"><button class="mini" id="coSpeak">🔊 Speak</button><span class="note-s">Select a number to see the items behind it. AI-generated narrative, refreshed weekly by the agents${upd ? ` (updated ${fmtDate(upd)})` : ''}. No human review.</span></div>`;
+    <div class="cofoot"><button class="mini" id="coSpeak" data-speakbtn="1">${speakLabel()}</button><span class="note-s">Select a number to see the items behind it. AI-generated narrative, refreshed weekly by the agents${upd ? ` (updated ${fmtDate(upd)})` : ''}. No human review.</span></div>`;
   box.classList.add('on'); CH.insightOn = true;
 };
 chartInsight = tab => { const t = ((tourText.tours.charts || TOUR_TEXT.tours.charts || {}).steps || {})[tab]; return t ? tidyText(renderSay(t.say, chartFacts())) : ''; };

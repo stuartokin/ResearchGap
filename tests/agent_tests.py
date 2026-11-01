@@ -70,5 +70,21 @@ FIELDS = {f['id']: f for f in db['fields']}
 ok('G1 field ids and names are both accepted', gemini_research.resolve_field('hw', FIELDS) == 'hw' and gemini_research.resolve_field('Computing hardware', FIELDS) == 'hw')
 ok('G2 common variants are understood', gemini_research.resolve_field('telecommunications', FIELDS) == 'comms' and gemini_research.resolve_field('Medicine', FIELDS) == 'life')
 ok('G3 nonsense is still rejected', gemini_research.resolve_field('nonsense', FIELDS) is None)
+# levers and stories: one request for a shorter answer instead of a rejection
+import levers_agent, story_agent
+page = 'The plant is waiting for a grid connection offer and uses machine learning to plan connections. Research began at the university in 2015.'
+levers_agent.fetch_text = story_agent.fetch_text = lambda url, timeout=20: (200, page)
+long_answer = {'phase': 'Demonstration', 'bottleneck': ' '.join(['word'] * 40), 'levers': [{'k': 'deploy', 'strength': 'high', 'note': 'Machine learning plans connections.'}],
+               'sources': [{'url': 'https://example.org/a', 'label': 'A', 'quote': 'waiting for a grid connection offer'}]}
+short_answer = dict(long_answer, bottleneck='Waiting for a grid connection offer.')
+answers = iter([long_answer, short_answer]); levers_agent.call_claude = lambda *a, **k: next(answers)
+out = levers_agent.tidy_phase(levers_agent.research({'title': 'T', 'field': 'energy', 'change': {'year': 2030}, 'research': {}, 'readiness': {}})); rec, why = levers_agent.verify(out)
+if not rec and 'invalid' in why: out = levers_agent.tidy_phase(levers_agent.shorten(out)); rec, why = levers_agent.verify(out)
+ok('L1 an over-long lever answer is shortened on one retry, then recorded', bool(rec) and rec['phase'] == 'demo')
+st_long = {'research': 'university research', 'deploy': 'in 2020 at a plant', 'impact': ' '.join(['word'] * 50), 'sources': [{'url': 'https://example.org/b', 'label': 'B', 'quote': 'Research began at the university in 2015'}]}
+answers = iter([st_long, dict(st_long, impact='connections are planned faster')]); story_agent.call_claude = lambda *a, **k: next(answers)
+out = story_agent.research({'title': 'T', 'field': 'energy', 'research': {'year': 2015}, 'change': {'year': 2020}}); rec, why = story_agent.verify(out)
+if not rec and 'too long' in why: out = story_agent.shorten(out); rec, why = story_agent.verify(out)
+ok('S1 an over-long story is shortened on one retry, then recorded', bool(rec) and rec['impact'] == 'connections are planned faster')
 print(f'PASSED {sum(results)} of {len(results)}')
 sys.exit(0 if all(results) else 1)
