@@ -1103,9 +1103,6 @@ body.touring .qinsight,body.kiosk .qinsight{display:none!important}
     <p class="by">Stuart Okin. A personal project, not affiliated with or endorsed by any employer.</p>
   
 </div></section>
-<section class="win" id="w-chartpop1" data-title="Chart pop-out 1"><div class="wbody chpopbody"><div class="chpopctl"><select class="chpopsel" data-slot="1" aria-label="Which chart"></select><button class="mini chpopback" data-slot="1" title="Show this chart in the Charts panel, with its controls">Open in Charts</button></div><div class="chpopsvg" id="chpop1"></div><p class="note-s chpopnote">Follows your filters. Select a row for its story.</p></div></section>
-<section class="win" id="w-chartpop2" data-title="Chart pop-out 2"><div class="wbody chpopbody"><div class="chpopctl"><select class="chpopsel" data-slot="2" aria-label="Which chart"></select><button class="mini chpopback" data-slot="2" title="Show this chart in the Charts panel, with its controls">Open in Charts</button></div><div class="chpopsvg" id="chpop2"></div><p class="note-s chpopnote">Follows your filters. Select a row for its story.</p></div></section>
-<section class="win" id="w-chartpop3" data-title="Chart pop-out 3"><div class="wbody chpopbody"><div class="chpopctl"><select class="chpopsel" data-slot="3" aria-label="Which chart"></select><button class="mini chpopback" data-slot="3" title="Show this chart in the Charts panel, with its controls">Open in Charts</button></div><div class="chpopsvg" id="chpop3"></div><p class="note-s chpopnote">Follows your filters. Select a row for its story.</p></div></section>
 <section class="win" id="w-questions" data-title="Start with a question"><div class="wbody" id="qBody"></div></section>
 <section class="win" id="w-docviz" data-title="How it works: at a glance"><div class="wbody" id="dvBody"></div></section>
 <section class="win" id="w-docs" data-title="How it works"><div class="wbody" id="docBody"></div></section>
@@ -5585,7 +5582,7 @@ const FORTUNES = DB.founders.map(f => {
 });
 const fmtMoney = (bn, sym) => bn >= 1000 ? `${sym}${(bn / 1000).toFixed(1)}tn` : bn >= 1 ? `${sym}${bn >= 100 ? Math.round(bn) : Math.round(bn * 10) / 10}bn` : `${sym}${Math.round(bn * 1000)}m`;
 const DATA_AS_OF = DB.meta.asOf;
-const APP_VERSION = '12.4', APP_BUILD = '';
+const APP_VERSION = '12.5', APP_BUILD = '';
 // Screen-aware scaling: laptops slightly smaller, large screens larger
 const UI = (() => { const w = innerWidth; return w < 1280 ? .85 : w < 1500 ? .95 : w < 1800 ? 1.05 : w < 2300 ? 1.2 : 1.4; })();
 const LARGE = innerWidth >= 1700;
@@ -5976,8 +5973,8 @@ function buildTrends(){
 /* ==================================================================
  *  WINDOW MANAGER
  * ================================================================== */
-const WIN_IDS = ['toolbar','footer','questions','radar','cyber','charts','chartpop1','chartpop2','chartpop3','inspect','docs','docviz','help','findings','quality','table','changes','audience','pagetitle','title','ticker','player','sources','filters','display','summary','milestones','details','key','context','landing','gapchart','fortunes','vision','outlook','report','music','vid1','vid2'];
-const WIN_NAMES = {docviz:'How it works: at a glance', questions:'Start with a question', radar:'AI Energy Vision Radar', cyber:'Cyber lens', charts:'Charts', chartpop1:'Chart pop-out 1', chartpop2:'Chart pop-out 2', chartpop3:'Chart pop-out 3', inspect:'Data inspector', docs:'How it works', toolbar:'Toolbar', footer:'Footer', findings:'Key findings', quality:'Data quality', table:'Table of milestones', changes:'Data changes', audience:'Your milestones', pagetitle:'Page title', title:'Showcase title', ticker:'Ticker', player:'Play the century', sources:'Sources', filters:'Filters', display:'Display', summary:'Summary', milestones:'Milestones', details:'Details', key:'Reading the model', context:'Context', landing:'Landing and starting', gapchart:'Gap over time', fortunes:'Time to a fortune', vision:'AI for clean energy', outlook:'Can AI shrink the gap?', music:'Music', report:'PowerPoint report', vid1:'Countdown to Q-Day', vid2:'University Curated Cyber-attacks since 2000'};
+const WIN_IDS = ['toolbar','footer','questions','radar','cyber','charts','inspect','docs','docviz','help','findings','quality','table','changes','audience','pagetitle','title','ticker','player','sources','filters','display','summary','milestones','details','key','context','landing','gapchart','fortunes','vision','outlook','report','music','vid1','vid2'];
+const WIN_NAMES = {docviz:'How it works: at a glance', questions:'Start with a question', radar:'AI Energy Vision Radar', cyber:'Cyber lens', charts:'Charts', inspect:'Data inspector', docs:'How it works', toolbar:'Toolbar', footer:'Footer', findings:'Key findings', quality:'Data quality', table:'Table of milestones', changes:'Data changes', audience:'Your milestones', pagetitle:'Page title', title:'Showcase title', ticker:'Ticker', player:'Play the century', sources:'Sources', filters:'Filters', display:'Display', summary:'Summary', milestones:'Milestones', details:'Details', key:'Reading the model', context:'Context', landing:'Landing and starting', gapchart:'Gap over time', fortunes:'Time to a fortune', vision:'AI for clean energy', outlook:'Can AI shrink the gap?', music:'Music', report:'PowerPoint report', vid1:'Countdown to Q-Day', vid2:'University Curated Cyber-attacks since 2000'};
 function defaultLayout(){
   const W = innerWidth, H = innerHeight, Hh = innerHeight, u = UI, narrow = W < 820; let top = Math.round(72 * u);
   const rw = Math.min(Math.round(360 * u), W - 36), lw = Math.min(Math.round(330 * u), W - 36);
@@ -5994,7 +5991,7 @@ function defaultLayout(){
   const pw = Math.min(Math.round(560 * u), Math.round(W * .42)), ph = Math.round(250 * u);
   const tw = Math.min(Math.round(1000 * u), W - midX - 18);
   if (MOBILE) {
-    const o = {}; const all = ['toolbar','footer','questions','radar','cyber','charts','chartpop1','chartpop2','chartpop3','inspect','docs','docviz','help','findings','quality','table','changes','audience','pagetitle','title','ticker','player','sources','report','filters','display','summary','milestones','details','key','context','landing','gapchart','fortunes','vision','outlook','music','vid1','vid2'];
+    const o = {}; const all = ['toolbar','footer','questions','radar','cyber','charts','inspect','docs','docviz','help','findings','quality','table','changes','audience','pagetitle','title','ticker','player','sources','report','filters','display','summary','milestones','details','key','context','landing','gapchart','fortunes','vision','outlook','music','vid1','vid2'];
     const y0 = Math.max(Math.round(H * .18), tbH + 14);
     const land = W >= H, cw = Math.round(Math.max(250, Math.min(420, W * .34))), band = Math.max(y0, Math.round(H * .5));
     // windows open beside the model (landscape) or below it (portrait), never across the centre
@@ -6032,9 +6029,6 @@ function defaultLayout(){
     radar:{x:midX - 20, y:top + 10, w:Math.round(460 * u), h:Math.max(260, bottom - top - 10), fs:1, open:false},
     cyber:{x:midX + 10, y:top + 20, w:Math.round(470 * u), h:Math.min(Math.round(680 * u), bottom - top - 20), fs:1, open:false},
     charts:{x:Math.round(W * .36), y:top, w:W - Math.round(W * .36) - 18, h:bottom - top, fs:1, open:false},
-    chartpop1:{x:Math.round(W * .4), y:top + 40, w:Math.min(640, Math.round(W * .42)), h:Math.min(460, Math.round(H * .5)), fs:1, open:false},
-    chartpop2:{x:Math.round(W * .5), y:top + 80, w:Math.min(640, Math.round(W * .42)), h:Math.min(460, Math.round(H * .5)), fs:1, open:false},
-    chartpop3:{x:Math.round(W * .6), y:top + 120, w:Math.min(640, Math.round(W * .42)), h:Math.min(460, Math.round(H * .5)), fs:1, open:false},
     questions:{x:Math.round(W * .05), y:top, w:Math.min(600, Math.round(W * .44)), h:Math.max(320, Math.min(bottom, Math.round(H * .7)) - top), fs:1, open:false},
     docviz:{x:Math.round(W * .07), y:top, w:Math.min(1180, Math.round(W * .86)), h:Math.max(360, Math.min(bottom, Math.round(H * .78)) - top), fs:1, open:false},
     help:{x:Math.round(W * .06), y:top, w:Math.min(720, Math.round(W * .48)), h:Math.max(320, Math.min(bottom, Math.round(H * .66)) - top), fs:1, open:false},
@@ -6051,6 +6045,7 @@ function defaultLayout(){
     sources:{x:midX, y:top + 20, w:Math.round(440 * u), h:Math.min(Math.round(620 * u), bottom - top - 20), fs:1, open:false}
   };
   Object.values(o).forEach(L => { L.sw = W; L.sh = H; });
+  try { Object.keys(CHI.roots).forEach(k => { const L = layout && layout[k]; o[k] = Object.assign({fs:1}, L ? {x:L.x, y:L.y, w:L.w, h:L.h, fs:L.fs || 1} : chartWindowRect(), {open:L ? !!L.open : false}); }); } catch (e) { /* the chart windows are not loaded yet, at start-up */ }
   return o;
 }
 let layout = Object.assign(arrangeLayout('explore'), store.get('sg.layout.v4', {}));
@@ -6106,14 +6101,14 @@ function raise(id){
   wins[id].style.zIndex = ++zTop;
 }
 function setOpen(id, open){ const wasOpen = layout[id].open; layout[id].open = open; if (open && !wasOpen) setTimeout(() => { raise(id); if (id === 'charts') renderCharts(); if (id === 'inspect') renderInspector(); if (id === 'docs') renderDocs(); if (id === 'docviz') renderDocViz(); }, 0); if (open && !wasOpen && view.flashNew !== false && !['toolbar', 'footer', 'pagetitle'].includes(id)) setTimeout(() => flashWin(id), 30); if (open) setTimeout(() => { if (id === 'radar') renderRadar(); if (id === 'cyber') renderCyber(); }, 0); if (open && !wasOpen && document.body.classList.contains('touring')) wins[id].classList.add('tourwait'); else if (open && !wasOpen && view.smartPlace !== false) smartPlace(id); if (open && !wasOpen && ['inspect', 'docs', 'help', 'questions'].includes(id)) setTimeout(() => clearOfPlayer(id), 0); /* keep their footers clear of the player bar */ if (open) setTimeout(() => { if (id === 'findings') renderFindings(); if (id === 'quality') renderQuality(); if (id === 'table') renderTable(); }, 0); if (!open) wins[id].classList.remove('max'); placeWin(id); if (typeof syncVideos === 'function') syncVideos(); if (open) raise(id); saveLayout(); buildWinMenu(); if (open && typeof updateTimeWindows === 'function') updateTimeWindows(true); }
-WIN_IDS.forEach(id => {
+function initWin(id){   // a panel's frame: title bar, buttons, dragging; also used for chart windows created later
   const el = $('w-' + id); wins[id] = el;
   const head = document.createElement('div'); head.className = 'wh';
   head.innerHTML = `<h2>${el.dataset.title}</h2><button data-a="max" title="Maximise or restore" aria-label="Maximise or restore">⤢</button><button data-a="dn" title="Smaller text" aria-label="Smaller text">A−</button><button data-a="up" title="Larger text" aria-label="Larger text">A+</button><button data-a="x" title="Close" aria-label="Close window">✕</button>`;
   el.prepend(head);
   head.addEventListener('click', e => {
     const a = e.target.dataset && e.target.dataset.a; if (!a) return;
-    if (a === 'x') setOpen(id, false);
+    if (a === 'x') { if (/^chartw/.test(id) && typeof destroyChartWindow === 'function') { destroyChartWindow(id); return; } setOpen(id, false); }   // a chart window is removed when closed
     if (a === 'max') { const on = el.classList.toggle('max'); raise(id); e.target.textContent = on ? '⤡' : '⤢'; twKey = ''; }
     if (a === 'up' || a === 'dn') { commitWin(id); const old = layout[id].fs, nf = Math.round(clamp(old + (a === 'up' ? .1 : -.1), .7, 2.2) * 10) / 10, k = id === 'charts' ? 1 : nf / old; /* Charts keeps its size; only the text grows */ layout[id].fs = nf; layout[id].w = Math.max(220, layout[id].w * k); layout[id].h = Math.max(96, layout[id].h * k); if (layout[id].x + layout[id].w > innerWidth - 8) layout[id].x = Math.max(8, innerWidth - 8 - layout[id].w); if (layout[id].y + layout[id].h > innerHeight - 8) layout[id].y = Math.max(8, innerHeight - 8 - layout[id].h); placeWin(id); saveLayout(); updateTimeWindows(true); }
   });
@@ -6124,21 +6119,25 @@ WIN_IDS.forEach(id => {
   });
   head.addEventListener('pointermove', e => { if (!drag) return; layout[id].x = e.clientX - drag.dx; layout[id].y = e.clientY - drag.dy; placeWin(id); });
   head.addEventListener('pointerup', () => { if (drag) { drag = null; saveLayout(); } });
-  head.addEventListener('dblclick', e => { if (e.target.tagName !== 'BUTTON') { const d = defaultLayout()[id]; Object.assign(layout[id], {x:d.x, y:d.y, w:d.w, h:d.h}); placeWin(id); saveLayout(); } });
+  head.addEventListener('dblclick', e => { if (e.target.tagName !== 'BUTTON') { const d = defaultLayout()[id] || (typeof chartWindowRect === 'function' && chartWindowRect()); if (!d) return; Object.assign(layout[id], {x:d.x, y:d.y, w:d.w, h:d.h}); placeWin(id); saveLayout(); } });
   el.addEventListener('pointerdown', () => raise(id));
   placeWin(id);
-});
+  if (winRO) winRO.observe(el);
+}
+let winRO = null;
+WIN_IDS.forEach(initWin);
 if (window.ResizeObserver) {
   const ro = new ResizeObserver(entries => {
     entries.forEach(en => {
       const id = en.target.id.slice(2), el = en.target;
+      if (!layout[id]) return;   // a chart window that has just been removed
       if (el.classList.contains('closed') || el.classList.contains('max')) return;
       if (Math.abs(el.offsetWidth - (el._setW || 0)) <= 2 && Math.abs(el.offsetHeight - (el._setH || 0)) <= 2) return;   // our own placement, not a user resize
       commitWin(id); layout[id].w = el.offsetWidth; layout[id].h = el.offsetHeight; el._setW = el.offsetWidth; el._setH = el.offsetHeight;
     });
     clearTimeout(ro.t); ro.t = setTimeout(saveLayout, 300);
   });
-  WIN_IDS.forEach(id => ro.observe(wins[id]));
+  winRO = ro; WIN_IDS.forEach(id => ro.observe(wins[id]));
 }
 const winMenu = $('winMenu');
 /* ==================================================================
@@ -6246,6 +6245,8 @@ function arrangeLayout(name){
   return d;
 }
 function applyPreset(name){
+  if (name === 'compare') { applyCompare(); return; }   // two chart windows side by side
+  if (typeof destroyAllChartWindows === 'function' && name !== 'charts') destroyAllChartWindows();
   const wasDesnz = view.preset === 'desnz';
   view.preset = name; view.chgFlag = 'new'; view.conclusion = !(name === 'desnz' || name === 'analysis' || name === 'charts'); if ($('conclT')) $('conclT').checked = view.conclusion; syncChgUI(); applyChangeFlags();
   layout = arrangeLayout(name); WIN_IDS.forEach(placeWin); saveLayout(); syncVideos();
@@ -6274,12 +6275,12 @@ function applyPreset(name){
  * ================================================================== */
 const WIN_GROUPS = [
   ['present', 'Presenting', ['toolbar', 'footer', 'pagetitle', 'title', 'ticker', 'player', 'music', 'vid1', 'vid2']],
-  ['insight', 'Insights', ['charts', 'chartpop1', 'chartpop2', 'chartpop3', 'findings', 'summary', 'gapchart', 'outlook', 'fortunes', 'vision', 'radar', 'cyber']],
+  ['insight', 'Insights', ['charts', 'findings', 'summary', 'gapchart', 'outlook', 'fortunes', 'vision', 'radar', 'cyber']],
   ['explore', 'Explore', ['questions', 'filters', 'display', 'milestones', 'details', 'table', 'key', 'context', 'landing', 'sources', 'help']],
   ['data', 'Data and agents', ['inspect', 'changes', 'quality', 'docs', 'docviz', 'audience']],
   ['share', 'Reports', ['report']]
 ];
-const PRESETS = [['explore', 'Exploring', 'The default: filters and key findings'], ['play', 'Play the century', 'Timeline panels around the model'], ['wait', 'Waiting (kiosk)', 'Both videos, joke ticker, plays on a loop'], ['charts', 'Charts', 'Eight interactive charts, with each milestone’s story beside them'], ['analysis', 'Analysis', 'Findings, summary and charts side by side'], ['desnz', 'AI for clean energy', 'AI Energy Vision Radar, areas and changes; plays from 1980']];
+const PRESETS = [['explore', 'Exploring', 'The default: filters and key findings'], ['play', 'Play the century', 'Timeline panels around the model'], ['wait', 'Waiting (kiosk)', 'Both videos, joke ticker, plays on a loop'], ['charts', 'Charts', 'Eight interactive charts, with each milestone’s story beside them'], ['analysis', 'Analysis', 'Findings, summary and charts side by side'], ['compare', 'Compare', 'Two chart windows side by side, with the AI Energy Vision Radar'], ['desnz', 'AI for clean energy', 'AI Energy Vision Radar, areas and changes; plays from 1980']];
 function buildWinMenu(){
   view.menuGroups = view.menuGroups || {};
   const item = id => `<button data-w="${id}"><span class="tick ${layout[id].open ? 'on' : ''}">${layout[id].open ? '✓' : ''}</span>${WIN_NAMES[id]}</button>`;
@@ -7989,6 +7990,7 @@ const FAQ_EXTRA = [
     ['Two AI models', 'Two AI models maintain the data and check each other. Claude (Anthropic) and Gemini (Google) each search for new milestones; whichever finds one, the other must agree before it is published undisputed. Each record says who found it, and Data quality shows how often they agree.'],
     ['What are Views, Present and Share?', 'The toolbar has six buttons. Views: ready-made views, your own My views, the panels, and your file. Present: full screen, auto-rotate, music, the joke ticker, the showcase title, thank you and questions, audience ideas and kiosk mode; 📌 pins any of them to the toolbar. Share: the PowerPoint report, the clean energy briefing slide, an image, a link, and the data. While music, rotation, full screen or the ticker is on, a small chip on the toolbar shows it and switches it off in one click.'],
     ['How do I keep my work between visits?', 'The app starts from its defaults on every visit and keeps nothing in the browser unless you ask it to. Save your file (Views, “Save my file…”): it holds your views, settings, review marks and My list, and works on any device. The sign beside Views shows anything unsaved. In Display, Autosave can keep a file updated automatically (Chrome or Edge on a computer) or keep a copy in this browser.'],
+    ['Can I see several charts at once?', 'Yes. ⧉ New window on any chart opens a full chart window, with all its controls, as many as you like; close one to remove it. A milestone you select in any chart window opens in Details and is highlighted in every linked chart window; 🔗 Linked on a window switches it to keep its own. Compare, under Views, sets out two side by side. Chart windows are saved with My views and My file.'],
     ['What does “Mark as reviewed” do?', 'In the Data inspector, marking an item as reviewed hides it from your list, with an optional note, and saves the mark in your file. If the agents later change the record, the review lapses and it comes back for you to look at again. “Show reviewed” lists what you have reviewed.'],
     ['What are admin tools?', 'For the owner. Switch them on in Display to make decisions for everyone in the Data inspector: reviewed, clear a dispute, not a duplicate, retire or restore. They build a system file (Share, “Download system file for GitHub”) to upload to the data folder; the next weekly run applies it and records each decision. Anyone can download one, but only someone who can upload to the repository can apply it.'],
     ['Where does the data come from?', 'Only from publicly available sources: published research, company and product announcements, official publications and reputable news. The agents search the open web and record a link for every source; no confidential, non-public or regulatory information is used. Each record says whether it is source-cited, AI-compiled or an AI estimate.'],
@@ -8507,6 +8509,7 @@ function startTour(id){
   tourStep(0);
 }
 function resetToDefaults(){
+  if (typeof destroyAllChartWindows === 'function') destroyAllChartWindows();
   if (typeof resetCharts === 'function') resetCharts();
   const keep = {radarSeenRev:view.radarSeenRev};
   Object.keys(view).forEach(k => delete view[k]); Object.assign(view, JSON.parse(JSON.stringify(VIEW_DEFAULTS)), keep);
@@ -8796,6 +8799,33 @@ $('expCsv').onclick = exportCsv; $('expXlsx').onclick = exportXlsx;
 const CHART_TABS = [['gaps', 'Gap explorer'], ['heat', 'Heatmap'], ['ai', 'AI vs the rest'], ['pipe', 'Clean energy pipeline'], ['drift', 'Forecast drift'], ['sec', 'Security lag'], ['fort', 'Race to a fortune'], ['whatif', 'What if?']];
 const CH = {tab:'gaps', sel:null, rows:[], head:[], note:'', q:'', field:'', origin:'', zoom:{}, zoom2:{}, panel:null, gapSort:'gap', gapColour:'field', heatBy:'p', aiLog:true, aiMode:'zoom', aiLabels:'auto', secSort:'arrival', fortYear:null, fortTimer:0, wiScen:'mid', wiOff:{}, lastW:0, lastFs:0};
 const CHC = {bg:'#0B1724', grid:'#1d3346', txt:'#D5E2EF', mut:'#8FA6B8', amber:'#F7C04A', teal:'#4CD3C2', coral:'#FF6B6B', green:'#7FD6A0', gold:'#FFD166', violet:'#A891FF', blue:'#5FD8FF'};
+/* ---------- chart windows: one engine, any number of windows ----------
+   The Charts panel is window 'main'; each extra chart window has its own settings and its own parts. The engine works on
+   the current window: its parts carry the standard ids (chartSvg, chQ and so on) and its settings are in CH. Every event,
+   timer and redraw switches to the window it belongs to, and back again afterwards. */
+const CHI = {cur:'main', states:{}, roots:{}, hooks:[]};
+function chRoot(k){ return CHI.roots[k || CHI.cur] || $('w-charts'); }
+function useChart(k){
+  k = k || 'main'; if (k === CHI.cur || (k !== 'main' && !CHI.roots[k])) return;
+  CHI.states[CHI.cur] = Object.assign({}, CH);
+  const oldK = CHI.cur; chRoot(oldK).querySelectorAll('[id]').forEach(e => { if (e.id.indexOf('~') < 0) e.id += '~' + oldK; });
+  chRoot(k).querySelectorAll('[id]').forEach(e => { const i = e.id.indexOf('~'); if (i >= 0) e.id = e.id.slice(0, i); });
+  Object.keys(CH).forEach(x => delete CH[x]); Object.assign(CH, CHI.states[k] || {}); CHI.cur = k;
+}
+function withChart(k, fn){ const prev = CHI.cur; useChart(k); try { return fn(); } finally { useChart(prev); } }
+function chLater(fn, ms){ const k = CHI.cur; return setTimeout(() => withChart(k, fn), ms); }   // a timer that runs in the window that set it
+function chartWinId(k){ return k === 'main' ? 'charts' : k; }
+function renderAllCharts(){ ['main', ...Object.keys(CHI.roots)].forEach(k => { const L = layout[chartWinId(k)]; if (L && L.open) withChart(k, renderCharts); }); }
+/* handlers registered once, attached to the Charts panel now and to every chart window created later */
+function chBind(k, kind, type, fn){
+  const root = chRoot(k), el = kind === 'root' ? root : kind === 'part' ? root.querySelector(`[id="${type}"], [id^="${type}~"]`) : root.querySelector(kind === 'body' ? '[id="chartBody"], [id^="chartBody~"]' : '[id="chartSvg"], [id^="chartSvg~"]');
+  if (el) el.addEventListener(kind === 'part' ? 'click' : type, e => withChart(k, () => fn(e)));
+}
+function onChartBody(type, fn){ CHI.hooks.push(['body', type, fn]); chBind('main', 'body', type, fn); }
+function onChartSvg(type, fn){ CHI.hooks.push(['svg', type, fn]); chBind('main', 'svg', type, fn); }
+function onChartPart(id, fn){ CHI.hooks.push(['part', id, fn]); chBind('main', 'part', id, fn); }
+function onChartRoot(type, fn){ CHI.hooks.push(['root', type, fn]); chBind('main', 'root', type, fn); }
+function bindChartWindow(k){ CHI.hooks.forEach(([kind, type, fn]) => chBind(k, kind, type, fn)); }
 const chEsc = s => esc(String(s == null ? '' : s));
 const chFind = id => items.find(it => it.id == id);
 const chFs = () => parseFloat(getComputedStyle($('chartBody')).fontSize) || 13;
@@ -8810,7 +8840,7 @@ function chMatch(it){
   return true;
 }
 const chPool = () => items.filter(it => !it.removed && !it.aud && shownFully(it) && chMatch(it));
-function chartSelect(it){ if (!it) return; CH.sel = it.id; openDetail(it); setOpen('details', true); renderCharts(); }
+function chartSelect(it){ if (!it) return; CH.sel = it.id; openDetail(it); setOpen('details', true); renderCharts(); if (CH.linked !== false && typeof linkSelection === 'function') linkSelection(it.id, CHI.cur); }
 /* ---------- the side panel: keeps what you clicked, even when you open a milestone's story ---------- */
 function setCtl(html){ const el = $('chartCtl'); if (el._h !== html) { el.innerHTML = html; el._h = html; } }   // only when something changed: rebuilding it on every redraw swallowed clicks
 function chPanel(title, html){ CH.panel = {tab:CH.tab, title, html}; drawPanel(); }
@@ -8836,10 +8866,10 @@ function chFilterBar(extra, opts){
 function renderCharts(){
   if (!layout.charts || !layout.charts.open) return;
   const box = $('chartSvg'), fs = chFs();
-  const tabName = (CHART_TABS.find(t => t[0] === CH.tab) || [])[1] || '', h2 = $('w-charts').querySelector('.wh h2'); if (h2) h2.textContent = 'Charts – ' + tabName;
-  const tabsHtml = CHART_TABS.map(([k, n]) => `<button data-t="${k}" class="${CH.tab === k ? 'on' : ''}" role="tab" aria-selected="${CH.tab === k}">${n}</button>`).join('') + '<button id="chPopOut" class="cinsight cpop" title="Open this chart in its own panel, to move and keep beside others">⧉ Pop out</button><button id="chInsight" class="cinsight" title="This week’s AI-generated insight for this chart, with subtitles and speech">★ Insight</button>';
+  const tabName = (CHART_TABS.find(t => t[0] === CH.tab) || [])[1] || '', h2 = chRoot().querySelector('.wh h2'); if (h2) h2.textContent = (CHI.cur === 'main' ? 'Charts' : (WIN_NAMES[CHI.cur] || 'Charts')) + ' – ' + tabName;
+  const tabsHtml = CHART_TABS.map(([k, n]) => `<button data-t="${k}" class="${CH.tab === k ? 'on' : ''}" role="tab" aria-selected="${CH.tab === k}">${n}</button>`).join('') + `<button id="chLink" class="cinsight clink${CH.linked === false ? ' off' : ''}" title="${CH.linked === false ? 'Unlinked: this window keeps its own highlighted milestone' : 'Linked: a milestone selected in any linked chart window is highlighted here too'}">${CH.linked === false ? '⛓ Unlinked' : '🔗 Linked'}</button><button id="chNewWin" class="cinsight cpop" title="Open a copy of this chart in a new window, with all its controls">⧉ New window</button>` + '<button id="chInsight" class="cinsight" title="This week’s AI-generated insight for this chart, with subtitles and speech">★ Insight</button>';
   if (CH._tabsHtml !== tabsHtml) { $('chartTabs').innerHTML = tabsHtml; CH._tabsHtml = tabsHtml; }   // only when something changed: rebuilding it on every redraw swallowed clicks while the century played
-  if (CH.insightOn && typeof showInsight === 'function') setTimeout(() => { const q = document.getElementById('qInsight'); if (!(q && q.classList.contains('on'))) showInsight(true); }, 0);   // a question’s insight, when showing, speaks for the chart
+  if (CH.insightOn && typeof showInsight === 'function') chLater(() => { const q = document.getElementById('qInsight'); if (!(q && q.classList.contains('on'))) showInsight(true); }, 0);   // a question’s insight, when showing, speaks for the chart
   drawPanel();
   const W = Math.max(300, box.clientWidth - 6), H = Math.max(260, box.clientHeight - 6);
   CH.note = ''; CH.rows = []; CH.head = [];
@@ -8847,7 +8877,7 @@ function renderCharts(){
   box.innerHTML = fn(W, H, fs); $('chartNote').textContent = CH.note;
   const q = $('chQ'); if (q && CH.qFocus) { q.focus(); q.setSelectionRange(q.value.length, q.value.length); }
 }
-let chartTimer = 0; function scheduleCharts(){ clearTimeout(chartTimer); chartTimer = setTimeout(renderCharts, 120); }
+let chartTimer = 0; function scheduleCharts(){ clearTimeout(chartTimer); chartTimer = setTimeout(renderAllCharts, 120); }   // every open chart window follows the filters
 
 /* ---------- a shared row chart: one row per item, with a year axis that zooms ---------- */
 function chRowChart(W, H, fs, rows, o){
@@ -9110,9 +9140,9 @@ function wiPanel(it){
 }
 /* ---------- interaction ---------- */
 const chTip = $('chartTip');
-$('chartBody').addEventListener('mousemove', e => { const t = e.target.closest('[data-tip]'); if (!t) { chTip.classList.remove('on'); return; } chTip.textContent = t.dataset.tip; chTip.classList.add('on'); chTip.style.left = Math.min(innerWidth - 320, e.clientX + 14) + 'px'; chTip.style.top = (e.clientY + 14) + 'px'; });
-$('chartBody').addEventListener('mouseleave', () => chTip.classList.remove('on'));
-$('chartBody').addEventListener('click', e => {
+onChartBody('mousemove', e => { const t = e.target.closest('[data-tip]'); if (!t) { chTip.classList.remove('on'); return; } chTip.textContent = t.dataset.tip; chTip.classList.add('on'); chTip.style.left = Math.min(innerWidth - 320, e.clientX + 14) + 'px'; chTip.style.top = (e.clientY + 14) + 'px'; });
+onChartBody('mouseleave', () => chTip.classList.remove('on'));
+onChartBody('click', e => {
   const tab = e.target.closest('#chartTabs [data-t]'); if (tab) { CH.tab = tab.dataset.t; CH.insightOn = view.autoInsight !== false; if (typeof hideQInsight === 'function') hideQInsight(); CH.box = null; clearInterval(CH.fortTimer); CH.fortTimer = 0; renderCharts(); return; }
   if (e.target.id === 'chSideX') { CH.panel = null; CH.selF = null; renderCharts(); return; }
   if (e.target.id === 'chZoomReset') { delete CH.zoom[CH.tab]; delete CH.zoom2[CH.tab]; renderCharts(); return; }
@@ -9124,20 +9154,21 @@ $('chartBody').addEventListener('click', e => {
   if (e.target.id === 'chFortPlay') { if (CH.fortTimer) { clearInterval(CH.fortTimer); CH.fortTimer = 0; renderCharts(); return; } CH.fortYear = 1890; CH.fortTimer = setInterval(() => { CH.fortYear += 2; if (CH.fortYear >= NOW) { CH.fortYear = NOW; clearInterval(CH.fortTimer); CH.fortTimer = 0; } renderCharts(); }, 160); return; }
   const r = e.target.closest('[data-id]'); if (r) { const it = chFind(r.dataset.id); if (CH.tab === 'whatif' && r.closest('svg')) { wiPanel(it); openDetail(it); return; } chartSelect(it); }
 });
-$('chartBody').addEventListener('change', e => {
+onChartBody('change', e => {
   if (e.target.id === 'chField') { CH.field = e.target.value; delete CH.zoom[CH.tab]; renderCharts(); }
   if (e.target.id === 'chOrigin') { CH.origin = e.target.value; delete CH.zoom[CH.tab]; renderCharts(); }
   if (e.target.id === 'chAiLog') { CH.aiLog = e.target.checked; delete CH.zoom2.ai; renderCharts(); }
   if (e.target.dataset.lever) { CH.wiOff[e.target.dataset.lever] = !e.target.checked; renderCharts(); }
 });
-$('chartBody').addEventListener('input', e => { if (e.target.id === 'chQ') { CH.q = e.target.value; CH.qFocus = true; delete CH.zoom[CH.tab]; clearTimeout(chartTimer); chartTimer = setTimeout(() => { renderCharts(); CH.qFocus = false; }, 250); } });
-$('w-charts').addEventListener('click', e => { if (e.target.closest('.wh')) setTimeout(renderCharts, 60); });   // A− and A+ change the text size: redraw to match
+onChartBody('input', e => { if (e.target.id === 'chQ') { CH.q = e.target.value; CH.qFocus = true; delete CH.zoom[CH.tab]; clearTimeout(chartTimer); chartTimer = setTimeout(() => { renderCharts(); CH.qFocus = false; }, 250); } });
+onChartRoot('click', e => { if (e.target.closest('.wh')) chLater(renderCharts, 60); });   // A− and A+ change the text size: redraw to match
 /* drag: zoom years (row charts), zoom a box (scatter, fortunes) or select (scatter) */
 let chDrag = null;
-$('chartSvg').addEventListener('pointerdown', e => { const svg = e.target.closest('.chzoomx, .chzoom2'); if (!svg || e.button) return; const b = svg.getBoundingClientRect(); chDrag = {svg, b, x0:e.clientX - b.left, y0:e.clientY - b.top}; });
-addEventListener('pointermove', e => { if (!chDrag) return; const r = chDrag.svg.querySelector('#chBox'); if (!r) return; const x1 = e.clientX - chDrag.b.left, y1 = e.clientY - chDrag.b.top;
+onChartSvg('pointerdown', e => { const svg = e.target.closest('.chzoomx, .chzoom2'); if (!svg || e.button) return; const b = svg.getBoundingClientRect(); chDrag = {svg, b, k:CHI.cur, x0:e.clientX - b.left, y0:e.clientY - b.top}; });
+addEventListener('pointermove', e => { if (!chDrag) return; const r = chDrag.svg.querySelector('[id="chBox"], [id^="chBox~"]'); if (!r) return; const x1 = e.clientX - chDrag.b.left, y1 = e.clientY - chDrag.b.top;
   r.setAttribute('display', ''); r.setAttribute('x', Math.min(chDrag.x0, x1)); r.setAttribute('y', Math.min(chDrag.y0, y1)); r.setAttribute('width', Math.abs(x1 - chDrag.x0)); r.setAttribute('height', Math.abs(y1 - chDrag.y0)); });
-addEventListener('pointerup', e => {
+addEventListener('pointerup', e => { if (chDrag) withChart(chDrag.k, () => chDragEnd(e)); });
+function chDragEnd(e){
   if (!chDrag) return; const d = chDrag, ds = d.svg.dataset; chDrag = null; const x1 = e.clientX - d.b.left, y1 = e.clientY - d.b.top; if (Math.abs(x1 - d.x0) < 12) { const r = d.svg.querySelector('#chBox'); if (r) r.setAttribute('display', 'none'); return; }
   const sx = chScale(+ds.x0, +ds.x1, +ds.l, +ds.r), xs = [sx.inv(Math.min(d.x0, x1)), sx.inv(Math.max(d.x0, x1))];
   if (d.svg.classList.contains('chzoomx')) { if (xs[1] - xs[0] >= 2) { CH.zoom[CH.tab] = [Math.floor(xs[0]), Math.ceil(xs[1])]; renderCharts(); } return; }
@@ -9147,14 +9178,14 @@ addEventListener('pointerup', e => {
     const list = CH.box.map(chFind).filter(Boolean).sort((p, q) => p.lag - q.lag); chPanel(`Selected: ${list.length}`, chItemsHtml(list)); renderCharts(); return;
   }
   if (Math.abs(y1 - d.y0) >= 12) { CH.zoom2[CH.tab] = {x:xs, y:ys}; renderCharts(); }
-});
-$('chartSvg').addEventListener('dblclick', () => { delete CH.zoom[CH.tab]; delete CH.zoom2[CH.tab]; CH.box = null; renderCharts(); });
+}
+onChartSvg('dblclick', () => { delete CH.zoom[CH.tab]; delete CH.zoom2[CH.tab]; CH.box = null; renderCharts(); });
 /* ---------- exports ---------- */
-$('chartCsv').onclick = () => {
+onChartPart('chartCsv', () => {
   const cell = v => { const s = String(v ?? ''); return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s; };
   saveBlob(new Blob(['\ufeff' + [CH.head].concat(CH.rows).map(r => r.map(cell).join(',')).join('\r\n')], {type:'text/csv;charset=utf-8'}), `shrinking-gap-${CH.tab}-${stamp()}.csv`);
-};
-$('chartPng').onclick = () => {
+});
+onChartPart('chartPng', () => {
   const svgs = [...$('chartSvg').querySelectorAll('svg')]; if (!svgs.length) return;
   const svg = svgs[svgs.length - 1], w = +svg.getAttribute('width'), h = +svg.getAttribute('height'), title = (CHART_TABS.find(t => t[0] === CH.tab) || [])[1], pad = 70;
   let xml = new XMLSerializer().serializeToString(svg);
@@ -9169,9 +9200,11 @@ $('chartPng').onclick = () => {
     c.toBlob(b => saveBlob(b, `shrinking-gap-${CH.tab}-${stamp()}.png`), 'image/png');
   };
   img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(xml);
-};
+});
 /* keep the charts current: redraw when the width or text size changes, and when the filters change (refresh calls scheduleCharts) */
-if (window.ResizeObserver) new ResizeObserver(() => { const w = $('chartSvg').clientWidth, f = chFs(); if (w && (w !== CH.lastW || f !== CH.lastFs)) { CH.lastW = w; CH.lastFs = f; scheduleCharts(); } }).observe($('chartBody'));
+function observeChartSize(k){ if (!window.ResizeObserver) return; const svg = chRoot(k).querySelector('[id="chartSvg"], [id^="chartSvg~"]'); if (!svg) return;
+  new ResizeObserver(() => withChart(k, () => { const w = svg.clientWidth, f = chFs(); if (w && (w !== CH.lastW || f !== CH.lastFs)) { CH.lastW = w; CH.lastFs = f; chLater(renderCharts, 120); } })).observe(svg); }
+observeChartSize('main');
 /* ==================================================================
  *  CHART INSIGHTS, THE WEEKLY ANALYSIS TOUR, CHARTS IN TOURS, KIOSK AND REPORTS, AND DATE FORMATS.
  *  The words come from data/tours.json (refreshed weekly by the tour agent within fixed rules);
@@ -9262,7 +9295,7 @@ let showInsight = function(on){
     <div class="cofoot"><button class="mini" id="coSpeak" data-speakbtn="1">${speakLabel()}</button><span class="note-s">AI-generated narrative, refreshed weekly by the agents${upd ? ` (updated ${fmtDate(upd)})` : ''}. No human review.</span></div>`;
   box.classList.add('on'); CH.insightOn = true;
 };
-$('chartBody').addEventListener('click', e => {
+onChartBody('click', e => {
   if (e.target.id === 'chInsight') { if ($('chartCallout').classList.contains('on')) { showInsight(false); CH.insightOn = false; } else showInsight(true); }
   else if (e.target.id === 'coX') { showInsight(false); CH.insightOn = false; }
   else if (e.target.id === 'coSpeak') { const p = $('chartCallout').querySelector('.cotext'); if (p) speakToggle(e.target, p.textContent); }
@@ -9354,7 +9387,7 @@ function renderSayHtml(tpl, f){
 }
 const LIST_TITLES = {pipeTotal:'Clean energy technologies', pipeResearch:'In research', pipePilot:'Piloting', pipeCommercial:'In first commercial use', pipeScale:'At scale', pipeGB:'Deployed in Great Britain', secOpen:'No security response yet',
   aiCount:'AI-driven milestones since 2010', driftCount:'Forecasts being tracked', driftRevised:'Forecasts revised', driftPeakCount:'Expected in the busiest year', newCount:'Added this week', cleanNewCount:'Clean energy additions this week'};
-$('chartBody').addEventListener('click', e => { const b = e.target.closest('.colink'); if (!b) return; const list = (LIST_PH[b.dataset.list] || (() => []))(); chPanel(`${LIST_TITLES[b.dataset.list] || 'Items'}: ${list.length}`, chItemsHtml(list, it => `${it.stage || ''}${it.p ? ' · ' + (it.kind === 'proj' ? '~' : '') + it.p : ''}`)); renderCharts(); });
+onChartBody('click', e => { const b = e.target.closest('.colink'); if (!b) return; const list = (LIST_PH[b.dataset.list] || (() => []))(); chPanel(`${LIST_TITLES[b.dataset.list] || 'Items'}: ${list.length}`, chItemsHtml(list, it => `${it.stage || ''}${it.p ? ' · ' + (it.kind === 'proj' ? '~' : '') + it.p : ''}`)); renderCharts(); });
 showInsight = function(on){
   const box = $('chartCallout'); if (!on) { box.classList.remove('on'); stopInsight(); return; }
   const t = ((tourText.tours.charts || TOUR_TEXT.tours.charts || {}).steps || {})[CH.tab], upd = (tourText.tours.charts || {}).updated || tourText.updated;
@@ -9544,7 +9577,7 @@ $('insBody').addEventListener('click', e => {
 /* ==================================================================
  *  HOW IT WORKS: documentation of the app, its files, workflows and agents. Maintained with each material change.
  * ================================================================== */
-const DOCS_UPDATED = 'Version 12.4, 1 November 2026';   // update with every material change
+const DOCS_UPDATED = 'Version 12.5, 1 November 2026';   // update with every material change
 const DOCS = [
  ['overview', 'Overview', `<p>The Shrinking Gap measures how long research takes to become real-world change, and whether AI is shortening the journey. It is maintained by AI agents using public sources only; the owner can review and curate through the Data inspector and the system file, but nothing needs a person each week.</p>
   <p><b>The flow:</b> AI agents (GitHub Actions, weekly) research, check and correct <code>data/data.json</code> → safety gates → <code>tools/build.py</code> assembles <code>index.html</code> from <code>src/</code> with the data embedded → GitHub Pages publishes it. Your uploads to <code>src/</code> trigger the same build.</p>`],
@@ -9552,7 +9585,7 @@ const DOCS = [
   <tr><td><code>index.html</code></td><td>The built app (generated; never edit by hand).</td></tr>
   <tr><td><code>src/index.html</code></td><td>The page template: markup with include markers that the build replaces with the CSS and JavaScript.</td></tr>
   <tr><td><code>src/styles/app.css</code></td><td>All styles.</td></tr>
-  <tr><td><code>src/js/NN-*.js</code></td><td>The app's code in numbered sections, assembled in order: data loading (01), state (02), the 3D scene, panel manager (07), ready-made views (08), the Views menu (09), details (12), reports (21), data changes (22), data quality (27), help (28), cyber lens and readiness (29), tours (31), kiosk and image export (31b), data export (31c), charts (31d), insights and weekly analyses (31e), this inspector and documentation (31f), the toolbar, Present and Share menus, chips and pins (31g), My file and My views (31h), chart pop-outs (31i), Start with a question (31j), the at-a-glance infographics (31k), saved views (32), start-up (36).</td></tr>
+  <tr><td><code>src/js/NN-*.js</code></td><td>The app's code in numbered sections, assembled in order: data loading (01), state (02), the 3D scene, panel manager (07), ready-made views (08), the Views menu (09), details (12), reports (21), data changes (22), data quality (27), help (28), cyber lens and readiness (29), tours (31), kiosk and image export (31b), data export (31c), charts (31d), insights and weekly analyses (31e), this inspector and documentation (31f), the toolbar, Present and Share menus, chips and pins (31g), My file and My views (31h), chart windows (31i), Start with a question (31j), the at-a-glance infographics (31k), saved views (32), start-up (36).</td></tr>
   <tr><td><code>src/vendor/</code></td><td>Fonts and libraries (three.js, PptxGenJS loaded on demand, QR code).</td></tr>
   <tr><td><code>data/data.json</code></td><td>The dataset: milestones, fortunes, guidance, change log, funnel and settings history.</td></tr>
   <tr><td><code>data/schema.json</code></td><td>The rules the data must follow (checked by Gate 1).</td></tr>
@@ -9582,14 +9615,15 @@ const DOCS = [
  ['gates', 'Gates and safety', `<p><b>Gate 1</b> checks the schema, the tour rules, that mitigation references link to official publishers, and that no text contains markup. <b>Gate 2</b> checks that nothing was deleted and additions are within the limit. <b>Gate 3</b> loads the built app in a browser and checks it renders. Agents treat everything they read as data, never as instructions; keys stay in GitHub secrets.</p>`],
  ['narration', 'Narration, tours and voice', `<p>Narration lives in <code>data/tours.json</code> as templates: the walk-throughs, the chart insights, the question insights and both weekly analyses. The app fills every figure from live data and chooses each conclusion by rules, so the words can change weekly but the numbers cannot be invented. Recordings are keyed by a fingerprint of the exact sentence and voice; changed sentences are re-recorded by <code>tools/make_voice.py</code>, and the app falls back to the browser voice only if a recording never starts. In the walk-throughs, chart steps open a side panel on what the narration is discussing. A walk-through started from the welcome screen returns there; one started inside the app returns to where you were. Pronunciations (DESNZ, CAF, NERC, CIP, and row said as “roe”) are in <code>tours.json</code>.</p>`],
  ['data', 'The data model', `<p>Each milestone has a title, field and sub-field, origin, status (landed or outlook), research (year, what), change (first use: year, what), sources, verification (source-cited, AI-compiled or AI estimate), and optional readiness, GB status, security note, forecast record, AI levers and story. <code>flags</code> mark it disputed, hidden or retired; <code>provenance</code> records who added it, when, whether dates are approximate, and any second opinion. <code>flags.reviewed</code> records the owner’s review, with a fingerprint so it lapses if the record changes. For the whole dataset, <code>meta</code> keeps the change log, the research funnel, the catch-up record, the decisions applied, and pairs judged not to be duplicates.</p>`],
- ['curation', 'Views, My file, reviews and the system file', `<p><b>Start with a question</b> (welcome screen, or Views): questions the tool answers well, each setting up the panels, filters and chart with the answers listed, and its own insight, written weekly by the agents, with numbers you can select and a Speak button. <b>Open insights automatically</b> (Display, on by default) opens chart and question insights by themselves; a closed one stays closed until you move on. After acknowledging, the welcome screen signposts the three ways in: Learn (the tours), Start here (questions) and Jump right in (the tool). <b>⧉ Pop out</b> opens a chart in its own panel (up to three). <b>Help</b> is a panel like the others; its “How it works” button opens this documentation, and “At a glance” the infographics.</p>
+ ['curation', 'Views, My file, reviews and the system file', `<p><b>Start with a question</b> (welcome screen, or Views): questions the tool answers well, each setting up the panels, filters and chart with the answers listed, and its own insight, written weekly by the agents, with numbers you can select and a Speak button. <b>Open insights automatically</b> (Display, on by default) opens chart and question insights by themselves; a closed one stays closed until you move on. After acknowledging, the welcome screen signposts the three ways in: Learn (the tours), Start here (questions) and Jump right in (the tool). <b>⧉ New window</b> on any chart opens a full chart window: all the tabs, filters, zoom, tooltips, side panel and insight, with its own chart, as many as you like; closing one removes it. A milestone selected in any chart window opens in the one Details panel and is highlighted in every linked chart window; <b>🔗 Linked</b> switches a window to keep its own highlight. Chart windows are saved with My views and My file, and <b>Compare</b> (a ready-made view) sets out two side by side with the AI Energy Vision Radar. <b>Help</b> is a panel like the others; its “How it works” button opens this documentation, and “At a glance” the infographics.</p>
   <p><b>The toolbar:</b> Tours, Play the century, Views, Present, Share and Help. Chips appear while music, rotation, full screen or the ticker is on; 📌 in Present pins any item.</p>
   <p><b>My file</b> (Views → Save my file / Open my file) holds your views, settings, review marks, notes, My list, pins and kiosk options. The app keeps nothing in the browser unless Autosave is on (Display): then it keeps a connected file updated (Chrome or Edge on a computer) or a copy in this browser, written at once when the page closes. The sign beside Views shows anything unsaved.</p>
   <p><b>My views</b> are named arrangements with their own panels, positions, chart tab, filters and display settings. ☆ opens one at start; ⤓ exports one to share; old saved view files join My views when opened.</p>
   <p><b>Reviews:</b> “Mark as reviewed” in the Data inspector hides an item from your list, saved in My file. Each review keeps a fingerprint of the record (title, years, status, dispute, second opinion, QA note); if the agents change any of these, the review lapses and the item returns.</p>
   <p><b>Admin tools</b> (Display): decisions for everyone (reviewed, clear the dispute, not a duplicate, retire, restore) build the system file, <code>curation.json</code>. Upload it to <code>data/</code>; the QA agent applies each decision once, records it in Data changes, and the app shows it to everyone. Published reviews lapse the same way; “not a duplicate” pairs are never flagged again.</p>`],
  ['settings', 'Current settings (live)', `<div id="docSettings"><p class="note-s">Loading the agents' settings from config.json…</p></div>`],
- ['history', 'Recent changes', `<ul class="doclist"><li><b>12.4</b> Speak becomes Stop while speaking, and Present has “Mute speech” for insights and walk-throughs together; QA replaces broken source links (only with a verified quote) and reclassifies in-lab records whose target falls inside the horizon; the AI levers and story agents ask once for a shorter answer rather than reject it; Gemini’s field names are understood; a release tag can no longer fail a run.</li>
+ ['history', 'Recent changes', `<ul class="doclist"><li><b>12.5</b> Chart windows replace the pop-outs: any number of full chart windows, each with every control, linked selection with a 🔗 switch per window, saved with your views; a Compare ready-made view; the window manager handles panels created and removed after start-up.</li>
+  <li><b>12.4</b> Speak becomes Stop while speaking, and Present has “Mute speech” for insights and walk-throughs together; QA replaces broken source links (only with a verified quote) and reclassifies in-lab records whose target falls inside the horizon; the AI levers and story agents ask once for a shorter answer rather than reject it; Gemini’s field names are understood; a release tag can no longer fail a run.</li>
   <li><b>12.3</b> Question insights (written weekly, read or spoken, with numbers you can select); insights open automatically, a setting in Display; the welcome screen’s signposts: Learn, Start here, Jump right in.</li>
   <li><b>12.2</b> Fixed: Pop out (and Insight) after “Run the tool”; chart controls are rebuilt only when they change, so clicks land while the century plays; a real-clicks test suite.</li>
   <li><b>12.1</b> Present and Share menus restyled; Help as a panel; the AI Energy Vision Radar; tours return to where they started, show chart details and keep panels hidden until placed; “row” pronounced; chart pop-outs; Start with a question; these documents reviewed; the at-a-glance infographics.</li>
@@ -9867,39 +9901,60 @@ function syncAdminUI(){ $('adminS').value = view.admin ? 'on' : 'off'; document.
 $('adminS').onchange = e => { view.admin = e.target.value === 'on'; markDirty(); syncAdminUI(); };
 syncAdminUI();
 /* ==================================================================
- *  CHART POP-OUTS: up to three charts in their own movable, resizable panels. Each follows your filters, redraws when
- *  resized, and opens a milestone's story when a row is selected. Which chart each shows is kept in your views.
+ *  CHART WINDOWS: any number of full chart windows, each a complete copy of Charts (tabs, filters, zoom, tooltips,
+ *  side panel, insight, save) with its own chart, local filters and zoom, following the main filters. A milestone
+ *  selected in a linked window is highlighted in every linked window; 🔗 unlinks one. Closing a chart window removes it.
+ *  They are saved with your views and My file. (Replaces the pop-outs, which were only pictures of a chart.)
  * ================================================================== */
-const POPS = [1, 2, 3];
-const popsOf = () => (view.chartPops = view.chartPops || {});   // created when needed: resetting to the defaults clears it
-function renderPop(n){
-  const id = 'chartpop' + n, box = $('chpop' + n); if (!layout[id] || !layout[id].open || !box) return;
-  const tab = popsOf()[n] || 'heat', sel = wins[id].querySelector('.chpopsel');
-  if (sel.options.length !== CHART_TABS.length) sel.innerHTML = CHART_TABS.map(([k, nm]) => `<option value="${k}">${nm}</option>`).join('');
-  sel.value = tab;
-  const name = (CHART_TABS.find(x => x[0] === tab) || [])[1] || 'Chart', h2 = wins[id].querySelector('.wh h2'); if (h2) h2.textContent = name;
-  const W = Math.max(260, box.clientWidth - 4), H = Math.max(180, box.clientHeight - 4), fs = Math.round(13 * (layout[id].fs || 1));
-  let svg = ''; try { svg = chartSvgString(tab, W, H, fs); } catch (e) { svg = ''; }
-  box.innerHTML = svg || '<p class="note-s">This chart has nothing to show for the current filters.</p>';
-  box.dataset.sig = popSig() + '|' + W + 'x' + H + '|' + fs + '|' + tab;
+const CHART_TEMPLATE = '<div class="wbody" id="chartBody"><div class="ctabs" id="chartTabs" role="tablist"></div><div class="cctl" id="chartCtl"></div><div class="cmain" id="chartMain"><div class="csvg" id="chartSvg"></div><div class="ccallout" id="chartCallout" role="dialog" aria-label="Chart insight"></div><aside class="cside" id="chartSide" aria-live="polite"></aside></div><div class="clist" id="chartList"></div><div class="cfoot"><button class="mini" id="chartPng">Save image</button> <button class="mini" id="chartCsv">CSV</button> <span id="chartNote" class="note-s"></span></div></div>';
+const CH_INIT = JSON.parse(JSON.stringify(CH));
+const CH_COPY_KEYS = ['tab', 'q', 'field', 'origin', 'dvOnly', 'zoom', 'zoom2', 'gapSort', 'gapColour', 'heatBy', 'aiLog', 'aiMode', 'aiLabels', 'secSort', 'wiScen', 'wiOff', 'linked'];
+let chartWinSeq = 0;
+const insightGroup = () => (WIN_GROUPS.find(g => g[0] === 'insight') || [0, 0, []])[2];
+function chartWindowRect(){ const W = innerWidth, H = innerHeight, n = Object.keys(CHI.roots).length % 6; return {x:Math.round(W * .1) + 32 * n, y:84 + 32 * n, w:Math.min(1000, Math.round(W * .6)), h:Math.min(720, Math.round(H * .7)), fs:1}; }
+function chartStateOf(k){ const st = k === CHI.cur ? CH : (CHI.states[k] || {}); const o = {}; CH_COPY_KEYS.forEach(x => { if (st[x] !== undefined) o[x] = st[x]; }); return JSON.parse(JSON.stringify(o)); }
+function createChartWindow(state, rect, id){
+  const k = id || 'chartw' + (++chartWinSeq); if (id) chartWinSeq = Math.max(chartWinSeq, +String(id).replace('chartw', '') || 0);
+  if (CHI.roots[k]) return k;
+  const name = 'Charts ' + (Object.keys(CHI.roots).length + 2), sec = document.createElement('section');
+  sec.className = 'win'; sec.id = 'w-' + k; sec.dataset.title = name; sec.innerHTML = CHART_TEMPLATE.replace(/id="([^"]+)"/g, `id="$1~${k}"`);
+  $('w-charts').after(sec);
+  CHI.roots[k] = sec; CHI.states[k] = Object.assign(JSON.parse(JSON.stringify(CH_INIT)), {panel:null, sel:null, box:null, fortYear:null, fortTimer:0, insightOn:view.autoInsight !== false, linked:true, _tabsHtml:''}, JSON.parse(JSON.stringify(state || {})));
+  WIN_IDS.push(k); WIN_NAMES[k] = name; insightGroup().push(k);
+  layout[k] = Object.assign({open:false, sw:innerWidth, sh:innerHeight}, chartWindowRect(), rect || {}, {open:false});
+  initWin(k); bindChartWindow(k); observeChartSize(k);
+  if (!rect || rect.open !== false) { setOpen(k, true); raise(k); }
+  setTimeout(() => withChart(k, renderCharts), 60); if (typeof buildWinMenu === 'function') buildWinMenu();
+  return k;
 }
-function popSig(){ return [F.fields && [...F.fields].join(), F.q, view.dateFmt, items.length, DB.meta.revision, JSON.stringify([...(F.sources || [])]), selected ? selected.id : ''].join('|'); }
-function popOut(tab){
-  const n = POPS.find(k => !layout['chartpop' + k].open) || POPS[0];
-  popsOf()[n] = tab || CH.tab; setOpen('chartpop' + n, true); raise('chartpop' + n); setTimeout(() => renderPop(n), 60);
-  toast('Opened in its own panel. Up to three charts can be popped out.');
+function destroyChartWindow(k){
+  if (!CHI.roots[k]) return; if (CHI.cur === k) useChart('main');
+  const st = CHI.states[k] || {}; clearInterval(st.fortTimer);
+  [WIN_IDS, insightGroup()].forEach(list => { const i = list.indexOf(k); if (i >= 0) list.splice(i, 1); });
+  if (winRO) winRO.unobserve(CHI.roots[k]);
+  CHI.roots[k].remove(); delete CHI.roots[k]; delete CHI.states[k]; delete WIN_NAMES[k]; delete layout[k]; delete wins[k];
+  if (typeof buildWinMenu === 'function') buildWinMenu();
 }
-$('chartBody').addEventListener('click', e => { if (e.target.id === 'chPopOut') popOut(CH.tab); });
-POPS.forEach(n => {
-  const w = wins['chartpop' + n];
-  w.querySelector('.chpopsel').onchange = e => { popsOf()[n] = e.target.value; renderPop(n); };
-  w.querySelector('.chpopback').onclick = () => { CH.tab = popsOf()[n] || 'heat'; setOpen('charts', true); raise('charts'); renderCharts(); };
-  w.querySelector('.chpopsvg').addEventListener('click', e => { const r = e.target.closest('[data-id]'); if (!r) return; const it = items.find(x => String(x.id) === r.dataset.id); if (it) { openDetail(it); setOpen('details', true); raise('details'); } });
-  if (window.ResizeObserver) new ResizeObserver(() => { clearTimeout(w._rt); w._rt = setTimeout(() => renderPop(n), 120); }).observe(w.querySelector('.chpopsvg'));
+function destroyAllChartWindows(){ Object.keys(CHI.roots).forEach(destroyChartWindow); }
+/* one selection, highlighted in every linked window (Details is shared by all) */
+function linkSelection(id, from){
+  ['main', ...Object.keys(CHI.roots)].forEach(k => { if (k === from) return; const st = k === CHI.cur ? CH : CHI.states[k]; if (!st || st.linked === false) return;
+    st.sel = id; const L = layout[chartWinId(k)]; if (L && L.open) setTimeout(() => withChart(k, renderCharts), 0); });
+}
+onChartBody('click', e => {
+  if (e.target.id === 'chNewWin') { createChartWindow(chartStateOf(CHI.cur)); toast('A new chart window, with all its controls. Close it to remove it.'); }
+  else if (e.target.id === 'chLink') { CH.linked = CH.linked === false; renderCharts(); toast(CH.linked ? 'Linked: this window highlights the milestone selected in other linked windows.' : 'Unlinked: this window keeps its own highlighted milestone.'); }
 });
-/* redraw when the filters, the data or the text size change */
-setInterval(() => POPS.forEach(n => { const id = 'chartpop' + n; if (!layout[id] || !layout[id].open) return; const b = $('chpop' + n), fs = Math.round(13 * (layout[id].fs || 1));
-  if (!b.dataset.sig || !b.dataset.sig.startsWith(popSig() + '|') || !b.dataset.sig.includes('|' + fs + '|')) renderPop(n); }), 1200);
+/* the Compare view: two chart windows side by side, with the AI Energy Vision Radar */
+function applyCompare(){
+  destroyAllChartWindows(); applyPreset('charts');
+  const W = innerWidth, H = innerHeight, tb = wins.toolbar.getBoundingClientRect(), top = Math.round((layout.toolbar.open ? tb.bottom : 0) + 10), h = Math.round(H - top - 46);
+  Object.assign(layout.charts, {x:8, y:top, w:Math.round(W * .37), h, sw:W, sh:H}); placeWin('charts'); setOpen('details', false);
+  Object.assign(CH, {tab:'heat', panel:null}); renderCharts();
+  createChartWindow({tab:'pipe'}, {x:Math.round(W * .37) + 14, y:top, w:Math.round(W * .37), h, fs:1});
+  setOpen('radar', true); Object.assign(layout.radar, {x:Math.round(W * .74) + 20, y:top, w:Math.round(W * .26) - 28, h, sw:W, sh:H}); placeWin('radar'); raise('radar');
+  view.preset = 'compare';
+}
 /* ==================================================================
  *  START WITH A QUESTION: the questions the tool answers well, each with a ready view and a list of the answers.
  * ================================================================== */
@@ -10083,7 +10138,7 @@ function snapshot(name){
     camera:{pos:camera.position.toArray(), target:controls.target.toArray()}, autoRotate:state.autoRotate, musicVolume:mus.vol,
     music:{volume:mus.vol, track:mus.track}, playSpeed, loopPlay:!!view.loopPlay, visionExpanded:[...visOpen],
     playState:{playing:state.playing, cursor:state.cursor, paused}, cleanMode:document.body.classList.contains('clean'),
-    charts:chartState(), scroll:scrollState(),
+    charts:chartState(), scroll:scrollState(), chartWindows:Object.keys(CHI.roots).map(k => ({id:k, state:chartStateOf(k)})),
     zOrder:WIN_IDS.slice().sort((a, b) => (+wins[a].style.zIndex || 0) - (+wins[b].style.zIndex || 0)),
     videos:Object.fromEntries(['vid1','vid2'].map(id => [id, {muted:$(id).muted, volume:$(id).volume}])),
     audience:audSnapshot(), customFields:FKEYS.filter(k => FIELDS[k].custom).map(k => FIELDS[k].name),
@@ -10119,6 +10174,10 @@ function syncDisplayUI(){
   applyLanes(false); applyColours(); $('floorT').dispatchEvent(new Event('change'));
 }
 function applyView(o){
+  /* chart windows first, so their positions apply below; old pop-outs open as chart windows */
+  destroyAllChartWindows();
+  (o.chartWindows || []).forEach(w => createChartWindow(w.state, Object.assign({}, (o.layout || {})[w.id] || {}), w.id));
+  const pops = (o.view && o.view.chartPops) || {}; Object.entries(pops).forEach(([n, tab]) => { const L = (o.layout || {})['chartpop' + n]; if (L && L.open) createChartWindow({tab}, {x:L.x, y:L.y, w:L.w, h:L.h, fs:L.fs || 1}); });
   if (!o || o.app !== 'the-shrinking-gap') { alert('That file is not a saved view from this app.'); return; }
   const d = defaultLayout(), fit = view.fitOnLoad !== false;   // the current user's setting, not the file's
   const sw = (o.screen && o.screen.w) || innerWidth, sh = (o.screen && o.screen.h) || innerHeight;
