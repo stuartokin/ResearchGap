@@ -1,0 +1,15 @@
+{
+ "built": "01 Nov 2026, 23:08 UTC",
+ "features": [
+  {
+   "id": "ai-by-readiness",
+   "title": "AI by readiness",
+   "description": "A chart of clean energy technologies at each stage of readiness, showing how many are AI-driven, with an insight comparing research and scale.",
+   "added": "2026-11-02",
+   "updated": null
+  }
+ ],
+ "report": [
+  "included ai-by-readiness"
+ ]
+}
