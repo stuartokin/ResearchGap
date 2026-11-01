@@ -1,6 +1,6 @@
 {
- "version": 27,
- "updated": "2026-10-31",
+ "version": 28,
+ "updated": "2026-11-01",
  "updatedBy": "tour-agent",
  "note": "Narration templates for the guided tours. Figures come from {placeholders} filled from the live data; conclusions are chosen by rules in the app ({\"by\": fact, \"cases\": {...}}). The weekly tour agent may refine wording and choose examples, within the rules checked by tools/validate.py.",
  "tours": {
@@ -10,11 +10,11 @@
     "penicillin",
     "radar",
     "integrated-circuit",
-    "large-language-model-api"
+    "mrna-vaccines"
    ],
    "steps": {
     "intro": {
-     "say": "Each arc is one research breakthrough, coloured by where it began: a university, a government lab or industry. It runs from the start of research to the first product. Where mainstream use followed, a thinner arc continues to that date."
+     "say": "Each arc is one breakthrough, coloured by where the research began: a university, a government lab or industry. It runs from the start of research to the first product, and a thinner arc continues to mainstream use where that followed."
     },
     "example": {
      "say": {
@@ -72,7 +72,7 @@
      ]
     },
     "gapchart": {
-     "say": "The gap-over-time chart follows this decade by decade, then adds scenarios beyond today, including AI and digital twins."
+     "say": "This chart tracks the typical gap decade by decade, then sketches possible scenarios beyond today, including ones shaped by AI and digital twins."
     },
     "fields": {
      "say": [
@@ -137,7 +137,7 @@
    "title": "What AI-assisted products are on the horizon for the energy system?",
    "steps": {
     "intro": {
-     "say": "The government's AI for clean energy vision is split into distinct areas. Diamonds mark stories linked to those areas, and they play through from 1980 onwards."
+     "say": "The government's AI for clean energy vision is divided into several areas. Each diamond marks a story linked to one of those areas, and the stories play through in date order from 1980 onwards."
     },
     "radar": {
      "say": "The AI Energy Vision Radar shows how close each area's technologies are to everyday use: {nResearch} in research, {nPilot} in pilots, {nCommercial} in early commercial use and {nScale} widely used. {nGB} are already used in Great Britain."
@@ -161,7 +161,7 @@
      }
     },
     "changes": {
-     "say": "The Forecast drift chart tracks when each clean energy technology is expected to arrive. Each time the agents re-estimate, any shift in those dates shows up here, so you can see which forecasts are holding steady."
+     "say": "The Forecast drift chart shows when each clean energy technology is expected to arrive. Whenever the agents update an estimate, any change of date appears here, so you can see which forecasts are holding steady and which have moved."
     },
     "slide": {
      "say": "For a briefing, the PowerPoint report window creates a single-slide summary covering every area of the vision, ready to drop into a deck."
@@ -174,7 +174,7 @@
        "cases": {
         "busy": "A busy pipeline, and the radar shows which areas are closest to everyday use.",
         "steady": "A steady pipeline, and the radar shows which areas are moving towards everyday use.",
-        "quiet": "Little has appeared in the data so far, so keep an eye on the radar as the agents search each week."
+        "quiet": "Little has appeared in the data so far, so watch the radar as the agents carry on searching."
        }
       }
      ]
@@ -188,7 +188,7 @@
    "title": "Securing the future energy system",
    "steps": {
     "intro": {
-     "say": "New technology can give attackers more ways in. Together these are called the attack surface. The filter keeps the {attackPct} per cent of technologies here that widen it, from smart devices at the edge of the grid to AI agents."
+     "say": "New technology can give attackers more ways in, known together as the attack surface. This filter keeps the {attackPct} per cent of technologies here that widen it, from smart devices at the grid's edge to AI agents."
     },
     "lens": {
      "say": [
@@ -208,13 +208,13 @@
      "say": {
       "by": "gapCase",
       "cases": {
-       "some": "Gaps remain. Since 2010, some technologies have arrived with no security response yet recorded in their category. They are shown first. So far that applies to {gapCount}, including {gapTitle}.",
+       "some": "Gaps remain. Some technologies that arrived since 2010 still have no security response recorded in their category. They are shown first. So far there are {gapCount}, including {gapTitle}.",
        "none": "In this data, every technology that has arrived since 2010 has a security response recorded in its category."
       }
      }
     },
     "example": {
-     "say": "This story card names a risk and suggests ways to reduce it, mapped to recognised guidance: the National Cyber Security Centre's Cyber Assessment Framework (CAF), Ofgem's CAF Overlay, NIST, NERC CIP and IEC 62443."
+     "say": "This card names a risk and suggests ways to reduce it, linked to recognised guidance: the National Cyber Security Centre's Cyber Assessment Framework (CAF), Ofgem's CAF Overlay, and other widely used standards: NIST, NERC CIP and IEC 62443."
     },
     "guidance": {
      "say": {
@@ -282,7 +282,7 @@
      }
     },
     "uni": {
-     "say": "Now the filter shows university projects. {nUni} of them have not yet reached a product, so they could still become the next breakthroughs, and perhaps the next fortunes."
+     "say": "Now the filter shows university projects. Of these, {nUni} have not yet reached a product, so they could still become future breakthroughs, and perhaps future fortunes."
     },
     "table": {
      "say": "The Table lists every milestone. Sort by any column, such as the gap between milestones, and select a row to read its story."
@@ -293,16 +293,16 @@
       {
        "by": "speedCase",
        "cases": {
-        "faster": "the journey is getting faster.",
-        "slower": "the journey is getting slower.",
-        "similar": "the journey takes about as long as ever.",
-        "unclear": "it is too early to say whether the journey is getting faster or slower."
+        "faster": "the journey from founding a company to a fortune is getting shorter.",
+        "slower": "the journey from founding a company to a fortune is getting longer.",
+        "similar": "the journey from founding a company to a fortune takes about as long as ever.",
+        "unclear": "it is too early to say whether the journey from founding a company to a fortune is getting shorter or longer."
        }
       }
      ]
     },
     "fortchart": {
-     "say": "Play the race through time. Each bubble is a fortune, sized by net worth. Gold rings mark founders whose companies grew out of research: {fortResearch} of {fortCount}."
+     "say": "Watch the race unfold through time. Each bubble is a fortune, sized by net worth. Gold rings mark founders whose companies grew out of research: {fortResearch} of {fortCount}."
     }
    }
   },
@@ -327,8 +327,8 @@
       {
        "by": "fcCase",
        "cases": {
-        "scored": "Once a forecast's outcome is known, it is scored against what actually happened. Forecasts scored so far: {fcResolved}.",
-        "none": "Each forecast is recorded now and will be scored against what actually happens once the outcome is known."
+        "scored": "When a forecast's outcome becomes known, it is scored against what really happened; {fcResolved} have been scored so far.",
+        "none": "Each forecast is recorded now and will be scored against what really happens once the outcome is known."
        }
       }
      ]
@@ -337,13 +337,13 @@
      "say": "Every record is labelled to show how it was produced and checked: source-cited, AI-compiled or AI estimate. You can filter records by these labels."
     },
     "arrange": {
-     "say": "Choose a ready-made view to lay out the panels for exploring, presenting, analysing or an AI for clean energy briefing, or save your own as My views. Your file keeps them, and any view can be shared as a link."
+     "say": "Pick a ready-made view to arrange the panels for exploring, presenting, analysing or an AI for clean energy briefing. You can also save your own layouts under My views and share any view with others."
     },
     "answer": {
      "say": "The toolbar has Help and the 'i' information buttons, which explain each feature. AI maintains this model, so it may contain errors. Check anything important against the original sources."
     },
     "whatifchart": {
-     "say": "The What if? chart gives estimates, not predictions, of how much sooner expected technologies could arrive if AI sped up steps such as discovery, simulation and approvals. An agent researches these possible speed-ups every week."
+     "say": "The What if? chart shows rough estimates, not firm predictions, of how much sooner expected technologies might arrive if AI speeds up steps such as discovery, simulation and approvals. An agent updates the research behind these every week."
     }
    }
   },
@@ -369,7 +369,7 @@
       {
        "by": "improvedCase",
        "cases": {
-        "yes": "{improvedField} improved most: from {improvedFrom} years in the 1990s to {improvedTo} in the 2010s.",
+        "yes": "{improvedField} sped up the most, from about {improvedFrom} years in the 1990s to {improvedTo} in the 2010s.",
         "no": "No field has clearly sped up between the 1990s and the 2010s."
        }
       },
@@ -387,9 +387,9 @@
       {
        "by": "aiCase",
        "cases": {
-        "faster": "Among research-led milestones since 2010, AI-driven work has typically reached a product faster: about {aiMed} years, against {restMed} years for everything else. That rests on {aiCount} AI-driven milestones, so treat it with caution.",
-        "similar": "Among research-led milestones since 2010, AI-driven work has typically taken about as long to reach a product as the rest: {aiMed} years against {restMed}.",
-        "slower": "Among research-led milestones since 2010, AI-driven work has typically taken longer to reach a product: {aiMed} years against {restMed}.",
+        "faster": "Among research-led milestones since 2010, AI-driven work has typically reached a product faster: about {aiMed} years, against {restMed} years for everything else. This is based on {aiCount} AI-driven milestones, so treat it with caution.",
+        "similar": "Among research-led milestones since 2010, AI-driven work has typically taken about as long to reach a product as the rest: {aiMed} years against {restMed}. This is based on {aiCount} AI-driven milestones, so treat it with caution.",
+        "slower": "Among research-led milestones since 2010, AI-driven work has typically taken longer to reach a product: {aiMed} years against {restMed}. This is based on {aiCount} AI-driven milestones, so treat it with caution.",
         "unclear": "There are not yet enough AI-driven milestones to compare."
        }
       },
@@ -439,7 +439,7 @@
       {
        "by": "secCase",
        "cases": {
-        "open": "{secOpen} still have no security response in their category.",
+        "open": "Technologies still waiting for a security response in their category: {secOpen}.",
         "closed": "Every technology here now has a security response in its category."
        }
       },
@@ -516,7 +516,7 @@
      "say": "This is the Gap explorer. Use the tabs at the top to switch charts; your filters carry across all of them. Select a milestone to open its story, and the What if? model moves to that same point."
     },
     "gapsort": {
-     "say": "In the Gap explorer you can sort and colour the bars. Drag across the chart to zoom into years; double-click to reset."
+     "say": "Here the Gap explorer is sorted and zoomed in. You can sort and colour the bars in different ways. Drag across the chart to zoom into a span of years, and double-click to reset the view."
     },
     "filter": {
      "say": "The filter bar narrows any chart by search, field or origin. Here it is set to energy only. With fewer items, the rows grow larger and the years zoom in automatically."
@@ -534,7 +534,7 @@
      "say": "In Forecast drift, the bars count expected arrivals by year. Select a bar to list them; trails show any slips as forecasts are revised."
     },
     "sec": {
-     "say": "Security lag can be sorted by arrival, longest wait, or open gaps first. Rows in red still have no security response."
+     "say": "Security lag shows how long each milestone waited for a security response. Here open gaps come first, but you can also sort by arrival or by longest wait. Rows in red still have no security response."
     },
     "fort": {
      "say": "Press play to watch the race to a fortune unfold over time, or select a bubble to read that company's story."
@@ -543,13 +543,13 @@
      "say": "What if? shows how arrival dates could shift when practical AI levers are applied. The ambitious scenario is on screen. Switch scenario or adjust the levers, then select a row to see the reasoning and any research behind it."
     },
     "insight": {
-     "say": "Finally, the Insight button gives this week's analysis of each chart, with subtitles and speech. Select any number to see what lies behind it. You can also save any chart as an image or CSV."
+     "say": "Finally, back on the heatmap, the Insight callout sums up the latest analysis of the chart, with subtitles and speech. Select any number in it to see what lies behind it. You can also save any chart as an image or CSV."
     }
    }
   },
   "cleanweek": {
    "title": "AI for clean energy analysis",
-   "updated": "2026-10-31T22:35Z",
+   "updated": "2026-11-01T00:54Z",
    "steps": {
     "intro": {
      "say": [
@@ -565,27 +565,19 @@
     },
     "c1": {
      "view": "findings",
-     "say": "Does AI speed things up? Since 2010, the {aiCount} AI-driven milestones took a median of {aiMed} years to land, against {restMed} for the rest. The group is small and the evidence is mixed, so treat this as a hint, not proof."
+     "say": "Does AI help clean energy arrive faster? Recently, the {aiCount} AI-driven milestones took a median of {aiMed} years to land, compared with {restMed} for everything else. The group is small and the evidence is mixed, so treat this as a hint, not proof."
     },
     "c2": {
-     "view": "main",
-     "say": "Journeys vary hugely. {longestTitle} took {longestYears} years, while {quickRecentTitle} arrived in {quickRecentYears}. No researched stories are ready to retell this week, so explore any arc to follow a technology from lab to first use."
+     "view": "pipe",
+     "say": "Where do things stand? Of {pipeTotal} clean energy technologies tracked, {pipeResearch} are in research, {pipePilot} in pilot, {pipeCommercial} commercial and {pipeScale} at scale. {pipeGB} are under way in Great Britain. Many of this week's additions are still being checked, and a second review disputed some."
     },
     "c3": {
-     "view": "radar",
-     "say": "One shift on the AI for clean energy radar: AI assurance for energy, the work of checking that AI tools can be trusted on the grid, moved from research to pilot."
+     "view": "sec",
+     "say": "Trust matters because security tends to lag behind. Protections have typically trailed deployment by about {secMedian} years, and {secOpen} cases are still open. More guidance updates, mapped to official standards, were logged this week, but the lag has not closed yet."
     },
     "c4": {
-     "view": "sec",
-     "say": "Security has typically trailed deployment by about {secMedian} years. The longest wait was {secLongestTitle}, at {secLongestYears} years. Guidance updates were logged again this week, but that gap is still where the risk sits."
-    },
-    "c5": {
      "view": "drift",
-     "say": "Can we trust forecasts? We track {driftCount} of them. Expectations were revised {driftRevised} times and {driftSlipped} slipped. Arrival dates for clean energy technologies are best read as estimates."
-    },
-    "c6": {
-     "view": "whatif",
-     "say": "What if AI levers were pulled harder? In this scenario, {wiTopLever} matters most, moving the outcome from {wi2030Now} to {wi2030AI}. It is a model, not a forecast, and levers are researched for only some technologies."
+     "say": "Finally, take dates with caution. Of the {driftCount} forecasts we track, expectations were revised {driftRevised} times and {driftSlipped} slipped. Arrival dates for clean energy technologies are best read as estimates, not promises."
     }
    }
   }

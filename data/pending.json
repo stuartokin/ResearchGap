@@ -56,68 +56,7 @@
    "Прорыв"
   ],
   "proposed": "2026-10-31",
-  "attempts": 2,
-  "foundBy": "deep-search"
- },
- {
-  "id": "first-commercial-natural-geologic-hydrogen-production",
-  "field": "energy",
-  "origin": "industry",
-  "status": "outlook",
-  "title": "First commercial natural (geologic) hydrogen production",
-  "research": {
-   "year": 2012,
-   "what": "Exploiting hydrogen that forms naturally underground and collects in reservoirs, rather than manufacturing it, following the first known commercial use in Mali. Origin: Bourakébougou well in Mali, the first known commercial use of naturally occurring hydrogen (drilled c. 2012, as described in the Oxford Institute for Energy Studies paper and the EFI Foundation report)."
-  },
-  "change": {
-   "year": 2028,
-   "what": "French developer FDE targets independent resource certification in 2027 and first commercial production in late 2028 in Lorraine, subject to permits; Mantle8 also aims to make natural hydrogen a reality by 2028."
-  },
-  "confidence": "medium",
-  "note": "Targets are company projections; commentators note that no engineered or natural subsurface hydrogen project has yet reached commercial production at scale.",
-  "refs": [
-   {
-    "label": "Geologic Hydrogen (FDE Lorraine milestones 2026–2028)",
-    "url": "https://geologic-hydrogen.com/",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "Mantle8 company site",
-    "url": "https://mantle8.com/",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "Oxford Institute for Energy Studies ET38: Natural (geologic) hydrogen and its potential role in a net-zero carbon future",
-    "url": "https://www.oxfordenergy.org/wpcms/wp-content/uploads/2024/09/ET38-Natural-geologic-hydrogen-and-its-potential-role-in-a-net-zero-carbon-future.pdf",
-    "status": "ok",
-    "checked": "2026-10-31"
-   }
-  ],
-  "subfield": "grids",
-  "region": "global",
-  "readiness": {
-   "stage": "pilot",
-   "basis": "ai-estimate"
-  },
-  "gb": {
-   "status": "not-yet",
-   "basis": "ai-estimate"
-  },
-  "forecast": {
-   "estimatedYear": 2028,
-   "estimatedOn": "2026-10-31",
-   "revisions": []
-  },
-  "evidence_terms": [
-   "first commercial production",
-   "late 2028",
-   "Mantle8",
-   "Bourakébougou"
-  ],
-  "proposed": "2026-10-31",
-  "attempts": 2,
+  "attempts": 3,
   "foundBy": "deep-search"
  },
  {
@@ -178,236 +117,7 @@
    "2027年12月"
   ],
   "proposed": "2026-10-31",
-  "attempts": 2,
-  "foundBy": "deep-search"
- },
- {
-  "id": "first-phone-npu-huawei-kirin-970-cambricon-ip",
-  "field": "hw",
-  "origin": "industry",
-  "status": "landed",
-  "title": "First phone NPU: Huawei Kirin 970 (Cambricon IP)",
-  "research": {
-   "year": 2013,
-   "what": "A Chinese Academy of Sciences team built a dedicated deep-learning processor architecture, which won a top architecture-conference best paper award. Origin: Cambricon / CAS Institute of Computing Technology deep-learning processor (2013 work, ASPLOS best paper)"
-  },
-  "change": {
-   "year": 2017,
-   "what": "Huawei launched the Kirin 970 phone chip with a dedicated neural processing unit built on Cambricon IP, and shipped it at scale in the Mate 10."
-  },
-  "confidence": "high",
-  "note": "It put a dedicated neural accelerator into a mass-market phone SoC and started on-device AI as a standard phone chip block.",
-  "flags": {
-   "aiDriven": true
-  },
-  "refs": [
-   {
-    "label": "PingWest: how the Kirin 970 phone AI chip came about",
-    "url": "https://www.pingwest.com/a/131989",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "ScienceNet: Can China lead the AI chip ecosystem",
-    "url": "https://news.sciencenet.cn/htmlnews/2017/9/387372.shtm",
-    "status": "ok",
-    "checked": "2026-10-31"
-   }
-  ],
-  "subfield": "chips",
-  "region": "asia",
-  "readiness": {
-   "stage": "scale",
-   "basis": "ai-estimate"
-  },
-  "security": {
-   "expandsAttackSurface": false,
-   "note": "Local neural processing moves sensitive data handling and models onto handsets, creating new on-device model and firmware attack targets.",
-   "basis": "ai-compiled"
-  },
-  "evidence_terms": [
-   "麒麟970",
-   "寒武纪",
-   "NPU"
-  ],
-  "proposed": "2026-10-31",
-  "attempts": 2,
-  "foundBy": "deep-search"
- },
- {
-  "id": "wasi-1-0-and-component-model-1-0-stable-standards",
-  "field": "sw",
-  "origin": "industry",
-  "status": "outlook",
-  "title": "WASI 1.0 and Component Model 1.0 stable standards",
-  "research": {
-   "year": 2019,
-   "what": "WASI defines a standard system interface for WebAssembly outside the browser. The Component Model adds language-neutral interfaces so modules written in different languages can be composed. Origin: The WASI system interface for WebAssembly, first published as 'preview1' in about 2019. It became WASI 0.2 with the Component Model in January 2024 and WASI 0.3 with native async in June 2026, under the Bytecode Alliance and the W3C WebAssembly WASI subgroup."
-  },
-  "change": {
-   "year": 2027,
-   "what": "The WASI roadmap plans two-monthly 0.3.x releases through 2027, and WASI 1.0 may be scheduled outside that cycle. Other coverage expects 1.0 in late 2026 or early 2027. 1.0 depends on the Component Model reaching 1.0 first."
-  },
-  "confidence": "medium",
-  "note": "A 1.0 release would give a stable, portable server-side and edge runtime interface with compatibility guarantees. No firm 1.0 date has been published.",
-  "refs": [
-   {
-    "label": "WASI.dev Roadmap (release schedule through 2027)",
-    "url": "https://wasi.dev/roadmap",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "Uno Platform: The State of WebAssembly 2025 and 2026",
-    "url": "https://platform.uno/blog/the-state-of-webassembly-2025-2026/",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "Bytecode Alliance: The Road to Component Model 1.0 (draft blog PR, Apr 2026)",
-    "url": "https://github.com/bytecodealliance/bytecodealliance.org/pull/147/files",
-    "status": "ok",
-    "checked": "2026-10-31"
-   }
-  ],
-  "subfield": "apps",
-  "region": "global",
-  "readiness": {
-   "stage": "commercial",
-   "basis": "ai-estimate"
-  },
-  "security": {
-   "expandsAttackSurface": false,
-   "note": "Capability-based, sandboxed components could reduce supply-chain risk, but a wider ecosystem of third-party components also adds packaging and dependency risk.",
-   "basis": "ai-compiled"
-  },
-  "forecast": {
-   "estimatedYear": 2027,
-   "estimatedOn": "2026-10-31",
-   "revisions": []
-  },
-  "evidence_terms": [
-   "WASI 1.0",
-   "Component Model",
-   "WASI 0.3",
-   "Roadmap"
-  ],
-  "proposed": "2026-10-31",
-  "attempts": 2,
-  "foundBy": "deep-search"
- },
- {
-  "id": "koreas-independent-ai-foundation-model-programme-ai",
-  "field": "sw",
-  "origin": "government",
-  "status": "outlook",
-  "title": "Korea's Independent AI Foundation Model programme (독자 AI 파운데이션 모델)",
-  "research": {
-   "year": 2025,
-   "what": "Korea's science ministry funds competing elite teams (Naver, Upstage, SK Telecom, NC AI, LG AI Research) to build foundation models designed and trained wholly in Korea, with GPUs, data and talent support. Origin: MSIT 'Independent AI Foundation Model' project, announced 20 June 2025 (formerly called World Best LLM)"
-  },
-  "change": {
-   "year": 2027,
-   "what": "The programme runs in six-month competitive evaluation rounds through 2027. It targets about 95% of the performance of leading global models, with open-source release to spread them into public and commercial services."
-  },
-  "confidence": "medium",
-  "note": "It is a state-backed route to nationally owned LLMs deployed in public and commercial services, with staged milestones through 2027.",
-  "flags": {
-   "aiDriven": true
-  },
-  "refs": [
-   {
-    "label": "전자신문 – [ICT 시사용어] 독자 AI 파운데이션 모델",
-    "url": "https://www.etnews.com/20250729000217",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "정책브리핑 – 독자 AI 파운데이션 모델 프로젝트 1차 단계 평가 결과",
-    "url": "https://www.korea.kr/briefing/policyBriefingView.do?newsId=156740468",
-    "status": "ok",
-    "checked": "2026-10-31"
-   }
-  ],
-  "subfield": "apps",
-  "region": "asia",
-  "readiness": {
-   "stage": "pilot",
-   "basis": "ai-estimate"
-  },
-  "security": {
-   "expandsAttackSurface": false,
-   "note": "Fully domestic model stacks reduce supply-chain dependence but make the models a concentrated target for tampering and misuse.",
-   "basis": "ai-compiled"
-  },
-  "forecast": {
-   "estimatedYear": 2027,
-   "estimatedOn": "2026-10-31",
-   "revisions": []
-  },
-  "evidence_terms": [
-   "독자 AI 파운데이션 모델",
-   "정예팀",
-   "2027년"
-  ],
-  "proposed": "2026-10-31",
-  "attempts": 2,
-  "foundBy": "deep-search"
- },
- {
-  "id": "spinq-gemini-desktop-nmr-quantum-computer",
-  "field": "quantum",
-  "origin": "academic",
-  "status": "landed",
-  "title": "SpinQ Gemini desktop NMR quantum computer (双子座)",
-  "research": {
-   "year": 2017,
-   "what": "Room-temperature nuclear-magnetic-resonance quantum computing in a spin-qubit lab at Shenzhen was turned into a small permanent-magnet two-qubit machine for teaching. Origin: Spin Quantum Computing Laboratory, founded Sept 2017 at SUSTech / Shenzhen Institute for Quantum Science and Engineering / Peng Cheng Laboratory (NMR and ODMR platforms)"
-  },
-  "change": {
-   "year": 2020,
-   "what": "Shenzhen SpinQ (量旋科技) launched Gemini in January 2020, billed as the first commercially available desktop quantum computer, and sold it to universities."
-  },
-  "confidence": "high",
-  "note": "It put a real, maintenance-free quantum processor into classrooms at a price universities could afford, opening a quantum-education hardware market.",
-  "refs": [
-   {
-    "label": "阿里云创新中心：量旋科技再获千万融资 (Chinese)",
-    "url": "https://startup.aliyun.com/info/107699.html",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "arXiv: SpinQ Gemini: a desktop quantum computer for education and research",
-    "url": "https://arxiv.org/abs/2101.10017",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "The Quantum Insider: Scientists Fire Up a Commercially Available Desktop Quantum Computer",
-    "url": "https://thequantuminsider.com/2020/01/29/scientists-fire-up-a-commercially-available-desktop-quantum-computer/",
-    "status": "ok",
-    "checked": "2026-10-31"
-   }
-  ],
-  "subfield": "devices",
-  "region": "asia",
-  "readiness": {
-   "stage": "commercial",
-   "basis": "ai-estimate"
-  },
-  "security": {
-   "expandsAttackSurface": false,
-   "note": "It is an educational device with little direct security impact. It does widen the pool of people trained in quantum computing.",
-   "basis": "ai-compiled"
-  },
-  "evidence_terms": [
-   "量旋科技",
-   "双子座",
-   "SpinQ Gemini"
-  ],
-  "proposed": "2026-10-31",
-  "attempts": 2,
+  "attempts": 3,
   "foundBy": "deep-search"
  },
  {
@@ -456,7 +166,7 @@
    "LG유플러스"
   ],
   "proposed": "2026-10-31",
-  "attempts": 2,
+  "attempts": 3,
   "foundBy": "deep-search"
  },
  {
@@ -518,7 +228,7 @@
    "6G"
   ],
   "proposed": "2026-10-31",
-  "attempts": 2,
+  "attempts": 3,
   "foundBy": "deep-search"
  },
  {
@@ -569,170 +279,7 @@
    "couronne solaire"
   ],
   "proposed": "2026-10-31",
-  "attempts": 2,
-  "foundBy": "deep-search"
- },
- {
-  "id": "fission-surface-power-nuclear-reactor-on-the-moon-by-2030",
-  "field": "space",
-  "origin": "government",
-  "status": "outlook",
-  "title": "Fission Surface Power: nuclear reactor on the Moon by 2030",
-  "research": {
-   "year": 2018,
-   "what": "NASA and the US Department of Energy have developed small space fission reactors, including the Fission Surface Power project begun in 2018, to supply continuous power through the two-week lunar night. Origin: NASA's Fission Surface Power Project (from 2018), which led to three 40 kW design contracts in 2022 and the 2025 NASA–DOE agreement."
-  },
-  "change": {
-   "year": 2030,
-   "what": "NASA and DOE aim to have a lunar surface fission reactor, now with a target of at least 100 kW, ready for launch by 2030. A separate US directive also asks for a reactor that powers a spacecraft's electric thrusters."
-  },
-  "confidence": "medium",
-  "note": "Continuous power is needed for long-term lunar bases and for extracting resources. The schedule has been accelerated and carries technical and fuelling risk.",
-  "refs": [
-   {
-    "label": "US Department of Energy: DOE and NASA to Develop Lunar Surface Reactor by 2030",
-    "url": "https://www.energy.gov/node/4855740",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "Aviation Week: NASA Aims To Launch Lunar Fission Reactor By 2030",
-    "url": "https://aviationweek.com/space/budget-policy-regulation/nasa-aims-launch-lunar-fission-reactor-2030",
-    "status": "ok",
-    "checked": "2026-10-31"
-   }
-  ],
-  "subfield": "launch",
-  "region": "us",
-  "readiness": {
-   "stage": "pilot",
-   "basis": "ai-estimate"
-  },
-  "forecast": {
-   "estimatedYear": 2030,
-   "estimatedOn": "2026-10-31",
-   "revisions": []
-  },
-  "evidence_terms": [
-   "fission surface power",
-   "lunar surface reactor",
-   "2030",
-   "NASA"
-  ],
-  "proposed": "2026-10-31",
-  "attempts": 2,
-  "foundBy": "deep-search"
- },
- {
-  "id": "naver-1784-cloud-brained-brainless-robots-at-work",
-  "field": "robotics",
-  "origin": "industry",
-  "status": "landed",
-  "title": "NAVER 1784: cloud-brained 'brainless' robots at work",
-  "research": {
-   "year": 2019,
-   "what": "NAVER LABS developed a cloud-based multi-robot intelligence system (ARC: AI, Robot, Cloud) in which robots carry no onboard 'brain' and are controlled over low-latency 5G. Origin: NAVER LABS ARC (AI·Robot·Cloud) brainless-robot / 5G cloud control research, around 2019 (year approximate, not stated in the cited pages)"
-  },
-  "change": {
-   "year": 2022,
-   "what": "In 2022 NAVER opened its robot-friendly 1784 headquarters, where about 100 'Rookie' brainless robots deliver parcels, lunch boxes and coffee, using a robot-only elevator and a private 5G network."
-  },
-  "confidence": "medium",
-  "note": "First large-scale building where a cloud 'brain' runs roughly a hundred service robots in daily office work, later offered as a commercial robot-cloud service.",
-  "flags": {
-   "aiDriven": true
-  },
-  "refs": [
-   {
-    "label": "전자신문 (etnews) – 네이버 1784, 거대한 로봇 실험장 (2022)",
-    "url": "https://www.etnews.com/20220414000243",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "서울경제 (sedaily) – [2022 한국건축문화대상] 네이버 1784",
-    "url": "https://www.sedaily.com/article/13509205",
-    "status": "ok",
-    "checked": "2026-10-31"
-   }
-  ],
-  "subfield": "industrial",
-  "region": "asia",
-  "readiness": {
-   "stage": "commercial",
-   "basis": "ai-estimate"
-  },
-  "security": {
-   "expandsAttackSurface": true,
-   "note": "Moving robot control into the cloud over 5G means a compromise of the cloud or network could take over a whole fleet and connected building systems such as lifts and doors.",
-   "basis": "ai-compiled"
-  },
-  "evidence_terms": [
-   "브레인리스",
-   "아크",
-   "ARC",
-   "루키",
-   "1784"
-  ],
-  "proposed": "2026-10-31",
-  "attempts": 2,
-  "foundBy": "deep-search"
- },
- {
-  "id": "baloxavir-xofluza-single-dose-cap-endonuclease-flu-drug",
-  "field": "life",
-  "origin": "industry",
-  "status": "landed",
-  "title": "Baloxavir (Xofluza): single-dose cap-endonuclease flu drug",
-  "research": {
-   "year": 2015,
-   "what": "Shionogi created an influenza antiviral that blocks the virus's cap-dependent endonuclease, a different mechanism from neuraminidase inhibitors such as Tamiflu. Origin: Shionogi (Osaka) in-house discovery of S-033188 (baloxavir marboxil); designated for Japan's Sakigake fast-track review in October 2015 (the discovery itself started earlier)."
-  },
-  "change": {
-   "year": 2018,
-   "what": "Japan approved it on 23 Feb 2018 and Shionogi launched it on 14 Mar 2018, the first flu treatment completed with one tablet dose."
-  },
-  "confidence": "medium",
-  "note": "First new-mechanism flu antiviral in years, developed in Japan and launched there first.",
-  "refs": [
-   {
-    "label": "Nikkei – Shionogi launch press release (14 Mar 2018)",
-    "url": "https://www.nikkei.com/article/DGXLRSP474307_U8A310C1000000/",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "薬事日報 – ゾフルーザ錠が国内承認",
-    "url": "https://www.yakuji.co.jp/entry63561.html",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "Nikkei Bio Tech ONLINE – キャップ依存性エンドヌクレアーゼ阻害薬",
-    "url": "https://bio.nikkeibp.co.jp/atcl/report/16/011900001/18/02/08/00157/",
-    "status": "ok",
-    "checked": "2026-10-31"
-   }
-  ],
-  "subfield": "medicines",
-  "region": "asia",
-  "readiness": {
-   "stage": "scale",
-   "basis": "ai-estimate"
-  },
-  "security": {
-   "expandsAttackSurface": false,
-   "note": "Not a connected system, so there is little direct cyber relevance.",
-   "basis": "ai-compiled"
-  },
-  "evidence_terms": [
-   "ゾフルーザ",
-   "キャップ依存性エンドヌクレアーゼ阻害",
-   "バロキサビル マルボキシル",
-   "塩野義製薬"
-  ],
-  "proposed": "2026-10-31",
-  "attempts": 2,
+  "attempts": 3,
   "foundBy": "deep-search"
  },
  {
@@ -782,7 +329,7 @@
    "2030年"
   ],
   "proposed": "2026-10-31",
-  "attempts": 2,
+  "attempts": 3,
   "foundBy": "deep-search"
  },
  {
@@ -842,141 +389,7 @@
    "wind turbine maintenance robots"
   ],
   "proposed": "2026-10-31",
-  "attempts": 2,
-  "foundBy": "deep-search"
- },
- {
-  "id": "ai-run-oandm-for-remote-renewable-and-grid-stations",
-  "field": "energy",
-  "origin": "government",
-  "status": "outlook",
-  "title": "AI-run O&M for remote renewable and grid stations",
-  "research": {
-   "year": 2025,
-   "what": "Combines large models, voiceprint detection, remote sensing, robots and smart wearables to monitor equipment and surroundings at stations in remote or harsh areas. Origin: NDRC/NEA 'AI+ Energy' Implementation Opinions (国能发科技〔2025〕73号), remote-station O&M task"
-  },
-  "change": {
-   "year": 2027,
-   "what": "China's plan sets AI-enabled intelligent O&M for stations in remote areas as an application scenario to be piloted under the 2027 and 2030 targets, supporting desert and offshore renewable bases."
-  },
-  "confidence": "low",
-  "note": "The sources describe the scenario and the remote-base context, but no named deployment date or operator beyond the plan's 2027/2030 phases.",
-  "desnz": "asset",
-  "flags": {
-   "aiDriven": true
-  },
-  "refs": [
-   {
-    "label": "Beijing Municipal Development and Reform Commission (PDF): NDRC/NEA Implementation Opinions",
-    "url": "https://fgw.beijing.gov.cn/gzdt/tztg/202512/P020251211620917761405.pdf",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "Trivium China: Deep dive on China's 'AI + Energy' plan",
-    "url": "https://triviumchina.com/2025/09/12/deep-dive-chinas-ai-energy-plan/",
-    "status": "ok",
-    "checked": "2026-10-31"
-   }
-  ],
-  "subfield": "grids",
-  "region": "asia",
-  "readiness": {
-   "stage": "pilot",
-   "basis": "ai-estimate"
-  },
-  "gb": {
-   "status": "not-yet",
-   "basis": "ai-estimate"
-  },
-  "security": {
-   "expandsAttackSurface": true,
-   "note": "Unmanned remote stations tied to AI and robots add remote-access and sensor-spoofing risks.",
-   "basis": "ai-compiled"
-  },
-  "forecast": {
-   "estimatedYear": 2027,
-   "estimatedOn": "2026-10-31",
-   "revisions": []
-  },
-  "evidence_terms": [
-   "偏远地区场站智能运维",
-   "声纹检测",
-   "remote, harsh environments",
-   "deserts"
-  ],
-  "proposed": "2026-10-31",
-  "attempts": 2,
-  "foundBy": "deep-search"
- },
- {
-  "id": "ia-eco-pilot-ai-control-of-public-buildings-grand-paris",
-  "field": "energy",
-  "origin": "industry",
-  "status": "outlook",
-  "title": "IA Eco-Pilot: AI control of public buildings (Grand Paris)",
-  "research": {
-   "year": 2024,
-   "what": "A French consortium (advizeo, Métropole du Grand Paris, Tilt) is developing AI that automates energy monitoring across about 7,000 public buildings. It is also developing predictive HVAC control, to be tested on about a dozen buildings in 6 local authorities. Origin: IA Eco-Pilot demonstrator, one of 8 winners of a French call for AI projects for the energy transition of territories, 2024"
-  },
-  "change": {
-   "year": 2028,
-   "what": "If the demonstrator succeeds, remote AI control of buildings combined with a flexibility offer is to be deployed more widely in the coming years. The 2028 date is my estimate, not a date stated in the sources."
-  },
-  "confidence": "low",
-  "note": "The sources give only a vague 'coming years' timeline for scale-up.",
-  "desnz": "demand",
-  "flags": {
-   "aiDriven": true
-  },
-  "refs": [
-   {
-    "label": "advizeo: IA Eco-Pilot press release",
-    "url": "https://www.advizeo.io/articles-de-presse/advizeo-la-metropole-du-grand-paris-et-tilt-selectionnes-pour-creer-un-demonstrateur-dia-pilote-de-la-performance-energetique/",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "Construction21: IA Eco-Pilot",
-    "url": "https://www.construction21.org/france/articles/h/ia-eco-pilot-un-nouveau-demonstrateur-d-ia-pilote-de-la-performance-energetique.html",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "Environnement Magazine: démonstrateur d'IA pilote de la performance énergétique",
-    "url": "https://www.environnement-magazine.fr/cleantech/article/2024/09/24/150170/projet-demonstrateur-ia-pilote-performance-energetique",
-    "status": "ok",
-    "checked": "2026-10-31"
-   }
-  ],
-  "subfield": "grids",
-  "region": "europe",
-  "readiness": {
-   "stage": "pilot",
-   "basis": "ai-estimate"
-  },
-  "gb": {
-   "status": "not-yet",
-   "basis": "ai-estimate"
-  },
-  "security": {
-   "expandsAttackSurface": true,
-   "note": "Remote automated control of HVAC across many public sites creates a centrally reachable control layer.",
-   "basis": "ai-compiled"
-  },
-  "forecast": {
-   "estimatedYear": 2028,
-   "estimatedOn": "2026-10-31",
-   "revisions": []
-  },
-  "evidence_terms": [
-   "IA Eco-Pilot",
-   "advizeo",
-   "Métropole du Grand Paris",
-   "Tilt"
-  ],
-  "proposed": "2026-10-31",
-  "attempts": 2,
+  "attempts": 3,
   "foundBy": "deep-search"
  },
  {
@@ -1046,7 +459,7 @@
    "fusion pilot plant"
   ],
   "proposed": "2026-10-31",
-  "attempts": 2,
+  "attempts": 3,
   "foundBy": "deep-search"
  },
  {
@@ -1108,148 +521,7 @@
    "气象大模型"
   ],
   "proposed": "2026-10-31",
-  "attempts": 2,
-  "foundBy": "deep-search"
- },
- {
-  "id": "power-industry-cybersecurity-large-model-cepri-china",
-  "field": "energy",
-  "origin": "industry",
-  "status": "landed",
-  "title": "Power-industry cybersecurity large model (CEPRI, China)",
-  "research": {
-   "year": 2024,
-   "what": "A power-sector cybersecurity model was fine-tuned from the State Grid Guangming power large model on ten kinds of grid security corpora, and paired with the GridGraph power graph database to curb hallucination. Origin: China Electric Power Research Institute 'cybersecurity professional AI application' special research programme, built on the State Grid Guangming Power Large Model (released December 2024)"
-  },
-  "change": {
-   "year": 2025,
-   "what": "In May 2025 CEPRI reported that the first power-industry cybersecurity large model was in live use; its intelligence-analysis, vulnerability-verification and attack/defence Q&A agents supported grid protection during the Asian Winter Games and the national 'Two Sessions'."
-  },
-  "confidence": "medium",
-  "note": "It is a reported first sector-specific LLM security assistant for the grid, with stated gains: intelligence analysis cut from 1-2 days to half an hour, and vulnerability-check accuracy up an average of 25%.",
-  "desnz": "gov",
-  "flags": {
-   "aiDriven": true
-  },
-  "refs": [
-   {
-    "label": "科技日报 (Science and Technology Daily): 电力行业网络安全大模型落地",
-    "url": "https://www.stdaily.com/web/gdxw/2025-05/08/content_336201.html",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "北极星电力新闻网 (BJX): 基于光明电力大模型的网络安全模型落地应用",
-    "url": "https://m.bjx.com.cn/mnews/20250508/1440281.shtml",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "中国能源网 (China5e): 电力行业网络安全大模型落地",
-    "url": "https://www.china5e.com/news/news-1188448-1.html",
-    "status": "ok",
-    "checked": "2026-10-31"
-   }
-  ],
-  "subfield": "grids",
-  "region": "asia",
-  "tags": [
-   "grid"
-  ],
-  "readiness": {
-   "stage": "commercial",
-   "basis": "ai-estimate"
-  },
-  "gb": {
-   "status": "not-yet",
-   "basis": "ai-estimate"
-  },
-  "security": {
-   "expandsAttackSurface": true,
-   "note": "It speeds up threat intelligence, vulnerability checking and repair for grid operators, but adds an LLM and its agents as a new component that must itself be secured.",
-   "basis": "ai-compiled"
-  },
-  "evidence_terms": [
-   "电力行业网络安全大模型",
-   "光明电力大模型",
-   "GridGraph",
-   "中国电力科学研究院"
-  ],
-  "proposed": "2026-10-31",
-  "attempts": 2,
-  "foundBy": "deep-search"
- },
- {
-  "id": "eu-network-code-on-cybersecurity-first-grid-wide-cyber-risk-cycle",
-  "field": "energy",
-  "origin": "government",
-  "status": "outlook",
-  "title": "EU Network Code on Cybersecurity: first grid-wide cyber risk cycle",
-  "research": {
-   "year": 2019,
-   "what": "ENTSO-E, the EU DSO Entity and ACER drafted a sector-specific code for cyber-security risk assessment, minimum and advanced controls, and incident reporting for cross-border electricity flows. Origin: Network code on cybersecurity mandated by the Electricity Regulation (EU) 2019/943 and drafted by ENTSO-E/EU DSO Entity with ACER (2019–2022), adopted as Delegated Regulation (EU) 2024/1366"
-  },
-  "change": {
-   "year": 2029,
-   "what": "After the Union-wide report due December 2026, Member State-level risk assessments follow by mid-2029 and designated high- and critical-impact entities must then apply the controls, which in practice reaches real-world use in 2027–2031."
-  },
-  "confidence": "medium",
-  "note": "This is the EU's first sector-specific cyber rulebook for electricity, and it is the compliance baseline for any AI-enabled or automated grid operations. Sources do not describe AI-specific requirements.",
-  "desnz": "gov",
-  "flags": {
-   "policy": true
-  },
-  "refs": [
-   {
-    "label": "European Commission: Critical infrastructure and cybersecurity (network code on cybersecurity)",
-    "url": "https://energy.ec.europa.eu/topics/energy-security/critical-infrastructure-and-cybersecurity_en",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "OpenKRITIS: EU Network Code on Cybersecurity (NCCS) deadlines",
-    "url": "https://www.openkritis.de/eu/nccs_network-code-cybersecurity.html",
-    "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "Democrata: CNMC approves cybersecurity risk methodologies for the electricity sector",
-    "url": "https://www.democrata.es/en/economy/the-cnmc-gives-the-green-light-to-the-methodologies-for-measuring-cybersecurity-risks-in-the-electricity-sector/",
-    "status": "ok",
-    "checked": "2026-10-31"
-   }
-  ],
-  "subfield": "grids",
-  "region": "europe",
-  "tags": [
-   "regulation"
-  ],
-  "readiness": {
-   "stage": "research",
-   "basis": "ai-estimate"
-  },
-  "gb": {
-   "status": "not-yet",
-   "basis": "ai-estimate"
-  },
-  "security": {
-   "expandsAttackSurface": false,
-   "note": "It sets a recurring, Europe-wide cyber risk assessment and control baseline for entities that digitally operate cross-border electricity flows.",
-   "basis": "ai-compiled"
-  },
-  "forecast": {
-   "estimatedYear": 2029,
-   "estimatedOn": "2026-10-31",
-   "revisions": []
-  },
-  "evidence_terms": [
-   "Network Code on Cybersecurity",
-   "cybersecurity risk assessment",
-   "high-impact",
-   "cross-border electricity flows"
-  ],
-  "proposed": "2026-10-31",
-  "attempts": 2,
+  "attempts": 3,
   "foundBy": "deep-search"
  },
  {
@@ -1306,7 +578,7 @@
    "SDA"
   ],
   "proposed": "2026-10-31",
-  "attempts": 1
+  "attempts": 2
  },
  {
   "id": "computer-passwords-mit-ctss",
@@ -1357,120 +629,252 @@
    "MIT"
   ],
   "proposed": "2026-10-31",
-  "attempts": 1
+  "attempts": 2
  },
  {
-  "id": "hardware-protection-rings-multics",
-  "field": "cyber",
-  "origin": "academic",
-  "status": "landed",
-  "title": "Hardware protection rings (Multics)",
+  "id": "glass-core-packaging-substrates-in-volume-production",
+  "field": "hw",
+  "origin": "industry",
+  "status": "outlook",
+  "title": "Glass-core packaging substrates in volume production",
   "research": {
-   "year": 1967,
-   "what": "Robert Graham proposed nested rings of privilege, so that code in outer rings cannot touch more protected inner rings, as part of the Multics design. Origin: Graham's 1967 proposal for protection rings in Multics (MIT Project MAC); later hardware design by Schroeder and Saltzer, 'A hardware architecture for implementing protection rings' (1971/1972)"
+   "year": 2023,
+   "what": "Intel showed glass-core substrates as a replacement for the organic material in advanced chip packages, with tuneable thermal expansion and better flatness for large AI packages. Origin: Intel glass core substrate research announcement, September 2023"
   },
   "change": {
-   "year": 1968,
-   "what": "Multics, developed in the 1960s, is widely seen as the first operating system with protection rings, and Hitachi built a hardware ring system on the HITAC 5020E in 1968."
+   "year": 2027,
+   "what": "Substrate makers including Absolics (SKC) and Samsung Electro-Mechanics have published targets to begin volume production of glass-core substrates in 2027, after BOE qualified a pilot line and sent samples to customers in September 2026."
   },
   "confidence": "medium",
-  "note": "Ring-based privilege separation became the model for the kernel and user modes found in mainstream processors and operating systems.",
+  "note": "Glass cores could get past the warpage and size limits of organic substrates that now hold back very large AI accelerator packages, but mass-production dates have slipped several times.",
+  "company": "Absolics / Samsung Electro-Mechanics / Intel",
   "refs": [
    {
-    "label": "Springer Encyclopedia: Protection Rings",
-    "url": "https://link.springer.com/rwe/10.1007/978-1-4419-5906-5_788",
+    "label": "VLSI.kr: The Glass-Core Substrate Race (Oct 2026)",
+    "url": "https://www.vlsi.kr/en/glass-core-substrate-race-en/",
     "status": "ok",
-    "checked": "2026-10-31"
+    "checked": "2026-11-01"
    },
    {
-    "label": "Saltzer & Schroeder, The Protection of Information in Computer Systems (UVA copy)",
-    "url": "https://www.cs.virginia.edu/~evans/cs551/saltzer/",
+    "label": "Tech Times: BOE completes glass core substrate qualification (Sep 2026)",
+    "url": "https://www.techtimes.com/articles/327959/20260923/boe-completes-glass-core-substrate-qualification-ships-customers-chip-level-testing.htm",
     "status": "ok",
-    "checked": "2026-10-31"
+    "checked": "2026-11-01"
    },
    {
-    "label": "Schroeder & Saltzer, hardware architecture for protection rings (MIT)",
-    "url": "https://web.mit.edu/saltzer/www/publications/multics/M0126.pdf",
+    "label": "IRZ: Glass chip substrates still have no commercial product (Sep 2026)",
+    "url": "https://irz.fr/en/articles/verre-remplace-pas-encore-organique-en/",
     "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "Multicians: Multics Security",
-    "url": "https://multicians.org/security.html",
-    "status": "ok",
-    "checked": "2026-10-31"
+    "checked": "2026-11-01"
    }
   ],
-  "subfield": "network",
+  "subfield": "fab",
   "region": "us",
+  "tags": [
+   "semiconductors",
+   "materials"
+  ],
   "readiness": {
-   "stage": "scale",
+   "stage": "pilot",
    "basis": "ai-estimate"
   },
+  "security": {
+   "expandsAttackSurface": false,
+   "note": "This is a packaging-material change, so it adds no new remote attack surface, though concentrating supply among a few makers creates supply-chain risk.",
+   "basis": "ai-compiled"
+  },
+  "forecast": {
+   "estimatedYear": 2027,
+   "estimatedOn": "2026-11-01",
+   "revisions": []
+  },
   "evidence_terms": [
-   "Multics",
-   "protection rings",
-   "Graham",
-   "Saltzer",
-   "Schroeder"
+   "glass core substrate",
+   "Absolics",
+   "Samsung Electro-Mechanics",
+   "BOE",
+   "NEPCON Japan"
   ],
-  "proposed": "2026-10-31",
+  "proposed": "2026-11-01",
   "attempts": 1
  },
  {
-  "id": "cyclotron-radioisotopes-for-medicine-1936-first-therapy",
-  "field": "quantum",
-  "origin": "academic",
+  "id": "kubota-m5-narrow-tractor-autonomy-package-with-agtonomy",
+  "field": "robotics",
+  "origin": "industry",
   "status": "landed",
-  "title": "Cyclotron radioisotopes for medicine (1936 first therapy)",
+  "title": "Kubota M5 Narrow tractor autonomy package (with Agtonomy)",
   "research": {
-   "year": 1930,
-   "what": "Lawrence and Livingston built the first cyclotron in 1930, a magnetic resonance accelerator that later produced artificial radioactive isotopes. Origin: Lawrence and Livingston, first cyclotron, University of California Berkeley, 1930; 1932 paper on ions above 1 MeV"
+   "year": 2021,
+   "what": "Agtonomy developed retrofit autonomy software that lets existing compact tractors for specialty crops run without a driver, and later worked with Kubota on it. Origin: Agtonomy's autonomy platform for compact tractors in vineyards and orchards (company founded about 2021; the year is not confirmed by the cited sources)"
   },
   "change": {
-   "year": 1936,
-   "what": "John Lawrence used cyclotron-made radioactive phosphorus to treat a leukaemia patient in 1936, the first therapeutic use of a cyclotron isotope, which started nuclear medicine."
+   "year": 2026,
+   "what": "At CES in January 2026, Kubota began selling an autonomy package for its 105.7 hp M5 Narrow tractor. Treasury Wine Estates was already running four of these tractors in North Napa Valley for mowing and under-vine cultivation."
   },
-  "confidence": "medium",
-  "note": "Opened the way to radiotracers and radioisotope therapy, which are now routine in diagnosis and cancer treatment.",
+  "confidence": "low",
+  "note": "It is the first time a major tractor maker has sold factory autonomy for narrow-row specialty crops such as vineyards and orchards, adding to Deere's driverless tillage on row-crop farms.",
+  "flags": {
+   "aiDriven": true
+  },
   "refs": [
    {
-    "label": "Berkeley Lab: Physics Meets Biology",
-    "url": "https://biosciences.lbl.gov/biosciences-area-history/physics-meets-biology/",
+    "label": "Meticulous Research – Autonomous Tractors Outlook 2026–2036",
+    "url": "https://www.meticulousresearch.com/meticulous-next/autonomous-tractors-outlook-2026-2036",
     "status": "ok",
-    "checked": "2026-10-31"
+    "checked": "2026-11-01"
    },
    {
-    "label": "CERN Courier: Medical-isotope cyclotron designs",
-    "url": "https://cerncourier.com/a/medical-isotope-cyclotron-designs-go-full-circle/",
+    "label": "Global Brands Magazine – Autonomous Tractors: 16 Cameras and No Driver in 2026",
+    "url": "https://www.globalbrandsmagazine.com/autonomous-tractors-no-driver/",
     "status": "ok",
-    "checked": "2026-10-31"
-   },
-   {
-    "label": "Atomic Heritage Foundation: Nuclear Medicine Before the Manhattan Project",
-    "url": "https://ahf.nuclearmuseum.org/ahf/history/health-physics-nuclear-medicine-before-manhattan-project/",
-    "status": "ok",
-    "checked": "2026-10-31"
+    "checked": "2026-11-01"
    }
   ],
-  "subfield": "devices",
+  "subfield": "industrial",
   "region": "us",
   "readiness": {
    "stage": "commercial",
    "basis": "ai-estimate"
   },
   "security": {
-   "expandsAttackSurface": false,
-   "note": "Little direct cyber relevance; modern medical cyclotron facilities use networked control systems.",
+   "expandsAttackSurface": true,
+   "note": "Connected, software-defined tractors that are supervised remotely give attackers new targets: the fleet-management link and the autonomy software could be tampered with to disrupt farm work or cause unsafe machine movement.",
    "basis": "ai-compiled"
   },
   "evidence_terms": [
-   "cyclotron",
-   "Lawrence",
-   "phosphorus-32",
-   "Berkeley"
+   "Kubota",
+   "M5 Narrow",
+   "Agtonomy",
+   "Treasury Wine Estates"
   ],
-  "proposed": "2026-10-31",
+  "proposed": "2026-11-01",
+  "attempts": 1
+ },
+ {
+  "id": "hydraulic-fracturing-of-oil-and-gas-wells",
+  "field": "energy",
+  "origin": "industry",
+  "status": "landed",
+  "title": "Hydraulic fracturing of oil and gas wells",
+  "research": {
+   "year": 1947,
+   "what": "Floyd Farris of Stanolind Oil and Gas studied how treatment pressure affects well output. This led to the experimental 'Hydrafrac' treatment of the Klepper No. 1 well in the Hugoton gas field, Kansas. Origin: Stanolind Oil and Gas Klepper Gas Unit No. 1 test, Hugoton field, Grant County, Kansas, 1947; described by J. B. Clark (Stanolind) in a 1948 paper; patent 1949"
+  },
+  "change": {
+   "year": 1949,
+   "what": "Halliburton held an exclusive licence and carried out the first two commercial fracturing treatments on 17 March 1949, in Stephens County, Oklahoma and Archer County, Texas. It treated 332 wells in the first year."
+  },
+  "confidence": "high",
+  "note": "Fracturing became a core well-stimulation method for oil and gas. Combined later with horizontal drilling, it made the shale gas and tight oil revolution possible.",
+  "refs": [
+   {
+    "label": "AAPG Explorer: Digging the Roots of Hydraulic Fracturing",
+    "url": "https://www.aapg.org/news-and-media/explorer/digging-the-roots-of-hydraulic-fracturing/",
+    "status": "ok",
+    "checked": "2026-11-01"
+   },
+   {
+    "label": "Engineering and Technology History Wiki: Hydraulic Fracturing",
+    "url": "https://ethw.org/Hydraulic_Fracturing",
+    "status": "ok",
+    "checked": "2026-11-01"
+   },
+   {
+    "label": "Wikipedia: Fracking in the United States",
+    "url": "https://en.wikipedia.org/wiki/Fracking_in_the_United_States",
+    "status": "ok",
+    "checked": "2026-11-01"
+   },
+   {
+    "label": "GeoExpro: A Short History of Hydraulic Fracturing",
+    "url": "https://geoexpro.com/unlocking-the-earth-a-short-history-of-hydraulic-fracturing/",
+    "status": "ok",
+    "checked": "2026-11-01"
+   }
+  ],
+  "subfield": "grids",
+  "region": "us",
+  "readiness": {
+   "stage": "scale",
+   "basis": "ai-estimate"
+  },
+  "gb": {
+   "status": "not-yet",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": false,
+   "note": "The original mechanical process adds no cyber exposure. Modern frac fleets rely on networked pumping controls, but that came much later.",
+   "basis": "ai-compiled"
+  },
+  "evidence_terms": [
+   "Stanolind",
+   "Klepper",
+   "Hugoton",
+   "Halliburton Oil Well Cementing Company",
+   "Floyd Farris"
+  ],
+  "proposed": "2026-11-01",
+  "attempts": 1
+ },
+ {
+  "id": "eliza-first-chatbot-mit-doctor-script",
+  "field": "ai",
+  "origin": "academic",
+  "status": "landed",
+  "title": "ELIZA: first chatbot (MIT DOCTOR script)",
+  "research": {
+   "year": 1964,
+   "what": "Joseph Weizenbaum at MIT built a program that held typed conversations in natural language by spotting keywords and turning a user's sentences back into scripted replies. Origin: Weizenbaum's ELIZA work at MIT, 1964–66, published as 'ELIZA: A Computer Program for the Study of Natural Language Communication Between Man and Machine', Communications of the ACM, 1966"
+  },
+  "change": {
+   "year": 1966,
+   "what": "ELIZA, running the DOCTOR psychotherapist script, was used interactively by people at MIT through typewriter terminals, and copies spread to other universities. It was the first conversational program that people actually used."
+  },
+  "confidence": "high",
+  "note": "It created the chatbot genre and the 'ELIZA effect', where users treat a program as if it understands them. Both ideas still shape conversational AI and the debate about it.",
+  "flags": {
+   "aiDriven": true
+  },
+  "refs": [
+   {
+    "label": "Britannica: Eliza",
+    "url": "https://www.britannica.com/technology/Eliza",
+    "status": "ok",
+    "checked": "2026-11-01"
+   },
+   {
+    "label": "History.com: Why a 1960s chatbot left its creator deeply unsettled",
+    "url": "https://www.history.com/articles/ai-first-chatbot-eliza-artificial-intelligence-precursor-llms",
+    "status": "ok",
+    "checked": "2026-11-01"
+   },
+   {
+    "label": "From Eliza to XiaoIce (Microsoft Research, arXiv)",
+    "url": "https://arxiv.org/pdf/1801.01957",
+    "status": "ok",
+    "checked": "2026-11-01"
+   }
+  ],
+  "subfield": "methods",
+  "region": "us",
+  "readiness": {
+   "stage": "pilot",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": false,
+   "note": "ELIZA showed early how easily users trust a machine that seems to converse, which is the same social-engineering risk that modern chatbots raise.",
+   "basis": "ai-compiled"
+  },
+  "evidence_terms": [
+   "ELIZA",
+   "Weizenbaum",
+   "Rogerian psychotherapist",
+   "MIT"
+  ],
+  "proposed": "2026-11-01",
   "attempts": 1
  }
 ]
