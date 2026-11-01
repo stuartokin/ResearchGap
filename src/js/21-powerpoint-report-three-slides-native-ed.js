@@ -39,7 +39,7 @@ async function ensureFresh(kind){
   if (location.protocol.indexOf('http') !== 0) return true;   // an offline copy: use what it has
   const msg = $('repMsg'); msg.textContent = 'Checking for the latest data and narrative…';
   try {
-    const [d, t] = await Promise.all([fetch('data/data.json', {cache:'no-cache'}).then(r => r.ok ? r.json() : null), fetch('data/tours.json', {cache:'no-cache'}).then(r => r.ok ? r.json() : null)]);
+    const [d, t] = await Promise.all([fetch(asset('data/data.json'), {cache:'no-cache'}).then(r => r.ok ? r.json() : null), fetch(asset('data/tours.json'), {cache:'no-cache'}).then(r => r.ok ? r.json() : null)]);
     if (t && t.tours && (t.version || 0) >= narrVersion()) tourText = t;   // newer narrative can be used at once
     if (d && d.meta && (d.meta.revision || 0) > (DB.meta.revision || 0)) {
       msg.innerHTML = `Newer data (revision ${esc(d.meta.revision)}) was published since this page opened. <button class="mini" id="repReload">Reload and create</button> <button class="mini" id="repAnyway">Use the data on screen</button>`;

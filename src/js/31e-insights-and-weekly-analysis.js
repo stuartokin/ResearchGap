@@ -67,7 +67,7 @@ let insightAudio = null;
 function speakInsight(text, onEnd){
   stopInsight(); if (view.muteSpeech) { toast('Speech is muted: Present, “Mute speech”, turns it back on.'); return false; }
   const file = tourAudio.voice && tourAudio.files[textKey(text, tourAudio.voice)], done = () => { if (onEnd) onEnd(); };
-  if (file) { insightAudio = new Audio('audio/' + file); insightAudio.onended = done; insightAudio.play().catch(() => browserSpeak(text, done)); return true; }
+  if (file) { insightAudio = new Audio(asset('audio/') + file); insightAudio.onended = done; insightAudio.play().catch(() => browserSpeak(text, done)); return true; }
   browserSpeak(text, done); return true;
 };
 function browserSpeak(text, onEnd){ if (!('speechSynthesis' in window)) { if (onEnd) onEnd(); return; } speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(speechText(text)); if (tourVoice) { u.voice = tourVoice; u.lang = tourVoice.lang; } else u.lang = 'en-GB'; u.rate = .98; u.onend = u.onerror = () => { if (onEnd) onEnd(); }; speechSynthesis.speak(u); }
@@ -183,13 +183,13 @@ const LIST_TITLES = {pipeTotal:'Clean energy technologies', pipeResearch:'In res
 onChartBody('click', e => { const b = e.target.closest('.colink'); if (!b) return; const list = (LIST_PH[b.dataset.list] || (() => []))(); chPanel(`${LIST_TITLES[b.dataset.list] || 'Items'}: ${list.length}`, chItemsHtml(list, it => `${it.stage || ''}${it.p ? ' · ' + (it.kind === 'proj' ? '~' : '') + it.p : ''}`)); renderCharts(); });
 showInsight = function(on){
   const box = $('chartCallout'); if (!on) { box.classList.remove('on'); stopInsight(); return; }
-  const t = ((tourText.tours.charts || TOUR_TEXT.tours.charts || {}).steps || {})[CH.tab], upd = (tourText.tours.charts || {}).updated || tourText.updated;
-  const html = t ? renderSayHtml(t.say, chartFacts()) : '';
+  const t = ((tourText.tours.charts || TOUR_TEXT.tours.charts || {}).steps || {})[CH.tab] || EXT_INSIGHTS[CH.tab], upd = (tourText.tours.charts || {}).updated || tourText.updated;
+  const html = t ? renderSayHtml(t.say, extFacts(CH.tab)) : '';
   box.innerHTML = `<div class="cohead"><b>★ Insight: ${chEsc((CHART_TABS.find(x => x[0] === CH.tab) || [])[1])}</b><button class="mini" id="coX" aria-label="Close insight">✕</button></div><p class="cotext">${html}</p>
     <div class="cofoot"><button class="mini" id="coSpeak" data-speakbtn="1">${speakLabel()}</button><span class="note-s">Select a number to see the items behind it. AI-generated narrative, refreshed weekly by the agents${upd ? ` (updated ${fmtDate(upd)})` : ''}. No human review.</span></div>`;
   box.classList.add('on'); CH.insightOn = true;
 };
-chartInsight = tab => { const t = ((tourText.tours.charts || TOUR_TEXT.tours.charts || {}).steps || {})[tab]; return t ? tidyText(renderSay(t.say, chartFacts())) : ''; };
+chartInsight = tab => { const t = ((tourText.tours.charts || TOUR_TEXT.tours.charts || {}).steps || {})[tab] || EXT_INSIGHTS[tab]; return t ? tidyText(renderSay(t.say, extFacts(tab))) : ''; };
 /* ---------- better pictures behind two steps: charts instead of a list or the model ---------- */
 function chartStepWith(id, tab, opts, extra){ return {id, show:['charts'], act:() => { tourHighlight(null); clearInterval(CH.fortTimer); CH.fortTimer = 0; Object.assign(CH, CH_DEFAULTS, {tab, panel:null, box:null, fortYear:null}, opts || {}); tourFilters(); refresh(); setTimeout(() => { renderCharts(); if (extra) extra(); else setTimeout(() => chartFocus(tab), 400); }, 250); }}; }
 const replaceStep = (tourId, id, step) => { const st = TOURS[tourId].steps, i = st.findIndex(s => s.id === id); if (i >= 0) st[i] = step; };
@@ -252,3 +252,6 @@ function chartFocus(tab, tries){
   else return;
   renderCharts();
 }
+
+/* an experimental chart's insight uses its own facts, on top of the shared ones */
+function extFacts(tab){ const x = EXT_INSIGHTS[tab]; if (!x) return chartFacts(); try { return Object.assign({}, chartFacts(), x.facts() || {}); } catch (e) { return chartFacts(); } }

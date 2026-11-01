@@ -720,4 +720,13 @@ body.touring .qinsight,body.kiosk .qinsight{display:none!important}
 @media (prefers-reduced-motion:reduce){.wrib{animation:none}}
 #welcome.needack .wsign,#welcome.needack .wpaths{display:none}
 
-/* Publisher test: confirms research-gap-publisher can update main under the "Protect main" ruleset. Harmless; safe to keep or remove. */
+/* the two versions: the switch on the welcome screen, and the AI-enhanced version's banner */
+.wversion{display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;margin:.6em 0 .2em}.wvlabel{color:var(--faint);font-size:.8em;text-transform:uppercase;letter-spacing:.06em}
+.wvbtn{border:1px solid var(--line-strong);background:none;color:var(--text);border-radius:999px;padding:5px 14px;cursor:pointer;font:inherit}.wvbtn[aria-pressed="true"]{background:#B794F6;border-color:#B794F6;color:#170B2E;font-weight:600}
+.wvbtn small{opacity:.8}.wvnote{flex-basis:100%;text-align:center;color:var(--muted);font-size:.82em}
+#welcome.needack .wversion{display:none}
+#aiBanner{position:fixed;left:50%;transform:translateX(-50%);bottom:34px;z-index:1400;display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center;max-width:94vw;
+  background:rgba(40,20,70,.95);border:1px solid #B794F6;color:#EDE4FF;border-radius:999px;padding:5px 14px;font-size:13px;box-shadow:0 8px 22px rgba(0,0,0,.4)}
+#aiBanner b{color:#D6C2FF}#aiBanner .mini{border-color:#B794F6;color:#EDE4FF}
+.aiwn h2,.aiwn h3{font-size:1.05em;margin:.8em 0 .3em}.aifeat li{margin:.4em 0}
+@media (max-width:560px){#aiBanner{border-radius:12px;bottom:40px}#aiBanner span{display:none}}

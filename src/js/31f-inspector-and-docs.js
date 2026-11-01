@@ -14,7 +14,7 @@ const INS_CATS = {
   duplicates:['Possible duplicate', 'Two records with very similar titles and close dates. Compare them, and retire one if they are the same milestone.', '#F7C04A']};
 function insLoad(){
   if (INS.loaded || location.protocol.indexOf('http') !== 0) { INS.loaded = true; return Promise.resolve(); }
-  const get = f => fetch('data/' + f, {cache:'no-cache'}).then(r => r.ok ? r.json() : null).catch(() => null);
+  const get = f => fetch(asset('data/' + f), {cache:'no-cache'}).then(r => r.ok ? r.json() : null).catch(() => null);
   return Promise.all([get('pending.json'), get('rejected.json'), get('curation.json')]).then(([p, r, c]) => { INS.pending = p || []; INS.rejected = r || []; INS.curation = c || {decisions:[]}; INS.loaded = true; });
 }
 function insRows(){
@@ -116,7 +116,7 @@ $('insBody').addEventListener('click', e => {
 /* ==================================================================
  *  HOW IT WORKS: documentation of the app, its files, workflows and agents. Maintained with each material change.
  * ================================================================== */
-const DOCS_UPDATED = 'Version 12.5, 1 November 2026';   // update with every material change
+const DOCS_UPDATED = 'Version 12.6, 2 November 2026';   // update with every material change
 const DOCS = [
  ['overview', 'Overview', `<p>The Shrinking Gap measures how long research takes to become real-world change, and whether AI is shortening the journey. It is maintained by AI agents using public sources only; the owner can review and curate through the Data inspector and the system file, but nothing needs a person each week.</p>
   <p><b>The flow:</b> AI agents (GitHub Actions, weekly) research, check and correct <code>data/data.json</code> → safety gates → <code>tools/build.py</code> assembles <code>index.html</code> from <code>src/</code> with the data embedded → GitHub Pages publishes it. Your uploads to <code>src/</code> trigger the same build.</p>`],
@@ -161,7 +161,16 @@ const DOCS = [
   <p><b>Reviews:</b> “Mark as reviewed” in the Data inspector hides an item from your list, saved in My file. Each review keeps a fingerprint of the record (title, years, status, dispute, second opinion, QA note); if the agents change any of these, the review lapses and the item returns.</p>
   <p><b>Admin tools</b> (Display): decisions for everyone (reviewed, clear the dispute, not a duplicate, retire, restore) build the system file, <code>curation.json</code>. Upload it to <code>data/</code>; the QA agent applies each decision once, records it in Data changes, and the app shows it to everyone. Published reviews lapse the same way; “not a duplicate” pairs are never flagged again.</p>`],
  ['settings', 'Current settings (live)', `<div id="docSettings"><p class="note-s">Loading the agents' settings from config.json…</p></div>`],
- ['history', 'Recent changes', `<ul class="doclist"><li><b>12.5</b> Chart windows replace the pop-outs: any number of full chart windows, each with every control, linked selection with a 🔗 switch per window, saved with your views; a Compare ready-made view; the window manager handles panels created and removed after start-up.</li>
+ ['aiversion', 'The AI-enhanced version', `<p>There are two versions of this app, with the same data. The <b>standard version</b> is changed only by its author. The <b>AI-enhanced version</b> (at <code>/ai/</code>, marked “experimental”) is the standard version plus <b>experimental features that an AI agent (Claude Code, using Claude Opus) builds and improves each Wednesday</b>, after automatic checks, without human review. Switch between them on the welcome screen, in Display, or in Views; a link with <code>?ui=ai</code> opens the AI-enhanced version. In the AI-enhanced version, a banner always says what it is, with What’s new and Back to standard.</p>
+  <h4>How it is made</h4><p>Experimental features live in the <code>experimental/</code> folder of the <code>experimental</code> branch, never in the app’s own code. Each build takes the latest standard app and adds the features, so the author’s changes never remove them. Features plug in only through the <b>extension interface</b>: they can add chart tabs (in every chart window, with their own insight), panels and styles, and read the milestones and filters, but cannot change the data or the app’s own code.</p>
+  <h4>Safeguards</h4><ul class="doclist"><li><b>Checks on every feature:</b> no network access, running code from text, browser storage, navigation, outside addresses, or anything touching the AI notices; size limits; every feature documented in its own README.</li>
+  <li><b>Insights</b> follow the narration’s rule: every figure comes from the data through a placeholder; an insight with a typed number is refused. They are spoken in the same recorded voice.</li>
+  <li><b>A feature that fails is paused</b> on its own; if the AI-enhanced version would not start, or would hide its banner, last week’s version is kept. The standard version never includes experimental code.</li>
+  <li><b>Limited access:</b> the agent can change only the <code>experimental</code> branch, not the main branch or the workflows (GitHub enforces this); its key has its own spending limit.</li>
+  <li><b>Undo:</b> each week’s change is one commit, which can be reverted; any feature can be promoted into the standard version by its author, or removed.</li></ul>
+  <h4>Features in the AI-enhanced version now</h4><div id="aiFeatList" class="note-s">Loading…</div>`],
+  ['history', 'Recent changes', `<ul class="doclist"><li><b>12.6</b> The AI-enhanced version: a switch between the standard and AI-enhanced versions (for everyone), the extension interface, the builder and its safeguards, a sample feature (AI by readiness), the banner and What’s new, the recorded voice for feature insights, and tests that try to break it.</li>
+  <li><b>12.5</b> Chart windows replace the pop-outs: any number of full chart windows, each with every control, linked selection with a 🔗 switch per window, saved with your views; a Compare ready-made view; the window manager handles panels created and removed after start-up.</li>
   <li><b>12.4</b> Speak becomes Stop while speaking, and Present has “Mute speech” for insights and walk-throughs together; QA replaces broken source links (only with a verified quote) and reclassifies in-lab records whose target falls inside the horizon; the AI levers and story agents ask once for a shorter answer rather than reject it; Gemini’s field names are understood; a release tag can no longer fail a run.</li>
   <li><b>12.3</b> Question insights (written weekly, read or spoken, with numbers you can select); insights open automatically, a setting in Display; the welcome screen’s signposts: Learn, Start here, Jump right in.</li>
   <li><b>12.2</b> Fixed: Pop out (and Insight) after “Run the tool”; chart controls are rebuilt only when they change, so clicks land while the century plays; a real-clicks test suite.</li>
@@ -171,11 +180,12 @@ const DOCS = [
   <li><b>11.7</b> Recalibrated second opinion; duplicates across fields; per-field news logging.</li><li><b>11.6</b> Data changes grouped per item; possible duplicates.</li>
   <li><b>11.4–11.5</b> Gap-filling, three-year catch-up, research funnel, approximate years, PowerPoint on demand, version label.</li><li><b>11.0–11.3</b> Charts in tours, weekly analyses, stories, AI levers, two-model checks.</li></ul>`]];
 function renderDocs(){
+  setTimeout(() => { if (typeof fillAiFeatures === 'function') fillAiFeatures(); }, 0);   // the AI-enhanced version's live feature list
   if (!layout.docs || !layout.docs.open) return;
   const q = (INS.docQ || '').toLowerCase(), list = DOCS.filter(([, t, h]) => !q || (t + ' ' + h.replace(/<[^>]+>/g, ' ')).toLowerCase().includes(q));
   if (!$('docQ')) $('docBody').innerHTML = `<div class="cfilt"><input id="docQ" type="search" placeholder="Search the documentation"><button class="mini dvopen">📊 At a glance</button> <span class="note-s">Maintained with each material change · ${DOCS_UPDATED}</span></div><div id="docContent"></div>`;
   $('docContent').innerHTML = `<nav class="doctoc">${list.map(([id, t]) => `<a href="#" data-doc="${id}">${t}</a>`).join('')}</nav>${list.map(([id, t, h]) => `<details class="docsec" id="doc-${id}" ${q || id === 'overview' ? 'open' : ''}><summary>${t}</summary>${h}</details>`).join('') || '<p class="empty">Nothing matches.</p>'}`;
-  const box = $('docSettings'); if (box && location.protocol.indexOf('http') === 0) fetch('agents/config.json', {cache:'no-cache'}).then(r => r.ok ? r.json() : null).then(c => {
+  const box = $('docSettings'); if (box && location.protocol.indexOf('http') === 0) fetch(asset('agents/config.json'), {cache:'no-cache'}).then(r => r.ok ? r.json() : null).then(c => {
     if (!c) { box.innerHTML = '<p class="note-s">Could not load config.json.</p>'; return; }
     const rows = []; const walk = (o, p) => Object.entries(o).forEach(([k, v]) => { if (k.startsWith('_')) return; if (v && typeof v === 'object' && !Array.isArray(v)) walk(v, p + k + '.'); else rows.push([p + k, Array.isArray(v) ? v.join(', ') : String(v)]); });
     walk(c, ''); box.innerHTML = `<table class="doctab"><tr><th>Setting</th><th>Value</th></tr>${rows.map(([k, v]) => `<tr><td><code>${esc(k)}</code></td><td>${esc(v)}</td></tr>`).join('')}</table>`;

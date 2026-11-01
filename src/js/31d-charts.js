@@ -80,11 +80,12 @@ function renderCharts(){
   drawPanel();
   const W = Math.max(300, box.clientWidth - 6), H = Math.max(260, box.clientHeight - 6);
   CH.note = ''; CH.rows = []; CH.head = [];
-  const fn = {gaps:chGaps, heat:chHeat, ai:chAI, pipe:chPipe, drift:chDrift, sec:chSec, fort:chFort, whatif:chWhatIf}[CH.tab] || chGaps;
+  const fn = Object.assign({gaps:chGaps, heat:chHeat, ai:chAI, pipe:chPipe, drift:chDrift, sec:chSec, fort:chFort, whatif:chWhatIf}, EXT_CHARTS)[CH.tab] || chGaps;   // experimental features add their own
   box.innerHTML = fn(W, H, fs); $('chartNote').textContent = CH.note;
   const q = $('chQ'); if (q && CH.qFocus) { q.focus(); q.setSelectionRange(q.value.length, q.value.length); }
 }
-let chartTimer = 0; function scheduleCharts(){ clearTimeout(chartTimer); chartTimer = setTimeout(renderAllCharts, 120); }   // every open chart window follows the filters
+const EXT_CHARTS = {}, EXT_INSIGHTS = {};   // filled only in the AI-enhanced version, through the extension interface
+let chartTimer = 0; function scheduleCharts(){ if (window.SGX_EMIT) window.SGX_EMIT('filters'); clearTimeout(chartTimer); chartTimer = setTimeout(renderAllCharts, 120); }   // every open chart window follows the filters
 
 /* ---------- a shared row chart: one row per item, with a year axis that zooms ---------- */
 function chRowChart(W, H, fs, rows, o){

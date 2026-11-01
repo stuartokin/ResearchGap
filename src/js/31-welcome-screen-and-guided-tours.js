@@ -46,8 +46,8 @@ function gapFacts(){
 const TOUR_TEXT = (() => { try { return JSON.parse(document.getElementById('embedded-tours').textContent.replace('/*TOURS-START*/', '').replace('/*TOURS-END*/', '').trim()); } catch (e) { return {tours:{}}; } })();
 let tourText = TOUR_TEXT, tourAudio = {voice:'', files:{}};
 if (location.protocol.indexOf('http') === 0) {
-  fetch('data/tours.json', {cache:'no-cache'}).then(r => r.ok ? r.json() : null).then(t => { if (t && t.tours && (t.version || 0) >= (TOUR_TEXT.version || 0)) tourText = t; }).catch(() => {});
-  fetch('audio/manifest.json', {cache:'no-cache'}).then(r => r.ok ? r.json() : null).then(m => { if (m && m.files) tourAudio = m; }).catch(() => {});
+  fetch(asset('data/tours.json'), {cache:'no-cache'}).then(r => r.ok ? r.json() : null).then(t => { if (t && t.tours && (t.version || 0) >= (TOUR_TEXT.version || 0)) tourText = t; }).catch(() => {});
+  fetch(asset('audio/manifest.json'), {cache:'no-cache'}).then(r => r.ok ? r.json() : null).then(m => { if (m && m.files) tourAudio = m; }).catch(() => {});
 }
 const PH = {n:'nText', pre:'preT', recent:'recentT', adopt:'adoptT', ai:'aiT', oth:'othT', aiOut:'aiOutT', convOut:'convOutT', nFields:'nFieldsT', score:'scoreT'};
 function renderSay(tpl, f){
@@ -214,7 +214,7 @@ function tourSay(text, done){
   if (tour.muted) { tour.timer = setTimeout(fin, est); return; }
   const file = tourAudio.voice && tourAudio.files[textKey(text, tourAudio.voice)];
   if (file) {   // recorded voice for this exact sentence
-    const a = tour.audio || (tour.audio = new Audio()); a.pause(); a.preload = 'auto'; a.src = 'audio/' + file; let started = false;
+    const a = tour.audio || (tour.audio = new Audio()); a.pause(); a.preload = 'auto'; a.src = asset('audio/') + file; let started = false;
     const fallback = () => { if (tok === tour.token && !started) { started = true; browserSay(text, fin, est); } };   // only if the recording never started
     a.onplaying = () => { if (started) return; started = true; clearTimeout(tour.timer); tour.timer = setTimeout(fin, Math.max(est, (a.duration || 0) * 1000) + 8000); };
     a.onended = () => setTimeout(fin, 400);

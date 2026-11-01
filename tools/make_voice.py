@@ -23,9 +23,14 @@ async def narration(port):
     async with async_playwright() as p:
         b = await p.chromium.launch(args=['--use-gl=swiftshader', '--enable-webgl', '--ignore-gpu-blocklist'])
         pg = await (await b.new_context(viewport={'width': 1440, 'height': 900})).new_page()
-        await pg.goto(f'http://localhost:{port}/index.html?welcome=0'); await pg.wait_for_function('window.__tourTexts && typeof boot === "function"', timeout=60000)
-        await pg.wait_for_timeout(4000)
-        texts = await pg.evaluate('window.__tourTexts()'); await b.close(); return texts
+        texts, seen = [], set()
+        # both versions: the standard app, and the AI-enhanced one if built, so neither's recordings are removed as unused
+        for page in ['index.html'] + (['ai/index.html'] if (ROOT / 'ai/index.html').exists() else []):
+            await pg.goto(f'http://localhost:{port}/{page}?welcome=0'); await pg.wait_for_function('window.__tourTexts && typeof boot === "function"', timeout=60000)
+            await pg.wait_for_timeout(4000)
+            for t in await pg.evaluate('window.__tourTexts()'):
+                if t.get('text') and t['text'] not in seen: seen.add(t['text']); texts.append(t)
+        await b.close(); return texts
 
 def main():
     cfg = json.loads((ROOT / 'agents/config.json').read_text()).get('voice', {})

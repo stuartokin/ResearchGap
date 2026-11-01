@@ -63,7 +63,7 @@ function dvDetail(id){
 }
 function renderDocViz(){
   if (!layout.docviz || !layout.docviz.open) return;
-  if (!DV.cfg && location.protocol.indexOf('http') === 0) fetch('agents/config.json', {cache:'no-cache'}).then(r => r.ok ? r.json() : null).then(cf => { if (cf) { DV.cfg = cf; renderDocViz(); } }).catch(() => {});
+  if (!DV.cfg && location.protocol.indexOf('http') === 0) fetch(asset('agents/config.json'), {cache:'no-cache'}).then(r => r.ok ? r.json() : null).then(cf => { if (cf) { DV.cfg = cf; renderDocViz(); } }).catch(() => {});
   let main = '';
   if (DV.tab === 'system') main = `<div class="dvmap">${DV_COLS.map(([h, ids], i) => `<div class="dvcol"><h5>${h}</h5>${ids.map(id => `<button class="dvn dvk-${DV_NODES[id].k}${DV.sel === id ? ' on' : ''}" data-n="${id}">${esc(DV_NODES[id].t)}</button>`).join('')}</div>${i < DV_COLS.length - 1 ? '<div class="dvarrow" aria-hidden="true">→</div>' : ''}`).join('')}</div>
     <p class="note-s">The system file feeds your decisions back to the QA agent on the next weekly run. Select any box.</p>`;

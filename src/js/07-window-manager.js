@@ -73,6 +73,7 @@ function defaultLayout(){
     sources:{x:midX, y:top + 20, w:Math.round(440 * u), h:Math.min(Math.round(620 * u), bottom - top - 20), fs:1, open:false}
   };
   Object.values(o).forEach(L => { L.sw = W; L.sh = H; });
+  Object.entries(window.__extraWins || {}).forEach(([k, r]) => { const L = layout && layout[k]; o[k] = Object.assign({fs:1}, L ? {x:L.x, y:L.y, w:L.w, h:L.h, fs:L.fs || 1} : r, {open:L ? !!L.open : false}); });   // panels from experimental features
   try { Object.keys(CHI.roots).forEach(k => { const L = layout && layout[k]; o[k] = Object.assign({fs:1}, L ? {x:L.x, y:L.y, w:L.w, h:L.h, fs:L.fs || 1} : chartWindowRect(), {open:L ? !!L.open : false}); }); } catch (e) { /* the chart windows are not loaded yet, at start-up */ }
   return o;
 }
