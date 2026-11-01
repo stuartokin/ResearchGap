@@ -35,8 +35,25 @@ jobs:
         run: python tools/validate.py
       - name: Smoke test the built page
         run: python tools/smoke_test.py
+      - name: Publisher credential (short-lived, so created just before publishing)
+        id: publisher
+        continue-on-error: true   # if it cannot be created, publishing falls back to the workflow's own token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.PUBLISH_APP_ID }}
+          private-key: ${{ secrets.PUBLISH_APP_PRIVATE_KEY }}
       - name: Publish the new index.html
+        env:
+          PUBLISH_TOKEN: ${{ steps.publisher.outputs.token }}
         run: |
+          # publish as research-gap-publisher, which may update main under the ruleset
+          if [ -n "$PUBLISH_TOKEN" ]; then
+            git config --unset-all http.https://github.com/.extraheader || true
+            git remote set-url origin "https://x-access-token:${PUBLISH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+            echo "Publishing as research-gap-publisher."
+          else
+            echo "::warning::Publisher credential unavailable; publishing with the workflow's own token."
+          fi
           git config user.name "app-build"
           git config user.email "app-build@users.noreply.github.com"
           # Uploading several files makes several commits; if the repository moves on while this run works,
