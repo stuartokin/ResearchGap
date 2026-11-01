@@ -2,7 +2,7 @@
  "$schema": "./schema.json",
  "meta": {
   "title": "The Shrinking Gap from Research to Change",
-  "revision": 33,
+  "revision": 34,
   "version": "8.0",
   "asOf": "2026-11-01",
   "horizonYears": 10,
@@ -10,110 +10,8 @@
   "author": "Stuart Okin",
   "maintainedBy": "AI agents using Claude (Anthropic), without human review",
   "disclaimer": "Personal project by Stuart Okin, not affiliated with or endorsed by any employer. Data is compiled and maintained by AI agents without human review and may contain errors. Outlook years are AI estimates, not forecasts.",
-  "lastAgentRun": "2026-11-01T08:36Z",
+  "lastAgentRun": "2026-11-01T13:57Z",
   "changelog": [
-   {
-    "date": "2026-10-28",
-    "summary": "5 added, 8 corrected, 0 outlook re-estimated, 0 disputed, 0 broken links.",
-    "details": [
-     "added: Microsoft Maia 300 in-house AI inference chip",
-     "added: Post-quantum cryptography migration mandates",
-     "added: First commercial Upper 6GHz mobile network (UAE)",
-     "added: EU PFHxA restriction hits textiles, food paper, cosmetics",
-     "added: US exemption for driverless-truck warning beacons",
-     "nuclear-fission-to-grid-power: source added",
-     "hvdc-transmission: source added",
-     "fusion-power: change.year 2050 → 2040",
-     "fusion-power: source added",
-     "ai-in-grid-control-rooms: source added",
-     "long-duration-storage-at-scale: source added",
-     "first-uk-small-modular-reactors: source added",
-     "stored-program-computer: source added"
-    ]
-   },
-   {
-    "date": "2026-10-28",
-    "summary": "1 added, 6 corrected, 0 outlook re-estimated, 0 disputed, 1 broken links.",
-    "details": [
-     "added: First approved PROTAC protein degrader (vepdegestrant)",
-     "eu-high-risk-ai-rules-apply: source added",
-     "quantum-key-distribution: source added",
-     "zero-trust: source added",
-     "post-quantum-cryptography: source added",
-     "ai-vulnerability-discovery: source added",
-     "post-quantum-migration-of-priority-systems: source added"
-    ]
-   },
-   {
-    "date": "2026-10-28",
-    "time": "07:16",
-    "revision": 4,
-    "summary": "0 added, 7 corrected, 0 outlook re-estimated, 0 disputed, 0 broken links.",
-    "details": [
-     "radar: source added",
-     "mimo-wireless: source added",
-     "massive-mimo: change.what updated",
-     "metamaterials: source added",
-     "mofs-for-carbon-capture: source added",
-     "in-orbit-satellite-servicing: source added",
-     "in-orbit-refuelling: source added"
-    ]
-   },
-   {
-    "date": "2026-10-28",
-    "summary": "Manual update: adoption estimates for 68 major milestones, regions and topic tags added; 3 regulatory items hidden.",
-    "revision": 5,
-    "details": [
-     "post-quantum-cryptography-migration-mandates: hidden (out of scope)",
-     "eu-pfhxa-restriction-hits-textiles-food-paper-cosmetics: hidden (out of scope)",
-     "us-exemption-for-driverless-truck-warning-beacons: hidden (out of scope)"
-    ]
-   },
-   {
-    "date": "2026-10-28",
-    "time": "13:53",
-    "revision": 6,
-    "summary": "3 added, 16 corrected, 0 outlook re-estimated, 1 disputed, 3 broken links.",
-    "stats": {
-     "milestones": 455,
-     "sourceCited": 59,
-     "aiCompiled": 318,
-     "aiEstimate": 78,
-     "adoptionKnown": 68,
-     "landed": 358,
-     "regionKnown": 454
-    },
-    "usage": {
-     "calls": 14,
-     "inputTokens": 2280762,
-     "outputTokens": 85979,
-     "searches": 125,
-     "model": "claude-opus-5-5"
-    },
-    "deepAudit": true,
-    "details": [
-     "added: bepirovirsen-first-antisense-drug-for-hepatitis-b",
-     "added: plastic-free-moulded-pulp-fibre-bottles-pulpex",
-     "added: size-adjustable-pediatric-heart-valve-autus",
-     "consumer-drones: source added",
-     "uk-robotaxis: source added",
-     "penicillin: source added",
-     "recombinant-dna: source added",
-     "mri-scanning: source added",
-     "monoclonal-antibodies: source added",
-     "pcr: source added",
-     "genome-sequencing-to-consumers: source added",
-     "mrna-vaccines: source added",
-     "crispr-gene-editing: source added",
-     "protein-structure-prediction: source added",
-     "computer-weather-forecasting: note updated",
-     "wind-power-forecasting: change.what updated",
-     "wind-turbine-predictive-maintenance: source added",
-     "ai-data-centre-cooling: source added",
-     "bluetooth: tags added",
-     "disputed: humanoid-robots-at-work"
-    ]
-   },
    {
     "date": "2026-10-28",
     "summary": "Manual update: sub-fields added for every field and milestone.",
@@ -2342,6 +2240,194 @@
      "story    backside-power-delivery-intel-powervia-in-shipping-chips",
      "story    taara-beam-chip-based-optical-phased-array-wireless-link"
     ]
+   },
+   {
+    "date": "2026-11-01",
+    "time": "13:40",
+    "revision": 33,
+    "summary": "Gemini research: 0 of 8 candidates passed the source checks and were queued for Claude's QA.",
+    "stats": {
+     "milestones": 659,
+     "sourceCited": 415,
+     "aiCompiled": 166,
+     "aiEstimate": 78,
+     "adoptionKnown": 78,
+     "landed": 515,
+     "regionKnown": 659
+    },
+    "usage": {
+     "calls": 0,
+     "inputTokens": 0,
+     "outputTokens": 0,
+     "searches": 0,
+     "model": "claude-opus-5-5"
+    },
+    "deepAudit": true
+   },
+   {
+    "date": "2026-11-01",
+    "time": "13:57",
+    "revision": 34,
+    "summary": "12 added, 32 corrected, 0 outlook re-estimated, 0 disputed, 2 broken links.",
+    "stats": {
+     "milestones": 671,
+     "sourceCited": 436,
+     "aiCompiled": 157,
+     "aiEstimate": 78,
+     "adoptionKnown": 78,
+     "landed": 526,
+     "regionKnown": 671
+    },
+    "usage": {
+     "calls": 18,
+     "inputTokens": 2632292,
+     "outputTokens": 97981,
+     "searches": 122,
+     "model": "claude-opus-5-5"
+    },
+    "deepAudit": true,
+    "details": [
+     "added: glass-core-packaging-substrates-in-volume-production",
+     "added: explicit-lazy-imports-in-cpython-pep-810-python-3-15",
+     "added: tavapadon-juvmo-first-selective-d1-d5-agonist",
+     "added: zilganersen-zanvastro-first-alexander-disease-therapy",
+     "added: world-labs-marble-commercial-3d-world-model",
+     "added: synthid-image-verification-in-the-gemini-app",
+     "added: nvidia-nvqlink-quantum-gpu-interconnect",
+     "added: signal-triple-ratchet-spqr-post-quantum-ratchet",
+     "added: rust-android-binder-driver-merged-in-linux-6-18",
+     "added: pulse-code-modulation-first-digital-voice-link-sigsaly",
+     "added: fm-radio-broadcasting",
+     "added: nimatron-first-public-game-playing-machine",
+     "charge-coupled-device-ccd: broken source replaced (https://camera-wiki.org/wiki/CCD → https://en.wikipedia.org/wiki/Charge-coupled_device)",
+     "photonic-fault-tolerant-quantum-computer: status in-lab → outlook (its target, 2035, is within the horizon)",
+     "communications-satellites: source added",
+     "communications-satellites: source added",
+     "ldpc-error-correcting-codes: source added",
+     "optical-fibre: source added",
+     "optical-fibre: source added",
+     "wi-fi-technology: source added",
+     "wi-fi-technology: source added",
+     "massive-mimo: change.year 2019 → 2016",
+     "massive-mimo: change.what updated",
+     "massive-mimo: source added",
+     "polyethylene: source added",
+     "polyethylene: source added",
+     "nylon: source added",
+     "nylon: source added",
+     "ibm-system-360: source added",
+     "video-meetings: sub-field internet → messaging",
+     "small-satellite-launcher: readiness commercial → scale",
+     "charge-coupled-device-ccd: sub-field chips → devices",
+     "satellite-search-and-rescue: sub-field launch → satcom",
+     "satellite-search-and-rescue: readiness commercial → scale",
+     "hpv-vaccine: readiness commercial → scale",
+     "zero-trust: readiness commercial → scale",
+     "humanoid-robots-at-work: readiness commercial → pilot",
+     "routine-beyond-sight-drone-inspection: readiness pilot → commercial",
+     "genome-sequencing-to-consumers: readiness commercial → scale",
+     "power-system-state-estimation: sub-field ops → grids",
+     "power-system-state-estimation: readiness commercial → scale",
+     "power-system-state-estimation: GB status unknown → deployed",
+     "smart-ev-charging: readiness commercial → scale",
+     "ai-assurance-for-energy: GB status planned → trial"
+    ]
+   },
+   {
+    "date": "2026-11-01",
+    "time": "13:58",
+    "revision": 34,
+    "summary": "Gemini second opinion on 12 additions: 6 supported, 1 contradicted (disputed), 5 unclear, 1 guidance update.",
+    "stats": {
+     "milestones": 671,
+     "sourceCited": 436,
+     "aiCompiled": 157,
+     "aiEstimate": 78,
+     "adoptionKnown": 78,
+     "landed": 526,
+     "regionKnown": 671
+    },
+    "usage": {
+     "calls": 0,
+     "inputTokens": 0,
+     "outputTokens": 0,
+     "searches": 0,
+     "model": "claude-opus-5-5"
+    },
+    "deepAudit": true,
+    "details": [
+     "disputed: glass-core-packaging-substrates-in-volume-production (second opinion from Gemini: contradicted. All sources, published in late 2026, explicitly state that glass-core substrates are not yet in volume production, with targets clustering from H2 2027 onwards.)",
+     "guidance: Design Tenets for Agent Identity Management Systems",
+     "tours: walk-through scripts refreshed (version 31)"
+    ]
+   },
+   {
+    "date": "2026-11-01",
+    "time": "14:05",
+    "revision": 34,
+    "summary": "AI levers researched for 8 technologies.",
+    "stats": {
+     "milestones": 671,
+     "sourceCited": 436,
+     "aiCompiled": 157,
+     "aiEstimate": 78,
+     "adoptionKnown": 78,
+     "landed": 526,
+     "regionKnown": 671
+    },
+    "usage": {
+     "calls": 12,
+     "inputTokens": 192608,
+     "outputTokens": 15757,
+     "searches": 13,
+     "model": "claude-opus-5-5"
+    },
+    "deepAudit": true,
+    "details": [
+     "levers   cyber-security-and-resilience-act-in-force: approvals; approvals, software, deploy",
+     "levers   merkle-tree-certificates-for-post-quantum-https: demo; software, deploy, approvals",
+     "levers   300mm-gan-power-chip-volume-production-infineon: build; software, simulation, discovery",
+     "levers   thermodynamic-probabilistic-ai-chips-reach-early-access: demo; simulation, software, discovery",
+     "levers   three-body-computing-constellation-100-ai-compute-satellites: deploy; deploy, software, simulation",
+     "levers   geo-high-orbit-quantum-satellite-with-atomic-optical-clock: build; simulation, deploy, software",
+     "levers   aspa-rpki-based-bgp-route-leak-detection: deploy; software, simulation",
+     "levers   nist-multi-party-threshold-cryptography-standards: rd; software, approvals"
+    ]
+   },
+   {
+    "date": "2026-11-01",
+    "time": "14:09",
+    "revision": 34,
+    "summary": "Stories researched for 10 milestones.",
+    "stats": {
+     "milestones": 671,
+     "sourceCited": 436,
+     "aiCompiled": 157,
+     "aiEstimate": 78,
+     "adoptionKnown": 78,
+     "landed": 526,
+     "regionKnown": 671
+    },
+    "usage": {
+     "calls": 13,
+     "inputTokens": 457903,
+     "outputTokens": 23840,
+     "searches": 26,
+     "model": "claude-opus-5-5"
+    },
+    "deepAudit": true,
+    "details": [
+     "story    socamm2-modular-lpddr-memory-for-ai-servers",
+     "story    cluster-based-disaggregated-backbone-routers-kddi",
+     "story    fully-humanless-commercial-truckload-bot-auto-texas",
+     "story    brazil-tv-3-0-dtv-next-generation-free-to-air-tv",
+     "story    first-ips-cell-therapies-approved-amchepry-reheart",
+     "story    satri-cel-first-car-t-approved-for-a-solid-tumour",
+     "story    c-26-static-reflection-and-contracts-finalised",
+     "story    welinq-qdrive-first-commercial-quantum-memory-sold",
+     "story    plug-in-balcony-solar-legalised-in-great-britain",
+     "story    device-bound-session-credentials-dbsc-in-chrome"
+    ]
    }
   ],
   "adoptionDefinition": "Mainstream adoption: the year the technology reached widespread, routine use, roughly 10% or more of its potential market or standard practice in its sector.",
@@ -2400,7 +2486,10 @@
    "life|2026Q1": "2026-11-01",
    "energy|2025Q4": "2026-11-01",
    "hw|2025Q4": "2026-11-01",
-   "sw|2025Q4": "2026-11-01"
+   "sw|2025Q4": "2026-11-01",
+   "ai|2025Q4": "2026-11-01",
+   "quantum|2025Q4": "2026-11-01",
+   "cyber|2025Q4": "2026-11-01"
   },
   "researchFunnel": [
    {
@@ -2663,6 +2752,42 @@
     "rejected": 0,
     "retrying": 3,
     "date": "2026-11-01"
+   },
+   {
+    "agent": "claude",
+    "recent_proposed": 3,
+    "recent_queued": 3,
+    "recent_rejected": {},
+    "catchup_proposed": 5,
+    "catchup_queued": 5,
+    "catchup_rejected": {},
+    "backfill_proposed": 10,
+    "backfill_queued": 4,
+    "backfill_rejected": {
+     "sources": 4,
+     "years": 2
+    },
+    "date": "2026-11-01"
+   },
+   {
+    "agent": "gemini",
+    "recent_proposed": 8,
+    "recent_queued": 0,
+    "recent_rejected": {
+     "sources": 5,
+     "duplicate": 1,
+     "years": 2
+    },
+    "date": "2026-11-01"
+   },
+   {
+    "agent": "qa",
+    "confirmed_claude": 12,
+    "confirmed_gemini": 0,
+    "confirmed_deep": 0,
+    "rejected": 2,
+    "retrying": 1,
+    "date": "2026-11-01"
    }
   ],
   "secondOpinion": [
@@ -2754,6 +2879,20 @@
     "supported": 10,
     "not_supported": 3,
     "unclear": 6,
+    "unavailable": 0
+   },
+   {
+    "date": "2026-11-01",
+    "kind": "gemini-research",
+    "proposed": 8,
+    "queued": 0
+   },
+   {
+    "date": "2026-11-01",
+    "kind": "gemini-check",
+    "supported": 6,
+    "not_supported": 1,
+    "unclear": 5,
     "unavailable": 0
    }
   ],
@@ -7042,7 +7181,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "refs": [
@@ -7050,7 +7189,7 @@
      "label": "https://cloud.google.com/learn/what-is-zero-trust",
      "url": "https://cloud.google.com/learn/what-is-zero-trust",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     }
    ],
    "region": "us",
@@ -7059,8 +7198,9 @@
     "networks"
    ],
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-11-01"
    }
   },
   {
@@ -7086,7 +7226,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "refs": [
@@ -7094,7 +7234,7 @@
      "label": "https://quantumtimeline.org/milestones/2024-nist-pqc-standards/",
      "url": "https://quantumtimeline.org/milestones/2024-nist-pqc-standards/",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     }
    ],
    "adoption": {
@@ -7136,7 +7276,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "refs": [
@@ -7144,7 +7284,7 @@
      "label": "https://www.darpa.mil/news/2025/aixcc-results",
      "url": "https://www.darpa.mil/news/2025/aixcc-results",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     }
    ],
    "region": "us",
@@ -7187,7 +7327,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "refs": [
@@ -7195,7 +7335,7 @@
      "label": "https://www.ncsc.gov.uk/collection/ncsc-annual-review-2025/chapter-03-keeping-pace-with-evolving-technology/migrating-to-post-quantum-cryptography",
      "url": "https://www.ncsc.gov.uk/collection/ncsc-annual-review-2025/chapter-03-keeping-pace-with-evolving-technology/migrating-to-post-quantum-cryptography",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     }
    ],
    "region": "uk",
@@ -7235,7 +7375,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "us",
@@ -7257,7 +7397,7 @@
      "label": "Swimlane: Agentic AI in the SOC",
      "url": "https://swimlane.com/blog/agentic-ai-in-soc/",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     }
    ]
   },
@@ -7281,7 +7421,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "global",
@@ -7303,7 +7443,7 @@
      "label": "Rapid7 Q3 2026 Threat Update",
      "url": "https://www.rapid7.com/blog/post/tr-q3-2026-threat-update-attackers-exploiting-vulnerabilities-within-3-days/",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     }
    ],
    "aiLevers": {
@@ -7356,7 +7496,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "us",
@@ -7380,7 +7520,7 @@
      "label": "DARPA AIxCC final competition winners",
      "url": "https://aicyberchallenge.com/finals-winners-announcement/",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     }
    ]
   },
@@ -7405,7 +7545,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "global",
@@ -7433,7 +7573,7 @@
      "label": "Industrial Cyber: AI/ML anomaly detection across OT and ICS",
      "url": "https://industrialcyber.co/features/integrating-ai-and-ml-technologies-across-ot-ics-environments-to-enhance-anomaly-detection-and-operational-resilience/",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     }
    ]
   },
@@ -7460,7 +7600,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "adoption": {
@@ -7484,7 +7624,7 @@
      "label": "Google Arts & Culture / Alexandra Palace Television Society: Opening Night of Television",
      "url": "https://artsandculture.google.com/story/opening-night-of-television-alexandra-palace/GgXhGoPtscXvLw?hl=en",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     }
    ],
    "tags": [
@@ -7514,7 +7654,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "refs": [
@@ -7522,7 +7662,7 @@
      "label": "https://en.wikipedia.org/wiki/Chain_Home",
      "url": "https://en.wikipedia.org/wiki/Chain_Home",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     }
    ],
    "adoption": {
@@ -7610,10 +7750,10 @@
    "confidence": "high",
    "note": "The space race supplied the launchers.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "us",
@@ -7630,7 +7770,21 @@
     "note": "Ground stations and links can be jammed, spoofed or hacked.",
     "basis": "ai-compiled",
     "guidance": "comms"
-   }
+   },
+   "refs": [
+    {
+     "label": "Gunter's Space Page – Intelsat-1 (Early Bird)",
+     "url": "https://space.skyrocket.de/doc_sdat/intelsat-1.htm",
+     "status": "ok",
+     "checked": "2026-11-01"
+    },
+    {
+     "label": "Smithsonian NASM – Intelsat I",
+     "url": "https://airandspace.si.edu/collection-objects/model-communications-satellite-intelsat-i/nasm_A19750767000",
+     "status": "ok",
+     "checked": "2026-11-01"
+    }
+   ]
   },
   {
    "id": "ldpc-error-correcting-codes",
@@ -7649,10 +7803,10 @@
    "confidence": "medium",
    "note": "Forgotten for 30 years until rediscovered at Cambridge in the 1990s.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "us",
@@ -7671,7 +7825,15 @@
     "note": "Ground stations and links can be jammed, spoofed or hacked.",
     "basis": "ai-compiled",
     "guidance": "comms"
-   }
+   },
+   "refs": [
+    {
+     "label": "Wikipedia – Low-density parity-check code",
+     "url": "https://en.wikipedia.org/wiki/Low-density_parity-check_code",
+     "status": "ok",
+     "checked": "2026-11-01"
+    }
+   ]
   },
   {
    "id": "optical-fibre",
@@ -7693,10 +7855,10 @@
     "major": true
    },
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "adoption": {
@@ -7719,7 +7881,21 @@
     "note": "Carries critical traffic; physical and routing integrity matter.",
     "basis": "ai-compiled",
     "guidance": "comms"
-   }
+   },
+   "refs": [
+    {
+     "label": "Ingenia – Professor Charles Kao",
+     "url": "https://www.ingenia.org.uk/articles/professor-charles-kao-cbe-freng-man-who-lit-up-the-world/",
+     "status": "ok",
+     "checked": "2026-11-01"
+    },
+    {
+     "label": "QMUL – Nobel Prize for fibre optic pioneer",
+     "url": "https://www.qmul.ac.uk/news/latest-news/2009/se/nobel-prize-for-fibre-optic-pioneer-who-networked-at-queen-mary.html",
+     "status": "ok",
+     "checked": "2026-11-01"
+    }
+   ]
   },
   {
    "id": "wi-fi-technology",
@@ -7741,10 +7917,10 @@
     "major": true
    },
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "adoption": {
@@ -7766,7 +7942,21 @@
     "note": "Connects systems to the internet and to each other, the root of most remote attacks.",
     "basis": "ai-compiled",
     "guidance": "it"
-   }
+   },
+   "refs": [
+    {
+     "label": "Patentology – Analysis of the CSIRO WLAN patent",
+     "url": "https://blog.patentology.com.au/2012/04/analysis-of-csiro-wlan-patent.html",
+     "status": "ok",
+     "checked": "2026-11-01"
+    },
+    {
+     "label": "Patentology – Story behind CSIRO's Wi-Fi patent",
+     "url": "https://blog.patentology.com.au/2012/04/story-behind-csiros-wi-fi-patent.html",
+     "status": "ok",
+     "checked": "2026-11-01"
+    }
+   ]
   },
   {
    "id": "mimo-wireless",
@@ -7788,7 +7978,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "refs": [
@@ -7796,7 +7986,7 @@
      "label": "https://www.comsoc.org/node/20051",
      "url": "https://www.comsoc.org/node/20051",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     }
    ],
    "region": "us",
@@ -7827,16 +8017,16 @@
     "what": "Marzetta at Bell Labs proposes very large antenna arrays."
    },
    "change": {
-    "year": 2019,
-    "what": "SoftBank in Japan launches the first commercial Massive MIMO service on its 4G/pre-5G network; it later becomes standard in 5G."
+    "year": 2016,
+    "what": "SoftBank in Japan launches the first commercial Massive MIMO service on its TD-LTE (pre-5G) network; it later becomes standard in 5G."
    },
    "confidence": "medium",
    "note": "Standards cycles set the pace for telecoms.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "us",
@@ -7855,7 +8045,21 @@
     "note": "Wide-area connectivity extends networks to every device and site.",
     "basis": "ai-compiled",
     "guidance": "comms"
-   }
+   },
+   "refs": [
+    {
+     "label": "https://www.telecoms.com/5g-6g/zte-on-its-best-way-to-5g",
+     "url": "https://www.telecoms.com/5g-6g/zte-on-its-best-way-to-5g",
+     "status": "ok",
+     "checked": "2026-11-01"
+    },
+    {
+     "label": "TelecomTV – SoftBank deploying 100 Massive MIMO base stations (Sep 2016)",
+     "url": "https://www.telecomtv.com/content/5g/softbank-deploying-100-massive-mimo-base-stations-in-pre-5g-move-13944/",
+     "status": "ok",
+     "checked": "2026-11-01"
+    }
+   ]
   },
   {
    "id": "satellite-direct-to-phones",
@@ -7877,7 +8081,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "us",
@@ -7906,13 +8110,13 @@
      "label": "T-Mobile: Reaching for the Stars (T-Satellite)",
      "url": "https://www.t-mobile.com/news/un-carrier/reaching-for-the-stars-with-t-satellite",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     },
     {
      "label": "Consultant Alliance: Direct-to-cell in 2026 (O2 Satellite UK)",
      "url": "https://www.consultant-alliance.com/2026/07/satellite-internet-on-your-smartphone-how-direct-to-cell-works-in-2026/",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     }
    ],
    "aiLevers": {
@@ -7979,7 +8183,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "global",
@@ -8008,7 +8212,7 @@
      "label": "Light Reading: 6G specs are set for early 2029",
      "url": "https://www.lightreading.com/6g/it-s-official-6g-specs-are-set-for-early-2029",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     }
    ]
   },
@@ -8029,10 +8233,10 @@
    "confidence": "high",
    "note": "A lab accident that became the world’s most common plastic.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "uk",
@@ -8048,7 +8252,21 @@
     "expandsAttackSurface": false,
     "note": "Bulk material; no digital attack surface.",
     "basis": "ai-compiled"
-   }
+   },
+   "refs": [
+    {
+     "label": "The Chemical Engineer – Plastic Fantastic (ICI polyethylene)",
+     "url": "https://www.thechemicalengineer.com/features/cewctw-dermot-manning-and-colleagues-at-ici-plastic-fantastic/",
+     "status": "ok",
+     "checked": "2026-11-01"
+    },
+    {
+     "label": "Wikipedia – British Plastics Federation (history)",
+     "url": "https://en.wikipedia.org/wiki/British_Plastics_Federation",
+     "status": "ok",
+     "checked": "2026-11-01"
+    }
+   ]
   },
   {
    "id": "nylon",
@@ -8070,10 +8288,10 @@
     "major": true
    },
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "adoption": {
@@ -8094,6 +8312,20 @@
    },
    "tags": [
     "materials"
+   ],
+   "refs": [
+    {
+     "label": "Wikipedia – Nylon",
+     "url": "https://en.wikipedia.org/wiki/Nylon",
+     "status": "ok",
+     "checked": "2026-11-01"
+    },
+    {
+     "label": "Science Museum Blog – Nylon",
+     "url": "https://blog.sciencemuseum.org.uk/nylon-the-creation-of-a-revolutionary-fabric/",
+     "status": "ok",
+     "checked": "2026-11-01"
+    }
    ]
   },
   {
@@ -8116,7 +8348,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "us",
@@ -8518,7 +8750,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "asia",
@@ -8562,7 +8794,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "asia",
@@ -8646,7 +8878,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "refs": [
@@ -8654,7 +8886,7 @@
      "label": "https://www.basf.com/global/en/media/news-releases/2023/10/p-23-327",
      "url": "https://www.basf.com/global/en/media/news-releases/2023/10/p-23-327",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     }
    ],
    "region": "other",
@@ -8695,7 +8927,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "us",
@@ -9036,7 +9268,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "refs": [
@@ -9044,7 +9276,7 @@
      "label": "https://www.spacebandits.io/post/what-is-satellite-refuelling-and-how-close-are-we-to-solving-it",
      "url": "https://www.spacebandits.io/post/what-is-satellite-refuelling-and-how-close-are-we-to-solving-it",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     }
    ],
    "region": "us",
@@ -9084,7 +9316,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "us",
@@ -9129,7 +9361,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "refs": [
@@ -9137,7 +9369,7 @@
      "label": "https://www.spacebandits.io/post/what-is-satellite-refuelling-and-how-close-are-we-to-solving-it",
      "url": "https://www.spacebandits.io/post/what-is-satellite-refuelling-and-how-close-are-we-to-solving-it",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     }
    ],
    "region": "us",
@@ -9183,7 +9415,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "us",
@@ -9358,7 +9590,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "us",
@@ -9381,7 +9613,7 @@
      "label": "Waymo blog, 8 Oct 2020",
      "url": "https://waymo.com/blog/2020/10/waymo-is-opening-its-fully-driverless-service-in-phoenix/",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     }
    ]
   },
@@ -9405,7 +9637,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": true
    },
    "region": "asia",
@@ -9417,7 +9649,7 @@
      "label": "DJI press release: Phantom launch (7 Jan 2013)",
      "url": "https://www.dji.com/newsroom/news/dji-launches-industry-best-easiest-to-fly-quadcopter-for-consumer-use",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     }
    ],
    "subfield": "drones",
@@ -9461,14 +9693,14 @@
      "label": "Wikipedia: Wayve",
      "url": "https://en.wikipedia.org/wiki/Wayve",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     }
    ],
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "uk",
@@ -9532,7 +9764,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "uk",
@@ -9577,7 +9809,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false,
     "qaNote": "The change as written ('paid humanoid deployments in warehouses and factories, in small numbers') already happened in 2024. Agility's Digit has worked under a multi-year Robots-as-a-Service contract at GXO since June 2024, and other paying customers include Schaeffler and Toyota Canada. GXO is expanding to two more sites in 2027. Either mark this record landed in 2024, or reword the outlook to sca"
    },
@@ -9590,9 +9822,9 @@
    },
    "subfield": "humanoids",
    "readiness": {
-    "stage": "commercial",
+    "stage": "pilot",
     "basis": "ai-estimate",
-    "checked": "2026-10-29"
+    "checked": "2026-11-01"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -9626,7 +9858,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "global",
@@ -9637,8 +9869,9 @@
    ],
    "subfield": "drones",
    "readiness": {
-    "stage": "pilot",
-    "basis": "ai-estimate"
+    "stage": "commercial",
+    "basis": "ai-estimate",
+    "checked": "2026-11-01"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -9675,7 +9908,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "adoption": {
@@ -9692,7 +9925,7 @@
      "label": "CDC Emerging Infectious Diseases: The Discovery of Penicillin (2017)",
      "url": "https://wwwnc.cdc.gov/eid/article/23/5/16-1556_article",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     }
    ],
    "subfield": "medicines",
@@ -9729,7 +9962,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "adoption": {
@@ -9747,7 +9980,7 @@
      "label": "Science History Institute: Herbert W. Boyer and Stanley N. Cohen",
      "url": "https://www.sciencehistory.org/education/scientific-biographies/herbert-w-boyer-and-stanley-n-cohen/",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     }
    ],
    "subfield": "genetics",
@@ -9784,7 +10017,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "adoption": {
@@ -9802,7 +10035,7 @@
      "label": "FONAR company history",
      "url": "https://www.fonar.com/history.html",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     }
    ],
    "subfield": "imaging",
@@ -9836,7 +10069,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "uk",
@@ -9848,7 +10081,7 @@
      "label": "An (2017), Protein & Cell: 'Magic Bullets' special issue on therapeutic antibodies",
      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5777979/",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     }
    ],
    "subfield": "medicines",
@@ -9883,7 +10116,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "us",
@@ -9892,7 +10125,7 @@
      "label": "Thermo Fisher: PCR thermal cycler history",
      "url": "https://commerce.thermofisher.com/us/en/home/life-science/cloning/cloning-learning-center/invitrogen-school-of-molecular-biology/pcr-education/pcr-thermal-cyclers.html",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     }
    ],
    "subfield": "genetics",
@@ -9931,7 +10164,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "us",
@@ -9944,13 +10177,14 @@
      "label": "Stanford GSB case study: 23andMe (2017)",
      "url": "https://gsb.stanford.edu/faculty-research/case-studies/23andme",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     }
    ],
    "subfield": "genetics",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-11-01"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -9981,7 +10215,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "adoption": {
@@ -9998,7 +10232,7 @@
      "label": "Nobel Prize facts: Karikó",
      "url": "https://www.nobelprize.org/prizes/medicine/2023/kariko/facts/",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     }
    ],
    "subfield": "vaccines",
@@ -10035,7 +10269,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "uk",
@@ -10049,7 +10283,7 @@
      "label": "HLK: Casgevy world's first CRISPR approval",
      "url": "https://www.hlk-ip.com/news-and-insights/casgevy-worlds-first-approval-of-a-crispr-cas9-gene-editing-therapy/",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     }
    ],
    "subfield": "genetics",
@@ -10086,7 +10320,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "adoption": {
@@ -10103,7 +10337,7 @@
      "label": "EMBL: AlphaFold Nobel and database history",
      "url": "https://www.embl.org/news/science-technology/alphafold-wins-nobel-prize-chemistry-2024/",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     }
    ],
    "subfield": "ai-bio",
@@ -10138,7 +10372,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "global",
@@ -10183,7 +10417,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "us",
@@ -10229,7 +10463,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "us",
@@ -10259,7 +10493,7 @@
      "label": "NOAA: History of Numerical Weather Prediction",
      "url": "https://www.vos.noaa.gov/MWL/dec_07/weatherprediction.shtml",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     }
    ]
   },
@@ -10284,20 +10518,21 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "us",
    "tags": [
     "grid"
    ],
-   "subfield": "ops",
+   "subfield": "grids",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-11-01"
    },
    "gb": {
-    "status": "unknown",
+    "status": "deployed",
     "basis": "ai-estimate",
     "note": "State estimation is core to NESO and network control-room visibility; it is increasingly extended to distribution networks."
    },
@@ -10312,7 +10547,7 @@
      "label": "Springer: State Estimation",
      "url": "https://link.springer.com/chapter/10.1007/978-3-319-93922-3_2",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     }
    ]
   },
@@ -10387,7 +10622,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": true
    },
    "region": "europe",
@@ -10417,19 +10652,19 @@
      "label": "https://www.osti.gov/etdeweb/servlets/purl/20599421",
      "url": "https://www.osti.gov/etdeweb/servlets/purl/20599421",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     },
     {
      "label": "http://www.drgiebel.de/ShortTermPredLiterature.htm",
      "url": "http://www.drgiebel.de/ShortTermPredLiterature.htm",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     },
     {
      "label": "DTU Orbit: WPPT, a tool for on-line wind power prediction",
      "url": "https://orbit.dtu.dk/en/publications/wppt-a-tool-for-on-line-wind-power-prediction/",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     }
    ]
   },
@@ -10454,7 +10689,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": true
    },
    "region": "europe",
@@ -10467,7 +10702,7 @@
      "label": "CORDIS: Providing Predictive Maintenance for Wind Turbines Over Cloud (2015)",
      "url": "https://cordis.europa.eu/project/id/673137",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     }
    ],
    "subfield": "renewables",
@@ -10508,7 +10743,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "us",
@@ -10520,7 +10755,7 @@
      "label": "ACHR News, Aug 2016",
      "url": "https://www.achrnews.com/articles/133132-machine-learning-reduces-google-data-center-cooling-bill-by-40",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     }
    ],
    "subfield": "demand",
@@ -10561,7 +10796,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false,
     "qaNote": "I could not support 2020 as the date when smart EV tariffs reached GB households at scale. Octopus launched its first EV tariff in 2018, and Ofgem reported 653k customers on smart time-of-use EV tariffs in July 2025, which points to scale later than 2020. The record is GB-specific, so the region should be uk rather than global. The 'ai-models' tag does not fit."
    },
@@ -10571,8 +10806,9 @@
    ],
    "subfield": "demand",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-11-01"
    },
    "gb": {
     "status": "deployed",
@@ -10590,7 +10826,7 @@
      "label": "Octopus Energy: Intelligent Octopus Go",
      "url": "https://octopus.energy/smart/intelligent-octopus-go/",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     }
    ],
    "flags": {
@@ -10618,7 +10854,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "uk",
@@ -10647,7 +10883,7 @@
      "label": "pv magazine: AI solar forecasting at NESO",
      "url": "https://www.pv-magazine.com/2025/11/07/ai-powered-solar-forecasting-helps-uk-grid-operator-reduce-balancing-costs/",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     }
    ]
   },
@@ -10672,7 +10908,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "uk",
@@ -10717,7 +10953,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "global",
@@ -10767,7 +11003,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "uk",
@@ -10817,13 +11053,13 @@
     "label": "DESNZ: Vision for an AI-enabled clean energy system",
     "url": "https://www.gov.uk/government/calls-for-evidence/vision-for-an-ai-enabled-clean-energy-system/vision-for-an-ai-enabled-clean-energy-system-html",
     "status": "ok",
-    "checked": "2026-10-30"
+    "checked": "2026-11-01"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "uk",
@@ -10837,7 +11073,7 @@
     "checked": "2026-10-29"
    },
    "gb": {
-    "status": "planned",
+    "status": "trial",
     "basis": "ai-estimate",
     "note": "System-level assurance is the precondition for letting AI into GB control-room and network operational decisions."
    },
@@ -13273,10 +13509,10 @@
    "note": "Created the idea of a compatible computer architecture.",
    "company": "IBM",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "us",
@@ -13290,7 +13526,15 @@
     "note": "Concentrates valuable data and workloads, making it a high-value target.",
     "basis": "ai-compiled",
     "guidance": "hw"
-   }
+   },
+   "refs": [
+    {
+     "label": "Wikipedia: IBM System/360",
+     "url": "https://en.wikipedia.org/wiki/IBM_System/360",
+     "status": "ok",
+     "checked": "2026-11-01"
+    }
+   ]
   },
   {
    "id": "cray-1-supercomputer",
@@ -13313,7 +13557,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "us",
@@ -13354,7 +13598,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "us",
@@ -13398,7 +13642,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "adoption": {
@@ -13443,7 +13687,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "asia",
@@ -13484,7 +13728,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "us",
@@ -13529,7 +13773,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "adoption": {
@@ -13574,7 +13818,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "uk",
@@ -13618,7 +13862,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "adoption": {
@@ -13664,7 +13908,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "us",
@@ -13705,7 +13949,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "uk",
@@ -13857,7 +14101,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "us",
@@ -13898,7 +14142,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "europe",
@@ -13939,7 +14183,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "europe",
@@ -13979,7 +14223,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "us",
@@ -14019,7 +14263,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "other",
@@ -14054,7 +14298,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "us",
@@ -14089,7 +14333,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "us",
@@ -14124,7 +14368,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "us",
@@ -14159,7 +14403,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "europe",
@@ -14194,7 +14438,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "us",
@@ -14229,7 +14473,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "us",
@@ -14260,7 +14504,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "us",
@@ -14295,7 +14539,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "uk",
@@ -14330,7 +14574,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "us",
@@ -14445,7 +14689,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "adoption": {
@@ -14478,7 +14722,7 @@
      "label": "https://energydigital.com/news/orsted-how-the-first-offshore-wind-farm-changed-energy",
      "url": "https://energydigital.com/news/orsted-how-the-first-offshore-wind-farm-changed-energy",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-01"
     }
    ]
   },
@@ -14754,7 +14998,7 @@
    "id": "photonic-fault-tolerant-quantum-computer",
    "field": "quantum",
    "origin": "industry",
-   "status": "in-lab",
+   "status": "outlook",
    "title": "Photonic fault-tolerant quantum computer",
    "research": {
     "year": 2016,
@@ -14772,7 +15016,8 @@
     "addedBy": "initial-build",
     "added": "2026-10-27",
     "lastChecked": "2026-10-31",
-    "approximate": false
+    "approximate": false,
+    "qaNote": "Reclassified as an outlook: its target, 2035, is within the 10-year horizon."
    },
    "region": "us",
    "subfield": "computing",
@@ -14968,7 +15213,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "us",
@@ -15009,11 +15254,11 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "us",
-   "subfield": "internet",
+   "subfield": "messaging",
    "adoption": {
     "year": 2020,
     "what": "Reached mainstream use.",
@@ -15160,7 +15405,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "other",
@@ -15169,8 +15414,9 @@
    ],
    "subfield": "launch",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-11-01"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -15353,7 +15599,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "us",
@@ -15393,7 +15639,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "us",
@@ -15433,7 +15679,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "europe",
@@ -15473,7 +15719,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "uk",
@@ -15515,7 +15761,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "adoption": {
@@ -15568,7 +15814,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "adoption": {
@@ -15618,7 +15864,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "europe",
@@ -15944,7 +16190,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "europe",
@@ -15989,7 +16235,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "europe",
@@ -16028,7 +16274,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "asia",
@@ -18816,6 +19062,35 @@
     "estimatedYear": 2027,
     "estimatedOn": "2026-10-27",
     "revisions": []
+   },
+   "aiLevers": {
+    "phase": "approvals",
+    "bottleneck": "Bill still in Parliament (Lords Report stage 26 Oct 2026, Royal Assent pending); most duties then need secondary legislation and regulator enforcement capacity.",
+    "levers": [
+     {
+      "k": "approvals",
+      "strength": "low",
+      "note": "AI could help officials sort and summarise consultation responses on secondary legislation and implementation plans; ministers and Parliament still make every decision."
+     },
+     {
+      "k": "software",
+      "strength": "mid",
+      "note": "Newly in-scope organisations (MSPs, data centres, large load controllers) could use AI-assisted detection and triage to meet 24-hour initial and 72-hour full incident reports."
+     },
+     {
+      "k": "deploy",
+      "strength": "low",
+      "note": "Regulators such as Ofgem and Ofcom could use automation to triage more incident reports from a larger set of regulated organisations, which would ease capacity pressure during roll-out."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://www.parliament.uk/business/news/2026/july-2026/cyber-security-bill-has-lords-second-reading/",
+      "label": "UK Parliament: Cyber Security Bill debated in the Lords",
+      "quote": "Committee stage, the first chance for line-by-line examination of the bill, is scheduled to begin on Tuesday 1 September."
+     }
+    ],
+    "checked": "2026-11-01"
    }
   },
   {
@@ -19290,12 +19565,11 @@
     "major": true
    },
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
-    "approximate": false,
-    "qaNote": "All cited links are broken; downgraded until a new source is found."
+    "lastChecked": "2026-11-01",
+    "approximate": false
    },
    "adoption": {
     "year": 2003,
@@ -19303,7 +19577,7 @@
     "basis": "ai-estimate"
    },
    "region": "us",
-   "subfield": "chips",
+   "subfield": "devices",
    "readiness": {
     "stage": "scale",
     "basis": "ai-estimate"
@@ -19319,13 +19593,14 @@
      "label": "IEEE Milestone: CCD, 1969",
      "url": "https://ethw.org/Milestones:Charge-Coupled_Device,_1969",
      "status": "broken",
-     "checked": "2026-10-29"
+     "checked": "2026-11-01"
     },
     {
-     "label": "Camera-wiki: CCD",
-     "url": "https://camera-wiki.org/wiki/CCD",
-     "status": "broken",
-     "checked": "2026-10-29"
+     "label": "Wikipedia – Charge-coupled device",
+     "url": "https://en.wikipedia.org/wiki/Charge-coupled_device",
+     "status": "ok",
+     "checked": "2026-11-01",
+     "replaced": "https://camera-wiki.org/wiki/CCD"
     }
    ],
    "company": "Fairchild Semiconductor",
@@ -22976,7 +23251,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "europe",
@@ -23150,17 +23425,18 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "other",
    "tags": [
     "space"
    ],
-   "subfield": "launch",
+   "subfield": "satcom",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-11-01"
    },
    "security": {
     "expandsAttackSurface": false,
@@ -23236,7 +23512,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "approximate": false
    },
    "region": "other",
@@ -23245,8 +23521,14 @@
    ],
    "subfield": "vaccines",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-11-01"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Little direct cyber relevance. The main risks are cold-chain and supply-chain integrity and vaccine misinformation.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -26177,6 +26459,45 @@
     "estimatedYear": 2027,
     "estimatedOn": "2026-10-28",
     "revisions": []
+   },
+   "aiLevers": {
+    "phase": "demo",
+    "bottleneck": "The Chrome field trial worked, but production waits on the draft IETF spec being finalised, root-program policy, CA and cosigner onboarding, and other browsers committing.",
+    "levers": [
+     {
+      "k": "software",
+      "strength": "mid",
+      "note": "Help write and fuzz MTC code in TLS libraries, ACME servers (e.g. Cloudflare's Boulder fork), transparency logs and cosigners, and keep implementations in step with each draft revision."
+     },
+     {
+      "k": "deploy",
+      "strength": "low",
+      "note": "Monitor issuance, landmark distribution and how often handshakes fall back to classic chains, and automate renewal of very short-lived certificates across the old and new root stores."
+     },
+     {
+      "k": "approvals",
+      "strength": "low",
+      "note": "Collect and check CA audit records and cosigner compliance evidence for root-program applications faster. Inclusion decisions stay with Chrome's reviewers."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://blog.cloudflare.com/pq-ca-with-mtcs/",
+      "label": "Cloudflare blog: Building a post-quantum CA with MTCs (2026)",
+      "quote": "Over the course of the experiment we successfully served billions of MTCs."
+     },
+     {
+      "url": "https://googlechrome.github.io/chromerootprogram/cqrp/testing/",
+      "label": "Chrome Quantum-resistant Root Program – Testing Instructions",
+      "quote": "This test root store will be delivered to Chrome clients, but not trusted for production use."
+     },
+     {
+      "url": "https://hwbusters.com/news/cloudflare-becomes-a-post-quantum-certificate-authority-betting-on-merkle-tree-certificates-to-keep-tls-lean/",
+      "label": "Hardware Busters: Cloudflare becomes a post-quantum CA",
+      "quote": "Apple, Microsoft and Mozilla have not committed to MTC support."
+     }
+    ],
+    "checked": "2026-11-01"
    }
   },
   {
@@ -27314,6 +27635,35 @@
     "url": "https://www.semiconductor-today.com/news_items/2026/oct/infineon-271026.shtml",
     "status": "ok",
     "checked": "2026-11-01"
+   },
+   "aiLevers": {
+    "phase": "build",
+    "bottleneck": "Converting Villach cleanrooms, installing tools and moving 300mm GaN process into stable, high-yield volume production by late 2027; ramp-up depends on demand.",
+    "levers": [
+     {
+      "k": "software",
+      "strength": "mid",
+      "note": "Machine-learning analysis of inline metrology and wafer maps to find causes of defects and yield loss on new 300mm GaN-on-Si tools, speeding the ramp to stable volume."
+     },
+     {
+      "k": "simulation",
+      "strength": "mid",
+      "note": "Simulation models of wafer bow and stress in GaN epitaxy on 300mm silicon, plus fab digital twins for planning tool layout and throughput in the converted cleanrooms."
+     },
+     {
+      "k": "discovery",
+      "strength": "low",
+      "note": "AI-assisted design of epitaxial buffer stacks and device layouts to cut defects and costs. This is useful, but the main constraint is manufacturing, not materials discovery."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://www.credenceresearch.com/news/infineon-1-1-billion-euros-villach-300mm-gan-power-semiconductor-fab",
+      "label": "Credence Research, Oct 2026",
+      "quote": "Equipment installation and transfer of the 300-millimeter GaN process into existing Villach cleanrooms ahead of the production start."
+     }
+    ],
+    "checked": "2026-11-01"
    }
   },
   {
@@ -27952,7 +28302,30 @@
      "rules": 2
     }
    },
-   "flags": {}
+   "flags": {},
+   "story": {
+    "research": "Dell engineer Tom Schnell's work on a thin, compression-attached laptop memory module, released in 2022 and later standardised by JEDEC as CAMM2.",
+    "deploy": "in mass production by SK hynix, which announced on 20 April 2026 a 192GB 1cnm LPDDR5X SOCAMM2 module for NVIDIA's Vera Rubin platform.",
+    "impact": "SK hynix says the module delivers more than double the bandwidth and over 75% better power efficiency than conventional RDIMM; JEDEC published the JESD328 SOCAMM2 standard in June 2026.",
+    "refs": [
+     {
+      "url": "https://en.wikipedia.org/wiki/CAMM_(memory_module)",
+      "label": "Wikipedia: CAMM (memory module)",
+      "quote": "Dell engineer Tom Schnell developed the original version of CAMM."
+     },
+     {
+      "url": "https://news.skhynix.com/en/mass-production-socamm2-192gb/",
+      "label": "SK hynix Newsroom, 20 April 2026",
+      "quote": "delivers more than double the bandwidth with over 75% improved power efficiency compared to conventional RDIMM"
+     },
+     {
+      "url": "https://www.jedec.org/standards-documents/docs/jesd328",
+      "label": "JEDEC JESD328 standard page",
+      "quote": "intended for use as main memory when installed in Datacenter, AI Server, and other systems"
+     }
+    ],
+    "checked": "2026-11-01"
+   }
   },
   {
    "id": "quantum-diamond-microscope-for-chip-failure-analysis",
@@ -28179,7 +28552,25 @@
      "rules": 2
     }
    },
-   "flags": {}
+   "flags": {},
+   "story": {
+    "research": "a KDDI programme, begun in 2020 through the Telecom Infra Project, to build cluster-based disaggregated backbone routers that are not limited by physical chassis.",
+    "deploy": "by KDDI in June 2026, as core routers at major Japanese backbone sites, using DriveNets software on UfiSpace hardware.",
+    "impact": "KDDI says the clusters have cut network equipment deployment costs by about 50% compared with chassis-based routers. It aims to finish the nationwide rollout by the end of FY2027.",
+    "refs": [
+     {
+      "url": "https://www.telecomtv.com/content/next-gen-telco-infra/kddi-and-drivenets-sign-strategic-partnership-to-accelerate-open-network-architecture-52983/",
+      "label": "TelecomTV (via KDDI), KDDI–DriveNets partnership",
+      "quote": "Since 2020, KDDI has been pushing forward the development of Cluster-Based Distributed Disaggregated Backbone Routers (DDBR)"
+     },
+     {
+      "url": "https://www.thefastmode.com/technology-solutions/48916-kddi-rolls-out-ddbr-cluster-architecture-to-scale-backbone-networks-for-ai-traffic-growth",
+      "label": "The Fast Mode, June 2026",
+      "quote": "with the goal of completing nationwide deployment by the end of fiscal year 2027"
+     }
+    ],
+    "checked": "2026-11-01"
+   }
   },
   {
    "id": "radio-astronomy-janskys-cosmic-radio-detection",
@@ -28770,6 +29161,24 @@
      "date": "2026-10-31",
      "rules": 2
     }
+   },
+   "story": {
+    "research": "Xiaodi Hou's Houston startup Bot Auto, founded 2023, building a Level-4 heavy-truck autonomy stack later proven in a humanless 2025 hub-to-hub validation run.",
+    "deploy": "on 29 April 2026 by Bot Auto, hauling a paid Ryan Transportation load 230 miles from Houston to Hutchins, near Dallas, with no human involved.",
+    "impact": "Bot Auto reported a humanless cost of $1.89 per mile versus ATRI's $2.26 industry estimate, and is expanding its network with Ryan Transportation to make humanless runs a repeatable service.",
+    "refs": [
+     {
+      "url": "https://www.therobotreport.com/bot-auto-completes-uncrewed-truck-validation-run/",
+      "label": "The Robot Report, 16 Sept 2025 – validation run",
+      "quote": "first fully humanless hub-to-hub validation run in Houston"
+     },
+     {
+      "url": "https://finance.yahoo.com/sectors/technology/articles/houston-liftoff-bot-auto-achieves-120000069.html",
+      "label": "Yahoo Finance (FreightWaves), 30 April 2026 – economics",
+      "quote": "The company's humanless cost per mile is $1.89, compared with the industry's estimated $2.26 per mile"
+     }
+    ],
+    "checked": "2026-11-01"
    }
   },
   {
@@ -31379,7 +31788,41 @@
     "status": "ok",
     "checked": "2026-10-31"
    },
-   "flags": {}
+   "flags": {},
+   "aiLevers": {
+    "phase": "demo",
+    "bottleneck": "Test silicon is small, so energy gains on real generative workloads are unproven at product scale; probabilistic models and software stack remain immature.",
+    "levers": [
+     {
+      "k": "simulation",
+      "strength": "high",
+      "note": "Extropic's THRML (Python/JAX) simulates thermodynamic sampling units on GPUs and CPUs. Teams can build and train energy-based models, and test chip designs, before Z1 hardware ships."
+     },
+     {
+      "k": "software",
+      "strength": "mid",
+      "note": "Compiler layers such as Torx and Thermalizers turn probabilistic AI operations into programs for the chips. AI coding help could speed up kernels, benchmarks and porting of diffusion models."
+     },
+     {
+      "k": "discovery",
+      "strength": "low",
+      "note": "Normal Computing sells an AI chip-design and verification tool (Normal EDA). Sources do not confirm it is used on its own thermodynamic chips; design work is otherwise ordinary CMOS."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://extropic.ai/writing/from-one-to-one-billion/",
+      "label": "Extropic: From One to One Billion (Z1 tape-out and 2027 early access)",
+      "quote": "we plan on making Z1 cards, sticks, and clusters ready for early access in 2027"
+     },
+     {
+      "url": "https://www.vlsi.kr/en/normal-computing-deep-dive-en/",
+      "label": "VLSI.kr: Normal Computing deep dive (CN101 results at Hot Chips 2026)",
+      "quote": "The silicon proof is real but small."
+     }
+    ],
+    "checked": "2026-11-01"
+   }
   },
   {
    "id": "three-body-computing-constellation-100-ai-compute-satellites",
@@ -31455,6 +31898,35 @@
     "url": "https://m.c114.com.cn/w16-1304669.html",
     "status": "ok",
     "checked": "2026-10-31"
+   },
+   "aiLevers": {
+    "phase": "deploy",
+    "bottleneck": "Scaling from about a dozen satellites to 100 by 2027: build rate, launch cadence, and making laser-linked networking and distributed operations work at scale.",
+    "levers": [
+     {
+      "k": "deploy",
+      "strength": "high",
+      "note": "Zhejiang Lab's embodied-intelligence satellite model, first tested in orbit July 2026, handles autonomous health management and single/multi-satellite task planning, and lets AI models be pushed from ground to individual satellites."
+     },
+     {
+      "k": "software",
+      "strength": "mid",
+      "note": "The first batch needed 200+ software packages and nearly a million lines of code; AI-assisted coding and testing could speed work on the space distributed OS, routers and model-deployment toolchain."
+     },
+     {
+      "k": "simulation",
+      "strength": "low",
+      "note": "Digital twins of orbits, laser-link geometry and on-board compute scheduling could validate routing and task allocation before more satellites join. I found no public source confirming this."
+     }
+    ],
+    "refs": [
+     {
+      "url": "http://english.scio.gov.cn/chinavoices/2026-04/27/content_118464689.html",
+      "label": "Xinhua via SCIO, Apr 2026: From ground to orbit",
+      "quote": "According to the plan, the constellation will reach a scale of 100 satellites by 2027."
+     }
+    ],
+    "checked": "2026-11-01"
    }
   },
   {
@@ -31829,7 +32301,36 @@
     "status": "ok",
     "checked": "2026-10-31"
    },
-   "flags": {}
+   "flags": {},
+   "aiLevers": {
+    "phase": "build",
+    "bottleneck": "Space-qualifying a GEO payload that can survive huge photon loss over 35,000 km, plus a flight optical clock; 2027 is only a scientist's stated target.",
+    "levers": [
+     {
+      "k": "simulation",
+      "strength": "mid",
+      "note": "Modelling of GEO link budgets, finite-key rates, weather and turbulence at ground stations, and digital twins of the clock's thermal and vibration environment, to set payload and telescope specifications."
+     },
+     {
+      "k": "deploy",
+      "strength": "low",
+      "note": "ML forecasting of cloud cover and seeing to schedule ground-station links, and to choose which sites to add for global coverage alongside the LEO satellites."
+     },
+     {
+      "k": "software",
+      "strength": "low",
+      "note": "Learned control for adaptive optics and fine pointing/tracking, so that photon collection from GEO goes up on large ground telescopes."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://www.scmp.com/news/china/science/article/3315963/new-dawn-pan-jianwei-reveals-high-orbit-quantum-satellite-global-network",
+      "label": "SCMP: Pan Jianwei reveals Dawn high-orbit quantum satellite",
+      "quote": "China is developing the world's first high-orbit quantum communication satellite"
+     }
+    ],
+    "checked": "2026-11-01"
+   }
   },
   {
    "id": "oss-fuzz-continuous-fuzzing-service",
@@ -32226,7 +32727,36 @@
     "status": "ok",
     "checked": "2026-10-31"
    },
-   "flags": {}
+   "flags": {},
+   "aiLevers": {
+    "phase": "deploy",
+    "bottleneck": "Core drafts and RTR v2 still await IESG/RFC publication, so vendors and big ISPs hold off; fewer than 1% of ASNs publish ASPA objects.",
+    "levers": [
+     {
+      "k": "software",
+      "strength": "mid",
+      "note": "AI-assisted generation of provider lists from inferred AS relationships, plus router policy and RPKI tooling code and test cases for BIRD, FRR and OpenBGPD ASPA support."
+     },
+     {
+      "k": "simulation",
+      "strength": "low",
+      "note": "Learned AS-relationship models could feed partial-deployment simulations estimating leak-detection benefit before ISPs QA-test ASPA policies."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://datatracker.ietf.org/doc/draft-ietf-sidrops-aspa-verification/",
+      "label": "IETF Datatracker: draft-ietf-sidrops-aspa-verification-29",
+      "quote": "WG Consensus: Waiting for Write-Up"
+     },
+     {
+      "url": "https://www.via-registry.com/resources/what-is-aspa",
+      "label": "ASPA Explained (2026)",
+      "quote": "the published RFC 8210 is version 1 and does not carry ASPA"
+     }
+    ],
+    "checked": "2026-11-01"
+   }
   },
   {
    "id": "nist-multi-party-threshold-cryptography-standards",
@@ -32298,6 +32828,40 @@
    },
    "flags": {
     "disputed": true
+   },
+   "aiLevers": {
+    "phase": "rd",
+    "bottleneck": "Teams still preparing submission packages (spec, reference code, evaluation). Post-quantum threshold designs are immature, and public cryptanalysis has to come before any standard.",
+    "levers": [
+     {
+      "k": "software",
+      "strength": "mid",
+      "note": "AI coding assistants could speed up the open-source reference implementations, test harnesses and benchmarking reports the call requires. Protocol security still depends on human proofs and peer review."
+     },
+     {
+      "k": "approvals",
+      "strength": "low",
+      "note": "Could help reviewers cross-check submitted specifications against code and organise public comments. NIST's characterisation and any later validation decisions stay with human experts."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://csrc.nist.gov/projects/pec/threshold",
+      "label": "NIST PEC – MPC and Threshold schemes",
+      "quote": "Numerous \"previews\" (plans of upcoming submissions to the NIST Threshold call) are currently posted."
+     },
+     {
+      "url": "https://www.nist.gov/publications/nist-first-call-multi-party-threshold-schemes",
+      "label": "NIST IR 8214C (2026) publication page",
+      "quote": "including a technical specification, a reference implementation, and a report on experimental evaluation."
+     },
+     {
+      "url": "https://csrc.nist.gov/presentations/2023/nist-call-for-multi-party-threshold-schemes-br-(1)",
+      "label": "NIST ICMC 2023 brief notes",
+      "quote": "clarify the current state of (in)compatibility between quantum-resistance, threshold-friendliness and advanced features."
+     }
+    ],
+    "checked": "2026-11-01"
    }
   },
   {
@@ -32888,7 +33452,25 @@
      "rules": 2
     }
    },
-   "flags": {}
+   "flags": {},
+   "story": {
+    "research": "a Fórum SBTVD programme where about 90 researchers from nine Brazilian universities, funded by the Communications Ministry via RNP, tested and recommended TV 3.0 technologies.",
+    "deploy": "by TV Globo in São Paulo, Rio de Janeiro and Brasília on 11 June 2026, the World Cup's opening day, after the August 2025 decree.",
+    "impact": "two converter models have gone on sale in Brazil, broadcasters such as SBT, Record and Band are taking part in regulated tests, and the target is to cover 15 major capitals by 2030.",
+    "refs": [
+     {
+      "url": "https://set.org.br/set-news/forum-sbtvd-conclui-recomendacao-de-tecnologias-para-tv-3-0/",
+      "label": "SET Portal – Fórum SBTVD conclui recomendação de tecnologias para TV 3.0 (July 2024)",
+      "quote": "com a participação de cerca de 90 pesquisadores de nove universidades brasileiras"
+     },
+     {
+      "url": "https://www.meioemensagem.com.br/midia/fabricantes-nacionais-ja-vendem-kits-da-tv-3-0",
+      "label": "Meio & Mensagem – Fabricantes nacionais já vendem kits da TV 3.0 (June 2026)",
+      "quote": "Intelbras e Aquário se antecipam e lançam o equipamento para DTV+, que a Globo estreia nesta quinta-feira, 11"
+     }
+    ],
+    "checked": "2026-11-01"
+   }
   },
   {
    "id": "400zr-coherent-pluggable-optics-in-routers",
@@ -34808,7 +35390,20 @@
      "rules": 2
     }
    },
-   "flags": {}
+   "flags": {},
+   "story": {
+    "research": "laboratory stem-cell research by Kazutoshi Takahashi and Shinya Yamanaka at Kyoto University, who reprogrammed mouse fibroblasts into iPS cells with four transcription factors in 2006.",
+    "deploy": "in Japan, where the health ministry gave conditional, time-limited approval on 6 March 2026 to Cuorips' ReHeart heart sheet and Sumitomo Pharma's Amchepry for Parkinson's.",
+    "impact": "both entered Japan's public health insurance—Amchepry in May 2026, and ReHeart from 1 September 2026 at an official price of ¥53.2 million—though full approval still awaits further post-marketing data.",
+    "refs": [
+     {
+      "url": "https://www.amed.go.jp/en/news/topics/20260220.html",
+      "label": "AMED (Japan Agency for Medical Research and Development)",
+      "quote": "On March 6, 2026, MHLW granted approval for the marketing of two iPS cell-based regenerative medicine products"
+     }
+    ],
+    "checked": "2026-11-01"
+   }
   },
   {
    "id": "first-gene-edited-pig-kidney-into-a-living-patient",
@@ -35890,7 +36485,30 @@
      "rules": 2
     }
    },
-   "flags": {}
+   "flags": {},
+   "story": {
+    "research": "CARsgen Therapeutics' research on CT041, an autologous CAR-T targeting the stomach protein Claudin18.2, advancing from preclinical work to early clinical trials in China.",
+    "deploy": "in China after the NMPA approved satri-cel on 22 June 2026, for Claudin18.2-positive, HER2-negative advanced gastric/GEJ cancer after two or more prior treatment lines.",
+    "impact": "it has become the first CAR-T approved anywhere for a solid tumour. In the Lancet CT041-ST-01 trial, median progression-free survival was 3.25 months with satri-cel versus 1.77 months with physician's choice treatment.",
+    "refs": [
+     {
+      "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9205778/",
+      "label": "Nature Medicine (2022, via PMC): CT041 phase 1 interim results",
+      "quote": "A previous single-center clinical trial (NCT03159819) indicated that CT041 was well-tolerated"
+     },
+     {
+      "url": "https://www.prnewswire.com/news-releases/carsgen-announces-approval-of-satri-cel-the-worlds-first-car-t-cell-therapy-product-for-solid-tumors-302806312.html",
+      "label": "CARsgen press release, 22 June 2026",
+      "quote": "making it the world's first approved CAR T-cell therapy product for solid tumors"
+     },
+     {
+      "url": "https://falkfoundation.org/en/fgr/detail/claudin-18-isoform-2-specific-car-t-cell-therapy-satri-cel-versus-treatment-of-physicians-choice-for-previously-treated-advanced-gastric-or-gastro-oesophageal-junction-cancer-ct041-st-01-a-randomised-open-label-phase-2-trial/",
+      "label": "Falk Foundation review of the Lancet CT041-ST-01 trial",
+      "quote": "median 3.25 months versus 1.77 months in the TPC arm (hazard ratio [HR] = 0.37; p ‹ 0.0001)"
+     }
+    ],
+    "checked": "2026-11-01"
+   }
   },
   {
    "id": "solid-state-transformers-for-ai-data-centres-and-grids",
@@ -37160,7 +37778,25 @@
      "rules": 2
     }
    },
-   "flags": {}
+   "flags": {},
+   "story": {
+    "research": "a 2023 WG21 proposal, P2996, by Childers, Dimov, Revzin, Sutton, Vali and Vandevoorde for compile-time reflection, developed alongside the P2900 contracts proposal.",
+    "deploy": "in London Croydon on 28 March 2026, when ISO C++ finished technical work on C++26; GCC trunk already had reflection and contracts merged.",
+    "impact": "GCC 16.1 shipped experimental P2996R13 reflection and P2900R14 contracts. Herb Sutter says GCC and Clang had implemented two-thirds of C++26 features at every point during its development.",
+    "refs": [
+     {
+      "url": "https://herbsutter.com/2023/11/11/trip-report-autumn-iso-c-standards-meeting-kona-hi-usa/",
+      "label": "Herb Sutter, Kona trip report (Nov 2023)",
+      "quote": "The group then voted unanimously to adopt P2996R1 “Reflection for C++26”"
+     },
+     {
+      "url": "https://herbsutter.com/2026/03/29/c26-is-done-trip-report-march-2026-iso-c-standards-meeting-london-croydon-uk/",
+      "label": "Herb Sutter, C++26 is done! London Croydon trip report (Mar 2026)",
+      "quote": "Today, GCC already has reflection and contracts merged in trunk, awaiting release."
+     }
+    ],
+    "checked": "2026-11-01"
+   }
   },
   {
    "id": "project-genie-interactive-world-models-for-consumers",
@@ -37367,6 +38003,29 @@
     "added": "2026-10-31",
     "lastChecked": "2026-10-31",
     "approximate": false
+   },
+   "story": {
+    "research": "laser-cooled neutral-atom quantum memory research at Sorbonne University's Kastler Brossel laboratory, developed within the Quantum Internet Alliance and spun out as Welinq in 2022.",
+    "deploy": "by the Institute of Physics, Slovak Academy of Sciences, which bought QDrive in January 2026 for Slovakia's skQCI network; delivered June 2026.",
+    "impact": "QDrive has shown over 90% storage-and-retrieval efficiency for single photons and storage times of up to 200 microseconds. Welinq says more units are being built for research facilities, quantum networks and data centres.",
+    "refs": [
+     {
+      "url": "https://www.welinq.fr/blog/eic-transition",
+      "label": "Welinq – EIC Transition grant announcement",
+      "quote": "developed as part of the ramp-up phase of QIA's quantum flagship in the framework of Sorbonne University and CNRS"
+     },
+     {
+      "url": "https://qute.sk/category/press-release/",
+      "label": "QUTE.sk – Press releases (Jan 2026 sale; June 2026 arrival)",
+      "quote": "Welinq announces the sale of QDrive, its commercial record-breaking quantum memory product, with the Institute of Physics, Slovak Academy of Sciences"
+     },
+     {
+      "url": "https://quantumcomputingreport.com/welinq-executes-first-commercial-sale-of-qdrive-quantum-memory-to-slovak-academy-of-sciences/",
+      "label": "Quantum Computing Report – First commercial sale of QDrive",
+      "quote": "a storage-and-retrieval efficiency exceeding 90% for single photons and storage durations of up to 200 microseconds"
+     }
+    ],
+    "checked": "2026-11-01"
    }
   },
   {
@@ -38219,6 +38878,29 @@
      "date": "2026-11-01",
      "rules": 2
     }
+   },
+   "story": {
+    "research": "eight-plus years of German standards work by VDE/DKE, producing plug-in PV pre-standard DIN VDE V 0126-95 (December 2025), which Britain's specification mirrors.",
+    "deploy": "in England, Wales and Scotland from 27 August 2026, when SI 2026/848 let households plug battery-free kits of up to 800 W into ordinary sockets.",
+    "impact": "the ENA's new Plug-in Solar register has drawn 25 devices from ten companies, including Octopus Energy, but at last count only seven, all from UKSOL Ltd, were listed compliant.",
+    "refs": [
+     {
+      "url": "https://balkon.solar/news/2025/11/22/what-does-the-new-german-plug-in-pv-norm-say/",
+      "label": "balkon.solar – What does the new German plug-in PV norm say?",
+      "quote": "After more than eight years of deliberation the VDE, the german electrotechnical standards organization, has finally published"
+     },
+     {
+      "url": "https://assets.publishing.service.gov.uk/media/6a60a03c47af652afa0c89f5/plug-in-solar-final-_interim-product-specification.pdf",
+      "label": "GOV.UK (DESNZ) – Plug-in Solar Device Interim Product Specification",
+      "quote": "this specification and DIN VDE V 0126-95 are equivalent in"
+     },
+     {
+      "url": "https://www.pluginsolarexplained.co.uk/blog/octopus-energy-plug-in-solar-microinverter-ena/",
+      "label": "Plug-In Solar, Explained – Octopus Energy files a plug-in solar microinverter with the ENA",
+      "quote": "The Plug-in Solar category on Connect Direct holds 25 devices from ten companies."
+     }
+    ],
+    "checked": "2026-11-01"
    }
   },
   {
@@ -38281,7 +38963,25 @@
      "rules": 2
     }
    },
-   "flags": {}
+   "flags": {},
+   "story": {
+    "research": "a Google Chrome security design, announced in April 2024, binding web sessions to non-exportable keys held in TPM or Secure Enclave hardware.",
+    "deploy": "by Google in Chrome 146 on Windows in April 2026; default-on protection for Workspace and personal Google accounts began rolling out 25 May 2026.",
+    "impact": "Google reports a measurable reduction in session theft for DBSC-protected sessions since deployment began, though it has published no specific figure.",
+    "refs": [
+     {
+      "url": "https://blog.google/security/protecting-cookies-with-device-bound-session-credentials/",
+      "label": "Google blog: Protecting Cookies with Device Bound Session Credentials",
+      "quote": "Following our April 2024 announcement, Device Bound Session Credentials (DBSC) is now entering public availability for Windows users on Chrome 146"
+     },
+     {
+      "url": "https://www.helpnetsecurity.com/2026/04/10/google-chrome-device-bound-session-credentials/",
+      "label": "Help Net Security: Chrome ships device-bound session credentials",
+      "quote": "Google observed a measurable reduction in session theft since deployment began"
+     }
+    ],
+    "checked": "2026-11-01"
+   }
   },
   {
    "id": "pandora-first-nasa-astrophysics-pioneers-smallsat",
@@ -40007,6 +40707,789 @@
     }
    },
    "flags": {}
+  },
+  {
+   "id": "glass-core-packaging-substrates-in-volume-production",
+   "field": "hw",
+   "origin": "industry",
+   "status": "outlook",
+   "title": "Glass-core packaging substrates in volume production",
+   "research": {
+    "year": 2023,
+    "what": "Intel showed glass-core substrates as a replacement for the organic material in advanced chip packages, with tuneable thermal expansion and better flatness for large AI packages. Origin: Intel glass core substrate research announcement, September 2023"
+   },
+   "change": {
+    "year": 2027,
+    "what": "Substrate makers including Absolics (SKC) and Samsung Electro-Mechanics have published targets to begin volume production of glass-core substrates in 2027, after BOE qualified a pilot line and sent samples to customers in September 2026."
+   },
+   "confidence": "medium",
+   "note": "Glass cores could get past the warpage and size limits of organic substrates that now hold back very large AI accelerator packages, but mass-production dates have slipped several times.",
+   "company": "Absolics / Samsung Electro-Mechanics / Intel",
+   "refs": [
+    {
+     "label": "VLSI.kr: The Glass-Core Substrate Race (Oct 2026)",
+     "url": "https://www.vlsi.kr/en/glass-core-substrate-race-en/",
+     "status": "ok",
+     "checked": "2026-11-01"
+    },
+    {
+     "label": "Tech Times: BOE completes glass core substrate qualification (Sep 2026)",
+     "url": "https://www.techtimes.com/articles/327959/20260923/boe-completes-glass-core-substrate-qualification-ships-customers-chip-level-testing.htm",
+     "status": "ok",
+     "checked": "2026-11-01"
+    },
+    {
+     "label": "IRZ: Glass chip substrates still have no commercial product (Sep 2026)",
+     "url": "https://irz.fr/en/articles/verre-remplace-pas-encore-organique-en/",
+     "status": "ok",
+     "checked": "2026-11-01"
+    }
+   ],
+   "subfield": "fab",
+   "region": "us",
+   "tags": [
+    "semiconductors",
+    "materials"
+   ],
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "This is a packaging-material change, so it adds no new remote attack surface, though concentrating supply among a few makers creates supply-chain risk.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2027,
+    "estimatedOn": "2026-11-01",
+    "revisions": []
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-01",
+    "lastChecked": "2026-11-01",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "contradicted",
+     "reason": "All sources, published in late 2026, explicitly state that glass-core substrates are not yet in volume production, with targets clustering from H2 2027 onwards.",
+     "date": "2026-11-01",
+     "rules": 2
+    },
+    "qaNote": "Second opinion (Gemini): contradicted. All sources, published in late 2026, explicitly state that glass-core substrates are not yet in volume production, with targets clustering from H2 2027 onwards."
+   },
+   "basis": {
+    "label": "VLSI.kr: The Glass-Core Substrate Race (Oct 2026)",
+    "url": "https://www.vlsi.kr/en/glass-core-substrate-race-en/",
+    "status": "ok",
+    "checked": "2026-11-01"
+   },
+   "flags": {
+    "disputed": true
+   }
+  },
+  {
+   "id": "explicit-lazy-imports-in-cpython-pep-810-python-3-15",
+   "field": "sw",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Explicit lazy imports in CPython (PEP 810, Python 3.15)",
+   "research": {
+    "year": 2022,
+    "what": "Engineers at Meta proposed deferring Python module loading until first use, based on lazy imports already running in production in Meta's Cinder fork of CPython. Origin: PEP 690 'Lazy Imports' (2022, Meta Cinder team), reworked as the explicit opt-in PEP 810 (created October 2025, accepted November 2025)"
+   },
+   "change": {
+    "year": 2026,
+    "what": "Python 3.15.0, released on 9 October 2026, ships a 'lazy' soft keyword that defers loading a module until it is first used, giving all CPython users faster startup."
+   },
+   "confidence": "low",
+   "note": "This is the first time the reference Python interpreter supports deferred module loading as a standard language feature, which cuts startup time for large applications and command-line tools. Confidence is low because it may count as an incremental product version.",
+   "refs": [
+    {
+     "label": "heise: Python 3.15 released: Lazy imports, UTF-8 and new data types",
+     "url": "https://www.heise.de/en/news/Python-3-15-released-Lazy-imports-UTF-8-and-new-data-types-11484310.html",
+     "status": "ok",
+     "checked": "2026-11-01"
+    },
+    {
+     "label": "BetaNews: Python 3.15 arrives with lazy imports, UTF-8 by default and a faster JIT",
+     "url": "https://betanews.com/article/python-3-15-release/",
+     "status": "ok",
+     "checked": "2026-11-01"
+    },
+    {
+     "label": "Real Python: Python 3.15 new features",
+     "url": "https://realpython.com/python315-new-features/",
+     "status": "ok",
+     "checked": "2026-11-01"
+    }
+   ],
+   "subfield": "dev",
+   "region": "us",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Deferred imports change when module code runs, so import-time side effects and errors can surface later than developers expect, which matters for auditing supply-chain code.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-01",
+    "lastChecked": "2026-11-01",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "unclear",
+     "reason": "The sources confirm that explicit lazy imports (PEP 810) were released in CPython 3.15 in October 2026, supporting the 'first product or real-world use around 2026' date, but they do not provide information on when research for this feature began.",
+     "date": "2026-11-01",
+     "rules": 2
+    }
+   },
+   "flags": {}
+  },
+  {
+   "id": "tavapadon-juvmo-first-selective-d1-d5-agonist",
+   "field": "life",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Tavapadon (Juvmo): first selective D1/D5 agonist",
+   "research": {
+    "year": 2018,
+    "what": "Pfizer chemists developed non-catechol partial agonists that act selectively on dopamine D1/D5 receptors, aiming for steady motor benefit with fewer side effects than existing Parkinson's drugs. Origin: Pfizer non-catechol D1/D5 agonist programme (PF-06649751), later licensed to Cerevel in 2018; exact first publication year not confirmed in the sources found"
+   },
+   "change": {
+    "year": 2026,
+    "what": "In late September 2026 the US FDA approved AbbVie's tavapadon tablets for adults with Parkinson's disease, the first selective D1/D5 receptor agonist approved."
+   },
+   "confidence": "medium",
+   "note": "This is a new mechanism of drug for Parkinson's disease, aimed at different dopamine receptors from the D2/D3 agonists already in use.",
+   "refs": [
+    {
+     "label": "Medscape: FDA Approves First-In-Class Med for Parkinson's Disease (Sept 28, 2026)",
+     "url": "https://www.medscape.com/viewarticle/fda-approves-first-class-med-parkinsons-disease-2026a1001067",
+     "status": "ok",
+     "checked": "2026-11-01"
+    },
+    {
+     "label": "RTTNews: FDA Drug Approvals In September 2026",
+     "url": "https://www.rttnews.com/amp/3699867/fda-drug-approvals-in-september-2026.aspx",
+     "status": "ok",
+     "checked": "2026-11-01"
+    }
+   ],
+   "subfield": "medicines",
+   "region": "us",
+   "tags": [
+    "medicine"
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "This is a small-molecule drug, so it has no direct cyber security implications.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-01",
+    "lastChecked": "2026-11-01",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "unclear",
+     "reason": "The sources confirm Tavapadon (Juvmo) is the first selective D1/D5 agonist and was approved in 2026, but they do not provide information on when research for it began.",
+     "date": "2026-11-01",
+     "rules": 2
+    }
+   },
+   "flags": {}
+  },
+  {
+   "id": "zilganersen-zanvastro-first-alexander-disease-therapy",
+   "field": "life",
+   "origin": "academic",
+   "status": "landed",
+   "title": "Zilganersen (Zanvastro): first Alexander disease therapy",
+   "research": {
+    "year": 2018,
+    "what": "Researchers at the University of Wisconsin and Ionis showed in mouse models that antisense oligonucleotides lowering GFAP could reverse the effects of Alexander disease. Origin: Hagemann, Messing et al. with Ionis, antisense suppression of GFAP in Alexander disease models (Annals of Neurology, 2018); citation recalled from memory and not confirmed in the sources found"
+   },
+   "change": {
+    "year": 2026,
+    "what": "On 3 September 2026 the FDA approved Ionis's antisense drug zilganersen as the first and only disease-modifying treatment for Alexander disease."
+   },
+   "confidence": "medium",
+   "note": "This is the first approved treatment for an ultra-rare leukodystrophy, and it shows that antisense knockdown of a toxic gain-of-function gene can work.",
+   "refs": [
+    {
+     "label": "Bioanalysis Zone: 2026 FDA drug approvals",
+     "url": "https://www.bioanalysis-zone.com/2026-fda-drug-approvals-the-year-so-far/",
+     "status": "ok",
+     "checked": "2026-11-01"
+    },
+    {
+     "label": "RTTNews: FDA Drug Approvals In September 2026",
+     "url": "https://www.rttnews.com/amp/3699867/fda-drug-approvals-in-september-2026.aspx",
+     "status": "ok",
+     "checked": "2026-11-01"
+    },
+    {
+     "label": "Towards Healthcare: FDA approved novel medicines 2026",
+     "url": "https://www.towardshealthcare.com/blog/fda-drug-approvals",
+     "status": "ok",
+     "checked": "2026-11-01"
+    }
+   ],
+   "subfield": "genetics",
+   "region": "us",
+   "tags": [
+    "medicine",
+    "genetics"
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "This is an antisense drug, so it has no direct cyber security implications.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-01",
+    "lastChecked": "2026-11-01",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "unclear",
+     "reason": "The sources confirm Zanvastro (Zilganersen) was approved in 2026 as the first Alexander disease therapy, but do not provide information on when research began.",
+     "date": "2026-11-01",
+     "rules": 2
+    }
+   },
+   "flags": {}
+  },
+  {
+   "id": "world-labs-marble-commercial-3d-world-model",
+   "field": "ai",
+   "origin": "industry",
+   "status": "landed",
+   "title": "World Labs Marble: commercial 3D world model",
+   "research": {
+    "year": 2024,
+    "what": "World Labs, founded by Fei-Fei Li with NeRF co-inventor Ben Mildenhall and others, researched spatially intelligent world models that generate persistent 3D scenes. Origin: World Labs spatial-intelligence world-model research programme (company founded April 2024), with a limited Marble beta preview in September 2025"
+   },
+   "change": {
+    "year": 2025,
+    "what": "On 12 November 2025 Marble became generally available as a freemium/subscription product that turns text, images, video or 3D layouts into editable 3D worlds you can export as Gaussian splats or meshes."
+   },
+   "confidence": "medium",
+   "note": "Sources describe it as the first commercially available world-model product with persistent, downloadable 3D outputs, unlike streamed interactive video world models.",
+   "flags": {
+    "aiDriven": true
+   },
+   "refs": [
+    {
+     "label": "World Labs blog: Marble: A Multimodal World Model (12 Nov 2025)",
+     "url": "https://www.worldlabs.ai/blog/marble-world-model",
+     "status": "ok",
+     "checked": "2026-11-01"
+    },
+    {
+     "label": "Radiance Fields: World Labs Formally Launches Marble",
+     "url": "https://radiancefields.com/world-labs-formally-launches-marble-a-generative-world-model",
+     "status": "ok",
+     "checked": "2026-11-01"
+    },
+    {
+     "label": "PYMNTS: World Labs Launches Marble (13 Nov 2025)",
+     "url": "https://www.pymnts.com/artificial-intelligence-2/2025/world-labs-launches-marble-as-spatial-intelligence-becomes-the-new-ai-battleground/",
+     "status": "ok",
+     "checked": "2026-11-01"
+    }
+   ],
+   "subfield": "methods",
+   "region": "us",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Cloud-hosted generation of realistic 3D environments raises risks of synthetic-scene deception and of training robots in simulations that could be poisoned.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-01",
+    "lastChecked": "2026-11-01",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "supported",
+     "reason": "The sources confirm Marble is a commercial 3D world model launched by World Labs in November 2025, and the company emerged from stealth 'just over a year ago' from that date, implying research activity around 2024.",
+     "date": "2026-11-01",
+     "rules": 2
+    }
+   }
+  },
+  {
+   "id": "synthid-image-verification-in-the-gemini-app",
+   "field": "ai",
+   "origin": "industry",
+   "status": "landed",
+   "title": "SynthID image verification in the Gemini app",
+   "research": {
+    "year": 2023,
+    "what": "Google DeepMind developed SynthID, an imperceptible watermark embedded in AI-generated images that a detector can later identify. Origin: Google DeepMind SynthID watermarking, introduced 2023, later tested as the SynthID Detector portal with journalists"
+   },
+   "change": {
+    "year": 2025,
+    "what": "From 20 November 2025, anyone could upload an image to the Gemini app or web and ask whether Google AI made or edited it, with Gemini checking for the SynthID watermark; video checks followed in December."
+   },
+   "confidence": "medium",
+   "note": "It is the first mass-market consumer tool for checking AI-image provenance built into a major assistant, though it only detects content from Google's own models.",
+   "flags": {
+    "aiDriven": true
+   },
+   "refs": [
+    {
+     "label": "Google Blog: How we're bringing AI image verification to the Gemini app (20 Nov 2025)",
+     "url": "https://blog.google/innovation-and-ai/products/ai-image-verification-gemini-app/",
+     "status": "ok",
+     "checked": "2026-11-01"
+    },
+    {
+     "label": "The Register: Gemini tries to sniff out AI slop images (20 Nov 2025)",
+     "url": "https://www.theregister.com/2025/11/20/google_ai_image_detector/",
+     "status": "ok",
+     "checked": "2026-11-01"
+    },
+    {
+     "label": "Forbes: Google Just Gave Everyone A Free Tool (23 Nov 2025)",
+     "url": "https://www.forbes.com/sites/paulmonckton/2025/11/23/can-you-tell-if-an-image-was-made-by-ai-google-just-gave-everyone-a-free-tool/",
+     "status": "ok",
+     "checked": "2026-11-01"
+    }
+   ],
+   "subfield": "methods",
+   "region": "global",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "It helps users spot deepfakes, but it can't flag content from non-Google models, and if watermarks are stripped or spoofed, users could be falsely reassured.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-01",
+    "lastChecked": "2026-11-01",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "supported",
+     "reason": "Both sources confirm that SynthID image verification is rolling out in the Gemini app on November 20, 2025, and that SynthID was introduced or developed in 2023.",
+     "date": "2026-11-01",
+     "rules": 2
+    }
+   }
+  },
+  {
+   "id": "nvidia-nvqlink-quantum-gpu-interconnect",
+   "field": "quantum",
+   "origin": "industry",
+   "status": "landed",
+   "title": "NVIDIA NVQLink quantum-GPU interconnect",
+   "research": {
+    "year": 2023,
+    "what": "NVIDIA and Quantum Machines built DGX Quantum, which showed that a GPU server could be linked to quantum control electronics with microsecond-scale delay. Origin: DGX Quantum, launched in 2023 by NVIDIA and Quantum Machines, which laid the groundwork for low-latency links between quantum controllers and GPUs"
+   },
+   "change": {
+    "year": 2025,
+    "what": "In October 2025 NVIDIA released NVQLink, an open system design that ties quantum processors to GPU supercomputers, with 17 quantum processor makers and nine US national labs supporting it at launch."
+   },
+   "confidence": "medium",
+   "note": "It sets a common way to join quantum and classical computers so GPUs can handle the real-time control and error correction that quantum processors need.",
+   "company": "NVIDIA",
+   "refs": [
+    {
+     "label": "NVIDIA Newsroom: NVIDIA Introduces NVQLink (28 Oct 2025)",
+     "url": "https://nvidianews.nvidia.com/news/nvidia-nvqlink-quantum-gpu-computing",
+     "status": "ok",
+     "checked": "2026-11-01"
+    },
+    {
+     "label": "HPCwire: Nvidia Introduces NVQLink to Connect Quantum Processors with GPU Supercomputers",
+     "url": "https://www.hpcwire.com/2025/10/28/nvidia-introduces-nvqlink-to-connect-quantum-processors-with-gpu-supercomputers/",
+     "status": "ok",
+     "checked": "2026-11-01"
+    },
+    {
+     "label": "Quantum Machines: NVQLink integration and DGX Quantum origin",
+     "url": "https://www.quantum-machines.co/press-release/quantum-machines-announces-nvidia-nvqlink-integration-extending-real-time-quantum-classical-computing-solution/",
+     "status": "ok",
+     "checked": "2026-11-01"
+    }
+   ],
+   "subfield": "devices",
+   "region": "us",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "A fast, low-latency link between quantum control systems and GPU clusters at national labs adds a new hybrid connection point that has to be secured, along with its control software.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-01",
+    "lastChecked": "2026-11-01",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "unclear",
+     "reason": "The milestone 'NVIDIA NVQLink quantum-GPU interconnect' and its first product/real-world use around 2025 are confirmed by the October 2025 announcement and immediate accessibility; however, the sources do not specify when research began, making 'Research began around 2023' unconfirmable.",
+     "date": "2026-11-01",
+     "rules": 2
+    }
+   },
+   "flags": {}
+  },
+  {
+   "id": "signal-triple-ratchet-spqr-post-quantum-ratchet",
+   "field": "cyber",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Signal Triple Ratchet (SPQR post-quantum ratchet)",
+   "research": {
+    "year": 2025,
+    "what": "Researchers designed post-quantum public-key ratchets that bring forward secrecy and post-compromise security to messaging using ML-KEM, with chunking and erasure coding to keep bandwidth low. Origin: PQShield and Signal research papers on fully post-quantum Double Ratchet protocols at Eurocrypt 2025 and USENIX Security 2025"
+   },
+   "change": {
+    "year": 2025,
+    "what": "On 2 October 2025 Signal started rolling out the Triple Ratchet, which runs the Sparse Post-Quantum Ratchet alongside the Double Ratchet and mixes their keys for every message."
+   },
+   "confidence": "high",
+   "note": "It is the first mass-market messenger to give ongoing conversations, not just session set-up, post-quantum protection against harvest-now-decrypt-later attacks.",
+   "refs": [
+    {
+     "label": "Signal blog: Signal Protocol and Post-Quantum Ratchets (2 Oct 2025)",
+     "url": "https://signal.org/blog/spqr/",
+     "status": "ok",
+     "checked": "2026-11-01"
+    },
+    {
+     "label": "BleepingComputer: Signal adds new cryptographic defense against quantum attacks",
+     "url": "https://www.bleepingcomputer.com/news/security/signal-adds-new-cryptographic-defense-against-quantum-attacks/",
+     "status": "ok",
+     "checked": "2026-11-01"
+    },
+    {
+     "label": "PQShield: Diving into Signal's new post-quantum protocol",
+     "url": "https://pqshield.com/diving-into-signals-new-pq-protocol/",
+     "status": "ok",
+     "checked": "2026-11-01"
+    }
+   ],
+   "subfield": "network",
+   "region": "global",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-01",
+    "lastChecked": "2026-11-01",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "supported",
+     "reason": "The sources confirm the introduction of the Sparse Post Quantum Ratchet (SPQR) as part of a new Triple Ratchet protocol by Signal in October 2025, and mention its technical foundation is based on 2025 papers, supporting both the description and the years.",
+     "date": "2026-11-01",
+     "rules": 2
+    }
+   },
+   "flags": {}
+  },
+  {
+   "id": "rust-android-binder-driver-merged-in-linux-6-18",
+   "field": "cyber",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Rust Android Binder driver merged in Linux 6.18",
+   "research": {
+    "year": 2023,
+    "what": "Google engineers rewrote Android's Binder inter-process communication kernel driver in memory-safe Rust under the Rust for Linux project, so that the driver would no longer suffer from memory-unsafety bugs. Origin: Rust for Linux Android Binder driver project, first written by Wedson Almeida Filho and maintained by Alice Ryhl at Google (RFC posted 2023)"
+   },
+   "change": {
+    "year": 2025,
+    "what": "The Rust Binder driver was merged for Linux 6.18, which was released on 30 November 2025 as the next long-term support kernel. Android kernels can now choose the Rust implementation instead of the C one."
+   },
+   "confidence": "high",
+   "note": "It is the first security-critical, widely deployed kernel driver written in Rust in mainline Linux, and the C version is now being retired.",
+   "refs": [
+    {
+     "label": "LWN: The end of the 6.18 merge window",
+     "url": "https://lwn.net/Articles/1041004/",
+     "status": "ok",
+     "checked": "2026-11-01"
+    },
+    {
+     "label": "Rust for Linux: Android Binder Driver",
+     "url": "https://rust-for-linux.com/android-binder-driver",
+     "status": "ok",
+     "checked": "2026-11-01"
+    },
+    {
+     "label": "Phoronix: Linux 6.18 merges Google's Rust Binder driver",
+     "url": "https://www.phoronix.com/news/Linux-6.18-Rust-USB-Framework",
+     "status": "ok",
+     "checked": "2026-11-01"
+    }
+   ],
+   "subfield": "network",
+   "region": "us",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-01",
+    "lastChecked": "2026-11-01",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "supported",
+     "reason": "The sources confirm the Rust Android Binder driver merged into Linux 6.18 in October 2025, and the timeline for research (LPC 2022/2023) and developer option for immediate use (Phoronix) align with the given years.",
+     "date": "2026-11-01",
+     "rules": 2
+    }
+   },
+   "flags": {}
+  },
+  {
+   "id": "pulse-code-modulation-first-digital-voice-link-sigsaly",
+   "field": "comms",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Pulse-code modulation (first digital voice link, SIGSALY)",
+   "research": {
+    "year": 1937,
+    "what": "Alec Reeves conceived pulse-code modulation, sampling, quantising and coding speech into binary pulses so it could be regenerated free of accumulated noise. Origin: Alec Reeves at ITT's Paris laboratories, 1937; French patent 1938, US patent 2,272,070 ('Electric Signaling System', filed 1939, granted 1942)"
+   },
+   "change": {
+    "year": 1943,
+    "what": "Bell Labs' SIGSALY secure telephone system entered service on 15 July 1943, the first transmission of speech by PCM, linking Allied leaders until 1946."
+   },
+   "confidence": "high",
+   "note": "PCM is the basis of digital telephony, digital audio and essentially all later digital communications.",
+   "refs": [
+    {
+     "label": "ETHW: Pulse Code Modulation",
+     "url": "https://ethw.org/Pulse_Code_Modulation",
+     "status": "ok",
+     "checked": "2026-11-01"
+    },
+    {
+     "label": "NSA: The Start of the Digital Revolution: SIGSALY",
+     "url": "https://www.nsa.gov/portals/75/documents/about/cryptologic-heritage/historical-figures-publications/publications/wwii/sigsaly.pdf",
+     "status": "ok",
+     "checked": "2026-11-01"
+    },
+    {
+     "label": "IEEE Spectrum: Rebuilding a Piece of the First Digital Voice Scrambler",
+     "url": "https://spectrum.ieee.org/rebuilding-a-piece-of-the-first-digital-voice-scrambler",
+     "status": "ok",
+     "checked": "2026-11-01"
+    },
+    {
+     "label": "Wikipedia: Pulse-code modulation",
+     "url": "https://en.wikipedia.org/wiki/Pulse-code_modulation",
+     "status": "ok",
+     "checked": "2026-11-01"
+    }
+   ],
+   "subfield": "internet",
+   "region": "europe",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "SIGSALY paired PCM with one-time-key encryption, showing that digitised voice could be securely enciphered, unlike broken analogue scramblers.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-01",
+    "lastChecked": "2026-11-01",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "unclear",
+     "reason": "The source confirms SIGSALY was the first use of pulse-code modulation to transmit speech and was deployed by 1943, but it does not provide information on when research for it began.",
+     "date": "2026-11-01",
+     "rules": 2
+    }
+   },
+   "flags": {}
+  },
+  {
+   "id": "fm-radio-broadcasting",
+   "field": "comms",
+   "origin": "academic",
+   "status": "landed",
+   "title": "FM radio broadcasting",
+   "research": {
+    "year": 1933,
+    "what": "Edwin Armstrong at Columbia University developed wideband frequency modulation, giving radio far greater resistance to static and higher fidelity than AM. Origin: Edwin H. Armstrong's wideband FM patents issued 26 December 1933, and his 1936 Proceedings of the IRE paper 'A Method of Reducing Disturbances in Radio Signaling by a System of Frequency Modulation'"
+   },
+   "change": {
+    "year": 1941,
+    "what": "After the FCC authorised commercial FM, W47NV in Nashville became the first fully licensed commercial FM station on 1 March 1941, and nearly 400,000 FM sets were sold that year."
+   },
+   "confidence": "high",
+   "note": "FM became the standard for high-quality broadcasting and was widely used in mobile and two-way radio.",
+   "refs": [
+    {
+     "label": "ETHW: FM Radio",
+     "url": "https://ethw.org/FM_Radio",
+     "status": "ok",
+     "checked": "2026-11-01"
+    },
+    {
+     "label": "HistoryofInformation: Edwin Armstrong Invents FM",
+     "url": "https://www.historyofinformation.com/detail.php?id=611",
+     "status": "ok",
+     "checked": "2026-11-01"
+    },
+    {
+     "label": "The Broadcast Archive: When did FM broadcasts begin?",
+     "url": "https://www.oldradio.com/current/bc_fm.htm",
+     "status": "ok",
+     "checked": "2026-11-01"
+    },
+    {
+     "label": "Wikipedia: FM broadcasting in the United States",
+     "url": "https://en.wikipedia.org/wiki/FM_broadcasting_in_the_United_States",
+     "status": "ok",
+     "checked": "2026-11-01"
+    }
+   ],
+   "subfield": "internet",
+   "region": "us",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Unencrypted analogue broadcast with no meaningful new cyber security exposure, although transmitters can be jammed or pirated.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-01",
+    "lastChecked": "2026-11-01",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "supported",
+     "reason": "The source states that Edwin Howard Armstrong was issued five basic patents on his FM system on December 26, 1933, and that actual 'official' FM operations began in 1940/41, with the first commercial FM station signing on during New Year's Day of 1941.",
+     "date": "2026-11-01",
+     "rules": 2
+    }
+   },
+   "flags": {}
+  },
+  {
+   "id": "nimatron-first-public-game-playing-machine",
+   "field": "ai",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Nimatron: first public game-playing machine",
+   "research": {
+    "year": 1939,
+    "what": "Edward Condon designed a relay-based machine that applied Nim's mathematical winning strategy to make its own move decisions against a human player. Origin: Condon's design at Westinghouse Research Laboratories, winter 1939/40, patented as US 2,215,544 'Machine to Play Game of Nim' (filed April 1940, granted September 1940)"
+   },
+   "change": {
+    "year": 1940,
+    "what": "Westinghouse showed the Nimatron to the public at the 1940 New York World's Fair, where visitors reportedly played it about 100,000 times."
+   },
+   "confidence": "medium",
+   "note": "It was one of the first machines to make game-playing decisions in public, and it inspired Ferranti's Nimrod (1951), a line that led to later computer game-playing AI.",
+   "refs": [
+    {
+     "label": "Wikipedia – Nimatron",
+     "url": "https://en.wikipedia.org/wiki/Nimatron",
+     "status": "ok",
+     "checked": "2026-11-01"
+    },
+    {
+     "label": "Rougetet – Machines designed to play Nim games (PDF)",
+     "url": "https://www.cs.brandeis.edu/~storer/JimPuzzles/OTHER/DrNim/RougetetArticleArticle.pdf",
+     "status": "ok",
+     "checked": "2026-11-01"
+    },
+    {
+     "label": "Wikipedia – Nimrod (computer)",
+     "url": "https://en.wikipedia.org/wiki/Nimrod_(computer)",
+     "status": "ok",
+     "checked": "2026-11-01"
+    }
+   ],
+   "subfield": "methods",
+   "region": "us",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "It was a standalone electromechanical exhibit with no network connection, so it had no cyber security implications.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-01",
+    "lastChecked": "2026-11-01",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "supported",
+     "reason": "The Nimatron is described as 'the first electromechanical Nim player machine' invented in 1940 and first exhibited publicly in April 1940 at the New York World's Fair, with its conception occurring 'some months prior' to April 1940, aligning with research beginning around 1939.",
+     "date": "2026-11-01",
+     "rules": 2
+    }
+   },
+   "flags": {}
   }
  ],
  "founders": [
@@ -41142,7 +42625,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-11-01"
    }
   },
   {
@@ -41158,7 +42641,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-11-01"
    }
   },
   {
@@ -41208,7 +42691,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-29",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-11-01"
    }
   },
   {
@@ -41225,7 +42708,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-29",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-11-01"
    }
   },
   {
@@ -41247,7 +42730,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-29",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-11-01"
    }
   },
   {
@@ -41270,7 +42753,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-29",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-01",
     "qaNote": "The $3.7B figure is out of date. Forbes later put each of the seven cofounders at $15.5B after the May 2026 round. After the S-1 filing (Oct 2026), Forbes re-estimated individual stakes at $13.1B (McCandlish) to $13.8B (Brown, Olah), with Dario $13.6B and Daniela $13.7B. Because the figures now diff"
    }
   },
@@ -41287,7 +42770,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-29",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-11-01"
    }
   },
   {
@@ -41303,7 +42786,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-29",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-11-01"
    }
   },
   {
@@ -41319,7 +42802,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-29",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-11-01"
    }
   },
   {
@@ -41336,7 +42819,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-29",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-11-01"
    }
   },
   {
@@ -41353,7 +42836,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-29",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-11-01"
    }
   },
   {
@@ -41371,7 +42854,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-29",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-11-01"
    }
   },
   {
@@ -41394,7 +42877,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-29",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-11-01"
    }
   },
   {
@@ -41411,7 +42894,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-29",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-11-01"
    }
   },
   {
@@ -41434,7 +42917,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-29",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-11-01"
    }
   },
   {
@@ -41451,7 +42934,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-29",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-11-01"
    }
   },
   {
@@ -41468,7 +42951,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-29",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-11-01"
    }
   },
   {
@@ -41485,7 +42968,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-29",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-11-01"
    }
   },
   {
@@ -41503,7 +42986,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-29",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-11-01"
    }
   },
   {
@@ -41520,7 +43003,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-29",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-11-01"
    }
   },
   {
@@ -42886,6 +44369,15 @@
    "summary": "The NCSC published a CAF Core Profile that sets a common minimum baseline of cyber resilience, built on CAF v4.0, for organisations facing moderately sophisticated adversaries. It draws on sector-specific profile work and targets ransomware, supply chain compromise, legacy technology exploitation and emerging-technology-enabled attacks, giving regulators a base on which to add sector-specific requ",
    "url": "https://www.ncsc.gov.uk/collection/cyber-assessment-framework/core-profile",
    "added": "2026-10-31",
+   "by": "guidance-agent"
+  },
+  {
+   "date": "2026-10-27",
+   "framework": "NIST (NCCoE)",
+   "title": "Design Tenets for Agent Identity Management Systems",
+   "summary": "NIST proposed ten draft design tenets for identity, authentication and authorisation of AI agents. These include giving agents identities separate from people, linking agents to the people who delegate to them, granting least-privilege and short-lived access, keeping policy enforcement outside the model, and requiring human review for high-risk actions. They aim to reduce risks from AI agents havi",
+   "url": "https://www.nist.gov/blogs/cybersecurity-insights/design-tenets-agent-identity-management-systems",
+   "added": "2026-11-01",
    "by": "guidance-agent"
   }
  ]
