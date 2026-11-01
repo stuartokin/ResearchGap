@@ -93,6 +93,8 @@ jobs:
       - name: Gate 3 - the app loads and renders the new data
         run: python tools/smoke_test.py
 
+      - name: Build the AI-enhanced version (standard app plus experimental features; never blocks publishing)
+        run: bash tools/build_ai.sh
       - name: Voice (records changed narration; skipped without a key, never blocks publishing)
         continue-on-error: true
         env:
@@ -122,7 +124,7 @@ jobs:
           fi
           git config user.name  "shrinking-gap-data-agent"
           git config user.email "data-agent@users.noreply.github.com"
-          git add data/data.json data/pending.json data/pending_founders.json data/tours.json index.html
+          git add data/data.json data/pending.json data/pending_founders.json data/tours.json index.html ai
           if [ -f data/rejected.json ]; then git add data/rejected.json; fi
           if [ -d audio ]; then git add -A audio; fi
           if git diff --cached --quiet; then echo "No changes to publish."; exit 0; fi
@@ -145,7 +147,8 @@ jobs:
             if [ -f "$KEEP/data/rejected.json" ]; then cp "$KEEP/data/rejected.json" data/; fi
             if [ -d "$KEEP/audio" ]; then rm -rf audio && cp -r "$KEEP/audio" audio; fi
             python tools/build.py
-            git add data/data.json data/pending.json data/pending_founders.json data/tours.json index.html
+            bash tools/build_ai.sh
+            git add data/data.json data/pending.json data/pending_founders.json data/tours.json index.html ai
           if [ -f data/rejected.json ]; then git add data/rejected.json; fi
             if [ -d audio ]; then git add -A audio; fi
             git commit -m "Data revision ${REV}: ${SUMMARY}"

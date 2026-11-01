@@ -5,7 +5,7 @@ name: Build the app
 on:
   push:
     branches: [main]
-    paths: ['src/**', 'tools/build.py', 'data/tours.json']
+    paths: ['src/**', 'tools/build.py', 'tools/build_ai.py', 'data/tours.json']
   workflow_dispatch:
 
 permissions:
@@ -31,6 +31,8 @@ jobs:
           python -m playwright install --with-deps chromium
       - name: Assemble index.html from src/
         run: python tools/build.py
+      - name: Build the AI-enhanced version (standard app plus experimental features; never blocks publishing)
+        run: bash tools/build_ai.sh
       - name: Check the data and scripts
         run: python tools/validate.py
       - name: Smoke test the built page
@@ -62,9 +64,10 @@ jobs:
             git fetch origin main
             git reset --hard origin/main
             python tools/build.py
+            bash tools/build_ai.sh
             python tools/validate.py
-            if git diff --quiet index.html; then echo "index.html is up to date."; exit 0; fi
-            git add index.html
+            git add index.html ai
+            if git diff --cached --quiet; then echo "index.html and the AI-enhanced version are up to date."; exit 0; fi
             git commit -m "Build index.html from src"
             if git push origin HEAD:main; then echo "Published."; exit 0; fi
             echo "The repository moved on; retrying ($attempt)."; sleep 10
