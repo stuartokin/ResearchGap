@@ -3525,5 +3525,170 @@
   "sources": [],
   "reason": "The entry itself says the 2028 change year is the submitter's estimate and not stated in any source. I could not find any source giving a deployment year, so the change year cannot be verified.",
   "category": "sources"
+ },
+ {
+  "date": "2026-11-01",
+  "agent": "claude",
+  "mode": "recent",
+  "title": "Glass-core chip packaging substrates in mass production",
+  "field": "hw",
+  "status": "outlook",
+  "research_year": 2023,
+  "change_year": 2026,
+  "research_origin": "Intel glass-core substrate announcement and roadmap commitment, September 2023",
+  "research_what": "Intel publicly unveiled glass-core substrates as a replacement for organic chip-package cores, backed by over $1 billion of R&D, to enable larger, flatter, denser AI and server packages.",
+  "change_what": "SKC subsidiary Absolics, in final qualification at its Georgia plant, plans to begin the first commercial mass production of glass-core substrates by late 2026, with AI accelerators on glass cores expected to follow in 2026-2027.",
+  "sources": [
+   "https://www.tomshardware.com/tech-industry/manufacturing/glass-substrate-roadmap-examined",
+   "https://www.trendforce.com/news/2026/05/08/news-skc-said-to-speed-glass-substrate-mass-production-by-year-end-advances-new-non-embedding-tech-for-u-s-client/",
+   "https://eu.36kr.com/en/p/3962764007718275",
+   "https://slicast.com/commentary/intel-2026-09-09"
+  ],
+  "reason": "outlook year outside the window",
+  "category": "years"
+ },
+ {
+  "date": "2026-11-01",
+  "agent": "claude",
+  "mode": "recent",
+  "title": "Multi-core optical fibre in commercial networks",
+  "field": null,
+  "status": "landed",
+  "research_year": 1979,
+  "change_year": 2026,
+  "research_origin": "Inao et al., 'Multicore optical fiber', OFC 1979 (early multicore fibre demonstration); later SDM research programmes in Japan and Europe",
+  "research_what": "Researchers proposed and fabricated optical fibre with several light-carrying cores sharing one standard cladding, multiplying capacity per strand (space-division multiplexing).",
+  "change_what": "During 2026 multi-core fibre moved into commercial service: China switched on a commercial three-band four-core fibre system in June, Sumitomo made submarine MCF commercially available, and Corning launched a four-core MCF product for AI data centres at ECOC in September.",
+  "sources": [
+   "https://www.scmp.com/news/china/science/article/3356947/chinese-team-builds-first-commercial-3-lane-highway-optical-fibre-boost-capacity",
+   "https://www.datamintelligence.com/research-report/multicore-optical-fiber-market",
+   "https://fiberguide.net/multicore-fiber-technology-advancing-submarine-cable-applications/",
+   "https://group.ntt/en/newsrelease/2026/03/13/260313a.html"
+  ],
+  "reason": "duplicate of \"Optical fibre\"",
+  "category": "duplicate"
+ },
+ {
+  "date": "2026-11-01",
+  "agent": "claude",
+  "mode": "backfill",
+  "title": "Samuel's self-learning checkers program (IBM 701)",
+  "field": null,
+  "status": "landed",
+  "research_year": 1952,
+  "change_year": 1956,
+  "research_origin": "Arthur Samuel's checkers program at IBM Poughkeepsie, first written for the IBM 701 in 1952; learning version completed 1955; published as 'Some Studies in Machine Learning Using the Game of Checkers'",
+  "research_what": "Arthur Samuel at IBM wrote a checkers program for the IBM 701 that improved its own play through rote learning and generalisation, adjusting its evaluation function from expert games and from self-play.",
+  "change_what": "The learning program was shown publicly on national television in February 1956, the first public showing of a computer program that learned from experience.",
+  "sources": [
+   "http://www.incompleteideas.net/book/ebook/node109.html",
+   "https://history.computer.org/pioneers/samuel.html",
+   "https://en.wikipedia.org/wiki/Arthur_Samuel_(computer_scientist)"
+  ],
+  "reason": "only 1 source(s) confirmed the key facts",
+  "category": "sources"
+ },
+ {
+  "date": "2026-11-01",
+  "agent": "claude",
+  "mode": "backfill",
+  "title": "Electrical well logging (Schlumberger, Pechelbronn)",
+  "field": null,
+  "status": "landed",
+  "research_year": 1912,
+  "change_year": 1927,
+  "research_origin": "Conrad Schlumberger's electrical prospecting experiments at the École des Mines de Paris (early 1910s), followed by surface surveys by the Schlumberger brothers in the early 1920s",
+  "research_what": "Conrad Schlumberger, a physics professor at the École des Mines in Paris, came up with the idea of using electrical resistivity to tell ore bodies and rock formations apart, and he and Marcel tested it in surface surveys.",
+  "change_what": "On 5 September 1927 a Schlumberger crew led by Henri-Georges Doll lowered an electrical sonde into an oil well at Pechelbronn in Alsace and recorded the first electrical resistivity well log.",
+  "sources": [
+   "https://www.slb.com/about/who-we-are/our-history/1920s",
+   "https://www.britannica.com/biography/Conrad-Schlumberger-and-Marcel-Schlumberger",
+   "https://www.spwla.org/SPWLAArchived/SPWLA/About/History/Logging_history_rich_with_innovation__Hart_s_E_P_Magazine_.aspx"
+  ],
+  "reason": "invalid years",
+  "category": "years"
+ },
+ {
+  "date": "2026-11-01",
+  "agent": "claude",
+  "mode": "backfill",
+  "title": "Reflection seismograph finds oil",
+  "field": null,
+  "status": "landed",
+  "research_year": 1921,
+  "change_year": 1928,
+  "research_origin": "Karcher's 1919 patent applications and the field tests near Oklahoma City on 4 June 1921 (Karcher, Haseman, Perrine and Kite)",
+  "research_what": "Clarence Karcher filed patents on the reflection seismograph in 1919, and in 1921 he and University of Oklahoma colleagues ran field tests showing that seismic reflections could map underground structures able to hold oil.",
+  "change_what": "Amerada struck oil near Seminole, Oklahoma, on 4 December 1928. It was the first well ever drilled into a structure found by reflection seismography, using a survey by Amerada's subsidiary Geophysical Research Corporation.",
+  "sources": [
+   "https://www.tshaonline.org/handbook/entries/karcher-john-clarence",
+   "https://www.okhistory.org/publications/enc/entry?entry=SE008",
+   "https://aoghs.org/technology/exploring-reflection-seismography/",
+   "https://library.seg.org/doi/10.1190/tle40060404.1"
+  ],
+  "reason": "invalid years",
+  "category": "years"
+ },
+ {
+  "date": "2026-11-01",
+  "agent": "claude",
+  "mode": "backfill",
+  "title": "Wideband FM radio broadcasting",
+  "field": null,
+  "status": "landed",
+  "research_year": 1933,
+  "change_year": 1941,
+  "research_origin": "Armstrong's four 1933 FM patents (wideband FM patent granted 26 Dec 1933) and his 1935/1936 Proceedings of the IRE paper on reducing disturbances by frequency modulation",
+  "research_what": "Edwin Armstrong at Columbia University developed and patented wideband frequency modulation to remove static from radio, then field-tested it from RCA's Empire State Building site in 1934–35.",
+  "change_what": "The FCC opened a commercial FM band from 1 January 1941, and Nashville's W47NV became the first fully licensed commercial FM station on 1 March 1941.",
+  "sources": [
+   "https://ethw.org/FM_Radio",
+   "https://www.historyofinformation.com/detail.php?id=611",
+   "https://en.wikipedia.org/wiki/FM_broadcasting_in_the_United_States"
+  ],
+  "reason": "only 1 source(s) confirmed the key facts",
+  "category": "sources"
+ },
+ {
+  "date": "2026-11-01",
+  "agent": "gemini",
+  "mode": "recent",
+  "title": "UK AI for Clean Energy Strategy",
+  "field": "energy",
+  "status": "outlook",
+  "research_year": 2026,
+  "change_year": 2027,
+  "research_origin": "UK Department for Energy Security and Net Zero (DESNZ) 'Vision for an AI-enabled clean energy system' and call for evidence, published September 2026",
+  "research_what": "The UK government published a 'Vision for an AI-enabled clean energy system' and launched a call for evidence to inform its first national AI for Clean Energy Strategy.",
+  "change_what": "The UK government plans to publish its first national AI for Clean Energy Strategy, aiming to drive decarbonisation, lower prices, and improve resilience and security through AI.",
+  "sources": [
+   "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEvHRGmqD5yKtg3j3AUwc9MyA8mPgebbA2EnKUYQye2ev0JU7m3pUeHIIt46TaJznF3XSYQr--LUoINrzw2jetScfcMcf1ArAwgq1FhJmvdgPPNqA-3Xan8n4CBOIhshDyLkjICkG23Uvh8-VVZaPqe1B1jEhjPVGuDNuML9rX10d44H3E24R26Q6IiIU_j7AP-72C9iA==",
+   "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH6gepJPhTYeJxfhwx9-dYlXza-oAj0zC0VVpt2wuMhPE7YOhzJIKNNcpwrzs0CJ4mvu62IiJGbv3pVtV5vARFuWdekVHZr0uZ2hvHun2T9w9-04dY0h1kExseeDDm6qUebyPGP1ph6PKi68umLlI3cmrNlOaCQelTXwTTsWBL7UW8zSKqW_nw5jlN2jXNXy2Wsqum5ADeSuFw8AgUibKcKPNCJKRoJU4H_KwU5nuHoSj1io2mJMFPEU7S6Bpk=",
+   "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG0av9_S8FKtXqJGJo8ZrpaKa7OtdTBTgW_NZTmg8MhEZXaBuiRgwD-WJuWhYKW9nxegFBaHsw5jWMg5blZGvtqEFAew4GpGF5dxPnYjHkeSgIdKaM1iMAA7X9bCdtxuSVxiZu1K1gybuEdfsqfvIXIYZ97WsA57ii-SlDgoopUF1H04QzfDXWTXqMZOvZCXzg=",
+   "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH8p_5YF3Iw9VkQCzstO1Yw9BuSq-qN6-vbjw8I0wqU1h-OGDeXwX97j2Zh5L5PXfALwh2e88nnRw0v-B-lVf-rh7iDfs8dAYklXt8tU5_4-apvB5MbVw_ptiYNkd_jtL8OSD7wihIuQ3Yje0VVxfQJNzgeAqqRfzvXglwtUpTAD2xQrRIuJ_Zv2q5Ifix7x16DQOZyW4jax7s6Z9cEMYApuubV84ZDu-icgLAxydf8naqjEPQABA-tJAhvcnlmq9Qhv4t6gaO8n7pf"
+  ],
+  "reason": "duplicate of \"AI for Clean Energy Strategy\"",
+  "category": "duplicate"
+ },
+ {
+  "date": "2026-11-01",
+  "agent": "gemini",
+  "mode": "recent",
+  "title": "EU Strategic Roadmap for Digitalisation and AI in Energy",
+  "field": "energy",
+  "status": "outlook",
+  "research_year": 2026,
+  "change_year": 2026,
+  "research_origin": "European Commission, 'Strategic Roadmap for Digitalisation and AI in the energy sector', published June 3, 2026",
+  "research_what": "The European Commission published a Strategic Roadmap for Digitalisation and AI in the energy sector, outlining a pathway for a digitally-enabled secure, clean, and competitive energy system.",
+  "change_what": "The roadmap introduces measures to accelerate AI deployment, including significant Horizon Europe funding for advanced smart grid solutions and AI energy applications, while ensuring energy demand from data centers aligns with climate objectives.",
+  "sources": [
+   "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGCsueQFds0KFzvK8jRTXT5XMDZ3SwMR7EQe3L5PPYqYAW1BkjwcFJ6lzK1ljAbT2hlGuqPuO1ppCFjNEFTp-iheqR_MicyH63E2VuJYfyPf3YdPt07Q_TYQ24DJ6Uujwf3_yrRVkKorMK-kj4fKw==",
+   "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQF5Tupj3-HbLZ3kmwFIwMgf5RIade45j2azn0N18S5js9nppdD1hFQ2AdU3xG_uRAwWfCbHBmV7q-4SzMpc3JXzYv93oDlUjZchm-UToSs0bbXi03av19r-DRGo3Z_szbSfA3Y10MY-a31jcFXv2v-6wj802o2IwBUsyoJP0q8s1GQbl7Bf7wdOAN9-Jm-dVr6bryqnRdw1Ty6EwPihxzJimVU-o0sm_BRp20peJBkklj5FTHq46DZn3dSHQatEZY1aFFCeGg==",
+   "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQH1xHqQeu2J2AqbIW2efFeiAHlR7OtLhakdD8cPboU52kZvZS9VTbKX5LEDOqe0AZ4bioLaikWLtR4AC8xwXYz9OLGqDrUXRxvBV8_e7i0h2Ka1qFdgPlLSXy0vAzGNoQZ6iycLCkpW7Qeyru2QFI3sDBtbbgUIMSvZqx-wFuwO7G71R0Q6Ku2iIThbwVtmB1RWknQ=",
+   "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHbVHCXXkamD-BNi-lc_bSG_J1gQlnnj31Hj3llsvPZL7C79mX4Bb47wQ-AKy5Zif3tfk3bDncTsLBCEPRiZas-KQZhfD_TUnv26zDyDo1ako3pdCa3Xobp0bINuPEBa6MNHtMkjQ90_xS10DO0gY81Y8OSMT6By0xIvOtl6qaBgb20AboOJh16bu83J0wFYYxJMx4BM7lMie0lL2IJpkM9xJ891grhTn-EnnVt"
+  ],
+  "reason": "outlook year outside the window",
+  "category": "years"
  }
 ]
