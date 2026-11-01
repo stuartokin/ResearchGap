@@ -46,7 +46,7 @@ function renderCharts(){
   if (!layout.charts || !layout.charts.open) return;
   const box = $('chartSvg'), fs = chFs();
   const tabName = (CHART_TABS.find(t => t[0] === CH.tab) || [])[1] || '', h2 = $('w-charts').querySelector('.wh h2'); if (h2) h2.textContent = 'Charts – ' + tabName;
-  $('chartTabs').innerHTML = CHART_TABS.map(([k, n]) => `<button data-t="${k}" class="${CH.tab === k ? 'on' : ''}" role="tab" aria-selected="${CH.tab === k}">${n}</button>`).join('') + '<button id="chInsight" class="cinsight" title="This week’s AI-generated insight for this chart, with subtitles and speech">★ Insight</button>';
+  $('chartTabs').innerHTML = CHART_TABS.map(([k, n]) => `<button data-t="${k}" class="${CH.tab === k ? 'on' : ''}" role="tab" aria-selected="${CH.tab === k}">${n}</button>`).join('') + '<button id="chPopOut" class="cinsight cpop" title="Open this chart in its own panel, to move and keep beside others">⧉ Pop out</button><button id="chInsight" class="cinsight" title="This week’s AI-generated insight for this chart, with subtitles and speech">★ Insight</button>';
   if (CH.insightOn && typeof showInsight === 'function') setTimeout(() => showInsight(true), 0);
   drawPanel();
   const W = Math.max(300, box.clientWidth - 6), H = Math.max(260, box.clientHeight - 6);

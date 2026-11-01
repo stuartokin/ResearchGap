@@ -119,6 +119,7 @@ def check_step(tour_id, step_id, say, titles=None):
             if num not in sp['years']: errs.append(f'{tour_id}.{step_id}: typed figure "{num}" (figures must come from placeholders)')
         if re.search(r'https?:|www\.|<|>', literal): errs.append(f'{tour_id}.{step_id}: links or markup are not allowed')
         if re.search(r'\b(\w+)\s+\1\b', literal, re.I): errs.append(f'{tour_id}.{step_id}: a word is repeated')
+        if re.search(r'(?<!Energy )\bVision radar\b', literal, re.I): errs.append(f'{tour_id}.{step_id}: call it the AI Energy Vision Radar')
         if re.search(r'\bWindows menu\b|\barrangements?\b|\bwindows\b', literal, re.I) and not re.search(r'window of exposure', literal, re.I): errs.append(f'{tour_id}.{step_id}: say Views, panels or ready-made views, not windows or arrangements')
         if re.search(r'DESNZ|Department for Energy Security', literal): errs.append(f'{tour_id}.{step_id}: say "AI for clean energy" rather than naming DESNZ')
         words = len(re.sub(r'\{\w+\}', 'X', text).split())

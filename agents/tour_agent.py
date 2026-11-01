@@ -30,8 +30,8 @@ def candidates(db):
 STEP_VISUALS = {
   'gap': {'intro':'the model, coloured by source', 'example':'one milestone highlighted, with its story card', 'century':'the century playing', 'trend':'Key findings', 'heatchart':'the Heatmap chart', 'corrected':'the Summary table',
           'gapchart':'the Gap over time chart', 'fields':'the Filters window, with AI selected', 'outlook':'the AI outlook window', 'aichart':'the AI vs the rest chart', 'answer':'Key findings'},
-  'horizon': {'intro':'the vision window and the model filtered to AI for clean energy', 'radar':'the Vision radar', 'new':'the Vision radar', 'next':'the Vision radar, next five years', 'pipechart':'the Clean energy pipeline chart',
-              'changes':'the Forecast drift chart, clean energy only', 'slide':'the PowerPoint report window', 'answer':'the Vision radar'},
+  'horizon': {'intro':'the vision window and the model filtered to AI for clean energy', 'radar':'the AI Energy Vision Radar', 'new':'the AI Energy Vision Radar', 'next':'the AI Energy Vision Radar, next five years', 'pipechart':'the Clean energy pipeline chart',
+              'changes':'the Forecast drift chart, clean energy only', 'slide':'the PowerPoint report window', 'answer':'the AI Energy Vision Radar'},
   'secure': {'intro':'the Filters window, attack-surface filter on', 'lens':'the Cyber lens', 'secchart':'the Security lag chart', 'gaps':'the Security lag chart, open gaps first', 'example':'one milestone story card with mitigations',
              'guidance':'the Cyber lens, latest guidance', 'caution':'the Cyber lens caution', 'answer':'the Cyber lens'},
   'fortune': {'intro':'Time to a fortune', 'research':'Time to a fortune', 'speed':'Time to a fortune', 'fortchart':'the Race to a fortune chart playing', 'fastest':'Time to a fortune sorted by speed', 'uk':'the Filters window, UK only',
@@ -47,7 +47,7 @@ PH_MEANINGS = {'nGap':'number of landed milestones', 'longestTitle / longestYear
   'driftCount / driftPeakYear / driftPeakCount / driftRevised / driftSlipped':'forecast tracking', 'secCount / secMedian / secLongestTitle / secLongestYears / secOpen':'the security lag',
   'fortCount / fortResearch / fortFastest / fortFastestTime / fortPre / fortRecent':'fortunes', 'wiAvg / wi2030Now / wi2030AI / wiTopLever':'the AI levers scenario',
   'n, pre, recent, adopt, ai, oth, aiOut, convOut, kmYears':'the headline gap figures', 'updatedAt / newCount / newTitles / changedCount':'this week: date, additions and corrections'}
-VIEWS = {'main':'the 3D model of every milestone', 'findings':'Key findings', 'radar':'Vision radar (AI for clean energy)', 'cyber':'Cyber lens', 'fortunes':'Time to a fortune',
+VIEWS = {'main':'the 3D model of every milestone', 'findings':'Key findings', 'radar':'AI Energy Vision Radar', 'cyber':'Cyber lens', 'fortunes':'Time to a fortune',
   'gaps':'Gap explorer chart', 'heat':'Heatmap chart (field by decade)', 'ai':'AI vs the rest chart', 'pipe':'Clean energy pipeline chart', 'drift':'Forecast drift chart', 'sec':'Security lag chart', 'fort':'Race to a fortune chart', 'whatif':'What if? chart'}
 
 def week_changes(db, clean=False):

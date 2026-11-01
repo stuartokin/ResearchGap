@@ -170,16 +170,13 @@ table.stats tr.all td{font-weight:600;color:var(--text)}
 #foot span:last-child{text-align:right}
 
 /* About */
-#about{position:fixed;inset:0;z-index:2000;background:rgba(4,10,16,.6);display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
-#about.open{display:flex}
-#about .sheet{background:var(--panel-solid);border:1px solid var(--line);border-radius:16px;max-width:680px;width:100%;max-height:min(86vh,820px);overflow:auto;padding:28px 30px;position:relative}
-#about h2{font-family:var(--serif);font-weight:400;font-size:32px;margin:0 0 12px;line-height:1.1}
-#about h3{font-size:14px;font-weight:600;margin:22px 0 6px}
-#about p,#about li{font-size:14.5px;line-height:1.6;color:var(--muted);max-width:68ch}
-#about ul{padding-left:18px;margin:6px 0}
-#about .ver{font-size:13px;color:var(--faint);margin-top:18px}
-#about .by{margin-top:22px;padding-top:14px;border-top:1px solid var(--line);font-size:13.5px;color:var(--text)}
-#about .close{position:absolute;top:14px;right:14px}
+#w-help .helpbody h2{font-family:var(--serif);font-weight:400;font-size:32px;margin:0 0 12px;line-height:1.1}
+#w-help h3{font-size:14px;font-weight:600;margin:22px 0 6px}
+#w-help p,#w-help li{font-size:14.5px;line-height:1.6;color:var(--muted);max-width:68ch}
+#w-help ul{padding-left:18px;margin:6px 0}
+#w-help .ver{font-size:13px;color:var(--faint);margin-top:18px}
+#w-help .by{margin-top:22px;padding-top:14px;border-top:1px solid var(--line);font-size:13.5px;color:var(--text)}
+
 
 .era{font-family:var(--serif);font-size:1.6em;line-height:1.1;margin:.1em 0 .15em}
 .tlist{display:flex;flex-direction:column}
@@ -660,3 +657,51 @@ body.kiosk #presentMenu [data-act="kiosk"],body.kiosk #winMenu [data-w="__reset_
 #w-toolbar .actions{flex-wrap:nowrap}
 @media (max-width:560px){#w-toolbar .actions{flex-wrap:wrap;justify-content:flex-end;row-gap:6px}#winMenu,.dropmenu{min-width:0}}
 .savesign[hidden]{display:none!important}
+
+/* the Present and Share menus: the same item style as the Views menu, winning over any older button rules */
+#presentMenu button,#shareMenu button{display:flex;width:100%;align-items:center;gap:10px;background:none;border:0;box-shadow:none;padding:8px 10px;border-radius:8px;cursor:pointer;font:inherit;font-size:14px;text-align:left;color:#E9F2FF;min-height:0;height:auto;line-height:1.3}
+#presentMenu button:hover,#shareMenu button:hover{background:rgba(255,255,255,.06)}
+#presentMenu button[aria-pressed="true"]{color:#FFD166}
+#presentMenu .pin{width:auto!important;flex:0 0 auto;opacity:.4;padding:6px 8px!important}#presentMenu .pin.on{opacity:1;background:rgba(255,209,102,.14)}
+#presentMenu .tick{display:inline-block;width:1.1em;color:#FFD166}
+.dropmenu .wmh{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin:6px 8px 4px}
+.dropmenu hr{border:0;border-top:1px solid var(--line);margin:6px 4px}.dropmenu small{display:block;color:var(--faint);font-size:12px;padding:4px 10px 6px;line-height:1.4}
+/* the toolbar reads clearly over panels */
+#w-toolbar{background:rgba(9,20,32,.92)!important;border:1px solid var(--line-strong)!important;backdrop-filter:blur(8px)}
+#presentMenu .tick:empty{display:none}
+#presentMenu #thanksBtn,#presentMenu #ideasBtn{opacity:1!important;color:#E9F2FF!important;filter:none!important}
+#w-toolbar .actions{padding-left:28px}
+@media (max-width:820px){body:not(.nothanks) #presentMenu #thanksBtn:not([style*="none"]):not([hidden]),#presentMenu #ideasBtn:not([style*="none"]):not([hidden]),#presentMenu #musicBtn:not([style*="none"]):not([hidden]){display:flex!important}}   /* on phones an old toolbar rule hid these; never overrides a deliberate hide */
+
+#w-help .helpbody{padding:12px 16px}#w-help .helpdocs .btn{font-size:14px;padding:8px 14px;border-color:#5FD8FF;color:#BFEFFF;background:rgba(95,216,255,.08)}#w-help .helpdocs .btn:hover{background:rgba(95,216,255,.18)}
+.win.tourwait{opacity:0!important;transition:none!important}
+
+/* chart pop-outs */
+.chpopbody{display:flex;flex-direction:column;height:100%;padding:8px 10px}.chpopctl{display:flex;gap:8px;align-items:center;margin-bottom:6px}.chpopsel{flex:1;max-width:260px}
+.chpopsvg{flex:1;min-height:0;overflow:auto}.chpopsvg svg{display:block}.chpopsvg [data-id]{cursor:pointer}.chpopnote{margin:4px 0 0}
+.ctabs .cpop{margin-left:auto}.ctabs .cpop + .cinsight{margin-left:6px}
+.chpopsel{background:var(--panel-solid)!important;border:1px solid var(--line-strong)!important;color:var(--text)!important;border-radius:8px;padding:.35em .6em;font:inherit}
+.chpopsel option{background:var(--panel-solid);color:var(--text)}
+
+/* start with a question */
+.qlist{padding-left:1.4em;margin:.6em 0}.qlist li{margin:0 0 .9em;padding:.5em .6em;border:1px solid var(--line);border-radius:10px;list-style-position:outside}
+.qlist li.cur{border-color:#FFD166;background:rgba(255,209,102,.07)}.qlist li b{display:block;font-size:1.02em;line-height:1.35}.qlist li span{display:block;color:var(--muted);font-size:.9em;margin:.25em 0 .45em}
+.qlist .qgo{border-color:#5FD8FF;color:#BFEFFF}#winMenu .wmq{color:#BFEFFF;font-weight:600}
+
+/* how it works, at a glance */
+#dvBody{padding:10px 14px}.dvtabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}.dvtabs button{border:1px solid var(--line-strong);background:none;color:var(--text);border-radius:999px;padding:5px 12px;cursor:pointer}.dvtabs button.on{background:#FFD166;color:#10202E;border-color:#FFD166;font-weight:600}
+.dvwrap{display:flex;gap:14px;align-items:flex-start}.dvmain{flex:1;min-width:0;overflow-x:auto}.dvside{flex:0 0 min(330px,34%);border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:rgba(255,255,255,.03)}
+@media (max-width:900px){.dvwrap{flex-direction:column}.dvside{flex:auto;width:100%;box-sizing:border-box}}
+.dvside h4{margin:0 0 .4em;display:flex;align-items:center;gap:6px}.dvside p,.dvside li{font-size:.92em;line-height:1.5;color:var(--muted)}.dvside .dvsub{margin:.7em 0 .2em;color:var(--faint);font-size:.78em;text-transform:uppercase;letter-spacing:.06em}.dvside ul{margin:0;padding-left:1.1em}
+.dvmap{display:flex;align-items:stretch;gap:4px;min-width:760px}.dvcol{flex:1;display:flex;flex-direction:column;gap:6px}.dvcol h5{margin:0 0 2px;font-size:.72em;text-transform:uppercase;letter-spacing:.06em;color:var(--faint);text-align:center}
+.dvarrow{align-self:center;color:var(--faint);font-size:1.3em;padding:0 2px}
+.dvn,.dvcard{border:1px solid var(--line-strong);border-left:4px solid var(--kc,#8FA6B8);background:rgba(255,255,255,.03);color:var(--text);border-radius:9px;padding:8px 9px;text-align:left;cursor:pointer;font:inherit;font-size:.86em;line-height:1.3}
+.dvn:hover,.dvcard:hover{background:rgba(255,255,255,.07)}.dvn.on,.dvcard.on,.dvstep.on{outline:2px solid #FFD166;outline-offset:1px}
+.dvk-source{--kc:#8FA6B8}.dvk-agent{--kc:#5FD8FF}.dvk-check{--kc:#A891FF}.dvk-enrich{--kc:#7FD6A0}.dvk-gate{--kc:#FF8A7A}.dvk-store{--kc:#F2D38A}.dvk-app{--kc:#4CD3C2}.dvk-you{--kc:#FFD166}.dvk-setup{--kc:#8FA6B8}.dvk-build{--kc:#F2D38A}.dvk-publish{--kc:#4CD3C2}.dvk-report{--kc:#8FA6B8}
+.dvk{display:inline-block;width:.8em;height:.8em;border-radius:3px;background:var(--kc)}.dvkey{font-size:.78em;color:var(--faint);display:flex;flex-wrap:wrap;gap:4px 12px;align-items:center;margin:.8em 0 0}
+.dvrun{list-style:none;margin:0;padding:0 0 0 14px;border-left:2px solid var(--line-strong)}.dvstep{position:relative;padding:5px 8px 5px 14px;margin:0 0 4px;border-radius:8px}.dvstep[data-n]{cursor:pointer}.dvstep[data-n]:hover{background:rgba(255,255,255,.05)}
+.dvstep .dvdot{position:absolute;left:-21px;top:9px;width:12px;height:12px;border-radius:50%;background:var(--kc)}.dvstep b{font-size:.92em}.dvstep span:last-child{display:block;color:var(--muted);font-size:.85em}
+.dvflag{font-style:normal;font-size:.72em;border:1px solid var(--line-strong);border-radius:6px;padding:0 5px;color:var(--faint);margin-left:4px}.dvk-gate .dvflag{border-color:#FF8A7A;color:#FFB4AA}
+.dvcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px}.dvcard span{display:block;color:var(--faint);font-size:.85em;margin-top:2px}
+.dvfun{margin-top:14px}.dvfun h4{margin:0 0 6px}.dvfrow{display:grid;grid-template-columns:12em 1fr 3em;align-items:center;gap:8px;margin:4px 0;font-size:.88em}.dvfrow i{height:12px;border-radius:6px;background:#5FD8FF;display:block}.dvfrow b{text-align:right}
+.dvfiles .dvlane{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:0 0 12px}.dvfiles h5{flex-basis:100%;margin:0;font-size:.75em;text-transform:uppercase;letter-spacing:.06em;color:var(--faint)}

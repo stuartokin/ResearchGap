@@ -326,9 +326,60 @@
   </div>
 </section>
 
-<section class="win" id="w-radar" data-title="Vision radar"><div class="wbody"><div class="rtools"><label class="af">New since<select id="radarSince"><option value="review">My last review</option><option value="last">The latest agent run</option><option value="30">The last 30 days</option><option value="90">The last 90 days</option></select></label><button class="mini" id="radarReviewed">Mark all as reviewed</button></div><p class="note-s" id="radarNote"></p><div id="radarBody"></div></div></section>
+<section class="win" id="w-radar" data-title="AI Energy Vision Radar"><div class="wbody"><div class="rtools"><label class="af">New since<select id="radarSince"><option value="review">My last review</option><option value="last">The latest agent run</option><option value="30">The last 30 days</option><option value="90">The last 90 days</option></select></label><button class="mini" id="radarReviewed">Mark all as reviewed</button></div><p class="note-s" id="radarNote"></p><div id="radarBody"></div></div></section>
 <section class="win" id="w-charts" data-title="Charts"><div class="wbody" id="chartBody"><div class="ctabs" id="chartTabs" role="tablist"></div><div class="cctl" id="chartCtl"></div><div class="cmain" id="chartMain"><div class="csvg" id="chartSvg"></div><div class="ccallout" id="chartCallout" role="dialog" aria-label="Chart insight"></div><aside class="cside" id="chartSide" aria-live="polite"></aside></div><div class="clist" id="chartList"></div><div class="cfoot"><button class="mini" id="chartPng">Save image</button> <button class="mini" id="chartCsv">CSV</button> <span id="chartNote" class="note-s"></span></div></div></section>
 <section class="win" id="w-inspect" data-title="Data inspector"><div class="wbody" id="insBody"><p class="note-s">Everything in the dataset that is not on the display: retired, disputed, partly confirmed, waiting for QA, rejected, and possible duplicates.</p><div id="insCtl"></div><div id="insList" class="inslist"></div><div id="insFoot" class="cfoot"></div></div></section>
+<section class="win" id="w-help" data-title="Help"><div class="wbody helpbody" id="aboutBody">
+
+    <p class="helpdocs"><button class="btn" id="helpDocsBtn">📘 How it works: files, workflows and agents →</button> <button class="btn" id="helpVizBtn">📊 At a glance →</button></p>
+    <div class="faqtools"><input id="faqQ" class="search" placeholder="Search help" aria-label="Search help"></div>
+    <div id="faq"></div>
+    <h2 style="margin-top:1.2em">About this model</h2>
+    <p class="disc"><b>Personal project.</b> Built by Stuart Okin in a personal capacity; not affiliated with or endorsed by any employer. <b>AI-maintained data, from public sources only.</b> The dataset is compiled and kept up to date by AI agents using Claude (Anthropic), without human review, so it may contain errors. Outlook years are AI estimates, not forecasts. Check anything important against the cited sources.</p>
+    <h3>Data status</h3>
+    <p class="aboutmeta" id="aboutMeta"></p>
+    <div id="dataStatus" class="dstat"></div>
+    <h3>What the model shows</h3>
+    <p>Each arc traces one breakthrough from the first published or demonstrated research to its first commercial product, operational use or binding change. Lanes group arcs by where the research began (universities, industry labs, or government and publicly funded labs) or by field. The height of each arc is the gap in years. “Today” is the date the data was last updated, and the outlook always runs ten years beyond it.</p>
+    <h3>Definitions</h3>
+    <ul>
+      <li><b>Research</b> is the first credible publication, patent or demonstration of the core idea.</li>
+      <li><b>Mainstream adoption</b> is the year the technology reached widespread, routine use: roughly 10% or more of its potential market, or standard practice in its sector. Shown as a second, thinner arc. Most are AI estimates until the agents find a source.</li>
+      <li><b>Region</b> is where the research began; “Many countries” marks work with no single origin.</li>
+      <li><b>Change</b> is the first commercial sale, operational deployment, or rule taking effect. It is not mass adoption, which usually takes longer.</li>
+      <li><b>Verification</b>: “Source-cited” records link to a source that was checked; “AI-compiled” records were compiled by AI from standard references; “AI estimate” marks outlook years with no published target.</li>
+      <li><b>Trend lines</b> join the median gap for each lane in each era. Beyond today, the gap chart shows a scenario at the recent pace and with AI and digital twins, using stated assumptions.</li>
+      <li><b>Company product arcs</b> run from founding or first prototype to first commercial release. <b>Founder wealth</b> uses the first listing, sale or valuation that made founders multi-millionaires; net worths carry a dated source.</li>
+    </ul>
+    <h3>Caveats</h3>
+    <ul>
+      <li>Dates can be approximate and some attributions are contested; many breakthroughs drew on all three sources.</li>
+      <li>The sample is curated, not exhaustive, and only includes ideas that succeeded.</li>
+      <li>Physical and safety-critical sectors stay slower than software because of capital, safety and regulatory cycles. That is often appropriate.</li>
+    </ul>
+    <h3>Recent data changes</h3>
+    <div id="changeLog" class="clog"></div>
+    <p><button class="btn" id="aboutSources">View all sources</button> <span class="note-s">Opens a panel you can move, resize and keep open.</span></p>
+    <h3>Credits and licences</h3>
+    <ul class="attrib">
+      <li>3D graphics: <a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> r128, MIT licence.</li>
+      <li>PowerPoint reports: <a href="https://gitbrent.github.io/PptxGenJS/" target="_blank" rel="noopener">PptxGenJS</a> 4.0.1, MIT licence (includes JSZip, MIT licence).</li>
+      <li>Typefaces: Instrument Sans and Instrument Serif, SIL Open Font Licence 1.1.</li>
+      <li>Music: “Driving Ambition” from <a href="https://mixkit.co" target="_blank" rel="noopener">Mixkit</a>, under the Mixkit free licence.</li>
+      <li>Licences: code under MIT, dataset under CC BY 4.0 (credit Stuart Okin). See LICENSE and DATA-LICENSE.md in the repository.</li>
+      <li>Data compiled and maintained with Claude, by Anthropic. Facts belong to their cited sources; descriptions are paraphrased. “Further reading” links point to Wikipedia.</li>
+    </ul>
+    <h3>How to cite</h3>
+    <p class="cite" id="citeLine"></p>
+    <p class="ver" id="verLine"></p>
+    <p class="by">Stuart Okin. A personal project, not affiliated with or endorsed by any employer.</p>
+  
+</div></section>
+<section class="win" id="w-chartpop1" data-title="Chart pop-out 1"><div class="wbody chpopbody"><div class="chpopctl"><select class="chpopsel" data-slot="1" aria-label="Which chart"></select><button class="mini chpopback" data-slot="1" title="Show this chart in the Charts panel, with its controls">Open in Charts</button></div><div class="chpopsvg" id="chpop1"></div><p class="note-s chpopnote">Follows your filters. Select a row for its story.</p></div></section>
+<section class="win" id="w-chartpop2" data-title="Chart pop-out 2"><div class="wbody chpopbody"><div class="chpopctl"><select class="chpopsel" data-slot="2" aria-label="Which chart"></select><button class="mini chpopback" data-slot="2" title="Show this chart in the Charts panel, with its controls">Open in Charts</button></div><div class="chpopsvg" id="chpop2"></div><p class="note-s chpopnote">Follows your filters. Select a row for its story.</p></div></section>
+<section class="win" id="w-chartpop3" data-title="Chart pop-out 3"><div class="wbody chpopbody"><div class="chpopctl"><select class="chpopsel" data-slot="3" aria-label="Which chart"></select><button class="mini chpopback" data-slot="3" title="Show this chart in the Charts panel, with its controls">Open in Charts</button></div><div class="chpopsvg" id="chpop3"></div><p class="note-s chpopnote">Follows your filters. Select a row for its story.</p></div></section>
+<section class="win" id="w-questions" data-title="Start with a question"><div class="wbody" id="qBody"></div></section>
+<section class="win" id="w-docviz" data-title="How it works: at a glance"><div class="wbody" id="dvBody"></div></section>
 <section class="win" id="w-docs" data-title="How it works"><div class="wbody" id="docBody"></div></section>
 <section class="win" id="w-cyber" data-title="Cyber lens"><div class="wbody" id="cyberBody"></div></section>
 <section class="win" id="w-findings" data-title="Key findings"><div class="wbody" id="findBody"></div></section>
@@ -439,7 +490,7 @@
   <p class="wai" role="note"><b>Fully AI-generated, with no human in the loop.</b> AI agents write and update these walk-throughs every week from their own findings, using only publicly available sources, and an AI voice speaks them. No person reviews the narration before you hear it.</p>
   <div class="wcards" id="wCards"></div>
   <p class="wver" id="wVer"></p>
-  <div class="wfoot"><button id="wRun" class="wrun">Run the tool</button><button id="wKiosk" class="wmute">Kiosk mode</button><button id="wMute" class="wmute"></button></div>
+  <div class="wfoot"><button id="wRun" class="wrun">Run the tool</button><button class="btn" id="wQuestions" title="Questions this tool answers well, each with a ready view">Start with a question</button><button id="wKiosk" class="wmute">Kiosk mode</button><button id="wMute" class="wmute"></button></div>
   <div id="wKioskOpts" class="wkiosk"><b>Kiosk mode</b> loops through the walk-throughs and ready-made views, unattended. Visitors can explore at any time; it carries on after a minute without a touch. Press <b>Escape</b> to leave.
     <div class="kopts"><span>Sound:</span><label><input type="radio" name="kSound" value="narration" checked> AI narration</label><label><input type="radio" name="kSound" value="music"> Music (with subtitles)</label><label><input type="radio" name="kSound" value="silent"> Silent</label></div>
     <div class="kopts"><label><input type="checkbox" id="kTicker" checked> Ticker (news and jokes)</label><label><input type="checkbox" id="kQr" checked> QR code to the site</label></div>
@@ -463,54 +514,7 @@
   </div>
 </section>
 
-<div id="about" role="dialog" aria-modal="true" aria-labelledby="aboutTitle">
-  <div class="sheet">
-    <button class="btn close" id="aboutClose">Close</button>
-    <h2 id="aboutTitle">Help</h2>
-    <p><button class="mini" id="helpDocsBtn">How it works: files, workflows and agents</button></p>
-    <div class="faqtools"><input id="faqQ" class="search" placeholder="Search help" aria-label="Search help"></div>
-    <div id="faq"></div>
-    <h2 style="margin-top:1.2em">About this model</h2>
-    <p class="disc"><b>Personal project.</b> Built by Stuart Okin in a personal capacity; not affiliated with or endorsed by any employer. <b>AI-maintained data, from public sources only.</b> The dataset is compiled and kept up to date by AI agents using Claude (Anthropic), without human review, so it may contain errors. Outlook years are AI estimates, not forecasts. Check anything important against the cited sources.</p>
-    <h3>Data status</h3>
-    <p class="aboutmeta" id="aboutMeta"></p>
-    <div id="dataStatus" class="dstat"></div>
-    <h3>What the model shows</h3>
-    <p>Each arc traces one breakthrough from the first published or demonstrated research to its first commercial product, operational use or binding change. Lanes group arcs by where the research began (universities, industry labs, or government and publicly funded labs) or by field. The height of each arc is the gap in years. “Today” is the date the data was last updated, and the outlook always runs ten years beyond it.</p>
-    <h3>Definitions</h3>
-    <ul>
-      <li><b>Research</b> is the first credible publication, patent or demonstration of the core idea.</li>
-      <li><b>Mainstream adoption</b> is the year the technology reached widespread, routine use: roughly 10% or more of its potential market, or standard practice in its sector. Shown as a second, thinner arc. Most are AI estimates until the agents find a source.</li>
-      <li><b>Region</b> is where the research began; “Many countries” marks work with no single origin.</li>
-      <li><b>Change</b> is the first commercial sale, operational deployment, or rule taking effect. It is not mass adoption, which usually takes longer.</li>
-      <li><b>Verification</b>: “Source-cited” records link to a source that was checked; “AI-compiled” records were compiled by AI from standard references; “AI estimate” marks outlook years with no published target.</li>
-      <li><b>Trend lines</b> join the median gap for each lane in each era. Beyond today, the gap chart shows a scenario at the recent pace and with AI and digital twins, using stated assumptions.</li>
-      <li><b>Company product arcs</b> run from founding or first prototype to first commercial release. <b>Founder wealth</b> uses the first listing, sale or valuation that made founders multi-millionaires; net worths carry a dated source.</li>
-    </ul>
-    <h3>Caveats</h3>
-    <ul>
-      <li>Dates can be approximate and some attributions are contested; many breakthroughs drew on all three sources.</li>
-      <li>The sample is curated, not exhaustive, and only includes ideas that succeeded.</li>
-      <li>Physical and safety-critical sectors stay slower than software because of capital, safety and regulatory cycles. That is often appropriate.</li>
-    </ul>
-    <h3>Recent data changes</h3>
-    <div id="changeLog" class="clog"></div>
-    <p><button class="btn" id="aboutSources">View all sources</button> <span class="note-s">Opens a panel you can move, resize and keep open.</span></p>
-    <h3>Credits and licences</h3>
-    <ul class="attrib">
-      <li>3D graphics: <a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> r128, MIT licence.</li>
-      <li>PowerPoint reports: <a href="https://gitbrent.github.io/PptxGenJS/" target="_blank" rel="noopener">PptxGenJS</a> 4.0.1, MIT licence (includes JSZip, MIT licence).</li>
-      <li>Typefaces: Instrument Sans and Instrument Serif, SIL Open Font Licence 1.1.</li>
-      <li>Music: “Driving Ambition” from <a href="https://mixkit.co" target="_blank" rel="noopener">Mixkit</a>, under the Mixkit free licence.</li>
-      <li>Licences: code under MIT, dataset under CC BY 4.0 (credit Stuart Okin). See LICENSE and DATA-LICENSE.md in the repository.</li>
-      <li>Data compiled and maintained with Claude, by Anthropic. Facts belong to their cited sources; descriptions are paraphrased. “Further reading” links point to Wikipedia.</li>
-    </ul>
-    <h3>How to cite</h3>
-    <p class="cite" id="citeLine"></p>
-    <p class="ver" id="verLine"></p>
-    <p class="by">Stuart Okin. A personal project, not affiliated with or endorsed by any employer.</p>
-  </div>
-</div>
+
 
 <script type="application/json" id="embedded-tours">/*TOURS-START*/{}/*TOURS-END*/</script>
 <script type="application/json" id="embedded-data">
@@ -525,6 +529,6 @@
 <script>/*@include vendor/shaderpass.js*/</script>
 <script>/*@include vendor/unrealbloompass.js*/</script>
 <script>/*@include vendor/qrcode.js*/</script>
-<script>/*@include js/00-start.js*//*@include js/01-data-loaded-from-data-data-json-or-the-e.js*//*@include js/02-state.js*//*@include js/03-three-setup.js*//*@include js/04-stage.js*//*@include js/05-items.js*//*@include js/06-filtering.js*//*@include js/07-window-manager.js*//*@include js/08-arrangements-five-presets-that-adapt-to-.js*//*@include js/09-windows-menu-arrangements-then-windows-i.js*//*@include js/10-filter-ui.js*//*@include js/11-refresh-targets-trends-stats-list.js*//*@include js/12-details.js*//*@include js/13-top-bar-keyboard.js*//*@include js/14-labels-dom.js*//*@include js/15-animation.js*//*@include js/16-time-linked-windows.js*//*@include js/17-ai-outlook-can-ai-and-digital-twins-shri.js*//*@include js/18-showcase-title.js*//*@include js/19-joke-ticker.js*//*@include js/20-music.js*//*@include js/21-powerpoint-report-three-slides-native-ed.js*//*@include js/22-data-changes-from-the-agents-change-log-.js*//*@include js/23-statistics-helpers-ranges-small-samples-.js*//*@include js/24-play-range-custom-from-and-to-the-whole-.js*//*@include js/25-colour-blind-safe-palette.js*//*@include js/26-next-and-previous-milestone-keyboard-and.js*//*@include js/27-shareable-links-the-current-filters-and-.js*//*@include js/28-help-one-source-for-hover-tips-press-and.js*//*@include js/29-readiness-gb-status-cyber-lens-and-forec.js*//*@include js/30-short-descriptions-long-explanatory-text.js*//*@include js/31-welcome-screen-and-guided-tours.js*//*@include js/31b-kiosk-mode-and-image-export.js*//*@include js/31c-data-export.js*//*@include js/31d-charts.js*//*@include js/31e-insights-and-weekly-analysis.js*//*@include js/31f-inspector-and-docs.js*//*@include js/31g-toolbar-menus-chips-and-pins.js*//*@include js/31h-my-file-and-my-views.js*//*@include js/32-saved-views-json.js*//*@include js/33-ideas-from-the-room-audience-form.js*//*@include js/34-countdown-and-thank-you.js*//*@include js/35-video-windows.js*//*@include js/36-start.js*/</script>
+<script>/*@include js/00-start.js*//*@include js/01-data-loaded-from-data-data-json-or-the-e.js*//*@include js/02-state.js*//*@include js/03-three-setup.js*//*@include js/04-stage.js*//*@include js/05-items.js*//*@include js/06-filtering.js*//*@include js/07-window-manager.js*//*@include js/08-arrangements-five-presets-that-adapt-to-.js*//*@include js/09-windows-menu-arrangements-then-windows-i.js*//*@include js/10-filter-ui.js*//*@include js/11-refresh-targets-trends-stats-list.js*//*@include js/12-details.js*//*@include js/13-top-bar-keyboard.js*//*@include js/14-labels-dom.js*//*@include js/15-animation.js*//*@include js/16-time-linked-windows.js*//*@include js/17-ai-outlook-can-ai-and-digital-twins-shri.js*//*@include js/18-showcase-title.js*//*@include js/19-joke-ticker.js*//*@include js/20-music.js*//*@include js/21-powerpoint-report-three-slides-native-ed.js*//*@include js/22-data-changes-from-the-agents-change-log-.js*//*@include js/23-statistics-helpers-ranges-small-samples-.js*//*@include js/24-play-range-custom-from-and-to-the-whole-.js*//*@include js/25-colour-blind-safe-palette.js*//*@include js/26-next-and-previous-milestone-keyboard-and.js*//*@include js/27-shareable-links-the-current-filters-and-.js*//*@include js/28-help-one-source-for-hover-tips-press-and.js*//*@include js/29-readiness-gb-status-cyber-lens-and-forec.js*//*@include js/30-short-descriptions-long-explanatory-text.js*//*@include js/31-welcome-screen-and-guided-tours.js*//*@include js/31b-kiosk-mode-and-image-export.js*//*@include js/31c-data-export.js*//*@include js/31d-charts.js*//*@include js/31e-insights-and-weekly-analysis.js*//*@include js/31f-inspector-and-docs.js*//*@include js/31g-toolbar-menus-chips-and-pins.js*//*@include js/31h-my-file-and-my-views.js*//*@include js/31i-chart-popouts.js*//*@include js/31j-questions.js*//*@include js/31k-docs-infographic.js*//*@include js/32-saved-views-json.js*//*@include js/33-ideas-from-the-room-audience-form.js*//*@include js/34-countdown-and-thank-you.js*//*@include js/35-video-windows.js*//*@include js/36-start.js*/</script>
 </body>
 </html>

@@ -205,6 +205,7 @@ function tourPlace(ids){
     if (id === 'charts') { if (typeof raise === 'function') raise('charts'); setTimeout(renderCharts, 50); }
     if (id === 'findings') renderFindings(); if (id === 'outlook') renderOutlook(); if (id === 'summary') renderStats();
   });
+  ids.forEach(id => wins[id] && wins[id].classList.remove('tourwait'));   /* placed: now it may be seen */
 }
 function tourSay(text, done){
   const tok = tour.token, fin = () => { if (tok === tour.token) { clearTimeout(tour.timer); done(); } };
@@ -313,13 +314,15 @@ function endTour(how){
     document.body.classList.remove('touring'); $('tourBar').classList.remove('on'); $('tourCursor').classList.remove('on'); tourHighlight(null); kioskScene(); return;
   }
   tour.on = false; tour.token++; clearTimeout(tour.timer); if ('speechSynthesis' in window) speechSynthesis.cancel(); if (tour.audio) tour.audio.pause();
-  document.body.classList.remove('touring'); $('tourBar').classList.remove('on'); $('tourCursor').classList.remove('on'); winMenu.classList.remove('open'); tourHighlight(null); $('spot').classList.remove('on', 'concl', 'chg');
-  toast((how === 'done' ? 'Tour complete. ' : 'Leaving the tour. ') + (tour.returnTo ? 'Back to where you were…' : 'Starting the tool…'));
+  document.body.classList.remove('touring'); $('tourBar').classList.remove('on'); $('tourCursor').classList.remove('on'); winMenu.classList.remove('open'); tourHighlight(null); document.querySelectorAll('.win.tourwait').forEach(w => w.classList.remove('tourwait')); $('spot').classList.remove('on', 'concl', 'chg');
+  const toWelcome = !tour.returnTo;   // started from the welcome screen at the start of a visit: return there; from inside the app: back to where you were
+  toast((how === 'done' ? 'Tour complete. ' : 'Leaving the tour. ') + (toWelcome ? 'Back to the welcome screen…' : 'Back to where you were…'));
   if (state.playing) stopPlay();
   const sv = tour.saved || {};
   returnFromTour();
   if (sv.musicWasOn) music.play().catch(() => {});
   showDisc();
+  if (toWelcome) setTimeout(showWelcome, 300);
 }
 $('tourNext').onclick = () => tourStep(tour.i + 1);
 $('tourPrev').onclick = () => tourStep(tour.i - 1);

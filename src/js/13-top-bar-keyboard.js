@@ -11,11 +11,9 @@ function resetAll(){
 }
 $('fsBtn').onclick = () => { if (!document.fullscreenElement) { document.documentElement.requestFullscreen && document.documentElement.requestFullscreen(); } else { document.exitFullscreen && document.exitFullscreen(); } };
 document.addEventListener('fullscreenchange', () => { $('fsBtn').textContent = document.fullscreenElement ? 'Exit full screen' : 'Full screen'; });
-$('aboutBtn').onclick = () => $('about').classList.add('open');
+$('aboutBtn').onclick = () => { setOpen('help', !layout.help.open); if (layout.help.open) raise('help'); };   // Help is a panel like the others
 $('ideasBtn').onclick = () => setOpen('audience', !layout.audience.open);
-$('aboutClose').onclick = () => $('about').classList.remove('open');
-$('aboutSources').onclick = () => { $('about').classList.remove('open'); setOpen('sources', true); };
-$('about').onclick = e => { if (e.target.id === 'about') $('about').classList.remove('open'); };
+$('aboutSources').onclick = () => { setOpen('sources', true); raise('sources'); };
 $('playBtn').onclick = () => { if (cdTimer) { cancelCountdown(); return; } state.playing ? stopPlay() : playWithCountdown(); };
 
 
@@ -66,7 +64,7 @@ document.addEventListener('keydown', e => {
   else if (e.key === 't' || e.key === 'T') togglePageTitle();
   else if (e.key === 'f' || e.key === 'F') $('fsBtn').click();
   else if (e.key === 'l' || e.key === 'L') { const order = ['off','peak','follow']; view.labels = order[(order.indexOf(view.labels) + 1) % 3]; syncLabelSeg(); store.set('sg.view.v2', view); }
-  else if (e.key === 'Escape') { $('about').classList.remove('open'); winMenu.classList.remove('open'); selected = null; }
+  else if (e.key === 'Escape') { winMenu.classList.remove('open'); selected = null; }
 });
 
 /* Picking */

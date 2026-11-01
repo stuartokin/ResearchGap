@@ -3,16 +3,17 @@
  * ================================================================== */
 const WIN_GROUPS = [
   ['present', 'Presenting', ['toolbar', 'footer', 'pagetitle', 'title', 'ticker', 'player', 'music', 'vid1', 'vid2']],
-  ['insight', 'Insights', ['charts', 'findings', 'summary', 'gapchart', 'outlook', 'fortunes', 'vision', 'radar', 'cyber']],
-  ['explore', 'Explore', ['filters', 'display', 'milestones', 'details', 'table', 'key', 'context', 'landing', 'sources']],
-  ['data', 'Data and agents', ['inspect', 'changes', 'quality', 'docs', 'audience']],
+  ['insight', 'Insights', ['charts', 'chartpop1', 'chartpop2', 'chartpop3', 'findings', 'summary', 'gapchart', 'outlook', 'fortunes', 'vision', 'radar', 'cyber']],
+  ['explore', 'Explore', ['questions', 'filters', 'display', 'milestones', 'details', 'table', 'key', 'context', 'landing', 'sources', 'help']],
+  ['data', 'Data and agents', ['inspect', 'changes', 'quality', 'docs', 'docviz', 'audience']],
   ['share', 'Reports', ['report']]
 ];
-const PRESETS = [['explore', 'Exploring', 'The default: filters and key findings'], ['play', 'Play the century', 'Timeline panels around the model'], ['wait', 'Waiting (kiosk)', 'Both videos, joke ticker, plays on a loop'], ['charts', 'Charts', 'Eight interactive charts, with each milestone’s story beside them'], ['analysis', 'Analysis', 'Findings, summary and charts side by side'], ['desnz', 'AI for clean energy', 'Vision radar, areas and changes; plays from 1980']];
+const PRESETS = [['explore', 'Exploring', 'The default: filters and key findings'], ['play', 'Play the century', 'Timeline panels around the model'], ['wait', 'Waiting (kiosk)', 'Both videos, joke ticker, plays on a loop'], ['charts', 'Charts', 'Eight interactive charts, with each milestone’s story beside them'], ['analysis', 'Analysis', 'Findings, summary and charts side by side'], ['desnz', 'AI for clean energy', 'AI Energy Vision Radar, areas and changes; plays from 1980']];
 function buildWinMenu(){
   view.menuGroups = view.menuGroups || {};
   const item = id => `<button data-w="${id}"><span class="tick ${layout[id].open ? 'on' : ''}">${layout[id].open ? '✓' : ''}</span>${WIN_NAMES[id]}</button>`;
   let h = '<div class="wmh">Ready-made views</div><div class="wmpre">' + PRESETS.map(([k, n, t]) => `<button data-w="__p_${k}" class="${view.preset === k ? 'cur' : ''}" title="${t}"><b>${n}</b><span>${t}</span></button>`).join('') + '</div>';
+  h += '<button data-w="__questions" class="wmq">❓ Start with a question…</button>';
   h += myViewsMenuHtml();   // your own named views, after the ready-made ones
   const any = WIN_GROUPS.some(([g]) => view.menuGroups[g]);
   h += `<div class="wmh">Panels<button class="wmall" data-x="all">${any ? 'Collapse all' : 'Expand all'}</button></div>`;
@@ -35,6 +36,7 @@ winMenu.addEventListener('click', e => {
   if (b.dataset.g) { view.menuGroups = view.menuGroups || {}; view.menuGroups[b.dataset.g] = !view.menuGroups[b.dataset.g]; buildWinMenu(); return; }
   if (b.dataset.x === 'all') { const any = WIN_GROUPS.some(([g]) => view.menuGroups[g]); WIN_GROUPS.concat([['other']]).forEach(([g]) => { view.menuGroups[g] = !any; }); buildWinMenu(); return; }
   if (b.dataset.mvact) { handleMyView(b.dataset.mv, b.dataset.mvact); return; }
+  if (b.dataset.w === '__questions') { winMenu.classList.remove('open'); setOpen('questions', true); raise('questions'); return; }
   const w = b.dataset.w;
   if (w === '__csv' || w === '__xlsx') { winMenu.classList.remove('open'); (w === '__csv' ? exportCsv : exportXlsx)(); return; }
   if (w === '__img') { winMenu.classList.remove('open'); setTimeout(exportImage, 150); return; }

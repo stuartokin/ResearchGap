@@ -1,5 +1,5 @@
 {
- "version": 26,
+ "version": 27,
  "updated": "2026-10-31",
  "updatedBy": "tour-agent",
  "note": "Narration templates for the guided tours. Figures come from {placeholders} filled from the live data; conclusions are chosen by rules in the app ({\"by\": fact, \"cases\": {...}}). The weekly tour agent may refine wording and choose examples, within the rules checked by tools/validate.py.",
@@ -140,7 +140,7 @@
      "say": "The government's AI for clean energy vision is split into distinct areas. Diamonds mark stories linked to those areas, and they play through from 1980 onwards."
     },
     "radar": {
-     "say": "The Vision radar shows how close the technologies in each area are to everyday use: {nResearch} still in research, {nPilot} in pilots, {nCommercial} in early commercial use and {nScale} widely used. Of these, {nGB} are already used in Great Britain."
+     "say": "The AI Energy Vision Radar shows how close each area's technologies are to everyday use: {nResearch} in research, {nPilot} in pilots, {nCommercial} in early commercial use and {nScale} widely used. {nGB} are already used in Great Britain."
     },
     "new": {
      "say": {
@@ -594,6 +594,10 @@
   "DESNZ": "Dez-nez",
   "CAF": "caff",
   "NERC": "nerk",
-  "CIP": "sip"
+  "CIP": "sip",
+  "row": "roe",
+  "rows": "roes",
+  "Row": "Roe",
+  "Rows": "Roes"
  }
 }

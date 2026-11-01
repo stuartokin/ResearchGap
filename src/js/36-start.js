@@ -25,7 +25,7 @@ $('verLine').textContent = `App version ${APP_VERSION}. Data revision ${DB.meta.
     : `<p><b>${esc(e.date)}</b> ${esc(e.summary)}</p>`).join('') : '<p>No agent updates yet. The first weekly run will be listed here.</p>';
 })();
 $('discX').onclick = () => $('disc').classList.add('gone');
-$('discAbout').onclick = () => { $('disc').classList.add('gone'); $('about').classList.add('open'); };
+$('discAbout').onclick = () => { $('disc').classList.add('gone'); setOpen('help', true); raise('help'); };
 buildFieldList(); fillAudFields(); refresh(); syncChgUI(); applyChangeFlags(); renderChanges(); syncPlayRangeUI(); buildTicker(); attachHelp(); buildFaq(); syncPanels(); clampAll();
 const pendingReport = (() => { const q = new URLSearchParams(location.search), k = q.get('report'); if (!k) return null; history.replaceState(null, '', location.pathname + location.hash); return {kind:k, title:q.get('rtitle') || ''}; })();   // then a refresh opens normally
 if (pendingReport) { aiAcked = true;   // acknowledged before asking to reload; the visitor asked to reload for newer data and create a report: do that, without the welcome screen

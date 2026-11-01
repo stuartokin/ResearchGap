@@ -84,7 +84,7 @@ $('chartBody').addEventListener('click', e => {
   else if (e.target.id === 'coSpeak') { const p = $('chartCallout').querySelector('.cotext'); if (p) speakInsight(p.textContent); }
 });
 /* ---------- charts inside the walk-throughs ---------- */
-function tourChart(tab, extra){ return () => { tourHighlight(null); Object.assign(CH, {tab, q:'', field:'', origin:'', zoom:{}, zoom2:{}, panel:null, box:null, fortYear:null}); clearInterval(CH.fortTimer); CH.fortTimer = 0; tourFilters(); refresh(); setTimeout(() => { renderCharts(); if (extra) extra(); }, 250); }; }
+function tourChart(tab, extra){ return () => { tourHighlight(null); Object.assign(CH, {tab, q:'', field:'', origin:'', zoom:{}, zoom2:{}, panel:null, box:null, fortYear:null}); clearInterval(CH.fortTimer); CH.fortTimer = 0; tourFilters(); refresh(); setTimeout(() => { renderCharts(); if (extra) extra(); else setTimeout(() => chartFocus(tab), 400); }, 250); }; }
 const chartStep = (id, tab, extra) => ({id, show:['charts'], act:tourChart(tab, extra)});
 const playFortunes = () => { CH.fortYear = 1890; CH.fortTimer = setInterval(() => { CH.fortYear += 3; if (CH.fortYear >= NOW) { CH.fortYear = NOW; clearInterval(CH.fortTimer); CH.fortTimer = 0; } renderCharts(); }, 160); };
 const insertAfter = (tourId, afterId, step) => { const st = TOURS[tourId].steps, i = st.findIndex(s => s.id === afterId); st.splice(i < 0 ? st.length : i + 1, 0, step); };
@@ -181,7 +181,7 @@ showInsight = function(on){
 };
 chartInsight = tab => { const t = ((tourText.tours.charts || TOUR_TEXT.tours.charts || {}).steps || {})[tab]; return t ? tidyText(renderSay(t.say, chartFacts())) : ''; };
 /* ---------- better pictures behind two steps: charts instead of a list or the model ---------- */
-function chartStepWith(id, tab, opts, extra){ return {id, show:['charts'], act:() => { tourHighlight(null); clearInterval(CH.fortTimer); CH.fortTimer = 0; Object.assign(CH, CH_DEFAULTS, {tab, panel:null, box:null, fortYear:null}, opts || {}); tourFilters(); refresh(); setTimeout(() => { renderCharts(); if (extra) extra(); }, 250); }}; }
+function chartStepWith(id, tab, opts, extra){ return {id, show:['charts'], act:() => { tourHighlight(null); clearInterval(CH.fortTimer); CH.fortTimer = 0; Object.assign(CH, CH_DEFAULTS, {tab, panel:null, box:null, fortYear:null}, opts || {}); tourFilters(); refresh(); setTimeout(() => { renderCharts(); if (extra) extra(); else setTimeout(() => chartFocus(tab), 400); }, 250); }}; }
 const replaceStep = (tourId, id, step) => { const st = TOURS[tourId].steps, i = st.findIndex(s => s.id === id); if (i >= 0) st[i] = step; };
 replaceStep('horizon', 'changes', chartStepWith('changes', 'drift', {dvOnly:true}));
 replaceStep('secure', 'gaps', chartStepWith('gaps', 'sec', {secSort:'open'}));
@@ -225,3 +225,20 @@ TOUR_LIST.push({id:'cleanweek', title:'AI for clean energy analysis', blurb:"Thi
 const TOUR_ORDER = ['gap', 'week', 'cleanweek', 'horizon', 'secure', 'fortune', 'charthow', 'how'];
 TOUR_LIST.sort((a, b) => TOUR_ORDER.indexOf(a.id) - TOUR_ORDER.indexOf(b.id));
 function tourUpdatedLabel(id){ return id === 'week' ? weekFacts().updatedAt : id === 'cleanweek' ? cleanWeekFacts().cleanUpdatedAt : ''; }
+
+/* in the walk-throughs, a chart step opens the side panel on what the narration is talking about */
+function chartFocus(tab, tries){
+  if (CH.tab !== tab) return;
+  if (!layout.charts.open || wins.charts.classList.contains('tourwait')) { if ((tries || 0) < 30) setTimeout(() => chartFocus(tab, (tries || 0) + 1), 400); return; }   // wait for the tour's pointer to open Charts
+  const f = chartFacts(), key = name => FKEYS.find(k => fieldName(k) === name);
+  const list = (k, title) => { let L = (LIST_PH[k] || (() => []))(); if (CH.dvOnly) L = L.filter(it => it.dv);
+    if (L.length) chPanel(`${title}: ${L.length}`, chItemsHtml(L, it => `${it.stage || ''}${it.p ? ' · ' + (it.kind === 'proj' ? '~' : '') + it.p : ''}`)); };
+  if (tab === 'heat') { const k = key(f.fastField); if (k) heatPanel(k + '|2010'); }
+  else if (tab === 'ai') list('aiCount', 'AI-driven since 2010');
+  else if (tab === 'pipe') list('pipeGB', 'Already used in Great Britain');
+  else if (tab === 'drift') list('driftPeakCount', `Expected in ${f.driftPeakYear}`);
+  else if (tab === 'sec') list('secOpen', 'No security response yet');
+  else if (tab === 'whatif') { const r = document.querySelector('#chartSvg svg:last-of-type .chrow'); if (r) r.dispatchEvent(new MouseEvent('click', {bubbles:true})); return; }
+  else return;
+  renderCharts();
+}

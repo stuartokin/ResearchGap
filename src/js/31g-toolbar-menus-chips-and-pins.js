@@ -55,13 +55,15 @@ function renderChips(force){
 function fitToolbar(){
   const L = layout.toolbar, el = wins.toolbar, row = el && el.querySelector('.actions'); if (!L || !L.open || !row || el.classList.contains('max')) return;
   if (innerWidth < 560) { const w = innerWidth - 16; if (Math.abs(winRect(L).w - w) >= 4 || winRect(L).x !== 8) { Object.assign(L, {x:8, w, sw:innerWidth, sh:innerHeight}); placeWin('toolbar'); } return; }   // narrow screens: full width, two rows
-  const r = winRect(L), right = r.x + r.w, need = Math.ceil([...row.children].filter(c => !c.hidden && c.offsetParent !== null).reduce((a, c) => a + c.getBoundingClientRect().width + 8, 0)) + 24;
+  const r = winRect(L), right = r.x + r.w, cs = getComputedStyle(el), pad = parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight) + parseFloat(cs.borderLeftWidth) + parseFloat(cs.borderRightWidth);
+  const kids = [...row.children].filter(c => !c.hidden && getComputedStyle(c).display !== 'none'), rs = getComputedStyle(row), gap = parseFloat(rs.columnGap) || 0;
+  const need = Math.ceil(kids.reduce((t, c) => t + c.getBoundingClientRect().width, 0) + gap * Math.max(0, kids.length - 1) + parseFloat(rs.paddingLeft) + parseFloat(rs.paddingRight) + pad) + 6;   // add up the items: a right-aligned row hides its overflow on the left, where the browser does not count it
   const w = Math.min(innerWidth - 16, Math.max(need, 200)); if (Math.abs(w - r.w) < 4) return;
   Object.assign(L, {x:Math.max(8, right - w), w, sw:innerWidth, sh:innerHeight}); placeWin('toolbar');
 }
 $('tbChips').addEventListener('click', e => { const c = e.target.closest('[data-chip]'); if (!c) return; const k = c.dataset.chip; if (k === 'rotate' && state.autoRotate) rotOffAt = Date.now(); PRESENT[k].run(); setTimeout(() => renderChips(true), 60); });
 $('rotBtn').addEventListener('click', () => { if (!state.autoRotate) rotOffAt = Date.now(); });
-setInterval(renderChips, 600); renderChips(true);
+setInterval(() => { renderChips(); fitToolbar(); }, 600); renderChips(true);   // and refit if anything is clipped
 
 /* every menu stays on screen: shifted sideways, and narrowed if the screen is narrower than the menu */
 function keepOnScreen(m){
