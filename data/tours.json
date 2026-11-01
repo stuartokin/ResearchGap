@@ -1,5 +1,5 @@
 {
- "version": 28,
+ "version": 29,
  "updated": "2026-11-01",
  "updatedBy": "tour-agent",
  "note": "Narration templates for the guided tours. Figures come from {placeholders} filled from the live data; conclusions are chosen by rules in the app ({\"by\": fact, \"cases\": {...}}). The weekly tour agent may refine wording and choose examples, within the rules checked by tools/validate.py.",
@@ -337,7 +337,7 @@
      "say": "Every record is labelled to show how it was produced and checked: source-cited, AI-compiled or AI estimate. You can filter records by these labels."
     },
     "arrange": {
-     "say": "Pick a ready-made view to arrange the panels for exploring, presenting, analysing or an AI for clean energy briefing. You can also save your own layouts under My views and share any view with others."
+     "say": "Choose a ready-made view to lay out the panels for exploring, presenting, analysing or an AI for clean energy briefing, or save your own as My views. Your file keeps them, and any view can be shared as a link."
     },
     "answer": {
      "say": "The toolbar has Help and the 'i' information buttons, which explain each feature. AI maintains this model, so it may contain errors. Check anything important against the original sources."
@@ -578,6 +578,103 @@
     "c4": {
      "view": "drift",
      "say": "Finally, take dates with caution. Of the {driftCount} forecasts we track, expectations were revised {driftRevised} times and {driftSlipped} slipped. Arrival dates for clean energy technologies are best read as estimates, not promises."
+    }
+   }
+  },
+  "questions": {
+   "title": "Question insights",
+   "updated": "2026-11-01",
+   "steps": {
+    "clean-ai": {
+     "say": "{cleanAiCount} clean energy technologies are AI-driven: {cleanAiGB} are already used in Great Britain and {cleanAiResearch} are still in research. {cleanAiTopArea} has the most, so AI here is mostly about running the energy system better."
+    },
+    "clean-next": {
+     "say": [
+      "{cleanNext5} clean energy technologies are expected by {next5Year}. ",
+      {
+       "by": "cleanNextCase",
+       "cases": {
+        "some": "{cleanNext5GB} of them are already in use or on trial in Great Britain; the rest would be new here.",
+        "none": "None of them is in use or on trial in Great Britain yet."
+       }
+      }
+     ]
+    },
+    "ai-faster": {
+     "say": {
+      "by": "aiCase",
+      "cases": {
+       "faster": "For research since 2010, AI-driven work reached a product in about {aiMed} years, against {restMed} for everything else. That is quicker, but it rests on only {aiCount} milestones so far.",
+       "similar": "For research since 2010, AI-driven work has taken about as long as the rest: {aiMed} years against {restMed}. There is no clear speed-up yet.",
+       "slower": "For research since 2010, AI-driven work has taken longer: {aiMed} years against {restMed}.",
+       "unclear": "There are not yet enough AI-driven milestones to compare."
+      }
+     }
+    },
+    "fields": {
+     "say": [
+      "Since 2010, {fastField} has been quickest, at about {fastFieldYears} years from research to first product, and {slowField} slowest, at about {slowFieldYears}. ",
+      {
+       "by": "improvedCase",
+       "cases": {
+        "yes": "{improvedField} has sped up most since the 1990s.",
+        "no": "No field has clearly sped up since the 1990s."
+       }
+      }
+     ]
+    },
+    "security": {
+     "say": [
+      "Security has typically followed about {secMedian} years after a technology arrived. ",
+      {
+       "by": "secCase",
+       "cases": {
+        "open": "{secOpen} technologies still have no security response in their category, so that window of exposure is where the risk sits.",
+        "closed": "Every technology here now has a response in its category."
+       }
+      }
+     ]
+    },
+    "whatif": {
+     "say": "With practical AI levers, projected technologies could arrive about {wiAvg} years sooner on average: {wi2030AI} by 2030 rather than {wi2030Now}. The biggest lever is {wiTopLever}. It is an illustration, not a forecast."
+    },
+    "slips": {
+     "say": [
+      "{driftCount} forecasts are being tracked. ",
+      {
+       "by": "driftCase",
+       "cases": {
+        "some": "{driftRevised} have been revised so far, {driftSlipped} of them later.",
+        "none": "None has been revised yet; as the agents re-estimate each week, any slips will show here."
+       }
+      }
+     ]
+    },
+    "fortune": {
+     "say": [
+      "{fortResearch} of {fortCount} fortunes began in a university or research lab. The fastest was {fortFastest}, in {fortFastestTime}. ",
+      {
+       "by": "fortCase",
+       "cases": {
+        "faster": "The road to a fortune is getting shorter.",
+        "slower": "The road to a fortune is getting longer.",
+        "similar": "The road to a fortune takes about as long as ever.",
+        "unclear": "There are not yet enough recent fortunes to compare eras."
+       }
+      }
+     ]
+    },
+    "changed": {
+     "say": [
+      {
+       "by": "newCase",
+       "cases": {
+        "some": "The agents added {newCount} milestones this week, including {newTitles}. ",
+        "none": "No new milestones were added this week. "
+       }
+      },
+      "{changedCount} records were corrected or updated."
+     ]
     }
    }
   }

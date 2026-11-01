@@ -705,3 +705,17 @@ body.kiosk #presentMenu [data-act="kiosk"],body.kiosk #winMenu [data-w="__reset_
 .dvcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px}.dvcard span{display:block;color:var(--faint);font-size:.85em;margin-top:2px}
 .dvfun{margin-top:14px}.dvfun h4{margin:0 0 6px}.dvfrow{display:grid;grid-template-columns:12em 1fr 3em;align-items:center;gap:8px;margin:4px 0;font-size:.88em}.dvfrow i{height:12px;border-radius:6px;background:#5FD8FF;display:block}.dvfrow b{text-align:right}
 .dvfiles .dvlane{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:0 0 12px}.dvfiles h5{flex-basis:100%;margin:0;font-size:.75em;text-transform:uppercase;letter-spacing:.06em;color:var(--faint)}
+
+/* the question insight card */
+.qinsight{display:none;position:fixed;left:50%;bottom:44px;transform:translateX(-50%);width:min(820px,94vw);z-index:1500;background:rgba(9,22,34,.97);border:2px solid #4CD3C2;border-radius:14px;padding:12px 16px;box-shadow:0 14px 34px rgba(0,0,0,.5)}
+.qinsight.on{display:block}.qihead{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;color:#4CD3C2}.qitext{font-size:1.1em;line-height:1.55;margin:.5em 0;color:#E9F2FF}.qifoot{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+body.touring .qinsight,body.kiosk .qinsight{display:none!important}
+/* the welcome screen's signposts */
+.wsign{display:flex;align-items:center;gap:10px;justify-content:center;margin:.2em 0 .7em}.wsigntxt{color:var(--muted);font-size:.92em}
+.wpaths{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin:1.3em 0 .4em}.wpath{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:220px}.wpath small{color:var(--muted);font-size:.86em;max-width:16em;text-align:center}
+.wrun.wq{background:#4CD3C2;color:#062320}
+.wrib{display:inline-block;font-weight:700;font-size:.82em;letter-spacing:.04em;text-transform:uppercase;padding:4px 12px;border-radius:999px;color:#10202E;background:linear-gradient(100deg,#FFD166 0%,#FFE9A8 40%,#FFD166 60%,#F7B23B 100%);background-size:220% 100%;animation:wribmove 3.2s linear infinite;opacity:.55;transition:opacity .4s,transform .4s,box-shadow .4s}
+.wrib.lit{opacity:1;transform:translateY(-2px) scale(1.06);box-shadow:0 0 0 3px rgba(255,209,102,.25),0 6px 18px rgba(255,209,102,.35)}
+@keyframes wribmove{from{background-position:0% 0}to{background-position:-220% 0}}
+@media (prefers-reduced-motion:reduce){.wrib{animation:none}}
+#welcome.needack .wsign,#welcome.needack .wpaths{display:none}

@@ -38,6 +38,7 @@ STEP_VISUALS = {
               'uni':'the Filters window, university projects', 'table':'the Table', 'answer':'Time to a fortune'},
   'how': {'intro':'the model', 'research':'Data changes', 'qa':'Data changes', 'more':'the Cyber lens', 'quality':'Data quality', 'labels':'the Filters panel', 'arrange':'the Views menu (ready-made views, My views, panels)', 'whatifchart':'the What if? chart', 'answer':'the toolbar'},
   'charts': {k: f'the {k} chart' for k in ['gaps', 'heat', 'ai', 'pipe', 'drift', 'sec', 'fort', 'whatif']},
+  'questions': {'clean-ai':'the clean energy pipeline, the AI Energy Vision Radar and a list of AI-driven clean energy technologies', 'clean-next':'forecast drift for clean energy, listing the next five years', 'ai-faster':'AI vs the rest, beside Key findings', 'fields':'the heatmap with the fastest field listed', 'security':'the security lag, open gaps first, beside the Cyber lens', 'whatif':'What if?, with one technology’s reasoning', 'slips':'forecast drift with revised forecasts listed', 'fortune':'the race to a fortune playing, beside Time to a fortune', 'changed':'Data changes and the AI Energy Vision Radar'},
   'charthow': {'open':'the Gap explorer', 'gapsort':'the Gap explorer, sorted and zoomed', 'filter':'the Gap explorer, energy only', 'heat':'the Heatmap with a cell list', 'ai':'AI vs the rest, zoomed', 'pipe':'the pipeline with a flow list',
                'drift':'Forecast drift with a year list', 'sec':'Security lag, open gaps first', 'fort':'the Race to a fortune playing', 'whatif':'What if?, ambitious scenario', 'insight':'the Heatmap with its Insight callout'}}
 
@@ -117,7 +118,7 @@ def run():
                   f"Rules: only these placeholders: {sorted(sp['placeholders'])}; keep every case of every condition ({ {k: sorted(v) for k, v in sp['cases'].items()} }); "
                   f"refer to the government's clean energy vision areas as \"AI for clean energy\", never by department name; no figures typed in the text except {sorted(sp['years'])}; at most {sp['maxWords']} words per step; plain British English; no links.\n"
                   + (f"Each variant's wording must state exactly what its condition means, no more and no less: {json.dumps(sp.get('meanings', {}))}.\n" if sp.get('meanings') else '')
-                  + (f"Chart facts you can use: {json.dumps(PH_MEANINGS)}.\n" if tid == 'charts' else '')
+                  + (f"Chart facts you can use: {json.dumps(PH_MEANINGS)}. For questions also: cleanAiCount (AI-driven clean energy technologies), cleanAiGB (of those, used in GB), cleanAiResearch (still in research), cleanAiTopArea (the area with most), cleanNext5 (expected by next5Year), cleanNext5GB (of those, in use or on trial in GB).\n" if tid in ('charts', 'questions') else '')
                   + f"What is on screen at each step (your words must fit it): {json.dumps(STEP_VISUALS.get(tid, {}))}.\n"
                   + task1 +
                   "(2) Improve the wording of at most three steps, only where it becomes clearer or more accurate for a general audience. Leave the rest out.\n"

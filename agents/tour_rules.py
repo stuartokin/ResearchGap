@@ -10,6 +10,7 @@ CHART_PH = {'nGap', 'longestTitle', 'longestYears', 'quickRecentTitle', 'quickRe
   'aiMed', 'restMed', 'aiCount', 'pipeTotal', 'pipeResearch', 'pipePilot', 'pipeCommercial', 'pipeScale', 'pipeGB', 'driftCount', 'driftPeakYear', 'driftPeakCount', 'driftRevised', 'driftSlipped',
   'secCount', 'secMedian', 'secLongestTitle', 'secLongestYears', 'secOpen', 'fortCount', 'fortResearch', 'fortFastest', 'fortFastestTime', 'fortPre', 'fortRecent', 'wiAvg', 'wi2030Now', 'wi2030AI', 'wiTopLever', 'wiResearched'} | {f'{k}{x}' for k in ('quickStory', 'fastStory', 'aiStory', 'pipeStory', 'secStory', 'newStory', 'cleanStory') for x in ('', 'Title')}
 CHART_CASES = {'improvedCase': {'yes', 'no'}, 'aiCase': {'faster', 'similar', 'slower', 'unclear'}, 'pipeCase': {'early', 'late'}, 'driftCase': {'some', 'none'}, 'secCase': {'open', 'closed'}, 'fortCase': {'faster', 'slower', 'similar', 'unclear'}, **{f'{k}Case': {'yes', 'no'} for k in ('quickStory', 'fastStory', 'aiStory', 'pipeStory', 'secStory', 'newStory', 'cleanStory')}}
+QUESTION_PH = {'cleanAiCount', 'cleanAiGB', 'cleanAiResearch', 'cleanAiTopArea', 'cleanNext5', 'cleanNext5GB', 'next5Year'}
 WEEK_PH = {'updatedAt', 'newCount', 'newTitles', 'changedCount', 'cleanUpdatedAt', 'cleanNewCount', 'cleanNewTitles', 'cleanChangedCount'}
 CLEAN_VIEWS = {'main', 'radar', 'pipe', 'drift', 'sec', 'whatif', 'findings'}
 WEEK_VIEWS = {'main', 'findings', 'radar', 'cyber', 'fortunes', 'gaps', 'heat', 'ai', 'pipe', 'drift', 'sec', 'fort', 'whatif'}
@@ -55,6 +56,10 @@ SPEC = {
     'steps': None,   # written each week: 'intro' plus three to six steps, each with a view
     'placeholders': set(), 'cases': {'newCase': {'some', 'none'}}, 'years': set(), 'maxWords': 45, 'titles': True,
   },
+  'questions': {
+    'steps': ['clean-ai', 'clean-next', 'ai-faster', 'fields', 'security', 'whatif', 'slips', 'fortune', 'changed'],
+    'placeholders': set(), 'cases': {'cleanNextCase': {'some', 'none'}, 'newCase': {'some', 'none'}}, 'years': set(), 'maxWords': 45,
+  },
   'charthow': {
     'steps': ['open', 'gapsort', 'filter', 'heat', 'ai', 'pipe', 'drift', 'sec', 'fort', 'whatif', 'insight'],
     'placeholders': set(), 'cases': {}, 'years': set(), 'maxWords': 45,
@@ -73,7 +78,7 @@ SPEC = {
 
 # every tour may use the chart facts; the weekly analysis may also use the week's facts
 for _tid, _sp in SPEC.items():
-    _sp['placeholders'] = set(_sp['placeholders']) | CHART_PH | (WEEK_PH if _tid in ('week', 'cleanweek') else set())
+    _sp['placeholders'] = set(_sp['placeholders']) | CHART_PH | (WEEK_PH if _tid in ('week', 'cleanweek', 'questions') else set()) | (QUESTION_PH if _tid == 'questions' else set())
     _sp['cases'] = dict(CHART_CASES, **_sp['cases'])
     _sp['years'] = set(_sp['years']) | CHART_YEARS
 

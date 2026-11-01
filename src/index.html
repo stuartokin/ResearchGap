@@ -299,6 +299,7 @@
       <label class="toggle">Open new panels in free space <input type="checkbox" id="smartPlaceT" checked></label>
       <label class="toggle">Keep window positions when the screen size changes <input type="checkbox" id="keepPosT" checked></label>
       <label class="toggle">Fit panels to this screen when opening a saved view <input type="checkbox" id="fitLoadT" checked></label>
+      <div class="exprow">Open insights automatically: <select id="autoInsS" aria-label="Open insights automatically"><option value="on">On</option><option value="off">Off</option></select> <span class="note-s">For charts and questions; closing one keeps it closed until you move on.</span></div>
       <div class="exprow">Admin tools: <select id="adminS" aria-label="Admin tools"><option value="off">Off</option><option value="on">On</option></select> <span class="note-s">For the owner: decisions for everyone, and the system file for GitHub.</span></div>
       <div class="exprow">Autosave my file: <select id="autosaveS" aria-label="Autosave my file"><option value="off">Off</option><option value="on">On (this browser)</option><option value="file">Keep a file updated (Chrome or Edge)…</option></select> <span class="note-s" id="autosaveNote"></span></div>
       <div class="exprow">Dates: <select id="dateFmtS" aria-label="Date format"><option value="uk">UK (30 October 2026)</option><option value="us">US (October 30, 2026)</option></select></div>
@@ -458,6 +459,7 @@
 <div id="disc" role="status"><div class="dmeta" id="discMeta"></div><b>AI-maintained data.</b> This personal project’s data is compiled by AI agents from publicly available sources only, without human review, and may contain errors. <button id="discAbout">About</button><button id="discX" aria-label="Dismiss">✕</button></div>
 <div id="nogl" role="alert"><div><h2>3D view unavailable</h2><p>This device or browser can’t show the 3D model. Try a recent version of Chrome, Edge, Safari or Firefox on a laptop or desktop.</p></div></div>
 <div id="winMenu" role="menu"></div>
+<div id="qInsight" class="qinsight" role="region" aria-label="Question insight" aria-live="polite"></div>
 <div id="presentMenu" class="dropmenu" role="menu">
   <div class="wmh">Presenting</div>
   <div class="dmrow"><button id="fsBtn">Full screen</button><button class="pin" data-pin="fullscreen" title="Pin to the toolbar">📌</button></div>
@@ -488,9 +490,11 @@
   <div id="wAck" class="wack" role="alertdialog" aria-labelledby="wAckT"><b id="wAckT">Before you start</b> This site is run and managed by AI agents, with <b>no human in the loop</b>. It uses <b>only publicly available sources</b>. Its data, narrative and voice are AI-generated and may contain errors. Please acknowledge to continue.
     <button id="wAckBtn" class="wrun">I understand and acknowledge</button></div>
   <p class="wai" role="note"><b>Fully AI-generated, with no human in the loop.</b> AI agents write and update these walk-throughs every week from their own findings, using only publicly available sources, and an AI voice speaks them. No person reviews the narration before you hear it.</p>
+  <div class="wsign"><span class="wrib">🎓 Learn</span><span class="wsigntxt">Guided tours of one to two minutes, narrated with subtitles</span></div>
   <div class="wcards" id="wCards"></div>
   <p class="wver" id="wVer"></p>
-  <div class="wfoot"><button id="wRun" class="wrun">Run the tool</button><button class="btn" id="wQuestions" title="Questions this tool answers well, each with a ready view">Start with a question</button><button id="wKiosk" class="wmute">Kiosk mode</button><button id="wMute" class="wmute"></button></div>
+  <div class="wpaths"><div class="wpath"><span class="wrib">✨ Start here</span><button class="wrun wq" id="wQuestions" title="Questions this tool answers well, each with a ready view">Start with a question</button><small>Pick a question, and the answer is set up for you.</small></div><div class="wpath"><span class="wrib">🚀 Jump right in</span><button id="wRun" class="wrun">Run the tool</button><small>Explore freely, with every panel.</small></div></div>
+  <div class="wfoot"><button id="wKiosk" class="wmute">Kiosk mode</button><button id="wMute" class="wmute"></button></div>
   <div id="wKioskOpts" class="wkiosk"><b>Kiosk mode</b> loops through the walk-throughs and ready-made views, unattended. Visitors can explore at any time; it carries on after a minute without a touch. Press <b>Escape</b> to leave.
     <div class="kopts"><span>Sound:</span><label><input type="radio" name="kSound" value="narration" checked> AI narration</label><label><input type="radio" name="kSound" value="music"> Music (with subtitles)</label><label><input type="radio" name="kSound" value="silent"> Silent</label></div>
     <div class="kopts"><label><input type="checkbox" id="kTicker" checked> Ticker (news and jokes)</label><label><input type="checkbox" id="kQr" checked> QR code to the site</label></div>

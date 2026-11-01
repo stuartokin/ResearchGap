@@ -84,7 +84,7 @@ $('chartBody').addEventListener('click', e => {
   else if (e.target.id === 'coSpeak') { const p = $('chartCallout').querySelector('.cotext'); if (p) speakInsight(p.textContent); }
 });
 /* ---------- charts inside the walk-throughs ---------- */
-function tourChart(tab, extra){ return () => { tourHighlight(null); Object.assign(CH, {tab, q:'', field:'', origin:'', zoom:{}, zoom2:{}, panel:null, box:null, fortYear:null}); clearInterval(CH.fortTimer); CH.fortTimer = 0; tourFilters(); refresh(); setTimeout(() => { renderCharts(); if (extra) extra(); else setTimeout(() => chartFocus(tab), 400); }, 250); }; }
+function tourChart(tab, extra){ return () => { tourHighlight(null); Object.assign(CH, {tab, insightOn:false, q:'', field:'', origin:'', zoom:{}, zoom2:{}, panel:null, box:null, fortYear:null}); clearInterval(CH.fortTimer); CH.fortTimer = 0; tourFilters(); refresh(); setTimeout(() => { renderCharts(); if (extra) extra(); else setTimeout(() => chartFocus(tab), 400); }, 250); }; }
 const chartStep = (id, tab, extra) => ({id, show:['charts'], act:tourChart(tab, extra)});
 const playFortunes = () => { CH.fortYear = 1890; CH.fortTimer = setInterval(() => { CH.fortYear += 3; if (CH.fortYear >= NOW) { CH.fortYear = NOW; clearInterval(CH.fortTimer); CH.fortTimer = 0; } renderCharts(); }, 160); };
 const insertAfter = (tourId, afterId, step) => { const st = TOURS[tourId].steps, i = st.findIndex(s => s.id === afterId); st.splice(i < 0 ? st.length : i + 1, 0, step); };
@@ -109,9 +109,9 @@ KIOSK_SCRIPT.push({scene:'charts', tab:'fort', seconds:30, note:'Charts: the rac
 function chartSvgString(tab, W, H, fs){
   const keep = {tab:CH.tab, q:CH.q, field:CH.field, origin:CH.origin, zoom:CH.zoom, zoom2:CH.zoom2, box:CH.box, sel:CH.sel, selF:CH.selF, fortYear:CH.fortYear, panel:CH.panel};
   Object.assign(CH, {tab, q:'', field:'', origin:'', zoom:{}, zoom2:{}, box:null, sel:null, selF:null, fortYear:null, panel:null});
-  const ctl = $('chartCtl').innerHTML; let out = '';
+  const ctl = $('chartCtl').innerHTML, ctlH = $('chartCtl')._h; let out = '';
   try { out = ({gaps:chGaps, heat:chHeat, ai:chAI, pipe:chPipe, drift:chDrift, sec:chSec, fort:chFort, whatif:chWhatIf}[tab])(W, H, fs); }
-  finally { $('chartCtl').innerHTML = ctl; Object.assign(CH, keep); }
+  finally { $('chartCtl').innerHTML = ctl; $('chartCtl')._h = ctlH; Object.assign(CH, keep); }
   const i = out.lastIndexOf('<svg'); return i >= 0 ? out.slice(i, out.lastIndexOf('</svg>') + 6) : '';
 }
 function chartImage(tab, W, H, fs){
@@ -132,7 +132,7 @@ const CH_KEYS = ['tab', 'q', 'field', 'origin', 'dvOnly', 'zoom', 'zoom2', 'gapS
 function chartState(){ const o = {}; CH_KEYS.forEach(k => { o[k] = CH[k]; }); return JSON.parse(JSON.stringify(o)); }
 const CH_DEFAULTS = Object.assign(chartState(), {dvOnly:false, insightOn:false});
 function applyChartState(o){ Object.assign(CH, JSON.parse(JSON.stringify(o || {})), {panel:null, box:null, sel:null, selF:null, fortYear:null}); clearInterval(CH.fortTimer); CH.fortTimer = 0; if (!CH.insightOn && $('chartCallout')) showInsight(false); if (layout.charts && layout.charts.open) renderCharts(); }
-function resetCharts(){ applyChartState(CH_DEFAULTS); }
+function resetCharts(){ applyChartState(Object.assign({}, CH_DEFAULTS, {insightOn:view.autoInsight !== false})); }   // the insight opens by itself unless switched off in Display
 function scrollState(){ const o = {}; WIN_IDS.forEach(id => { const els = [...wins[id].querySelectorAll('.wbody, .csvg, .cside, .clrows, .csitems')]; const v = els.map(e => [Math.round(e.scrollTop), Math.round(e.scrollLeft)]); if (v.some(p => p[0] || p[1])) o[id] = v; }); return o; }
 function applyScroll(o){ Object.entries(o || {}).forEach(([id, v]) => { if (!wins[id]) return; const els = [...wins[id].querySelectorAll('.wbody, .csvg, .cside, .clrows, .csitems')]; v.forEach((p, k) => { if (els[k]) { els[k].scrollTop = p[0]; els[k].scrollLeft = p[1]; } }); }); }
 /* ---------- stories: research → first use → impact, researched weekly by the story agent ---------- */

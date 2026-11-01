@@ -43,7 +43,7 @@ function kioskScene(){
   clearTimeout(kiosk.timer); if (!kiosk.on || kiosk.paused) return;
   const sc = KIOSK_SCRIPT[kiosk.i % KIOSK_SCRIPT.length]; kiosk.i++;
   if (sc.scene === 'tour' && TOURS[sc.id]) { kioskCapOff(); startTour(sc.id); return; }
-  if (sc.scene === 'charts') { resetToDefaults(); applyPreset('charts'); Object.assign(CH, {tab:sc.tab, q:'', field:'', origin:'', zoom:{}, zoom2:{}, panel:null, fortYear:null}); setTimeout(() => { renderCharts(); if (sc.play) playFortunes(); }, 300); kioskSay(sc); if (kiosk.opts.sound === 'music') setMusic(true); kiosk.timer = setTimeout(kioskScene, sc.seconds * 1000); return; }   // the tour moves on to the next scene when it ends
+  if (sc.scene === 'charts') { resetToDefaults(); applyPreset('charts'); Object.assign(CH, {tab:sc.tab, insightOn:false, q:'', field:'', origin:'', zoom:{}, zoom2:{}, panel:null, fortYear:null}); setTimeout(() => { renderCharts(); if (sc.play) playFortunes(); }, 300); kioskSay(sc); if (kiosk.opts.sound === 'music') setMusic(true); kiosk.timer = setTimeout(kioskScene, sc.seconds * 1000); return; }   // the tour moves on to the next scene when it ends
   resetToDefaults(); applyPreset(sc.name);
   if ((titleCfg.text || '').trim() === (TITLE_DEFAULT.text || '').trim()) setOpen('title', false);   // an unchanged showcase title says nothing about the event: leave it off
   kioskSay(sc);

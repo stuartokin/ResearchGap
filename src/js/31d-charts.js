@@ -22,6 +22,7 @@ function chMatch(it){
 const chPool = () => items.filter(it => !it.removed && !it.aud && shownFully(it) && chMatch(it));
 function chartSelect(it){ if (!it) return; CH.sel = it.id; openDetail(it); setOpen('details', true); renderCharts(); }
 /* ---------- the side panel: keeps what you clicked, even when you open a milestone's story ---------- */
+function setCtl(html){ const el = $('chartCtl'); if (el._h !== html) { el.innerHTML = html; el._h = html; } }   // only when something changed: rebuilding it on every redraw swallowed clicks
 function chPanel(title, html){ CH.panel = {tab:CH.tab, title, html}; drawPanel(); }
 function drawPanel(){
   const side = $('chartSide'), p = CH.panel && CH.panel.tab === CH.tab ? CH.panel : null;
@@ -46,8 +47,9 @@ function renderCharts(){
   if (!layout.charts || !layout.charts.open) return;
   const box = $('chartSvg'), fs = chFs();
   const tabName = (CHART_TABS.find(t => t[0] === CH.tab) || [])[1] || '', h2 = $('w-charts').querySelector('.wh h2'); if (h2) h2.textContent = 'Charts – ' + tabName;
-  $('chartTabs').innerHTML = CHART_TABS.map(([k, n]) => `<button data-t="${k}" class="${CH.tab === k ? 'on' : ''}" role="tab" aria-selected="${CH.tab === k}">${n}</button>`).join('') + '<button id="chPopOut" class="cinsight cpop" title="Open this chart in its own panel, to move and keep beside others">⧉ Pop out</button><button id="chInsight" class="cinsight" title="This week’s AI-generated insight for this chart, with subtitles and speech">★ Insight</button>';
-  if (CH.insightOn && typeof showInsight === 'function') setTimeout(() => showInsight(true), 0);
+  const tabsHtml = CHART_TABS.map(([k, n]) => `<button data-t="${k}" class="${CH.tab === k ? 'on' : ''}" role="tab" aria-selected="${CH.tab === k}">${n}</button>`).join('') + '<button id="chPopOut" class="cinsight cpop" title="Open this chart in its own panel, to move and keep beside others">⧉ Pop out</button><button id="chInsight" class="cinsight" title="This week’s AI-generated insight for this chart, with subtitles and speech">★ Insight</button>';
+  if (CH._tabsHtml !== tabsHtml) { $('chartTabs').innerHTML = tabsHtml; CH._tabsHtml = tabsHtml; }   // only when something changed: rebuilding it on every redraw swallowed clicks while the century played
+  if (CH.insightOn && typeof showInsight === 'function') setTimeout(() => { const q = document.getElementById('qInsight'); if (!(q && q.classList.contains('on'))) showInsight(true); }, 0);   // a question’s insight, when showing, speaks for the chart
   drawPanel();
   const W = Math.max(300, box.clientWidth - 6), H = Math.max(260, box.clientHeight - 6);
   CH.note = ''; CH.rows = []; CH.head = [];
@@ -91,8 +93,8 @@ function chGaps(W, H, fs){
   pool.sort(sorts[CH.gapSort] || sorts.gap);
   const colour = it => CH.gapColour === 'ai' ? (isAIDriven(it) ? CHC.teal : CHC.mut) : CH.gapColour === 'origin' ? ({academic:CHC.amber, industry:CHC.teal, government:CHC.violet}[it.s] || CHC.mut) : itemHex(it);
   const seg = (id, cur, opts) => `<span class="cseg" data-seg="${id}">${opts.map(([k, n]) => `<button data-v="${k}" class="${cur === k ? 'on' : ''}">${n}</button>`).join('')}</span>`;
-  $('chartCtl').innerHTML = chFilterBar(`<label class="cl">Sort ${seg('gapSort', CH.gapSort, [['gap', 'Longest gap'], ['research', 'Research year'], ['recent', 'Most recent'], ['field', 'Field']])}</label>
-    <label class="cl">Colour ${seg('gapColour', CH.gapColour, [['field', 'Field'], ['origin', 'Origin'], ['ai', 'AI-driven']])}</label>`);
+  setCtl(chFilterBar(`<label class="cl">Sort ${seg('gapSort', CH.gapSort, [['gap', 'Longest gap'], ['research', 'Research year'], ['recent', 'Most recent'], ['field', 'Field']])}</label>
+    <label class="cl">Colour ${seg('gapColour', CH.gapColour, [['field', 'Field'], ['origin', 'Origin'], ['ai', 'AI-driven']])}</label>`));
   const rows = pool.map(it => { const c = colour(it), ad = it.adopt && it.adopt > it.p ? it.adopt : null;
     return {id:it.id, label:it.t, span:[it.r, ad || it.p], tip:`${it.t}: research ${it.r}, ${it.kind === 'proj' ? 'expected ~' : 'first product '}${it.p}${ad ? ', mainstream ' + ad : ''} (${it.lag} years)`,
       bars:[{a:it.r, b:it.p, color:c, dash:it.kind === 'proj'}].concat(ad ? [{a:it.p, b:ad, color:c, opacity:.35, thin:true}] : []), dots:[{x:it.r, color:CHC.blue, r:.55}],
@@ -105,7 +107,7 @@ function chGaps(W, H, fs){
 function chHeat(W, H, fs){
   const pool = chPool().filter(it => it.kind === 'hist' && !it.co), by = CH.heatBy, decs = []; for (let d = 1920; d <= Math.floor(NOW / 10) * 10; d += 10) decs.push(d);
   const fk = FKEYS.filter(k => FIELDS[k] && !FIELDS[k].custom && pool.some(it => it.v === k));
-  $('chartCtl').innerHTML = chFilterBar(`<label class="cl">Decade by <span class="cseg" data-seg="heatBy"><button data-v="p" class="${by === 'p' ? 'on' : ''}">year it landed</button><button data-v="r" class="${by === 'r' ? 'on' : ''}">year research began</button></span></label>`);
+  setCtl(chFilterBar(`<label class="cl">Decade by <span class="cseg" data-seg="heatBy"><button data-v="p" class="${by === 'p' ? 'on' : ''}">year it landed</button><button data-v="r" class="${by === 'r' ? 'on' : ''}">year research began</button></span></label>`));
   const L = Math.min(W * .24, Math.max(...fk.map(k => fieldName(k).length), 10) * fs * .52 + 14), cols = decs.length + 1, cw = (W - L - 8) / cols;
   const rowsN = fk.length + 1, ch = Math.max(fs * 2, Math.min(fs * 3.6, (H - fs * 3) / rowsN)), top = fs * 2.2;
   const col = v => { const t = Math.max(0, Math.min(1, v / 20)), l = (p, q) => Math.round(p + (q - p) * t); return `rgb(${l(76, 255)},${l(211, 107)},${l(194, 107)})`; };
@@ -135,9 +137,9 @@ function heatPanel(key){
 /* 3. AI against the rest */
 function chAI(W, H, fs){
   const pool = chPool().filter(it => it.kind === 'hist' && !it.co && !POLICY_ARCS.has(it.t));
-  $('chartCtl').innerHTML = chFilterBar(`<label class="toggle inl">Log scale <input type="checkbox" id="chAiLog"${CH.aiLog ? ' checked' : ''}></label>
+  setCtl(chFilterBar(`<label class="toggle inl">Log scale <input type="checkbox" id="chAiLog"${CH.aiLog ? ' checked' : ''}></label>
     <label class="cl">Drag to <span class="cseg" data-seg="aiMode"><button data-v="zoom" class="${CH.aiMode === 'zoom' ? 'on' : ''}">zoom</button><button data-v="select" class="${CH.aiMode === 'select' ? 'on' : ''}">select</button></span></label>
-    <label class="cl">Labels <span class="cseg" data-seg="aiLabels"><button data-v="auto" class="${CH.aiLabels === 'auto' ? 'on' : ''}">auto</button><button data-v="all" class="${CH.aiLabels === 'all' ? 'on' : ''}">all</button><button data-v="none" class="${CH.aiLabels === 'none' ? 'on' : ''}">none</button></span></label>`);
+    <label class="cl">Labels <span class="cseg" data-seg="aiLabels"><button data-v="auto" class="${CH.aiLabels === 'auto' ? 'on' : ''}">auto</button><button data-v="all" class="${CH.aiLabels === 'all' ? 'on' : ''}">all</button><button data-v="none" class="${CH.aiLabels === 'none' ? 'on' : ''}">none</button></span></label>`));
   const fy = v => CH.aiLog ? Math.log10(v + 1) : v, z = CH.zoom2.ai, maxG = Math.max(10, ...pool.map(it => it.lag));
   const xr = z ? z.x : [1920, NOW], yr = z ? z.y : [0, fy(maxG)], pad = fs * 3.2;
   const x = chScale(xr[0], xr[1], pad, W - 14), y = chScale(yr[0], yr[1], H - fs * 2.6, fs * 4.2);
@@ -165,7 +167,7 @@ function chAI(W, H, fs){
 /* 4. Clean energy pipeline */
 function chPipe(W, H, fs){
   const pool = chPool().filter(it => it.dv);
-  $('chartCtl').innerHTML = chFilterBar('<span class="note-s">Areas of AI for clean energy (following DESNZ’s AI energy vision). Select a bar or a flow to list its technologies.</span>');
+  setCtl(chFilterBar('<span class="note-s">Areas of AI for clean energy (following DESNZ’s AI energy vision). Select a bar or a flow to list its technologies.</span>'));
   const ST = [['research', 'Research', '#8FA6B8'], ['pilot', 'Pilot', '#F2D38A'], ['commercial', 'First commercial use', '#5FD8FF'], ['scale', 'At scale', '#7FD6A0']];
   const gbOf = it => it.gb === 'deployed' ? 'deployed' : it.gb === 'trial' ? 'trial' : 'other', GB = [['deployed', 'Deployed in GB', '#7FD6A0'], ['trial', 'Trial in GB', '#F2D38A'], ['other', 'Planned or not yet', '#8FA6B8']];
   const A = Object.keys(VISION).map(k => [k, VISION[k], '#F7C04A']), nw = fs * 1.1, gap = fs * .9;
@@ -192,7 +194,7 @@ function chPipe(W, H, fs){
 function chDrift(W, H, fs){
   const pool = chPool().filter(it => it.fc && it.fc.estimatedYear != null).sort((p, q) => (p.fc.actualYear || p.fc.estimatedYear) - (q.fc.actualYear || q.fc.estimatedYear) || p.t.localeCompare(q.t));
   const STC = {research:'#8FA6B8', pilot:'#F2D38A', commercial:'#5FD8FF', scale:'#7FD6A0'};
-  $('chartCtl').innerHTML = chFilterBar('') + `<div class="clegend">Readiness: ${Object.entries(STC).map(([k, c]) => `<span><i style="background:${c}"></i>${{research:'Research', pilot:'Pilot', commercial:'First commercial use', scale:'At scale'}[k]}</span>`).join('')}<span><i style="background:#FF6B6B"></i>Slipped later</span></div>`;
+  setCtl(chFilterBar('') + `<div class="clegend">Readiness: ${Object.entries(STC).map(([k, c]) => `<span><i style="background:${c}"></i>${{research:'Research', pilot:'Pilot', commercial:'First commercial use', scale:'At scale'}[k]}</span>`).join('')}<span><i style="background:#FF6B6B"></i>Slipped later</span></div>`);
   const revOf = it => (it.fc.revisions || []).map(r => r.year ?? r.to ?? r.estimatedYear).filter(v => v != null);
   const counts = {}; pool.forEach(it => { const y = it.fc.actualYear ?? it.fc.estimatedYear; counts[y] = (counts[y] || 0) + 1; });
   const ys = Object.keys(counts).map(Number).sort((a, b) => a - b), histH = fs * 5;
@@ -214,8 +216,8 @@ function chSec(W, H, fs){
   const all = chPool().filter(it => it.kind === 'hist' && it.attack).map(it => ({it, r:secResponse(it)})).filter(x => x.r);
   const sorts = {open:(p, q) => (!!q.r.resp - !!p.r.resp) || p.it.p - q.it.p, arrival:(p, q) => p.it.p - q.it.p, wait:(p, q) => (q.r.resp ? q.r.lag : NOW - q.it.p) - (p.r.resp ? p.r.lag : NOW - p.it.p), response:(p, q) => ((p.r.resp || {}).p || 9999) - ((q.r.resp || {}).p || 9999) || p.it.p - q.it.p};
   all.sort(sorts[CH.secSort] || sorts.arrival);
-  $('chartCtl').innerHTML = chFilterBar(`<label class="cl">Sort <span class="cseg" data-seg="secSort"><button data-v="open" class="${CH.secSort === 'open' ? 'on' : ''}">Open gaps first</button><button data-v="arrival" class="${CH.secSort === 'arrival' ? 'on' : ''}">Arrival</button><button data-v="wait" class="${CH.secSort === 'wait' ? 'on' : ''}">Longest wait</button><button data-v="response" class="${CH.secSort === 'response' ? 'on' : ''}">By response</button></span></label>`)
-    + `<div class="clegend"><span><i style="background:${CHC.green}"></i>Response within 3 years</span><span><i style="background:${CHC.amber}"></i>4 to 8 years</span><span><i style="background:${CHC.coral}"></i>Over 8 years</span><span><i class="dash"></i>Response expected (forecast)</span><span><i class="ring"></i>No response yet</span></div>`;
+  setCtl(chFilterBar(`<label class="cl">Sort <span class="cseg" data-seg="secSort"><button data-v="open" class="${CH.secSort === 'open' ? 'on' : ''}">Open gaps first</button><button data-v="arrival" class="${CH.secSort === 'arrival' ? 'on' : ''}">Arrival</button><button data-v="wait" class="${CH.secSort === 'wait' ? 'on' : ''}">Longest wait</button><button data-v="response" class="${CH.secSort === 'response' ? 'on' : ''}">By response</button></span></label>`)
+    + `<div class="clegend"><span><i style="background:${CHC.green}"></i>Response within 3 years</span><span><i style="background:${CHC.amber}"></i>4 to 8 years</span><span><i style="background:${CHC.coral}"></i>Over 8 years</span><span><i class="dash"></i>Response expected (forecast)</span><span><i class="ring"></i>No response yet</span></div>`);
   const lagCol = l => l <= 3 ? CHC.green : l <= 8 ? CHC.amber : CHC.coral;
   const respYears = {}; all.forEach(({r}) => { if (r.resp) respYears[r.resp.p] = respYears[r.resp.p] || r.resp.t; });
   const markers = Object.keys(respYears).map(y => ({x:+y, label:'', color:'rgba(127,214,160,.35)'}));
@@ -235,7 +237,7 @@ function fortPool(){
 }
 function chFort(W, H, fs){
   const all = fortPool(), yr = CH.fortYear ?? NOW, fs2 = all.filter(p => p.w <= yr), z = CH.zoom2.fort;
-  $('chartCtl').innerHTML = chFilterBar(`<button class="mini" id="chFortPlay">${CH.fortTimer ? 'Pause' : '▶ Play through time'}</button> <b style="color:${CHC.gold}">${yr}</b>`, {searchLabel:'Search companies or founders', originAll:'All founders', origins:[['research', 'Research founders (university or lab)'], ['other', 'Other founders']]});
+  setCtl(chFilterBar(`<button class="mini" id="chFortPlay">${CH.fortTimer ? 'Pause' : '▶ Play through time'}</button> <b style="color:${CHC.gold}">${yr}</b>`, {searchLabel:'Search companies or founders', originAll:'All founders', origins:[['research', 'Research founders (university or lab)'], ['other', 'Other founders']]}));
   const maxY = Math.max(20, ...all.map(p => p.w - p.f)), xr = z ? z.x : [Math.floor((Math.min(NOW - 10, ...all.map(p => p.f)) - 3) / 5) * 5, NOW + 2], yrg = z ? z.y : [0, maxY + 2], pad = fs * 3.2;
   const x = chScale(xr[0], xr[1], pad, W - 14), y = chScale(yrg[0], yrg[1], H - fs * 2.6, fs * 1.2), rad = p => fs * .35 + Math.sqrt(Math.max(0, p.nw || 0)) * fs * .16;
   let s = `<svg class="chsvg chzoom2" id="chFortSvg" width="${W}" height="${H}" font-size="${fs * .85}" data-x0="${xr[0]}" data-x1="${xr[1]}" data-y0="${yrg[0]}" data-y1="${yrg[1]}" data-l="${pad}" data-r="${W - 14}" data-t="${fs * 1.2}" data-b="${H - fs * 2.6}">`;
@@ -292,8 +294,8 @@ function aiPlan(it){
 function chWhatIf(W, H, fs){
   const pool = chPool().filter(it => it.kind === 'proj' && it.p > NOW).sort((a, b) => a.p - b.p || a.t.localeCompare(b.t));
   const scen = [['low', 'Conservative'], ['mid', 'Central'], ['high', 'Ambitious']];
-  $('chartCtl').innerHTML = chFilterBar(`<label class="cl">Scenario <span class="cseg" data-seg="wiScen">${scen.map(([k, n]) => `<button data-v="${k}" class="${CH.wiScen === k ? 'on' : ''}">${n}</button>`).join('')}</span></label>`)
-    + `<div class="clevers">${AI_LEVERS.map(l => `<label class="toggle inl" title="${chEsc(l.what)}">${l.n} <input type="checkbox" data-lever="${l.k}"${CH.wiOff[l.k] ? '' : ' checked'}></label>`).join('')} <b style="color:${CHC.amber}">Illustrative scenario, not a forecast.</b></div>`;
+  setCtl(chFilterBar(`<label class="cl">Scenario <span class="cseg" data-seg="wiScen">${scen.map(([k, n]) => `<button data-v="${k}" class="${CH.wiScen === k ? 'on' : ''}">${n}</button>`).join('')}</span></label>`)
+    + `<div class="clevers">${AI_LEVERS.map(l => `<label class="toggle inl" title="${chEsc(l.what)}">${l.n} <input type="checkbox" data-lever="${l.k}"${CH.wiOff[l.k] ? '' : ' checked'}></label>`).join('')} <b style="color:${CHC.amber}">Illustrative scenario, not a forecast.</b></div>`);
   const plans = new Map(pool.map(it => [it.id, aiPlan(it)]));
   const by = y => [pool.filter(it => it.p <= y).length, pool.filter(it => plans.get(it.id).year <= y).length];
   const [b30, s30] = by(2030), [b35, s35] = by(2035), totalSaved = pool.reduce((a, it) => a + plans.get(it.id).saved, 0);
@@ -321,7 +323,7 @@ const chTip = $('chartTip');
 $('chartBody').addEventListener('mousemove', e => { const t = e.target.closest('[data-tip]'); if (!t) { chTip.classList.remove('on'); return; } chTip.textContent = t.dataset.tip; chTip.classList.add('on'); chTip.style.left = Math.min(innerWidth - 320, e.clientX + 14) + 'px'; chTip.style.top = (e.clientY + 14) + 'px'; });
 $('chartBody').addEventListener('mouseleave', () => chTip.classList.remove('on'));
 $('chartBody').addEventListener('click', e => {
-  const tab = e.target.closest('#chartTabs [data-t]'); if (tab) { CH.tab = tab.dataset.t; CH.box = null; clearInterval(CH.fortTimer); CH.fortTimer = 0; renderCharts(); return; }
+  const tab = e.target.closest('#chartTabs [data-t]'); if (tab) { CH.tab = tab.dataset.t; CH.insightOn = view.autoInsight !== false; if (typeof hideQInsight === 'function') hideQInsight(); CH.box = null; clearInterval(CH.fortTimer); CH.fortTimer = 0; renderCharts(); return; }
   if (e.target.id === 'chSideX') { CH.panel = null; CH.selF = null; renderCharts(); return; }
   if (e.target.id === 'chZoomReset') { delete CH.zoom[CH.tab]; delete CH.zoom2[CH.tab]; renderCharts(); return; }
   const sb = e.target.closest('[data-seg] button'); if (sb) { CH[sb.parentElement.dataset.seg] = sb.dataset.v; CH.box = null; renderCharts(); return; }
