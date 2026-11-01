@@ -134,8 +134,10 @@ jobs:
             git commit -m "Data revision ${REV}: ${SUMMARY}"
             sleep 5
           done
-          git tag -a "data-r${REV}" -m "Data revision ${REV}: ${SUMMARY}"
-          git push origin "data-r${REV}"
+          # a release tag; if the name is already taken (revision numbers can repeat), add the run number. Never fails the run.
+          TAG="data-r${REV}"
+          if git ls-remote --exit-code --tags origin "refs/tags/${TAG}" >/dev/null 2>&1; then TAG="${TAG}-run${GITHUB_RUN_NUMBER}"; fi
+          git tag -a "${TAG}" -m "Data revision ${REV}: ${SUMMARY}" && git push origin "${TAG}" || echo "Could not tag the release as ${TAG}; the data is published regardless."
           echo "published=1" >> "$GITHUB_OUTPUT"
           echo "rev=${REV}" >> "$GITHUB_OUTPUT"
 
