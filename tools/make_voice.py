@@ -37,6 +37,9 @@ def main():
     voice = f"{cfg.get('provider', 'azure')}:{cfg.get('voice', '')}:{key_for(json.dumps(cfg['pronounce'], sort_keys=True), 'p')}"
     class Quiet(http.server.SimpleHTTPRequestHandler):
         def log_message(self, *a): pass
+        def handle(self):
+            try: super().handle()
+            except (ConnectionResetError, BrokenPipeError): pass   # the browser closed a connection early; harmless
     handler = functools.partial(Quiet, directory=str(ROOT))
     srv = http.server.ThreadingHTTPServer(('127.0.0.1', 0), handler); threading.Thread(target=srv.serve_forever, daemon=True).start()
     try: texts = asyncio.run(narration(srv.server_address[1]))

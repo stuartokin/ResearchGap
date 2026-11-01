@@ -17,6 +17,21 @@ EXAMPLE = {'title': 'Example: first commercial solid-state transformer in a dist
 ALIASES = {'research_origin': ('researchOrigin', 'origin_of_research', 'research_source', 'research_institution', 'originating_research'), 'research_year': ('researchYear',), 'change_year': ('changeYear', 'first_use_year'),
            'research_what': ('researchWhat',), 'change_what': ('changeWhat', 'first_use'), 'evidence_terms': ('evidenceTerms',)}
 
+FIELD_WORDS = {'hw': ('hardware', 'chip', 'semiconductor', 'computer'), 'sw': ('software', 'programming'), 'ai': ('artificial intelligence', 'machine learning', ' ai'),
+               'comms': ('communication', 'telecom', 'network', 'radio', 'microwave'), 'life': ('life science', 'medicine', 'medical', 'health', 'biotech', 'pharma', 'drug'),
+               'materials': ('material',), 'robotics': ('robot', 'autonom'), 'cyber': ('cyber', 'security', 'cryptograph'), 'space': ('space', 'rocket', 'satellite', 'aerospace'),
+               'quantum': ('quantum',), 'energy': ('energy', 'power', 'grid', 'battery', 'nuclear')}
+
+def resolve_field(v, fields):
+    """Gemini sometimes gives a field's name ("Computing hardware") or a variant rather than its id ("hw")."""
+    t = str(v or '').strip().lower()
+    if t in fields: return t
+    for k, f in fields.items():
+        if t == f['name'].lower(): return k
+    for k, words in FIELD_WORDS.items():
+        if k in fields and any(w.strip() in t for w in words): return k
+    return None
+
 def normalise(c):
     """Accept the alternative field names Gemini sometimes uses."""
     for k, alts in ALIASES.items():
@@ -34,7 +49,7 @@ def run():
     known = sorted({m['title'] for m in db['milestones']} | {c['title'] for c in pending})
     schema = json.dumps(ra.SUBMIT['input_schema']['properties']['candidates'])
     prompt = (f"Today is {TODAY}. You help maintain a public dataset of research breakthroughs: when research began, when the first product or real-world use arrived, and what is expected by {horizon}.\n"
-              f"Using Google Search, find up to {cap} NEW milestones across these fields: {json.dumps({k: v['name'] for k, v in fields.items()})}. "
+              f"Using Google Search, find up to {cap} NEW milestones across these fields: {json.dumps({k: v['name'] for k, v in fields.items()})}. The field of each candidate must be one of these ids: {json.dumps(list(fields))}. "
               "Favour what an English-language search tends to miss: work from the UK, Europe and Asia, and reputable sources in other languages (give the English title). "
               f"Also fill gaps: the dataset is thinnest for these fields and decades of first use, so important past milestones there are welcome: {json.dumps([f'{f["name"]}, {d}s' for k, f, d in ra.thin_cells(db, as_of, 8)])}. "
               "Include AI for the clean energy system where you can. Each needs at least two independent, reputable public sources, and evidence_terms that appear on those pages.\n"
@@ -47,7 +62,7 @@ def run():
     queued, report, rej = 0, [], {}
     for c in [normalise(x) for x in ra.candidates_of(out, cap * 2)]:
         if queued >= cap: break
-        f = fields.get(c.get('field'))
+        f = fields.get(resolve_field(c.get('field'), fields))
         if not f: report.append(f"rejected {c.get('title')}: unknown field"); continue
         why = ra.safe_check(db, f['id'], c, as_of, horizon, cfg['minSources'])
         if why: record_rejection('gemini', 'recent', c, why); rej[reject_reason(why)] = rej.get(reject_reason(why), 0) + 1; report.append(f"rejected [{f['id']}] {c.get('title')}: {why}"); continue

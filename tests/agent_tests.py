@@ -64,5 +64,11 @@ try:
     ok('R6 "not a duplicate" is kept for the pair', cdb2['meta']['notDuplicates'][0]['a'] == 'b' and cdb2['meta']['notDuplicates'][0]['b'] == 'c')
     ok('R7 each decision applies once', len(d1) == 3 and d2 == [])
 finally: common.__file__ = real
+# Gemini sometimes names a field instead of giving its id
+import gemini_research
+FIELDS = {f['id']: f for f in db['fields']}
+ok('G1 field ids and names are both accepted', gemini_research.resolve_field('hw', FIELDS) == 'hw' and gemini_research.resolve_field('Computing hardware', FIELDS) == 'hw')
+ok('G2 common variants are understood', gemini_research.resolve_field('telecommunications', FIELDS) == 'comms' and gemini_research.resolve_field('Medicine', FIELDS) == 'life')
+ok('G3 nonsense is still rejected', gemini_research.resolve_field('nonsense', FIELDS) is None)
 print(f'PASSED {sum(results)} of {len(results)}')
 sys.exit(0 if all(results) else 1)
