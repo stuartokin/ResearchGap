@@ -1192,6 +1192,7 @@ body.touring .qinsight,body.kiosk .qinsight{display:none!important}
   <div class="dmrow"><button id="fsBtn">Full screen</button><button class="pin" data-pin="fullscreen" title="Pin to the toolbar">📌</button></div>
   <div class="dmrow"><button id="rotBtn" aria-pressed="true">Auto-rotate</button><button class="pin" data-pin="rotate" title="Pin to the toolbar">📌</button></div>
   <div class="dmrow"><button id="musicBtn" aria-pressed="false">♪ Music</button><button class="pin" data-pin="music" title="Pin to the toolbar">📌</button></div>
+  <div class="dmrow"><button data-act="mutespeech"><span class="tick" id="pmMute"></span>🔇 Mute speech</button><button class="pin" data-pin="mutespeech" title="Pin to the toolbar">📌</button></div>
   <div class="dmrow"><button data-act="ticker"><span class="tick" id="pmTick"></span>Joke ticker</button><button class="pin" data-pin="ticker" title="Pin to the toolbar">📌</button></div>
   <div class="dmrow"><button data-act="title"><span class="tick" id="pmTitle"></span>Showcase title</button><button class="pin" data-pin="title" title="Pin to the toolbar">📌</button></div>
   <hr>
@@ -5584,7 +5585,7 @@ const FORTUNES = DB.founders.map(f => {
 });
 const fmtMoney = (bn, sym) => bn >= 1000 ? `${sym}${(bn / 1000).toFixed(1)}tn` : bn >= 1 ? `${sym}${bn >= 100 ? Math.round(bn) : Math.round(bn * 10) / 10}bn` : `${sym}${Math.round(bn * 1000)}m`;
 const DATA_AS_OF = DB.meta.asOf;
-const APP_VERSION = '12.3', APP_BUILD = '';
+const APP_VERSION = '12.4', APP_BUILD = '';
 // Screen-aware scaling: laptops slightly smaller, large screens larger
 const UI = (() => { const w = innerWidth; return w < 1280 ? .85 : w < 1500 ? .95 : w < 1800 ? 1.05 : w < 2300 ? 1.2 : 1.4; })();
 const LARGE = innerWidth >= 1700;
@@ -9237,24 +9238,34 @@ function weekFacts(){
 /* ---------- the insight callout on each chart: subtitles, and speech if you want it ---------- */
 let chartInsight = function(tab){ const t = ((tourText.tours.charts || TOUR_TEXT.tours.charts || {}).steps || {})[tab]; return t ? renderSay(t.say, chartFacts()).replace(/\s+/g, ' ').trim() : ''; }
 let insightAudio = null;
-function speakInsight(text){
-  stopInsight(); const file = tourAudio.voice && tourAudio.files[textKey(text, tourAudio.voice)];
-  if (file) { insightAudio = new Audio('audio/' + file); insightAudio.play().catch(() => browserSpeak(text)); return; }
-  browserSpeak(text);
+function speakInsight(text, onEnd){
+  stopInsight(); if (view.muteSpeech) { toast('Speech is muted: Present, “Mute speech”, turns it back on.'); return false; }
+  const file = tourAudio.voice && tourAudio.files[textKey(text, tourAudio.voice)], done = () => { if (onEnd) onEnd(); };
+  if (file) { insightAudio = new Audio('audio/' + file); insightAudio.onended = done; insightAudio.play().catch(() => browserSpeak(text, done)); return true; }
+  browserSpeak(text, done); return true;
 };
-function browserSpeak(text){ if (!('speechSynthesis' in window)) return; speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(speechText(text)); if (tourVoice) { u.voice = tourVoice; u.lang = tourVoice.lang; } else u.lang = 'en-GB'; u.rate = .98; speechSynthesis.speak(u); }
-function stopInsight(){ if (insightAudio) { insightAudio.pause(); insightAudio = null; } if ('speechSynthesis' in window) speechSynthesis.cancel(); }
+function browserSpeak(text, onEnd){ if (!('speechSynthesis' in window)) { if (onEnd) onEnd(); return; } speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(speechText(text)); if (tourVoice) { u.voice = tourVoice; u.lang = tourVoice.lang; } else u.lang = 'en-GB'; u.rate = .98; u.onend = u.onerror = () => { if (onEnd) onEnd(); }; speechSynthesis.speak(u); }
+function stopInsight(){ if (insightAudio) { insightAudio.pause(); insightAudio = null; } if ('speechSynthesis' in window) speechSynthesis.cancel(); resetSpeakButtons(); }
+/* Speak buttons switch to Stop while speaking */
+/* whether an insight is being spoken is kept app-wide, so a card rebuilt mid-speech (charts redraw as the century plays) still shows Stop */
+let insightSpeaking = false;
+const speakLabel = () => insightSpeaking ? '■ Stop' : '🔊 Speak';
+function resetSpeakButtons(){ insightSpeaking = false; document.querySelectorAll('[data-speakbtn]').forEach(b => { b.textContent = speakLabel(); }); }
+function speakToggle(btn, text){
+  if (insightSpeaking) { stopInsight(); return; }
+  if (speakInsight(text, resetSpeakButtons)) { insightSpeaking = true; document.querySelectorAll('[data-speakbtn]').forEach(b => { b.textContent = speakLabel(); }); }
+}
 let showInsight = function(on){
   const box = $('chartCallout'); if (!on) { box.classList.remove('on'); stopInsight(); return; }
   const text = chartInsight(CH.tab), upd = (tourText.tours.charts || {}).updated || tourText.updated;
   box.innerHTML = `<div class="cohead"><b>★ Insight: ${chEsc((CHART_TABS.find(t => t[0] === CH.tab) || [])[1])}</b><button class="mini" id="coX" aria-label="Close insight">✕</button></div><p class="cotext">${chEsc(text)}</p>
-    <div class="cofoot"><button class="mini" id="coSpeak">🔊 Speak</button><span class="note-s">AI-generated narrative, refreshed weekly by the agents${upd ? ` (updated ${fmtDate(upd)})` : ''}. No human review.</span></div>`;
+    <div class="cofoot"><button class="mini" id="coSpeak" data-speakbtn="1">${speakLabel()}</button><span class="note-s">AI-generated narrative, refreshed weekly by the agents${upd ? ` (updated ${fmtDate(upd)})` : ''}. No human review.</span></div>`;
   box.classList.add('on'); CH.insightOn = true;
 };
 $('chartBody').addEventListener('click', e => {
   if (e.target.id === 'chInsight') { if ($('chartCallout').classList.contains('on')) { showInsight(false); CH.insightOn = false; } else showInsight(true); }
   else if (e.target.id === 'coX') { showInsight(false); CH.insightOn = false; }
-  else if (e.target.id === 'coSpeak') { const p = $('chartCallout').querySelector('.cotext'); if (p) speakInsight(p.textContent); }
+  else if (e.target.id === 'coSpeak') { const p = $('chartCallout').querySelector('.cotext'); if (p) speakToggle(e.target, p.textContent); }
 });
 /* ---------- charts inside the walk-throughs ---------- */
 function tourChart(tab, extra){ return () => { tourHighlight(null); Object.assign(CH, {tab, insightOn:false, q:'', field:'', origin:'', zoom:{}, zoom2:{}, panel:null, box:null, fortYear:null}); clearInterval(CH.fortTimer); CH.fortTimer = 0; tourFilters(); refresh(); setTimeout(() => { renderCharts(); if (extra) extra(); else setTimeout(() => chartFocus(tab), 400); }, 250); }; }
@@ -9349,7 +9360,7 @@ showInsight = function(on){
   const t = ((tourText.tours.charts || TOUR_TEXT.tours.charts || {}).steps || {})[CH.tab], upd = (tourText.tours.charts || {}).updated || tourText.updated;
   const html = t ? renderSayHtml(t.say, chartFacts()) : '';
   box.innerHTML = `<div class="cohead"><b>★ Insight: ${chEsc((CHART_TABS.find(x => x[0] === CH.tab) || [])[1])}</b><button class="mini" id="coX" aria-label="Close insight">✕</button></div><p class="cotext">${html}</p>
-    <div class="cofoot"><button class="mini" id="coSpeak">🔊 Speak</button><span class="note-s">Select a number to see the items behind it. AI-generated narrative, refreshed weekly by the agents${upd ? ` (updated ${fmtDate(upd)})` : ''}. No human review.</span></div>`;
+    <div class="cofoot"><button class="mini" id="coSpeak" data-speakbtn="1">${speakLabel()}</button><span class="note-s">Select a number to see the items behind it. AI-generated narrative, refreshed weekly by the agents${upd ? ` (updated ${fmtDate(upd)})` : ''}. No human review.</span></div>`;
   box.classList.add('on'); CH.insightOn = true;
 };
 chartInsight = tab => { const t = ((tourText.tours.charts || TOUR_TEXT.tours.charts || {}).steps || {})[tab]; return t ? tidyText(renderSay(t.say, chartFacts())) : ''; };
@@ -9533,7 +9544,7 @@ $('insBody').addEventListener('click', e => {
 /* ==================================================================
  *  HOW IT WORKS: documentation of the app, its files, workflows and agents. Maintained with each material change.
  * ================================================================== */
-const DOCS_UPDATED = 'Version 12.3, 1 November 2026';   // update with every material change
+const DOCS_UPDATED = 'Version 12.4, 1 November 2026';   // update with every material change
 const DOCS = [
  ['overview', 'Overview', `<p>The Shrinking Gap measures how long research takes to become real-world change, and whether AI is shortening the journey. It is maintained by AI agents using public sources only; the owner can review and curate through the Data inspector and the system file, but nothing needs a person each week.</p>
   <p><b>The flow:</b> AI agents (GitHub Actions, weekly) research, check and correct <code>data/data.json</code> → safety gates → <code>tools/build.py</code> assembles <code>index.html</code> from <code>src/</code> with the data embedded → GitHub Pages publishes it. Your uploads to <code>src/</code> trigger the same build.</p>`],
@@ -9560,7 +9571,7 @@ const DOCS = [
  ['agents', 'The agents and their rules', `<table class="doctab"><tr><th>Agent</th><th>Does</th><th>Rules</th></tr>
   <tr><td>Research (Claude)</td><td>Recent news (45-day window), a three-year catch-up sweep (field by quarter), and gap-filling (thinnest field-and-decade cells).</td><td>Two independent sources; the facts found on both pages; years in order from 1925 (approximate years accepted and marked); a research origin; no duplicates (titles, or one inside another with close years, across fields). Separate allowances for news, catch-up and gap-filling; 5 reserved for AI for clean energy. Monthly, it also researches new fortunes (founders who made a fortune from research).</td></tr>
   <tr><td>Gemini research</td><td>Up to 10 a week from Google search, aimed at the UK, Europe, Asia and other languages, and thin cells.</td><td>The same checks; Claude's QA must confirm.</td></tr>
-  <tr><td>QA (Claude)</td><td>Confirms candidates independently in batches; audits a rotating batch of existing records; applies the owner's decisions in curation.json (retire, restore, reviewed, clear a dispute, not a duplicate), each once.</td><td>Searches for its own sources; never deletes; disputes rather than removes.</td></tr>
+  <tr><td>QA (Claude)</td><td>Confirms candidates independently in batches; audits a rotating batch of existing records; applies the owner's decisions in curation.json (retire, restore, reviewed, clear a dispute, not a duplicate), each once. Replaces broken source links when it finds a page whose quoted evidence is confirmed (up to 10 a week), and reclassifies in-lab records whose target falls inside the horizon as outlooks.</td><td>Searches for its own sources; never deletes; disputes rather than removes.</td></tr>
   <tr><td>Gemini second opinion</td><td>Checks Claude's additions (weekly and deep search) against the source pages.</td><td>Essentials only (it happened; both years right to within one). Only a contradiction disputes; thin pages give "unclear".</td></tr>
   <tr><td>Guidance</td><td>New and updated security guidance, CAF and Ofgem first.</td><td>Official sources only.</td></tr>
   <tr><td>Tour</td><td>Rewords the walk-throughs, chart insights and both weekly analyses.</td><td>Figures only through placeholders; every conclusion variant kept; word limits; no doubled words or repeated steps; wording must fit what is on screen; refers to "AI for clean energy".</td></tr>
@@ -9578,7 +9589,8 @@ const DOCS = [
   <p><b>Reviews:</b> “Mark as reviewed” in the Data inspector hides an item from your list, saved in My file. Each review keeps a fingerprint of the record (title, years, status, dispute, second opinion, QA note); if the agents change any of these, the review lapses and the item returns.</p>
   <p><b>Admin tools</b> (Display): decisions for everyone (reviewed, clear the dispute, not a duplicate, retire, restore) build the system file, <code>curation.json</code>. Upload it to <code>data/</code>; the QA agent applies each decision once, records it in Data changes, and the app shows it to everyone. Published reviews lapse the same way; “not a duplicate” pairs are never flagged again.</p>`],
  ['settings', 'Current settings (live)', `<div id="docSettings"><p class="note-s">Loading the agents' settings from config.json…</p></div>`],
- ['history', 'Recent changes', `<ul class="doclist"><li><b>12.3</b> Question insights (written weekly, read or spoken, with numbers you can select); insights open automatically, a setting in Display; the welcome screen’s signposts: Learn, Start here, Jump right in.</li>
+ ['history', 'Recent changes', `<ul class="doclist"><li><b>12.4</b> Speak becomes Stop while speaking, and Present has “Mute speech” for insights and walk-throughs together; QA replaces broken source links (only with a verified quote) and reclassifies in-lab records whose target falls inside the horizon; the AI levers and story agents ask once for a shorter answer rather than reject it; Gemini’s field names are understood; a release tag can no longer fail a run.</li>
+  <li><b>12.3</b> Question insights (written weekly, read or spoken, with numbers you can select); insights open automatically, a setting in Display; the welcome screen’s signposts: Learn, Start here, Jump right in.</li>
   <li><b>12.2</b> Fixed: Pop out (and Insight) after “Run the tool”; chart controls are rebuilt only when they change, so clicks land while the century plays; a real-clicks test suite.</li>
   <li><b>12.1</b> Present and Share menus restyled; Help as a panel; the AI Energy Vision Radar; tours return to where they started, show chart details and keep panels hidden until placed; “row” pronounced; chart pop-outs; Start with a question; these documents reviewed; the at-a-glance infographics.</li>
   <li><b>12.0</b> The toolbar becomes Tours, Play the century, Views, Present, Share and Help, with status chips and pins; the Windows menu becomes Views and windows become panels; My file, with a save sign and autosave; My views, each with its own filters; reviews that lapse when a record changes; admin tools, and the system file’s new decisions (reviewed, clear a dispute, not a duplicate).</li>
@@ -9675,13 +9687,15 @@ const PRESENT = {
   fullscreen:{label:'Full screen', icon:'⤢', run:() => $('fsBtn').click(), on:() => !!document.fullscreenElement, chipOn:'Exit full screen'},
   rotate:{label:'Auto-rotate', icon:'⟳', run:() => $('rotBtn').click(), on:() => !!state.autoRotate, chipOn:'Rotating · stop'},
   music:{label:'Music', icon:'♪', run:() => $('musicBtn').click(), on:() => $('musicBtn').getAttribute('aria-pressed') === 'true', chipOn:'Music · stop'},
+  mutespeech:{label:'Mute speech', icon:'🔇', run:() => setSpeechMuted(!view.muteSpeech), on:() => !!view.muteSpeech, chipOn:'Speech muted'},
   ticker:{label:'Joke ticker', icon:'≋', run:() => setOpen('ticker', !layout.ticker.open), on:() => !!(layout.ticker && layout.ticker.open), chipOn:'Ticker · hide'},
   title:{label:'Showcase title', icon:'T', run:() => setOpen('title', !layout.title.open), on:() => !!(layout.title && layout.title.open)},
   thanks:{label:'Thank you and questions', icon:'💬', run:() => $('thanksBtn').click()},
   add:{label:'Add an idea', icon:'✚', run:() => $('ideasBtn').click(), on:() => !!(layout.audience && layout.audience.open)},
   kiosk:{label:'Kiosk mode', icon:'▣', run:() => { closeDrops(); showWelcome(); $('wKioskOpts').classList.add('on'); clearTimeout(welcomeTimer); $('wAuto').textContent = ''; }}
 };
-function syncPresentTicks(){ $('pmTick').classList.toggle('on', PRESENT.ticker.on()); $('pmTick').textContent = PRESENT.ticker.on() ? '✓' : ''; $('pmTitle').classList.toggle('on', PRESENT.title.on()); $('pmTitle').textContent = PRESENT.title.on() ? '✓' : '';
+function setSpeechMuted(on){ view.muteSpeech = !!on; if (on) stopInsight(); tour.muted = !!on; if (typeof syncMute === 'function') syncMute(); toast(on ? 'Speech muted: insights and walk-throughs stay silent, with subtitles.' : 'Speech is back on.'); renderChips(true); }   // insights and tour narration together
+function syncPresentTicks(){ $('pmMute').textContent = view.muteSpeech ? '✓' : ''; $('pmTick').classList.toggle('on', PRESENT.ticker.on()); $('pmTick').textContent = PRESENT.ticker.on() ? '✓' : ''; $('pmTitle').classList.toggle('on', PRESENT.title.on()); $('pmTitle').textContent = PRESENT.title.on() ? '✓' : '';
   document.querySelectorAll('#presentMenu .pin').forEach(p => p.classList.toggle('on', (view.pins || []).includes(p.dataset.pin))); }
 $('presentMenu').addEventListener('click', e => {
   const pin = e.target.closest('.pin');
@@ -9954,13 +9968,13 @@ function questionInsight(id){ const t = qTemplate(id); return t ? tidyText(rende
 function showQInsight(id){
   const Q = QUESTIONS.find(x => x.id === id), t = qTemplate(id); if (!Q || !t) return;
   $('qInsight').innerHTML = `<div class="qihead"><b>★ ${esc(Q.q)}</b><button class="mini" id="qiX" aria-label="Close this insight">✕</button></div><p class="qitext">${renderSayHtml(t.say, questionFacts())}</p>
-    <div class="qifoot"><button class="mini" id="qiSpeak">🔊 Speak</button><span class="note-s">${esc(Q.see)} Select a number to see what is behind it. AI-generated narrative, refreshed weekly by the agents; no human review.</span></div>`;
+    <div class="qifoot"><button class="mini" id="qiSpeak" data-speakbtn="1">${speakLabel()}</button><span class="note-s">${esc(Q.see)} Select a number to see what is behind it. AI-generated narrative, refreshed weekly by the agents; no human review.</span></div>`;
   $('qInsight').dataset.q = id; $('qInsight').classList.add('on');
 }
 function hideQInsight(){ $('qInsight').classList.remove('on'); stopInsight(); }
 $('qInsight').addEventListener('click', e => {
   if (e.target.id === 'qiX') { hideQInsight(); return; }
-  if (e.target.id === 'qiSpeak') { speakInsight(questionInsight($('qInsight').dataset.q)); return; }
+  if (e.target.id === 'qiSpeak') { speakToggle(e.target, questionInsight($('qInsight').dataset.q)); return; }
   const b = e.target.closest('.colink'); if (!b) return; const L = (LIST_PH[b.dataset.list] || (() => []))();
   if (!layout.charts.open) { setOpen('charts', true); raise('charts'); }
   chPanel(`${LIST_TITLES[b.dataset.list] || 'Items'}: ${L.length}`, chItemsHtml(L, fmtStage)); renderCharts();
@@ -9990,7 +10004,7 @@ const DV_NODES = {
     rules:['Two independent sources', 'The key facts found on both pages', 'Years in order, from 1925 (approximate years accepted and marked)', 'An identifiable research origin', 'Not a duplicate, across fields']},
   gemini:{t:'Gemini research', k:'agent', where:'agents/gemini_research.py', d:() => `Up to ${c('gemini.researchPerRun', 10)} a week, aimed at the UK, Europe, Asia and other languages, and at thin cells. Model: ${c('gemini.model', 'a Flash model')} (the newest Flash model if that one is retired).`, rules:['The same checks as Claude’s finds', 'Claude’s QA must confirm every one']},
   deep:{t:'Deep search', k:'agent', where:'agents/deep_search.py', d:() => `By hand, and on 1 January and 1 July: a worldwide, multi-language sweep of the last 10 and next 10 years, aiming for ${c('deepSearch.targetTotal', 200)}+ milestones and ${c('deepSearch.targetClean', 50)}+ for AI in clean energy, within ${c('deepSearch.maxCalls', 100)} searches.`, rules:['The same checks', 'Then QA, the second opinion and the gates', 'Stops early once both targets are met']},
-  qa:{t:'QA agent (Claude)', k:'check', where:'agents/qa_agent.py', d:'Confirms each candidate independently, in batches, finding its own sources. Audits a rotating batch of existing records. Applies the owner’s decisions from the system file, each once.', rules:['Never deletes: doubtful records are disputed', 'Corrections within the weekly limit']},
+  qa:{t:'QA agent (Claude)', k:'check', where:'agents/qa_agent.py', d:'Confirms each candidate independently, in batches, finding its own sources. Audits a rotating batch of existing records, replacing broken source links when a confirmed replacement is found. Applies the owner’s decisions from the system file, each once.', rules:['Never deletes: doubtful records are disputed', 'Corrections within the weekly limit', 'A replacement link only with its quote confirmed on the page', 'An in-lab target inside the horizon becomes an outlook']},
   second:{t:'Gemini second opinion', k:'check', where:'agents/gemini_check.py', d:() => `Reads the parts of each source page about the milestone and checks only the essentials: that it happened, and that both years are right to within one. Up to ${c('gemini.checksPerRun', 20)} a week.`, rules:['Only a contradiction disputes', 'Thin pages give “unclear”, recorded but not disputed']},
   guidance:{t:'Guidance agent', k:'enrich', where:'agents/guidance_agent.py', d:'Finds new and updated security guidance, the CAF and Ofgem first.', rules:['Official sources only']},
   tour:{t:'Tour agent', k:'enrich', where:'agents/tour_agent.py; rules in agents/tour_rules.py', d:'Rewords the walk-throughs, chart insights and both weekly analyses; writes the weekly analyses fresh each week.', rules:['Figures only through placeholders', 'Every conclusion variant kept', 'Word limits; no doubled words or repeated steps', 'Wording must fit what is on screen', 'Says Views, panels, the AI Energy Vision Radar and AI for clean energy']},
