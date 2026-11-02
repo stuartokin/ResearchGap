@@ -2,143 +2,16 @@
  "$schema": "./schema.json",
  "meta": {
   "title": "The Shrinking Gap from Research to Change",
-  "revision": 34,
+  "revision": 35,
   "version": "8.0",
-  "asOf": "2026-11-01",
+  "asOf": "2026-11-02",
   "horizonYears": 10,
   "startYear": 1925,
   "author": "Stuart Okin",
   "maintainedBy": "AI agents using Claude (Anthropic), without human review",
   "disclaimer": "Personal project by Stuart Okin, not affiliated with or endorsed by any employer. Data is compiled and maintained by AI agents without human review and may contain errors. Outlook years are AI estimates, not forecasts.",
-  "lastAgentRun": "2026-11-01T13:57Z",
+  "lastAgentRun": "2026-11-02T10:12Z",
   "changelog": [
-   {
-    "date": "2026-10-28",
-    "summary": "Manual update: sub-fields added for every field and milestone.",
-    "revision": 7
-   },
-   {
-    "date": "2026-10-28",
-    "time": "14:43",
-    "revision": 8,
-    "summary": "4 added, 33 corrected, 0 outlook re-estimated, 0 disputed, 0 broken links.",
-    "stats": {
-     "milestones": 459,
-     "sourceCited": 75,
-     "aiCompiled": 306,
-     "aiEstimate": 78,
-     "adoptionKnown": 68,
-     "landed": 361,
-     "regionKnown": 459
-    },
-    "usage": {
-     "calls": 14,
-     "inputTokens": 2246186,
-     "outputTokens": 79234,
-     "searches": 119,
-     "model": "claude-opus-5-5"
-    },
-    "deepAudit": true,
-    "details": [
-     "added: google-open-source-coral-npu-in-commercial-edge-chips",
-     "added: spatial-dataflow-processor-in-volume-electron-e1",
-     "added: merkle-tree-certificates-for-post-quantum-https",
-     "added: orca-t-tregzi-regulatory-t-cell-transplant-therapy",
-     "spinning-lidar: sub-field industrial → vehicles",
-     "spinning-lidar: tags added",
-     "dna-sequencing: source added",
-     "dna-sequencing: source added",
-     "statins: source added",
-     "statins: tags added",
-     "next-generation-sequencing: source added",
-     "next-generation-sequencing: company updated",
-     "sap-enterprise-software: source added",
-     "sap-enterprise-software: source added",
-     "electronic-spreadsheet: source added",
-     "electronic-spreadsheet: sub-field data → apps",
-     "postscript-and-desktop-publishing: source added",
-     "postscript-and-desktop-publishing: sub-field dev → apps",
-     "microsoft-windows: source added",
-     "software-as-a-service: source added",
-     "social-networking: source added",
-     "social-networking: tags added",
-     "microblogging: source added",
-     "microblogging: tags added",
-     "music-streaming: source added",
-     "mobile-photo-sharing: sub-field web → apps",
-     "workplace-messaging: source added",
-     "ibm-pc: tags added",
-     "graphics-processing-unit: sub-field compute → chips",
-     "iphone: tags added",
-     "claude-assistant: sub-field agents → language",
-     "open-weight-european-models: sub-field methods → language",
-     "next-generation-firewall: tags added",
-     "hardware-security-keys: tags added",
-     "cloud-delivered-security: tags added",
-     "superconducting-quantum-cloud: tags added",
-     "stored-program-computer: sub-field chips → compute"
-    ]
-   },
-   {
-    "date": "2026-10-28",
-    "time": "17:54",
-    "revision": 9,
-    "summary": "2 added, 28 corrected, 0 outlook re-estimated, 0 disputed, 0 broken links.",
-    "stats": {
-     "milestones": 460,
-     "sourceCited": 85,
-     "aiCompiled": 297,
-     "aiEstimate": 78,
-     "adoptionKnown": 70,
-     "landed": 362,
-     "regionKnown": 460
-    },
-    "usage": {
-     "calls": 16,
-     "inputTokens": 2518745,
-     "outputTokens": 91276,
-     "searches": 128,
-     "model": "claude-opus-5-5"
-    },
-    "deepAudit": true,
-    "details": [
-     "added: statistical-watermarking-of-ai-generated-text",
-     "added: founder f-cognition",
-     "uk-quantum-computing-service: source added",
-     "multi-protocol-router: source added",
-     "cdma-mobile-networks: source added",
-     "cdma-mobile-networks: adoption year none → 1997 (source-cited)",
-     "cdma-mobile-networks: major → True",
-     "internet-voice-calls: research.year 2003 → 2002",
-     "mobile-messaging: sub-field mobile → messaging",
-     "video-meetings: adoption year none → 2020 (source-cited)",
-     "video-meetings: sub-field messaging → internet",
-     "video-meetings: tags added",
-     "small-commercial-satellites: source added",
-     "private-orbital-rocket: source added",
-     "private-orbital-rocket: major → True",
-     "legged-robots: source added",
-     "dji-camera-drones: source added",
-     "automated-grocery-warehouses: change.year 2014 → 2016",
-     "automated-grocery-warehouses: change.what updated",
-     "automated-grocery-warehouses: source added",
-     "repositionable-adhesive-post-it: tags added",
-     "expanded-ptfe-gore-tex: tags added",
-     "ultra-strong-polyethylene-fibre: sub-field composites → polymers",
-     "containers-and-kubernetes: sub-field dev → cloud",
-     "broadband-over-phone-lines-dsl: sub-field mobile → internet",
-     "float-glass: sub-field electronic → construction",
-     "cryptographically-relevant-quantum-computer: sub-field comms → computing",
-     "zero-trust: sub-field network → identity",
-     "zero-trust: tags added",
-     "f-rocket-lab: fortuneYear 2018 → 2021"
-    ]
-   },
-   {
-    "date": "2026-10-28",
-    "summary": "Manual update: readiness stages, GB status, attack-surface notes and forecast records added.",
-    "revision": 10
-   },
    {
     "date": "2026-10-28",
     "time": "21:46",
@@ -2428,6 +2301,176 @@
      "story    plug-in-balcony-solar-legalised-in-great-britain",
      "story    device-bound-session-credentials-dbsc-in-chrome"
     ]
+   },
+   {
+    "date": "2026-11-02",
+    "time": "10:12",
+    "revision": 35,
+    "summary": "8 added, 38 corrected, 0 outlook re-estimated, 2 disputed, 6 broken links.",
+    "stats": {
+     "milestones": 679,
+     "sourceCited": 456,
+     "aiCompiled": 145,
+     "aiEstimate": 78,
+     "adoptionKnown": 78,
+     "landed": 533,
+     "regionKnown": 679
+    },
+    "usage": {
+     "calls": 21,
+     "inputTokens": 2795110,
+     "outputTokens": 103226,
+     "searches": 128,
+     "model": "claude-opus-5-5"
+    },
+    "deepAudit": true,
+    "details": [
+     "added: mobile-telephone-service-first-car-phone-network",
+     "added: fortera-recarb-co2-to-cement-commercial-plant",
+     "added: amazon-leo-kuiper-leo-broadband-enterprise-preview",
+     "added: densified-superwood-commercial-launch-inventwood",
+     "added: starcloud-1-first-llm-trained-in-orbit-on-an-h100",
+     "added: escapade-low-cost-twin-smallsats-to-mars",
+     "added: bell-labs-voder-first-electronic-speech-synthesizer",
+     "added: elektro-westinghouse-voice-commanded-robot",
+     "smart-cards: broken source replaced (https://cardwerk.com/smart-card-history/ → https://histoire.bnpparibas/en/smart-cards-a-french-invention-that-revolutionised-payments-22-across-the-world/)",
+     "digital-in-memory-compute-inference-d-matrix-corsair: broken source replaced (https://www.inelectronics.co.uk/d-matrix-starts-shipping-squadron-rack-scale-inference-clusters/ → https://www.d-matrix.ai/announcements/squadron-compute-clusters/)",
+     "first-plasmid-dna-immunotherapy-approved-voceryq: broken source replaced (https://www.fda.gov/news-events/press-announcements/fda-approves-first-plasmid-dna-based-immunotherapy-adults-recurrent-respiratory-papillomatosis → https://www.hcplive.com/view/voceryq-gains-fda-accelerated-approval-for-recurrent-respiratory-papillomatosis)",
+     "lstm-networks: broken source replaced (https://ai.googleblog.com/2015/09/google-voice-search-faster-and-more.html → https://www.ultralytics.com/glossary/long-short-term-memory-lstm)",
+     "social-networking: broken source replaced (https://www.firstversions.com/2015/04/facebook.html → https://www.foxnews.com/lifestyle/this-day-history-feb-4-2004-harvard-student-mark-zuckerberg-launches-the-facebook)",
+     "face-detection-in-cameras: source added",
+     "face-detection-in-cameras: readiness commercial → scale",
+     "kerberos-authentication: source added",
+     "kerberos-authentication: source added",
+     "erbium-doped-fibre-amplifier: major → True",
+     "broadband-over-phone-lines-dsl: source added",
+     "arm-processors-in-laptops: source added",
+     "arm-processors-in-laptops: source added",
+     "vanadium-flow-battery: source added",
+     "laser-printer: source added",
+     "laser-printer: tags added",
+     "basic-programming: tags added",
+     "hypertext: source added",
+     "online-maps: source added",
+     "chip-scale-atomic-clock: source added",
+     "neutral-atom-quantum-computers: source added",
+     "neutral-atom-quantum-computers: tags added",
+     "quantum-secured-metro-network: source added",
+     "captcha: source added",
+     "trusted-platform-module: sub-field identity → crypto",
+     "email: readiness commercial → scale",
+     "email: tags added",
+     "android: sub-field cloud → apps",
+     "android: tags added",
+     "smart-cards: readiness commercial → scale",
+     "collaborative-robots: readiness commercial → scale",
+     "first-plasmid-dna-immunotherapy-approved-voceryq: sub-field vaccines → medicines",
+     "ai-for-clean-energy-strategy: sub-field grids → ops",
+     "hard-disk-drive: readiness commercial → scale",
+     "microprocessor: sub-field chips → compute",
+     "recommender-systems: readiness commercial → scale",
+     "lstm-networks: sub-field methods → language",
+     "trapped-ion-quantum-computing: readiness commercial → pilot",
+     "disputed: f-intel",
+     "disputed: f-apple"
+    ]
+   },
+   {
+    "date": "2026-11-02",
+    "time": "10:13",
+    "revision": 35,
+    "summary": "Gemini second opinion on 8 additions: 3 supported, 3 contradicted (disputed), 2 unclear.",
+    "stats": {
+     "milestones": 679,
+     "sourceCited": 456,
+     "aiCompiled": 145,
+     "aiEstimate": 78,
+     "adoptionKnown": 78,
+     "landed": 533,
+     "regionKnown": 679
+    },
+    "usage": {
+     "calls": 0,
+     "inputTokens": 0,
+     "outputTokens": 0,
+     "searches": 0,
+     "model": "claude-opus-5-5"
+    },
+    "deepAudit": true,
+    "details": [
+     "disputed: mobile-telephone-service-first-car-phone-network (second opinion from Gemini: contradicted. The milestone title and the first real-world use date (June 17, 1946) are supported, but the IEEE source states that research began 'more than a decade' before 1946 (i.e., before 1936), which contra",
+     "disputed: densified-superwood-commercial-launch-inventwood (second opinion from Gemini: contradicted. The sources indicate that research began in 2013 or earlier, not around 2018.)",
+     "disputed: bell-labs-voder-first-electronic-speech-synthesizer (second opinion from Gemini: contradicted. The milestone states research began around 1926, but sources indicate the Voder was invented in 1937-1938, which is more than one year off.)",
+     "tours: walk-through scripts refreshed (version 32)"
+    ]
+   },
+   {
+    "date": "2026-11-02",
+    "time": "10:20",
+    "revision": 35,
+    "summary": "AI levers researched for 8 technologies.",
+    "stats": {
+     "milestones": 679,
+     "sourceCited": 456,
+     "aiCompiled": 145,
+     "aiEstimate": 78,
+     "adoptionKnown": 78,
+     "landed": 533,
+     "regionKnown": 679
+    },
+    "usage": {
+     "calls": 12,
+     "inputTokens": 208067,
+     "outputTokens": 16066,
+     "searches": 14,
+     "model": "claude-opus-5-5"
+    },
+    "deepAudit": true,
+    "details": [
+     "levers   ambient-iot-battery-free-cellular-devices-3gpp-rel-19-20: demo; simulation, discovery, deploy",
+     "levers   softbank-sceye-stratospheric-haps-mobile-service: demo; deploy, simulation, software",
+     "levers   elysis-inert-anode-carbon-free-aluminium-smelting: demo; simulation, discovery, deploy",
+     "levers   japan-level-4-driverless-mobility-at-100-sites-by-fy2027: deploy; simulation, approvals, software, deploy",
+     "levers   dengiall-indias-first-indigenous-dengue-vaccine: demo; approvals, deploy",
+     "levers   fosmo-shared-ai-vision-model-for-gb-network-assets: demo; software, deploy",
+     "levers   shared-trusted-data-space-platform-for-high-quality-energy-ai-datasets: demo; software",
+     "levers   solid-state-transformers-for-ai-data-centres-and-grids: demo; simulation, software, approvals, discovery"
+    ]
+   },
+   {
+    "date": "2026-11-02",
+    "time": "10:25",
+    "revision": 35,
+    "summary": "Stories researched for 10 milestones.",
+    "stats": {
+     "milestones": 679,
+     "sourceCited": 456,
+     "aiCompiled": 145,
+     "aiEstimate": 78,
+     "adoptionKnown": 78,
+     "landed": 533,
+     "regionKnown": 679
+    },
+    "usage": {
+     "calls": 15,
+     "inputTokens": 336103,
+     "outputTokens": 29437,
+     "searches": 22,
+     "model": "claude-opus-5-5"
+    },
+    "deepAudit": true,
+    "details": [
+     "story    pandora-first-nasa-astrophysics-pioneers-smallsat",
+     "story    avlayah-first-biologic-engineered-to-cross-blood-brain-barrier",
+     "story    kresladi-first-gene-therapy-for-severe-lad-i",
+     "story    optune-pax-tumour-treating-fields-for-pancreatic-cancer",
+     "story    kepler-first-commercial-optical-data-relay-constellation",
+     "story    spp-tariff-for-economic-topology-optimisation",
+     "story    jpeg-xl-on-by-default-in-chrome-and-firefox",
+     "story    first-commercial-scale-fdca-plant-for-pef-avantium",
+     "story    fayuvi-first-gene-therapy-for-sanfilippo-syndrome-a",
+     "story    explicit-lazy-imports-in-cpython-pep-810-python-3-15"
+    ]
    }
   ],
   "adoptionDefinition": "Mainstream adoption: the year the technology reached widespread, routine use, roughly 10% or more of its potential market or standard practice in its sector.",
@@ -2489,7 +2532,10 @@
    "sw|2025Q4": "2026-11-01",
    "ai|2025Q4": "2026-11-01",
    "quantum|2025Q4": "2026-11-01",
-   "cyber|2025Q4": "2026-11-01"
+   "cyber|2025Q4": "2026-11-01",
+   "comms|2025Q4": "2026-11-02",
+   "materials|2025Q4": "2026-11-02",
+   "space|2025Q4": "2026-11-02"
   },
   "researchFunnel": [
    {
@@ -2788,6 +2834,33 @@
     "rejected": 2,
     "retrying": 1,
     "date": "2026-11-01"
+   },
+   {
+    "agent": "claude",
+    "recent_proposed": 1,
+    "recent_queued": 1,
+    "recent_rejected": {},
+    "catchup_proposed": 6,
+    "catchup_queued": 5,
+    "catchup_rejected": {
+     "sources": 1
+    },
+    "backfill_proposed": 10,
+    "backfill_queued": 2,
+    "backfill_rejected": {
+     "years": 6,
+     "sources": 2
+    },
+    "date": "2026-11-02"
+   },
+   {
+    "agent": "qa",
+    "confirmed_claude": 8,
+    "confirmed_gemini": 0,
+    "confirmed_deep": 0,
+    "rejected": 0,
+    "retrying": 1,
+    "date": "2026-11-02"
    }
   ],
   "secondOpinion": [
@@ -2893,6 +2966,14 @@
     "supported": 6,
     "not_supported": 1,
     "unclear": 5,
+    "unavailable": 0
+   },
+   {
+    "date": "2026-11-02",
+    "kind": "gemini-check",
+    "supported": 3,
+    "not_supported": 3,
+    "unclear": 2,
     "unavailable": 0
    }
   ],
@@ -3419,7 +3500,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-11-01",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "adoption": {
@@ -3472,7 +3553,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-11-01",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "adoption": {
@@ -3524,7 +3605,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-11-01",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "adoption": {
@@ -3574,7 +3655,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-11-01",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -4352,7 +4433,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-11-01",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "adoption": {
@@ -4452,7 +4533,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-11-01",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -4555,7 +4636,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-11-01",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "asia",
@@ -4712,7 +4793,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-11-01",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "adoption": {
@@ -11107,20 +11188,20 @@
     "label": "DESNZ: Vision for an AI-enabled clean energy system",
     "url": "https://www.gov.uk/government/calls-for-evidence/vision-for-an-ai-enabled-clean-energy-system/vision-for-an-ai-enabled-clean-energy-system-html",
     "status": "ok",
-    "checked": "2026-10-31"
+    "checked": "2026-11-02"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "uk",
    "tags": [
     "ai-models"
    ],
-   "subfield": "grids",
+   "subfield": "ops",
    "readiness": {
     "stage": "research",
     "basis": "ai-estimate"
@@ -11140,19 +11221,19 @@
      "label": "https://www.gov.uk/government/calls-for-evidence/vision-for-an-ai-enabled-clean-energy-system",
      "url": "https://www.gov.uk/government/calls-for-evidence/vision-for-an-ai-enabled-clean-energy-system",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     },
     {
      "label": "GOV.UK: Vision for an AI-enabled clean energy system (call for evidence)",
      "url": "https://www.gov.uk/government/calls-for-evidence/vision-for-an-ai-enabled-clean-energy-system",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     },
     {
      "label": "Environment Analyst: government seeks views on AI in the energy system",
      "url": "https://environment-analyst.com/uk/111691/news-roundup-government-seeks-views-on-ai-in-the-energy-system",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     }
    ],
    "aiLevers": {
@@ -11224,7 +11305,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "uk",
@@ -11251,7 +11332,7 @@
      "label": "Ofgem Future Insights: Flexibility Platforms in electricity markets (2019)",
      "url": "https://www.ofgem.gov.uk/sites/default/files/docs/2019/09/ofgem_fi_flexibility_platforms_in_electricity_markets.pdf",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     }
    ]
   },
@@ -11276,7 +11357,7 @@
     "verification": "ai-estimate",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "uk",
@@ -11327,7 +11408,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": true
    },
    "region": "us",
@@ -11355,7 +11436,7 @@
      "label": "POWER: History of Power",
      "url": "https://www.powermag.com/history-of-power-the-evolution-of-the-electric-generation-industry/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     }
    ]
   },
@@ -11471,7 +11552,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -11480,8 +11561,9 @@
    ],
    "subfield": "memory",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-11-02"
    },
    "security": {
     "expandsAttackSurface": false,
@@ -11493,7 +11575,7 @@
      "label": "CHM Storage Engine: 1956 First commercial hard disk drive shipped",
      "url": "https://www.computerhistory.org/storageengine/first-commercial-hard-disk-drive-shipped/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     }
    ]
   },
@@ -11517,7 +11599,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -11540,7 +11622,7 @@
      "label": "CHM Silicon Engine: 1963 Complementary MOS circuit configuration is invented",
      "url": "https://www.computerhistory.org/siliconengine/complementary-mos-circuit-configuration-is-invented/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     }
    ]
   },
@@ -11567,7 +11649,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "adoption": {
@@ -11579,7 +11661,7 @@
    "tags": [
     "semiconductors"
    ],
-   "subfield": "chips",
+   "subfield": "compute",
    "readiness": {
     "stage": "scale",
     "basis": "ai-estimate"
@@ -11595,13 +11677,13 @@
      "label": "Guinness World Records: First microprocessor",
      "url": "https://www.guinnessworldrecords.com/world-records/first-microprocessor",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     },
     {
      "label": "CHM Silicon Engine: 1971 Microprocessor integrates CPU function onto a single chip",
      "url": "https://www.computerhistory.org/siliconengine/microprocessor-integrates-cpu-function-onto-a-single-chip/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     }
    ]
   },
@@ -11625,7 +11707,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -11648,7 +11730,7 @@
      "label": "CHM Timeline 1987: Acorn Archimedes is released",
      "url": "https://www.computerhistory.org/timeline/1987/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     }
    ]
   },
@@ -11672,7 +11754,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -11697,7 +11779,7 @@
      "label": "UC Berkeley: Radical new Intel transistor based on UC Berkeley's FinFET",
      "url": "https://vcresearch.berkeley.edu/news/radical-new-intel-transistor-based-uc-berkeleys-finfet",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     }
    ]
   },
@@ -11724,7 +11806,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "adoption": {
@@ -11752,13 +11834,13 @@
      "label": "arXiv 1305.4228: Brief history of cloud computing",
      "url": "https://arxiv.org/pdf/1305.4228",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     },
     {
      "label": "MIT Technology Review: The Cloud Imperative",
      "url": "https://www.technologyreview.com/2011/10/03/190237/the-cloud-imperative/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     }
    ]
   },
@@ -11818,7 +11900,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -11842,7 +11924,7 @@
      "label": "Computer Timeline: Larry Page and Sergey Brin (Google)",
      "url": "http://www.computer-timeline.com/timeline/larry-page-and-sergey-brin/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     }
    ]
   },
@@ -11866,7 +11948,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -11890,13 +11972,13 @@
      "label": "Google Translate (Wikipedia)",
      "url": "https://en.wikipedia.org/wiki/Google_Translate",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     },
     {
      "label": "Acutrans: history of machine translation",
      "url": "https://acutrans.com/history-of-google-translate/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     }
    ]
   },
@@ -11920,7 +12002,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -11929,8 +12011,9 @@
    ],
    "subfield": "methods",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-11-02"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -11943,7 +12026,7 @@
      "label": "Item-item collaborative filtering (Wikipedia)",
      "url": "https://en.wikipedia.org/wiki/Item-item_collaborative_filtering",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     }
    ]
   },
@@ -11967,7 +12050,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "europe",
@@ -11975,7 +12058,7 @@
     "semiconductors",
     "ai-models"
    ],
-   "subfield": "methods",
+   "subfield": "language",
    "readiness": {
     "stage": "scale",
     "basis": "ai-estimate",
@@ -11989,16 +12072,17 @@
    },
    "refs": [
     {
-     "label": "Google Research blog, Sept 2015",
-     "url": "https://ai.googleblog.com/2015/09/google-voice-search-faster-and-more.html",
+     "label": "Ultralytics Glossary: Long Short-Term Memory (LSTM)",
+     "url": "https://www.ultralytics.com/glossary/long-short-term-memory-lstm",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02",
+     "replaced": "https://ai.googleblog.com/2015/09/google-voice-search-faster-and-more.html"
     },
     {
      "label": "Sak et al. 2015, Google LSTM acoustic models",
      "url": "https://arxiv.org/pdf/1507.06947",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     }
    ]
   },
@@ -12022,7 +12106,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -12046,7 +12130,7 @@
      "label": "SRI: 75 Years of Innovation – Siri",
      "url": "https://www.sri.com/75-years-of-innovation/75-years-of-innovation-siri/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     }
    ]
   },
@@ -12070,7 +12154,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": true
    },
    "region": "us",
@@ -12092,7 +12176,7 @@
      "label": "SQUID (Wikipedia)",
      "url": "https://en.wikipedia.org/wiki/SQUID",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     }
    ]
   },
@@ -12116,14 +12200,15 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "europe",
    "subfield": "computing",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "pilot",
+    "basis": "ai-estimate",
+    "checked": "2026-11-02"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -12136,7 +12221,7 @@
      "label": "IonQ press release, 2 Dec 2019",
      "url": "https://investors.ionq.com/news/news-details/2019/IonQ-Helps-Bring-Quantum-Computing-to-Life-on-Amazon-Web-Services/default.aspx",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     }
    ]
   },
@@ -12160,7 +12245,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -12179,7 +12264,7 @@
      "label": "Cipher Museum: DES",
      "url": "https://ciphermuseum.com/ciphers/des.html",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     }
    ]
   },
@@ -12203,7 +12288,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "europe",
@@ -12222,13 +12307,13 @@
      "label": "NIST: Rijndael submission document",
      "url": "https://csrc.nist.gov/csrc/media/projects/cryptographic-standards-and-guidelines/documents/aes-development/rijndael-ammended.pdf",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     },
     {
      "label": "NIST: Development of the Advanced Encryption Standard",
      "url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=931014",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     }
    ],
    "flags": {
@@ -12255,7 +12340,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -12273,13 +12358,13 @@
      "label": "Corbado – When are passkeys coming (FIDO 2012, iOS 16 2022)",
      "url": "https://www.corbado.com/faq/when-are-passkeys-coming",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     },
     {
      "label": "TechCrunch – Apple, Google and Microsoft team up on passwordless logins (May 2022)",
      "url": "https://www.bleepingcomputer.com/news/security/microsoft-apple-and-google-to-support-fido-passwordless-logins/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     }
    ]
   },
@@ -12303,7 +12388,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "uk",
@@ -12327,13 +12412,13 @@
      "label": "Wikipedia – NPL network (Davies 1965 proposal)",
      "url": "https://en.wikipedia.org/wiki/NPL_network",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     },
     {
      "label": "Wikipedia – Telenet (1975)",
      "url": "https://en.wikipedia.org/wiki/Telenet",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     }
    ],
    "flags": {
@@ -12824,7 +12909,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "adoption": {
@@ -12842,13 +12927,13 @@
      "label": "Wikipedia: Sanger sequencing",
      "url": "https://en.wikipedia.org/wiki/Sanger_sequencing",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     },
     {
      "label": "History of genome sequencing",
      "url": "https://the-odin.com/blogs/blog/from-3-billion-to-599-the-complete-history-of-genome-sequencing",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     }
    ],
    "readiness": {
@@ -12881,7 +12966,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "asia",
@@ -12891,7 +12976,7 @@
      "label": "Lasker Foundation: Getting to the Heart of Cardiovascular Disease",
      "url": "https://laskerfoundation.org/getting-to-the-heart-of-cardiovascular-disease/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     }
    ],
    "tags": [
@@ -12928,7 +13013,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "uk",
@@ -12941,7 +13026,7 @@
      "label": "Cambridge Enterprise: Solexa case study",
      "url": "https://www.enterprise.cam.ac.uk/case-studies/solexa-second-generation-genetic-sequencing/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     }
    ],
    "company": "Solexa (acquired by Illumina)",
@@ -12977,7 +13062,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -12987,13 +13072,13 @@
      "label": "Wikipedia: SAP",
      "url": "https://en.wikipedia.org/wiki/SAP",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     },
     {
      "label": "SAP's History",
      "url": "https://www.sap-ps.net/sap-history",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     }
    ],
    "readiness": {
@@ -13029,7 +13114,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -13039,7 +13124,7 @@
      "label": "Computer Timeline: Dan Bricklin",
      "url": "http://www.computer-timeline.com/timeline/dan-bricklin/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     }
    ],
    "readiness": {
@@ -13075,7 +13160,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -13085,7 +13170,7 @@
      "label": "Computer History Museum: Charles M. Geschke",
      "url": "https://computerhistory.org/profile/charles-m-geschke/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     }
    ],
    "readiness": {
@@ -13121,7 +13206,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -13131,7 +13216,7 @@
      "label": "SoftwareKeep: Windows OS history",
      "url": "https://softwarekeep.com/blogs/news/history-of-windows-operating-system",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     }
    ],
    "readiness": {
@@ -13172,7 +13257,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -13185,7 +13270,7 @@
      "label": "Reference for Business: History of salesforce.com",
      "url": "https://www.referenceforbusiness.com/history2/84/salesforce-com-Inc.html",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     }
    ],
    "readiness": {
@@ -13223,7 +13308,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "adoption": {
@@ -13235,10 +13320,11 @@
    "subfield": "apps",
    "refs": [
     {
-     "label": "First Versions: Facebook",
-     "url": "https://www.firstversions.com/2015/04/facebook.html",
+     "label": "Fox News – On this day in history, Feb. 4, 2004: Zuckerberg launches 'The Facebook'",
+     "url": "https://www.foxnews.com/lifestyle/this-day-history-feb-4-2004-harvard-student-mark-zuckerberg-launches-the-facebook",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02",
+     "replaced": "https://www.firstversions.com/2015/04/facebook.html"
     }
    ],
    "tags": [
@@ -13317,7 +13403,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -13327,7 +13413,7 @@
      "label": "History.com: Twitter launches",
      "url": "https://www.history.com/this-day-in-history/july-15/twitter-launches",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     }
    ],
    "tags": [
@@ -13366,7 +13452,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false,
     "qaNote": "All cited links are broken; downgraded until a new source is found."
    },
@@ -13376,14 +13462,14 @@
     {
      "label": "99founder: Spotify profile",
      "url": "https://99founder.com/articles/spotify.html",
-     "status": "broken",
-     "checked": "2026-10-31"
+     "status": "ok",
+     "checked": "2026-11-02"
     },
     {
      "label": "Wikipedia: History of Spotify",
      "url": "https://en.wikipedia.org/wiki/History_of_Spotify",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-02"
     }
    ],
    "readiness": {
@@ -14925,7 +15011,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "uk",
@@ -14945,7 +15031,7 @@
      "label": "https://quantumzeitgeist.com/honeywell-quantum-computing/",
      "url": "https://quantumzeitgeist.com/honeywell-quantum-computing/",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-02"
     }
    ]
   },
@@ -16313,7 +16399,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -16337,7 +16423,7 @@
      "label": "Google Research AlphaChip / Circuit Training repository",
      "url": "https://github.com/google-research/circuit_training",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-02"
     }
    ]
   },
@@ -16361,14 +16447,15 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
    "subfield": "apps",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-11-02"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -16381,8 +16468,11 @@
      "label": "Raytheon BBN: Tomlinson inducted into Internet Hall of Fame",
      "url": "https://raytheon.mediaroom.com/index.php?s=43&item=2085",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-02"
     }
+   ],
+   "tags": [
+    "networks"
    ]
   },
   {
@@ -16445,7 +16535,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "adoption": {
@@ -16454,7 +16544,7 @@
     "basis": "ai-estimate"
    },
    "region": "us",
-   "subfield": "cloud",
+   "subfield": "apps",
    "readiness": {
     "stage": "scale",
     "basis": "ai-estimate"
@@ -16470,8 +16560,11 @@
      "label": "Centre for Computing History: HTC releases first Android smartphone",
      "url": "https://www.computinghistory.org.uk/det/32762/HTC-releases-the-first-Android-smartphone/",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-02"
     }
+   ],
+   "tags": [
+    "networks"
    ]
   },
   {
@@ -16494,7 +16587,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -16515,7 +16608,7 @@
      "label": "Aqua Security: The History of Kubernetes",
      "url": "https://www.aquasec.com/blog/kubernetes-history-how-it-conquered-cloud-native-orchestration/",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-02"
     }
    ]
   },
@@ -16536,10 +16629,10 @@
    "confidence": "medium",
    "note": "Computer vision quietly entered everyday products.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -16549,15 +16642,24 @@
    ],
    "subfield": "vision",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-11-02"
    },
    "security": {
     "expandsAttackSurface": true,
     "note": "Models can be fooled by manipulated inputs, and the data behind them can be poisoned.",
     "basis": "ai-compiled",
     "guidance": "ai"
-   }
+   },
+   "refs": [
+    {
+     "label": "MIT Technology Review on Viola-Jones",
+     "url": "https://www.technologyreview.com/2015/02/16/169357/the-face-detection-algorithm-set-to-revolutionize-image-search/",
+     "status": "ok",
+     "checked": "2026-11-02"
+    }
+   ]
   },
   {
    "id": "generative-adversarial-networks",
@@ -16579,7 +16681,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "other",
@@ -16602,7 +16704,7 @@
      "label": "Wikipedia: Generative adversarial network",
      "url": "https://en.wikipedia.org/wiki/Generative_adversarial_network",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-02"
     }
    ]
   },
@@ -16626,7 +16728,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -16648,13 +16750,13 @@
      "label": "MIT News: QD Vision and Sony Triluminos",
      "url": "https://news.mit.edu/2014/startup-quantum-dot-tv-displays-1119",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-02"
     },
     {
      "label": "MRS Bulletin: Quantum dots, discovery to impact",
      "url": "https://link.springer.com/article/10.1557/s43577-025-01007-5",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-02"
     }
    ]
   },
@@ -16678,7 +16780,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "europe",
@@ -16687,21 +16789,23 @@
    ],
    "subfield": "identity",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-11-02"
    },
    "refs": [
     {
-     "label": "CardWerk: history of smart cards",
-     "url": "https://cardwerk.com/smart-card-history/",
+     "label": "BNP Paribas History – Smart cards, a French invention that revolutionised payments (2/2)",
+     "url": "https://histoire.bnpparibas/en/smart-cards-a-french-invention-that-revolutionised-payments-22-across-the-world/",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-02",
+     "replaced": "https://cardwerk.com/smart-card-history/"
     },
     {
      "label": "Wikipedia: Roland Moreno",
      "url": "https://en.wikipedia.org/wiki/Roland_Moreno",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-02"
     }
    ]
   },
@@ -16722,10 +16826,10 @@
    "confidence": "medium",
    "note": "Still underpins most corporate logins.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -16738,6 +16842,20 @@
    "tags": [
     "cryptography",
     "networks"
+   ],
+   "refs": [
+    {
+     "label": "Computerworld: Kerberos in Windows",
+     "url": "https://www.computerworld.com/article/1689229/how-to-use-kerberos-authentication-in-a-mixed-windows-and-unix-environment.html",
+     "status": "ok",
+     "checked": "2026-11-02"
+    },
+    {
+     "label": "Lares: Kerberos history (Project Athena, 1983)",
+     "url": "https://www.lares.com/blog/kerberos-i/",
+     "status": "ok",
+     "checked": "2026-11-02"
+    }
    ]
   },
   {
@@ -16763,7 +16881,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "adoption": {
@@ -16802,7 +16920,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "uk",
@@ -16820,6 +16938,9 @@
     "note": "Carries critical traffic; physical and routing integrity matter.",
     "basis": "ai-compiled",
     "guidance": "comms"
+   },
+   "flags": {
+    "major": true
    }
   },
   {
@@ -16839,10 +16960,10 @@
    "confidence": "medium",
    "note": "Reused copper wires for the internet.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -16859,7 +16980,15 @@
     "note": "Connects systems to the internet and to each other, the root of most remote attacks.",
     "basis": "ai-compiled",
     "guidance": "it"
-   }
+   },
+   "refs": [
+    {
+     "label": "Scholarpedia: Digital subscriber line",
+     "url": "http://www.scholarpedia.org/article/Digital_subscriber_line_(DSL)",
+     "status": "ok",
+     "checked": "2026-11-02"
+    }
+   ]
   },
   {
    "id": "4g-lte",
@@ -16884,7 +17013,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "adoption": {
@@ -16928,7 +17057,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "uk",
@@ -16946,7 +17075,7 @@
      "label": "Pilkington: The inventor of float glass",
      "url": "https://www.pilkington.com/en/gbl/about-us/pilkington-history/the-inventor-of-float-glass",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-02"
     }
    ],
    "security": {
@@ -16975,7 +17104,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -16993,7 +17122,7 @@
      "label": "3DPrint.com: Beyond Chuck Hull's legacy",
      "url": "https://3dprint.com/311301/beyond-chuck-hulls-legacy-the-unsung-heroes-who-paved-the-way-for-3d-printing/",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-02"
     }
    ],
    "security": {
@@ -17022,7 +17151,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -17039,7 +17168,7 @@
      "label": "Semiconductor Today: Cree launches first commercial SiC power MOSFET",
      "url": "https://www.semiconductor-today.com/news_items/2011/JAN/CREE_180111.htm",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-02"
     }
    ],
    "security": {
@@ -17068,7 +17197,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -17108,7 +17237,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -17131,13 +17260,13 @@
      "label": "eoPortal: SeaSat",
      "url": "https://www.eoportal.org/satellite-missions/seasat",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-02"
     },
     {
      "label": "Geoawesome: history of SAR",
      "url": "https://geoawesome.com/eo-hub/everything-you-ever-wanted-to-know-about-sar-satellite-data-and-the-ecosystem-but-were-afraid-to-ask/",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-02"
     }
    ]
   },
@@ -17162,7 +17291,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "europe",
@@ -17171,8 +17300,9 @@
    ],
    "subfield": "industrial",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-11-02"
    },
    "security": {
     "expandsAttackSurface": true,
@@ -17185,13 +17315,13 @@
      "label": "https://www.thebotscout.com/industrial-robots/history-of-industrial-robots/",
      "url": "https://www.thebotscout.com/industrial-robots/history-of-industrial-robots/",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-02"
     },
     {
      "label": "The Robot Report: Evolution of Universal Robots cobot arms",
      "url": "https://www.therobotreport.com/the-evolution-of-universal-robots-cobot-arms/",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-02"
     }
    ]
   },
@@ -17320,7 +17450,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "adoption": {
@@ -17336,6 +17466,11 @@
    "readiness": {
     "stage": "scale",
     "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Modern CT scanners are networked medical devices (DICOM/PACS) and can be exposed to ransomware or tampering. The original 1970s machines were not networked.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -19158,10 +19293,10 @@
    "note": "Showed that UK-designed Arm architecture could lead in personal computers.",
    "company": "Apple",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -19179,7 +19314,21 @@
     "note": "Adds connected endpoints that need patching and secure configuration.",
     "basis": "ai-compiled",
     "guidance": "hw"
-   }
+   },
+   "refs": [
+    {
+     "label": "Wikipedia: MacBook Air (Apple silicon)",
+     "url": "https://en.wikipedia.org/wiki/MacBook_Air_(Apple_silicon)",
+     "status": "ok",
+     "checked": "2026-11-02"
+    },
+    {
+     "label": "Wikipedia: P.A. Semi",
+     "url": "https://en.wikipedia.org/wiki/P.A._Semi",
+     "status": "ok",
+     "checked": "2026-11-02"
+    }
+   ]
   },
   {
    "id": "hydrogen-fuel-cell-power",
@@ -19320,10 +19469,10 @@
    "confidence": "medium",
    "note": "One of the long-duration storage technologies now competing for GB support.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": true
    },
    "region": "other",
@@ -19345,7 +19494,15 @@
     "note": "Battery management and dispatch systems are networked and remotely controllable.",
     "basis": "ai-compiled",
     "guidance": "ot"
-   }
+   },
+   "refs": [
+    {
+     "label": "UNSW – Vanadium Redox Battery",
+     "url": "https://research.unsw.edu.au/projects/vanadium-redox-battery",
+     "status": "ok",
+     "checked": "2026-11-02"
+    }
+   ]
   },
   {
    "id": "learning-smart-thermostat",
@@ -19525,10 +19682,10 @@
    "confidence": "high",
    "note": "Another Xerox invention that made others rich.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -19543,7 +19700,18 @@
     "note": "Adds connected endpoints that need patching and secure configuration.",
     "basis": "ai-compiled",
     "guidance": "hw"
-   }
+   },
+   "refs": [
+    {
+     "label": "National Inventors Hall of Fame – Gary Starkweather",
+     "url": "https://www.invent.org/inductees/gary-k-starkweather",
+     "status": "ok",
+     "checked": "2026-11-02"
+    }
+   ],
+   "tags": [
+    "semiconductors"
+   ]
   },
   {
    "id": "charge-coupled-device-ccd",
@@ -19740,7 +19908,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "asia",
@@ -19779,7 +19947,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -19819,7 +19987,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -19834,7 +20002,10 @@
     "note": "Software and online services are a primary route for remote attack and data theft.",
     "basis": "ai-compiled",
     "guidance": "it"
-   }
+   },
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "hypertext",
@@ -19856,10 +20027,10 @@
     "major": true
    },
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "adoption": {
@@ -19881,7 +20052,15 @@
     "note": "Software and online services are a primary route for remote attack and data theft.",
     "basis": "ai-compiled",
     "guidance": "it"
-   }
+   },
+   "refs": [
+    {
+     "label": "Nielsen Norman Group – History of Hypertext",
+     "url": "https://www.nngroup.com/articles/hypertext-history/",
+     "status": "ok",
+     "checked": "2026-11-02"
+    }
+   ]
   },
   {
    "id": "wikis",
@@ -19949,10 +20128,10 @@
    "note": "Location data became infrastructure for logistics and network operations.",
    "company": "Google",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false,
     "qaNote": "The Google Maps facts check out: Where 2 was founded in Sydney in early 2003, acquired by Google in October 2004, and Google Maps launched on 8 Feb 2005. But the title 'Online maps' is wrong as a milestone, because MapQuest launched the first commercial web mapping service in 1996. Either retitle to 'Google Maps / interactive web maps' or move the change to 1996 (MapQuest). Adding refs and a clari"
    },
@@ -19974,7 +20153,15 @@
    },
    "flags": {
     "disputed": true
-   }
+   },
+   "refs": [
+    {
+     "label": "Wikipedia – Google Maps",
+     "url": "https://en.wikipedia.org/wiki/Google_Maps",
+     "status": "ok",
+     "checked": "2026-11-02"
+    }
+   ]
   },
   {
    "id": "distributed-version-control",
@@ -20307,7 +20494,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "adoption": {
@@ -20445,7 +20632,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "europe",
@@ -20481,10 +20668,10 @@
    "confidence": "high",
    "note": "Precise timing for networks and substations without relying on satellites.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -20502,7 +20689,15 @@
     "expandsAttackSurface": false,
     "note": "Can reduce risk, for example timing that does not depend on jammable satellite signals.",
     "basis": "ai-compiled"
-   }
+   },
+   "refs": [
+    {
+     "label": "NIST – Success Story: Chip-Scale Atomic Clock",
+     "url": "https://www.nist.gov/noac/success-story-chip-scale-atomic-clock",
+     "status": "ok",
+     "checked": "2026-11-02"
+    }
+   ]
   },
   {
    "id": "neutral-atom-quantum-computers",
@@ -20521,10 +20716,10 @@
    "confidence": "medium",
    "note": "A fast-moving alternative to superconducting qubits.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -20538,7 +20733,18 @@
     "note": "A large enough quantum computer would break today’s public-key cryptography.",
     "basis": "ai-compiled",
     "guidance": "quantum"
-   }
+   },
+   "refs": [
+    {
+     "label": "QuEra Aquila on Amazon Braket (Nov 2022)",
+     "url": "https://thequantuminsider.com/2022/11/01/queras-quantum-computer-aquila-now-available-on-amazon-braket/",
+     "status": "ok",
+     "checked": "2026-11-02"
+    }
+   ],
+   "tags": [
+    "cryptography"
+   ]
   },
   {
    "id": "wearable-quantum-brain-scanner",
@@ -20607,10 +20813,10 @@
    "note": "Real but specialised; post-quantum cryptography remains the main defence.",
    "company": "Toshiba and BT",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "asia",
@@ -20628,7 +20834,15 @@
     "note": "Strengthens key exchange, but adds specialised hardware and trusted-node risks.",
     "basis": "ai-compiled",
     "guidance": "quantum"
-   }
+   },
+   "refs": [
+    {
+     "label": "Toshiba/BT press release, April 2022",
+     "url": "https://www.global.toshiba/ww/news/corporate/2022/04/news-20220427-01.html",
+     "status": "ok",
+     "checked": "2026-11-02"
+    }
+   ]
   },
   {
    "id": "two-factor-authentication-tokens",
@@ -20650,7 +20864,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": true
    },
    "region": "us",
@@ -20677,10 +20891,10 @@
    "confidence": "high",
    "note": "Now under pressure from AI that can solve them.",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -20692,7 +20906,15 @@
     "stage": "scale",
     "basis": "ai-estimate",
     "checked": "2026-10-28"
-   }
+   },
+   "refs": [
+    {
+     "label": "Carnegie Mellon Piper: CAPTCHA history",
+     "url": "https://www.cmu.edu/piper/news/archives/2014/january/musical-captchas.html",
+     "status": "ok",
+     "checked": "2026-11-02"
+    }
+   ]
   },
   {
    "id": "trusted-platform-module",
@@ -20714,14 +20936,14 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": true
    },
    "region": "us",
    "tags": [
     "semiconductors"
    ],
-   "subfield": "identity",
+   "subfield": "crypto",
    "readiness": {
     "stage": "scale",
     "basis": "ai-estimate",
@@ -20748,7 +20970,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -20781,7 +21003,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -20815,7 +21037,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "uk",
@@ -20845,7 +21067,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -21096,7 +21318,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "uk",
@@ -21135,7 +21357,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "uk",
@@ -21174,7 +21396,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "europe",
@@ -21213,7 +21435,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -21312,7 +21534,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -21551,7 +21773,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "region": "us",
@@ -27880,19 +28102,19 @@
      "label": "The Next Web: Reclinker raises £10m",
      "url": "https://thenextweb.com/news/reclinker-10m-series-a-low-carbon-cement-cardiff",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-02"
     },
     {
      "label": "Zero Carbon Capital: backing Reclinker at Series A",
      "url": "https://www.zerocarbon.vc/news/recycling-cement-backing-reclinker-again-at-series-a",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-02"
     },
     {
      "label": "World Cement: Reclinker raises £10 million",
      "url": "https://www.worldcement.com/europe-cis/07102026/first-of-its-kind-process-that-creates-low-carbon-cement-raises-10-million-to-cut-emissions-in-half/amp/",
-     "status": "ok",
-     "checked": "2026-10-30"
+     "status": "broken",
+     "checked": "2026-11-02"
     }
    ],
    "subfield": "construction",
@@ -27909,7 +28131,7 @@
     "verification": "source-cited",
     "addedBy": "research-agent",
     "added": "2026-10-30",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "story": {
@@ -27934,6 +28156,11 @@
      }
     ],
     "checked": "2026-10-31"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "An industrial process using existing EAF control systems; it adds no new digital attack surface.",
+    "basis": "ai-compiled"
    }
   },
   {
@@ -27957,19 +28184,19 @@
      "label": "PR Newswire: First Ever Launch of Atomic-6 Space Armor",
      "url": "https://www.prnewswire.com/news-releases/first-ever-launch-of-atomic-6-space-armor-takes-aim-at-growing-threat-of-space-debris-302915755.html",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-02"
     },
     {
      "label": "CompositesWorld: Atomic-6 Composite Space Armor Is Deployed on Starburst-1",
      "url": "https://www.compositesworld.com/news/atomic-6-composite-space-armor-is-deployed-on-starburst-1-spacecraft",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-02"
     },
     {
      "label": "Interesting Engineering: Atomic-6 space armor makes orbital debut",
      "url": "https://interestingengineering.com/innovation/atomic-6-space-armor-orbital-debut",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-02"
     }
    ],
    "subfield": "in-space",
@@ -27991,7 +28218,7 @@
     "verification": "source-cited",
     "addedBy": "research-agent",
     "added": "2026-10-30",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "story": {
@@ -28029,25 +28256,26 @@
      "label": "d-Matrix press release: Squadron shipping, Corsair servers and SquadRacks generally available (Oct 2026)",
      "url": "https://www.prnewswire.com/news-releases/d-matrix-announces-squadron-compute-clusters-for-ai-inference-at-data-center-scale-302906041.html",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-02"
     },
     {
-     "label": "IN Electronics: d-Matrix starts shipping Squadron clusters (Oct 14, 2026)",
-     "url": "https://www.inelectronics.co.uk/d-matrix-starts-shipping-squadron-rack-scale-inference-clusters/",
+     "label": "d-Matrix official announcement: Squadron Compute Clusters (OCP Global Summit, Oct 2026)",
+     "url": "https://www.d-matrix.ai/announcements/squadron-compute-clusters/",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-02",
+     "replaced": "https://www.inelectronics.co.uk/d-matrix-starts-shipping-squadron-rack-scale-inference-clusters/"
     },
     {
      "label": "HPCwire: Corsair enters full production (June 2026)",
      "url": "https://www.hpcwire.com/off-the-wire/d-matrix-corsair-ai-inference-platform-enters-full-production-to-meet-customer-demand/",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-02"
     },
     {
      "label": "eeNews Europe: Jayhawk builds on Nighthawk chiplet platform launched in 2021",
      "url": "https://www.eenewseurope.com/en/second-generation-chiplet-platform-targets-generative-ai/",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-02"
     }
    ],
    "subfield": "compute",
@@ -28069,7 +28297,7 @@
     "verification": "source-cited",
     "addedBy": "research-agent",
     "added": "2026-10-30",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "story": {
@@ -28113,19 +28341,19 @@
      "label": "Quantum Computing Report, 27 Oct 2026",
      "url": "https://quantumcomputingreport.com/idemia-and-kt-deploy-quantum-resistant-sims-supporting-dual-nist-and-kpqc-algorithms-for-south-korean-military-networks/",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-02"
     },
     {
      "label": "The Quantum Insider, 26 Oct 2026",
      "url": "https://thequantuminsider.com/2026/10/26/idemia-secure-transactions-collaborates-with-kt-in-advancing-post-quantum-security-for-south-koreas-defense-communications/",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-02"
     },
     {
      "label": "Quantum Zeitgeist, 26 Oct 2026",
      "url": "https://quantumzeitgeist.com/kt-quantum-safe-sims-idemia-test/",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-02"
     }
    ],
    "subfield": "crypto",
@@ -28142,7 +28370,7 @@
     "verification": "source-cited",
     "addedBy": "research-agent",
     "added": "2026-10-30",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "story": {
@@ -28182,25 +28410,26 @@
    "note": "It is the first plasmid DNA-based immunotherapy cleared in the US, validating a DNA medicine platform that has been in development for over three decades.",
    "refs": [
     {
-     "label": "FDA press release: first plasmid DNA-based immunotherapy for RRP",
-     "url": "https://www.fda.gov/news-events/press-announcements/fda-approves-first-plasmid-dna-based-immunotherapy-adults-recurrent-respiratory-papillomatosis",
+     "label": "HCPLive: Voceryq Gains FDA Accelerated Approval for RRP (2026)",
+     "url": "https://www.hcplive.com/view/voceryq-gains-fda-accelerated-approval-for-recurrent-respiratory-papillomatosis",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-02",
+     "replaced": "https://www.fda.gov/news-events/press-announcements/fda-approves-first-plasmid-dna-based-immunotherapy-adults-recurrent-respiratory-papillomatosis"
     },
     {
      "label": "HCPLive: Voceryq gains FDA accelerated approval",
      "url": "https://www.hcplive.com/view/voceryq-gains-fda-accelerated-approval-for-recurrent-respiratory-papillomatosis",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-02"
     },
     {
      "label": "Yahoo Finance: FDA clears Inovio's first product",
      "url": "https://finance.yahoo.com/markets/stocks/articles/pgen-stock-craters-27-hours-222420610.html",
      "status": "ok",
-     "checked": "2026-10-30"
+     "checked": "2026-11-02"
     }
    ],
-   "subfield": "vaccines",
+   "subfield": "medicines",
    "region": "us",
    "tags": [
     "medicine",
@@ -28219,7 +28448,7 @@
     "verification": "source-cited",
     "addedBy": "research-agent",
     "added": "2026-10-30",
-    "lastChecked": "2026-10-30",
+    "lastChecked": "2026-11-02",
     "approximate": false
    },
    "story": {
@@ -33675,7 +33904,46 @@
     "status": "ok",
     "checked": "2026-10-31"
    },
-   "flags": {}
+   "flags": {},
+   "aiLevers": {
+    "phase": "demo",
+    "bottleneck": "Rel-20 normative work (outdoor/UE-reader, more capable devices) is incomplete with no feature-level date; no commercial A-IoT chipsets or reader-enabled networks yet.",
+    "levers": [
+     {
+      "k": "simulation",
+      "strength": "mid",
+      "note": "System-level simulation of reader-to-device links, energy-harvesting availability and random-access/inventory schemes to evaluate Rel-20 proposals and network coverage before hardware exists."
+     },
+     {
+      "k": "discovery",
+      "strength": "low",
+      "note": "AI-assisted analog/RF design optimisation of microwatt envelope detectors, rectifiers and backscatter modulators for tag silicon; useful but not the gating factor."
+     },
+     {
+      "k": "deploy",
+      "strength": "low",
+      "note": "Later, ML-based planning of carrier-wave sources and reader placement in warehouses and cells to maximise tag read rates; speculative until products ship."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://firstnet.gov/newsroom/blog/3gpp-completes-release-19-while-progress-begins-6g-work",
+      "label": "FirstNet: 3GPP completes Release 19",
+      "quote": "Normative work on solutions for Ambient IoT in NR phase 2 (5% completed)."
+     },
+     {
+      "url": "https://iotdigitaltwinplm.com/ambient-iot-3gpp-release-19-vs-release-20-battery-free-2026/",
+      "label": "Ambient IoT: 3GPP Rel-19 vs Rel-20 (2026)",
+      "quote": "3GPP has not published a feature-level completion date for Ambient IoT in Release 20."
+     },
+     {
+      "url": "https://arxiv.org/pdf/2309.15040",
+      "label": "Zero-Energy-Device for 6G: first real-time backscatter on commercial cellular network",
+      "quote": "with a commercial 4G ambient network, and a zero-energy-device prototype"
+     }
+    ],
+    "checked": "2026-11-02"
+   }
   },
   {
    "id": "esa-moonlight-lunar-communications-and-navigation-service",
@@ -33823,7 +34091,41 @@
     "status": "ok",
     "checked": "2026-10-31"
    },
-   "flags": {}
+   "flags": {},
+   "aiLevers": {
+    "phase": "demo",
+    "bottleneck": "Getting from a one-week trial to reliable, continuous service: long-endurance station-keeping, an operational framework and better link quality, all needed before commercial launch in 2027.",
+    "levers": [
+     {
+      "k": "deploy",
+      "strength": "mid",
+      "note": "Wind-aware autonomous waypoint navigation and station-keeping. Forecast-driven route planning could be extended to fleet scheduling and handovers so that coverage over Japan stays continuous."
+     },
+     {
+      "k": "simulation",
+      "strength": "mid",
+      "note": "Operators already simulate route alternatives against forecasts. Digital twins of flight, energy and coverage could test long-duration operations and interference with terrestrial cells."
+     },
+     {
+      "k": "software",
+      "strength": "low",
+      "note": "Automating network operations for the onboard LTE base station, the mobile core and the edge server, such as tuning link quality and detecting faults."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://www.softbank.jp/en/sbnews/entry/2026/09/02/120537",
+      "label": "SoftBank News: Japan's first HAPS trial service completed (2 Sep 2026)",
+      "quote": "to further develop operational frameworks and improve communications quality, with the aim of commercializing HAPS services in Japan from 2027 onward"
+     },
+     {
+      "url": "https://www.telecompaper.com/news/softbank-completes-japan-haps-communications-trial--1581413",
+      "label": "Telecompaper: SoftBank completes Japan HAPS communications trial",
+      "quote": "remaining within a radius of as little as 5km of the target area"
+     }
+    ],
+    "checked": "2026-11-02"
+   }
   },
   {
    "id": "ceramic-matrix-composites-in-jet-engines-cfm-leap",
@@ -34263,7 +34565,46 @@
     "status": "ok",
     "checked": "2026-10-31"
    },
-   "flags": {}
+   "flags": {},
+   "aiLevers": {
+    "phase": "demo",
+    "bottleneck": "Multi-year proof that inert anodes last, run efficiently and make pure metal at viable cost, first in the 450 kA cell, then 10-pot Arvida plant.",
+    "levers": [
+     {
+      "k": "simulation",
+      "strength": "mid",
+      "note": "Coupled thermal, electrical and magnetic models and digital twins of the 450 kA cell could guide heat-balance and design changes, and shorten retrofit engineering for existing potlines."
+     },
+     {
+      "k": "discovery",
+      "strength": "mid",
+      "note": "Machine-learning screening of anode compositions for corrosion resistance, conductivity and lifetime could speed up next-generation electrodes. The current anode composition is not public."
+     },
+     {
+      "k": "deploy",
+      "strength": "low",
+      "note": "Machine-learning process control using pot sensor data could help keep inert-anode cells stable and spot anode wear early during multi-cell operation."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://magazine.cim.org/en/news/2025/elysis-achieves-commercial-size-cell-milestone-en/",
+      "label": "CIM Magazine, Nov 2025: 450 kA cell start-up",
+      "quote": "a multi-year, multi-cell testing program designed to prove the resilience, efficiency and durability of the technology"
+     },
+     {
+      "url": "https://www.canarymedia.com/articles/clean-aluminum/alcoa-riotinto-hit-low-carbon-production-milestone",
+      "label": "Canary Media: milestone and Arvida demonstration plant",
+      "quote": "The 450 kA cell will undergo several more years of testing"
+     },
+     {
+      "url": "https://datadeep.tech/inert-anode-elysis-smelter/",
+      "label": "DataDeep, Sept 2026 status review",
+      "quote": "no public progress update since"
+     }
+    ],
+    "checked": "2026-11-02"
+   }
   },
   {
    "id": "minerva-ii-hopping-rovers-on-asteroid-ryugu",
@@ -35207,6 +35548,45 @@
     "url": "https://www.mlit.go.jp/jidosha/content/001751816.pdf",
     "status": "ok",
     "checked": "2026-10-31"
+   },
+   "aiLevers": {
+    "phase": "deploy",
+    "bottleneck": "Per-route permits and a weak business case: only 11 sites ran by mid-2026 against a 50-site target, and some municipalities quit FY2026 trials.",
+    "levers": [
+     {
+      "k": "simulation",
+      "strength": "high",
+      "note": "Digital twins of specific routes, such as the open-sourced V2XSim Kashiwa-no-ha scene, test roadside-sensor cooperation and rare edge cases before driverless operation, cutting on-road testing for each site."
+     },
+     {
+      "k": "approvals",
+      "strength": "mid",
+      "note": "Scenario-based simulation and logged driving data could build the safety case for each route faster for public-safety-commission permits and vehicle certification. Humans still decide."
+     },
+     {
+      "k": "software",
+      "strength": "mid",
+      "note": "Open-source AI driving stacks such as Autoware and ROS 2 planners let operators reuse perception and planning across sites instead of tuning a bespoke system for every route."
+     },
+     {
+      "k": "deploy",
+      "strength": "mid",
+      "note": "AI-assisted remote monitoring could let one supervisor oversee several vehicles, and demand data could guide route choice. This tackles staffing costs, which drive the weak business case."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://www.globalautoinsight.com/news/japan-level-4-autonomous-bus-trial-cancellations-delay-2027-deployment-plans",
+      "label": "Global Auto Insight: Japan Level 4 bus trial cancellations",
+      "quote": "a significant number of local governments have withdrawn their participation for the 2026 fiscal year."
+     },
+     {
+      "url": "https://tlab.hongo.wide.ad.jp/2026/05/29/the-end-of-cool4-five-years-of-cooperative-level-4-autonomous-driving-at-kashiwa-no-ha/",
+      "label": "Univ. of Tokyo lab: The End of CooL4 (RoAD to the L4 Theme 4)",
+      "quote": "V2XSim, a Unity-based cooperative simulation environment"
+     }
+    ],
+    "checked": "2026-11-02"
    }
   },
   {
@@ -35764,7 +36144,41 @@
     "status": "ok",
     "checked": "2026-10-31"
    },
-   "flags": {}
+   "flags": {},
+   "aiLevers": {
+    "phase": "demo",
+    "bottleneck": "Phase 3 enrolment of 10,335 finished January 2026; efficacy data need two years' follow-up to accrue dengue cases, then licensing.",
+    "levers": [
+     {
+      "k": "approvals",
+      "strength": "mid",
+      "note": "AI could speed up cleaning data from 19 trial sites, flagging suspected dengue cases for confirmation, and drafting reports for the CDSCO dossier. The regulator still decides."
+     },
+     {
+      "k": "deploy",
+      "strength": "low",
+      "note": "After licensing, AI dengue-outbreak forecasts based on weather and surveillance data could help decide which districts get the first doses and plan cold-chain stock."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://www.indianpharmapost.com/clinical-trials/lite/icmr-panacea-biotec-complete-enrollment-for-indias-first-indigenous-dengue-vaccine-phase-3-study-18812",
+      "label": "Indian Pharma Post: Phase 3 enrolment complete",
+      "quote": "for a period of two years to examine the efficacy and immunogenicity of the vaccine"
+     },
+     {
+      "url": "https://www.business-standard.com/markets/news/panacea-biotec-up-9-percent-on-completing-phase-iii-enrollment-for-dengiall-trial-126010800227_1.html",
+      "label": "Business Standard: Panacea completes Phase III enrolment",
+      "quote": "DengiAll is expected to be India's first indigenous single-shot dengue vaccine, with a potential market launch by 2027."
+     },
+     {
+      "url": "https://morungexpress.com/phase-iii-clinical-trial-for-indias-1st-dengue-vaccine-hits-70pc-enrolment-mark-minister",
+      "label": "Morung Express/IANS: Minister on serotype-zone enrolment",
+      "quote": "participants have been enrolled in the ICMR vaccine trial from the different zones where these four serotypes circulate"
+     }
+    ],
+    "checked": "2026-11-02"
+   }
   },
   {
    "id": "dawatt-power-industry-ai-model-china-southern-grid",
@@ -35917,6 +36331,35 @@
     "url": "https://www.datacenterdynamics.com/en/news/keen-ai-national-grid-secure-funding-to-develop-ai-model-for-electricty-network-management-in-uk/",
     "status": "ok",
     "checked": "2026-10-31"
+   },
+   "aiLevers": {
+    "phase": "demo",
+    "bottleneck": "Rare defects mean no single operator has enough images; needs cross-operator data pooling, governance and a shared funding model, being proven in SIF Alpha.",
+    "levers": [
+     {
+      "k": "software",
+      "strength": "high",
+      "note": "The core product: a pre-trained vision foundation model on pooled anonymised images that each operator fine-tunes for corrosion, insulator and cable defect detection, replacing separate models."
+     },
+     {
+      "k": "deploy",
+      "strength": "mid",
+      "note": "In operations, automated image analysis from line inspections flags faults and ranks maintenance priorities consistently across networks, reducing manual review during grid upgrades."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://www.ukri.org/news/ofgem-sif-22-9m-to-support-ambitious-transformational-projects/",
+      "label": "UKRI – Ofgem SIF Cycle 5 Alpha projects approved",
+      "quote": "FoSMo develops shared deep learning-based computer vision models to:"
+     },
+     {
+      "url": "https://eciks.org/9689-83185-national-grid-keen-ai-funding-electricity-network",
+      "label": "National Grid, Keen AI secure £356k funding for UK grid AI model",
+      "quote": "Defects and components are rare, meaning a single operator often lacks enough examples to train a robust AI model."
+     }
+    ],
+    "checked": "2026-11-02"
    }
   },
   {
@@ -36339,6 +36782,25 @@
     "url": "https://www.news.cn/energy/20260509/d00f5fb400ca4960ab0ceffefc4564e5/c.html",
     "status": "ok",
     "checked": "2026-10-31"
+   },
+   "aiLevers": {
+    "phase": "demo",
+    "bottleneck": "Missing rules on data ownership, valuation and revenue sharing; classification standards and links between separate pilot spaces are also unfinished.",
+    "levers": [
+     {
+      "k": "software",
+      "strength": "mid",
+      "note": "Southern Grid's space uses privacy computing, data sandboxes and federated learning, plus an AI helper for ease of use. AI could help label datasets and check their quality."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://www.csg.cn/xwzx/2026/2026gsyw/202602/t20260210_353086.html",
+      "label": "China Southern Power Grid: construction plan for its national trusted-data-space pilot (energy industry)",
+      "quote": "到2027年8月，南方能源行业可信数据空间将接入不少于850项数据资源，建设不少于8个高质量数据集"
+     }
+    ],
+    "checked": "2026-11-02"
    }
   },
   {
@@ -36587,7 +37049,51 @@
     "status": "ok",
     "checked": "2026-10-31"
    },
-   "flags": {}
+   "flags": {},
+   "aiLevers": {
+    "phase": "demo",
+    "bottleneck": "Showing reliability in the field: power electronics have more failure modes, and buyers need long field runtime and certification (UL 2877/1741) before trusting MW-scale units.",
+    "levers": [
+     {
+      "k": "simulation",
+      "strength": "mid",
+      "note": "Electro-thermal digital twins of SiC modules and DC-bus fault and arc-flash scenarios, used to predict failure modes and speed up accelerated-life testing before field runtime builds up."
+     },
+     {
+      "k": "software",
+      "strength": "mid",
+      "note": "AI-assisted control firmware for coordinating many modules, voltage balancing, start-up and fault ride-through, plus predictive maintenance from fleet telemetry to raise uptime."
+     },
+     {
+      "k": "approvals",
+      "strength": "low",
+      "note": "Automatically assembling test and simulation evidence into certification packages for each product variant. The NRTL's decision stays human; this mainly shortens a 6–18 month cycle."
+     },
+     {
+      "k": "discovery",
+      "strength": "low",
+      "note": "ML-guided optimisation of high-frequency magnetics and SiC module layout to cut losses and cost. This is incremental, since the devices already exist."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://www.technologyreview.com/2026/10/27/1147684/solid-state-transformers/",
+      "label": "MIT Technology Review, Oct 2026",
+      "quote": "One challenge for solid-state transformers is that their power electronics have more failure modes than conventional transformers."
+     },
+     {
+      "url": "https://mgrid.org/2026/10/23/vantage-books-over-1-gw-of-heron-link-solid-state-transformers-for-800-vdc-ai-racks-a-year-before-herons-factory-runs/",
+      "label": "mgrid.org on Vantage–Heron deal, Oct 2026",
+      "quote": "Baglino himself said the product needs more field runtime to be bankable."
+     },
+     {
+      "url": "https://mgrid.org/2026/04/18/how-a-solid-state-transformer-gets-certified-ul-1741-iec-62109-ce-marking-and-the-path-to-a-us-utility-procurement-order/",
+      "label": "mgrid.org on SST certification",
+      "quote": "Certification typically requires 6 to 18 months from product submission to certification grant"
+     }
+    ],
+    "checked": "2026-11-02"
+   }
   },
   {
    "id": "intel-optane-first-3d-xpoint-storage-class-memory",
@@ -39053,6 +39559,29 @@
    },
    "flags": {
     "disputed": true
+   },
+   "story": {
+    "research": "exoplanet-atmosphere work by Nikole Lewis's Cornell group that helped instigate Pandora, a visible-plus-near-infrared smallsat NASA selected for its Astrophysics Pioneers programme in 2021.",
+    "deploy": "on 11 January 2026, launched from Vandenberg on SpaceX's Twilight Falcon 9 rideshare; NASA Goddard leads the mission, with the University of Arizona running operations.",
+    "impact": "it became the first Astrophysics Pioneers satellite in orbit and, by August 2026, was healthy and making science observations toward atmospheres of at least 20 exoplanets, with data released through NASA's Exoplanet Archive.",
+    "refs": [
+     {
+      "url": "https://news.cornell.edu/stories/2026/01/pandora-satellite-launches-exoplanet-observation",
+      "label": "Cornell Chronicle: Pandora satellite launches for exoplanet observation (13 Jan 2026)",
+      "quote": "Work by Lewis and her research group on exoplanet atmospheres helped to instigate the Pandora project."
+     },
+     {
+      "url": "https://pandorasat.com/",
+      "label": "Pandora SmallSat mission website",
+      "quote": "The Pandora SmallSat was selected in 2021 as an inaugural mission in NASA’s Astrophysics Pioneers Program."
+     },
+     {
+      "url": "https://science.nasa.gov/missions/pandora-missions/nasas-pandora-mission-begins-study-of-exoplanets-host-stars/",
+      "label": "NASA Science: NASA's Pandora Mission Begins Study of Exoplanets, Host Stars (25 Aug 2026)",
+      "quote": "The mission will determine the atmospheric make-up of at least 20 exoplanets, including the presence of hazes, clouds, and water."
+     }
+    ],
+    "checked": "2026-11-02"
    }
   },
   {
@@ -39117,7 +39646,20 @@
      "rules": 2
     }
    },
-   "flags": {}
+   "flags": {},
+   "story": {
+    "research": "Denali Therapeutics scientists (Kariolis, Ullman et al.) engineering a transferrin-receptor-binding Fc 'transport vehicle' that ferried enzymes and antibodies into mouse and monkey brains, published 2020.",
+    "deploy": "in the US by Denali after FDA accelerated approval for Hunter syndrome (24 March 2026, announced 25 March); first commercial patients dosed April 2026.",
+    "impact": "in the 47-child trial supporting approval, CSF heparan sulfate fell about 91% at 24 weeks, 93% reaching normal levels; it is the first therapy authorized for Hunter syndrome's neurological complications.",
+    "refs": [
+     {
+      "url": "https://www.pharmacytimes.com/view/fda-approves-tividenofusp-alfa-eknm-targeting-neurologic-manifestations-of-hunter-syndrome",
+      "label": "Pharmacy Times: FDA Approves Tividenofusp alfa-eknm",
+      "quote": "93% of tividenofusp-treated patients with CSF measurements had achieved levels below that threshold"
+     }
+    ],
+    "checked": "2026-11-02"
+   }
   },
   {
    "id": "kresladi-first-gene-therapy-for-severe-lad-i",
@@ -39184,6 +39726,24 @@
    },
    "flags": {
     "disputed": true
+   },
+   "story": {
+    "research": "Rocket Pharmaceuticals' global Phase 1/2 trial (NCT03812263) of a lentiviral therapy adding working ITGB2 genes to children's own blood stem cells, licensed from Spain's CIEMAT",
+    "deploy": "in the US after the FDA approved Rocket Pharmaceuticals' therapy on 26 March 2026 for children with severe LAD-I lacking a matched sibling donor",
+    "impact": "all nine trial patients survived without a donor transplant (100% HSCT-free survival at one year), none had graft failure, and LAD-I-related skin abnormalities resolved.",
+    "refs": [
+     {
+      "url": "https://www.goodwinlaw.com/en/insights/blogs/2026/04/fda-approves-first-gene-therapy-for-rare-pediatric-immune-disorder-severe-leukocyte-adhesion-deficie",
+      "label": "Goodwin – FDA Approves First Gene Therapy for Severe LAD-I",
+      "quote": "On March 26, 2026, the U.S. Food and Drug Administration approved Rocket Pharmaceuticals' Kresladi (marnetegragene autotemcel)"
+     },
+     {
+      "url": "https://www.pharmacytimes.com/view/fda-approves-marne-cel-first-stem-cell-based-gene-therapy-for-pediatric-patients-with-lad-i",
+      "label": "Pharmacy Times – FDA Approves Marne-Cel for LAD-I",
+      "quote": "HSCT-free survival was 100% (95% CI, 66–100) at 1 year after infusion"
+     }
+    ],
+    "checked": "2026-11-02"
    }
   },
   {
@@ -39242,7 +39802,25 @@
      "rules": 2
     }
    },
-   "flags": {}
+   "flags": {},
+   "story": {
+    "research": "2004 laboratory and animal studies by Eilon Kirson, Yoram Palti and Haifa-based NovoCure colleagues showing low-intensity 100–300 kHz alternating electric fields inhibit dividing tumour cells.",
+    "deploy": "in the US after the FDA's 11 February 2026 approval of Novocure's device, with gemcitabine and nab-paclitaxel, for adults with locally advanced pancreatic cancer.",
+    "impact": "in the 571-patient PANOVA-3 trial behind approval, adding it to chemotherapy raised median overall survival to 16.2 months from 14.2; it is the first FDA approval for this disease in nearly 30 years.",
+    "refs": [
+     {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15126372/",
+      "label": "Kirson et al., Cancer Research 2004 (PubMed)",
+      "quote": "were found to have a profound inhibitory effect on the growth rate of a variety of human and rodent tumor cell lines"
+     },
+     {
+      "url": "https://www.gastroenterologyadvisor.com/news/fda-approves-optune-pax-for-locally-advanced-pancreatic-cancer/",
+      "label": "Gastroenterology Advisor",
+      "quote": "significantly improved median overall survival to 16.2 months vs 14.2 months with chemotherapy alone."
+     }
+    ],
+    "checked": "2026-11-02"
+   }
   },
   {
    "id": "fluid-catalytic-cracking-pcla-no-1",
@@ -39623,6 +40201,24 @@
    },
    "flags": {
     "disputed": true
+   },
+   "story": {
+    "research": "a 2024 strategy change at Kepler Communications toward laser data relay. Its Pathfinder prototypes tested SDA-compatible optical links between satellites, to ground and to aircraft.",
+    "deploy": "on 11 January 2026, when a SpaceX Falcon 9 launched ten of Kepler's 300-kg optical relay satellites with onboard compute into low Earth orbit.",
+    "impact": "Kepler started commercial optical data relay service in August 2026. Its laser links run at up to 2.5 Gbps and meet SDA standards, and early customers include Germany's OroraTech.",
+    "refs": [
+     {
+      "url": "https://spaceq.ca/kepler-communications-to-launch-10-optical-data-relay-satellites-in-january-2026/",
+      "label": "SpaceQ: Kepler to launch 10 optical data relay satellites in January 2026",
+      "quote": "made the decision to adjust our strategy to develop an optical data relay infrastructure"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Kepler_Communications",
+      "label": "Wikipedia: Kepler Communications",
+      "quote": "The next ten 300-kilogram optical satellites, featuring onboard compute, launched on 11 January 2026 on board a Falcon 9"
+     }
+    ],
+    "checked": "2026-11-02"
    }
   },
   {
@@ -39896,6 +40492,24 @@
      "rules": 2
     },
     "qaNote": "Second opinion (Gemini): contradicted. The SPP tariff for economic topology optimization was approved in 2026 with an effective date in October 2026, but sources indicate that related research and analysis trace back to 2018 and 2020, not around 2011."
+   },
+   "story": {
+    "research": "a 2011 IEEE PES General Meeting paper by Ruiz, Foster, Rudkevich and Caramanis proposing fast 'line profit' heuristics that switch transmission lines to cut costs.",
+    "deploy": "in Southwest Power Pool's market rules, after FERC on 19 August 2026 approved a new 'Economic Topology Optimization' section (4.6) in SPP's tariff.",
+    "impact": "SPP's savings were estimated at $18–44 million. MISO, which began using similar economic reconfigurations in 2024, reported saving $95 million in 2026 as of August.",
+    "refs": [
+     {
+      "url": "https://www.winssolutions.org/ferc-spp-grid-topology-optimization/",
+      "label": "WINS Solutions: FERC clears SPP to reroute power around grid congestion",
+      "quote": "The revisions add a new Section 4.6, “Economic Topology Optimization”, to Attachment AE of SPP’s Open Access Transmission Tariff."
+     },
+     {
+      "url": "https://www.utilitydive.com/news/ferc-spp-topology-optimization-grid-congestion/828366/",
+      "label": "Utility Dive: FERC approves SPP 'topology optimization' plan for cutting grid congestion",
+      "quote": "So far this year, MISO has saved $95 million through economic reconfigurations"
+     }
+    ],
+    "checked": "2026-11-02"
    }
   },
   {
@@ -39965,7 +40579,25 @@
      "rules": 2
     }
    },
-   "flags": {}
+   "flags": {},
+   "story": {
+    "research": "a 2018 call for proposals from the Joint Photographic Experts Group for JPEG XL, a next-generation image coding standard meant to replace web raster formats.",
+    "deploy": "as a default-on browser format in October 2026, when Google shipped Chrome 155 and Mozilla released Firefox 158 on 13 October.",
+    "impact": "Firefox now lists image/jxl in the Accept header it sends with image requests, so sites already offering JPEG XL can serve it automatically. No reliable adoption figure was found.",
+    "refs": [
+     {
+      "url": "https://en.wikipedia.org/wiki/JPEG_XL",
+      "label": "Wikipedia – JPEG XL",
+      "quote": "published a call for proposals for JPEG XL, its next-generation image coding standard"
+     },
+     {
+      "url": "https://betanews.com/article/firefox-158-jpeg-xl-smooth-scrolling/",
+      "label": "BetaNews – Firefox 158 turns on JPEG XL by default",
+      "quote": "to its Release channel on October 13, 2026, with built-in JPEG XL image decoding"
+     }
+    ],
+    "checked": "2026-11-02"
+   }
   },
   {
    "id": "first-commercial-scale-fdca-plant-for-pef-avantium",
@@ -40037,7 +40669,30 @@
      "rules": 2
     }
    },
-   "flags": {}
+   "flags": {},
+   "story": {
+    "research": "Avantium's in-house catalysis research: its YXY process, proven in principle in 2006, converts plant sugars to FDCA; a Geleen pilot plant followed in 2011.",
+    "deploy": "at Avantium's FDCA Flagship Plant in Delfzijl, Netherlands, the world's first commercial-scale FDCA plant. Avantium announced its first FDCA batch on 28 September 2026.",
+    "impact": "the plant has moved into product qualification and is shifting from batch to continuous operation. Avantium expects full capacity to take 12–24 months, with commercial sales planned for late 2026.",
+    "refs": [
+     {
+      "url": "https://avantium.com/our-company/history/",
+      "label": "Avantium – Company history",
+      "quote": "2011: Opening of the FDCA pilot plant in Geleen; first PEF bottle produced."
+     },
+     {
+      "url": "https://www.hydrocarbonprocessing.com/news/2026/09/avantium-announces-startup-of-its-flagship-plant-first-batch-of-fdca-produced/",
+      "label": "Hydrocarbon Processing – Avantium announces startup of its Flagship Plant (Sept 2026)",
+      "quote": "the world's first commercial-scale plant for the production of FDCA"
+     },
+     {
+      "url": "https://www.indianchemicalnews.com/chemical/avantium-produces-first-fdca-batch-at-worlds-first-commercial-scale-plant-in-delfzijl-32076",
+      "label": "Indian Chemical News – Avantium produces first FDCA batch (Sept 2026)",
+      "quote": "reaching full production capacity will take 12 to 24 months after the plant begins operations"
+     }
+    ],
+    "checked": "2026-11-02"
+   }
   },
   {
    "id": "fayuvi-first-gene-therapy-for-sanfilippo-syndrome-a",
@@ -40111,7 +40766,25 @@
      "rules": 2
     }
    },
-   "flags": {}
+   "flags": {},
+   "story": {
+    "research": "lab research by Haiyan Fu and Doug McCarty at Ohio State/Nationwide Children's Hospital, building a self-complementary AAV9 vector carrying the human SGSH gene.",
+    "deploy": "in May 2016 at Nationwide Children's Hospital in Columbus, Ohio, where Abeona Therapeutics dosed the first child in its Phase 1/2 trial of ABO-102.",
+    "impact": "Ultragenyx took over the programme in 2022 and won full FDA approval on 17 September 2026. Treated children scored on average 23.5 points higher on developmental tests than untreated children.",
+    "refs": [
+     {
+      "url": "https://investors.abeonatherapeutics.com/news-events/press-releases/detail/30/abeona-therapeutics-doses-first-patient-in-phase-12-trial-with-abo-102-gene-therapy-for-patients-with-sanfilippo-syndrome-type-a-mps-iiia",
+      "label": "Abeona Therapeutics: first patient dosed in ABO-102 Phase 1/2 trial (May 17, 2016)",
+      "quote": "has been enrolled at Nationwide Children's Hospital (Columbus, Ohio)."
+     },
+     {
+      "url": "https://www.webmd.com/drugs/updates/fayuvi-sanfilippo-syndrome-type-a",
+      "label": "WebMD: FDA Approves Fayuvi, First Gene Therapy for Children With Sanfilippo Syndrome Type A",
+      "quote": "On average, children who received Fayuvi scored 23.5 points higher on developmental tests than untreated children did."
+     }
+    ],
+    "checked": "2026-11-02"
+   }
   },
   {
    "id": "rondo-100-mwh-industrial-heat-battery-in-commercial-use",
@@ -40851,7 +41524,30 @@
      "rules": 2
     }
    },
-   "flags": {}
+   "flags": {},
+   "story": {
+    "research": "Meta engineers including Germán Méndez Bravo built lazy imports into Cinder, Meta's CPython fork, then proposed them for CPython as PEP 690 in 2022.",
+    "deploy": "in CPython itself with Python 3.15.0, released 9 October 2026, after the Steering Council accepted the explicit, opt-in PEP 810 in November 2025.",
+    "impact": "a heise test found a script importing 13 standard-library modules started in a median 11 ms with lazy imports versus 44 ms normally; Meta had earlier reported up to 70% faster startup in Cinder.",
+    "refs": [
+     {
+      "url": "https://lwn.net/Articles/907226/",
+      "label": "LWN.net – Lazy imports for Python (PEP 690)",
+      "quote": "startup time improvements up to 70% and memory-use reductions up to 40%"
+     },
+     {
+      "url": "https://www.python.org/downloads/release/python-3150/",
+      "label": "Python.org – Python 3.15.0 release page",
+      "quote": "PEP 810: Explicit lazy imports for faster startup times"
+     },
+     {
+      "url": "https://www.heise.de/en/news/Python-3-15-released-Lazy-imports-UTF-8-and-new-data-types-11484310.html",
+      "label": "heise online – Python 3.15 released",
+      "quote": "With lazy, it was 11, barely more than a script without any imports."
+     }
+    ],
+    "checked": "2026-11-02"
+   }
   },
   {
    "id": "tavapadon-juvmo-first-selective-d1-d5-agonist",
@@ -41490,6 +42186,549 @@
     }
    },
    "flags": {}
+  },
+  {
+   "id": "mobile-telephone-service-first-car-phone-network",
+   "field": "comms",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Mobile Telephone Service (first car phone network)",
+   "research": {
+    "year": 1940,
+    "what": "Bell Labs engineers worked on a VHF radio system that let people in cars make and receive calls through the public switched telephone network. Origin: Bell Telephone Laboratories mobile radiotelephone development programme in the early-to-mid 1940s, using Western Electric and Motorola equipment"
+   },
+   "change": {
+    "year": 1946,
+    "what": "On 17 June 1946 Southwestern Bell opened the Bell System's Mobile Telephone Service in St. Louis, and the first mobile phone call to the public network was made there; by 1948 the service reached about 100 towns and highway corridors."
+   },
+   "confidence": "medium",
+   "note": "This was the first commercial mobile phone service connected to the public telephone network, and it led directly to later IMTS and cellular systems.",
+   "refs": [
+    {
+     "label": "IEEE-USA InSight – Foundations of Mobile and Cellular Telephony",
+     "url": "https://insight.ieeeusa.org/articles/your-engineering-heritage-the-foundations-of-mobile-and-cellular-telephony/",
+     "status": "ok",
+     "checked": "2026-11-01"
+    },
+    {
+     "label": "Wikipedia – History of mobile phones",
+     "url": "https://en.wikipedia.org/wiki/History_of_mobile_phones",
+     "status": "ok",
+     "checked": "2026-11-01"
+    },
+    {
+     "label": "Wikipedia – Mobile Telephone Service",
+     "url": "https://en.wikipedia.org/wiki/Mobile_Telephone_Service",
+     "status": "ok",
+     "checked": "2026-11-01"
+    }
+   ],
+   "subfield": "internet",
+   "region": "us",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Calls were sent unencrypted on shared party-line channels, so anyone with a receiver could listen in.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-02",
+    "lastChecked": "2026-11-02",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "contradicted",
+     "reason": "The milestone title and the first real-world use date (June 17, 1946) are supported, but the IEEE source states that research began 'more than a decade' before 1946 (i.e., before 1936), which contradicts 'Research began around 1940' by more than one year.",
+     "date": "2026-11-02",
+     "rules": 2
+    },
+    "qaNote": "Second opinion (Gemini): contradicted. The milestone title and the first real-world use date (June 17, 1946) are supported, but the IEEE source states that research began 'more than a decade' before 1946 (i.e., before 1936), which contradicts 'Research began around 1940' by more than one year."
+   },
+   "flags": {
+    "disputed": true
+   }
+  },
+  {
+   "id": "fortera-recarb-co2-to-cement-commercial-plant",
+   "field": "materials",
+   "origin": "industry",
+   "status": "outlook",
+   "title": "Fortera ReCarb CO2-to-cement commercial plant",
+   "research": {
+    "year": 2024,
+    "what": "Fortera's ReCarb process turns CO2 captured from lime or cement kilns into a reactive calcium-rich cement powder that can partly or fully replace portland cement, proven at a northern California pilot plant. Origin: Fortera ReCarb pilot plant in northern California, opened 2024 (earliest demonstration stated in the sources; earlier lab work not verified)"
+   },
+   "change": {
+    "year": 2028,
+    "what": "Fortera and lime producer MLC chose Ste. Genevieve, Missouri, for the first commercial ReCarb plant, a 300,000-tonne-a-year ReAct cement facility that Fortera aims to bring online in 2028, with Meta backing it through certificate purchases."
+   },
+   "confidence": "low",
+   "note": "It would be the first commercial-scale plant to make cement that is nearly half captured CO2 by weight, but it has not yet been built.",
+   "refs": [
+    {
+     "label": "MLC: Fortera and MLC select Ste. Genevieve for first commercial CO2-to-cement plant (22 Oct 2026)",
+     "url": "https://www.mlc.com/2026/10/fortera-and-mlc-select-ste-genevieve-mo-for-first-commercial-co2-to-cement-plant/",
+     "status": "ok",
+     "checked": "2026-11-02"
+    },
+    {
+     "label": "Canary Media: Meta deal to help bring low-carbon cement plant to Missouri (30 Oct 2026)",
+     "url": "https://canarymedia.com/articles/clean-industry/meta-fortera-deal-cement-plant-missouri",
+     "status": "ok",
+     "checked": "2026-11-02"
+    },
+    {
+     "label": "Concrete Products: Producers October 2026",
+     "url": "https://concreteproducts.com/index.php/2026/10/13/producers-october-2026/",
+     "status": "ok",
+     "checked": "2026-11-02"
+    }
+   ],
+   "subfield": "construction",
+   "region": "us",
+   "tags": [
+    "materials"
+   ],
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Little direct cyber relevance beyond the usual industrial control system risks at a process plant.",
+    "basis": "ai-compiled"
+   },
+   "forecast": {
+    "estimatedYear": 2028,
+    "estimatedOn": "2026-11-02",
+    "revisions": []
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-02",
+    "lastChecked": "2026-11-02",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "unclear",
+     "reason": "The sources confirm the plan for Fortera's first commercial CO2-to-cement plant using ReCarb technology and that its pilot facility opened in April 2024, aligning with 'research began around 2024'. However, no source provides an expected completion or operational year for the commercial plant, makin",
+     "date": "2026-11-02",
+     "rules": 2
+    }
+   },
+   "basis": {
+    "label": "MLC: Fortera and MLC select Ste. Genevieve for first commercial CO2-to-cement plant (22 Oct 2026)",
+    "url": "https://www.mlc.com/2026/10/fortera-and-mlc-select-ste-genevieve-mo-for-first-commercial-co2-to-cement-plant/",
+    "status": "ok",
+    "checked": "2026-11-02"
+   },
+   "flags": {}
+  },
+  {
+   "id": "amazon-leo-kuiper-leo-broadband-enterprise-preview",
+   "field": "comms",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Amazon Leo (Kuiper) LEO broadband enterprise preview",
+   "research": {
+    "year": 2019,
+    "what": "Amazon's Project Kuiper set out to build a low-Earth-orbit broadband constellation with in-house satellites and phased-array user terminals; prototype satellites flew in October 2023. Origin: Amazon Project Kuiper (2019), with protoflight satellites launched 6 October 2023"
+   },
+   "change": {
+    "year": 2025,
+    "what": "In November 2025 Amazon renamed Kuiper as Amazon Leo and started an enterprise preview. Select customers such as JetBlue and Hunt Energy Network began using production Leo Pro and Leo Ultra terminals, with Leo Ultra offering up to 1 Gbps down."
+   },
+   "confidence": "medium",
+   "note": "It was the first real customer use of a second large Western LEO broadband constellation competing with Starlink, and the UK is named among the first countries for launch.",
+   "refs": [
+    {
+     "label": "About Amazon: Everything you need to know about Amazon Leo",
+     "url": "https://www.aboutamazon.com/news/innovation-at-amazon/what-is-amazon-project-kuiper",
+     "status": "ok",
+     "checked": "2026-11-02"
+    },
+    {
+     "label": "Via Satellite: Amazon Leo details private networking service (24 Nov 2025)",
+     "url": "https://www.satellitetoday.com/connectivity/2025/11/24/amazon-leo-details-private-networking-service-for-enterprise-customers/",
+     "status": "ok",
+     "checked": "2026-11-02"
+    },
+    {
+     "label": "ISPreview: Amazon Leo launches 1Gbps enterprise beta",
+     "url": "https://www.ispreview.co.uk/index.php/2025/11/amazon-leo-launch-1gbps-satellite-broadband-beta-for-enterprise-customers.html",
+     "status": "ok",
+     "checked": "2026-11-02"
+    }
+   ],
+   "subfield": "internet",
+   "region": "us",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Adding a new satellite network plus direct private links into AWS creates more ground terminals and interconnects that attackers could target.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-02",
+    "lastChecked": "2026-11-02",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "unclear",
+     "reason": "The enterprise preview and 2025 launch are confirmed, but the sources do not mention when research began around 2019.",
+     "date": "2026-11-02",
+     "rules": 2
+    }
+   },
+   "flags": {}
+  },
+  {
+   "id": "densified-superwood-commercial-launch-inventwood",
+   "field": "materials",
+   "origin": "academic",
+   "status": "landed",
+   "title": "Densified 'Superwood' commercial launch (InventWood)",
+   "research": {
+    "year": 2018,
+    "what": "University of Maryland researchers showed that partly removing lignin from natural wood and then hot-pressing it gives a dense material far stronger and tougher than ordinary timber. Origin: Liangbing Hu group, University of Maryland: 'Processing bulk natural wood into a high-performance structural material', Nature 2018"
+   },
+   "change": {
+    "year": 2025,
+    "what": "InventWood, a University of Maryland spin-off, launched Superwood as a commercial product made at its Frederick, Maryland plant, aimed first at facades and cladding."
+   },
+   "confidence": "medium",
+   "note": "It is a bio-based structural material that could replace some steel and concrete, and it moved from a lab paper to factory production.",
+   "refs": [
+    {
+     "label": "Gizmodo: This New Superwood Is as Strong as Steel and 6 Times Lighter (Oct 2025)",
+     "url": "https://gizmodo.com/this-new-superwood-is-as-strong-as-steel-and-6-times-lighter-2000672275",
+     "status": "ok",
+     "checked": "2026-11-02"
+    },
+    {
+     "label": "The Seattle Today: Superwood launching commercial production (14 Oct 2025)",
+     "url": "https://theseattletoday.com/scientists-create-superwood-thats-10-times-stronger-than-steel-launching-commercial-production/",
+     "status": "ok",
+     "checked": "2026-11-02"
+    },
+    {
+     "label": "Dezeen: Superwood is a chemically modified wood that is stronger than steel",
+     "url": "https://www.dezeen.com/2025/08/01/superwood-inventwood/",
+     "status": "ok",
+     "checked": "2026-11-02"
+    },
+    {
+     "label": "Wikipedia: InventWood",
+     "url": "https://en.wikipedia.org/wiki/InventWood",
+     "status": "ok",
+     "checked": "2026-11-02"
+    }
+   ],
+   "subfield": "polymers",
+   "region": "us",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "This is a passive structural material with no connected parts, so it has few direct cyber security implications.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-02",
+    "lastChecked": "2026-11-02",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "contradicted",
+     "reason": "The sources indicate that research began in 2013 or earlier, not around 2018.",
+     "date": "2026-11-02",
+     "rules": 2
+    },
+    "qaNote": "Second opinion (Gemini): contradicted. The sources indicate that research began in 2013 or earlier, not around 2018."
+   },
+   "flags": {
+    "disputed": true
+   }
+  },
+  {
+   "id": "starcloud-1-first-llm-trained-in-orbit-on-an-h100",
+   "field": "space",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Starcloud-1: first LLM trained in orbit on an H100",
+   "research": {
+    "year": 2024,
+    "what": "Lumen Orbit (later renamed Starcloud) published a white paper, 'Why we should train AI in space', setting out the case for solar-powered orbital data centres that could train AI models. Origin: Lumen Orbit white paper 'Why we should train AI in space' (September 2024), produced while the company was in Y Combinator's S24 batch"
+   },
+   "change": {
+    "year": 2025,
+    "what": "Starcloud-1 launched in November 2025 carrying an Nvidia H100 data-centre GPU. On 10 December 2025 the company said it had trained NanoGPT in orbit and run inference on Google's Gemma model."
+   },
+   "confidence": "medium",
+   "note": "This is the first data-centre-class GPU to run in orbit and the first time a language model was trained in space. It is a first real-world step towards orbital AI compute. It is a separate company and hardware from Google's Suncatcher TPU project.",
+   "company": "Starcloud (formerly Lumen Orbit)",
+   "flags": {
+    "aiDriven": true
+   },
+   "refs": [
+    {
+     "label": "ScienceBlog: Starcloud trains first LLM in orbit",
+     "url": "https://scienceblog.com/t-starcloud-first-llm-trained-orbit-nvidia-h100-500-km/",
+     "status": "ok",
+     "checked": "2026-11-02"
+    },
+    {
+     "label": "AI Data Insider: Starcloud first to train LLMs in space",
+     "url": "https://aidatainsider.com/news/starcloud-becomes-first-to-train-llms-in-space-using-nvidia-h100/",
+     "status": "ok",
+     "checked": "2026-11-02"
+    },
+    {
+     "label": "Lumen Orbit white paper (Sept 2024)",
+     "url": "https://lumenorbit.github.io/wp.pdf",
+     "status": "ok",
+     "checked": "2026-11-02"
+    },
+    {
+     "label": "DCD: Lumen Orbit raises funds for AI data centres in space",
+     "url": "https://www.datacenterdynamics.com/en/news/lumen-orbit-raises-more-than-10m-for-ai-training-data-centers-in-space/",
+     "status": "ok",
+     "checked": "2026-11-02"
+    }
+   ],
+   "subfield": "launch",
+   "region": "us",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Orbital compute nodes that take in uplinked models and data create new remote targets: the links, the onboard software supply chain and model integrity all need protecting.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-02",
+    "lastChecked": "2026-11-02",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "supported",
+     "reason": "The source states 'Starcloud Becomes First to Train LLMs in Space Using NVIDIA H100' and 'Founded in 2024', with the Starcloud-1 satellite launching in November 2025 (as per the December 11, 2025 article stating 'launched last month').",
+     "date": "2026-11-02",
+     "rules": 2
+    }
+   }
+  },
+  {
+   "id": "escapade-low-cost-twin-smallsats-to-mars",
+   "field": "space",
+   "origin": "academic",
+   "status": "landed",
+   "title": "ESCAPADE: low-cost twin smallsats to Mars",
+   "research": {
+    "year": 2021,
+    "what": "UC Berkeley's Space Sciences Laboratory designed a twin-spacecraft Class D mission to study Mars' hybrid magnetosphere and atmospheric escape. It chose Rocket Lab to build one of the least expensive interplanetary missions ever, and the mission passed NASA's KDP-C review in August 2021. Origin: UC Berkeley SSL ESCAPADE mission with Rocket Lab Photon/Explorer-derived buses; passed NASA KDP-C on 17 August 2021"
+   },
+   "change": {
+    "year": 2025,
+    "what": "On 13 November 2025 the two ESCAPADE spacecraft, Blue and Gold, launched on New Glenn's second flight. This was the first dual-satellite mission to another planet, and it is flying a new, flexible Earth-Sun L2 staging trajectory to Mars."
+   },
+   "confidence": "medium",
+   "note": "It shows that commercially built small-satellite buses can carry out low-cost planetary science. It also pioneers a flexible route to Mars that is not tied to a tight launch window.",
+   "company": "UC Berkeley SSL / Rocket Lab / Blue Origin",
+   "refs": [
+    {
+     "label": "Berkeley News: ESCAPADE launch",
+     "url": "https://news.berkeley.edu/2025/11/05/nasas-escapade-mission-to-mars-twin-uc-berkeley-satellites-dubbed-blue-and-gold-will-launch-in-early-november/",
+     "status": "ok",
+     "checked": "2026-11-02"
+    },
+    {
+     "label": "eoPortal: EscaPADE mission",
+     "url": "https://www.eoportal.org/satellite-missions/escapade",
+     "status": "ok",
+     "checked": "2026-11-02"
+    },
+    {
+     "label": "ESCAPADE timeline (UC Berkeley SSL)",
+     "url": "https://escapade.ssl.berkeley.edu/timeline-news",
+     "status": "ok",
+     "checked": "2026-11-02"
+    }
+   ],
+   "subfield": "launch",
+   "region": "us",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Low-cost commercial buses used deep in space depend on the security of their ground segment and command uplinks, but add little new terrestrial attack surface.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-02",
+    "lastChecked": "2026-11-02",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "supported",
+     "reason": "The sources confirm ESCAPADE is a low-cost mission of twin smallsats to Mars, launched in November 2025, and significant design and contractor selection began in late 2020 leading to confirmation in August 2021, supporting 'around 2021' for research start.",
+     "date": "2026-11-02",
+     "rules": 2
+    }
+   },
+   "flags": {}
+  },
+  {
+   "id": "bell-labs-voder-first-electronic-speech-synthesizer",
+   "field": "ai",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Bell Labs Voder: first electronic speech synthesizer",
+   "research": {
+    "year": 1926,
+    "what": "Homer Dudley at Bell Labs began breaking human speech into its component spectral sounds (the vocoder), then from 1936 built a simplified, keyboard-played synthesizer that rebuilt speech electronically. Origin: Homer Dudley's vocoder work at Bell Telephone Laboratories from 1926; Voder patent US 2,121,142 filed 1937"
+   },
+   "change": {
+    "year": 1939,
+    "what": "The Voder made continuous human speech from electronics in hourly public demonstrations at the 1939 New York World's Fair and the Golden Gate International Exposition."
+   },
+   "confidence": "high",
+   "note": "It was the first machine to produce intelligible continuous speech electronically, and the starting point for later work on synthetic voices and talking computers.",
+   "refs": [
+    {
+     "label": "History of Information: The Voder, the first electronic speech synthesizer",
+     "url": "https://historyofinformation.com/detail.php?id=620",
+     "status": "ok",
+     "checked": "2026-11-02"
+    },
+    {
+     "label": "Stanford CCRMA: Voder",
+     "url": "https://ccrma.stanford.edu/~jos/sasp/Voder.html",
+     "status": "ok",
+     "checked": "2026-11-02"
+    },
+    {
+     "label": "Wikipedia: Voder",
+     "url": "https://en.wikipedia.org/wiki/Voder",
+     "status": "ok",
+     "checked": "2026-11-02"
+    }
+   ],
+   "subfield": "methods",
+   "region": "us",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "It had no direct cyber security impact, but the vocoder behind it was later used in the SIGSALY encrypted voice system.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-02",
+    "lastChecked": "2026-11-02",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "contradicted",
+     "reason": "The milestone states research began around 1926, but sources indicate the Voder was invented in 1937-1938, which is more than one year off.",
+     "date": "2026-11-02",
+     "rules": 2
+    },
+    "qaNote": "Second opinion (Gemini): contradicted. The milestone states research began around 1926, but sources indicate the Voder was invented in 1937-1938, which is more than one year off."
+   },
+   "flags": {
+    "disputed": true
+   }
+  },
+  {
+   "id": "elektro-westinghouse-voice-commanded-robot",
+   "field": "ai",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Elektro: Westinghouse voice-commanded robot",
+   "research": {
+    "year": 1927,
+    "what": "Starting with Herbert Televox, Westinghouse engineers built a series of humanoid machines run by telephone relays that responded to signals and to the rhythm of spoken words. Origin: Westinghouse's series of robots beginning with Herbert Televox (1927); Elektro was built in Mansfield, Ohio in 1937–38 by Joseph Barnett and his team"
+   },
+   "change": {
+    "year": 1939,
+    "what": "Elektro walked, talked and moved in response to timed spoken commands in front of crowds at the 1939 New York World's Fair, then toured US stores for Westinghouse."
+   },
+   "confidence": "medium",
+   "note": "It was the first widely seen machine that acted on spoken commands, and it shaped public expectations of voice-controlled intelligent machines.",
+   "refs": [
+    {
+     "label": "IEEE Spectrum: Elektro the Moto-Man Had the Biggest Brain at the 1939 World's Fair",
+     "url": "https://spectrum.ieee.org/tech-history/dawn-of-electronics/elektro-the-motoman-had-the-biggest-brain-at-the-1939-worlds-fair.amp.html",
+     "status": "ok",
+     "checked": "2026-11-02"
+    },
+    {
+     "label": "Assembly Magazine: Elektro – A Robotic Pioneer",
+     "url": "https://www.assemblymag.com/blogs/14-assembly-blog/post/89238-elektro-a-robotic-pioneer",
+     "status": "ok",
+     "checked": "2026-11-02"
+    },
+    {
+     "label": "Wikipedia: Elektro",
+     "url": "https://en.wikipedia.org/wiki/Elektro",
+     "status": "ok",
+     "checked": "2026-11-02"
+    }
+   ],
+   "subfield": "methods",
+   "region": "us",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Its commands were simple timed syllable codes, so anyone who copied the rhythm could control it, an early sign of how easily voice control can be spoofed.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-02",
+    "lastChecked": "2026-11-02",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "supported",
+     "reason": "Sources confirm Elektro was a Westinghouse voice-commanded robot, its precursor (Televox) was developed around 1928, and Elektro itself was built between 1937-1938 and debuted at the 1939 World's Fair.",
+     "date": "2026-11-02",
+     "rules": 2
+    }
+   },
+   "flags": {}
   }
  ],
  "founders": [
@@ -41507,7 +42746,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-30"
+    "lastChecked": "2026-11-02"
    }
   },
   {
@@ -41524,7 +42763,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-30"
+    "lastChecked": "2026-11-02"
    }
   },
   {
@@ -41540,7 +42779,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-30"
+    "lastChecked": "2026-11-02"
    }
   },
   {
@@ -41556,7 +42795,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-30"
+    "lastChecked": "2026-11-02"
    }
   },
   {
@@ -41579,7 +42818,8 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-30"
+    "lastChecked": "2026-11-02",
+    "qaNote": "Founded 1968 confirmed. I could not find a source for the $7.7bn 'inflation-adjusted' figure. Forbes gave $7.2bn (March 2023) and later $6.8bn at time of death (Dec 2023 review). Better to store a sourced nominal figure (e.g. $6.8bn Forbes) or cite the inflation method."
    }
   },
   {
@@ -41601,7 +42841,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-30"
+    "lastChecked": "2026-11-02"
    }
   },
   {
@@ -41623,7 +42863,8 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-30"
+    "lastChecked": "2026-11-02",
+    "qaNote": "Founded 1976 confirmed. $15bn is not backed by Forbes. Forbes put Jobs at about $7bn (Sept 2011 Forbes 400) and $8.3bn (March 2011). A widely repeated $10.2bn figure is contested. Inflation-adjusting about $7bn would not give $15bn. The only $15bn source I found is a low-quality site that also adds "
    }
   },
   {
@@ -41641,7 +42882,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-30"
+    "lastChecked": "2026-11-02"
    }
   },
   {
@@ -41663,7 +42904,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-30"
+    "lastChecked": "2026-11-02"
    }
   },
   {
@@ -41689,7 +42930,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-30"
+    "lastChecked": "2026-11-02"
    }
   },
   {
@@ -41713,7 +42954,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-30"
+    "lastChecked": "2026-11-02"
    }
   },
   {
@@ -41729,7 +42970,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-30"
+    "lastChecked": "2026-11-02"
    }
   },
   {
@@ -41746,7 +42987,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-30"
+    "lastChecked": "2026-11-02"
    }
   },
   {
@@ -41772,7 +43013,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-28",
-    "lastChecked": "2026-10-30"
+    "lastChecked": "2026-11-02"
    }
   },
   {
@@ -43020,7 +44261,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-29",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-11-02"
    }
   },
   {
@@ -43037,7 +44278,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-29",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-11-02"
    }
   },
   {
@@ -43054,7 +44295,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-29",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-11-02"
    }
   },
   {
@@ -43077,7 +44318,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-29",
-    "lastChecked": "2026-10-29"
+    "lastChecked": "2026-11-02"
    }
   },
   {
@@ -43168,7 +44409,7 @@
     "verification": "source-cited",
     "addedBy": "research-agent",
     "added": "2026-10-29",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-02",
     "sources": [
      {
       "label": "Billionaires.Africa, 30 Sept 2026: Sun Aixiang becomes billionaire as chip-cooling firm soars",
@@ -43204,7 +44445,7 @@
     "verification": "source-cited",
     "addedBy": "research-agent",
     "added": "2026-10-29",
-    "lastChecked": "2026-10-29",
+    "lastChecked": "2026-11-02",
     "sources": [
      {
       "label": "Yahoo Finance (The Edge/Bloomberg): Nvidia deal with Hugging Face makes billionaires of French co-founders, Sept 4 2026",

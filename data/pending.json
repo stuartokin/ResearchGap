@@ -1,58 +1,60 @@
 [
  {
-  "id": "mobile-telephone-service-first-car-phone-network",
-  "field": "comms",
-  "origin": "industry",
+  "id": "htv-x1-japans-next-generation-iss-cargo-ship",
+  "field": "space",
+  "origin": "government",
   "status": "landed",
-  "title": "Mobile Telephone Service (first car phone network)",
+  "title": "HTV-X1: Japan's next-generation ISS cargo ship",
   "research": {
-   "year": 1940,
-   "what": "Bell Labs engineers worked on a VHF radio system that let people in cars make and receive calls through the public switched telephone network. Origin: Bell Telephone Laboratories mobile radiotelephone development programme in the early-to-mid 1940s, using Western Electric and Motorola equipment"
+   "year": 2017,
+   "what": "JAXA formally began the HTV-X project to develop a cheaper, higher-capacity successor to the HTV (Kounotori). The new design has a separate service module, external unpressurised cargo and a post-mission technology-demonstration phase. Origin: JAXA HTV-X development project, formally initiated in 2017 (building on the HTV, first flown 2009), with Mitsubishi Heavy Industries"
   },
   "change": {
-   "year": 1946,
-   "what": "On 17 June 1946 Southwestern Bell opened the Bell System's Mobile Telephone Service in St. Louis, and the first mobile phone call to the public network was made there; by 1948 the service reached about 100 towns and highway corridors."
+   "year": 2025,
+   "what": "HTV-X1 launched on 26 October 2025 on the first H3-24W rocket and berthed at the ISS. It delivered cargo and later deployed a satellite after leaving the station."
   },
   "confidence": "medium",
-  "note": "This was the first commercial mobile phone service connected to the public telephone network, and it led directly to later IMTS and cellular systems.",
+  "note": "This is Japan's new ISS logistics vehicle and is designed to serve later Gateway lunar resupply. It cuts late-cargo loading time from 80 hours to 24.",
+  "company": "JAXA / Mitsubishi Heavy Industries",
   "refs": [
    {
-    "label": "IEEE-USA InSight – Foundations of Mobile and Cellular Telephony",
-    "url": "https://insight.ieeeusa.org/articles/your-engineering-heritage-the-foundations-of-mobile-and-cellular-telephony/",
+    "label": "NASASpaceFlight: HTV-X1 launched aboard H3",
+    "url": "https://nasaspaceflight.com/2025/10/jaxas-htv-x1-launch-h3-rocket/",
     "status": "ok",
-    "checked": "2026-11-01"
+    "checked": "2026-11-02"
    },
    {
-    "label": "Wikipedia – History of mobile phones",
-    "url": "https://en.wikipedia.org/wiki/History_of_mobile_phones",
+    "label": "Space Voyaging: New JAXA HTV-X launched for the first time",
+    "url": "https://www.spacevoyaging.com/news/2025/10/26/the-new-jaxa-htv-x-spacecraft-launched-for-the-first-time/",
     "status": "ok",
-    "checked": "2026-11-01"
+    "checked": "2026-11-02"
    },
    {
-    "label": "Wikipedia – Mobile Telephone Service",
-    "url": "https://en.wikipedia.org/wiki/Mobile_Telephone_Service",
+    "label": "Wikipedia: HTV-X1",
+    "url": "https://en.wikipedia.org/wiki/HTV-X1",
     "status": "ok",
-    "checked": "2026-11-01"
+    "checked": "2026-11-02"
    }
   ],
-  "subfield": "internet",
-  "region": "us",
+  "subfield": "launch",
+  "region": "asia",
   "readiness": {
    "stage": "commercial",
    "basis": "ai-estimate"
   },
   "security": {
-   "expandsAttackSurface": true,
-   "note": "Calls were sent unencrypted on shared party-line channels, so anyone with a receiver could listen in.",
+   "expandsAttackSurface": false,
+   "note": "Autonomous rendezvous and command links to a crewed station are safety-critical, so the vehicle's command and control systems need strong integrity protections.",
    "basis": "ai-compiled"
   },
   "evidence_terms": [
-   "Mobile Telephone Service",
-   "St. Louis",
-   "Southwestern Bell",
-   "17 June 1946"
+   "HTV-X1",
+   "JAXA",
+   "H3",
+   "Mitsubishi Heavy Industries",
+   "Kounotori"
   ],
-  "proposed": "2026-11-01",
-  "attempts": 2
+  "proposed": "2026-11-02",
+  "attempts": 1
  }
 ]
