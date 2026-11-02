@@ -852,6 +852,36 @@ body.touring .qinsight,body.kiosk .qinsight{display:none!important}
 @media (max-width:760px){.wcarbtn{display:none}.wtrack .wtile{flex-basis:82%;min-height:170px;flex-direction:column}}
 .wtile .wtb .wkick{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#A9BCCF}
 .wcarbtn:disabled{opacity:.3;cursor:default}
+/* the orbit: cards round an oval track, always facing you, larger at the front */
+.orbit{margin-top:.4em}
+.ostage{position:relative;height:540px;touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:grab;overflow:hidden;outline:none;border-radius:16px}
+.ostage:active{cursor:grabbing}.ostage:focus-visible{box-shadow:inset 0 0 0 2px #5FD8FF}
+.ofloor{position:absolute;left:50%;top:58%;width:min(1000px,84%);height:150px;transform:translate(-50%,-50%);border-radius:50%;border:1px solid #1E3447;background:rgba(95,216,255,.03);pointer-events:none}
+.ostage > .wtile{position:absolute;left:50%;top:45%;width:290px;height:330px;min-height:0;margin:0;transition:transform .75s cubic-bezier(.2,.8,.2,1),opacity .75s;box-shadow:0 22px 50px rgba(0,0,0,.5)}
+.ostage.dragging > .wtile{transition:none}
+.ostage > .wtile:not(.ofront) .wtb > span:not(.wkick):not(.wbadge){opacity:0}
+.ostage > .wtile:not(.ofront) .wtb em{opacity:0}
+.ostage > .wtile.ofront{border-color:#4CD3C2;box-shadow:0 0 0 1px #4CD3C2,0 26px 60px rgba(0,0,0,.6)}
+#wp-learn .ostage > .wtile.ofront{border-color:#FFD166;box-shadow:0 0 0 1px #FFD166,0 26px 60px rgba(0,0,0,.6)}
+.ostage > .wtile:hover{transform:none}
+#welcome.arriving .orbit .wtile{animation:none}
+.onav{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:6px}
+.onav .wcarbtn{display:flex}
+.oinfo{display:flex;flex-direction:column;align-items:center;gap:9px;min-width:280px}
+.olabel{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#A9BCCF;text-align:center}
+.odots{display:flex;gap:7px;align-items:center}
+.odot{all:unset;cursor:pointer;width:10px;height:10px;border-radius:50%;background:#2E4A63}.odot.on{background:#4CD3C2;width:26px;border-radius:5px}
+#wp-learn .odot.on{background:#FFD166}
+.odot:focus-visible{outline:2px solid #5FD8FF;outline-offset:3px}
+.ohint{text-align:center;font-size:13px;color:#A9BCCF;margin:.6em 0 0}
+@media (max-width:760px){
+  .ostage{height:430px}.ofloor{height:96px;top:60%}
+  .ostage > .wtile,.wtiles.wide .ostage > .wtile{width:210px;height:270px;flex-direction:column;align-items:stretch}
+  .ostage > .wtile .tpic{width:100%;height:100%;margin:0;border-radius:0}
+  .ostage > .wtile .wtb > span:not(.wkick):not(.wbadge){display:none}
+  .onav{gap:12px}.onav .wcarbtn{display:flex}.oinfo{min-width:150px}
+}
+@media (prefers-reduced-motion:reduce){.ostage > .wtile{transition:none}}
 </style>
 </head>
 <body>
@@ -5728,7 +5758,7 @@ const FORTUNES = DB.founders.map(f => {
 });
 const fmtMoney = (bn, sym) => bn >= 1000 ? `${sym}${(bn / 1000).toFixed(1)}tn` : bn >= 1 ? `${sym}${bn >= 100 ? Math.round(bn) : Math.round(bn * 10) / 10}bn` : `${sym}${Math.round(bn * 1000)}m`;
 const DATA_AS_OF = DB.meta.asOf;
-const APP_VERSION = '13.1', APP_BUILD = '';
+const APP_VERSION = '13.2', APP_BUILD = '';
 // Screen-aware scaling: laptops slightly smaller, large screens larger
 const UI = (() => { const w = innerWidth; return w < 1280 ? .85 : w < 1500 ? .95 : w < 1800 ? 1.05 : w < 2300 ? 1.2 : 1.4; })();
 const LARGE = innerWidth >= 1700;
@@ -9740,7 +9770,7 @@ $('insBody').addEventListener('click', e => {
 /* ==================================================================
  *  HOW IT WORKS: documentation of the app, its files, workflows and agents. Maintained with each material change.
  * ================================================================== */
-const DOCS_UPDATED = 'Version 13.1, 2 November 2026';   // update with every material change
+const DOCS_UPDATED = 'Version 13.2, 2 November 2026';   // update with every material change
 const DOCS = [
  ['overview', 'Overview', `<p>The Shrinking Gap measures how long research takes to become real-world change, and whether AI is shortening the journey. It is maintained by AI agents using public sources only; the owner can review and curate through the Data inspector and the system file, but nothing needs a person each week.</p>
   <p><b>The flow:</b> AI agents (GitHub Actions, weekly) research, check and correct <code>data/data.json</code> → safety gates → <code>tools/build.py</code> assembles <code>index.html</code> from <code>src/</code> with the data embedded → GitHub Pages publishes it. Your uploads to <code>src/</code> trigger the same build.</p>`],
@@ -9779,7 +9809,7 @@ const DOCS = [
  ['narration', 'Narration, tours and voice', `<p>Narration lives in <code>data/tours.json</code> as templates: the walk-throughs, the chart insights, the question insights and both weekly analyses. The app fills every figure from live data and chooses each conclusion by rules, so the words can change weekly but the numbers cannot be invented. Recordings are keyed by a fingerprint of the exact sentence and voice; changed sentences are re-recorded by <code>tools/make_voice.py</code>, and the app falls back to the browser voice only if a recording never starts. In the walk-throughs, chart steps open a side panel on what the narration is discussing. A walk-through started from the welcome screen returns there; one started inside the app returns to where you were. Pronunciations (DESNZ, CAF, NERC, CIP, and row said as “roe”) are in <code>tours.json</code>.</p>`],
  ['data', 'The data model', `<p>Each milestone has a title, field and sub-field, origin, status (landed or outlook), research (year, what), change (first use: year, what), sources, verification (source-cited, AI-compiled or AI estimate), and optional readiness, GB status, security note, forecast record, AI levers and story. <code>flags</code> mark it disputed, hidden or retired; <code>provenance</code> records who added it, when, whether dates are approximate, and any second opinion. <code>flags.reviewed</code> records the owner’s review, with a fingerprint so it lapses if the record changes. For the whole dataset, <code>meta</code> keeps the change log, the research funnel, the catch-up record, the decisions applied, and pairs judged not to be duplicates.</p>`],
  ['curation', 'Views, My file, reviews and the system file', `<p><b>The welcome screen</b> has three doors: <b>Learn</b> (the guided tours, in labelled sections), <b>Ask</b> (questions the tool answers well, in labelled sections) and <b>Explore</b> (the full tool), each tile with a small moving picture that pauses for anyone who asks for reduced motion. In the tool, <b>Home</b> returns to the doors (Back to the tool returns to your view), the <b>Questions</b> menu lists the questions, and after a question a breadcrumb leads back to them. A question opens calmly, without the century playing. <b>Questions</b>: each sets up the panels, filters and chart with the answers listed, and its own insight, written weekly by the agents, with numbers you can select and a Speak button. <b>Open insights automatically</b> (Display, on by default) opens chart and question insights by themselves; a closed one stays closed until you move on. After acknowledging, the welcome screen signposts the three ways in: Learn (the tours), Start here (questions) and Jump right in (the tool). <b>⧉ New window</b> on any chart opens a full chart window: all the tabs, filters, zoom, tooltips, side panel and insight, with its own chart, as many as you like; closing one removes it. A milestone selected in any chart window opens in the one Details panel and is highlighted in every linked chart window; <b>🔗 Linked</b> switches a window to keep its own highlight. Chart windows are saved with My views and My file, and <b>Compare</b> (a ready-made view) sets out two side by side with the AI Energy Vision Radar. <b>Help</b> is a panel like the others; its “How it works” button opens this documentation, and “At a glance” the infographics.</p>
-  <p><b>The toolbar:</b> Home, Questions, Play the century, Views, Present, Share and Help (the guided tours are behind Home’s Learn door, and in Help). On the Learn and Ask pages, Show as switches between tiles and a carousel, separately for each (this week’s analyses always stay as tiles); the choice is kept in My file and is the one setting remembered in this browser. Chips appear while music, rotation, full screen or the ticker is on; 📌 in Present pins any item.</p>
+  <p><b>The toolbar:</b> Home, Questions, Play the century, Views, Present, Share and Help (the guided tours are behind Home’s Learn door, and in Help). On the Learn and Ask pages, Show as switches between tiles and a carousel (the cards orbit an oval track: drag, swipe, ‹ › or the arrow keys turn it, and a card at the side comes forward when selected), separately for each (this week’s analyses always stay as tiles); the choice is kept in My file and is the one setting remembered in this browser. Chips appear while music, rotation, full screen or the ticker is on; 📌 in Present pins any item.</p>
   <p><b>My file</b> (Views → Save my file / Open my file) holds your views, settings, review marks, notes, My list, pins and kiosk options. The app keeps nothing in the browser unless Autosave is on (Display): then it keeps a connected file updated (Chrome or Edge on a computer) or a copy in this browser, written at once when the page closes. The sign beside Views shows anything unsaved.</p>
   <p><b>My views</b> are named arrangements with their own panels, positions, chart tab, filters and display settings. ☆ opens one at start; ⤓ exports one to share; old saved view files join My views when opened.</p>
   <p><b>Reviews:</b> “Mark as reviewed” in the Data inspector hides an item from your list, saved in My file. Each review keeps a fingerprint of the record (title, years, status, dispute, second opinion, QA note); if the agents change any of these, the review lapses and the item returns.</p>
@@ -9794,7 +9824,8 @@ const DOCS = [
   <li><b>Undo:</b> each week’s change is one commit, which can be reverted; any feature can be promoted into the standard version by its author, or removed.</li></ul>
   <h4>The weekly run</h4><p>Each Wednesday at 05:23 UTC (with a safety-net slot at 09:53; switched on by the repository variable UI_AGENT_ENABLED), a workflow briefs the agent (the last build’s report, ideas from GitHub issues labelled <code>experimental-idea</code>, an optional focus, and screenshots), runs Claude Code with its rules (<code>CLAUDE.md</code>) and procedure (the <code>improve-experimental</code> skill), then the guard, the full test suite and screenshots. Passing work is committed to the experimental branch and published by the publisher; a summary issue reports the outcome, the agent’s own report, the checks and the cost. Started by hand, it can run as a dry run, or with a focus. Switching versions keeps your acknowledgement; the banner can be moved (double-click puts it back) but never hidden.</p>
   <h4>Features in the AI-enhanced version now</h4><div id="aiFeatList" class="note-s">Loading…</div>`],
-  ['history', 'Recent changes', `<ul class="doclist"><li><b>13.1</b> Show as tiles or a carousel on the Learn and Ask pages, chosen separately (this week’s analyses always stay as tiles), kept in My file and remembered in this browser; the Tours button moves into Help, before How it works; Start with a question leaves the Views menu (the toolbar’s Questions menu has it).</li>
+  ['history', 'Recent changes', `<ul class="doclist"><li><b>13.2</b> The carousel becomes an orbit: the cards travel round an oval track, always facing you and larger at the front; drag, swipe, ‹ ›, the arrow keys or the dots turn it, a card at the side comes forward when selected, and the front card opens as a tile does.</li>
+  <li><b>13.1</b> Show as tiles or a carousel on the Learn and Ask pages, chosen separately (this week’s analyses always stay as tiles), kept in My file and remembered in this browser; the Tours button moves into Help, before How it works; Start with a question leaves the Views menu (the toolbar’s Questions menu has it).</li>
   <li><b>13.0</b> A new welcome screen with three doors (Learn, Ask, Explore) that open into their own space; the tours and questions behind them in labelled sections, each tile with a soft moving picture; Home, a Questions menu and a breadcrumb in the toolbar; questions arrive calmly, with All questions and Next question on the answer; no countdown on the welcome screen.</li>
   <li><b>12.9</b> Gemini research: a reasoning budget so its answer fits, shorter fields, and the complete candidates kept if an answer is still cut off; the gap-filler is told the dataset starts in 1925; the guidance agent does not re-check, for eight weeks, what it could not confirm.</li>
   <li><b>12.8</b> Schedules moved off the hour (GitHub’s scheduler can drop runs at the start of the hour), each with a later safety-net slot that runs only if needed; the deep search’s 1 January and 1 July runs moved off the hour too; an on/off switch for the AI-enhanced agent; the test rig serves pages in parallel.</li>
@@ -10499,14 +10530,55 @@ function setLayout(page, v){
 function syncLayouts(){ document.querySelectorAll('.wlayout').forEach(g => { const v = layoutOf(g.dataset.page); g.querySelectorAll('[data-lay]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lay === v))); }); }
 function group(tiles, mode, cls){
   return mode === 'carousel'
-    ? `<div class="wcar"><button class="wcarbtn" data-dir="-1" aria-label="Previous">‹</button><div class="wtrack" tabindex="0" role="group" aria-roledescription="carousel">${tiles}</div><button class="wcarbtn" data-dir="1" aria-label="Next">›</button></div>`
+    ? `<div class="orbit"><div class="ostage" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Swipe or use the arrow keys to turn"><div class="ofloor" aria-hidden="true"></div>${tiles}</div><div class="onav"><button class="wcarbtn" data-dir="-1" aria-label="Previous">‹</button><div class="oinfo"><span class="olabel" aria-live="polite"></span><span class="odots"></span></div><button class="wcarbtn" data-dir="1" aria-label="Next">›</button></div><p class="ohint">Drag or swipe to turn · select a card at the side to bring it forward</p></div>`
     : `<div class="wtiles ${cls}">${tiles}</div>`;
 }
-function syncCars(){ document.querySelectorAll('#welcome .wtrack').forEach(t => { const [p, n] = t.parentElement.querySelectorAll('.wcarbtn'); p.disabled = t.scrollLeft <= 2; n.disabled = t.scrollLeft + t.clientWidth >= t.scrollWidth - 2; if (!t.dataset.w) { t.dataset.w = 1; t.addEventListener('scroll', () => { clearTimeout(t._s); t._s = setTimeout(syncCars, 80); }, {passive:true}); } }); }
-addEventListener('resize', () => setTimeout(syncCars, 100));
+/* the orbit: cards travel round an oval track, always facing you, larger at the front */
+function orbitCards(o){ return [...o.querySelectorAll('.ostage > .wtile')]; }
+function layoutOrbit(o, instant){
+  const cards = orbitCards(o), n = cards.length; if (!n) return;
+  const st = o.querySelector('.ostage'), w = st.clientWidth || 900, s = 360 / n, a = o._a || 0;
+  const RX = Math.min(440, w * (w < 600 ? 0.3 : 0.36)), RY = w < 600 ? 50 : 78;
+  const front = ((Math.round(a / s) % n) + n) % n;
+  st.classList.toggle('dragging', !!instant);
+  cards.forEach((c, i) => {
+    let rel = i * s - a; rel = ((rel % 360) + 540) % 360 - 180;
+    const r = rel * Math.PI / 180, cs = Math.cos(r), sc = 0.48 + 0.52 * (cs + 1) / 2;
+    c.style.transform = `translate(-50%, -50%) translate(${(Math.sin(r) * RX).toFixed(1)}px, ${(cs * RY - 8).toFixed(1)}px) scale(${sc.toFixed(3)})`;
+    c.style.opacity = (0.3 + 0.7 * (cs + 1) / 2).toFixed(3); c.style.zIndex = Math.round((cs + 1) * 100);
+    c.classList.toggle('ofront', i === front); c.tabIndex = i === front ? 0 : -1; c.setAttribute('aria-hidden', String(i !== front));
+  });
+  const k = cards[front].querySelector('.wkick');
+  o.querySelector('.olabel').textContent = `${k ? k.textContent + ' · ' : ''}${front + 1} of ${n}`;
+  const dots = o.querySelector('.odots');
+  if (dots.children.length !== n) dots.innerHTML = cards.map((c, i) => `<button class="odot" data-i="${i}" aria-label="Card ${i + 1}"></button>`).join('');
+  [...dots.children].forEach((d, i) => d.classList.toggle('on', i === front));
+}
+function turnOrbitTo(o, i){ const n = orbitCards(o).length, s = 360 / n; let d = i * s - (o._a || 0); d = ((d % 360) + 540) % 360 - 180; o._a = (o._a || 0) + d; layoutOrbit(o); }
+function stepOrbit(o, dir){ const n = orbitCards(o).length, s = 360 / n; o._a = Math.round((o._a || 0) / s) * s + dir * s; layoutOrbit(o); }
+function initOrbits(){
+  document.querySelectorAll('#welcome .orbit').forEach(o => {
+    if (o._ready) { layoutOrbit(o, true); return; }
+    o._ready = true; o._a = 0; const st = o.querySelector('.ostage');
+    layoutOrbit(o, true); requestAnimationFrame(() => layoutOrbit(o));
+    let x0 = null, a0 = 0, moved = 0;
+    st.addEventListener('pointerdown', e => { if (e.button) return; x0 = e.clientX; a0 = o._a || 0; moved = 0; });
+    st.addEventListener('pointermove', e => { if (x0 === null) return; const dx = e.clientX - x0; moved = Math.max(moved, Math.abs(dx)); if (moved > 4) { o._a = a0 - dx * 0.3; layoutOrbit(o, true); } });
+    const end = () => { if (x0 === null) return; x0 = null; if (moved > 4) { const s = 360 / orbitCards(o).length; o._a = Math.round(o._a / s) * s; layoutOrbit(o); } };
+    st.addEventListener('pointerup', end); st.addEventListener('pointerleave', end); st.addEventListener('pointercancel', end);
+    /* a drag is not a click; a card at the side or back comes forward instead of opening */
+    st.addEventListener('click', e => { const c = e.target.closest('.wtile'); if (!c) return;
+      if (moved > 4) { e.preventDefault(); e.stopPropagation(); moved = 0; return; }
+      if (!c.classList.contains('ofront')) { e.preventDefault(); e.stopPropagation(); turnOrbitTo(o, orbitCards(o).indexOf(c)); } }, true);
+    st.addEventListener('keydown', e => { if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { e.preventDefault(); stepOrbit(o, e.key === 'ArrowLeft' ? -1 : 1); } });
+    o.querySelector('.odots').addEventListener('click', e => { const d = e.target.closest('.odot'); if (d) turnOrbitTo(o, +d.dataset.i); });
+  });
+}
+function syncCars(){ initOrbits(); }
+addEventListener('resize', () => setTimeout(() => document.querySelectorAll('#welcome .orbit').forEach(o => layoutOrbit(o, true)), 100));
 document.addEventListener('click', e => {
   const lay = e.target.closest('.wlayout [data-lay]'); if (lay) { setLayout(lay.closest('.wlayout').dataset.page, lay.dataset.lay); return; }
-  const nav = e.target.closest('.wcarbtn'); if (nav) { const t = nav.parentElement.querySelector('.wtrack'); t.scrollBy({left:(+nav.dataset.dir) * t.clientWidth * 0.85, behavior:calm() ? 'auto' : 'smooth'}); }
+  const nav = e.target.closest('.orbit .wcarbtn'); if (nav) stepOrbit(nav.closest('.orbit'), +nav.dataset.dir);
 });
 function renderLearn(){
   const tours = TOUR_LIST.filter(t => t.ready), placed = new Set(), html = [], carousel = [];
