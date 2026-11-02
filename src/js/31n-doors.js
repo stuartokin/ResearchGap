@@ -44,14 +44,55 @@ function setLayout(page, v){
 function syncLayouts(){ document.querySelectorAll('.wlayout').forEach(g => { const v = layoutOf(g.dataset.page); g.querySelectorAll('[data-lay]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lay === v))); }); }
 function group(tiles, mode, cls){
   return mode === 'carousel'
-    ? `<div class="wcar"><button class="wcarbtn" data-dir="-1" aria-label="Previous">‹</button><div class="wtrack" tabindex="0" role="group" aria-roledescription="carousel">${tiles}</div><button class="wcarbtn" data-dir="1" aria-label="Next">›</button></div>`
+    ? `<div class="orbit"><div class="ostage" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Swipe or use the arrow keys to turn"><div class="ofloor" aria-hidden="true"></div>${tiles}</div><div class="onav"><button class="wcarbtn" data-dir="-1" aria-label="Previous">‹</button><div class="oinfo"><span class="olabel" aria-live="polite"></span><span class="odots"></span></div><button class="wcarbtn" data-dir="1" aria-label="Next">›</button></div><p class="ohint">Drag or swipe to turn · select a card at the side to bring it forward</p></div>`
     : `<div class="wtiles ${cls}">${tiles}</div>`;
 }
-function syncCars(){ document.querySelectorAll('#welcome .wtrack').forEach(t => { const [p, n] = t.parentElement.querySelectorAll('.wcarbtn'); p.disabled = t.scrollLeft <= 2; n.disabled = t.scrollLeft + t.clientWidth >= t.scrollWidth - 2; if (!t.dataset.w) { t.dataset.w = 1; t.addEventListener('scroll', () => { clearTimeout(t._s); t._s = setTimeout(syncCars, 80); }, {passive:true}); } }); }
-addEventListener('resize', () => setTimeout(syncCars, 100));
+/* the orbit: cards travel round an oval track, always facing you, larger at the front */
+function orbitCards(o){ return [...o.querySelectorAll('.ostage > .wtile')]; }
+function layoutOrbit(o, instant){
+  const cards = orbitCards(o), n = cards.length; if (!n) return;
+  const st = o.querySelector('.ostage'), w = st.clientWidth || 900, s = 360 / n, a = o._a || 0;
+  const RX = Math.min(440, w * (w < 600 ? 0.3 : 0.36)), RY = w < 600 ? 50 : 78;
+  const front = ((Math.round(a / s) % n) + n) % n;
+  st.classList.toggle('dragging', !!instant);
+  cards.forEach((c, i) => {
+    let rel = i * s - a; rel = ((rel % 360) + 540) % 360 - 180;
+    const r = rel * Math.PI / 180, cs = Math.cos(r), sc = 0.48 + 0.52 * (cs + 1) / 2;
+    c.style.transform = `translate(-50%, -50%) translate(${(Math.sin(r) * RX).toFixed(1)}px, ${(cs * RY - 8).toFixed(1)}px) scale(${sc.toFixed(3)})`;
+    c.style.opacity = (0.3 + 0.7 * (cs + 1) / 2).toFixed(3); c.style.zIndex = Math.round((cs + 1) * 100);
+    c.classList.toggle('ofront', i === front); c.tabIndex = i === front ? 0 : -1; c.setAttribute('aria-hidden', String(i !== front));
+  });
+  const k = cards[front].querySelector('.wkick');
+  o.querySelector('.olabel').textContent = `${k ? k.textContent + ' · ' : ''}${front + 1} of ${n}`;
+  const dots = o.querySelector('.odots');
+  if (dots.children.length !== n) dots.innerHTML = cards.map((c, i) => `<button class="odot" data-i="${i}" aria-label="Card ${i + 1}"></button>`).join('');
+  [...dots.children].forEach((d, i) => d.classList.toggle('on', i === front));
+}
+function turnOrbitTo(o, i){ const n = orbitCards(o).length, s = 360 / n; let d = i * s - (o._a || 0); d = ((d % 360) + 540) % 360 - 180; o._a = (o._a || 0) + d; layoutOrbit(o); }
+function stepOrbit(o, dir){ const n = orbitCards(o).length, s = 360 / n; o._a = Math.round((o._a || 0) / s) * s + dir * s; layoutOrbit(o); }
+function initOrbits(){
+  document.querySelectorAll('#welcome .orbit').forEach(o => {
+    if (o._ready) { layoutOrbit(o, true); return; }
+    o._ready = true; o._a = 0; const st = o.querySelector('.ostage');
+    layoutOrbit(o, true); requestAnimationFrame(() => layoutOrbit(o));
+    let x0 = null, a0 = 0, moved = 0;
+    st.addEventListener('pointerdown', e => { if (e.button) return; x0 = e.clientX; a0 = o._a || 0; moved = 0; });
+    st.addEventListener('pointermove', e => { if (x0 === null) return; const dx = e.clientX - x0; moved = Math.max(moved, Math.abs(dx)); if (moved > 4) { o._a = a0 - dx * 0.3; layoutOrbit(o, true); } });
+    const end = () => { if (x0 === null) return; x0 = null; if (moved > 4) { const s = 360 / orbitCards(o).length; o._a = Math.round(o._a / s) * s; layoutOrbit(o); } };
+    st.addEventListener('pointerup', end); st.addEventListener('pointerleave', end); st.addEventListener('pointercancel', end);
+    /* a drag is not a click; a card at the side or back comes forward instead of opening */
+    st.addEventListener('click', e => { const c = e.target.closest('.wtile'); if (!c) return;
+      if (moved > 4) { e.preventDefault(); e.stopPropagation(); moved = 0; return; }
+      if (!c.classList.contains('ofront')) { e.preventDefault(); e.stopPropagation(); turnOrbitTo(o, orbitCards(o).indexOf(c)); } }, true);
+    st.addEventListener('keydown', e => { if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { e.preventDefault(); stepOrbit(o, e.key === 'ArrowLeft' ? -1 : 1); } });
+    o.querySelector('.odots').addEventListener('click', e => { const d = e.target.closest('.odot'); if (d) turnOrbitTo(o, +d.dataset.i); });
+  });
+}
+function syncCars(){ initOrbits(); }
+addEventListener('resize', () => setTimeout(() => document.querySelectorAll('#welcome .orbit').forEach(o => layoutOrbit(o, true)), 100));
 document.addEventListener('click', e => {
   const lay = e.target.closest('.wlayout [data-lay]'); if (lay) { setLayout(lay.closest('.wlayout').dataset.page, lay.dataset.lay); return; }
-  const nav = e.target.closest('.wcarbtn'); if (nav) { const t = nav.parentElement.querySelector('.wtrack'); t.scrollBy({left:(+nav.dataset.dir) * t.clientWidth * 0.85, behavior:calm() ? 'auto' : 'smooth'}); }
+  const nav = e.target.closest('.orbit .wcarbtn'); if (nav) stepOrbit(nav.closest('.orbit'), +nav.dataset.dir);
 });
 function renderLearn(){
   const tours = TOUR_LIST.filter(t => t.ready), placed = new Set(), html = [], carousel = [];

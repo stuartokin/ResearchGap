@@ -837,3 +837,33 @@ body.touring .qinsight,body.kiosk .qinsight{display:none!important}
 @media (max-width:760px){.wcarbtn{display:none}.wtrack .wtile{flex-basis:82%;min-height:170px;flex-direction:column}}
 .wtile .wtb .wkick{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#A9BCCF}
 .wcarbtn:disabled{opacity:.3;cursor:default}
+/* the orbit: cards round an oval track, always facing you, larger at the front */
+.orbit{margin-top:.4em}
+.ostage{position:relative;height:540px;touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:grab;overflow:hidden;outline:none;border-radius:16px}
+.ostage:active{cursor:grabbing}.ostage:focus-visible{box-shadow:inset 0 0 0 2px #5FD8FF}
+.ofloor{position:absolute;left:50%;top:58%;width:min(1000px,84%);height:150px;transform:translate(-50%,-50%);border-radius:50%;border:1px solid #1E3447;background:rgba(95,216,255,.03);pointer-events:none}
+.ostage > .wtile{position:absolute;left:50%;top:45%;width:290px;height:330px;min-height:0;margin:0;transition:transform .75s cubic-bezier(.2,.8,.2,1),opacity .75s;box-shadow:0 22px 50px rgba(0,0,0,.5)}
+.ostage.dragging > .wtile{transition:none}
+.ostage > .wtile:not(.ofront) .wtb > span:not(.wkick):not(.wbadge){opacity:0}
+.ostage > .wtile:not(.ofront) .wtb em{opacity:0}
+.ostage > .wtile.ofront{border-color:#4CD3C2;box-shadow:0 0 0 1px #4CD3C2,0 26px 60px rgba(0,0,0,.6)}
+#wp-learn .ostage > .wtile.ofront{border-color:#FFD166;box-shadow:0 0 0 1px #FFD166,0 26px 60px rgba(0,0,0,.6)}
+.ostage > .wtile:hover{transform:none}
+#welcome.arriving .orbit .wtile{animation:none}
+.onav{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:6px}
+.onav .wcarbtn{display:flex}
+.oinfo{display:flex;flex-direction:column;align-items:center;gap:9px;min-width:280px}
+.olabel{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#A9BCCF;text-align:center}
+.odots{display:flex;gap:7px;align-items:center}
+.odot{all:unset;cursor:pointer;width:10px;height:10px;border-radius:50%;background:#2E4A63}.odot.on{background:#4CD3C2;width:26px;border-radius:5px}
+#wp-learn .odot.on{background:#FFD166}
+.odot:focus-visible{outline:2px solid #5FD8FF;outline-offset:3px}
+.ohint{text-align:center;font-size:13px;color:#A9BCCF;margin:.6em 0 0}
+@media (max-width:760px){
+  .ostage{height:430px}.ofloor{height:96px;top:60%}
+  .ostage > .wtile,.wtiles.wide .ostage > .wtile{width:210px;height:270px;flex-direction:column;align-items:stretch}
+  .ostage > .wtile .tpic{width:100%;height:100%;margin:0;border-radius:0}
+  .ostage > .wtile .wtb > span:not(.wkick):not(.wbadge){display:none}
+  .onav{gap:12px}.onav .wcarbtn{display:flex}.oinfo{min-width:150px}
+}
+@media (prefers-reduced-motion:reduce){.ostage > .wtile{transition:none}}
