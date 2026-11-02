@@ -20,7 +20,6 @@
     <span class="tbchips" id="tbChips" aria-live="polite"></span>
     <button class="btn" id="homeBtn" title="Back to the three doors (your view is kept)"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11 L12 4 L20 11"/><path d="M6 10 L6 20 L18 20 L18 10"/></svg> Home</button>
     <button class="btn crumb" id="crumbBtn" hidden></button>
-    <button class="btn" id="toursBtn" title="Guided walk-throughs">Tours</button>
     <button class="btn" id="questionsBtn" aria-haspopup="true" aria-expanded="false">Questions ▾</button>
     <button class="btn primary" id="playBtn">Play the century</button>
     <button class="btn" id="winBtn" aria-haspopup="true" aria-expanded="false">Views ▾</button>
@@ -336,7 +335,7 @@
 <section class="win" id="w-inspect" data-title="Data inspector"><div class="wbody" id="insBody"><p class="note-s">Everything in the dataset that is not on the display: retired, disputed, partly confirmed, waiting for QA, rejected, and possible duplicates.</p><div id="insCtl"></div><div id="insList" class="inslist"></div><div id="insFoot" class="cfoot"></div></div></section>
 <section class="win" id="w-help" data-title="Help"><div class="wbody helpbody" id="aboutBody">
 
-    <p class="helpdocs"><button class="btn" id="helpDocsBtn">📘 How it works: files, workflows and agents →</button> <button class="btn" id="helpVizBtn">📊 At a glance →</button></p>
+    <p class="helpdocs"><button class="btn" id="toursBtn" title="Guided walk-throughs">🎓 Guided tours →</button> <button class="btn" id="helpDocsBtn">📘 How it works: files, workflows and agents →</button> <button class="btn" id="helpVizBtn">📊 At a glance →</button></p>
     <div class="faqtools"><input id="faqQ" class="search" placeholder="Search help" aria-label="Search help"></div>
     <div id="faq"></div>
     <h2 style="margin-top:1.2em">About this model</h2>
@@ -516,12 +515,14 @@
   <nav class="wnav" aria-label="Where you are"><button class="wmute wdoorsback">← All doors</button><span class="wcrumb">Home › <b class="cl">Learn</b></span><button class="wmute wbacktool" hidden>Back to the tool</button></nav>
   <span class="wkicker cl">LEARN</span><h1>Guided tours</h1>
   <p class="wpsub">Narrated walk-throughs of one to two minutes, with subtitles. Each returns you here when it ends.</p>
+  <div class="wlayout" role="group" aria-label="Show the tours as" data-page="learn"><span>Show tours as</span><button data-lay="tiles">Tiles</button><button data-lay="carousel">Carousel</button></div>
   <div id="wCards" class="wsections"></div>
 </section>
 <section id="wp-ask" class="wpg wpage" hidden>
   <nav class="wnav" aria-label="Where you are"><button class="wmute wdoorsback">← All doors</button><span class="wcrumb">Home › <b class="ca">Ask</b></span><button class="wmute wbacktool" hidden>Back to the tool</button></nav>
   <span class="wkicker ca">ASK</span><h1>What would you like to know?</h1>
   <p class="wpsub">Each question opens the tool set up with the answer: a chart, its insight and the items behind it.</p>
+  <div class="wlayout" role="group" aria-label="Show the questions as" data-page="ask"><span>Show as</span><button data-lay="tiles">Tiles</button><button data-lay="carousel">Carousel</button></div>
   <div id="wQList" class="wsections"></div>
 </section>
 </div></div>

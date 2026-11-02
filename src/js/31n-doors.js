@@ -30,33 +30,62 @@ const TOUR_SECTIONS = [['week', 'Fresh this week', ['week', 'cleanweek']], ['big
 const TOUR_PIC = {gap:'arcs', week:'bars', cleanweek:'turbine', horizon:'radar', secure:'shield', fortune:'climb', charthow:'heatmap', how:'network'};
 const Q_SECTIONS = [['AI for clean energy', ['clean-ai', 'clean-next']], ['Speed of change', ['ai-faster', 'fields']], ['What is coming', ['whatif', 'slips']], ['Security, people and this week', ['security', 'fortune', 'changed']]];
 const Q_PIC = {'clean-ai':'turbine', 'clean-next':'timeline', 'ai-faster':'race', fields:'heatmap', security:'shieldgap', whatif:'sooner', slips:'slipping', fortune:'coins', changed:'newdots'};
+/* tiles or a carousel, chosen separately for Learn's tours and for Ask; tiles by default. The choice is kept in
+   My file (view) and, as the one setting the app keeps in the browser, in local storage. */
+const LAYOUT_KEY = 'sg.doorLayouts';
+function savedLayouts(){ try { return JSON.parse(localStorage.getItem(LAYOUT_KEY) || '{}') || {}; } catch (e) { return {}; } }
+function layoutOf(page){ const v = view[page + 'Layout'] || savedLayouts()[page]; return v === 'carousel' ? 'carousel' : 'tiles'; }
+function setLayout(page, v){
+  view[page + 'Layout'] = v;
+  try { const s = savedLayouts(); s[page] = v; localStorage.setItem(LAYOUT_KEY, JSON.stringify(s)); } catch (e) { /* storage may be off: My file still keeps it */ }
+  if (page === 'learn') renderLearn(); else renderAsk();
+  syncLayouts(); quietPics(); arrive();
+}
+function syncLayouts(){ document.querySelectorAll('.wlayout').forEach(g => { const v = layoutOf(g.dataset.page); g.querySelectorAll('[data-lay]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lay === v))); }); }
+function group(tiles, mode, cls){
+  return mode === 'carousel'
+    ? `<div class="wcar"><button class="wcarbtn" data-dir="-1" aria-label="Previous">‹</button><div class="wtrack" tabindex="0" role="group" aria-roledescription="carousel">${tiles}</div><button class="wcarbtn" data-dir="1" aria-label="Next">›</button></div>`
+    : `<div class="wtiles ${cls}">${tiles}</div>`;
+}
+function syncCars(){ document.querySelectorAll('#welcome .wtrack').forEach(t => { const [p, n] = t.parentElement.querySelectorAll('.wcarbtn'); p.disabled = t.scrollLeft <= 2; n.disabled = t.scrollLeft + t.clientWidth >= t.scrollWidth - 2; if (!t.dataset.w) { t.dataset.w = 1; t.addEventListener('scroll', () => { clearTimeout(t._s); t._s = setTimeout(syncCars, 80); }, {passive:true}); } }); }
+addEventListener('resize', () => setTimeout(syncCars, 100));
+document.addEventListener('click', e => {
+  const lay = e.target.closest('.wlayout [data-lay]'); if (lay) { setLayout(lay.closest('.wlayout').dataset.page, lay.dataset.lay); return; }
+  const nav = e.target.closest('.wcarbtn'); if (nav) { const t = nav.parentElement.querySelector('.wtrack'); t.scrollBy({left:(+nav.dataset.dir) * t.clientWidth * 0.85, behavior:calm() ? 'auto' : 'smooth'}); }
+});
 function renderLearn(){
-  const tours = TOUR_LIST.filter(t => t.ready), placed = new Set(), html = [];
+  const tours = TOUR_LIST.filter(t => t.ready), placed = new Set(), html = [], carousel = [];
   TOUR_SECTIONS.forEach(([key, label, ids], k) => {
     let list = tours.filter(t => ids.includes(t.id));
     if (key === 'big') list = list.concat(tours.filter(t => !TOUR_SECTIONS.some(s => s[2].includes(t.id))));   // new tours join the big picture
     list.forEach(t => placed.add(t.id)); if (!list.length) return;
-    html.push(`<h2 class="wsec">${esc(label)}</h2><div class="wtiles ${key === 'week' ? 'wide' : ''}">${list.map(t => { const up = tourUpdatedLabel(t.id);
-      return `<button class="wcard wtile" data-tour="${t.id}" style="--i:${placed.size}">${pic(TOUR_PIC[t.id])}<span class="wtb">${up ? `<span class="wbadge">Updated ${chEsc(up)}</span>` : ''}<b>${esc(t.title)}</b><span>${esc(t.blurb)}</span><em>▶ ${up ? 'about 2 minutes' : '1 to 2 minutes'}</em></span></button>`; }).join('')}</div>`);
+    const card = (t, n) => { const up = tourUpdatedLabel(t.id);
+      return `<button class="wcard wtile" data-tour="${t.id}" style="--i:${n}">${pic(TOUR_PIC[t.id])}<span class="wtb">${up ? `<span class="wbadge">Updated ${chEsc(up)}</span>` : ''}${key !== 'week' && layoutOf('learn') === 'carousel' ? `<span class="wkick">${esc(label)}</span>` : ''}<b>${esc(t.title)}</b><span>${esc(t.blurb)}</span><em>▶ ${up ? 'about 2 minutes' : '1 to 2 minutes'}</em></span></button>`; };
+    if (key === 'week' || layoutOf('learn') === 'tiles') html.push(`<h2 class="wsec">${esc(label)}</h2>` + group(list.map(card).join(''), 'tiles', key === 'week' ? 'wide' : ''));   // this week's analyses always stay as tiles
+    else carousel.push(...list.map(card));
   });
-  $('wCards').innerHTML = html.join('');
+  if (carousel.length) html.push('<h2 class="wsec">The tours</h2>' + group(carousel.join(''), 'carousel'));   // one carousel, each card naming its section
+  $('wCards').innerHTML = html.join(''); syncCars();
 }
 function renderAsk(){
   const byId = Object.fromEntries(QUESTIONS.map(q => [q.id, q])), shown = new Set(), html = [];
   const sections = Q_SECTIONS.map(([label, ids]) => [label, ids.filter(id => byId[id])]);
   const rest = QUESTIONS.filter(q => !Q_SECTIONS.some(s => s[1].includes(q.id))).map(q => q.id);   // new questions get their own section
   if (rest.length) sections.push(['More questions', rest]);
+  const car = layoutOf('ask') === 'carousel', all = [];
   sections.forEach(([label, ids]) => { if (!ids.length) return;
-    html.push(`<h2 class="wsec">${esc(label)}</h2><div class="wtiles three">${ids.map(id => { shown.add(id); const q = byId[id];
-      return `<button class="wtile qtile" data-q="${id}" style="--i:${shown.size}">${pic(Q_PIC[id])}<span class="wtb"><b>${esc(q.q)}</b><span>${esc(q.see)}</span><em class="wshow">Show me</em></span></button>`; }).join('')}</div>`); });
-  $('wQList').innerHTML = html.join('');
+    const cards = ids.map(id => { shown.add(id); const q = byId[id];
+      return `<button class="wtile qtile" data-q="${id}" style="--i:${shown.size}">${pic(Q_PIC[id])}<span class="wtb">${car ? `<span class="wkick">${esc(label)}</span>` : ''}<b>${esc(q.q)}</b><span>${esc(q.see)}</span><em class="wshow">Show me</em></span></button>`; });
+    if (car) all.push(...cards); else html.push(`<h2 class="wsec">${esc(label)}</h2>` + group(cards.join(''), 'tiles', 'three')); });
+  if (car) html.push(group(all.join(''), 'carousel'));   // one carousel to spin through, each card naming its section
+  $('wQList').innerHTML = html.join(''); syncCars();
 }
 function quietPics(){ if (matchMedia('(prefers-reduced-motion: reduce)').matches) document.querySelectorAll('#welcome svg.tpic').forEach(s => { try { s.pauseAnimations(); } catch (e) { /* older browsers */ } }); }
 /* the three pages of the welcome screen */
 function wGo(page){
   ['doors', 'learn', 'ask'].forEach(p => { $('wp-' + p).hidden = p !== page; });
   $('welcome').dataset.page = page; $('welcome').scrollTop = 0;
-  if (page === 'learn') renderLearn(); if (page === 'ask') renderAsk();
+  if (page === 'learn') renderLearn(); if (page === 'ask') renderAsk(); syncLayouts();
   quietPics();
   const h = $('wp-' + page).querySelector('h1'); if (h) { h.setAttribute('tabindex', '-1'); h.focus({preventScroll:true}); }
 }

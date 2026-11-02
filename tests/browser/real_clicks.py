@@ -29,7 +29,7 @@ async def main():
         ok('C4 an item in Present works', await click('#rotBtn', 'Auto-rotate') and await pg.evaluate("__getT().state.autoRotate") != r0)
         await click('#aboutBtn', 'Help')
         ok('C5 Help opens How it works in front', await click('#helpDocsBtn', 'How it works') and await pg.evaluate("+document.getElementById('w-docs').style.zIndex > +document.getElementById('w-help').style.zIndex"))
-        await click('#winBtn', 'Views'); await click('#winMenu [data-w="__questions"]', 'questions')
+        await click('#questionsBtn', 'Questions'); await click('#questionsMenu [data-qm="__all"]', 'All questions'); await pg.wait_for_timeout(900)
         ok('C6 a question’s “Show me” sets up its view', await click('.qtile[data-q="clean-ai"]', 'Show me') and await pg.evaluate("__getT().layout.charts.open && __getT().F.vision"))
         ok('X1 no page errors', not errs)
         print(f"PASSED {sum(results)} of {len(results)} | page errors: {errs}")

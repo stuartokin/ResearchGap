@@ -13,7 +13,6 @@ function buildWinMenu(){
   view.menuGroups = view.menuGroups || {};
   const item = id => `<button data-w="${id}"><span class="tick ${layout[id].open ? 'on' : ''}">${layout[id].open ? '✓' : ''}</span>${WIN_NAMES[id]}</button>`;
   let h = '<div class="wmh">Ready-made views</div><div class="wmpre">' + PRESETS.map(([k, n, t]) => `<button data-w="__p_${k}" class="${view.preset === k ? 'cur' : ''}" title="${t}"><b>${n}</b><span>${t}</span></button>`).join('') + '</div>';
-  h += '<button data-w="__questions" class="wmq">❓ Start with a question…</button>';
   h += IS_AI ? '<button data-w="__aiswitch" class="wmq">↩ Back to the standard version</button>' : '<button data-w="__aiswitch" class="wmq">✨ Try the AI-enhanced version</button>';
   h += myViewsMenuHtml();   // your own named views, after the ready-made ones
   const any = WIN_GROUPS.some(([g]) => view.menuGroups[g]);

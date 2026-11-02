@@ -85,6 +85,7 @@ const HELP = {
   resetBtn:'Reloads the app with its default settings.',
   fsBtn:'Uses the whole screen.',
   toursBtn:'The guided tours: narrated walk-throughs of one to two minutes. When one ends, you are back where you were.',
+  'wlayout':'Show the tours or questions as tiles or as one carousel to swipe through. Each page keeps its own choice, in My file and in this browser.',
   homeBtn:'Back to the three doors: Learn, Ask and Explore. Your view is kept; Back to the tool returns to it.',
   questionsBtn:'The questions this tool answers well, by topic. Choose one to see its answer; All questions shows them with pictures.',
   crumbBtn:'The question you are looking at. Select it to go back to all the questions.',

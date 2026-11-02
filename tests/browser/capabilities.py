@@ -11,8 +11,8 @@ async def main():
         pg.on('dialog', lambda d: asyncio.ensure_future(d.accept('capability-test') if d.type == 'prompt' else d.dismiss()))   # name prompts answered; confirmations declined
         await pg.goto('http://localhost:8765/test.html?view=none&welcome=0'); await pg.wait_for_timeout(3000)
         J = pg.evaluate
-        vis = await J("['toursBtn', 'playBtn', 'winBtn', 'presentBtn', 'shareBtn', 'aboutBtn'].every(id => { const e = document.getElementById(id); return e && e.offsetParent !== null; })")
-        ok('T1 the toolbar shows Tours, Play the century, Views, Present, Share and Help', vis)
+        vis = await J("['homeBtn', 'questionsBtn', 'playBtn', 'winBtn', 'presentBtn', 'shareBtn', 'aboutBtn'].every(id => { const e = document.getElementById(id); return e && e.offsetParent !== null; }) && !!document.getElementById('toursBtn').closest('#w-help')")
+        ok('T1 the toolbar shows Home, Questions, Play the century, Views, Present, Share and Help (Tours is in Help)', vis)
         ok('T2 the Views button is called Views', (await J("document.getElementById('winBtn').textContent")).startswith('Views'))
         # Present
         await J("document.getElementById('presentBtn').click()"); await pg.wait_for_timeout(300)

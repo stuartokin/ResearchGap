@@ -822,3 +822,18 @@ body.touring .qinsight,body.kiosk .qinsight{display:none!important}
 .wtile::after{background:linear-gradient(to top,rgba(14,34,50,.97) 0%,rgba(14,34,50,.9) 38%,rgba(14,34,50,.35) 75%,rgba(14,34,50,.12) 100%)}
 .wtile:hover .tpic,.wtile:focus-visible .tpic{opacity:.75}
 @media (max-width:760px){.wtile,.wtiles.wide .wtile{min-height:112px}.wtile .tpic,.wtiles.wide .tpic{opacity:.5}}
+/* tiles or a carousel, on the Learn and Ask pages */
+.wlayout{display:inline-flex;align-items:center;gap:4px;margin:.2em 0 .4em;padding:4px;border:1px solid #2E4A63;border-radius:999px}
+.wlayout span{font-size:13px;color:#A9BCCF;padding:0 8px 0 10px}
+.wlayout button{all:unset;cursor:pointer;font-size:14px;padding:8px 14px;border-radius:999px;color:#E9F2FF;min-height:28px}
+.wlayout button[aria-pressed="true"]{background:#E9F2FF;color:#07131F;font-weight:600}
+.wlayout button:focus-visible{outline:2px solid #5FD8FF}
+.wcar{position:relative;display:flex;align-items:center;gap:8px}
+.wtrack{flex:1;display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 4px;padding:4px 4px 10px;scrollbar-width:thin;overscroll-behavior-x:contain}
+.wtrack .wtile{flex:0 0 clamp(250px,30%,360px);scroll-snap-align:start;min-height:250px}
+.wtrack:focus-visible{outline:2px solid #5FD8FF;outline-offset:2px;border-radius:12px}
+.wcarbtn{all:unset;flex:none;cursor:pointer;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;line-height:1;color:#E9F2FF;background:#0E2232;border:1px solid #2E4A63}
+.wcarbtn:hover,.wcarbtn:focus-visible{border-color:#E9F2FF}
+@media (max-width:760px){.wcarbtn{display:none}.wtrack .wtile{flex-basis:82%;min-height:170px;flex-direction:column}}
+.wtile .wtb .wkick{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#A9BCCF}
+.wcarbtn:disabled{opacity:.3;cursor:default}
