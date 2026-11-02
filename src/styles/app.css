@@ -731,3 +731,94 @@ body.touring .qinsight,body.kiosk .qinsight{display:none!important}
 .aiwn h2,.aiwn h3{font-size:1.05em;margin:.8em 0 .3em}.aifeat li{margin:.4em 0}
 @media (max-width:560px){#aiBanner{border-radius:12px;bottom:40px}#aiBanner span{display:none}}
 #aiBanner{cursor:grab;user-select:none;touch-action:none}#aiBanner.dragging{cursor:grabbing;opacity:.92}#aiBanner .aigrip{color:#B794F6;letter-spacing:-2px;margin-right:2px}#aiBanner button{cursor:pointer}
+
+/* ===== the welcome doors, and the Learn and Ask pages behind them ===== */
+.wbox{max-width:1180px}
+.wsub{font-size:clamp(14px,1.5vw,19px);color:#B8CADB}
+.wslim{display:inline-block;margin:.3em auto .2em;padding:8px 18px;border:1px solid #6B5A2A;border-radius:999px;background:rgba(255,209,102,.07);color:#F2E2B8;font-size:14px}
+.wprompt{margin:1.3em 0 .7em;font-size:14px;color:#A9BCCF;letter-spacing:.06em;text-transform:uppercase}
+.wdoors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;text-align:left}
+.wdoor{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:12px;min-height:280px;padding:26px 24px 22px;border-radius:18px;background:#0E2232;border:1px solid #2E4A63;border-top:4px solid var(--dc);color:#E9F2FF;transition:transform .15s,background .15s}
+.wdoor:hover,.wdoor:focus-visible{transform:translateY(-3px);background:#12293B;outline:2px solid var(--dc);outline-offset:2px}
+.wd-learn{--dc:#FFD166;--dk:#10202E}.wd-ask{--dc:#4CD3C2;--dk:#062320}.wd-explore{--dc:#5FD8FF;--dk:#04222E}
+.wdi{color:var(--dc)}.wdl{font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--dc)}
+.wdt{font-family:var(--serif);font-size:clamp(26px,2.6vw,34px);line-height:1.05}
+.wdx{font-size:15px;line-height:1.5;color:#B8CADB}
+.wdf{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.wdc{font-size:13px;color:#A9BCCF}.wdb{font-size:15px;font-weight:600;color:var(--dk);background:var(--dc);border-radius:999px;padding:10px 16px}
+.wdfoot{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:center;margin:1.4em 0 .4em}
+.wdfoot .wversion{margin:0}
+#welcome.needack .wslim,#welcome.needack .wprompt{display:none}
+#welcome.needack .wdoors,#welcome.needack .wdfoot{opacity:.3;pointer-events:none;filter:grayscale(.6)}
+.wpage{text-align:left}
+.wnav{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}.wnav .wbacktool{margin-left:auto}
+.wcrumb{color:#A9BCCF;font-size:14px}.cl{color:#FFD166}.ca{color:#4CD3C2}
+.wkicker{display:block;font-size:13px;font-weight:700;letter-spacing:.12em}
+.wpage h1{font-size:clamp(28px,3.6vw,46px);margin:.05em 0 .15em}
+.wpsub{color:#B8CADB;margin:0 0 .6em}
+.wsec{margin:1.3em 0 .6em;font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#A9BCCF}
+.wtiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.wtiles.three{grid-template-columns:repeat(3,minmax(0,1fr))}.wtiles.wide{grid-template-columns:repeat(2,minmax(0,1fr))}
+.wtile{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;overflow:hidden;border-radius:16px;background:#0E2232;border:1px solid #2E4A63;color:#E9F2FF;transition:transform .15s,border-color .15s}
+.wtile:hover,.wtile:focus-visible{transform:translateY(-2px);border-color:#FFD166;outline:none}
+.qtile:hover,.qtile:focus-visible{border-color:#4CD3C2}
+.wtile .tpic{display:block;width:100%;height:120px;background:#10283A;flex:none}
+.wtb{display:flex;flex-direction:column;gap:6px;padding:14px 16px 16px;flex:1}
+.wtile .wtb b{font-size:16px;line-height:1.3}.wtile .wtb > span:not(.wbadge){color:#B8CADB;font-size:14px;line-height:1.4}
+.wtile .wtb em{font-style:normal;margin-top:auto;font-size:13px;color:#FFD166}
+.wtile .wtb em.wshow{align-self:flex-start;font-size:14px;font-weight:600;color:#4CD3C2;border:1px solid #2B6B63;border-radius:999px;padding:7px 14px}
+.wbadge{align-self:flex-start;font-size:12px;font-weight:700;color:#10202E;background:#FFD166;border-radius:999px;padding:2px 9px}
+.wtiles.wide .wtile{flex-direction:row;border-color:#6B5A2A}.wtiles.wide .tpic{width:44%;height:auto;min-height:150px}
+/* phones and narrow windows: doors become rows; tiles become rows with a small square picture */
+@media (max-width:760px){
+  .wdoors{grid-template-columns:1fr;gap:10px}
+  .wdoor{min-height:0;flex-direction:row;flex-wrap:wrap;align-items:center;gap:6px 12px;padding:14px;border-top:1px solid #2E4A63;border-left:4px solid var(--dc)}
+  .wdoor .wdi svg{width:32px;height:32px}.wdl{flex-basis:calc(100% - 50px)}.wdt{font-family:inherit;font-weight:600;font-size:18px;flex-basis:100%}.wdx{display:none}.wdf{flex-basis:100%;margin:0}.wdb{display:none}
+  .wtiles,.wtiles.three,.wtiles.wide{grid-template-columns:1fr;gap:10px}
+  .wtile,.wtiles.wide .wtile{flex-direction:row;align-items:center}
+  .wtile .tpic,.wtiles.wide .tpic{width:76px;height:76px;min-height:0;margin:8px;border-radius:8px}
+  .wtb{padding:10px 12px 10px 4px;gap:3px}.wtile .wtb > span:not(.wbadge){display:none}.wtile .wtb b{font-size:15px}
+  .wtile .wtb em.wshow{border:0;padding:0}
+}
+/* the toolbar: Home, the breadcrumb after a question, and the Questions menu */
+#homeBtn{display:inline-flex;align-items:center;gap:6px}
+#crumbBtn{max-width:340px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;border-color:#2B6B63;color:#C9F2EC}#crumbBtn .crumbask{color:#4CD3C2;font-weight:600}
+#questionsBtn{border-color:#2B6B63}
+.qmenu{width:min(430px,92vw)}.qmenu button{display:block;width:100%;text-align:left;white-space:normal;line-height:1.35}.qmenu button.cur{color:#4CD3C2;background:rgba(76,211,194,.1)}.qmenu .qall{color:#4CD3C2;font-weight:600}
+#qInsight .qinext{border-color:#4CD3C2;color:#062320;background:#4CD3C2;font-weight:600}
+@media (max-width:560px){#crumbBtn{display:none}#homeBtn{padding-left:9px;padding-right:9px}}
+.wbacktool[hidden]{display:none!important}
+.wpg h1[tabindex="-1"]:focus{outline:none}
+.qmenu button{display:block;width:100%;font:inherit;font-size:14px;color:#E9F2FF;background:none;border:0;border-radius:8px;padding:9px 10px;cursor:pointer;min-height:0;height:auto}
+.qmenu button:hover,.qmenu button:focus-visible{background:rgba(255,255,255,.06)}
+.qmenu button.cur{color:#4CD3C2;background:rgba(76,211,194,.1)}
+#crumbBtn{flex:none}
+/* the pictures sit behind the text: soft, dim and full-bleed, with a band that keeps the words easy to read */
+.wtile{position:relative;justify-content:flex-end;min-height:178px;isolation:isolate}
+.wtile .tpic,.wtiles.wide .tpic{position:absolute;inset:0;width:100%;height:100%;min-height:0;margin:0;border-radius:0;opacity:.34;filter:blur(1.4px) saturate(.85);z-index:-2;transition:opacity .25s}
+.wtile::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,rgba(14,34,50,.97) 38%,rgba(14,34,50,.62) 72%,rgba(14,34,50,.28))}
+.wtile:hover .tpic,.wtile:focus-visible .tpic{opacity:.5}
+.wtiles.wide .wtile{flex-direction:column;min-height:190px}
+.wtb{position:relative}
+@media (max-width:760px){
+  .wtile,.wtiles.wide .wtile{flex-direction:column;align-items:stretch;min-height:92px}
+  .wtile .tpic,.wtiles.wide .tpic{width:100%;height:100%;margin:0;border-radius:0}
+  .wtb{padding:12px 14px}
+}
+/* entering through a door: it opens out to fill the screen; the new space settles in, its tiles arriving in turn */
+.wportal{position:fixed;z-index:3100;pointer-events:none;border-radius:18px;background:#0E2232;border-top:4px solid var(--dc);box-shadow:0 0 0 1px #2E4A63;transition:left .48s cubic-bezier(.6,.05,.25,1),top .48s cubic-bezier(.6,.05,.25,1),width .48s cubic-bezier(.6,.05,.25,1),height .48s cubic-bezier(.6,.05,.25,1),border-radius .48s,background-color .48s}
+.wportal.open{border-radius:0;background-color:#081723}
+.wportal.fade{opacity:0;transition:opacity .5s ease}
+#welcome.leaving .wpg:not([hidden]){opacity:0;transform:scale(1.05);transition:opacity .4s ease,transform .45s ease}
+#welcome.arriving .wpg:not([hidden]){animation:wArrive .55s cubic-bezier(.2,.7,.2,1) both}
+#welcome.arriving .wtile{animation:wTileIn .5s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i,0) * 45ms + 120ms)}
+@keyframes wArrive{from{opacity:0;transform:scale(.96) translateY(14px)}to{opacity:1;transform:none}}
+@keyframes wTileIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){#welcome.arriving .wpg:not([hidden]),#welcome.arriving .wtile{animation:none}#welcome.leaving .wpg:not([hidden]){transition:none}}
+/* a little stronger: the picture shows above the words and fades softly behind them */
+.wtile{min-height:210px}.wtiles.wide .wtile{min-height:200px}
+.wtb{flex:none}
+.wtile .tpic,.wtiles.wide .tpic{opacity:.58;filter:blur(.7px) saturate(.9)}
+.wtile::after{background:linear-gradient(to top,rgba(14,34,50,.97) 0%,rgba(14,34,50,.9) 38%,rgba(14,34,50,.35) 75%,rgba(14,34,50,.12) 100%)}
+.wtile:hover .tpic,.wtile:focus-visible .tpic{opacity:.75}
+@media (max-width:760px){.wtile,.wtiles.wide .wtile{min-height:112px}.wtile .tpic,.wtiles.wide .tpic{opacity:.5}}

@@ -15,7 +15,7 @@ function showVersion(){ const v = `Version ${APP_VERSION} · data revision ${DB.
 showVersion();
 /* ---------- the welcome screen counts its walk-throughs ---------- */
 setTimeout(() => { const n = TOUR_LIST.filter(t => t.ready).length, words = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve'];
-  $('wSub').textContent = `${words[n] || n} walk-throughs of one to two minutes, narrated with subtitles. Or go straight to the tool.`; }, 0);   // after every tour has been added
+  /* the subtitle is now fixed copy on the doors page; the tour count shows on the Learn door instead */; }, 0);   // after every tour has been added
 /* ---------- dates: UK by default, US as an option ---------- */
 function fmtDate(iso, kind){
   if (!iso) return ''; const s = String(iso), d = new Date(s.length <= 10 ? s + 'T12:00:00Z' : s); if (isNaN(d)) return s;

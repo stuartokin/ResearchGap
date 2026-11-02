@@ -38,7 +38,7 @@ winMenu.addEventListener('click', e => {
   if (b.dataset.x === 'all') { const any = WIN_GROUPS.some(([g]) => view.menuGroups[g]); WIN_GROUPS.concat([['other']]).forEach(([g]) => { view.menuGroups[g] = !any; }); buildWinMenu(); return; }
   if (b.dataset.mvact) { handleMyView(b.dataset.mv, b.dataset.mvact); return; }
   if (b.dataset.w === '__aiswitch') { goVersion(!IS_AI); return; }
-  if (b.dataset.w === '__questions') { winMenu.classList.remove('open'); setOpen('questions', true); raise('questions'); return; }
+  if (b.dataset.w === '__questions') { winMenu.classList.remove('open'); openAllQuestions(); return; }
   const w = b.dataset.w;
   if (w === '__csv' || w === '__xlsx') { winMenu.classList.remove('open'); (w === '__csv' ? exportCsv : exportXlsx)(); return; }
   if (w === '__img') { winMenu.classList.remove('open'); setTimeout(exportImage, 150); return; }

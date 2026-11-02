@@ -282,6 +282,7 @@ function tourStep(i){
   tourSay(text, tour.spokenCb);
 }
 function startTour(id){
+  view.question = null;   // a tour is not an answer: the breadcrumb goes
   closeWelcome(false);
   tour.saved = {view:JSON.parse(JSON.stringify(view)), speed:playSpeed, musicWasOn:!music.paused};
   cancelCountdown(); if (state.playing) stopPlay(); $('spot').classList.remove('on', 'concl', 'chg');
@@ -323,7 +324,7 @@ function endTour(how){
   returnFromTour();
   if (sv.musicWasOn) music.play().catch(() => {});
   showDisc();
-  if (toWelcome) setTimeout(showWelcome, 300);
+  if (toWelcome) setTimeout(() => showWelcome('learn'), 300);   // back to the tours it was chosen from
 }
 $('tourNext').onclick = () => tourStep(tour.i + 1);
 $('tourPrev').onclick = () => tourStep(tour.i - 1);
@@ -341,19 +342,19 @@ document.addEventListener('keydown', e => {
   if (tour.on && e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); endTour('escape'); }
   else if (tour.on && e.key === 'ArrowRight') { e.stopPropagation(); tourStep(tour.i + 1); }
   else if (tour.on && e.key === 'ArrowLeft') { e.stopPropagation(); tourStep(tour.i - 1); }
-  else if ($('welcome').classList.contains('on') && e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); closeWelcome(true); }
+  else if ($('welcome').classList.contains('on') && e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); if ($('welcome').dataset.page !== 'doors') wGo('doors'); else closeWelcome(true); }   // a page behind a door goes back to the doors first
 }, true);
 /* ---------- the welcome screen: shown on every load ---------- */
 let welcomeTimer = 0, welcomeLeft = 0, welcomeDeadline = 0, welcomeLast = 0;
 /* switching versions carries the acknowledgement once (sw=welcome or sw=app), then the marker is removed from the address, so a copied or shared link never skips it */
 const SWITCHED = (() => { const q = new URLSearchParams(location.search), v = q.get('sw'); if (!v) return ''; q.delete('sw'); const s = q.toString(); try { history.replaceState(null, '', location.pathname + (s ? '?' + s : '') + location.hash); } catch (e) { /* not essential */ } return v === 'app' || v === 'welcome' ? v : ''; })();
 let aiAcked = new URLSearchParams(location.search).get('welcome') === '0' || !!SWITCHED;   // a mandatory acknowledgement, once per visit (tests skip it with welcome=0)
-function ackAI(){ aiAcked = true; $('welcome').classList.remove('needack'); welcomeDeadline = Date.now() + 30000; welcomeLast = Date.now(); tickWelcome(); $('wRun').focus(); }
-function showWelcome(){
-  $('wCards').innerHTML = TOUR_LIST.map((t, k) => `<button class="wcard${t.ready ? '' : ' soon'}" data-tour="${t.id}"${t.ready ? '' : ' disabled aria-disabled="true"'}><span class="wn">${k + 1}</span><b>${esc(t.title)}</b><span>${esc(t.blurb)}</span><em>${tourUpdatedLabel(t.id) ? 'Updated ' + chEsc(tourUpdatedLabel(t.id)) : t.ready ? '1 to 2 minute walk-through' : 'Coming soon'}</em></button>`).join('');
-  $('welcome').classList.add('on'); $('disc').classList.add('gone'); syncMute();
-  if (!aiAcked) { $('welcome').classList.add('needack'); clearTimeout(welcomeTimer); $('wAuto').textContent = 'Please acknowledge the notice above to continue.'; setTimeout(() => $('wAckBtn').focus(), 50); return; }
-  welcomeDeadline = Date.now() + 30000; welcomeLast = Date.now(); tickWelcome();
+function ackAI(){ aiAcked = true; $('welcome').classList.remove('needack'); $('wAuto').textContent = ''; setTimeout(() => $('wLearn').focus(), 30); }
+/* the welcome screen: three doors (Learn, Ask, Explore), and a page behind each of the first two */
+function showWelcome(page){
+  syncDoors(); wGo(page || 'doors');
+  $('welcome').classList.add('on'); $('disc').classList.add('gone'); syncMute(); clearTimeout(welcomeTimer); $('wAuto').textContent = '';
+  if (!aiAcked) { $('welcome').classList.add('needack'); setTimeout(() => $('wAckBtn').focus(), 50); }
 }
 function tickWelcome(){   // timed by the real clock, so a busy computer cannot slow the countdown
   clearTimeout(welcomeTimer); if (!$('welcome').classList.contains('on')) return;
@@ -370,5 +371,5 @@ $('wCards').addEventListener('click', e => { const c = e.target.closest('.wcard'
 $('wRun').onclick = () => closeWelcome(true);
 $('wAckBtn').onclick = ackAI;
 $('wMute').onclick = () => { tour.muted = !tour.muted; prefs.tourMuted = tour.muted; savePrefs(); syncMute(); };
-$('toursBtn').onclick = () => { if (tour.on) endTour('escape'); tour.returnTo = JSON.parse(JSON.stringify(snapshot('before-tour'))); showWelcome(); };   // remember the app exactly as it was
+$('toursBtn').onclick = () => { if (tour.on) endTour('escape'); closeDrops(); tour.returnTo = JSON.parse(JSON.stringify(snapshot('before-tour'))); showWelcome('learn'); };   // remember the app exactly as it was
 

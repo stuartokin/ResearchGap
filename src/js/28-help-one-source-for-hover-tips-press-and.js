@@ -84,7 +84,10 @@ const HELP = {
   rotBtn:'Turns the model slowly. Drag the model to look around.',
   resetBtn:'Reloads the app with its default settings.',
   fsBtn:'Uses the whole screen.',
-  toursBtn:'Reopen the welcome screen with the one-minute guided walk-throughs.',
+  toursBtn:'The guided tours: narrated walk-throughs of one to two minutes. When one ends, you are back where you were.',
+  homeBtn:'Back to the three doors: Learn, Ask and Explore. Your view is kept; Back to the tool returns to it.',
+  questionsBtn:'The questions this tool answers well, by topic. Choose one to see its answer; All questions shows them with pictures.',
+  crumbBtn:'The question you are looking at. Select it to go back to all the questions.',
   aboutBtn:'Help, frequently asked questions and information about the data.'
 };
 const FAQ_EXTRA = [
@@ -111,6 +114,7 @@ const FAQ_EXTRA = [
     ['Two AI models', 'Two AI models maintain the data and check each other. Claude (Anthropic) and Gemini (Google) each search for new milestones; whichever finds one, the other must agree before it is published undisputed. Each record says who found it, and Data quality shows how often they agree.'],
     ['What are Views, Present and Share?', 'The toolbar has six buttons. Views: ready-made views, your own My views, the panels, and your file. Present: full screen, auto-rotate, music, the joke ticker, the showcase title, thank you and questions, audience ideas and kiosk mode; 📌 pins any of them to the toolbar. Share: the PowerPoint report, the clean energy briefing slide, an image, a link, and the data. While music, rotation, full screen or the ticker is on, a small chip on the toolbar shows it and switches it off in one click.'],
     ['How do I keep my work between visits?', 'The app starts from its defaults on every visit and keeps nothing in the browser unless you ask it to. Save your file (Views, “Save my file…”): it holds your views, settings, review marks and My list, and works on any device. The sign beside Views shows anything unsaved. In Display, Autosave can keep a file updated automatically (Chrome or Edge on a computer) or keep a copy in this browser.'],
+    ['Where do I start?', 'The welcome screen has three doors. Learn has the guided tours; Ask has questions the tool answers well, each opening its answer; Explore opens the full tool. In the tool, Home returns to the doors, Questions lists the questions, and after a question a breadcrumb takes you back to them.'],
     ['What is the AI-enhanced version?', 'The same app and data, plus experimental features that an AI agent builds and improves each week, after automatic checks, without human review. Choose it on the welcome screen, in Display or in Views; a banner always shows when you are in it, with What’s new and Back to standard. How it works, and its safeguards, are in How it works, “The AI-enhanced version”.'],
     ['Is the AI-enhanced version safe to use?', 'It uses the same data, cannot change it, and cannot reach the internet or store anything; each feature is checked before it is published, a failing feature is paused, and the banner cannot be hidden. It is experimental, so features may be rough or wrong: the standard version is always one click away.'],
     ['Can I see several charts at once?', 'Yes. ⧉ New window on any chart opens a full chart window, with all its controls, as many as you like; close one to remove it. A milestone you select in any chart window opens in Details and is highlighted in every linked chart window; 🔗 Linked on a window switches it to keep its own. Compare, under Views, sets out two side by side. Chart windows are saved with My views and My file.'],
