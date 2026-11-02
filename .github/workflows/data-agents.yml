@@ -104,6 +104,11 @@ jobs:
         working-directory: agents
         run: python guidance_agent.py
 
+      - name: Security-response agent (each technology's own first security response, most recent first, with a confirmed source)
+        continue-on-error: true
+        working-directory: agents
+        run: python security_agent.py
+
       - name: Tour agent (refreshes the walk-through scripts within fixed rules)
         continue-on-error: true
         working-directory: agents
