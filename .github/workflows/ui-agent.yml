@@ -1,10 +1,11 @@
-# The AI-enhanced version: each Wednesday, Claude Code (as research-gap-ui-agent) improves the experimental features.
+# The AI-enhanced version: each Wednesday (05:23 UTC, safety net 09:53; on only when UI_AGENT_ENABLED is 'true'), Claude Code (as research-gap-ui-agent) improves the experimental features.
 # It can change only experimental/ on the experimental branch: GitHub refuses it main and the workflows, and the guard
 # rejects anything else. Passing work is published to /ai/ by research-gap-publisher; a summary issue reports each run.
 name: AI-enhanced version (weekly)
 on:
   schedule:
-    - cron: '0 6 * * 3'   # Wednesdays 06:00 UTC
+    - cron: '23 5 * * 3'   # Wednesdays 05:23 UTC, off the hour (GitHub's scheduler is busiest at the start of each hour)
+    - cron: '53 9 * * 3'   # safety net: runs only if the first slot did not
   workflow_dispatch:
     inputs:
       dry_run:
@@ -19,7 +20,34 @@ concurrency:
   group: ai-enhanced-version
   cancel-in-progress: false
 jobs:
+  check:
+    # Two scheduled slots a day: the later one is a safety net in case GitHub drops the first (it can at busy times).
+    # This stops the later slot if the day's run has already happened. If GitHub cannot be asked, it goes ahead.
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+    outputs:
+      go: ${{ steps.today.outputs.go }}
+    steps:
+      - name: Has today's run already happened?
+        id: today
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EVENT: ${{ github.event_name }}
+        run: |
+          if [ "$EVENT" != "schedule" ]; then echo "go=true" >> "$GITHUB_OUTPUT"; echo "Started by hand: going ahead."; exit 0; fi
+          gh run list --repo "$GITHUB_REPOSITORY" --workflow ui-agent.yml --created ">=$(date -u +%F)" --limit 30 --json databaseId,event,status,conclusion > runs.json || echo '[]' > runs.json
+          python3 - <<'PY'
+          import json, os
+          runs = [r for r in json.load(open('runs.json')) if str(r['databaseId']) != os.environ['GITHUB_RUN_ID']]
+          done = [r for r in runs if r['event'] == 'schedule' and (r['status'] != 'completed' or r['conclusion'] == 'success')]
+          print("Today's run has already happened: this later slot is not needed." if done else 'No run yet today: going ahead.')
+          open(os.environ['GITHUB_OUTPUT'], 'a').write('go=' + ('false' if done else 'true') + '\n')
+          PY
   improve:
+    needs: check
+    # On/off switch: the weekly schedule only runs when the repository variable UI_AGENT_ENABLED is 'true'.
+    if: needs.check.outputs.go == 'true' && (github.event_name == 'workflow_dispatch' || vars.UI_AGENT_ENABLED == 'true')
     runs-on: ubuntu-latest
     timeout-minutes: 100
     environment: ui-agent
@@ -160,7 +188,7 @@ jobs:
           echo "::error::Could not publish the AI-enhanced version after three attempts."; exit 1
   report:
     needs: [improve, publish]
-    if: always()
+    if: always() && needs.improve.result != 'skipped'   # no report when the run was not needed or is switched off
     runs-on: ubuntu-latest
     environment: ui-agent
     permissions:

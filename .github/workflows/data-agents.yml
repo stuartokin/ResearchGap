@@ -1,10 +1,11 @@
 name: Weekly data agents
 
-# Runs every Monday at 06:00 UTC, or manually from the Actions tab.
+# Runs every Monday at 05:17 UTC (with a safety-net slot at 09:47 UTC), or manually from the Actions tab.
 # Never runs on pull requests, so the API key is never exposed to forks or outside contributors.
 on:
   schedule:
-    - cron: '0 6 * * 1'
+    - cron: '17 5 * * 1'   # off the hour: GitHub's scheduler is busiest, and may drop runs, at the start of each hour
+    - cron: '47 9 * * 1'   # safety net: runs only if the first slot did not
   workflow_dispatch:
     inputs:
       deep:
@@ -21,9 +22,34 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  check:
+    # Two scheduled slots a day: the later one is a safety net in case GitHub drops the first (it can at busy times).
+    # This stops the later slot if the day's run has already happened. If GitHub cannot be asked, it goes ahead.
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+    outputs:
+      go: ${{ steps.today.outputs.go }}
+    steps:
+      - name: Has today's run already happened?
+        id: today
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EVENT: ${{ github.event_name }}
+        run: |
+          if [ "$EVENT" != "schedule" ]; then echo "go=true" >> "$GITHUB_OUTPUT"; echo "Started by hand: going ahead."; exit 0; fi
+          gh run list --repo "$GITHUB_REPOSITORY" --workflow data-agents.yml --created ">=$(date -u +%F)" --limit 30 --json databaseId,event,status,conclusion > runs.json || echo '[]' > runs.json
+          python3 - <<'PY'
+          import json, os
+          runs = [r for r in json.load(open('runs.json')) if str(r['databaseId']) != os.environ['GITHUB_RUN_ID']]
+          done = [r for r in runs if (r['status'] != 'completed' or r['conclusion'] == 'success')]
+          print("Today's run has already happened: this later slot is not needed." if done else 'No run yet today: going ahead.')
+          open(os.environ['GITHUB_OUTPUT'], 'a').write('go=' + ('false' if done else 'true') + '\n')
+          PY
   update:
+    needs: check
     # Kill switch: the weekly schedule only runs when the repository variable AGENTS_ENABLED is 'true'.
-    if: github.event_name == 'workflow_dispatch' || vars.AGENTS_ENABLED == 'true'
+    if: needs.check.outputs.go == 'true' && (github.event_name == 'workflow_dispatch' || vars.AGENTS_ENABLED == 'true')
     runs-on: ubuntu-24.04
     timeout-minutes: 75
     env:

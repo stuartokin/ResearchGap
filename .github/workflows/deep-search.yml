@@ -18,7 +18,7 @@ on:
         required: false
         default: '50'
   schedule:
-    - cron: '0 4 1 1,7 *'      # 1 January and 1 July, 04:00 UTC
+    - cron: '41 4 1 1,7 *'     # 1 January and 1 July, 04:41 UTC (off the hour: GitHub's scheduler may drop runs at the start of the hour)
 
 permissions:
   contents: write
