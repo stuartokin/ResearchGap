@@ -186,7 +186,7 @@ async function generateReport(){
   card(s, 3.6, 1.2, 6.0, 1.85, CORAL);
   s.addText([{text:'Example', options:{bold:true, color:CORAL, fontSize:10, breakLine:true, paraSpaceAfter:3}},
              {text:ex ? `${ex.t} (${ex.p}). ${ex.sec || ''}` : '', options:{color:TXT, fontSize:9.5, breakLine:true, paraSpaceAfter:3}},
-             {text:er && er.resp ? `First security response in its category: ${er.resp.t} (${er.resp.p}), ${er.lag} years later.` : '', options:{color:AMBER, fontSize:9.5}}],
+             {text:er && er.resp ? (er.researched ? `First security response for it: ${er.resp.t} (${er.resp.p}), ${er.lag} years later.` : `Not yet researched; nearest related security milestone, as a rough guide: ${er.resp.t} (${er.resp.p}).`) : '', options:{color:AMBER, fontSize:9.5}}],
     {x:3.8, y:1.28, w:5.7, h:1.7, fontFace:'Arial', valign:'top', margin:0, isTextBox:true});
   card(s, 3.6, 3.2, 6.0, 1.82, CORAL);
   const fw = ['NCSC CAF', 'Ofgem CAF Overlay', 'NERC CIP', 'ISA/IEC 62443', 'NIST CSF 2.0', 'IEC 62351'];

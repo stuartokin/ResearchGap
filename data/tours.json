@@ -209,7 +209,8 @@
       "by": "gapCase",
       "cases": {
        "some": "Gaps remain. Some technologies that arrived since 2010 still have no security response recorded in their category. They are shown first. So far there are {gapCount}, including {gapTitle}.",
-       "none": "In this data, every technology that has arrived since 2010 has a security response recorded in its category."
+       "none": "In this data, every technology that has arrived since 2010 has a security response recorded in its category.",
+       "proxy": "Gaps are hard to judge yet: most technologies here have not had their own security response researched, so the chart shows the nearest related security milestone as a rough guide. The agents are researching them, most recent first."
       }
      }
     },
@@ -440,7 +441,8 @@
        "by": "secCase",
        "cases": {
         "open": "Technologies still waiting for a security response in their category: {secOpen}.",
-        "closed": "Every technology here now has a security response in its category."
+        "closed": "Every technology here now has a security response in its category.",
+        "proxy": "Dashed grey rows are rough proxies, not researched responses: {secResearched} have been researched so far."
        }
       },
       {
@@ -585,7 +587,7 @@
     },
     "c5": {
      "view": "sec",
-     "say": "Finally, trust. Security protections have typically trailed deployment by a median of {secMedian} years, and {secOpen} cases remain open. This week, mitigation guidance was mapped to recognised frameworks and rebuilt from official sources only. The record is stronger, but the lag has not closed."
+     "say": "Finally, trust. By a rough proxy, protections have trailed deployment by a median of {secMedian} years, and {secOpen} cases remain open. This week, mitigation guidance was mapped to recognised frameworks and rebuilt from official sources only. The lag has not closed."
     }
    }
   },
@@ -633,12 +635,13 @@
     },
     "security": {
      "say": [
-      "Security protections have typically arrived about {secMedian} years after the technology they protect. ",
+      "By a rough proxy, security protections have arrived about {secMedian} years after the technology they protect. ",
       {
        "by": "secCase",
        "cases": {
         "open": "{secOpen} technologies still have no security response in their category. These open gaps, listed first, are where the risk lies.",
-        "closed": "Every technology here now has a security response in its category."
+        "closed": "Every technology here now has a security response in its category.",
+        "proxy": "Only {secResearched} have a researched security response so far; the rest show a rough proxy, so treat gaps here as provisional."
        }
       }
      ]

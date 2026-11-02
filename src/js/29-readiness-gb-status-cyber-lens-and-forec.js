@@ -17,9 +17,13 @@ const GBS = {deployed:'Deployed in GB', trial:'Trial in GB', planned:'Planned in
 const SEC_MAP = {energy:['ot'], hw:['identity'], sw:['network','crypto','identity'], ai:['ops'], quantum:['crypto'], comms:['crypto','network'], space:['crypto','ot'], robotics:['ot'], life:['identity']};
 function secResponse(it){
   if (!it.attack || it.kind === 'flight') return null;
+  const R = it.secR;   // researched by the security-response agent, with a source the page confirmed
+  if (R && R.title && R.year != null) return {resp:{t:R.title, p:R.year, url:R.url || ''}, lag:Math.max(0, R.year - it.p), expected:false, researched:true};
+  if (R && R.none) return {resp:null, researched:true, checked:R.checked || ''};   // researched: nothing specific found yet, an open gap
+  /* not yet researched: the nearest later security milestone in a related category, a rough proxy only */
   const subs = SEC_MAP[it.v] || [], yr = it.p;
   const cands = items.filter(c => !c.removed && c.v === 'cyber' && subs.includes(c.sub) && c.kind !== 'flight' && c.p >= yr).sort((a, b) => a.p - b.p);
-  return cands.length ? {resp:cands[0], lag:cands[0].p - yr, expected:cands[0].kind === 'proj'} : {resp:null};
+  return cands.length ? {resp:cands[0], lag:cands[0].p - yr, expected:cands[0].kind === 'proj', proxy:true} : {resp:null, proxy:true};
 }
 /* ---------- Vision radar ---------- */
 function radarSinceTest(c){
@@ -56,7 +60,7 @@ function renderCyber(){
   const landedResp = withR.filter(x => x.r && x.r.resp && !x.r.expected), gaps = withR.filter(x => x.r && !x.r.resp && x.it.p >= 2010 && x.it.p <= NOW - 3).sort((a, b) => b.it.p - a.it.p);
   const med = a => a.length ? Math.round(median(a)) : '–';
   const byField = FKEYS.filter(k => k !== 'cyber' && FIELDS[k]).map(k => { const xs = landedResp.filter(x => x.it.v === k); return {k, n:techs.filter(it => it.v === k).length, m:xs.length ? median(xs.map(x => x.r.lag)) : null, g:gaps.filter(x => x.it.v === k).length}; }).filter(r => r.n);
-  let html = `<div class="kf"><div class="kfc"><b>${techs.length}</b><span>technologies in this selection that expand the attack surface</span></div><div class="kfc"><b>${med(landedResp.map(x => x.r.lag))} yrs</b><span>median wait for the first security response in their category</span></div><div class="kfc"><b>${gaps.length}</b><span>open gaps: arrived 2010 to ${NOW - 3} with no security response in their category since</span></div><div class="kfc"><b>${med(landedResp.filter(x => x.it.p >= 2000).map(x => x.r.lag))} yrs</b><span>median wait for technologies arriving since 2000</span></div></div>`;
+  let html = `<div class="kf"><div class="kfc"><b>${techs.length}</b><span>technologies in this selection that expand the attack surface</span></div><div class="kfc"><b>${med(landedResp.map(x => x.r.lag))} yrs</b><span>median wait for a security response (researched where the agents have found one; otherwise the nearest related security milestone, a rough proxy): ${withR.filter(x => x.r && x.r.researched).length} researched so far</span></div><div class="kfc"><b>${gaps.length}</b><span>open gaps: arrived 2010 to ${NOW - 3} with no security response in their category since</span></div><div class="kfc"><b>${med(landedResp.filter(x => x.it.p >= 2000).map(x => x.r.lag))} yrs</b><span>median wait for technologies arriving since 2000</span></div></div>`;
   html += '<h3>By field</h3><table class="qtab"><tr><th>Field</th><th>Technologies</th><th>Median wait</th><th>Open gaps</th></tr>' + byField.map(r => `<tr><td><i style="background:${FIELDS[r.k].hex}"></i>${FIELDS[r.k].name}</td><td>${r.n}</td><td>${r.m == null ? '–' : Math.round(r.m) + ' yrs'}</td><td>${r.g}</td></tr>`).join('') + '</table>';
   html += '<h3>Open gaps</h3>' + (gaps.length ? gaps.slice(0, 14).map(x => `<div class="trow" data-id="${x.it.id}"><b>${x.it.p}</b><i class="cat" style="background:${itemHex(x.it)}"></i><span>${esc(x.it.t)}<em>${esc(x.it.sec || '')}</em></span></div>`).join('') : '<p class="empty">No open gaps in this selection.</p>');
   html += '<h3>Longest waits</h3>' + landedResp.sort((a, b) => b.r.lag - a.r.lag).slice(0, 8).map(x => `<div class="trow trowl" data-id="${x.it.id}"><b>${x.r.lag} yrs</b><i class="cat" style="background:${itemHex(x.it)}"></i><span>${esc(x.it.t)} (${x.it.p})<em>First response in its category: ${esc(x.r.resp.t)} (${x.r.resp.p})</em></span></div>`).join('');

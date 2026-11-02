@@ -113,6 +113,7 @@ def run():
         task1 = ("Tasks: (1) choose up to four worked examples, best first, from the candidates: well-known breakthroughs that make the stages easy to follow, "
                  "preferring source-cited records and a mix of university, industry and government origins. ") if sp.get('examples') else "Tasks: (1) return exampleIds as an empty list; this tour has no worked example. "
         prompt = (f"You maintain the narration for a one-minute guided tour: \"{t['title']}\". Today is {TODAY}.\n"
+                  "Security lag: a technology's security response is researched (with a source) only for {secResearched} of them; the others are the nearest later security milestone in a related category, a rough proxy. Never present a proxy as a fact: say it is a rough guide, and never claim every technology has a security response. "
                   "Narration templates use {placeholders} that the app fills from live data, and {\"by\": condition, \"cases\": {...}} blocks whose variant the app chooses from the evidence. "
                   "So you never state figures or decide conclusions yourself.\n"
                   f"Rules: only these placeholders: {sorted(sp['placeholders'])}; keep every case of every condition ({ {k: sorted(v) for k, v in sp['cases'].items()} }); "

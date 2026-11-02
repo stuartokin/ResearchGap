@@ -241,21 +241,21 @@ function chDrift(W, H, fs){
 }
 /* 6. Security lag */
 function chSec(W, H, fs){
-  const all = chPool().filter(it => it.kind === 'hist' && it.attack).map(it => ({it, r:secResponse(it)})).filter(x => x.r);
+  const all = chPool().filter(it => it.kind === 'hist' && it.attack).map(it => ({it, r:secResponse(it)})).filter(x => x.r && (!CH.secResOnly || x.r.researched));
   const sorts = {open:(p, q) => (!!q.r.resp - !!p.r.resp) || p.it.p - q.it.p, arrival:(p, q) => p.it.p - q.it.p, wait:(p, q) => (q.r.resp ? q.r.lag : NOW - q.it.p) - (p.r.resp ? p.r.lag : NOW - p.it.p), response:(p, q) => ((p.r.resp || {}).p || 9999) - ((q.r.resp || {}).p || 9999) || p.it.p - q.it.p};
   all.sort(sorts[CH.secSort] || sorts.arrival);
   setCtl(chFilterBar(`<label class="cl">Sort <span class="cseg" data-seg="secSort"><button data-v="open" class="${CH.secSort === 'open' ? 'on' : ''}">Open gaps first</button><button data-v="arrival" class="${CH.secSort === 'arrival' ? 'on' : ''}">Arrival</button><button data-v="wait" class="${CH.secSort === 'wait' ? 'on' : ''}">Longest wait</button><button data-v="response" class="${CH.secSort === 'response' ? 'on' : ''}">By response</button></span></label>`)
-    + `<div class="clegend"><span><i style="background:${CHC.green}"></i>Response within 3 years</span><span><i style="background:${CHC.amber}"></i>4 to 8 years</span><span><i style="background:${CHC.coral}"></i>Over 8 years</span><span><i class="dash"></i>Response expected (forecast)</span><span><i class="ring"></i>No response yet</span></div>`);
+    + `<div class="clegend"><label class="cl"><input type="checkbox" data-secres ${CH.secResOnly ? 'checked' : ''}> Researched only</label><span><i style="background:${CHC.green}"></i>Researched response within 3 years</span><span><i style="background:${CHC.amber}"></i>4 to 8 years</span><span><i style="background:${CHC.coral}"></i>Over 8 years</span><span><i style="background:${CHC.mut}"></i>Rough proxy (dashed)</span><span><i class="dash"></i>Response expected (forecast)</span><span><i class="ring"></i>No response yet</span></div>`);
   const lagCol = l => l <= 3 ? CHC.green : l <= 8 ? CHC.amber : CHC.coral;
   const respYears = {}; all.forEach(({r}) => { if (r.resp) respYears[r.resp.p] = respYears[r.resp.p] || r.resp.t; });
   const markers = Object.keys(respYears).map(y => ({x:+y, label:'', color:'rgba(127,214,160,.35)'}));
-  const rows = all.map(({it, r}) => { const open = !r.resp, end = open ? NOW : r.resp.p, lag = open ? NOW - it.p : r.lag, c = open ? CHC.coral : lagCol(lag);
-    return {id:it.id, label:it.t, span:[it.p, end], tip:open ? `${it.t} arrived ${it.p}; no security response in its category yet (${lag} years so far)` : `${it.t} arrived ${it.p}. First security response in its category: ${r.resp.t} (${r.resp.p})${r.expected ? ', expected' : ''}: a wait of ${r.lag} years.`,
-      bars:[{a:it.p, b:end, color:c, dash:open || r.expected}], dots:[{x:it.p, color:itemHex(it), r:.6}, {x:end, color:c, hollow:open, r:.6}],
-      end:open ? (lag < 1 ? '⚠ No security response yet (arrived this year)' : `⚠ No security response yet: ${lag}+ year${lag === 1 ? '' : 's'} and counting`) : `${r.lag} yrs → ${chClip(r.resp.t, 28)}`, endColor:c, endX:end, alert:open}; });
+  const rows = all.map(({it, r}) => { const open = !r.resp, end = open ? NOW : r.resp.p, lag = open ? NOW - it.p : r.lag, c = open ? CHC.coral : r.proxy ? CHC.mut : lagCol(lag);
+    return {id:it.id, label:it.t, span:[it.p, end], tip:open ? (r.researched ? `${it.t} arrived ${it.p}; the agents found no security response specific to it (${lag} years so far)` : `${it.t} arrived ${it.p}; not yet researched, and no related security milestone follows it`) : r.proxy ? `${it.t} arrived ${it.p}. Not yet researched; as a rough guide, the nearest later security milestone in a related category is ${r.resp.t} (${r.resp.p})` : `${it.t} arrived ${it.p}. First security response for it (researched): ${r.resp.t} (${r.resp.p})${r.expected ? ', expected' : ''}: a wait of ${r.lag} years.`,
+      bars:[{a:it.p, b:end, color:c, dash:open || r.expected || r.proxy}], dots:[{x:it.p, color:itemHex(it), r:.6}, {x:end, color:c, hollow:open || r.proxy, r:.6}],
+      end:open ? (lag < 1 ? '⚠ No security response yet (arrived this year)' : `⚠ No security response yet: ${lag}+ year${lag === 1 ? '' : 's'} and counting`) : (r.proxy ? `~${r.lag} yrs → ${chClip(r.resp.t, 24)} (proxy)` : `${r.lag} yrs → ${chClip(r.resp.t, 28)}`), endColor:c, endX:end, alert:open}; });
   const done = all.filter(p => p.r.resp && !p.r.expected);
   CH.head = ['Technology', 'Arrived', 'First response', 'Response year', 'Wait (years)', 'Expected']; CH.rows = all.map(({it, r}) => [it.t, it.p, r.resp ? r.resp.t : '(none yet)', r.resp ? r.resp.p : '', r.resp ? r.lag : '', r.expected ? 'yes' : '']);
-  CH.note = `Each row: a technology that expands the attack surface, from when it arrived to the first security response built for its category. ${all.length} technologies; median wait ${done.length ? Math.round(median(done.map(p => p.r.lag)) * 10) / 10 : '–'} years; ${all.filter(p => !p.r.resp).length} still open. AI research, not security advice.`;
+  CH.note = `Each row: a technology that expands the attack surface, from when it arrived to its first security response: solid where the agents have researched one, with a source; dashed and grey, marked (proxy), where it is only the nearest later security milestone in a related category, a rough guide until researched. ${all.filter(x => x.r.researched).length} researched, ${all.filter(x => x.r.proxy && x.r.resp).length} proxies. ${all.length} technologies; median wait ${done.length ? Math.round(median(done.map(p => p.r.lag)) * 10) / 10 : '–'} years; ${all.filter(p => !p.r.resp).length} still open. AI research, not security advice.`;
   return chRowChart(W, H - fs * 1.5, fs, rows, {markers, endW:fs * 17, top:fs * .4});
 }
 /* 7. Race to a fortune */
@@ -351,6 +351,7 @@ const chTip = $('chartTip');
 onChartBody('mousemove', e => { const t = e.target.closest('[data-tip]'); if (!t) { chTip.classList.remove('on'); return; } chTip.textContent = t.dataset.tip; chTip.classList.add('on'); chTip.style.left = Math.min(innerWidth - 320, e.clientX + 14) + 'px'; chTip.style.top = (e.clientY + 14) + 'px'; });
 onChartBody('mouseleave', () => chTip.classList.remove('on'));
 onChartBody('click', e => {
+  if (e.target.matches && e.target.matches('[data-secres]')) { CH.secResOnly = e.target.checked; CH.box = null; renderCharts(); return; }
   const tab = e.target.closest('#chartTabs [data-t]'); if (tab) { CH.tab = tab.dataset.t; CH.insightOn = view.autoInsight !== false; if (typeof hideQInsight === 'function') hideQInsight(); CH.box = null; clearInterval(CH.fortTimer); CH.fortTimer = 0; renderCharts(); return; }
   if (e.target.id === 'chSideX') { CH.panel = null; CH.selF = null; renderCharts(); return; }
   if (e.target.id === 'chZoomReset') { delete CH.zoom[CH.tab]; delete CH.zoom2[CH.tab]; renderCharts(); return; }

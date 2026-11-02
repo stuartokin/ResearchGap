@@ -103,7 +103,7 @@ function secureFacts(){
   const gu = (DB.guidanceUpdates || []).slice().sort((a, b) => (b.date || '').localeCompare(a.date || ''))[0];
   return {attackPct:num(withSec.filter(it => it.attack).length / Math.max(1, withSec.length) * 100), lag:num(lag),
     lagCase:lag == null ? 'unclear' : lag >= 5 ? 'slow' : lag >= 2 ? 'moderate' : 'fast',
-    gapCase:gaps.length ? 'some' : 'none', gapCount:String(gaps.length), gapTitle:gaps[0] ? gaps[0].it.t : '',
+    gapCase:withR.filter(x => x.r.proxy).length > withR.filter(x => x.r.researched).length ? 'proxy' : gaps.length ? 'some' : 'none', gapCount:String(gaps.length), gapTitle:gaps[0] ? gaps[0].it.t : '',
     guideCase:gu ? 'some' : 'none', guideTitle:gu ? gu.title : '',
     trendCase:early == null || late == null ? 'unclear' : late <= early - 2 ? 'improving' : late >= early + 2 ? 'worsening' : 'flat'};
 }

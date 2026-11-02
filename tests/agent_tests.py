@@ -121,5 +121,30 @@ ok('N1 guidance that cannot be confirmed is recorded', len(_mem) == 1 and 'page 
 _b = _io.StringIO()
 with _cl.redirect_stdout(_b): _g.run()
 ok('N2 the next week it is skipped, and named in the instructions', 'rejected in the last eight weeks' in _b.getvalue() and 'CISA 2030' in _prompts[-1] and len(_mem) == 1)
+# the security-response agent: researched responses must stand up on their own page; "none found" is an open gap (all in memory)
+import security_agent as _s
+_db = {'meta': {'changelog': []}, 'milestones': [
+  {'id': 'a', 'title': 'Grid-edge AI controllers', 'field': 'energy', 'change': {'year': 2024}, 'research': {'year': 2018}, 'security': {'expandsAttackSurface': True, 'note': 'n'}},
+  {'id': 'b', 'title': 'EV smart charge points', 'field': 'energy', 'change': {'year': 2019}, 'research': {'year': 2012}, 'security': {'expandsAttackSurface': True, 'note': 'n'}},
+  {'id': 'c', 'title': 'Old technology', 'field': 'energy', 'change': {'year': 1960}, 'research': {'year': 1950}, 'security': {'expandsAttackSurface': True, 'note': 'n'}},
+  {'id': 'd', 'title': 'Already researched', 'field': 'energy', 'change': {'year': 2023}, 'security': {'expandsAttackSurface': True, 'response': {'title': 'X', 'year': 2024}}}]}
+_s.load_db = lambda: _db; _s.save_db = lambda db: None; _s.log_change = lambda *a, **k: None
+_rej = []; _s.record_rejection = lambda agent, mode, c, why: _rej.append(why)
+_ans = {'Grid-edge AI controllers': {'found': False, 'note': 'nothing specific yet'},
+        'EV smart charge points': {'found': True, 'title': 'Electric Vehicles (Smart Charge Points) Regulations 2021', 'year': 2021, 'kind': 'regulation', 'url': 'https://www.legislation.gov.uk/uksi/2021/1467', 'evidence_terms': ['Smart Charge Points']},
+        'Old technology': {'found': True, 'title': 'Something', 'year': 1940, 'url': 'https://example.org/x', 'evidence_terms': ['Something']}}
+_order = []
+_s.call_claude = lambda system, prompt, tool, **k: (_order.append(prompt.split('.')[0].replace('Technology: ', '')), _ans[prompt.split('.')[0].replace('Technology: ', '')])[1]
+_s.fetch_text = lambda url, timeout=20: (200, 'The Electric Vehicles (Smart Charge Points) Regulations 2021 set security requirements.')
+import io as _io2, contextlib as _cl2
+with _cl2.redirect_stdout(_io2.StringIO()): _s.run()
+_m = {m['id']: m for m in _db['milestones']}
+ok('O1 a response the page confirms is recorded, with its source', (_m['b']['security'].get('response') or {}).get('year') == 2021 and _m['b']['security']['response'].get('basis') == 'researched')
+ok('O2 none found is recorded as a researched open gap', (_m['a']['security'].get('response') or {}).get('none') is True)
+ok('O3 a year before the research began is rejected', 'response' not in _m['c']['security'] and any('before' in w for w in _rej))
+ok('O4 most recent first, and researched ones are skipped', _order == ['Grid-edge AI controllers', 'EV smart charge points', 'Old technology'])
+_s.fetch_text = lambda url, timeout=20: (200, 'The Electric Vehicles (Smart Charge Points) Regulations set security requirements.')
+_rec, _why = _s.check_answer(_m['b'], _ans['EV smart charge points'])
+ok('O5 a page that does not give the year is rejected', _rec is None and 'year' in (_why or ''))
 print(f'PASSED {sum(results)} of {len(results)}')
 sys.exit(0 if all(results) else 1)

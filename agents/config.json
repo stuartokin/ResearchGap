@@ -113,5 +113,10 @@
     "maxQueue": 350,
     "maxAdditions": 350,
     "gemini": true
+  },
+  "security": {
+    "perRun": 20,
+    "searches": 4,
+    "recheckNoneDays": 182
   }
 }
