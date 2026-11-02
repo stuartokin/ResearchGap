@@ -837,6 +837,21 @@ body.touring .qinsight,body.kiosk .qinsight{display:none!important}
 .wtile::after{background:linear-gradient(to top,rgba(14,34,50,.97) 0%,rgba(14,34,50,.9) 38%,rgba(14,34,50,.35) 75%,rgba(14,34,50,.12) 100%)}
 .wtile:hover .tpic,.wtile:focus-visible .tpic{opacity:.75}
 @media (max-width:760px){.wtile,.wtiles.wide .wtile{min-height:112px}.wtile .tpic,.wtiles.wide .tpic{opacity:.5}}
+/* tiles or a carousel, on the Learn and Ask pages */
+.wlayout{display:inline-flex;align-items:center;gap:4px;margin:.2em 0 .4em;padding:4px;border:1px solid #2E4A63;border-radius:999px}
+.wlayout span{font-size:13px;color:#A9BCCF;padding:0 8px 0 10px}
+.wlayout button{all:unset;cursor:pointer;font-size:14px;padding:8px 14px;border-radius:999px;color:#E9F2FF;min-height:28px}
+.wlayout button[aria-pressed="true"]{background:#E9F2FF;color:#07131F;font-weight:600}
+.wlayout button:focus-visible{outline:2px solid #5FD8FF}
+.wcar{position:relative;display:flex;align-items:center;gap:8px}
+.wtrack{flex:1;display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 4px;padding:4px 4px 10px;scrollbar-width:thin;overscroll-behavior-x:contain}
+.wtrack .wtile{flex:0 0 clamp(250px,30%,360px);scroll-snap-align:start;min-height:250px}
+.wtrack:focus-visible{outline:2px solid #5FD8FF;outline-offset:2px;border-radius:12px}
+.wcarbtn{all:unset;flex:none;cursor:pointer;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;line-height:1;color:#E9F2FF;background:#0E2232;border:1px solid #2E4A63}
+.wcarbtn:hover,.wcarbtn:focus-visible{border-color:#E9F2FF}
+@media (max-width:760px){.wcarbtn{display:none}.wtrack .wtile{flex-basis:82%;min-height:170px;flex-direction:column}}
+.wtile .wtb .wkick{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#A9BCCF}
+.wcarbtn:disabled{opacity:.3;cursor:default}
 </style>
 </head>
 <body>
@@ -850,7 +865,6 @@ body.touring .qinsight,body.kiosk .qinsight{display:none!important}
     <span class="tbchips" id="tbChips" aria-live="polite"></span>
     <button class="btn" id="homeBtn" title="Back to the three doors (your view is kept)"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11 L12 4 L20 11"/><path d="M6 10 L6 20 L18 20 L18 10"/></svg> Home</button>
     <button class="btn crumb" id="crumbBtn" hidden></button>
-    <button class="btn" id="toursBtn" title="Guided walk-throughs">Tours</button>
     <button class="btn" id="questionsBtn" aria-haspopup="true" aria-expanded="false">Questions ▾</button>
     <button class="btn primary" id="playBtn">Play the century</button>
     <button class="btn" id="winBtn" aria-haspopup="true" aria-expanded="false">Views ▾</button>
@@ -1166,7 +1180,7 @@ body.touring .qinsight,body.kiosk .qinsight{display:none!important}
 <section class="win" id="w-inspect" data-title="Data inspector"><div class="wbody" id="insBody"><p class="note-s">Everything in the dataset that is not on the display: retired, disputed, partly confirmed, waiting for QA, rejected, and possible duplicates.</p><div id="insCtl"></div><div id="insList" class="inslist"></div><div id="insFoot" class="cfoot"></div></div></section>
 <section class="win" id="w-help" data-title="Help"><div class="wbody helpbody" id="aboutBody">
 
-    <p class="helpdocs"><button class="btn" id="helpDocsBtn">📘 How it works: files, workflows and agents →</button> <button class="btn" id="helpVizBtn">📊 At a glance →</button></p>
+    <p class="helpdocs"><button class="btn" id="toursBtn" title="Guided walk-throughs">🎓 Guided tours →</button> <button class="btn" id="helpDocsBtn">📘 How it works: files, workflows and agents →</button> <button class="btn" id="helpVizBtn">📊 At a glance →</button></p>
     <div class="faqtools"><input id="faqQ" class="search" placeholder="Search help" aria-label="Search help"></div>
     <div id="faq"></div>
     <h2 style="margin-top:1.2em">About this model</h2>
@@ -1346,12 +1360,14 @@ body.touring .qinsight,body.kiosk .qinsight{display:none!important}
   <nav class="wnav" aria-label="Where you are"><button class="wmute wdoorsback">← All doors</button><span class="wcrumb">Home › <b class="cl">Learn</b></span><button class="wmute wbacktool" hidden>Back to the tool</button></nav>
   <span class="wkicker cl">LEARN</span><h1>Guided tours</h1>
   <p class="wpsub">Narrated walk-throughs of one to two minutes, with subtitles. Each returns you here when it ends.</p>
+  <div class="wlayout" role="group" aria-label="Show the tours as" data-page="learn"><span>Show tours as</span><button data-lay="tiles">Tiles</button><button data-lay="carousel">Carousel</button></div>
   <div id="wCards" class="wsections"></div>
 </section>
 <section id="wp-ask" class="wpg wpage" hidden>
   <nav class="wnav" aria-label="Where you are"><button class="wmute wdoorsback">← All doors</button><span class="wcrumb">Home › <b class="ca">Ask</b></span><button class="wmute wbacktool" hidden>Back to the tool</button></nav>
   <span class="wkicker ca">ASK</span><h1>What would you like to know?</h1>
   <p class="wpsub">Each question opens the tool set up with the answer: a chart, its insight and the items behind it.</p>
+  <div class="wlayout" role="group" aria-label="Show the questions as" data-page="ask"><span>Show as</span><button data-lay="tiles">Tiles</button><button data-lay="carousel">Carousel</button></div>
   <div id="wQList" class="wsections"></div>
 </section>
 </div></div>
@@ -5712,7 +5728,7 @@ const FORTUNES = DB.founders.map(f => {
 });
 const fmtMoney = (bn, sym) => bn >= 1000 ? `${sym}${(bn / 1000).toFixed(1)}tn` : bn >= 1 ? `${sym}${bn >= 100 ? Math.round(bn) : Math.round(bn * 10) / 10}bn` : `${sym}${Math.round(bn * 1000)}m`;
 const DATA_AS_OF = DB.meta.asOf;
-const APP_VERSION = '13.0', APP_BUILD = '';
+const APP_VERSION = '13.1', APP_BUILD = '';
 // Screen-aware scaling: laptops slightly smaller, large screens larger
 const UI = (() => { const w = innerWidth; return w < 1280 ? .85 : w < 1500 ? .95 : w < 1800 ? 1.05 : w < 2300 ? 1.2 : 1.4; })();
 const LARGE = innerWidth >= 1700;
@@ -6417,7 +6433,6 @@ function buildWinMenu(){
   view.menuGroups = view.menuGroups || {};
   const item = id => `<button data-w="${id}"><span class="tick ${layout[id].open ? 'on' : ''}">${layout[id].open ? '✓' : ''}</span>${WIN_NAMES[id]}</button>`;
   let h = '<div class="wmh">Ready-made views</div><div class="wmpre">' + PRESETS.map(([k, n, t]) => `<button data-w="__p_${k}" class="${view.preset === k ? 'cur' : ''}" title="${t}"><b>${n}</b><span>${t}</span></button>`).join('') + '</div>';
-  h += '<button data-w="__questions" class="wmq">❓ Start with a question…</button>';
   h += IS_AI ? '<button data-w="__aiswitch" class="wmq">↩ Back to the standard version</button>' : '<button data-w="__aiswitch" class="wmq">✨ Try the AI-enhanced version</button>';
   h += myViewsMenuHtml();   // your own named views, after the ready-made ones
   const any = WIN_GROUPS.some(([g]) => view.menuGroups[g]);
@@ -8098,6 +8113,7 @@ const HELP = {
   resetBtn:'Reloads the app with its default settings.',
   fsBtn:'Uses the whole screen.',
   toursBtn:'The guided tours: narrated walk-throughs of one to two minutes. When one ends, you are back where you were.',
+  'wlayout':'Show the tours or questions as tiles or as one carousel to swipe through. Each page keeps its own choice, in My file and in this browser.',
   homeBtn:'Back to the three doors: Learn, Ask and Explore. Your view is kept; Back to the tool returns to it.',
   questionsBtn:'The questions this tool answers well, by topic. Choose one to see its answer; All questions shows them with pictures.',
   crumbBtn:'The question you are looking at. Select it to go back to all the questions.',
@@ -9012,7 +9028,7 @@ function renderCharts(){
   const tabName = (CHART_TABS.find(t => t[0] === CH.tab) || [])[1] || '', h2 = chRoot().querySelector('.wh h2'); if (h2) h2.textContent = (CHI.cur === 'main' ? 'Charts' : (WIN_NAMES[CHI.cur] || 'Charts')) + ' – ' + tabName;
   const tabsHtml = CHART_TABS.map(([k, n]) => `<button data-t="${k}" class="${CH.tab === k ? 'on' : ''}" role="tab" aria-selected="${CH.tab === k}">${n}</button>`).join('') + `<button id="chLink" class="cinsight clink${CH.linked === false ? ' off' : ''}" title="${CH.linked === false ? 'Unlinked: this window keeps its own highlighted milestone' : 'Linked: a milestone selected in any linked chart window is highlighted here too'}">${CH.linked === false ? '⛓ Unlinked' : '🔗 Linked'}</button><button id="chNewWin" class="cinsight cpop" title="Open a copy of this chart in a new window, with all its controls">⧉ New window</button>` + '<button id="chInsight" class="cinsight" title="This week’s AI-generated insight for this chart, with subtitles and speech">★ Insight</button>';
   if (CH._tabsHtml !== tabsHtml) { $('chartTabs').innerHTML = tabsHtml; CH._tabsHtml = tabsHtml; }   // only when something changed: rebuilding it on every redraw swallowed clicks while the century played
-  if (CH.insightOn && typeof showInsight === 'function') chLater(() => { const q = document.getElementById('qInsight'); if (!(q && q.classList.contains('on'))) showInsight(true); }, 0);   // a question’s insight, when showing, speaks for the chart
+  if (CH.insightOn && typeof showInsight === 'function') chLater(() => { if (!CH.insightOn) return; const q = document.getElementById('qInsight'); if (!(q && q.classList.contains('on'))) showInsight(true); }, 0);   // checked again when it runs: an insight closed meanwhile stays closed   // a question’s insight, when showing, speaks for the chart
   drawPanel();
   const W = Math.max(300, box.clientWidth - 6), H = Math.max(260, box.clientHeight - 6);
   CH.note = ''; CH.rows = []; CH.head = [];
@@ -9724,7 +9740,7 @@ $('insBody').addEventListener('click', e => {
 /* ==================================================================
  *  HOW IT WORKS: documentation of the app, its files, workflows and agents. Maintained with each material change.
  * ================================================================== */
-const DOCS_UPDATED = 'Version 13.0, 2 November 2026';   // update with every material change
+const DOCS_UPDATED = 'Version 13.1, 2 November 2026';   // update with every material change
 const DOCS = [
  ['overview', 'Overview', `<p>The Shrinking Gap measures how long research takes to become real-world change, and whether AI is shortening the journey. It is maintained by AI agents using public sources only; the owner can review and curate through the Data inspector and the system file, but nothing needs a person each week.</p>
   <p><b>The flow:</b> AI agents (GitHub Actions, weekly) research, check and correct <code>data/data.json</code> → safety gates → <code>tools/build.py</code> assembles <code>index.html</code> from <code>src/</code> with the data embedded → GitHub Pages publishes it. Your uploads to <code>src/</code> trigger the same build.</p>`],
@@ -9763,7 +9779,7 @@ const DOCS = [
  ['narration', 'Narration, tours and voice', `<p>Narration lives in <code>data/tours.json</code> as templates: the walk-throughs, the chart insights, the question insights and both weekly analyses. The app fills every figure from live data and chooses each conclusion by rules, so the words can change weekly but the numbers cannot be invented. Recordings are keyed by a fingerprint of the exact sentence and voice; changed sentences are re-recorded by <code>tools/make_voice.py</code>, and the app falls back to the browser voice only if a recording never starts. In the walk-throughs, chart steps open a side panel on what the narration is discussing. A walk-through started from the welcome screen returns there; one started inside the app returns to where you were. Pronunciations (DESNZ, CAF, NERC, CIP, and row said as “roe”) are in <code>tours.json</code>.</p>`],
  ['data', 'The data model', `<p>Each milestone has a title, field and sub-field, origin, status (landed or outlook), research (year, what), change (first use: year, what), sources, verification (source-cited, AI-compiled or AI estimate), and optional readiness, GB status, security note, forecast record, AI levers and story. <code>flags</code> mark it disputed, hidden or retired; <code>provenance</code> records who added it, when, whether dates are approximate, and any second opinion. <code>flags.reviewed</code> records the owner’s review, with a fingerprint so it lapses if the record changes. For the whole dataset, <code>meta</code> keeps the change log, the research funnel, the catch-up record, the decisions applied, and pairs judged not to be duplicates.</p>`],
  ['curation', 'Views, My file, reviews and the system file', `<p><b>The welcome screen</b> has three doors: <b>Learn</b> (the guided tours, in labelled sections), <b>Ask</b> (questions the tool answers well, in labelled sections) and <b>Explore</b> (the full tool), each tile with a small moving picture that pauses for anyone who asks for reduced motion. In the tool, <b>Home</b> returns to the doors (Back to the tool returns to your view), the <b>Questions</b> menu lists the questions, and after a question a breadcrumb leads back to them. A question opens calmly, without the century playing. <b>Questions</b>: each sets up the panels, filters and chart with the answers listed, and its own insight, written weekly by the agents, with numbers you can select and a Speak button. <b>Open insights automatically</b> (Display, on by default) opens chart and question insights by themselves; a closed one stays closed until you move on. After acknowledging, the welcome screen signposts the three ways in: Learn (the tours), Start here (questions) and Jump right in (the tool). <b>⧉ New window</b> on any chart opens a full chart window: all the tabs, filters, zoom, tooltips, side panel and insight, with its own chart, as many as you like; closing one removes it. A milestone selected in any chart window opens in the one Details panel and is highlighted in every linked chart window; <b>🔗 Linked</b> switches a window to keep its own highlight. Chart windows are saved with My views and My file, and <b>Compare</b> (a ready-made view) sets out two side by side with the AI Energy Vision Radar. <b>Help</b> is a panel like the others; its “How it works” button opens this documentation, and “At a glance” the infographics.</p>
-  <p><b>The toolbar:</b> Tours, Play the century, Views, Present, Share and Help. Chips appear while music, rotation, full screen or the ticker is on; 📌 in Present pins any item.</p>
+  <p><b>The toolbar:</b> Home, Questions, Play the century, Views, Present, Share and Help (the guided tours are behind Home’s Learn door, and in Help). On the Learn and Ask pages, Show as switches between tiles and a carousel, separately for each (this week’s analyses always stay as tiles); the choice is kept in My file and is the one setting remembered in this browser. Chips appear while music, rotation, full screen or the ticker is on; 📌 in Present pins any item.</p>
   <p><b>My file</b> (Views → Save my file / Open my file) holds your views, settings, review marks, notes, My list, pins and kiosk options. The app keeps nothing in the browser unless Autosave is on (Display): then it keeps a connected file updated (Chrome or Edge on a computer) or a copy in this browser, written at once when the page closes. The sign beside Views shows anything unsaved.</p>
   <p><b>My views</b> are named arrangements with their own panels, positions, chart tab, filters and display settings. ☆ opens one at start; ⤓ exports one to share; old saved view files join My views when opened.</p>
   <p><b>Reviews:</b> “Mark as reviewed” in the Data inspector hides an item from your list, saved in My file. Each review keeps a fingerprint of the record (title, years, status, dispute, second opinion, QA note); if the agents change any of these, the review lapses and the item returns.</p>
@@ -9778,7 +9794,8 @@ const DOCS = [
   <li><b>Undo:</b> each week’s change is one commit, which can be reverted; any feature can be promoted into the standard version by its author, or removed.</li></ul>
   <h4>The weekly run</h4><p>Each Wednesday at 05:23 UTC (with a safety-net slot at 09:53; switched on by the repository variable UI_AGENT_ENABLED), a workflow briefs the agent (the last build’s report, ideas from GitHub issues labelled <code>experimental-idea</code>, an optional focus, and screenshots), runs Claude Code with its rules (<code>CLAUDE.md</code>) and procedure (the <code>improve-experimental</code> skill), then the guard, the full test suite and screenshots. Passing work is committed to the experimental branch and published by the publisher; a summary issue reports the outcome, the agent’s own report, the checks and the cost. Started by hand, it can run as a dry run, or with a focus. Switching versions keeps your acknowledgement; the banner can be moved (double-click puts it back) but never hidden.</p>
   <h4>Features in the AI-enhanced version now</h4><div id="aiFeatList" class="note-s">Loading…</div>`],
-  ['history', 'Recent changes', `<ul class="doclist"><li><b>13.0</b> A new welcome screen with three doors (Learn, Ask, Explore) that open into their own space; the tours and questions behind them in labelled sections, each tile with a soft moving picture; Home, a Questions menu and a breadcrumb in the toolbar; questions arrive calmly, with All questions and Next question on the answer; no countdown on the welcome screen.</li>
+  ['history', 'Recent changes', `<ul class="doclist"><li><b>13.1</b> Show as tiles or a carousel on the Learn and Ask pages, chosen separately (this week’s analyses always stay as tiles), kept in My file and remembered in this browser; the Tours button moves into Help, before How it works; Start with a question leaves the Views menu (the toolbar’s Questions menu has it).</li>
+  <li><b>13.0</b> A new welcome screen with three doors (Learn, Ask, Explore) that open into their own space; the tours and questions behind them in labelled sections, each tile with a soft moving picture; Home, a Questions menu and a breadcrumb in the toolbar; questions arrive calmly, with All questions and Next question on the answer; no countdown on the welcome screen.</li>
   <li><b>12.9</b> Gemini research: a reasoning budget so its answer fits, shorter fields, and the complete candidates kept if an answer is still cut off; the gap-filler is told the dataset starts in 1925; the guidance agent does not re-check, for eight weeks, what it could not confirm.</li>
   <li><b>12.8</b> Schedules moved off the hour (GitHub’s scheduler can drop runs at the start of the hour), each with a later safety-net slot that runs only if needed; the deep search’s 1 January and 1 July runs moved off the hour too; an on/off switch for the AI-enhanced agent; the test rig serves pages in parallel.</li>
   <li><b>12.7</b> The weekly interface agent (Claude Code): its rules, procedure, guard, screenshots, workflow with dry runs and a focus, publishing and summary issue; switching versions keeps your acknowledgement; the AI-enhanced banner can be moved.</li>
@@ -10468,33 +10485,62 @@ const TOUR_SECTIONS = [['week', 'Fresh this week', ['week', 'cleanweek']], ['big
 const TOUR_PIC = {gap:'arcs', week:'bars', cleanweek:'turbine', horizon:'radar', secure:'shield', fortune:'climb', charthow:'heatmap', how:'network'};
 const Q_SECTIONS = [['AI for clean energy', ['clean-ai', 'clean-next']], ['Speed of change', ['ai-faster', 'fields']], ['What is coming', ['whatif', 'slips']], ['Security, people and this week', ['security', 'fortune', 'changed']]];
 const Q_PIC = {'clean-ai':'turbine', 'clean-next':'timeline', 'ai-faster':'race', fields:'heatmap', security:'shieldgap', whatif:'sooner', slips:'slipping', fortune:'coins', changed:'newdots'};
+/* tiles or a carousel, chosen separately for Learn's tours and for Ask; tiles by default. The choice is kept in
+   My file (view) and, as the one setting the app keeps in the browser, in local storage. */
+const LAYOUT_KEY = 'sg.doorLayouts';
+function savedLayouts(){ try { return JSON.parse(localStorage.getItem(LAYOUT_KEY) || '{}') || {}; } catch (e) { return {}; } }
+function layoutOf(page){ const v = view[page + 'Layout'] || savedLayouts()[page]; return v === 'carousel' ? 'carousel' : 'tiles'; }
+function setLayout(page, v){
+  view[page + 'Layout'] = v;
+  try { const s = savedLayouts(); s[page] = v; localStorage.setItem(LAYOUT_KEY, JSON.stringify(s)); } catch (e) { /* storage may be off: My file still keeps it */ }
+  if (page === 'learn') renderLearn(); else renderAsk();
+  syncLayouts(); quietPics(); arrive();
+}
+function syncLayouts(){ document.querySelectorAll('.wlayout').forEach(g => { const v = layoutOf(g.dataset.page); g.querySelectorAll('[data-lay]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lay === v))); }); }
+function group(tiles, mode, cls){
+  return mode === 'carousel'
+    ? `<div class="wcar"><button class="wcarbtn" data-dir="-1" aria-label="Previous">‹</button><div class="wtrack" tabindex="0" role="group" aria-roledescription="carousel">${tiles}</div><button class="wcarbtn" data-dir="1" aria-label="Next">›</button></div>`
+    : `<div class="wtiles ${cls}">${tiles}</div>`;
+}
+function syncCars(){ document.querySelectorAll('#welcome .wtrack').forEach(t => { const [p, n] = t.parentElement.querySelectorAll('.wcarbtn'); p.disabled = t.scrollLeft <= 2; n.disabled = t.scrollLeft + t.clientWidth >= t.scrollWidth - 2; if (!t.dataset.w) { t.dataset.w = 1; t.addEventListener('scroll', () => { clearTimeout(t._s); t._s = setTimeout(syncCars, 80); }, {passive:true}); } }); }
+addEventListener('resize', () => setTimeout(syncCars, 100));
+document.addEventListener('click', e => {
+  const lay = e.target.closest('.wlayout [data-lay]'); if (lay) { setLayout(lay.closest('.wlayout').dataset.page, lay.dataset.lay); return; }
+  const nav = e.target.closest('.wcarbtn'); if (nav) { const t = nav.parentElement.querySelector('.wtrack'); t.scrollBy({left:(+nav.dataset.dir) * t.clientWidth * 0.85, behavior:calm() ? 'auto' : 'smooth'}); }
+});
 function renderLearn(){
-  const tours = TOUR_LIST.filter(t => t.ready), placed = new Set(), html = [];
+  const tours = TOUR_LIST.filter(t => t.ready), placed = new Set(), html = [], carousel = [];
   TOUR_SECTIONS.forEach(([key, label, ids], k) => {
     let list = tours.filter(t => ids.includes(t.id));
     if (key === 'big') list = list.concat(tours.filter(t => !TOUR_SECTIONS.some(s => s[2].includes(t.id))));   // new tours join the big picture
     list.forEach(t => placed.add(t.id)); if (!list.length) return;
-    html.push(`<h2 class="wsec">${esc(label)}</h2><div class="wtiles ${key === 'week' ? 'wide' : ''}">${list.map(t => { const up = tourUpdatedLabel(t.id);
-      return `<button class="wcard wtile" data-tour="${t.id}" style="--i:${placed.size}">${pic(TOUR_PIC[t.id])}<span class="wtb">${up ? `<span class="wbadge">Updated ${chEsc(up)}</span>` : ''}<b>${esc(t.title)}</b><span>${esc(t.blurb)}</span><em>▶ ${up ? 'about 2 minutes' : '1 to 2 minutes'}</em></span></button>`; }).join('')}</div>`);
+    const card = (t, n) => { const up = tourUpdatedLabel(t.id);
+      return `<button class="wcard wtile" data-tour="${t.id}" style="--i:${n}">${pic(TOUR_PIC[t.id])}<span class="wtb">${up ? `<span class="wbadge">Updated ${chEsc(up)}</span>` : ''}${key !== 'week' && layoutOf('learn') === 'carousel' ? `<span class="wkick">${esc(label)}</span>` : ''}<b>${esc(t.title)}</b><span>${esc(t.blurb)}</span><em>▶ ${up ? 'about 2 minutes' : '1 to 2 minutes'}</em></span></button>`; };
+    if (key === 'week' || layoutOf('learn') === 'tiles') html.push(`<h2 class="wsec">${esc(label)}</h2>` + group(list.map(card).join(''), 'tiles', key === 'week' ? 'wide' : ''));   // this week's analyses always stay as tiles
+    else carousel.push(...list.map(card));
   });
-  $('wCards').innerHTML = html.join('');
+  if (carousel.length) html.push('<h2 class="wsec">The tours</h2>' + group(carousel.join(''), 'carousel'));   // one carousel, each card naming its section
+  $('wCards').innerHTML = html.join(''); syncCars();
 }
 function renderAsk(){
   const byId = Object.fromEntries(QUESTIONS.map(q => [q.id, q])), shown = new Set(), html = [];
   const sections = Q_SECTIONS.map(([label, ids]) => [label, ids.filter(id => byId[id])]);
   const rest = QUESTIONS.filter(q => !Q_SECTIONS.some(s => s[1].includes(q.id))).map(q => q.id);   // new questions get their own section
   if (rest.length) sections.push(['More questions', rest]);
+  const car = layoutOf('ask') === 'carousel', all = [];
   sections.forEach(([label, ids]) => { if (!ids.length) return;
-    html.push(`<h2 class="wsec">${esc(label)}</h2><div class="wtiles three">${ids.map(id => { shown.add(id); const q = byId[id];
-      return `<button class="wtile qtile" data-q="${id}" style="--i:${shown.size}">${pic(Q_PIC[id])}<span class="wtb"><b>${esc(q.q)}</b><span>${esc(q.see)}</span><em class="wshow">Show me</em></span></button>`; }).join('')}</div>`); });
-  $('wQList').innerHTML = html.join('');
+    const cards = ids.map(id => { shown.add(id); const q = byId[id];
+      return `<button class="wtile qtile" data-q="${id}" style="--i:${shown.size}">${pic(Q_PIC[id])}<span class="wtb">${car ? `<span class="wkick">${esc(label)}</span>` : ''}<b>${esc(q.q)}</b><span>${esc(q.see)}</span><em class="wshow">Show me</em></span></button>`; });
+    if (car) all.push(...cards); else html.push(`<h2 class="wsec">${esc(label)}</h2>` + group(cards.join(''), 'tiles', 'three')); });
+  if (car) html.push(group(all.join(''), 'carousel'));   // one carousel to spin through, each card naming its section
+  $('wQList').innerHTML = html.join(''); syncCars();
 }
 function quietPics(){ if (matchMedia('(prefers-reduced-motion: reduce)').matches) document.querySelectorAll('#welcome svg.tpic').forEach(s => { try { s.pauseAnimations(); } catch (e) { /* older browsers */ } }); }
 /* the three pages of the welcome screen */
 function wGo(page){
   ['doors', 'learn', 'ask'].forEach(p => { $('wp-' + p).hidden = p !== page; });
   $('welcome').dataset.page = page; $('welcome').scrollTop = 0;
-  if (page === 'learn') renderLearn(); if (page === 'ask') renderAsk();
+  if (page === 'learn') renderLearn(); if (page === 'ask') renderAsk(); syncLayouts();
   quietPics();
   const h = $('wp-' + page).querySelector('h1'); if (h) { h.setAttribute('tabindex', '-1'); h.focus({preventScroll:true}); }
 }
