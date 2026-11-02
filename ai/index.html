@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-<script>window.SG_AI = {"base": "../", "built": "01 Nov 2026, 23:08 UTC", "features": [{"id": "ai-by-readiness", "title": "AI by readiness", "description": "A chart of clean energy technologies at each stage of readiness, showing how many are AI-driven, with an insight comparing research and scale.", "added": "2026-11-02", "updated": null}], "whatsNew": "<h3>2 November 2026</h3>\n<ul>\n<li>The AI-enhanced version starts, with one sample feature added by hand: AI by readiness, a chart (in Charts) of how many clean energy technologies at each stage of readiness are AI-driven.</li>\n<li>From the next weekly run, an AI agent adds and improves features here each Wednesday, after automatic checks, without human review.</li>\n</ul>", "status": {}, "queue": []};</script>
+<script>window.SG_AI = {"base": "../", "built": "02 Nov 2026, 00:01 UTC", "features": [{"id": "ai-by-readiness", "title": "AI by readiness", "description": "A chart of clean energy technologies at each stage of readiness, showing how many are AI-driven, with an insight comparing research and scale.", "added": "2026-11-02", "updated": null}], "whatsNew": "<h3>2 November 2026</h3>\n<ul>\n<li>The AI-enhanced version starts, with one sample feature added by hand: AI by readiness, a chart (in Charts) of how many clean energy technologies at each stage of readiness are AI-driven.</li>\n<li>From the next weekly run, an AI agent adds and improves features here each Wednesday, after automatic checks, without human review.</li>\n</ul>", "status": {}, "queue": []};</script>
 <script>/* experimental feature: ai-by-readiness */(window.SG_AI.queue = window.SG_AI.queue || []).push({id:"ai-by-readiness", run:function(SGX){"use strict";
 /* AI by readiness: how many clean energy technologies at each stage of readiness are AI-driven.
    Uses only the extension interface (SGX). Select a bar to list its AI-driven technologies; select one for its story. */
@@ -789,6 +789,7 @@ body.touring .qinsight,body.kiosk .qinsight{display:none!important}
 #aiBanner b{color:#D6C2FF}#aiBanner .mini{border-color:#B794F6;color:#EDE4FF}
 .aiwn h2,.aiwn h3{font-size:1.05em;margin:.8em 0 .3em}.aifeat li{margin:.4em 0}
 @media (max-width:560px){#aiBanner{border-radius:12px;bottom:40px}#aiBanner span{display:none}}
+#aiBanner{cursor:grab;user-select:none;touch-action:none}#aiBanner.dragging{cursor:grabbing;opacity:.92}#aiBanner .aigrip{color:#B794F6;letter-spacing:-2px;margin-right:2px}#aiBanner button{cursor:pointer}
 </style>
 </head>
 <body>
@@ -5642,7 +5643,7 @@ const FORTUNES = DB.founders.map(f => {
 });
 const fmtMoney = (bn, sym) => bn >= 1000 ? `${sym}${(bn / 1000).toFixed(1)}tn` : bn >= 1 ? `${sym}${bn >= 100 ? Math.round(bn) : Math.round(bn * 10) / 10}bn` : `${sym}${Math.round(bn * 1000)}m`;
 const DATA_AS_OF = DB.meta.asOf;
-const APP_VERSION = '12.6', APP_BUILD = '';
+const APP_VERSION = '12.7', APP_BUILD = '';
 // Screen-aware scaling: laptops slightly smaller, large screens larger
 const UI = (() => { const w = innerWidth; return w < 1280 ? .85 : w < 1500 ? .95 : w < 1800 ? 1.05 : w < 2300 ? 1.2 : 1.4; })();
 const LARGE = innerWidth >= 1700;
@@ -8626,7 +8627,9 @@ document.addEventListener('keydown', e => {
 }, true);
 /* ---------- the welcome screen: shown on every load ---------- */
 let welcomeTimer = 0, welcomeLeft = 0, welcomeDeadline = 0, welcomeLast = 0;
-let aiAcked = new URLSearchParams(location.search).get('welcome') === '0';   // a mandatory acknowledgement, once per visit (tests skip it with welcome=0)
+/* switching versions carries the acknowledgement once (sw=welcome or sw=app), then the marker is removed from the address, so a copied or shared link never skips it */
+const SWITCHED = (() => { const q = new URLSearchParams(location.search), v = q.get('sw'); if (!v) return ''; q.delete('sw'); const s = q.toString(); try { history.replaceState(null, '', location.pathname + (s ? '?' + s : '') + location.hash); } catch (e) { /* not essential */ } return v === 'app' || v === 'welcome' ? v : ''; })();
+let aiAcked = new URLSearchParams(location.search).get('welcome') === '0' || !!SWITCHED;   // a mandatory acknowledgement, once per visit (tests skip it with welcome=0)
 function ackAI(){ aiAcked = true; $('welcome').classList.remove('needack'); welcomeDeadline = Date.now() + 30000; welcomeLast = Date.now(); tickWelcome(); $('wRun').focus(); }
 function showWelcome(){
   $('wCards').innerHTML = TOUR_LIST.map((t, k) => `<button class="wcard${t.ready ? '' : ' soon'}" data-tour="${t.id}"${t.ready ? '' : ' disabled aria-disabled="true"'}><span class="wn">${k + 1}</span><b>${esc(t.title)}</b><span>${esc(t.blurb)}</span><em>${tourUpdatedLabel(t.id) ? 'Updated ' + chEsc(tourUpdatedLabel(t.id)) : t.ready ? '1 to 2 minute walk-through' : 'Coming soon'}</em></button>`).join('');
@@ -9646,7 +9649,7 @@ $('insBody').addEventListener('click', e => {
 /* ==================================================================
  *  HOW IT WORKS: documentation of the app, its files, workflows and agents. Maintained with each material change.
  * ================================================================== */
-const DOCS_UPDATED = 'Version 12.6, 2 November 2026';   // update with every material change
+const DOCS_UPDATED = 'Version 12.7, 2 November 2026';   // update with every material change
 const DOCS = [
  ['overview', 'Overview', `<p>The Shrinking Gap measures how long research takes to become real-world change, and whether AI is shortening the journey. It is maintained by AI agents using public sources only; the owner can review and curate through the Data inspector and the system file, but nothing needs a person each week.</p>
   <p><b>The flow:</b> AI agents (GitHub Actions, weekly) research, check and correct <code>data/data.json</code> → safety gates → <code>tools/build.py</code> assembles <code>index.html</code> from <code>src/</code> with the data embedded → GitHub Pages publishes it. Your uploads to <code>src/</code> trigger the same build.</p>`],
@@ -9698,8 +9701,10 @@ const DOCS = [
   <li><b>A feature that fails is paused</b> on its own; if the AI-enhanced version would not start, or would hide its banner, last week’s version is kept. The standard version never includes experimental code.</li>
   <li><b>Limited access:</b> the agent can change only the <code>experimental</code> branch, not the main branch or the workflows (GitHub enforces this); its key has its own spending limit.</li>
   <li><b>Undo:</b> each week’s change is one commit, which can be reverted; any feature can be promoted into the standard version by its author, or removed.</li></ul>
+  <h4>The weekly run</h4><p>Each Wednesday at 06:00 UTC, a workflow briefs the agent (the last build’s report, ideas from GitHub issues labelled <code>experimental-idea</code>, an optional focus, and screenshots), runs Claude Code with its rules (<code>CLAUDE.md</code>) and procedure (the <code>improve-experimental</code> skill), then the guard, the full test suite and screenshots. Passing work is committed to the experimental branch and published by the publisher; a summary issue reports the outcome, the agent’s own report, the checks and the cost. Started by hand, it can run as a dry run, or with a focus. Switching versions keeps your acknowledgement; the banner can be moved (double-click puts it back) but never hidden.</p>
   <h4>Features in the AI-enhanced version now</h4><div id="aiFeatList" class="note-s">Loading…</div>`],
-  ['history', 'Recent changes', `<ul class="doclist"><li><b>12.6</b> The AI-enhanced version: a switch between the standard and AI-enhanced versions (for everyone), the extension interface, the builder and its safeguards, a sample feature (AI by readiness), the banner and What’s new, the recorded voice for feature insights, and tests that try to break it.</li>
+  ['history', 'Recent changes', `<ul class="doclist"><li><b>12.7</b> The weekly interface agent (Claude Code): its rules, procedure, guard, screenshots, workflow with dry runs and a focus, publishing and summary issue; switching versions keeps your acknowledgement; the AI-enhanced banner can be moved.</li>
+  <li><b>12.6</b> The AI-enhanced version: a switch between the standard and AI-enhanced versions (for everyone), the extension interface, the builder and its safeguards, a sample feature (AI by readiness), the banner and What’s new, the recorded voice for feature insights, and tests that try to break it.</li>
   <li><b>12.5</b> Chart windows replace the pop-outs: any number of full chart windows, each with every control, linked selection with a 🔗 switch per window, saved with your views; a Compare ready-made view; the window manager handles panels created and removed after start-up.</li>
   <li><b>12.4</b> Speak becomes Stop while speaking, and Present has “Mute speech” for insights and walk-throughs together; QA replaces broken source links (only with a verified quote) and reclassifies in-lab records whose target falls inside the horizon; the AI levers and story agents ask once for a shorter answer rather than reject it; Gemini’s field names are understood; a release tag can no longer fail a run.</li>
   <li><b>12.3</b> Question insights (written weekly, read or spoken, with numbers you can select); insights open automatically, a setting in Display; the welcome screen’s signposts: Learn, Start here, Jump right in.</li>
@@ -10151,9 +10156,11 @@ const DV_NODES = {
   pages:{t:'GitHub Pages', k:'store', where:'.github/workflows/build.yml', d:'The built page, index.html, assembled from src/ with the data embedded, published for anyone to open.'},
   app:{t:'The app', k:'app', d:'The 3D model, panels, charts, walk-throughs, questions, the Data inspector and these documents. It keeps nothing in the browser unless you turn on autosave.'},
   myfile:{t:'My file (yours)', k:'you', d:'Your views, settings, review marks, notes, My list, pins and kiosk options. Saved and opened from Views; works on any device.'},
+  uiagent:{t:'Interface agent (Claude Code)', k:'agent', where:'.github/workflows/ui-agent.yml; rules in CLAUDE.md and .claude/skills/improve-experimental', d:'Each Wednesday, improves the AI-enhanced version: repairs any paused feature, or makes one improvement, using ideas from GitHub issues labelled experimental-idea. It can change only the experimental features on the experimental branch.', rules:['Only experimental/ (GitHub refuses it main and the workflows)', 'Through the extension interface only', 'Every figure in an insight from the data', 'Documents every change, or the week fails']},
+  uiguard:{t:'Guard and checks (AI-enhanced)', k:'gate', where:'tools/guard_experimental.py, tools/build_ai.py, tools/smoke_ai.py', d:'Rejects the week if anything outside experimental/ changed or a change is undocumented; leaves out features with forbidden code; pauses features that fail; keeps last week’s version if the AI-enhanced version would not start or would hide its banner. Then the full test suite.'},
   system:{t:'System file (admin)', k:'you', where:'data/curation.json', d:'Your decisions for everyone: reviewed, clear a dispute, not a duplicate, retire or restore. Upload it to data/; the QA agent applies each decision once on the next weekly run.'}
 };
-const DV_COLS = [['Public sources', ['web', 'google']], ['Find', ['research', 'gemini', 'deep']], ['Check', ['qa', 'second']], ['Enrich', ['guidance', 'tour', 'levers', 'story']], ['Safety gates', ['gate1', 'gate2', 'gate3']], ['Publish', ['data', 'pages']], ['Use', ['app', 'myfile', 'system']]];
+const DV_COLS = [['Public sources', ['web', 'google']], ['Find', ['research', 'gemini', 'deep']], ['Check', ['qa', 'second']], ['Enrich', ['guidance', 'tour', 'levers', 'story']], ['Safety gates', ['gate1', 'gate2', 'gate3']], ['Publish', ['data', 'pages']], ['Use', ['app', 'myfile', 'system']], ['AI-enhanced (Wednesdays)', ['uiagent', 'uiguard']]];
 const DV_RUN = [
   ['setup', 'Remember the starting data', 'A fingerprint of the data, so publishing never overwrites someone else’s change.'],
   ['agent', 'Deeper audit', 'First Monday of the month: a wider audit of existing records, and fortunes research.', 'monthly'],
@@ -10194,7 +10201,7 @@ function renderDocViz(){
     <p class="note-s">The system file feeds your decisions back to the QA agent on the next weekly run. Select any box.</p>`;
   else if (DV.tab === 'run') main = `<ol class="dvrun">${DV_RUN.map(([k, t, d, flag, node]) => `<li class="dvstep dvk-${k}${node && DV.sel === node ? ' on' : ''}" ${node ? `data-n="${node}"` : ''}><span class="dvdot"></span><b>${esc(t)}</b>${flag ? ` <em class="dvflag">${esc(flag)}</em>` : ''}<span>${esc(d)}</span></li>`).join('')}</ol>
     <p class="note-s">Mondays at 06:00 UTC, or by hand. A deep search (1 January, 1 July, or by hand) runs the same checks and gates with its own search step.</p>`;
-  else if (DV.tab === 'agents') main = `<div class="dvcards">${['research', 'gemini', 'deep', 'qa', 'second', 'guidance', 'tour', 'levers', 'story'].map(id => `<button class="dvcard dvk-${DV_NODES[id].k}${DV.sel === id ? ' on' : ''}" data-n="${id}"><b>${esc(DV_NODES[id].t)}</b><span>${(DV_NODES[id].rules || []).length} rule${(DV_NODES[id].rules || []).length === 1 ? '' : 's'}</span></button>`).join('')}</div>${dvFunnel()}`;
+  else if (DV.tab === 'agents') main = `<div class="dvcards">${['research', 'gemini', 'deep', 'qa', 'second', 'guidance', 'tour', 'levers', 'story', 'uiagent'].map(id => `<button class="dvcard dvk-${DV_NODES[id].k}${DV.sel === id ? ' on' : ''}" data-n="${id}"><b>${esc(DV_NODES[id].t)}</b><span>${(DV_NODES[id].rules || []).length} rule${(DV_NODES[id].rules || []).length === 1 ? '' : 's'}</span></button>`).join('')}</div>${dvFunnel()}`;
   else main = `<div class="dvfiles"><div class="dvlane"><h5>Personal</h5><button class="dvn dvk-you${DV.sel === 'myfile' ? ' on' : ''}" data-n="myfile">My file</button><div class="dvarrow">⇄</div><button class="dvn dvk-app${DV.sel === 'app' ? ' on' : ''}" data-n="app">The app on any device</button></div>
     <div class="dvlane"><h5>For everyone (admin)</h5><button class="dvn dvk-you${DV.sel === 'system' ? ' on' : ''}" data-n="system">System file</button><div class="dvarrow">→</div><button class="dvn dvk-store${DV.sel === 'data' ? ' on' : ''}" data-n="data">Upload to data/</button><div class="dvarrow">→</div><button class="dvn dvk-check${DV.sel === 'qa' ? ' on' : ''}" data-n="qa">QA applies it</button><div class="dvarrow">→</div><button class="dvn dvk-app${DV.sel === 'app' ? ' on' : ''}" data-n="app">Everyone sees it</button></div>
     <p class="note-s">A review lapses if the record changes afterwards, for you and for everyone, so nothing stays marked as checked once it is different.</p></div>`;
@@ -10301,7 +10308,9 @@ if (AI_BUILD) {
  * ================================================================== */
 function goVersion(ai){
   if (ai === IS_AI) return;
-  const q = new URLSearchParams(location.search); q.delete('ui'); const s = q.toString();
+  const q = new URLSearchParams(location.search); q.delete('ui');
+  if (aiAcked) q.set('sw', $('welcome').classList.contains('on') ? 'welcome' : 'app');   // acknowledged once is enough: the other version knows
+  const s = q.toString();
   location.href = (ai ? 'ai/' : '../') + (s ? '?' + s : '') + location.hash;
 }
 { const u = new URLSearchParams(location.search).get('ui'); if (u === 'ai' && !IS_AI) goVersion(true); else if (u === 'standard' && IS_AI) goVersion(false); }   // ?ui=ai shares the AI-enhanced version
@@ -10316,8 +10325,19 @@ syncVersionSwitch();
 if (IS_AI) {
   document.body.classList.add('aiversion');
   const bar = document.createElement('div'); bar.id = 'aiBanner'; bar.setAttribute('role', 'status');
-  bar.innerHTML = '<b>✨ AI-enhanced (experimental)</b><span>Changed weekly by AI, without human review; may contain errors.</span><button class="mini" id="aiNews">What’s new</button><button class="mini" id="aiBack">Back to standard</button>';
+  bar.innerHTML = '<span class="aigrip" title="Drag to move; double-click to put it back" aria-hidden="true">⋮⋮</span><b>✨ AI-enhanced (experimental)</b><span>Changed weekly by AI, without human review; may contain errors.</span><button class="mini" id="aiNews">What’s new</button><button class="mini" id="aiBack">Back to standard</button>';
   document.body.appendChild(bar);
+  /* movable, but always kept fully on screen (it cannot be hidden); double-click puts it back; the place is kept in My file */
+  const keepOnScreen = () => { if (!view.aiBannerPos) return; const r = bar.getBoundingClientRect(), x = Math.min(Math.max(4, view.aiBannerPos.x), innerWidth - r.width - 4), y = Math.min(Math.max(4, view.aiBannerPos.y), innerHeight - r.height - 4);
+    Object.assign(bar.style, {left:x + 'px', top:y + 'px', bottom:'auto', transform:'none'}); };
+  const resetBanner = () => { view.aiBannerPos = null; Object.assign(bar.style, {left:'', top:'', bottom:'', transform:''}); };
+  let drag = null;
+  bar.addEventListener('pointerdown', e => { if (e.target.closest('button')) return; const r = bar.getBoundingClientRect(); drag = {dx:e.clientX - r.left, dy:e.clientY - r.top}; bar.setPointerCapture(e.pointerId); bar.classList.add('dragging'); e.preventDefault(); });
+  bar.addEventListener('pointermove', e => { if (!drag) return; view.aiBannerPos = {x:e.clientX - drag.dx, y:e.clientY - drag.dy}; keepOnScreen(); });
+  bar.addEventListener('pointerup', () => { drag = null; bar.classList.remove('dragging'); });
+  bar.addEventListener('dblclick', e => { if (!e.target.closest('button')) resetBanner(); });
+  addEventListener('resize', keepOnScreen);
+  setTimeout(keepOnScreen, 0);
   EXT.features.core = {tabs:[], wins:[], failed:false};
   const newsId = extApi('core').addPanel({id:'whatsnew', title:'What’s new in the AI-enhanced version', render:() => {
     const feats = (AI_BUILD.features || []).map(f => { const st = (AI_BUILD.status || {})[f.id] || f.status || 'active';
@@ -10336,6 +10356,8 @@ function fillAiFeatures(){
     box.innerHTML = (j.features || []).length ? `<p>Built ${esc(j.built || '')}.</p><ul class="doclist">${j.features.map(f => `<li><b>${esc(f.title)}</b> (added ${esc(f.added || '')}): ${esc(f.description || '')}</li>`).join('')}</ul>` : '<p>No experimental features yet.</p>';
   }).catch(() => { box.textContent = 'The list could not be loaded (it needs the published site).'; });
 }
+/* arriving from the other version, from inside the app: go straight in */
+if (SWITCHED === 'app') setTimeout(() => { if ($('welcome').classList.contains('on')) closeWelcome(false); }, 0);
 /* ==================================================================
  *  SAVED VIEWS (JSON)
  * ================================================================== */
