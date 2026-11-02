@@ -11,7 +11,16 @@ Guardrails (code, not the model):
   - At most `maxUpdatesPerRun` updates per run. Updates are summaries with links, not changes to milestones.
 """
 import sys, json, difflib
-from common import load_db, save_db, call_claude, fetch_text, log_change, CONFIG, TODAY
+from common import load_db, save_db, call_claude, fetch_text, log_change, record_rejection, CONFIG, TODAY
+import datetime, pathlib
+
+def recent_rejections(days=56):
+    """Guidance rejected in the last eight weeks (kept in data/rejected.json, shown in the Data inspector): not checked again until then."""
+    p = pathlib.Path(__file__).resolve().parents[1] / 'data' / 'rejected.json'
+    try: rows = json.loads(p.read_text(encoding='utf-8'))
+    except Exception: return []
+    since = (datetime.date.fromisoformat(TODAY) - datetime.timedelta(days=days)).isoformat()
+    return [r for r in rows if r.get('agent') == 'guidance' and str(r.get('date', '')) >= since]
 
 OFFICIAL = ('ncsc.gov.uk', 'ofgem.gov.uk', 'gov.uk', 'nist.gov', 'nerc.com', 'ferc.gov', 'iec.ch', 'isa.org', 'iso.org', 'etsi.org', 'enisa.europa.eu',
             'europa.eu', 'cisa.gov', 'federalregister.gov', 'unece.org', 'legislation.gov.uk', 'energy.gov', 'cyber.gov.au', 'cyber.gc.ca', 'bsigroup.com', 'bsi.bund.de', 'ssi.gouv.fr', 'neso.energy', 'owasp.org')
@@ -26,21 +35,24 @@ SUBMIT = {'name': 'submit_guidance', 'description': 'Submit new or updated secur
 def run():
     db = load_db(); cfg = CONFIG.get('guidance', {}); have = db.setdefault('guidanceUpdates', [])
     known_urls = {u.get('url') for u in have}; known_titles = [u['title'].lower() for u in have]
+    recent = recent_rejections(); recent_titles = [str(r.get('title', '')).lower() for r in recent]
     prompt = (f"Today is {TODAY}. Find security guidance, standards or regulatory frameworks published or updated in roughly the last {cfg.get('lookbackDays', 45)} days "
               "that help mitigate cyber risks from new technology in critical infrastructure, especially energy: operational technology, grid-edge devices, AI systems and agents, "
               "cloud and software supply chains, post-quantum cryptography, communications and timing. Priority: the NCSC Cyber Assessment Framework (CAF) and Ofgem's CAF Overlay "
               "and CAF profiles for the energy sector; then NIST, NERC CIP, IEC 62443, ISO/IEC, ETSI, ENISA, CISA, DESNZ and other regulators worldwide. "
-              f"Ignore these, already recorded: {json.dumps([u['title'] for u in have][-40:])}. Use official sources only. Return them via submit_guidance, or an empty list.")
+              f"Ignore these, already recorded: {json.dumps([u['title'] for u in have][-40:])}. Use official sources only. "
+              f"Also ignore these, checked recently and not confirmable on their pages: {json.dumps([r.get('title') for r in recent][-30:])}. Return them via submit_guidance, or an empty list.")
     out = call_claude('You track cyber security guidance and regulation for critical infrastructure.', prompt, SUBMIT, max_searches=cfg.get('searches', 8)) or {'updates': []}
     added, report = [], []
     for u in out.get('updates', []):
         if len(added) >= cfg.get('maxUpdatesPerRun', 5): break
         url = (u.get('url') or '').strip(); host = url.split('/')[2].lower() if url.startswith('http') and len(url.split('/')) > 2 else ''
-        if not host or not any(host == o or host.endswith('.' + o) for o in OFFICIAL): report.append(f"rejected {u.get('title')}: not an official source"); continue
+        if any(difflib.SequenceMatcher(None, str(u.get('title', '')).lower(), t).ratio() > .85 for t in recent_titles): report.append(f"skipped {u.get('title')}: rejected in the last eight weeks"); continue
+        if not host or not any(host == o or host.endswith('.' + o) for o in OFFICIAL): report.append(f"rejected {u.get('title')}: not an official source"); record_rejection('guidance', 'guidance', {'title': u.get('title')}, 'not an official source'); continue
         if url in known_urls or any(difflib.SequenceMatcher(None, u['title'].lower(), t).ratio() > .85 for t in known_titles): report.append(f"skipped {u['title']}: already recorded"); continue
         code, text = fetch_text(url)
         terms = [t for t in (u.get('evidence_terms') or []) + [u['framework']] if t]
-        if not (200 <= code < 400) or not any(t.lower() in text.lower() for t in terms): report.append(f"rejected {u['title']}: page did not confirm it"); continue
+        if not (200 <= code < 400) or not any(t.lower() in text.lower() for t in terms): report.append(f"rejected {u['title']}: page did not confirm it"); record_rejection('guidance', 'guidance', {'title': u['title']}, 'page did not confirm it'); continue
         rec = {'date': (u.get('date') or '')[:10], 'framework': u['framework'][:60], 'title': u['title'][:160], 'summary': u['summary'][:400], 'url': url, 'added': TODAY, 'by': 'guidance-agent'}
         have.append(rec); known_urls.add(url); known_titles.append(rec['title'].lower()); added.append(rec['title'])
     db['guidanceUpdates'] = have[-80:]

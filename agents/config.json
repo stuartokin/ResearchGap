@@ -101,7 +101,8 @@
     "model": "gemini-2.5-flash",
     "researchPerRun": 10,
     "secondOpinion": true,
-    "checksPerRun": 20
+    "checksPerRun": 20,
+    "researchThinkingBudget": 4096
   },
   "deepSearch": {
     "_note": "The deep search workflow: by hand or every six months. maxCalls bounds the cost (each call can run searchesPerCall web searches).",

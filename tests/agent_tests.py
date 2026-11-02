@@ -1,3 +1,4 @@
+import os
 #!/usr/bin/env python3
 """The agents' guardrails, tested offline with simulated answers: no API calls, no cost. Each prints PASS or FAIL."""
 import json, sys, copy
@@ -86,5 +87,39 @@ answers = iter([st_long, dict(st_long, impact='connections are planned faster')]
 out = story_agent.research({'title': 'T', 'field': 'energy', 'research': {'year': 2015}, 'change': {'year': 2020}}); rec, why = story_agent.verify(out)
 if not rec and 'too long' in why: out = story_agent.shorten(out); rec, why = story_agent.verify(out)
 ok('S1 an over-long story is shortened on one retry, then recorded', bool(rec) and rec['impact'] == 'connections are planned faster')
+# Gemini: an answer cut off at the length limit keeps its complete candidates; the reasoning budget is sent
+import common as _c
+cut = '{"candidates": [{"title": "A", "x": {"y": [1]}}, {"title": "B"}, {"title": "C, cut off mid-wo'
+ok('M1 a cut-off answer keeps the complete candidates', [x['title'] for x in (_c.salvage_items(cut, 'candidates') or {}).get('candidates', [])] == ['A', 'B'])
+_sent = {}
+class _R:
+    status_code = 200
+    def __init__(self, d): self._d = d
+    def json(self): return self._d
+_orig_post, _orig_key = _c._gemini_post, os.environ.get('GEMINI_API_KEY')
+_c._gemini_post = lambda key, model, body: (_sent.update(body=body), _R({'candidates': [{'content': {'parts': [{'text': cut}]}, 'finishReason': 'MAX_TOKENS'}]}))[1]
+os.environ['GEMINI_API_KEY'] = 'test'
+_out = _c.call_gemini('p', want='candidates', thinking_budget=4096)
+ok('M2 call_gemini returns them, with the reasoning budget sent', len((_out or {}).get('candidates', [])) == 2 and _sent['body']['generationConfig'].get('thinkingConfig') == {'thinkingBudget': 4096})
+_c._gemini_post = _orig_post
+if _orig_key is None: os.environ.pop('GEMINI_API_KEY', None)
+else: os.environ['GEMINI_API_KEY'] = _orig_key
+# the guidance agent remembers what it could not confirm (in memory here: the real data files are never touched)
+import guidance_agent as _g
+_mem = []
+_g.record_rejection = lambda agent, mode, c, why: _mem.append({'agent': agent, 'title': c.get('title'), 'date': _g.TODAY, 'reason': why})
+_g.recent_rejections = lambda days=56: list(_mem)
+_g.load_db = lambda: {'guidanceUpdates': [], 'meta': {'changelog': []}}; _g.save_db = lambda db: None; _g.log_change = lambda *a, **k: None
+_g.fetch_text = lambda url, timeout=20: (200, 'a page that does not mention it')
+_ans = {'updates': [{'title': 'CISA 2030: Defend, Harden, Prevail', 'framework': 'CISA', 'url': 'https://www.cisa.gov/x', 'summary': 's', 'date': '2026-10-01', 'evidence_terms': ['Defend, Harden']}]}
+_prompts = []
+_g.call_claude = lambda system, prompt, tool, **k: (_prompts.append(prompt), _ans)[1]
+import io as _io, contextlib as _cl
+_b = _io.StringIO()
+with _cl.redirect_stdout(_b): _g.run()
+ok('N1 guidance that cannot be confirmed is recorded', len(_mem) == 1 and 'page did not confirm it' in _b.getvalue())
+_b = _io.StringIO()
+with _cl.redirect_stdout(_b): _g.run()
+ok('N2 the next week it is skipped, and named in the instructions', 'rejected in the last eight weeks' in _b.getvalue() and 'CISA 2030' in _prompts[-1] and len(_mem) == 1)
 print(f'PASSED {sum(results)} of {len(results)}')
 sys.exit(0 if all(results) else 1)

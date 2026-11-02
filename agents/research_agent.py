@@ -230,8 +230,9 @@ def run():
         for k, f, d in thin_cells(db, as_of, bf.get('cellsPerRun', 5)):
             if queued_bf >= bf.get('perRun', 5): break
             existing = [m['title'] for m in db['milestones'] if m['field'] == f['id']] + [c['title'] for c in pending]
-            prompt = (f"Fill a gap in a historical dataset of research breakthroughs. Field: {f['name']}. Find up to 2 important milestones whose first product or real-world use came in the {d}s "
-                      f"(the research may have begun earlier) and which are missing from the dataset; it currently has {k} for this field in that decade. Prefer milestones that changed the field, with a well-documented research origin. "
+            floor = db['meta']['startYear']; span = f"the {d}s" if d >= floor else f"{floor} to {d + 9} (the dataset starts in {floor})"
+            prompt = (f"Fill a gap in a historical dataset of research breakthroughs. Field: {f['name']}. Find up to 2 important milestones whose first product or real-world use came in {span} "
+                      f"(the research may have begun earlier, but no earlier than {floor}: research before {floor} is outside this dataset) and which are missing from the dataset; it currently has {k} for this field in that decade. Prefer milestones that changed the field, with a well-documented research origin. "
                       "Use reputable sources that can be read without a login: encyclopaedias, institutional, company and museum histories, archives, and journal or learned-society pages. Use status 'landed'.\n"
                       f"These already exist; do not propose them or close variants: {json.dumps(existing, ensure_ascii=False)}\n"
                       "Return at most 2 candidates via submit_candidates, or an empty list if nothing important is missing.")

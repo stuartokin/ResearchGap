@@ -221,13 +221,28 @@ def _gemini_post(key, model, body):
     import requests
     return requests.post(f'https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent', headers={'x-goog-api-key': key, 'Content-Type': 'application/json'}, json=body, timeout=300)
 
-def call_gemini(prompt, search=False, max_tokens=8192, want=None):
+def salvage_items(text, want):
+    """From an answer cut off at the length limit, keep every complete item of the list called `want`."""
+    if not want or not text: return None
+    i = text.find(f'"{want}"'); i = text.find('[', i) if i >= 0 else -1
+    if i < 0: return None
+    dec, items, pos = json.JSONDecoder(), [], i + 1
+    while True:
+        while pos < len(text) and text[pos] in ' \t\r\n,': pos += 1
+        if pos >= len(text) or text[pos] != '{': break
+        try: obj, pos = dec.raw_decode(text, pos)
+        except ValueError: break   # the cut-off item: stop here
+        items.append(obj)
+    return {want: items} if items else None
+
+def call_gemini(prompt, search=False, max_tokens=8192, want=None, thinking_budget=None):
     """Ask Gemini, optionally grounded in Google Search. Returns the parsed JSON reply, or None, and always logs why."""
     import os
     key = os.environ.get('GEMINI_API_KEY')
     if not key: print('Gemini: no GEMINI_API_KEY secret, so skipping.'); return None
     g = CONFIG.get('gemini', {}); model = g.get('model', 'gemini-2.5-flash')
     body = {'contents': [{'role': 'user', 'parts': [{'text': prompt}]}], 'generationConfig': {'temperature': 0.2, 'maxOutputTokens': max_tokens}}
+    if thinking_budget is not None: body['generationConfig']['thinkingConfig'] = {'thinkingBudget': int(thinking_budget)}   # reasoning counts against the same limit: leave room for the answer
     if search: body['tools'] = [{'google_search': {}}]
     for attempt in range(2):
         r = _gemini_post(key, model, body)
@@ -241,6 +256,9 @@ def call_gemini(prompt, search=False, max_tokens=8192, want=None):
     finish = cand.get('finishReason', ''); u = data.get('usageMetadata') or {}
     print(f"Gemini ({model}): {u.get('promptTokenCount', 0)} in, {u.get('candidatesTokenCount', 0)} out{', with search' if search else ''}; finished: {finish or 'unknown'}.")
     out = parse_json_text(text, want)
+    if out is None and finish == 'MAX_TOKENS':
+        out = salvage_items(text, want)
+        if out is not None: print(f"Gemini: answer cut off at the length limit; kept the {len(out[want])} complete item(s) before the cut."); return out
     if out is None and text.strip():
         # a cheap rescue, without searching again: ask Gemini to turn its own answer into clean JSON
         print(f"Gemini: answer {'cut off at the length limit' if finish == 'MAX_TOKENS' else 'not clean JSON'}; asking for a clean copy. It began: {text.strip()[:160]!r}")
