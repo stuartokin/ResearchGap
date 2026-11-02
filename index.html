@@ -746,6 +746,97 @@ body.touring .qinsight,body.kiosk .qinsight{display:none!important}
 .aiwn h2,.aiwn h3{font-size:1.05em;margin:.8em 0 .3em}.aifeat li{margin:.4em 0}
 @media (max-width:560px){#aiBanner{border-radius:12px;bottom:40px}#aiBanner span{display:none}}
 #aiBanner{cursor:grab;user-select:none;touch-action:none}#aiBanner.dragging{cursor:grabbing;opacity:.92}#aiBanner .aigrip{color:#B794F6;letter-spacing:-2px;margin-right:2px}#aiBanner button{cursor:pointer}
+
+/* ===== the welcome doors, and the Learn and Ask pages behind them ===== */
+.wbox{max-width:1180px}
+.wsub{font-size:clamp(14px,1.5vw,19px);color:#B8CADB}
+.wslim{display:inline-block;margin:.3em auto .2em;padding:8px 18px;border:1px solid #6B5A2A;border-radius:999px;background:rgba(255,209,102,.07);color:#F2E2B8;font-size:14px}
+.wprompt{margin:1.3em 0 .7em;font-size:14px;color:#A9BCCF;letter-spacing:.06em;text-transform:uppercase}
+.wdoors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;text-align:left}
+.wdoor{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:12px;min-height:280px;padding:26px 24px 22px;border-radius:18px;background:#0E2232;border:1px solid #2E4A63;border-top:4px solid var(--dc);color:#E9F2FF;transition:transform .15s,background .15s}
+.wdoor:hover,.wdoor:focus-visible{transform:translateY(-3px);background:#12293B;outline:2px solid var(--dc);outline-offset:2px}
+.wd-learn{--dc:#FFD166;--dk:#10202E}.wd-ask{--dc:#4CD3C2;--dk:#062320}.wd-explore{--dc:#5FD8FF;--dk:#04222E}
+.wdi{color:var(--dc)}.wdl{font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--dc)}
+.wdt{font-family:var(--serif);font-size:clamp(26px,2.6vw,34px);line-height:1.05}
+.wdx{font-size:15px;line-height:1.5;color:#B8CADB}
+.wdf{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.wdc{font-size:13px;color:#A9BCCF}.wdb{font-size:15px;font-weight:600;color:var(--dk);background:var(--dc);border-radius:999px;padding:10px 16px}
+.wdfoot{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:center;margin:1.4em 0 .4em}
+.wdfoot .wversion{margin:0}
+#welcome.needack .wslim,#welcome.needack .wprompt{display:none}
+#welcome.needack .wdoors,#welcome.needack .wdfoot{opacity:.3;pointer-events:none;filter:grayscale(.6)}
+.wpage{text-align:left}
+.wnav{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}.wnav .wbacktool{margin-left:auto}
+.wcrumb{color:#A9BCCF;font-size:14px}.cl{color:#FFD166}.ca{color:#4CD3C2}
+.wkicker{display:block;font-size:13px;font-weight:700;letter-spacing:.12em}
+.wpage h1{font-size:clamp(28px,3.6vw,46px);margin:.05em 0 .15em}
+.wpsub{color:#B8CADB;margin:0 0 .6em}
+.wsec{margin:1.3em 0 .6em;font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#A9BCCF}
+.wtiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.wtiles.three{grid-template-columns:repeat(3,minmax(0,1fr))}.wtiles.wide{grid-template-columns:repeat(2,minmax(0,1fr))}
+.wtile{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;overflow:hidden;border-radius:16px;background:#0E2232;border:1px solid #2E4A63;color:#E9F2FF;transition:transform .15s,border-color .15s}
+.wtile:hover,.wtile:focus-visible{transform:translateY(-2px);border-color:#FFD166;outline:none}
+.qtile:hover,.qtile:focus-visible{border-color:#4CD3C2}
+.wtile .tpic{display:block;width:100%;height:120px;background:#10283A;flex:none}
+.wtb{display:flex;flex-direction:column;gap:6px;padding:14px 16px 16px;flex:1}
+.wtile .wtb b{font-size:16px;line-height:1.3}.wtile .wtb > span:not(.wbadge){color:#B8CADB;font-size:14px;line-height:1.4}
+.wtile .wtb em{font-style:normal;margin-top:auto;font-size:13px;color:#FFD166}
+.wtile .wtb em.wshow{align-self:flex-start;font-size:14px;font-weight:600;color:#4CD3C2;border:1px solid #2B6B63;border-radius:999px;padding:7px 14px}
+.wbadge{align-self:flex-start;font-size:12px;font-weight:700;color:#10202E;background:#FFD166;border-radius:999px;padding:2px 9px}
+.wtiles.wide .wtile{flex-direction:row;border-color:#6B5A2A}.wtiles.wide .tpic{width:44%;height:auto;min-height:150px}
+/* phones and narrow windows: doors become rows; tiles become rows with a small square picture */
+@media (max-width:760px){
+  .wdoors{grid-template-columns:1fr;gap:10px}
+  .wdoor{min-height:0;flex-direction:row;flex-wrap:wrap;align-items:center;gap:6px 12px;padding:14px;border-top:1px solid #2E4A63;border-left:4px solid var(--dc)}
+  .wdoor .wdi svg{width:32px;height:32px}.wdl{flex-basis:calc(100% - 50px)}.wdt{font-family:inherit;font-weight:600;font-size:18px;flex-basis:100%}.wdx{display:none}.wdf{flex-basis:100%;margin:0}.wdb{display:none}
+  .wtiles,.wtiles.three,.wtiles.wide{grid-template-columns:1fr;gap:10px}
+  .wtile,.wtiles.wide .wtile{flex-direction:row;align-items:center}
+  .wtile .tpic,.wtiles.wide .tpic{width:76px;height:76px;min-height:0;margin:8px;border-radius:8px}
+  .wtb{padding:10px 12px 10px 4px;gap:3px}.wtile .wtb > span:not(.wbadge){display:none}.wtile .wtb b{font-size:15px}
+  .wtile .wtb em.wshow{border:0;padding:0}
+}
+/* the toolbar: Home, the breadcrumb after a question, and the Questions menu */
+#homeBtn{display:inline-flex;align-items:center;gap:6px}
+#crumbBtn{max-width:340px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;border-color:#2B6B63;color:#C9F2EC}#crumbBtn .crumbask{color:#4CD3C2;font-weight:600}
+#questionsBtn{border-color:#2B6B63}
+.qmenu{width:min(430px,92vw)}.qmenu button{display:block;width:100%;text-align:left;white-space:normal;line-height:1.35}.qmenu button.cur{color:#4CD3C2;background:rgba(76,211,194,.1)}.qmenu .qall{color:#4CD3C2;font-weight:600}
+#qInsight .qinext{border-color:#4CD3C2;color:#062320;background:#4CD3C2;font-weight:600}
+@media (max-width:560px){#crumbBtn{display:none}#homeBtn{padding-left:9px;padding-right:9px}}
+.wbacktool[hidden]{display:none!important}
+.wpg h1[tabindex="-1"]:focus{outline:none}
+.qmenu button{display:block;width:100%;font:inherit;font-size:14px;color:#E9F2FF;background:none;border:0;border-radius:8px;padding:9px 10px;cursor:pointer;min-height:0;height:auto}
+.qmenu button:hover,.qmenu button:focus-visible{background:rgba(255,255,255,.06)}
+.qmenu button.cur{color:#4CD3C2;background:rgba(76,211,194,.1)}
+#crumbBtn{flex:none}
+/* the pictures sit behind the text: soft, dim and full-bleed, with a band that keeps the words easy to read */
+.wtile{position:relative;justify-content:flex-end;min-height:178px;isolation:isolate}
+.wtile .tpic,.wtiles.wide .tpic{position:absolute;inset:0;width:100%;height:100%;min-height:0;margin:0;border-radius:0;opacity:.34;filter:blur(1.4px) saturate(.85);z-index:-2;transition:opacity .25s}
+.wtile::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,rgba(14,34,50,.97) 38%,rgba(14,34,50,.62) 72%,rgba(14,34,50,.28))}
+.wtile:hover .tpic,.wtile:focus-visible .tpic{opacity:.5}
+.wtiles.wide .wtile{flex-direction:column;min-height:190px}
+.wtb{position:relative}
+@media (max-width:760px){
+  .wtile,.wtiles.wide .wtile{flex-direction:column;align-items:stretch;min-height:92px}
+  .wtile .tpic,.wtiles.wide .tpic{width:100%;height:100%;margin:0;border-radius:0}
+  .wtb{padding:12px 14px}
+}
+/* entering through a door: it opens out to fill the screen; the new space settles in, its tiles arriving in turn */
+.wportal{position:fixed;z-index:3100;pointer-events:none;border-radius:18px;background:#0E2232;border-top:4px solid var(--dc);box-shadow:0 0 0 1px #2E4A63;transition:left .48s cubic-bezier(.6,.05,.25,1),top .48s cubic-bezier(.6,.05,.25,1),width .48s cubic-bezier(.6,.05,.25,1),height .48s cubic-bezier(.6,.05,.25,1),border-radius .48s,background-color .48s}
+.wportal.open{border-radius:0;background-color:#081723}
+.wportal.fade{opacity:0;transition:opacity .5s ease}
+#welcome.leaving .wpg:not([hidden]){opacity:0;transform:scale(1.05);transition:opacity .4s ease,transform .45s ease}
+#welcome.arriving .wpg:not([hidden]){animation:wArrive .55s cubic-bezier(.2,.7,.2,1) both}
+#welcome.arriving .wtile{animation:wTileIn .5s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i,0) * 45ms + 120ms)}
+@keyframes wArrive{from{opacity:0;transform:scale(.96) translateY(14px)}to{opacity:1;transform:none}}
+@keyframes wTileIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){#welcome.arriving .wpg:not([hidden]),#welcome.arriving .wtile{animation:none}#welcome.leaving .wpg:not([hidden]){transition:none}}
+/* a little stronger: the picture shows above the words and fades softly behind them */
+.wtile{min-height:210px}.wtiles.wide .wtile{min-height:200px}
+.wtb{flex:none}
+.wtile .tpic,.wtiles.wide .tpic{opacity:.58;filter:blur(.7px) saturate(.9)}
+.wtile::after{background:linear-gradient(to top,rgba(14,34,50,.97) 0%,rgba(14,34,50,.9) 38%,rgba(14,34,50,.35) 75%,rgba(14,34,50,.12) 100%)}
+.wtile:hover .tpic,.wtile:focus-visible .tpic{opacity:.75}
+@media (max-width:760px){.wtile,.wtiles.wide .wtile{min-height:112px}.wtile .tpic,.wtiles.wide .tpic{opacity:.5}}
 </style>
 </head>
 <body>
@@ -757,7 +848,10 @@ body.touring .qinsight,body.kiosk .qinsight{display:none!important}
   <div class="wbody" id="top"><div class="actions">
     <button class="savesign" id="saveSign" hidden></button>
     <span class="tbchips" id="tbChips" aria-live="polite"></span>
+    <button class="btn" id="homeBtn" title="Back to the three doors (your view is kept)"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11 L12 4 L20 11"/><path d="M6 10 L6 20 L18 20 L18 10"/></svg> Home</button>
+    <button class="btn crumb" id="crumbBtn" hidden></button>
     <button class="btn" id="toursBtn" title="Guided walk-throughs">Tours</button>
+    <button class="btn" id="questionsBtn" aria-haspopup="true" aria-expanded="false">Questions ▾</button>
     <button class="btn primary" id="playBtn">Play the century</button>
     <button class="btn" id="winBtn" aria-haspopup="true" aria-expanded="false">Views ▾</button>
     <button class="btn" id="presentBtn" aria-haspopup="true" aria-expanded="false">Present ▾</button>
@@ -1197,6 +1291,7 @@ body.touring .qinsight,body.kiosk .qinsight{display:none!important}
 <div id="nogl" role="alert"><div><h2>3D view unavailable</h2><p>This device or browser can’t show the 3D model. Try a recent version of Chrome, Edge, Safari or Firefox on a laptop or desktop.</p></div></div>
 <div id="winMenu" role="menu"></div>
 <div id="qInsight" class="qinsight" role="region" aria-label="Question insight" aria-live="polite"></div>
+<div id="questionsMenu" class="dropmenu qmenu" role="menu" aria-label="Questions"></div>
 <div id="presentMenu" class="dropmenu" role="menu">
   <div class="wmh">Presenting</div>
   <div class="dmrow"><button id="fsBtn">Full screen</button><button class="pin" data-pin="fullscreen" title="Pin to the toolbar">📌</button></div>
@@ -1222,25 +1317,43 @@ body.touring .qinsight,body.kiosk .qinsight{display:none!important}
   <button data-act="xlsx">Excel (milestones, fortunes and notes)</button>
   <div class="admonly"><hr><div class="wmh">Admin</div><button data-act="system">Download system file for GitHub</button></div>
 </div>
-<div id="welcome" role="dialog" aria-modal="true" aria-labelledby="wTitle"><div class="wbox">
+<div id="welcome" role="dialog" aria-modal="true" aria-labelledby="wTitle" data-page="doors"><div class="wbox">
+<section id="wp-doors" class="wpg">
   <h1 id="wTitle">The Shrinking Gap from Research to Change</h1>
-  <p class="wsub" id="wSub">Guided walk-throughs of one to two minutes, narrated with subtitles. Or go straight to the tool.</p>
+  <p class="wsub" id="wSub">How long does research take to change the world, and is AI making it faster?</p>
   <div id="wAck" class="wack" role="alertdialog" aria-labelledby="wAckT"><b id="wAckT">Before you start</b> This site is run and managed by AI agents, with <b>no human in the loop</b>. It uses <b>only publicly available sources</b>. Its data, narrative and voice are AI-generated and may contain errors. Please acknowledge to continue.
     <button id="wAckBtn" class="wrun">I understand and acknowledge</button></div>
-  <p class="wai" role="note"><b>Fully AI-generated, with no human in the loop.</b> AI agents write and update these walk-throughs every week from their own findings, using only publicly available sources, and an AI voice speaks them. No person reviews the narration before you hear it.</p>
-  <div class="wsign"><span class="wrib">🎓 Learn</span><span class="wsigntxt">Guided tours of one to two minutes, narrated with subtitles</span></div>
-  <div class="wcards" id="wCards"></div>
-  <p class="wver" id="wVer"></p>
-  <div class="wpaths"><div class="wpath"><span class="wrib">✨ Start here</span><button class="wrun wq" id="wQuestions" title="Questions this tool answers well, each with a ready view">Start with a question</button><small>Pick a question, and the answer is set up for you.</small></div><div class="wpath"><span class="wrib">🚀 Jump right in</span><button id="wRun" class="wrun">Run the tool</button><small>Explore freely, with every panel.</small></div></div>
-  <div class="wversion" role="group" aria-label="Which version"><span class="wvlabel">Version</span><button id="wvStd" class="wvbtn" aria-pressed="true">Standard</button><button id="wvAI" class="wvbtn" aria-pressed="false">✨ AI-enhanced <small>experimental</small></button><small class="wvnote">The AI-enhanced version adds features an AI agent builds each week, without human review.</small></div>
-  <div class="wfoot"><button id="wKiosk" class="wmute">Kiosk mode</button><button id="wMute" class="wmute"></button></div>
+  <p class="wslim" role="note">AI-maintained from publicly available sources, without human review, so it may contain errors.</p>
+  <p class="wprompt">Where would you like to start?</p>
+  <div class="wdoors">
+    <button class="wdoor wd-learn" id="wLearn"><span class="wdi" aria-hidden="true"><svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10 8.5 L15.5 12 L10 15.5 Z"/></svg></span><span class="wdl">LEARN</span><span class="wdt">Take a guided tour</span><span class="wdx">Short narrated walk-throughs of the findings, this week’s analysis and how the tool works.</span><span class="wdf"><span class="wdc" id="wLearnCount"></span><span class="wdb">See the tours →</span></span></button>
+    <button class="wdoor wd-ask" id="wQuestions"><span class="wdi" aria-hidden="true"><svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.3a2.5 2.5 0 1 1 3.4 2.3c-.7.3-1 .9-1 1.6v.6"/><path d="M12 16.8v.2"/></svg></span><span class="wdl">ASK</span><span class="wdt">Ask a question</span><span class="wdx">Pick a question, such as what is coming for clean energy, and see the answer set up for you.</span><span class="wdf"><span class="wdc" id="wAskCount"></span><span class="wdb">See the questions →</span></span></button>
+    <button class="wdoor wd-explore" id="wRun"><span class="wdi" aria-hidden="true"><svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 L20 7.5 L20 16.5 L12 21 L4 16.5 L4 7.5 Z"/><path d="M4 7.5 L12 12 L20 7.5"/><path d="M12 12 L12 21"/></svg></span><span class="wdl">EXPLORE</span><span class="wdt">Explore the tool</span><span class="wdx">The full 3D model, charts, filters and panels, to follow your own line of enquiry.</span><span class="wdf"><span class="wdc" id="wExploreCount"></span><span class="wdb">Open the tool →</span></span></button>
+  </div>
+  <div class="wdfoot">
+    <div class="wversion" role="group" aria-label="Which version"><span class="wvlabel">Version</span><button id="wvStd" class="wvbtn" aria-pressed="true">Standard</button><button id="wvAI" class="wvbtn" aria-pressed="false">✨ AI-enhanced <small>experimental</small></button></div>
+    <button id="wKiosk" class="wmute">Kiosk mode</button><button id="wMute" class="wmute"></button><button class="wmute wbacktool" hidden>Back to the tool</button>
+  </div>
   <div id="wKioskOpts" class="wkiosk"><b>Kiosk mode</b> loops through the walk-throughs and ready-made views, unattended. Visitors can explore at any time; it carries on after a minute without a touch. Press <b>Escape</b> to leave.
     <div class="kopts"><span>Sound:</span><label><input type="radio" name="kSound" value="narration" checked> AI narration</label><label><input type="radio" name="kSound" value="music"> Music (with subtitles)</label><label><input type="radio" name="kSound" value="silent"> Silent</label></div>
     <div class="kopts"><label><input type="checkbox" id="kTicker" checked> Ticker (news and jokes)</label><label><input type="checkbox" id="kQr" checked> QR code to the site</label></div>
     <details><summary>The kiosk script</summary><ol id="wKioskScript"></ol></details>
     <button id="wKioskGo" class="wrun">Start kiosk mode</button></div>
+  <p class="wver" id="wVer"></p>
   <p class="wauto" id="wAuto"></p>
-  <p class="note-s wnote">Narration uses your browser’s voice and can be muted. Press Escape at any time to leave a walk-through. AI-maintained data; may contain errors.</p>
+</section>
+<section id="wp-learn" class="wpg wpage" hidden>
+  <nav class="wnav" aria-label="Where you are"><button class="wmute wdoorsback">← All doors</button><span class="wcrumb">Home › <b class="cl">Learn</b></span><button class="wmute wbacktool" hidden>Back to the tool</button></nav>
+  <span class="wkicker cl">LEARN</span><h1>Guided tours</h1>
+  <p class="wpsub">Narrated walk-throughs of one to two minutes, with subtitles. Each returns you here when it ends.</p>
+  <div id="wCards" class="wsections"></div>
+</section>
+<section id="wp-ask" class="wpg wpage" hidden>
+  <nav class="wnav" aria-label="Where you are"><button class="wmute wdoorsback">← All doors</button><span class="wcrumb">Home › <b class="ca">Ask</b></span><button class="wmute wbacktool" hidden>Back to the tool</button></nav>
+  <span class="wkicker ca">ASK</span><h1>What would you like to know?</h1>
+  <p class="wpsub">Each question opens the tool set up with the answer: a chart, its insight and the items behind it.</p>
+  <div id="wQList" class="wsections"></div>
+</section>
 </div></div>
 <div id="chartTip" role="tooltip"></div>
 <div id="kioskPill" role="status" aria-live="polite"></div>
@@ -5599,7 +5712,7 @@ const FORTUNES = DB.founders.map(f => {
 });
 const fmtMoney = (bn, sym) => bn >= 1000 ? `${sym}${(bn / 1000).toFixed(1)}tn` : bn >= 1 ? `${sym}${bn >= 100 ? Math.round(bn) : Math.round(bn * 10) / 10}bn` : `${sym}${Math.round(bn * 1000)}m`;
 const DATA_AS_OF = DB.meta.asOf;
-const APP_VERSION = '12.9', APP_BUILD = '';
+const APP_VERSION = '13.0', APP_BUILD = '';
 // Screen-aware scaling: laptops slightly smaller, large screens larger
 const UI = (() => { const w = innerWidth; return w < 1280 ? .85 : w < 1500 ? .95 : w < 1800 ? 1.05 : w < 2300 ? 1.2 : 1.4; })();
 const LARGE = innerWidth >= 1700;
@@ -6263,6 +6376,7 @@ function arrangeLayout(name){
   return d;
 }
 function applyPreset(name){
+  view.question = null;   // a ready-made view replaces an answer (a question sets it again afterwards)
   if (name === 'compare') { applyCompare(); return; }   // two chart windows side by side
   if (typeof destroyAllChartWindows === 'function' && name !== 'charts') destroyAllChartWindows();
   const wasDesnz = view.preset === 'desnz';
@@ -6328,7 +6442,7 @@ winMenu.addEventListener('click', e => {
   if (b.dataset.x === 'all') { const any = WIN_GROUPS.some(([g]) => view.menuGroups[g]); WIN_GROUPS.concat([['other']]).forEach(([g]) => { view.menuGroups[g] = !any; }); buildWinMenu(); return; }
   if (b.dataset.mvact) { handleMyView(b.dataset.mv, b.dataset.mvact); return; }
   if (b.dataset.w === '__aiswitch') { goVersion(!IS_AI); return; }
-  if (b.dataset.w === '__questions') { winMenu.classList.remove('open'); setOpen('questions', true); raise('questions'); return; }
+  if (b.dataset.w === '__questions') { winMenu.classList.remove('open'); openAllQuestions(); return; }
   const w = b.dataset.w;
   if (w === '__csv' || w === '__xlsx') { winMenu.classList.remove('open'); (w === '__csv' ? exportCsv : exportXlsx)(); return; }
   if (w === '__img') { winMenu.classList.remove('open'); setTimeout(exportImage, 150); return; }
@@ -7983,7 +8097,10 @@ const HELP = {
   rotBtn:'Turns the model slowly. Drag the model to look around.',
   resetBtn:'Reloads the app with its default settings.',
   fsBtn:'Uses the whole screen.',
-  toursBtn:'Reopen the welcome screen with the one-minute guided walk-throughs.',
+  toursBtn:'The guided tours: narrated walk-throughs of one to two minutes. When one ends, you are back where you were.',
+  homeBtn:'Back to the three doors: Learn, Ask and Explore. Your view is kept; Back to the tool returns to it.',
+  questionsBtn:'The questions this tool answers well, by topic. Choose one to see its answer; All questions shows them with pictures.',
+  crumbBtn:'The question you are looking at. Select it to go back to all the questions.',
   aboutBtn:'Help, frequently asked questions and information about the data.'
 };
 const FAQ_EXTRA = [
@@ -8010,6 +8127,7 @@ const FAQ_EXTRA = [
     ['Two AI models', 'Two AI models maintain the data and check each other. Claude (Anthropic) and Gemini (Google) each search for new milestones; whichever finds one, the other must agree before it is published undisputed. Each record says who found it, and Data quality shows how often they agree.'],
     ['What are Views, Present and Share?', 'The toolbar has six buttons. Views: ready-made views, your own My views, the panels, and your file. Present: full screen, auto-rotate, music, the joke ticker, the showcase title, thank you and questions, audience ideas and kiosk mode; 📌 pins any of them to the toolbar. Share: the PowerPoint report, the clean energy briefing slide, an image, a link, and the data. While music, rotation, full screen or the ticker is on, a small chip on the toolbar shows it and switches it off in one click.'],
     ['How do I keep my work between visits?', 'The app starts from its defaults on every visit and keeps nothing in the browser unless you ask it to. Save your file (Views, “Save my file…”): it holds your views, settings, review marks and My list, and works on any device. The sign beside Views shows anything unsaved. In Display, Autosave can keep a file updated automatically (Chrome or Edge on a computer) or keep a copy in this browser.'],
+    ['Where do I start?', 'The welcome screen has three doors. Learn has the guided tours; Ask has questions the tool answers well, each opening its answer; Explore opens the full tool. In the tool, Home returns to the doors, Questions lists the questions, and after a question a breadcrumb takes you back to them.'],
     ['What is the AI-enhanced version?', 'The same app and data, plus experimental features that an AI agent builds and improves each week, after automatic checks, without human review. Choose it on the welcome screen, in Display or in Views; a banner always shows when you are in it, with What’s new and Back to standard. How it works, and its safeguards, are in How it works, “The AI-enhanced version”.'],
     ['Is the AI-enhanced version safe to use?', 'It uses the same data, cannot change it, and cannot reach the internet or store anything; each feature is checked before it is published, a failing feature is paused, and the banner cannot be hidden. It is experimental, so features may be rough or wrong: the standard version is always one click away.'],
     ['Can I see several charts at once?', 'Yes. ⧉ New window on any chart opens a full chart window, with all its controls, as many as you like; close one to remove it. A milestone you select in any chart window opens in Details and is highlighted in every linked chart window; 🔗 Linked on a window switches it to keep its own. Compare, under Views, sets out two side by side. Chart windows are saved with My views and My file.'],
@@ -8520,6 +8638,7 @@ function tourStep(i){
   tourSay(text, tour.spokenCb);
 }
 function startTour(id){
+  view.question = null;   // a tour is not an answer: the breadcrumb goes
   closeWelcome(false);
   tour.saved = {view:JSON.parse(JSON.stringify(view)), speed:playSpeed, musicWasOn:!music.paused};
   cancelCountdown(); if (state.playing) stopPlay(); $('spot').classList.remove('on', 'concl', 'chg');
@@ -8561,7 +8680,7 @@ function endTour(how){
   returnFromTour();
   if (sv.musicWasOn) music.play().catch(() => {});
   showDisc();
-  if (toWelcome) setTimeout(showWelcome, 300);
+  if (toWelcome) setTimeout(() => showWelcome('learn'), 300);   // back to the tours it was chosen from
 }
 $('tourNext').onclick = () => tourStep(tour.i + 1);
 $('tourPrev').onclick = () => tourStep(tour.i - 1);
@@ -8579,19 +8698,19 @@ document.addEventListener('keydown', e => {
   if (tour.on && e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); endTour('escape'); }
   else if (tour.on && e.key === 'ArrowRight') { e.stopPropagation(); tourStep(tour.i + 1); }
   else if (tour.on && e.key === 'ArrowLeft') { e.stopPropagation(); tourStep(tour.i - 1); }
-  else if ($('welcome').classList.contains('on') && e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); closeWelcome(true); }
+  else if ($('welcome').classList.contains('on') && e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); if ($('welcome').dataset.page !== 'doors') wGo('doors'); else closeWelcome(true); }   // a page behind a door goes back to the doors first
 }, true);
 /* ---------- the welcome screen: shown on every load ---------- */
 let welcomeTimer = 0, welcomeLeft = 0, welcomeDeadline = 0, welcomeLast = 0;
 /* switching versions carries the acknowledgement once (sw=welcome or sw=app), then the marker is removed from the address, so a copied or shared link never skips it */
 const SWITCHED = (() => { const q = new URLSearchParams(location.search), v = q.get('sw'); if (!v) return ''; q.delete('sw'); const s = q.toString(); try { history.replaceState(null, '', location.pathname + (s ? '?' + s : '') + location.hash); } catch (e) { /* not essential */ } return v === 'app' || v === 'welcome' ? v : ''; })();
 let aiAcked = new URLSearchParams(location.search).get('welcome') === '0' || !!SWITCHED;   // a mandatory acknowledgement, once per visit (tests skip it with welcome=0)
-function ackAI(){ aiAcked = true; $('welcome').classList.remove('needack'); welcomeDeadline = Date.now() + 30000; welcomeLast = Date.now(); tickWelcome(); $('wRun').focus(); }
-function showWelcome(){
-  $('wCards').innerHTML = TOUR_LIST.map((t, k) => `<button class="wcard${t.ready ? '' : ' soon'}" data-tour="${t.id}"${t.ready ? '' : ' disabled aria-disabled="true"'}><span class="wn">${k + 1}</span><b>${esc(t.title)}</b><span>${esc(t.blurb)}</span><em>${tourUpdatedLabel(t.id) ? 'Updated ' + chEsc(tourUpdatedLabel(t.id)) : t.ready ? '1 to 2 minute walk-through' : 'Coming soon'}</em></button>`).join('');
-  $('welcome').classList.add('on'); $('disc').classList.add('gone'); syncMute();
-  if (!aiAcked) { $('welcome').classList.add('needack'); clearTimeout(welcomeTimer); $('wAuto').textContent = 'Please acknowledge the notice above to continue.'; setTimeout(() => $('wAckBtn').focus(), 50); return; }
-  welcomeDeadline = Date.now() + 30000; welcomeLast = Date.now(); tickWelcome();
+function ackAI(){ aiAcked = true; $('welcome').classList.remove('needack'); $('wAuto').textContent = ''; setTimeout(() => $('wLearn').focus(), 30); }
+/* the welcome screen: three doors (Learn, Ask, Explore), and a page behind each of the first two */
+function showWelcome(page){
+  syncDoors(); wGo(page || 'doors');
+  $('welcome').classList.add('on'); $('disc').classList.add('gone'); syncMute(); clearTimeout(welcomeTimer); $('wAuto').textContent = '';
+  if (!aiAcked) { $('welcome').classList.add('needack'); setTimeout(() => $('wAckBtn').focus(), 50); }
 }
 function tickWelcome(){   // timed by the real clock, so a busy computer cannot slow the countdown
   clearTimeout(welcomeTimer); if (!$('welcome').classList.contains('on')) return;
@@ -8608,7 +8727,7 @@ $('wCards').addEventListener('click', e => { const c = e.target.closest('.wcard'
 $('wRun').onclick = () => closeWelcome(true);
 $('wAckBtn').onclick = ackAI;
 $('wMute').onclick = () => { tour.muted = !tour.muted; prefs.tourMuted = tour.muted; savePrefs(); syncMute(); };
-$('toursBtn').onclick = () => { if (tour.on) endTour('escape'); tour.returnTo = JSON.parse(JSON.stringify(snapshot('before-tour'))); showWelcome(); };   // remember the app exactly as it was
+$('toursBtn').onclick = () => { if (tour.on) endTour('escape'); closeDrops(); tour.returnTo = JSON.parse(JSON.stringify(snapshot('before-tour'))); showWelcome('learn'); };   // remember the app exactly as it was
 
 /* ==================================================================
  *  KIOSK MODE: an unattended loop for stands and waiting areas. Escape always leaves it.
@@ -9247,7 +9366,7 @@ function showVersion(){ const v = `Version ${APP_VERSION} · data revision ${DB.
 showVersion();
 /* ---------- the welcome screen counts its walk-throughs ---------- */
 setTimeout(() => { const n = TOUR_LIST.filter(t => t.ready).length, words = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve'];
-  $('wSub').textContent = `${words[n] || n} walk-throughs of one to two minutes, narrated with subtitles. Or go straight to the tool.`; }, 0);   // after every tour has been added
+  /* the subtitle is now fixed copy on the doors page; the tour count shows on the Learn door instead */; }, 0);   // after every tour has been added
 /* ---------- dates: UK by default, US as an option ---------- */
 function fmtDate(iso, kind){
   if (!iso) return ''; const s = String(iso), d = new Date(s.length <= 10 ? s + 'T12:00:00Z' : s); if (isNaN(d)) return s;
@@ -9605,7 +9724,7 @@ $('insBody').addEventListener('click', e => {
 /* ==================================================================
  *  HOW IT WORKS: documentation of the app, its files, workflows and agents. Maintained with each material change.
  * ================================================================== */
-const DOCS_UPDATED = 'Version 12.9, 2 November 2026';   // update with every material change
+const DOCS_UPDATED = 'Version 13.0, 2 November 2026';   // update with every material change
 const DOCS = [
  ['overview', 'Overview', `<p>The Shrinking Gap measures how long research takes to become real-world change, and whether AI is shortening the journey. It is maintained by AI agents using public sources only; the owner can review and curate through the Data inspector and the system file, but nothing needs a person each week.</p>
   <p><b>The flow:</b> AI agents (GitHub Actions, weekly) research, check and correct <code>data/data.json</code> → safety gates → <code>tools/build.py</code> assembles <code>index.html</code> from <code>src/</code> with the data embedded → GitHub Pages publishes it. Your uploads to <code>src/</code> trigger the same build.</p>`],
@@ -9613,7 +9732,7 @@ const DOCS = [
   <tr><td><code>index.html</code></td><td>The built app (generated; never edit by hand).</td></tr>
   <tr><td><code>src/index.html</code></td><td>The page template: markup with include markers that the build replaces with the CSS and JavaScript.</td></tr>
   <tr><td><code>src/styles/app.css</code></td><td>All styles.</td></tr>
-  <tr><td><code>src/js/NN-*.js</code></td><td>The app's code in numbered sections, assembled in order: data loading (01), state (02), the 3D scene, panel manager (07), ready-made views (08), the Views menu (09), details (12), reports (21), data changes (22), data quality (27), help (28), cyber lens and readiness (29), tours (31), kiosk and image export (31b), data export (31c), charts (31d), insights and weekly analyses (31e), this inspector and documentation (31f), the toolbar, Present and Share menus, chips and pins (31g), My file and My views (31h), chart windows (31i), Start with a question (31j), the at-a-glance infographics (31k), saved views (32), start-up (36).</td></tr>
+  <tr><td><code>src/js/NN-*.js</code></td><td>The app's code in numbered sections, assembled in order: data loading (01), state (02), the 3D scene, panel manager (07), ready-made views (08), the Views menu (09), details (12), reports (21), data changes (22), data quality (27), help (28), cyber lens and readiness (29), tours (31), kiosk and image export (31b), data export (31c), charts (31d), insights and weekly analyses (31e), this inspector and documentation (31f), the toolbar, Present and Share menus, chips and pins (31g), My file and My views (31h), chart windows (31i), the questions (31j), the at-a-glance infographics (31k), the extension interface (31l), the AI-enhanced version (31m), the welcome doors (31n), saved views (32), start-up (36).</td></tr>
   <tr><td><code>src/vendor/</code></td><td>Fonts and libraries (three.js, PptxGenJS loaded on demand, QR code).</td></tr>
   <tr><td><code>data/data.json</code></td><td>The dataset: milestones, fortunes, guidance, change log, funnel and settings history.</td></tr>
   <tr><td><code>data/schema.json</code></td><td>The rules the data must follow (checked by Gate 1).</td></tr>
@@ -9643,7 +9762,7 @@ const DOCS = [
  ['gates', 'Gates and safety', `<p><b>Gate 1</b> checks the schema, the tour rules, that mitigation references link to official publishers, and that no text contains markup. <b>Gate 2</b> checks that nothing was deleted and additions are within the limit. <b>Gate 3</b> loads the built app in a browser and checks it renders. Agents treat everything they read as data, never as instructions; keys stay in GitHub secrets.</p>`],
  ['narration', 'Narration, tours and voice', `<p>Narration lives in <code>data/tours.json</code> as templates: the walk-throughs, the chart insights, the question insights and both weekly analyses. The app fills every figure from live data and chooses each conclusion by rules, so the words can change weekly but the numbers cannot be invented. Recordings are keyed by a fingerprint of the exact sentence and voice; changed sentences are re-recorded by <code>tools/make_voice.py</code>, and the app falls back to the browser voice only if a recording never starts. In the walk-throughs, chart steps open a side panel on what the narration is discussing. A walk-through started from the welcome screen returns there; one started inside the app returns to where you were. Pronunciations (DESNZ, CAF, NERC, CIP, and row said as “roe”) are in <code>tours.json</code>.</p>`],
  ['data', 'The data model', `<p>Each milestone has a title, field and sub-field, origin, status (landed or outlook), research (year, what), change (first use: year, what), sources, verification (source-cited, AI-compiled or AI estimate), and optional readiness, GB status, security note, forecast record, AI levers and story. <code>flags</code> mark it disputed, hidden or retired; <code>provenance</code> records who added it, when, whether dates are approximate, and any second opinion. <code>flags.reviewed</code> records the owner’s review, with a fingerprint so it lapses if the record changes. For the whole dataset, <code>meta</code> keeps the change log, the research funnel, the catch-up record, the decisions applied, and pairs judged not to be duplicates.</p>`],
- ['curation', 'Views, My file, reviews and the system file', `<p><b>Start with a question</b> (welcome screen, or Views): questions the tool answers well, each setting up the panels, filters and chart with the answers listed, and its own insight, written weekly by the agents, with numbers you can select and a Speak button. <b>Open insights automatically</b> (Display, on by default) opens chart and question insights by themselves; a closed one stays closed until you move on. After acknowledging, the welcome screen signposts the three ways in: Learn (the tours), Start here (questions) and Jump right in (the tool). <b>⧉ New window</b> on any chart opens a full chart window: all the tabs, filters, zoom, tooltips, side panel and insight, with its own chart, as many as you like; closing one removes it. A milestone selected in any chart window opens in the one Details panel and is highlighted in every linked chart window; <b>🔗 Linked</b> switches a window to keep its own highlight. Chart windows are saved with My views and My file, and <b>Compare</b> (a ready-made view) sets out two side by side with the AI Energy Vision Radar. <b>Help</b> is a panel like the others; its “How it works” button opens this documentation, and “At a glance” the infographics.</p>
+ ['curation', 'Views, My file, reviews and the system file', `<p><b>The welcome screen</b> has three doors: <b>Learn</b> (the guided tours, in labelled sections), <b>Ask</b> (questions the tool answers well, in labelled sections) and <b>Explore</b> (the full tool), each tile with a small moving picture that pauses for anyone who asks for reduced motion. In the tool, <b>Home</b> returns to the doors (Back to the tool returns to your view), the <b>Questions</b> menu lists the questions, and after a question a breadcrumb leads back to them. A question opens calmly, without the century playing. <b>Questions</b>: each sets up the panels, filters and chart with the answers listed, and its own insight, written weekly by the agents, with numbers you can select and a Speak button. <b>Open insights automatically</b> (Display, on by default) opens chart and question insights by themselves; a closed one stays closed until you move on. After acknowledging, the welcome screen signposts the three ways in: Learn (the tours), Start here (questions) and Jump right in (the tool). <b>⧉ New window</b> on any chart opens a full chart window: all the tabs, filters, zoom, tooltips, side panel and insight, with its own chart, as many as you like; closing one removes it. A milestone selected in any chart window opens in the one Details panel and is highlighted in every linked chart window; <b>🔗 Linked</b> switches a window to keep its own highlight. Chart windows are saved with My views and My file, and <b>Compare</b> (a ready-made view) sets out two side by side with the AI Energy Vision Radar. <b>Help</b> is a panel like the others; its “How it works” button opens this documentation, and “At a glance” the infographics.</p>
   <p><b>The toolbar:</b> Tours, Play the century, Views, Present, Share and Help. Chips appear while music, rotation, full screen or the ticker is on; 📌 in Present pins any item.</p>
   <p><b>My file</b> (Views → Save my file / Open my file) holds your views, settings, review marks, notes, My list, pins and kiosk options. The app keeps nothing in the browser unless Autosave is on (Display): then it keeps a connected file updated (Chrome or Edge on a computer) or a copy in this browser, written at once when the page closes. The sign beside Views shows anything unsaved.</p>
   <p><b>My views</b> are named arrangements with their own panels, positions, chart tab, filters and display settings. ☆ opens one at start; ⤓ exports one to share; old saved view files join My views when opened.</p>
@@ -9659,7 +9778,8 @@ const DOCS = [
   <li><b>Undo:</b> each week’s change is one commit, which can be reverted; any feature can be promoted into the standard version by its author, or removed.</li></ul>
   <h4>The weekly run</h4><p>Each Wednesday at 05:23 UTC (with a safety-net slot at 09:53; switched on by the repository variable UI_AGENT_ENABLED), a workflow briefs the agent (the last build’s report, ideas from GitHub issues labelled <code>experimental-idea</code>, an optional focus, and screenshots), runs Claude Code with its rules (<code>CLAUDE.md</code>) and procedure (the <code>improve-experimental</code> skill), then the guard, the full test suite and screenshots. Passing work is committed to the experimental branch and published by the publisher; a summary issue reports the outcome, the agent’s own report, the checks and the cost. Started by hand, it can run as a dry run, or with a focus. Switching versions keeps your acknowledgement; the banner can be moved (double-click puts it back) but never hidden.</p>
   <h4>Features in the AI-enhanced version now</h4><div id="aiFeatList" class="note-s">Loading…</div>`],
-  ['history', 'Recent changes', `<ul class="doclist"><li><b>12.9</b> Gemini research: a reasoning budget so its answer fits, shorter fields, and the complete candidates kept if an answer is still cut off; the gap-filler is told the dataset starts in 1925; the guidance agent does not re-check, for eight weeks, what it could not confirm.</li>
+  ['history', 'Recent changes', `<ul class="doclist"><li><b>13.0</b> A new welcome screen with three doors (Learn, Ask, Explore) that open into their own space; the tours and questions behind them in labelled sections, each tile with a soft moving picture; Home, a Questions menu and a breadcrumb in the toolbar; questions arrive calmly, with All questions and Next question on the answer; no countdown on the welcome screen.</li>
+  <li><b>12.9</b> Gemini research: a reasoning budget so its answer fits, shorter fields, and the complete candidates kept if an answer is still cut off; the gap-filler is told the dataset starts in 1925; the guidance agent does not re-check, for eight weeks, what it could not confirm.</li>
   <li><b>12.8</b> Schedules moved off the hour (GitHub’s scheduler can drop runs at the start of the hour), each with a later safety-net slot that runs only if needed; the deep search’s 1 January and 1 July runs moved off the hour too; an on/off switch for the AI-enhanced agent; the test rig serves pages in parallel.</li>
   <li><b>12.7</b> The weekly interface agent (Claude Code): its rules, procedure, guard, screenshots, workflow with dry runs and a focus, publishing and summary issue; switching versions keeps your acknowledgement; the AI-enhanced banner can be moved.</li>
   <li><b>12.6</b> The AI-enhanced version: a switch between the standard and AI-enhanced versions (for everyone), the extension interface, the builder and its safeguards, a sample feature (AI by readiness), the banner and What’s new, the recorded voice for feature insights, and tests that try to break it.</li>
@@ -10065,7 +10185,7 @@ function questionInsight(id){ const t = qTemplate(id); return t ? tidyText(rende
 function showQInsight(id){
   const Q = QUESTIONS.find(x => x.id === id), t = qTemplate(id); if (!Q || !t) return;
   $('qInsight').innerHTML = `<div class="qihead"><b>★ ${esc(Q.q)}</b><button class="mini" id="qiX" aria-label="Close this insight">✕</button></div><p class="qitext">${renderSayHtml(t.say, questionFacts())}</p>
-    <div class="qifoot"><button class="mini" id="qiSpeak" data-speakbtn="1">${speakLabel()}</button><span class="note-s">${esc(Q.see)} Select a number to see what is behind it. AI-generated narrative, refreshed weekly by the agents; no human review.</span></div>`;
+    <div class="qifoot"><button class="mini" id="qiSpeak" data-speakbtn="1">${speakLabel()}</button><button class="mini" id="qiAll">← All questions</button><button class="mini qinext" id="qiNext">Next question →</button><span class="note-s">${esc(Q.see)} Select a number to see what is behind it. AI-generated narrative, refreshed weekly by the agents; no human review.</span></div>`;
   $('qInsight').dataset.q = id; $('qInsight').classList.add('on');
 }
 function hideQInsight(){ $('qInsight').classList.remove('on'); stopInsight(); }
@@ -10316,6 +10436,122 @@ function fillAiFeatures(){
 }
 /* arriving from the other version, from inside the app: go straight in */
 if (SWITCHED === 'app') setTimeout(() => { if ($('welcome').classList.contains('on')) closeWelcome(false); }, 0);
+/* ==================================================================
+ *  THE WELCOME DOORS: Learn (guided tours), Ask (questions) and Explore (the tool), with a page behind each of the
+ *  first two: section labels and a small moving picture on every tile. In the tool, the toolbar has a Home button,
+ *  a Questions menu and, after a question, a breadcrumb back to the questions. A question arrives calmly: the
+ *  century stays still and nothing pops up, so the answer is the first thing seen.
+ * ================================================================== */
+const PIC_BG = '#10283A';
+/* small looping pictures, one per topic (inline SVG; paused for anyone who asks for reduced motion) */
+const PICS = {
+  arcs:'<line x1="20" y1="100" x2="220" y2="100" stroke="#2E4A63" stroke-width="1.5"/><path d="M30 100 Q 120 -10 210 100" fill="none" stroke="#5FD8FF" stroke-width="2.5"><animate attributeName="d" values="M30 100 Q 120 -10 210 100;M70 100 Q 120 30 170 100;M30 100 Q 120 -10 210 100" dur="6s" repeatCount="indefinite"/></path><path d="M60 100 Q 120 30 180 100" fill="none" stroke="#FFD166" stroke-width="2"><animate attributeName="d" values="M60 100 Q 120 30 180 100;M95 100 Q 120 60 145 100;M60 100 Q 120 30 180 100" dur="6s" repeatCount="indefinite"/></path>',
+  bars:'<line x1="30" y1="104" x2="210" y2="104" stroke="#2E4A63" stroke-width="1.5"/>' + [['#5FD8FF', 48, '20;44;20'], ['#4CD3C2', 92, '64;30;64'], ['#FFD166', 136, '34;70;34'], ['#B794F6', 180, '54;24;54']].map(([c, x, v]) => `<rect x="${x}" width="26" rx="4" fill="${c}" y="60" height="44"><animate attributeName="height" values="${v}" dur="4s" repeatCount="indefinite"/><animate attributeName="y" values="${v.split(';').map(h => 104 - h).join(';')}" dur="4s" repeatCount="indefinite"/></rect>`).join(''),
+  turbine:'<line x1="120" y1="58" x2="120" y2="116" stroke="#C9D8E6" stroke-width="4" stroke-linecap="round"/><g><animateTransform attributeName="transform" type="rotate" from="0 120 56" to="360 120 56" dur="8s" repeatCount="indefinite"/><path d="M120 56 L120 14" stroke="#E9F2FF" stroke-width="5" stroke-linecap="round"/><path d="M120 56 L156 77" stroke="#E9F2FF" stroke-width="5" stroke-linecap="round"/><path d="M120 56 L84 77" stroke="#E9F2FF" stroke-width="5" stroke-linecap="round"/></g><circle cx="120" cy="56" r="5" fill="#4CD3C2"/><circle cx="190" cy="30" r="4" fill="#4CD3C2"><animate attributeName="opacity" values="0.2;1;0.2" dur="3s" repeatCount="indefinite"/></circle><circle cx="206" cy="52" r="4" fill="#4CD3C2"><animate attributeName="opacity" values="1;0.2;1" dur="3s" repeatCount="indefinite"/></circle><path d="M190 30 L206 52" stroke="#4CD3C2" stroke-width="1.2" opacity="0.6"/>',
+  radar:'<circle cx="120" cy="64" r="44" fill="none" stroke="#2E4A63" stroke-width="1.5"/><circle cx="120" cy="64" r="28" fill="none" stroke="#2E4A63" stroke-width="1.5"/><path d="M120 64 L120 20 A44 44 0 0 1 151 33 Z" fill="#4CD3C2" opacity="0.35"><animateTransform attributeName="transform" type="rotate" from="0 120 64" to="360 120 64" dur="5s" repeatCount="indefinite"/></path><circle cx="146" cy="44" r="4" fill="#FFD166"><animate attributeName="opacity" values="0.2;1;0.2" dur="5s" repeatCount="indefinite"/></circle><circle cx="98" cy="82" r="4" fill="#5FD8FF"><animate attributeName="opacity" values="1;0.2;1" dur="5s" repeatCount="indefinite"/></circle>',
+  shield:'<circle cx="120" cy="60" r="30" fill="none" stroke="#FF8A7A" stroke-width="2"><animate attributeName="r" values="30;52;30" dur="3.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.6;0;0.6" dur="3.5s" repeatCount="indefinite"/></circle><path d="M120 26 L148 37 L148 60 C148 78 136 90 120 96 C104 90 92 78 92 60 L92 37 Z" fill="#0E2232" stroke="#FF8A7A" stroke-width="2.5" stroke-linejoin="round"/><path d="M108 60 L117 69 L134 50" fill="none" stroke="#E9F2FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>',
+  shieldgap:'<path d="M120 22 L150 34 L150 58 C150 78 137 91 120 98 C103 91 90 78 90 58 L90 34 Z" fill="none" stroke="#FF8A7A" stroke-width="2.5" stroke-linejoin="round" stroke-dasharray="190 40"><animate attributeName="stroke-dashoffset" values="0;-230" dur="6s" repeatCount="indefinite"/></path><circle cx="120" cy="60" r="6" fill="#FF8A7A"><animate attributeName="opacity" values="1;0.2;1" dur="2s" repeatCount="indefinite"/></circle>',
+  climb:'<path d="M36 98 L70 84 L104 88 L138 62 L172 50 L206 22" fill="none" stroke="#FFD166" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="220" stroke-dashoffset="220"><animate attributeName="stroke-dashoffset" values="220;0;0;220" keyTimes="0;0.5;0.85;1" dur="6s" repeatCount="indefinite"/></path><circle cx="206" cy="22" r="7" fill="#FFD166"><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.45;0.55;0.85;1" dur="6s" repeatCount="indefinite"/></circle><path d="M30 104 L44 104 L42 86 L32 86 Z" fill="none" stroke="#5FD8FF" stroke-width="2" stroke-linejoin="round"/>',
+  heatmap:[0, 1, 2].map(r => [0, 1, 2, 3].map(c => { const col = ['#5FD8FF', '#4CD3C2', '#FFD166'][(r + c) % 3], o = [0.3, 0.6, 0.45, 0.75][(r * 2 + c) % 4], blink = (r + c) % 3 === 0;
+    return `<rect x="${48 + c * 36}" y="${22 + r * 28}" width="30" height="22" rx="3" fill="${col}" opacity="${o}">${blink ? `<animate attributeName="opacity" values="${o};0.95;${o}" dur="4s" begin="${(r + c) * 0.7}s" repeatCount="indefinite"/>` : ''}</rect>`; }).join('')).join(''),
+  network:'<path d="M60 40 L120 64 L180 40 M60 92 L120 64 L180 92" stroke="#2E4A63" stroke-width="2" fill="none"/><circle r="4" fill="#FFD166"><animateMotion dur="3s" repeatCount="indefinite" path="M60 40 L120 64 L180 92"/></circle><circle r="4" fill="#5FD8FF"><animateMotion dur="3s" begin="1.5s" repeatCount="indefinite" path="M60 92 L120 64 L180 40"/></circle>' + [[60, 40, '#5FD8FF', 9], [60, 92, '#5FD8FF', 9], [120, 64, '#FFD166', 12], [180, 40, '#4CD3C2', 9], [180, 92, '#4CD3C2', 9]].map(([x, y, c, r]) => `<circle cx="${x}" cy="${y}" r="${r}" fill="#0E2232" stroke="${c}" stroke-width="2"/>`).join(''),
+  timeline:'<line x1="30" y1="70" x2="210" y2="70" stroke="#2E4A63" stroke-width="2"/>' + [48, 84, 120, 156, 192].map(x => `<circle cx="${x}" cy="70" r="4" fill="#5E7488"/>`).join('') + '<rect x="36" y="38" width="24" height="22" rx="4" fill="#7FD6A0"><animate attributeName="x" values="36;180;36" dur="7s" repeatCount="indefinite"/></rect>',
+  race:'<rect x="40" y="34" width="60" height="16" rx="8" fill="#B794F6"><animate attributeName="width" values="10;90;90;10" keyTimes="0;0.4;0.9;1" dur="5s" repeatCount="indefinite"/></rect><rect x="40" y="70" width="60" height="16" rx="8" fill="#5FD8FF"><animate attributeName="width" values="10;160;160;10" keyTimes="0;0.7;0.9;1" dur="5s" repeatCount="indefinite"/></rect>',
+  sooner:'<line x1="30" y1="66" x2="210" y2="66" stroke="#2E4A63" stroke-width="2"/><circle cx="176" cy="66" r="8" fill="none" stroke="#8FA6B8" stroke-width="2" stroke-dasharray="3 3"/><circle cx="176" cy="66" r="8" fill="#FFD166"><animate attributeName="cx" values="176;96;96;176" keyTimes="0;0.5;0.85;1" dur="6s" repeatCount="indefinite"/></circle><path d="M160 40 L104 40 M112 34 L104 40 L112 46" fill="none" stroke="#FFD166" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>',
+  slipping:'<line x1="30" y1="66" x2="210" y2="66" stroke="#2E4A63" stroke-width="2"/><circle cx="90" cy="66" r="8" fill="none" stroke="#8FA6B8" stroke-width="2" stroke-dasharray="3 3"/><circle cx="90" cy="66" r="8" fill="#FF8A7A"><animate attributeName="cx" values="90;170;170;90" keyTimes="0;0.5;0.85;1" dur="6s" repeatCount="indefinite"/></circle>',
+  coins:'<ellipse cx="110" cy="96" rx="26" ry="7" fill="#C99A2E"/><ellipse cx="110" cy="88" rx="26" ry="7" fill="#FFD166"/>' + [[80, 0.2], [72, 0.45], [64, 0.7]].map(([y, t], k) => `<ellipse cx="110" cy="${y}" rx="26" ry="7" fill="${k % 2 ? '#FFD166' : '#C99A2E'}" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;${t - 0.05};${t};0.85;1" dur="5s" repeatCount="indefinite"/></ellipse>`).join('') + '<path d="M166 96 L166 62 L176 62 L176 96 Z M162 62 L180 62" fill="none" stroke="#5FD8FF" stroke-width="2"/>',
+  newdots:'<circle cx="70" cy="60" r="5" fill="#5E7488"/><circle cx="100" cy="40" r="5" fill="#5E7488"/><circle cx="130" cy="74" r="5" fill="#5E7488"/><circle cx="176" cy="44" r="5" fill="#5E7488"/>' + [[152, 58, 0], [196, 76, 0.3], [90, 86, 0.55]].map(([x, y, t]) => `<circle cx="${x}" cy="${y}" r="0" fill="#4CD3C2"><animate attributeName="r" values="0;0;8;6;0" keyTimes="0;${t};${t + 0.15};0.85;1" dur="5s" repeatCount="indefinite"/></circle>`).join('')
+};
+const pic = kind => `<svg class="tpic" aria-hidden="true" viewBox="0 0 240 120" preserveAspectRatio="xMidYMid slice">${PICS[kind] || PICS.bars}</svg>`;
+/* where each tour and question sits, and its picture; anything new falls into a sensible section with a default picture */
+const TOUR_SECTIONS = [['week', 'Fresh this week', ['week', 'cleanweek']], ['big', 'The big picture, AI for clean energy and security', ['gap', 'horizon', 'secure', 'fortune']], ['how', 'How it works', ['charthow', 'how']]];
+const TOUR_PIC = {gap:'arcs', week:'bars', cleanweek:'turbine', horizon:'radar', secure:'shield', fortune:'climb', charthow:'heatmap', how:'network'};
+const Q_SECTIONS = [['AI for clean energy', ['clean-ai', 'clean-next']], ['Speed of change', ['ai-faster', 'fields']], ['What is coming', ['whatif', 'slips']], ['Security, people and this week', ['security', 'fortune', 'changed']]];
+const Q_PIC = {'clean-ai':'turbine', 'clean-next':'timeline', 'ai-faster':'race', fields:'heatmap', security:'shieldgap', whatif:'sooner', slips:'slipping', fortune:'coins', changed:'newdots'};
+function renderLearn(){
+  const tours = TOUR_LIST.filter(t => t.ready), placed = new Set(), html = [];
+  TOUR_SECTIONS.forEach(([key, label, ids], k) => {
+    let list = tours.filter(t => ids.includes(t.id));
+    if (key === 'big') list = list.concat(tours.filter(t => !TOUR_SECTIONS.some(s => s[2].includes(t.id))));   // new tours join the big picture
+    list.forEach(t => placed.add(t.id)); if (!list.length) return;
+    html.push(`<h2 class="wsec">${esc(label)}</h2><div class="wtiles ${key === 'week' ? 'wide' : ''}">${list.map(t => { const up = tourUpdatedLabel(t.id);
+      return `<button class="wcard wtile" data-tour="${t.id}" style="--i:${placed.size}">${pic(TOUR_PIC[t.id])}<span class="wtb">${up ? `<span class="wbadge">Updated ${chEsc(up)}</span>` : ''}<b>${esc(t.title)}</b><span>${esc(t.blurb)}</span><em>▶ ${up ? 'about 2 minutes' : '1 to 2 minutes'}</em></span></button>`; }).join('')}</div>`);
+  });
+  $('wCards').innerHTML = html.join('');
+}
+function renderAsk(){
+  const byId = Object.fromEntries(QUESTIONS.map(q => [q.id, q])), shown = new Set(), html = [];
+  const sections = Q_SECTIONS.map(([label, ids]) => [label, ids.filter(id => byId[id])]);
+  const rest = QUESTIONS.filter(q => !Q_SECTIONS.some(s => s[1].includes(q.id))).map(q => q.id);   // new questions get their own section
+  if (rest.length) sections.push(['More questions', rest]);
+  sections.forEach(([label, ids]) => { if (!ids.length) return;
+    html.push(`<h2 class="wsec">${esc(label)}</h2><div class="wtiles three">${ids.map(id => { shown.add(id); const q = byId[id];
+      return `<button class="wtile qtile" data-q="${id}" style="--i:${shown.size}">${pic(Q_PIC[id])}<span class="wtb"><b>${esc(q.q)}</b><span>${esc(q.see)}</span><em class="wshow">Show me</em></span></button>`; }).join('')}</div>`); });
+  $('wQList').innerHTML = html.join('');
+}
+function quietPics(){ if (matchMedia('(prefers-reduced-motion: reduce)').matches) document.querySelectorAll('#welcome svg.tpic').forEach(s => { try { s.pauseAnimations(); } catch (e) { /* older browsers */ } }); }
+/* the three pages of the welcome screen */
+function wGo(page){
+  ['doors', 'learn', 'ask'].forEach(p => { $('wp-' + p).hidden = p !== page; });
+  $('welcome').dataset.page = page; $('welcome').scrollTop = 0;
+  if (page === 'learn') renderLearn(); if (page === 'ask') renderAsk();
+  quietPics();
+  const h = $('wp-' + page).querySelector('h1'); if (h) { h.setAttribute('tabindex', '-1'); h.focus({preventScroll:true}); }
+}
+function syncDoors(){
+  const fromApp = !!tour.returnTo;   // opened from inside the tool: offer the way back
+  document.querySelectorAll('.wbacktool').forEach(b => { b.hidden = !fromApp; });
+  $('wLearnCount').textContent = `${TOUR_LIST.filter(t => t.ready).length} tours · 1 to 2 minutes`;
+  $('wAskCount').textContent = `${QUESTIONS.length} questions · ${Q_SECTIONS.length} topics`;
+  const live = items.filter(it => !it.removed && !it.aud), yrs = live.map(it => it.r).filter(Number.isFinite);
+  $('wExploreCount').textContent = `${live.length} milestones · ${Math.min(...yrs)} to ${YEND}`;
+}
+/* entering through a door: it opens out to fill the screen in its colour, and the new space settles in */
+const calm = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
+function arrive(){ const w = $('welcome'); w.classList.remove('arriving'); void w.offsetWidth; w.classList.add('arriving'); clearTimeout(arrive.t); arrive.t = setTimeout(() => w.classList.remove('arriving'), 1400); }
+function enterDoor(door, go){
+  if (calm() || !door) { go(); arrive(); return; }
+  const r = door.getBoundingClientRect(), p = document.createElement('div');
+  p.className = 'wportal'; p.style.setProperty('--dc', getComputedStyle(door).getPropertyValue('--dc'));
+  Object.assign(p.style, {left:r.left + 'px', top:r.top + 'px', width:r.width + 'px', height:r.height + 'px'});
+  document.body.appendChild(p); $('welcome').classList.add('leaving');
+  requestAnimationFrame(() => requestAnimationFrame(() => { p.classList.add('open'); Object.assign(p.style, {left:'0px', top:'0px', width:innerWidth + 'px', height:innerHeight + 'px'}); }));
+  setTimeout(() => { $('welcome').classList.remove('leaving'); go(); arrive(); p.classList.add('fade'); setTimeout(() => p.remove(), 560); }, 470);
+}
+$('wLearn').onclick = () => { if (aiAcked) enterDoor($('wLearn'), () => wGo('learn')); };
+$('wQuestions').onclick = () => { if (aiAcked) enterDoor($('wQuestions'), () => wGo('ask')); };
+$('wRun').onclick = () => { if (aiAcked) enterDoor($('wRun'), () => closeWelcome(true)); };
+document.querySelectorAll('.wdoorsback').forEach(b => { b.onclick = () => { wGo('doors'); arrive(); }; });
+document.querySelectorAll('.wbacktool').forEach(b => { b.onclick = () => closeWelcome(true); });
+$('wQList').addEventListener('click', e => { const t = e.target.closest('.qtile'); if (t && aiAcked) askFromDoors(t.dataset.q); });
+/* a question arrives calmly: no century playing, no reset to the default view first, nothing popping up */
+function askFromDoors(id){
+  clearTimeout(welcomeTimer); $('welcome').classList.remove('on'); tour.returnTo = null;
+  if (state.playing) stopPlay();
+  askQuestion(id); showDisc();
+}
+/* ---------- in the tool: Home, the Questions menu, and the breadcrumb ---------- */
+$('homeBtn').onclick = () => { closeDrops(); if (tour.on) endTour('escape'); tour.returnTo = JSON.parse(JSON.stringify(snapshot('before-home'))); showWelcome('doors'); };
+function openAllQuestions(){ closeDrops(); if (tour.on) endTour('escape'); tour.returnTo = JSON.parse(JSON.stringify(snapshot('before-questions'))); showWelcome('ask'); }
+DROPS.questionsBtn = 'questionsMenu';
+function renderQuestionsMenu(){
+  const byId = Object.fromEntries(QUESTIONS.map(q => [q.id, q])), short = s => s.length > 64 ? s.slice(0, 62).replace(/\s+\S*$/, '') + '…' : s;
+  const groups = Q_SECTIONS.map(([label, ids]) => [label, ids.filter(id => byId[id])]).concat([['More questions', QUESTIONS.filter(q => !Q_SECTIONS.some(s => s[1].includes(q.id))).map(q => q.id)]]).filter(g => g[1].length);
+  $('questionsMenu').innerHTML = groups.map(([label, ids]) => `<div class="wmh">${esc(label)}</div>` + ids.map(id => `<button role="menuitem" data-qm="${id}" class="${view.question === id ? 'cur' : ''}">${view.question === id ? '✓ ' : ''}${esc(short(byId[id].q))}</button>`).join('')).join('')
+    + '<hr><button role="menuitem" data-qm="__all" class="qall">All questions, with pictures →</button>';
+}
+$('questionsBtn').onclick = e => { e.stopPropagation(); const open = !$('questionsMenu').classList.contains('open'); closeDrops(); if (open) { renderQuestionsMenu(); placeDrop('questionsBtn', 'questionsMenu'); $('questionsMenu').classList.add('open'); $('questionsBtn').setAttribute('aria-expanded', true); } };
+$('questionsMenu').addEventListener('click', e => { e.stopPropagation(); const b = e.target.closest('[data-qm]'); if (!b) return; closeDrops();
+  if (b.dataset.qm === '__all') openAllQuestions(); else { if (state.playing) stopPlay(); askQuestion(b.dataset.qm); } });
+function syncCrumb(){
+  const Q = view.question && QUESTIONS.find(q => q.id === view.question), b = $('crumbBtn');
+  b.hidden = !Q; if (Q) { const t = Q.q.length > 48 ? Q.q.slice(0, 46).replace(/\s+\S*$/, '') + '…' : Q.q; b.innerHTML = `<span class="crumbask">Ask</span> › ${esc(t)}`; b.title = 'All questions'; }
+}
+$('crumbBtn').onclick = openAllQuestions;
+setInterval(syncCrumb, 700);
+/* the answer's own way on: back to the questions, or the next one */
+function nextQuestion(){ const i = QUESTIONS.findIndex(q => q.id === view.question); const n = QUESTIONS[(i + 1) % QUESTIONS.length]; if (state.playing) stopPlay(); askQuestion(n.id); }
+$('qInsight').addEventListener('click', e => { if (e.target.id === 'qiAll') openAllQuestions(); else if (e.target.id === 'qiNext') nextQuestion(); });
 /* ==================================================================
  *  SAVED VIEWS (JSON)
  * ================================================================== */
