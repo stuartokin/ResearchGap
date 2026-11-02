@@ -7,7 +7,7 @@ results = []
 def ok(name, cond): results.append(bool(cond)); print(('PASS ' if cond else 'FAIL ') + name)
 def fresh():
     tmp = pathlib.Path(tempfile.mkdtemp()) / 'r'
-    shutil.copytree(REPO, tmp, ignore=shutil.ignore_patterns('.git', 'audio', '_work', '_test-*', 'ai', '__pycache__', 'node_modules'))
+    shutil.copytree(REPO, tmp, ignore=shutil.ignore_patterns('.git', 'audio', '_work', '_test-*', 'ai', '.ai-run', '__pycache__', 'node_modules'))
     run = lambda *a: subprocess.run(a, cwd=tmp, capture_output=True, text=True)
     run('git', 'init', '-q'); run('git', 'config', 'user.email', 't@t'); run('git', 'config', 'user.name', 't'); run('git', 'add', '-A'); run('git', 'commit', '-qm', 'base')
     return tmp
@@ -18,7 +18,7 @@ def feature_change(tmp, whats_new=True, code=None):
     (d / 'README.md').write_text((d / 'README.md').read_text() + '\n**Updated:** a small improvement.\n')
     m = json.loads((tmp / 'experimental/manifest.json').read_text()); m['features'][0]['updated'] = '2026-11-04'; (tmp / 'experimental/manifest.json').write_text(json.dumps(m, indent=1))
     if whats_new: (tmp / 'experimental/WHATS_NEW.md').write_text('## 4 November 2026\n- A small improvement.\n\n' + (tmp / 'experimental/WHATS_NEW.md').read_text())
-t = fresh(); feature_change(t); (t / '.ai-run').mkdir(); (t / '.ai-run/report.md').write_text('A small improvement')
+t = fresh(); feature_change(t); (t / '.ai-run').mkdir(exist_ok=True); (t / '.ai-run/report.md').write_text('A small improvement')
 g = guard(t); ok('G1 documented work inside experimental/ passes', g.returncode == 0)
 t = fresh(); feature_change(t); (t / 'src/js/01-data-loaded-from-data-data-json-or-the-e.js').write_text('// changed')
 g = guard(t); ok('G2 touching the app’s own code fails the week', g.returncode == 1 and 'changed outside experimental/' in g.stdout)

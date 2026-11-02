@@ -36,7 +36,7 @@ async def main():
         ok('V8 What’s new lists the features', 'AI by readiness' in await J("(document.querySelector('[id^=\"w-xp-core\"] .xbody') || {}).innerText || ''"))
         await pg.click('#aiBack'); await pg.wait_for_timeout(3500)
         ok('V9 Back to standard returns to the standard version', '/ai/' not in pg.url and not await J("!!window.SG_AI"))
-        await pg.goto(BASE + '/ai/_typed.html?welcome=0'); await pg.wait_for_timeout(4000)
+        await pg.goto(BASE + '/ai/_typed.html?welcome=0', timeout=60000); await pg.wait_for_timeout(4000)
         ok('V10 an insight with a typed number is refused, and the chart still works', await J("/typed numbers/.test(JSON.stringify(window.SG_AI.status))") and await J("window.SG_AI.status['ai-by-readiness'] === 'active'"))
         ok('X1 no page errors', not errs)
         print(f"PASSED {sum(results)} of {len(results)} | page errors: {errs}")

@@ -21,8 +21,13 @@ def free_port():
 def serve(port):
     class Quiet(http.server.SimpleHTTPRequestHandler):
         def log_message(self, *a): pass
-    socketserver.TCPServer.allow_reuse_address = True   # back-to-back runs must not collide on the port
-    httpd = socketserver.TCPServer(('127.0.0.1', port), functools.partial(Quiet, directory=str(ROOT)))
+        def handle(self):
+            try: super().handle()
+            except (ConnectionResetError, BrokenPipeError): pass   # a browser closing a connection early (audio, video) is not an error
+    class Server(http.server.ThreadingHTTPServer):
+        allow_reuse_address = True   # back-to-back runs must not collide on the port
+        daemon_threads = True        # many requests at once: one slow or held connection (a large recording) must not stall the rest
+    httpd = Server(('127.0.0.1', port), functools.partial(Quiet, directory=str(ROOT)))
     threading.Thread(target=httpd.serve_forever, daemon=True).start(); return httpd
 
 def adapt(path, port):
