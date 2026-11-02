@@ -730,3 +730,4 @@ body.touring .qinsight,body.kiosk .qinsight{display:none!important}
 #aiBanner b{color:#D6C2FF}#aiBanner .mini{border-color:#B794F6;color:#EDE4FF}
 .aiwn h2,.aiwn h3{font-size:1.05em;margin:.8em 0 .3em}.aifeat li{margin:.4em 0}
 @media (max-width:560px){#aiBanner{border-radius:12px;bottom:40px}#aiBanner span{display:none}}
+#aiBanner{cursor:grab;user-select:none;touch-action:none}#aiBanner.dragging{cursor:grabbing;opacity:.92}#aiBanner .aigrip{color:#B794F6;letter-spacing:-2px;margin-right:2px}#aiBanner button{cursor:pointer}

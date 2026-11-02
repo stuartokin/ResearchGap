@@ -4,7 +4,9 @@
  * ================================================================== */
 function goVersion(ai){
   if (ai === IS_AI) return;
-  const q = new URLSearchParams(location.search); q.delete('ui'); const s = q.toString();
+  const q = new URLSearchParams(location.search); q.delete('ui');
+  if (aiAcked) q.set('sw', $('welcome').classList.contains('on') ? 'welcome' : 'app');   // acknowledged once is enough: the other version knows
+  const s = q.toString();
   location.href = (ai ? 'ai/' : '../') + (s ? '?' + s : '') + location.hash;
 }
 { const u = new URLSearchParams(location.search).get('ui'); if (u === 'ai' && !IS_AI) goVersion(true); else if (u === 'standard' && IS_AI) goVersion(false); }   // ?ui=ai shares the AI-enhanced version
@@ -19,8 +21,19 @@ syncVersionSwitch();
 if (IS_AI) {
   document.body.classList.add('aiversion');
   const bar = document.createElement('div'); bar.id = 'aiBanner'; bar.setAttribute('role', 'status');
-  bar.innerHTML = '<b>✨ AI-enhanced (experimental)</b><span>Changed weekly by AI, without human review; may contain errors.</span><button class="mini" id="aiNews">What’s new</button><button class="mini" id="aiBack">Back to standard</button>';
+  bar.innerHTML = '<span class="aigrip" title="Drag to move; double-click to put it back" aria-hidden="true">⋮⋮</span><b>✨ AI-enhanced (experimental)</b><span>Changed weekly by AI, without human review; may contain errors.</span><button class="mini" id="aiNews">What’s new</button><button class="mini" id="aiBack">Back to standard</button>';
   document.body.appendChild(bar);
+  /* movable, but always kept fully on screen (it cannot be hidden); double-click puts it back; the place is kept in My file */
+  const keepOnScreen = () => { if (!view.aiBannerPos) return; const r = bar.getBoundingClientRect(), x = Math.min(Math.max(4, view.aiBannerPos.x), innerWidth - r.width - 4), y = Math.min(Math.max(4, view.aiBannerPos.y), innerHeight - r.height - 4);
+    Object.assign(bar.style, {left:x + 'px', top:y + 'px', bottom:'auto', transform:'none'}); };
+  const resetBanner = () => { view.aiBannerPos = null; Object.assign(bar.style, {left:'', top:'', bottom:'', transform:''}); };
+  let drag = null;
+  bar.addEventListener('pointerdown', e => { if (e.target.closest('button')) return; const r = bar.getBoundingClientRect(); drag = {dx:e.clientX - r.left, dy:e.clientY - r.top}; bar.setPointerCapture(e.pointerId); bar.classList.add('dragging'); e.preventDefault(); });
+  bar.addEventListener('pointermove', e => { if (!drag) return; view.aiBannerPos = {x:e.clientX - drag.dx, y:e.clientY - drag.dy}; keepOnScreen(); });
+  bar.addEventListener('pointerup', () => { drag = null; bar.classList.remove('dragging'); });
+  bar.addEventListener('dblclick', e => { if (!e.target.closest('button')) resetBanner(); });
+  addEventListener('resize', keepOnScreen);
+  setTimeout(keepOnScreen, 0);
   EXT.features.core = {tabs:[], wins:[], failed:false};
   const newsId = extApi('core').addPanel({id:'whatsnew', title:'What’s new in the AI-enhanced version', render:() => {
     const feats = (AI_BUILD.features || []).map(f => { const st = (AI_BUILD.status || {})[f.id] || f.status || 'active';
@@ -39,3 +52,5 @@ function fillAiFeatures(){
     box.innerHTML = (j.features || []).length ? `<p>Built ${esc(j.built || '')}.</p><ul class="doclist">${j.features.map(f => `<li><b>${esc(f.title)}</b> (added ${esc(f.added || '')}): ${esc(f.description || '')}</li>`).join('')}</ul>` : '<p>No experimental features yet.</p>';
   }).catch(() => { box.textContent = 'The list could not be loaded (it needs the published site).'; });
 }
+/* arriving from the other version, from inside the app: go straight in */
+if (SWITCHED === 'app') setTimeout(() => { if ($('welcome').classList.contains('on')) closeWelcome(false); }, 0);

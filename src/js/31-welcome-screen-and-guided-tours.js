@@ -345,7 +345,9 @@ document.addEventListener('keydown', e => {
 }, true);
 /* ---------- the welcome screen: shown on every load ---------- */
 let welcomeTimer = 0, welcomeLeft = 0, welcomeDeadline = 0, welcomeLast = 0;
-let aiAcked = new URLSearchParams(location.search).get('welcome') === '0';   // a mandatory acknowledgement, once per visit (tests skip it with welcome=0)
+/* switching versions carries the acknowledgement once (sw=welcome or sw=app), then the marker is removed from the address, so a copied or shared link never skips it */
+const SWITCHED = (() => { const q = new URLSearchParams(location.search), v = q.get('sw'); if (!v) return ''; q.delete('sw'); const s = q.toString(); try { history.replaceState(null, '', location.pathname + (s ? '?' + s : '') + location.hash); } catch (e) { /* not essential */ } return v === 'app' || v === 'welcome' ? v : ''; })();
+let aiAcked = new URLSearchParams(location.search).get('welcome') === '0' || !!SWITCHED;   // a mandatory acknowledgement, once per visit (tests skip it with welcome=0)
 function ackAI(){ aiAcked = true; $('welcome').classList.remove('needack'); welcomeDeadline = Date.now() + 30000; welcomeLast = Date.now(); tickWelcome(); $('wRun').focus(); }
 function showWelcome(){
   $('wCards').innerHTML = TOUR_LIST.map((t, k) => `<button class="wcard${t.ready ? '' : ' soon'}" data-tour="${t.id}"${t.ready ? '' : ' disabled aria-disabled="true"'}><span class="wn">${k + 1}</span><b>${esc(t.title)}</b><span>${esc(t.blurb)}</span><em>${tourUpdatedLabel(t.id) ? 'Updated ' + chEsc(tourUpdatedLabel(t.id)) : t.ready ? '1 to 2 minute walk-through' : 'Coming soon'}</em></button>`).join('');

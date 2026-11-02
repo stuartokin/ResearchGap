@@ -16,7 +16,10 @@ async def main():
         pg = await (await b.new_context(viewport={'width': 1700, 'height': 950})).new_page(); errs = []; pg.on('pageerror', lambda e: errs.append(str(e)[:200])); J = pg.evaluate
         await pg.goto(TEST + '?welcome=0'); await pg.wait_for_timeout(3500)
         ok('V1 the standard version has no banner and no experimental code', not await J("!!document.getElementById('aiBanner')") and not await J("!!window.SG_AI") and not await J("[...document.querySelectorAll('#chartTabs button')].some(b => b.dataset.t.startsWith('x-'))"))
-        await pg.goto(BASE + '/index.html?ui=ai&welcome=0'); await pg.wait_for_timeout(4500)
+        await pg.goto(BASE + '/index.html?ui=ai&welcome=0')
+        try: await pg.wait_for_function("!!document.getElementById('aiBanner') && document.getElementById('loading').classList.contains('done')", timeout=20000)   # a redirect, then a fresh start-up
+        except Exception: pass
+        await pg.wait_for_timeout(800)
         ok('V2 a shared ?ui=ai link opens the AI-enhanced version', '/ai/' in pg.url and await J("!!window.SG_AI"))
         ok('V3 its banner is visible, saying it is changed by AI without human review', await J("(() => { const b = document.getElementById('aiBanner'), r = b.getBoundingClientRect(); return getComputedStyle(b).display !== 'none' && r.bottom <= innerHeight && /without human review/.test(b.textContent); })()"))
         ok('V4 the data and narration load from one folder up', await J("document.getElementById('loading').classList.contains('done')") and await J("document.body.innerText.length > 500"))
