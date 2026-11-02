@@ -8,7 +8,10 @@ def changed():
     return [line[3:].split(' -> ')[-1].strip('"') for line in out.splitlines() if line.strip()]
 def main():
     problems, paths = [], changed()
-    outside = [p for p in paths if not (p.startswith('experimental/') or p.startswith('.ai-run/'))]
+    # build outputs, rebuilt by the briefing and the agent's checks: never committed by this run (only experimental/ is),
+    # and rebuilt from scratch on main when publishing, so a change to them can never reach the site
+    GENERATED = {'ai/index.html', 'ai/features.json', 'index.html'}
+    outside = [p for p in paths if not (p.startswith('experimental/') or p.startswith('.ai-run/') or p in GENERATED)]
     if outside: problems.append('changed outside experimental/: ' + ', '.join(sorted(outside)[:12]))
     exp = [p for p in paths if p.startswith('experimental/')]
     feats = sorted({p.split('/')[2] for p in exp if p.startswith('experimental/features/') and len(p.split('/')) > 3})
