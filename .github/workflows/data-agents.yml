@@ -136,6 +136,17 @@ jobs:
       - name: Gate 3 - the app loads and renders the new data
         run: python tools/smoke_test.py
 
+      - name: Narration check and review (what is said must make sense, be true this week and match the screen; never blocks publishing)
+        continue-on-error: true
+        run: |
+          python tools/narration_check.py
+          cd agents && python narration_review.py
+
+      - name: Rebuild with the reviewed narration, then Gate 3 again
+        run: |
+          python tools/build.py
+          python tools/smoke_test.py
+
       - name: Build the AI-enhanced version (standard app plus experimental features; never blocks publishing)
         run: bash tools/build_ai.sh
       - name: Voice (records changed narration; skipped without a key, never blocks publishing)
