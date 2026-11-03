@@ -57,7 +57,14 @@ function renderSay(tpl, f){
   if (tpl.by) { const v = String(f[PH[tpl.by] || tpl.by]); return renderSay(tpl.cases[v] != null ? tpl.cases[v] : tpl.cases.default, f); }
   return '';
 }
-function stepText(tourId, st, f){ const t = (tourText.tours[tourId] || {}).steps || {}, fb = (TOUR_TEXT.tours[tourId] || {}).steps || {}; return tidyText(renderSay((t[st.id] || fb[st.id] || {}).say, f)); }
+function frozenText(tourId, stepId){
+  const m = tourAudio; if (!m || !m.texts || m.revision !== (DB.meta || {}).revision || m.toursVersion !== tourText.version) return null;
+  const t = m.texts[tourId + '.' + stepId]; return typeof t === 'string' && t ? t : null;
+}
+window.__tourMeta = () => ({revision:(DB.meta || {}).revision, toursVersion:tourText.version});
+/* for tools/narration_check.py: play a tour muted and go to one step; returns the step's id and how many steps there are */
+window.__tourPlay = (id, i) => { const T = TOURS[id]; if (!T) return null; tour.muted = true; if (!tour.on || tour.id !== id) startTour(id); if (i) tourStep(i); tour.paused = true; const st = T.steps; return {count:st.length, step:(st[i] || {}).id || String(i)}; };
+function stepText(tourId, st, f){ const fz = frozenText(tourId, st.id); if (fz) return fz; const t = (tourText.tours[tourId] || {}).steps || {}, fb = (TOUR_TEXT.tours[tourId] || {}).steps || {}; return tidyText(renderSay((t[st.id] || fb[st.id] || {}).say, f)); }
 function tidyText(s){ return String(s).replace(/\s+/g, ' ').replace(/\b(\w+)\s+\1\b/gi, '$1').replace(/\s+([.,;:])/g, '$1').replace(/\.\s*\./g, '.').trim(); }   // no doubled words or stray spaces
 /* every sentence the tours will speak with today's data: used by the weekly voice step to record them */
 window.__tourTexts = () => Object.keys(TOURS).flatMap(id => { const f = TOURS[id].facts(); return TOURS[id].steps.map(st => ({tour:id, step:st.id, text:stepText(id, st, f)})); });
@@ -276,7 +283,7 @@ function tourStep(i){
   const finish = () => { if (tok !== tour.token) return; tourPlace(show); fresh.forEach(id => flashWin(id)); requestAnimationFrame(() => { if (tour.on && tok === tour.token) tourPlace(show); });
     if (fresh.length) setTimeout(() => { seen = true; advance(); }, 3000); };
   winMenu.classList.remove('open');
-  if (fresh.length) tourPick(fresh[0], st.pick, tok, finish); else finish();
+  if (fresh.length && !T.direct) tourPick(fresh[0], st.pick, tok, finish); else finish();   // analysis tours open panels directly; how-to tours show the way
   tour.paused = false; $('tourPause').textContent = '❚❚'; $('tourPause').setAttribute('aria-label', 'Pause');
   tour.spokenCb = () => { spoken = true; advance(); };
   tourSay(text, tour.spokenCb);

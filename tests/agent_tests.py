@@ -146,5 +146,34 @@ ok('O4 most recent first, and researched ones are skipped', _order == ['Grid-edg
 _s.fetch_text = lambda url, timeout=20: (200, 'The Electric Vehicles (Smart Charge Points) Regulations set security requirements.')
 _rec, _why = _s.check_answer(_m['b'], _ans['EV smart charge points'])
 ok('O5 a page that does not give the year is rejected', _rec is None and 'year' in (_why or ''))
+# the narration review: a valid rewrite is applied; one that breaks the rules twice goes back to last week's wording (all in memory)
+import narration_review as _n
+_good = "Of {pipeTotal} clean energy technologies, {pipeScale} are at scale and {pipeGB} are already used in Great Britain."
+_tours = {'version': 1, 'tours': {'cleanweek': {'steps': {'c1': {'say': 'Fine as it is: {aiMed} years.'}, 'c2': {'say': 'An item moved this week.'}, 'c3': {'say': 'Something vague.'}, 'c5': {'say': 'Shows {wi2030Now}.'}}}}}
+_old = {'version': 0, 'tours': {'cleanweek': {'steps': {'c3': {'say': 'Last week, {pipeTotal} technologies were tracked.'}}}}}
+_rep = [{'tour': 'cleanweek', 'step': 'c1', 'narration': 'Fine as it is: 3 years.', 'notOnScreen': [], 'shot': 'none.jpg'},
+        {'tour': 'cleanweek', 'step': 'c2', 'narration': 'An item moved this week.', 'notOnScreen': [], 'shot': 'none.jpg'},
+        {'tour': 'cleanweek', 'step': 'c3', 'narration': 'Something vague.', 'notOnScreen': [], 'shot': 'none.jpg'},
+        {'tour': 'cleanweek', 'step': 'c5', 'narration': 'Shows 68.', 'notOnScreen': ['68'], 'shot': 'none.jpg'}]
+_saved = []
+_n.load_report = lambda: _rep; _n.load_tours = lambda: _tours; _n.approved_tours = lambda: _old; _n.save_tours = lambda t: _saved.append(1)
+_n.load_db = lambda: {'meta': {'changelog': [{'summary': 'Data revision 35.', 'details': []}]}, 'milestones': [{'title': 'X'}]}
+_asked = []
+def _ask(content):
+    t = content[-1]['text']; _asked.append(t)
+    if 'Step: c1.' in t: return {'verdict': 'ok', 'problems': []}
+    if 'Step: c2.' in t: return {'verdict': 'rewrite', 'problems': ['vague'], 'say': _good}
+    if 'Step: c5.' in t and 'NOT found on screen' in t: return {'verdict': 'ok', 'problems': []}
+    return {'verdict': 'rewrite', 'problems': ['vague'], 'say': 'There are 59 technologies.'}   # a typed figure: breaks the rules
+_n.ask = _ask
+_nn = _n.NARR
+import tempfile as _tf, pathlib as _pl; _n.NARR = _pl.Path(_tf.mkdtemp())
+with _cl2.redirect_stdout(_io2.StringIO()): _n.run()
+_n.NARR = _nn
+_st = _tours['tours']['cleanweek']['steps']
+ok('P1 a step found fine is left alone', _st['c1']['say'] == 'Fine as it is: {aiMed} years.')
+ok('P2 a valid rewrite is applied', _st['c2']['say'] == _good)
+ok('P3 a rewrite that breaks the rules twice goes back to last week\'s wording', _st['c3']['say'] == 'Last week, {pipeTotal} technologies were tracked.' and sum('Step: c3.' in t for t in _asked) == 1)
+ok('P4 a figure not on screen is not let through as fine', _st['c5']['say'] == 'Shows {wi2030Now}.' and any('NOT found on screen by the code check: 68' in t for t in _asked) and any('could not find these spoken figures on screen: 68' in t for t in _asked))
 print(f'PASSED {sum(results)} of {len(results)}')
 sys.exit(0 if all(results) else 1)

@@ -36,3 +36,7 @@ if u: print(f"Usage: {u.get('calls', 0)} calls, {u.get('searches', 0)} searches,
 if e.get('details'):
     print('### Changes'); [print(f'- {tidy(d)}') for d in e['details']]
 print('\nOpen the app and see About, or the Data changes window, for details. Reply here or close this issue once reviewed.')
+# the narration review, when it ran this week
+_rv = Path(__file__).resolve().parents[1] / '.narration' / 'review.md'
+if _rv.exists(): print('\n**Narration review**\n\n' + _rv.read_text(encoding='utf-8').strip())
+

@@ -442,7 +442,7 @@
        "cases": {
         "open": "Technologies still waiting for a security response in their category: {secOpen}.",
         "closed": "Every technology here now has a security response in its category.",
-        "proxy": "Dashed grey rows are rough proxies, not researched responses: {secResearched} have been researched so far."
+        "proxy": "Dashed grey rows are rough proxies, not researched responses; so far, {secResearched} have been researched."
        }
       },
       {
@@ -495,7 +495,7 @@
     },
     "w2": {
      "view": "heat",
-     "say": "Not every journey is quick. {longestTitle} took {longestYears} to get from research to real use, while {quickRecentTitle} arrived in {quickRecentYears}. In recent years, {fastField} has been quickest at {fastFieldYears}, and {slowField} slowest at {slowFieldYears}."
+     "say": "Not every journey is quick. {longestTitle} took {longestYears} years to get from research to real use, while {quickRecentTitle} arrived in {quickRecentYears}. In recent years, {fastField} has been quickest at {fastFieldYears}, and {slowField} slowest at {slowFieldYears}."
     },
     "w3": {
      "view": "cyber",
@@ -575,19 +575,38 @@
     },
     "c2": {
      "view": "pipe",
-     "say": "Of {pipeTotal} clean energy technologies, {pipeResearch} are in research, {pipePilot} in pilot, {pipeCommercial} commercial and {pipeScale} at scale; {pipeGB} are under way in Great Britain. This week, an AI assurance item moved from research to pilot, and from planned to trial in Britain."
+     "say": "Of {pipeTotal} clean energy technologies, {pipeResearch} are in research, {pipePilot} in pilot, {pipeCommercial} in first commercial use and {pipeScale} at scale. {pipeGB} are already used in Great Britain."
     },
     "c3": {
      "view": "whatif",
-     "say": "The agents researched AI levers for many more technologies this week. In the what-if scenario, applying them shifts the outlook from {wi2030Now} to {wi2030AI}, with {wiTopLever} the strongest lever. Remember, this is a modelled scenario, not a forecast."
+     "say": "In the what-if scenario, practical AI levers would bring {wi2030AI} clean energy technologies to real use by 2030, against {wi2030Now} expected now, with {wiTopLever} the strongest lever. This is a modelled scenario, not a forecast."
     },
     "c4": {
      "view": "radar",
-     "say": "New this week is a Chinese plan for AI grid-dispatch models. On the AI for clean energy radar, the strategy item was regrouped twice and now sits back under operations. A second review disputed some additions and left many unclear."
+     "say": [
+      "On the AI Energy Vision Radar, ",
+      {
+       "by": "cleanCase",
+       "cases": {
+        "some": "{cleanNewCount} clean energy technologies are new since the last update, including {cleanNewTitles}.",
+        "none": "nothing new arrived this week, so it shows what is coming in the next five years, area by area."
+       }
+      }
+     ]
     },
     "c5": {
      "view": "sec",
-     "say": "Finally, trust. By a rough proxy, protections have trailed deployment by a median of {secMedian} years, and {secOpen} cases remain open. This week, mitigation guidance was mapped to recognised frameworks and rebuilt from official sources only. The lag has not closed."
+     "say": [
+      "Finally, trust. ",
+      {
+       "by": "secCase",
+       "cases": {
+        "proxy": "So far, {secResearched} of these technologies have a researched security response. The rest show a rough proxy, so treat the security lag as provisional while the agents research each one.",
+        "open": "{secOpen} clean energy technologies still have no security response made for them. These open gaps are listed first.",
+        "closed": "Every clean energy technology here now has a researched security response. The median wait was {secMedian} years."
+       }
+      }
+     ]
     }
    }
   },
@@ -641,7 +660,7 @@
        "cases": {
         "open": "{secOpen} technologies still have no security response in their category. These open gaps, listed first, are where the risk lies.",
         "closed": "Every technology here now has a security response in its category.",
-        "proxy": "Only {secResearched} have a researched security response so far; the rest show a rough proxy, so treat gaps here as provisional."
+        "proxy": "So far, {secResearched} have a researched security response; the rest show a rough proxy, so treat gaps here as provisional."
        }
       }
      ]

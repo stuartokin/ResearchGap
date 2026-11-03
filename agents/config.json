@@ -118,5 +118,8 @@
     "perRun": 20,
     "searches": 4,
     "recheckNoneDays": 182
+  },
+  "narrationReview": {
+    "maxSteps": 20
   }
 }
