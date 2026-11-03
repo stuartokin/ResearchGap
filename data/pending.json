@@ -1,60 +1,62 @@
 [
  {
-  "id": "htv-x1-japans-next-generation-iss-cargo-ship",
-  "field": "space",
-  "origin": "government",
+  "id": "electrical-wireline-well-logging-schlumberger",
+  "field": "energy",
+  "origin": "industry",
   "status": "landed",
-  "title": "HTV-X1: Japan's next-generation ISS cargo ship",
+  "title": "Electrical wireline well logging (Schlumberger)",
   "research": {
-   "year": 2017,
-   "what": "JAXA formally began the HTV-X project to develop a cheaper, higher-capacity successor to the HTV (Kounotori). The new design has a separate service module, external unpressurised cargo and a post-mission technology-demonstration phase. Origin: JAXA HTV-X development project, formally initiated in 2017 (building on the HTV, first flown 2009), with Mitsubishi Heavy Industries"
+   "year": 1927,
+   "what": "Henri Doll's team, working for the Schlumberger brothers, built an electrical sonde that measured rock resistivity at successive depths inside a borehole, producing the first resistivity well log. Origin: Schlumberger/Doll 'electrical coring' borehole experiment, first resistivity log at Diefenbach well 2905, Pechelbronn, Alsace, 5 September 1927"
   },
   "change": {
-   "year": 2025,
-   "what": "HTV-X1 launched on 26 October 2025 on the first H3-24W rocket and berthed at the ISS. It delivered cargo and later deployed a satellite after leaving the station."
+   "year": 1927,
+   "what": "Electrical well logging became a commercial oilfield service; by 1929 Schlumberger was running logs in Venezuela, the USA, the Soviet Union and other countries."
   },
-  "confidence": "medium",
-  "note": "This is Japan's new ISS logistics vehicle and is designed to serve later Gateway lunar resupply. It cuts late-cargo loading time from 80 hours to 24.",
-  "company": "JAXA / Mitsubishi Heavy Industries",
+  "confidence": "high",
+  "note": "Wireline logging let oil and gas reservoirs be located and assessed without slow mechanical coring, and it became a core technique in hydrocarbon and geothermal exploration.",
   "refs": [
    {
-    "label": "NASASpaceFlight: HTV-X1 launched aboard H3",
-    "url": "https://nasaspaceflight.com/2025/10/jaxas-htv-x1-launch-h3-rocket/",
+    "label": "SLB company history: 1920s",
+    "url": "https://www.slb.com/about/who-we-are/our-history/1920s",
     "status": "ok",
-    "checked": "2026-11-02"
+    "checked": "2026-11-03"
    },
    {
-    "label": "Space Voyaging: New JAXA HTV-X launched for the first time",
-    "url": "https://www.spacevoyaging.com/news/2025/10/26/the-new-jaxa-htv-x-spacecraft-launched-for-the-first-time/",
+    "label": "Wikipedia: Well logging",
+    "url": "https://en.wikipedia.org/wiki/Well_logging",
     "status": "ok",
-    "checked": "2026-11-02"
+    "checked": "2026-11-03"
    },
    {
-    "label": "Wikipedia: HTV-X1",
-    "url": "https://en.wikipedia.org/wiki/HTV-X1",
+    "label": "Agile Scientific: 90 years of well logs",
+    "url": "https://agilescientific.com/blog/2017/9/5/90-years-of-well-logs",
     "status": "ok",
-    "checked": "2026-11-02"
+    "checked": "2026-11-03"
    }
   ],
-  "subfield": "launch",
-  "region": "asia",
+  "subfield": "grids",
+  "region": "europe",
   "readiness": {
    "stage": "commercial",
    "basis": "ai-estimate"
   },
+  "gb": {
+   "status": "deployed",
+   "basis": "ai-estimate"
+  },
   "security": {
    "expandsAttackSurface": false,
-   "note": "Autonomous rendezvous and command links to a crewed station are safety-critical, so the vehicle's command and control systems need strong integrity protections.",
+   "note": "This was an analogue field measurement with no cyber attack surface when it was introduced.",
    "basis": "ai-compiled"
   },
   "evidence_terms": [
-   "HTV-X1",
-   "JAXA",
-   "H3",
-   "Mitsubishi Heavy Industries",
-   "Kounotori"
+   "Pechelbronn",
+   "Henri Doll",
+   "electrical resistivity well log",
+   "Schlumberger"
   ],
-  "proposed": "2026-11-02",
+  "proposed": "2026-11-03",
   "attempts": 1
  }
 ]

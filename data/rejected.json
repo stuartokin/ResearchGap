@@ -4189,5 +4189,101 @@
   ],
   "reason": "invalid years",
   "category": "years"
+ },
+ {
+  "date": "2026-11-03",
+  "agent": "claude",
+  "mode": "recent",
+  "title": "4F² vertical-channel DRAM heads to mass production (CXMT)",
+  "field": "hw",
+  "status": "outlook",
+  "research_year": 2023,
+  "change_year": 2026,
+  "research_origin": "CXMT IEDM paper (December 2023) on junction-less GAA vertical channel transistor 4F² DRAM; vertical-channel 4F² cell patents date from earlier",
+  "research_what": "CXMT showed a working 18nm DRAM using junction-less gate-all-around vertical channel transistors and a hexagonal capacitor in a compact 4F² cell layout.",
+  "change_what": "CXMT says it has verified a 6th-generation 4F² DRAM platform on real wafers and will move to gradual mass production, starting with servers; reports say a 4F² DDR5 RDIMM is planned before the end of 2026.",
+  "sources": [
+   "https://news.sbs.co.kr/english/article.do?news_id=N1008825046",
+   "https://wccftech.com/while-micron-calls-the-4f%C2%B2-memory-cell-architecture-a-myth-ymtc-has-followed-cxmt-in-lining-up-a-prototype-that-operates-at-9600-mt-s/",
+   "https://www.tomshardware.com/pc-components/ssds/chinas-memory-maker-cxmt-reportedly-violates-us-export-rules-with-its-18nm-3d-dram-chipmaker-blatantly-presented-new-tech-at-industry-conference-report"
+  ],
+  "reason": "outlook year outside the window",
+  "category": "years"
+ },
+ {
+  "date": "2026-11-03",
+  "agent": "claude",
+  "mode": "backfill",
+  "title": "Eric: Britain's first robot",
+  "field": null,
+  "status": "landed",
+  "research_year": 1928,
+  "change_year": 1928,
+  "research_origin": "Eric, built by W.H. Richards and A.H. Reffell in Surrey in 1928 for the Society of Model Engineers exhibition",
+  "research_what": "Captain William H. Richards and aircraft engineer Alan Reffell built Eric, an aluminium humanoid robot driven by 13 electric motors that could stand, bow, give a speech and answer a set of questions.",
+  "change_what": "Eric opened the Society of Model Engineers exhibition at London's Royal Horticultural Halls in September 1928, then toured the world in front of public audiences.",
+  "sources": [
+   "https://collection.sciencemuseumgroup.org.uk/objects/co8564641/replica-of-eric-replica",
+   "https://en.wikipedia.org/wiki/Eric_(robot)",
+   "https://eandt.theiet.org/content/articles/2016/10/eric-britain-s-first-robot-brought-back-to-life-by-the-science-museum"
+  ],
+  "reason": "only 1 source(s) confirmed the key facts",
+  "category": "sources"
+ },
+ {
+  "date": "2026-11-03",
+  "agent": "claude",
+  "mode": "backfill",
+  "title": "Iron lung (Drinker respirator)",
+  "field": null,
+  "status": "landed",
+  "research_year": 1927,
+  "change_year": 1928,
+  "research_origin": "Drinker and Shaw's respirator prototypes at Harvard School of Public Health, 1927–1928",
+  "research_what": "Philip Drinker and Louis Agassiz Shaw at Harvard School of Public Health built a negative-pressure cabinet respirator, testing it on animals and themselves.",
+  "change_what": "First clinical use came on 12 October 1928 at Boston Children's Hospital, on an eight-year-old girl with polio; Warren E. Collins then began making the device.",
+  "sources": [
+   "https://collections.countway.harvard.edu/onview/exhibits/show/-breathe-/item/26593",
+   "https://www.sciencemuseum.org.uk/objects-and-stories/medicine/iron-lung",
+   "https://en.wikipedia.org/wiki/Iron_lung"
+  ],
+  "reason": "only 1 source(s) confirmed the key facts",
+  "category": "sources"
+ },
+ {
+  "date": "2026-11-03",
+  "agent": "claude",
+  "mode": "backfill",
+  "title": "Liver therapy for pernicious anaemia",
+  "field": null,
+  "status": "landed",
+  "research_year": 1926,
+  "change_year": 1928,
+  "research_origin": "Minot & Murphy, 'Treatment of pernicious anemia by a special diet', JAMA 87:470–476, 14 August 1926",
+  "research_what": "George Minot and William Murphy, building on Whipple's work with anaemic dogs, ran clinical trials in Boston showing that a liver-rich diet reversed pernicious anaemia in 45 patients.",
+  "change_what": "Liver diets became standard treatment after 1926, and in 1928 Edwin Cohn at Harvard produced a concentrated liver extract (sold by Eli Lilly as 'Liver Extract 343') that was much easier for patients to take.",
+  "sources": [
+   "https://www.britannica.com/biography/William-P-Murphy",
+   "https://www.mayoclinicproceedings.org/article/S0025-6196(11)61724-2/fulltext",
+   "https://www.britannica.com/biography/George-Minot"
+  ],
+  "reason": "only 0 source(s) confirmed the key facts",
+  "category": "sources"
+ },
+ {
+  "date": "2026-11-03",
+  "agent": "guidance",
+  "mode": "guidance",
+  "title": "CISA 2030: Defend, Harden, Prevail (CISA Strategy, October 2026)",
+  "field": null,
+  "status": null,
+  "research_year": null,
+  "change_year": null,
+  "research_origin": "",
+  "research_what": "",
+  "change_what": "",
+  "sources": [],
+  "reason": "page did not confirm it",
+  "category": "other"
  }
 ]
