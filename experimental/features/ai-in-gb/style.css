@@ -1,0 +1,16 @@
+/* AI in Great Britain: groups of technology buttons, closest to use first */
+.xgb{padding:.4em .6em 1em;color:var(--text);line-height:1.35}
+.xgb-top{display:flex;flex-wrap:wrap;align-items:center;gap:.4em;margin-bottom:.8em}
+.xgb-top .mini[aria-pressed="true"]{background:rgba(183,148,246,.18);border-color:#B794F6;color:var(--text)}
+.xgb-sum{color:var(--muted);font-size:.85em;margin-left:.3em}
+.xgb-row{border-left:3px solid var(--gc);padding:.2em 0 .5em .7em;margin-bottom:.7em}
+.xgb-head{display:flex;align-items:center;gap:.6em;flex-wrap:wrap}
+.xgb-name{font-weight:600;color:var(--gc)}
+.xgb-n{color:var(--text);font-variant-numeric:tabular-nums}
+.xgb-bar{flex:1 1 6em;min-width:4em;height:.45em;background:var(--line);border-radius:999px;overflow:hidden}
+.xgb-bar i{display:block;height:100%;background:var(--gc);border-radius:999px}
+.xgb-chips{display:flex;flex-wrap:wrap;gap:.35em;margin-top:.45em}
+.xgb-chip{text-align:left;color:var(--text);max-width:100%;white-space:normal}
+.xgb-chip:hover,.xgb-chip:focus-visible{border-color:var(--gc)}
+.xgb-none{margin:.3em 0 0}
+.xgb-foot{margin-top:.6em}
