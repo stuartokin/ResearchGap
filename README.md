@@ -31,7 +31,7 @@ When the app is served online it loads the latest `data/data.json`; offline it u
 
 ## The weekly pipeline
 
-Every Monday at 06:00 UTC (or on demand from the Actions tab):
+Every Monday at 05:17 UTC, with a safety-net slot at 09:47 UTC that runs only if the first did not (or on demand from the Actions tab):
 
 1. **Research agent** searches each field for recent breakthroughs, products and binding changes. It only *proposes* candidates.
 2. **QA agent** independently confirms or rejects each candidate, then audits a rotating batch of 40 existing records: links, dates, descriptions, field, DESNZ vision area and major-milestone status. It re-checks outlook items whose year has passed.
@@ -59,12 +59,58 @@ On the first Monday of each month (or when you tick *deep* on a manual run) the 
 - **Transparency**: every record shows Source-cited, AI-compiled or AI estimate, and its last-checked date; About shows the change log.
 - **Undo**: every run is a tagged git commit. To roll back, revert that commit (or restore `data/data.json` from an earlier tag) and push.
 
+## The AI-enhanced version (experimental)
+
+There are two versions of the app, with the same data:
+
+| | Standard version | AI-enhanced version |
+|---|---|---|
+| Address | `/ResearchGap/` | `/ResearchGap/ai/` |
+| Made from | `src/` on `main`, changed only by the author | the standard app **plus** the features in `experimental/` on the `experimental` branch |
+| Changed by | the author | **Claude Code** (Claude Opus), each **Wednesday at 05:23 UTC** (safety net 09:53), without human review |
+
+Visitors choose on the welcome screen, in Display, or in Views (a link with `?ui=ai` opens the AI-enhanced version).
+In the AI-enhanced version a movable banner, which cannot be hidden, says what it is, with What's new and Back to standard.
+
+**How a week works** (`.github/workflows/ui-agent.yml`):
+
+1. **Improve** (as the `research-gap-ui-agent` GitHub App, in the `ui-agent` environment): bring `experimental` up to
+   date with `main`; brief the agent (last build's report, open issues labelled **`experimental-idea`**, an optional
+   focus, screenshots); run Claude Code with the skill `.claude/skills/improve-experimental/SKILL.md` and the rules
+   in `CLAUDE.md`; then the **guard** (`tools/guard_experimental.py`), the **full test suite** and screenshots.
+   Passing work is committed to `experimental`.
+2. **Publish** (as `research-gap-publisher`): rebuild `/ai/` on `main` with `tools/build_ai.sh`.
+3. **Report:** a summary issue (outcome, the agent's report, checks, cost if reported, link to the run's files).
+
+**Safeguards:**
+
+- **Access:** the agent's app has no Workflows permission, and the `Protect main` ruleset lets only the author and
+  `research-gap-publisher` change `main`. The agent's API key has its own workspace and spending limit.
+- **The guard** rejects the week's work if anything outside `experimental/` changed, if a feature changed without
+  its README, manifest entry and What's new entry, or if a feature fails the builder's checks.
+- **The builder** (`tools/build_ai.py`) leaves out any feature with network access, code from text, storage,
+  navigation, outside addresses, or anything touching the AI notices; insights with typed numbers are refused.
+- **The start-up check** (`tools/smoke_ai.py`) pauses a feature that fails when loaded, and keeps last week's
+  version if the AI-enhanced version would not start or would hide its banner. The standard version never includes
+  experimental code.
+
+**Giving it ideas:** open an issue with the label `experimental-idea`. To steer one run, start the workflow by hand
+(Actions, "AI-enhanced version (weekly)", Run workflow) with a **focus**. **Dry run** (the default when started by
+hand) does everything except publish.
+
+**Kill switches:** set the variable `UI_AGENT_ENABLED` to `false`; disable the workflow (Actions, the workflow, Disable); revoke the API key in the Claude Console;
+suspend the `research-gap-ui-agent` app; or empty `experimental/` (the AI-enhanced version then matches the standard one).
+Any week can be undone by reverting its commit on `experimental`.
+
+The extension interface and the rules are documented in `experimental/README.md` and `CLAUDE.md`.
+
 ## Setting up (about 15 minutes)
 
 1. **Anthropic Console** (console.anthropic.com): create an API key, ask your organisation admin to **enable web search**, and set a **monthly spend limit**.
 2. **GitHub repository, Settings, Secrets and variables, Actions**:
    - Secret `ANTHROPIC_API_KEY`: your key. It is only used by the workflow and is never sent to the website or its visitors.
-   - Variable `AGENTS_ENABLED`: `true` to switch on the weekly schedule (`false` is the kill switch).
+   - Variable `AGENTS_ENABLED`: `true` to switch on the weekly data schedule and the twice-yearly deep search (`false` is the kill switch).
+   - Variable `UI_AGENT_ENABLED`: `true` to switch on the AI-enhanced version's weekly agent (`false` stops it; it can still be run by hand).
    - Optional variable `AGENT_MODEL` to override the model in `agents/config.json`.
 3. **Pages**: serve from the main branch root.
 4. **First run**: Actions, *Weekly data agents*, *Run workflow*. Read the change log in About afterwards. Run it manually a few times before enabling the schedule.

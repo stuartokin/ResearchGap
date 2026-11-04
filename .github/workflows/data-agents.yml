@@ -1,10 +1,11 @@
 name: Weekly data agents
 
-# Runs every Monday at 06:00 UTC, or manually from the Actions tab.
+# Runs every Monday at 05:17 UTC (with a safety-net slot at 09:47 UTC), or manually from the Actions tab.
 # Never runs on pull requests, so the API key is never exposed to forks or outside contributors.
 on:
   schedule:
-    - cron: '0 6 * * 1'
+    - cron: '17 5 * * 1'   # off the hour: GitHub's scheduler is busiest, and may drop runs, at the start of each hour
+    - cron: '47 9 * * 1'   # safety net: runs only if the first slot did not
   workflow_dispatch:
     inputs:
       deep:
@@ -21,9 +22,34 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  check:
+    # Two scheduled slots a day: the later one is a safety net in case GitHub drops the first (it can at busy times).
+    # This stops the later slot if the day's run has already happened. If GitHub cannot be asked, it goes ahead.
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+    outputs:
+      go: ${{ steps.today.outputs.go }}
+    steps:
+      - name: Has today's run already happened?
+        id: today
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EVENT: ${{ github.event_name }}
+        run: |
+          if [ "$EVENT" != "schedule" ]; then echo "go=true" >> "$GITHUB_OUTPUT"; echo "Started by hand: going ahead."; exit 0; fi
+          gh run list --repo "$GITHUB_REPOSITORY" --workflow data-agents.yml --created ">=$(date -u +%F)" --limit 30 --json databaseId,event,status,conclusion > runs.json || echo '[]' > runs.json
+          python3 - <<'PY'
+          import json, os
+          runs = [r for r in json.load(open('runs.json')) if str(r['databaseId']) != os.environ['GITHUB_RUN_ID']]
+          done = [r for r in runs if (r['status'] != 'completed' or r['conclusion'] == 'success')]
+          print("Today's run has already happened: this later slot is not needed." if done else 'No run yet today: going ahead.')
+          open(os.environ['GITHUB_OUTPUT'], 'a').write('go=' + ('false' if done else 'true') + '\n')
+          PY
   update:
+    needs: check
     # Kill switch: the weekly schedule only runs when the repository variable AGENTS_ENABLED is 'true'.
-    if: github.event_name == 'workflow_dispatch' || vars.AGENTS_ENABLED == 'true'
+    if: needs.check.outputs.go == 'true' && (github.event_name == 'workflow_dispatch' || vars.AGENTS_ENABLED == 'true')
     runs-on: ubuntu-24.04
     timeout-minutes: 75
     env:
@@ -78,6 +104,11 @@ jobs:
         working-directory: agents
         run: python guidance_agent.py
 
+      - name: Security-response agent (each technology's own first security response, most recent first, with a confirmed source)
+        continue-on-error: true
+        working-directory: agents
+        run: python security_agent.py
+
       - name: Tour agent (refreshes the walk-through scripts within fixed rules)
         continue-on-error: true
         working-directory: agents
@@ -105,6 +136,19 @@ jobs:
       - name: Gate 3 - the app loads and renders the new data
         run: python tools/smoke_test.py
 
+      - name: Narration check and review (what is said must make sense, be true this week and match the screen; never blocks publishing)
+        continue-on-error: true
+        run: |
+          python tools/narration_check.py
+          cd agents && python narration_review.py
+
+      - name: Rebuild with the reviewed narration, then Gate 3 again
+        run: |
+          python tools/build.py
+          python tools/smoke_test.py
+
+      - name: Build the AI-enhanced version (standard app plus experimental features; never blocks publishing)
+        run: bash tools/build_ai.sh
       - name: Voice (records changed narration; skipped without a key, never blocks publishing)
         continue-on-error: true
         env:
@@ -112,12 +156,29 @@ jobs:
           TTS_REGION: ${{ vars.TTS_REGION }}
         run: python tools/make_voice.py
 
+      - name: Publisher credential (short-lived, so created just before publishing)
+        id: publisher
+        continue-on-error: true   # if it cannot be created, publishing falls back to the workflow's own token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.PUBLISH_APP_ID }}
+          private-key: ${{ secrets.PUBLISH_APP_PRIVATE_KEY }}
       - name: Publish (only reached if every gate passed)
         id: publish
+        env:
+          PUBLISH_TOKEN: ${{ steps.publisher.outputs.token }}
         run: |
+          # publish as research-gap-publisher, which may update main under the ruleset
+          if [ -n "$PUBLISH_TOKEN" ]; then
+            git config --unset-all http.https://github.com/.extraheader || true
+            git remote set-url origin "https://x-access-token:${PUBLISH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+            echo "Publishing as research-gap-publisher."
+          else
+            echo "::warning::Publisher credential unavailable; publishing with the workflow's own token."
+          fi
           git config user.name  "shrinking-gap-data-agent"
           git config user.email "data-agent@users.noreply.github.com"
-          git add data/data.json data/pending.json data/pending_founders.json data/tours.json index.html
+          git add data/data.json data/pending.json data/pending_founders.json data/tours.json index.html ai
           if [ -f data/rejected.json ]; then git add data/rejected.json; fi
           if [ -d audio ]; then git add -A audio; fi
           if git diff --cached --quiet; then echo "No changes to publish."; exit 0; fi
@@ -140,7 +201,8 @@ jobs:
             if [ -f "$KEEP/data/rejected.json" ]; then cp "$KEEP/data/rejected.json" data/; fi
             if [ -d "$KEEP/audio" ]; then rm -rf audio && cp -r "$KEEP/audio" audio; fi
             python tools/build.py
-            git add data/data.json data/pending.json data/pending_founders.json data/tours.json index.html
+            bash tools/build_ai.sh
+            git add data/data.json data/pending.json data/pending_founders.json data/tours.json index.html ai
           if [ -f data/rejected.json ]; then git add data/rejected.json; fi
             if [ -d audio ]; then git add -A audio; fi
             git commit -m "Data revision ${REV}: ${SUMMARY}"

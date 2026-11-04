@@ -1,0 +1,247 @@
+# The AI-enhanced version: each Wednesday (05:23 UTC, safety net 09:53; on only when UI_AGENT_ENABLED is 'true'), Claude Code (as research-gap-ui-agent) improves the experimental features.
+# It can change only experimental/ on the experimental branch: GitHub refuses it main and the workflows, and the guard
+# rejects anything else. Passing work is published to /ai/ by research-gap-publisher; a summary issue reports each run.
+name: AI-enhanced version (weekly)
+on:
+  schedule:
+    - cron: '23 5 * * 3'   # Wednesdays 05:23 UTC, off the hour (GitHub's scheduler is busiest at the start of each hour)
+    - cron: '53 9 * * 3'   # safety net: runs only if the first slot did not
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run: do everything except publish'
+        type: boolean
+        default: true
+      focus:
+        description: 'Optional: what to work on this time (takes priority over the ideas)'
+        type: string
+        default: ''
+concurrency:
+  group: ai-enhanced-version
+  cancel-in-progress: false
+jobs:
+  check:
+    # Two scheduled slots a day: the later one is a safety net in case GitHub drops the first (it can at busy times).
+    # This stops the later slot if the day's run has already happened. If GitHub cannot be asked, it goes ahead.
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+    outputs:
+      go: ${{ steps.today.outputs.go }}
+    steps:
+      - name: Has today's run already happened?
+        id: today
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EVENT: ${{ github.event_name }}
+        run: |
+          if [ "$EVENT" != "schedule" ]; then echo "go=true" >> "$GITHUB_OUTPUT"; echo "Started by hand: going ahead."; exit 0; fi
+          gh run list --repo "$GITHUB_REPOSITORY" --workflow ui-agent.yml --created ">=$(date -u +%F)" --limit 30 --json databaseId,event,status,conclusion > runs.json || echo '[]' > runs.json
+          python3 - <<'PY'
+          import json, os
+          runs = [r for r in json.load(open('runs.json')) if str(r['databaseId']) != os.environ['GITHUB_RUN_ID']]
+          done = [r for r in runs if r['event'] == 'schedule' and (r['status'] != 'completed' or r['conclusion'] == 'success')]
+          print("Today's run has already happened: this later slot is not needed." if done else 'No run yet today: going ahead.')
+          open(os.environ['GITHUB_OUTPUT'], 'a').write('go=' + ('false' if done else 'true') + '\n')
+          PY
+  improve:
+    needs: check
+    # On/off switch: the weekly schedule only runs when the repository variable UI_AGENT_ENABLED is 'true'.
+    if: needs.check.outputs.go == 'true' && (github.event_name == 'workflow_dispatch' || vars.UI_AGENT_ENABLED == 'true')
+    runs-on: ubuntu-latest
+    timeout-minutes: 100
+    environment: ui-agent
+    permissions:
+      contents: read
+      id-token: write
+    outputs:
+      committed: ${{ steps.commit.outputs.committed }}
+    steps:
+      - name: Interface agent credential (can change only the experimental branch)
+        id: app
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.UI_APP_ID }}
+          private-key: ${{ secrets.UI_APP_PRIVATE_KEY }}
+      - uses: actions/checkout@v5
+        with:
+          ref: experimental
+          token: ${{ steps.app.outputs.token }}
+          fetch-depth: 0
+      - name: Bring experimental up to date with main
+        run: |
+          git config user.name  "research-gap-ui-agent"
+          git config user.email "ui-agent@users.noreply.github.com"
+          git fetch origin main
+          git merge --no-edit origin/main || { git merge --abort; echo "::error::The experimental branch could not take the latest main; nothing was changed."; exit 1; }
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install tools
+        run: |
+          pip install -r requirements.txt
+          python -m playwright install --with-deps chromium
+      - name: Prepare the briefing (build report, ideas, focus, screenshots)
+        env:
+          GH_TOKEN: ${{ steps.app.outputs.token }}
+          FOCUS: ${{ inputs.focus }}
+        run: |
+          mkdir -p .ai-run
+          python tools/build.py
+          { python tools/build_ai.py --exp experimental; python tools/smoke_ai.py --exp experimental; } > .ai-run/build.txt 2>&1 || true
+          gh issue list --label experimental-idea --state open --limit 30 --json number,title,body > .ai-run/ideas.json || echo '[]' > .ai-run/ideas.json
+          printf '%s\n' "${FOCUS}" > .ai-run/focus.txt
+          python tools/screens_ai.py --out .ai-run/screens-before || true
+      - name: Claude Code improves the experimental version
+        id: claude
+        timeout-minutes: 50
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.CLAUDE_UI_API_KEY }}
+          github_token: ${{ steps.app.outputs.token }}
+          prompt: /improve-experimental
+          claude_args: |
+            --model claude-opus-5-5
+            --max-turns 80
+            --allowedTools "Read,Edit,Write,Glob,Grep,Bash(python tools/build_ai.py:*),Bash(python tools/smoke_ai.py:*),Bash(python tools/screens_ai.py:*),Bash(python tests/run_tests.py:*)"
+      - name: Cost of this run (if reported)
+        if: always()
+        env:
+          EXEC_FILE: ${{ steps.claude.outputs.execution_file }}
+        run: |
+          python - <<'PY'
+          import json, os, pathlib
+          cost = ''
+          try:
+              data = json.loads(pathlib.Path(os.environ.get('EXEC_FILE', '')).read_text())
+              for item in (data if isinstance(data, list) else [data]):
+                  if isinstance(item, dict) and item.get('total_cost_usd') is not None: cost = f"${item['total_cost_usd']:.2f}"
+          except Exception: pass
+          pathlib.Path('.ai-run').mkdir(exist_ok=True); pathlib.Path('.ai-run/cost.txt').write_text(cost or 'not reported')
+          print('Cost:', cost or 'not reported')
+          PY
+      - name: Guard - only experimental/, documented, and passing the builder's checks
+        id: guard
+        run: python tools/guard_experimental.py
+      - name: Tests - the whole app, both versions
+        id: tests
+        run: python tests/run_tests.py all | tee .ai-run/tests.txt; test ${PIPESTATUS[0]} -eq 0
+      - name: Screenshots after
+        if: always()
+        run: python tools/screens_ai.py --out .ai-run/screens-after || true
+      - name: Commit to the experimental branch (not on a dry run)
+        id: commit
+        if: success() && (github.event_name == 'schedule' || inputs.dry_run == false)
+        run: |
+          git add -A experimental
+          if git diff --cached --quiet; then echo "committed=false" >> "$GITHUB_OUTPUT"; echo "No changes to the experimental features."; git push origin HEAD:experimental || true; exit 0; fi
+          TITLE=$(head -1 .ai-run/report.md 2>/dev/null | sed 's/^#* *//' | cut -c1-100)
+          git commit -m "AI-enhanced version: ${TITLE:-weekly improvement}"
+          git push origin HEAD:experimental
+          echo "committed=true" >> "$GITHUB_OUTPUT"
+      - name: Keep the run's files (report, screenshots, checks)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-run-${{ github.run_number }}
+          path: .ai-run
+          include-hidden-files: true
+          if-no-files-found: ignore
+  publish:
+    needs: improve
+    if: needs.improve.outputs.committed == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    steps:
+      - name: Publisher credential
+        id: publisher
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.PUBLISH_APP_ID }}
+          private-key: ${{ secrets.PUBLISH_APP_PRIVATE_KEY }}
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+          token: ${{ steps.publisher.outputs.token }}
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install tools
+        run: |
+          pip install -r requirements.txt
+          python -m playwright install --with-deps chromium
+      - name: Publish the AI-enhanced version
+        run: |
+          git config user.name  "research-gap-publisher"
+          git config user.email "publisher@users.noreply.github.com"
+          for attempt in 1 2 3; do
+            git fetch origin main && git reset --hard origin/main
+            python tools/build.py && bash tools/build_ai.sh
+            git add ai
+            if git diff --cached --quiet; then echo "The AI-enhanced version is already up to date."; exit 0; fi
+            git commit -m "Publish the AI-enhanced version"
+            if git push origin HEAD:main; then echo "Published."; exit 0; fi
+            sleep 20
+          done
+          echo "::error::Could not publish the AI-enhanced version after three attempts."; exit 1
+  report:
+    needs: [improve, publish]
+    if: always() && needs.improve.result != 'skipped'   # no report when the run was not needed or is switched off
+    runs-on: ubuntu-latest
+    environment: ui-agent
+    permissions:
+      contents: read
+    steps:
+      - name: Interface agent credential (to open the summary issue)
+        id: app
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.UI_APP_ID }}
+          private-key: ${{ secrets.UI_APP_PRIVATE_KEY }}
+      - uses: actions/download-artifact@v4
+        with:
+          name: ai-run-${{ github.run_number }}
+          path: ai-run
+        continue-on-error: true
+      - name: Summary issue
+        env:
+          GH_TOKEN: ${{ steps.app.outputs.token }}
+          IMPROVE: ${{ needs.improve.result }}
+          COMMITTED: ${{ needs.improve.outputs.committed }}
+          PUBLISH: ${{ needs.publish.result }}
+          DRY: ${{ github.event_name != 'schedule' && inputs.dry_run }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          python - <<'PY'
+          import json, os, pathlib, subprocess, datetime
+          d = pathlib.Path('ai-run'); read = lambda p, n=6000: (d / p).read_text(errors='replace')[:n] if (d / p).exists() else ''
+          guard = json.loads(read('guard.json') or '{}')
+          dry = os.environ['DRY'] == 'true'; improve = os.environ['IMPROVE']; committed = os.environ['COMMITTED'] == 'true'; publish = os.environ['PUBLISH']
+          outcome = ('Dry run: nothing published' if dry and improve == 'success' else
+                     'Published to the AI-enhanced version' if committed and publish == 'success' else
+                     'Committed, but publishing failed (see the run)' if committed else
+                     'No change this week' if improve == 'success' else 'Not published: a check failed')
+          report = read('report.md') or '_The agent did not write a report._'
+          title = (report.splitlines()[0].lstrip('# ').strip() if report and not report.startswith('_') else 'weekly run')[:80]
+          tests = read('tests.txt', 20000); summary = tests[tests.find('== Summary =='):] if '== Summary ==' in tests else '(not run)'
+          body = f"""**{outcome}.** [Open the run]({os.environ['RUN_URL']}) (report, screenshots before and after, and logs are in its artifact).
+
+          ## The agent's report
+          {report}
+
+          ## Checks
+          - Guard: {'passed' if guard.get('passed') else 'FAILED' if guard else 'not run'}{''.join(chr(10) + '  - ' + p for p in guard.get('problems', []))}
+          - Changed: {', '.join(guard.get('changed', [])) or 'nothing'}
+          - Cost of the Claude run: {read('cost.txt') or 'not reported'}
+
+          ```
+          {summary.strip()[:3000]}
+          ```
+          _Automated: Claude Code changed only the experimental features; nothing here was reviewed by a person before publishing._"""
+          body = '\n'.join(l[10:] if l.startswith(' ' * 10) else l for l in body.splitlines())
+          date = datetime.date.today().strftime('%d %b %Y')
+          subprocess.run(['gh', 'issue', 'create', '--repo', os.environ['GITHUB_REPOSITORY'], '--title', f'AI-enhanced version, {date}: {title}' + (' (dry run)' if dry else ''), '--body', body], check=False)
+          print(outcome)
+          PY

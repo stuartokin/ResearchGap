@@ -46,8 +46,8 @@ function gapFacts(){
 const TOUR_TEXT = (() => { try { return JSON.parse(document.getElementById('embedded-tours').textContent.replace('/*TOURS-START*/', '').replace('/*TOURS-END*/', '').trim()); } catch (e) { return {tours:{}}; } })();
 let tourText = TOUR_TEXT, tourAudio = {voice:'', files:{}};
 if (location.protocol.indexOf('http') === 0) {
-  fetch('data/tours.json', {cache:'no-cache'}).then(r => r.ok ? r.json() : null).then(t => { if (t && t.tours && (t.version || 0) >= (TOUR_TEXT.version || 0)) tourText = t; }).catch(() => {});
-  fetch('audio/manifest.json', {cache:'no-cache'}).then(r => r.ok ? r.json() : null).then(m => { if (m && m.files) tourAudio = m; }).catch(() => {});
+  fetch(asset('data/tours.json'), {cache:'no-cache'}).then(r => r.ok ? r.json() : null).then(t => { if (t && t.tours && (t.version || 0) >= (TOUR_TEXT.version || 0)) tourText = t; }).catch(() => {});
+  fetch(asset('audio/manifest.json'), {cache:'no-cache'}).then(r => r.ok ? r.json() : null).then(m => { if (m && m.files) tourAudio = m; }).catch(() => {});
 }
 const PH = {n:'nText', pre:'preT', recent:'recentT', adopt:'adoptT', ai:'aiT', oth:'othT', aiOut:'aiOutT', convOut:'convOutT', nFields:'nFieldsT', score:'scoreT'};
 function renderSay(tpl, f){
@@ -57,7 +57,14 @@ function renderSay(tpl, f){
   if (tpl.by) { const v = String(f[PH[tpl.by] || tpl.by]); return renderSay(tpl.cases[v] != null ? tpl.cases[v] : tpl.cases.default, f); }
   return '';
 }
-function stepText(tourId, st, f){ const t = (tourText.tours[tourId] || {}).steps || {}, fb = (TOUR_TEXT.tours[tourId] || {}).steps || {}; return tidyText(renderSay((t[st.id] || fb[st.id] || {}).say, f)); }
+function frozenText(tourId, stepId){
+  const m = tourAudio; if (!m || !m.texts || m.revision !== (DB.meta || {}).revision || m.toursVersion !== tourText.version) return null;
+  const t = m.texts[tourId + '.' + stepId]; return typeof t === 'string' && t ? t : null;
+}
+window.__tourMeta = () => ({revision:(DB.meta || {}).revision, toursVersion:tourText.version});
+/* for tools/narration_check.py: play a tour muted and go to one step; returns the step's id and how many steps there are */
+window.__tourPlay = (id, i) => { const T = TOURS[id]; if (!T) return null; tour.muted = true; if (!tour.on || tour.id !== id) startTour(id); if (i) tourStep(i); tour.paused = true; const st = T.steps; return {count:st.length, step:(st[i] || {}).id || String(i)}; };
+function stepText(tourId, st, f){ const fz = frozenText(tourId, st.id); if (fz) return fz; const t = (tourText.tours[tourId] || {}).steps || {}, fb = (TOUR_TEXT.tours[tourId] || {}).steps || {}; return tidyText(renderSay((t[st.id] || fb[st.id] || {}).say, f)); }
 function tidyText(s){ return String(s).replace(/\s+/g, ' ').replace(/\b(\w+)\s+\1\b/gi, '$1').replace(/\s+([.,;:])/g, '$1').replace(/\.\s*\./g, '.').trim(); }   // no doubled words or stray spaces
 /* every sentence the tours will speak with today's data: used by the weekly voice step to record them */
 window.__tourTexts = () => Object.keys(TOURS).flatMap(id => { const f = TOURS[id].facts(); return TOURS[id].steps.map(st => ({tour:id, step:st.id, text:stepText(id, st, f)})); });
@@ -103,7 +110,7 @@ function secureFacts(){
   const gu = (DB.guidanceUpdates || []).slice().sort((a, b) => (b.date || '').localeCompare(a.date || ''))[0];
   return {attackPct:num(withSec.filter(it => it.attack).length / Math.max(1, withSec.length) * 100), lag:num(lag),
     lagCase:lag == null ? 'unclear' : lag >= 5 ? 'slow' : lag >= 2 ? 'moderate' : 'fast',
-    gapCase:gaps.length ? 'some' : 'none', gapCount:String(gaps.length), gapTitle:gaps[0] ? gaps[0].it.t : '',
+    gapCase:withR.filter(x => x.r.proxy).length > withR.filter(x => x.r.researched).length ? 'proxy' : gaps.length ? 'some' : 'none', gapCount:String(gaps.length), gapTitle:gaps[0] ? gaps[0].it.t : '',
     guideCase:gu ? 'some' : 'none', guideTitle:gu ? gu.title : '',
     trendCase:early == null || late == null ? 'unclear' : late <= early - 2 ? 'improving' : late >= early + 2 ? 'worsening' : 'flat'};
 }
@@ -214,7 +221,7 @@ function tourSay(text, done){
   if (tour.muted) { tour.timer = setTimeout(fin, est); return; }
   const file = tourAudio.voice && tourAudio.files[textKey(text, tourAudio.voice)];
   if (file) {   // recorded voice for this exact sentence
-    const a = tour.audio || (tour.audio = new Audio()); a.pause(); a.preload = 'auto'; a.src = 'audio/' + file; let started = false;
+    const a = tour.audio || (tour.audio = new Audio()); a.pause(); a.preload = 'auto'; a.src = asset('audio/') + file; let started = false;
     const fallback = () => { if (tok === tour.token && !started) { started = true; browserSay(text, fin, est); } };   // only if the recording never started
     a.onplaying = () => { if (started) return; started = true; clearTimeout(tour.timer); tour.timer = setTimeout(fin, Math.max(est, (a.duration || 0) * 1000) + 8000); };
     a.onended = () => setTimeout(fin, 400);
@@ -276,12 +283,13 @@ function tourStep(i){
   const finish = () => { if (tok !== tour.token) return; tourPlace(show); fresh.forEach(id => flashWin(id)); requestAnimationFrame(() => { if (tour.on && tok === tour.token) tourPlace(show); });
     if (fresh.length) setTimeout(() => { seen = true; advance(); }, 3000); };
   winMenu.classList.remove('open');
-  if (fresh.length) tourPick(fresh[0], st.pick, tok, finish); else finish();
+  if (fresh.length && !T.direct) tourPick(fresh[0], st.pick, tok, finish); else finish();   // analysis tours open panels directly; how-to tours show the way
   tour.paused = false; $('tourPause').textContent = '❚❚'; $('tourPause').setAttribute('aria-label', 'Pause');
   tour.spokenCb = () => { spoken = true; advance(); };
   tourSay(text, tour.spokenCb);
 }
 function startTour(id){
+  view.question = null;   // a tour is not an answer: the breadcrumb goes
   closeWelcome(false);
   tour.saved = {view:JSON.parse(JSON.stringify(view)), speed:playSpeed, musicWasOn:!music.paused};
   cancelCountdown(); if (state.playing) stopPlay(); $('spot').classList.remove('on', 'concl', 'chg');
@@ -323,7 +331,7 @@ function endTour(how){
   returnFromTour();
   if (sv.musicWasOn) music.play().catch(() => {});
   showDisc();
-  if (toWelcome) setTimeout(showWelcome, 300);
+  if (toWelcome) setTimeout(() => showWelcome('learn'), 300);   // back to the tours it was chosen from
 }
 $('tourNext').onclick = () => tourStep(tour.i + 1);
 $('tourPrev').onclick = () => tourStep(tour.i - 1);
@@ -341,17 +349,19 @@ document.addEventListener('keydown', e => {
   if (tour.on && e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); endTour('escape'); }
   else if (tour.on && e.key === 'ArrowRight') { e.stopPropagation(); tourStep(tour.i + 1); }
   else if (tour.on && e.key === 'ArrowLeft') { e.stopPropagation(); tourStep(tour.i - 1); }
-  else if ($('welcome').classList.contains('on') && e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); closeWelcome(true); }
+  else if ($('welcome').classList.contains('on') && e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); if ($('welcome').dataset.page !== 'doors') wGo('doors'); else closeWelcome(true); }   // a page behind a door goes back to the doors first
 }, true);
 /* ---------- the welcome screen: shown on every load ---------- */
 let welcomeTimer = 0, welcomeLeft = 0, welcomeDeadline = 0, welcomeLast = 0;
-let aiAcked = new URLSearchParams(location.search).get('welcome') === '0';   // a mandatory acknowledgement, once per visit (tests skip it with welcome=0)
-function ackAI(){ aiAcked = true; $('welcome').classList.remove('needack'); welcomeDeadline = Date.now() + 30000; welcomeLast = Date.now(); tickWelcome(); $('wRun').focus(); }
-function showWelcome(){
-  $('wCards').innerHTML = TOUR_LIST.map((t, k) => `<button class="wcard${t.ready ? '' : ' soon'}" data-tour="${t.id}"${t.ready ? '' : ' disabled aria-disabled="true"'}><span class="wn">${k + 1}</span><b>${esc(t.title)}</b><span>${esc(t.blurb)}</span><em>${tourUpdatedLabel(t.id) ? 'Updated ' + chEsc(tourUpdatedLabel(t.id)) : t.ready ? '1 to 2 minute walk-through' : 'Coming soon'}</em></button>`).join('');
-  $('welcome').classList.add('on'); $('disc').classList.add('gone'); syncMute();
-  if (!aiAcked) { $('welcome').classList.add('needack'); clearTimeout(welcomeTimer); $('wAuto').textContent = 'Please acknowledge the notice above to continue.'; setTimeout(() => $('wAckBtn').focus(), 50); return; }
-  welcomeDeadline = Date.now() + 30000; welcomeLast = Date.now(); tickWelcome();
+/* switching versions carries the acknowledgement once (sw=welcome or sw=app), then the marker is removed from the address, so a copied or shared link never skips it */
+const SWITCHED = (() => { const q = new URLSearchParams(location.search), v = q.get('sw'); if (!v) return ''; q.delete('sw'); const s = q.toString(); try { history.replaceState(null, '', location.pathname + (s ? '?' + s : '') + location.hash); } catch (e) { /* not essential */ } return v === 'app' || v === 'welcome' ? v : ''; })();
+let aiAcked = new URLSearchParams(location.search).get('welcome') === '0' || !!SWITCHED;   // a mandatory acknowledgement, once per visit (tests skip it with welcome=0)
+function ackAI(){ aiAcked = true; $('welcome').classList.remove('needack'); $('wAuto').textContent = ''; setTimeout(() => $('wLearn').focus(), 30); }
+/* the welcome screen: three doors (Learn, Ask, Explore), and a page behind each of the first two */
+function showWelcome(page){
+  syncDoors(); wGo(page || 'doors');
+  $('welcome').classList.add('on'); $('disc').classList.add('gone'); syncMute(); clearTimeout(welcomeTimer); $('wAuto').textContent = '';
+  if (!aiAcked) { $('welcome').classList.add('needack'); setTimeout(() => $('wAckBtn').focus(), 50); }
 }
 function tickWelcome(){   // timed by the real clock, so a busy computer cannot slow the countdown
   clearTimeout(welcomeTimer); if (!$('welcome').classList.contains('on')) return;
@@ -368,5 +378,5 @@ $('wCards').addEventListener('click', e => { const c = e.target.closest('.wcard'
 $('wRun').onclick = () => closeWelcome(true);
 $('wAckBtn').onclick = ackAI;
 $('wMute').onclick = () => { tour.muted = !tour.muted; prefs.tourMuted = tour.muted; savePrefs(); syncMute(); };
-$('toursBtn').onclick = () => { if (tour.on) endTour('escape'); tour.returnTo = JSON.parse(JSON.stringify(snapshot('before-tour'))); showWelcome(); };   // remember the app exactly as it was
+$('toursBtn').onclick = () => { if (tour.on) endTour('escape'); closeDrops(); tour.returnTo = JSON.parse(JSON.stringify(snapshot('before-tour'))); showWelcome('learn'); };   // remember the app exactly as it was
 

@@ -20,7 +20,7 @@ async def main():
         rowsBefore = await J("document.querySelectorAll('#w-inspect .insrow').length")
         await J(f"{first}.querySelector('.inshead').click()"); await pg.wait_for_timeout(500)
         await J(f"document.querySelector('#w-inspect .insrow.open [data-review]').click()"); await pg.wait_for_timeout(800)
-        ok('R1 marking as reviewed hides it from the list', await J(f"!document.querySelector('#w-inspect .insrow[data-row=\"{tid}\"]')") and await J("document.querySelectorAll('#w-inspect .insrow').length") == rowsBefore - 1)
+        ok('R1 marking as reviewed hides it from the list', await J(f"!document.querySelector('#w-inspect .insrow[data-row=\"{tid}\"]')") and await J("document.querySelectorAll('#w-inspect .insrow').length") <= rowsBefore)   # the list is capped (150 rows on live data): another row may slide in
         ok('R2 "Show reviewed" counts it', '1' in await J("document.querySelector('#w-inspect [data-showrev] b').textContent"))
         await J("document.querySelector('#w-inspect [data-showrev]').click()"); await pg.wait_for_timeout(600)
         ok('R3 shown again, it is marked Reviewed', 'Reviewed' in await J(f"document.querySelector('#w-inspect .insrow[data-row=\"{tid}\"]').textContent"))

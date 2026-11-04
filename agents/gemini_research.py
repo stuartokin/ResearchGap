@@ -52,12 +52,14 @@ def run():
               f"Using Google Search, find up to {cap} NEW milestones across these fields: {json.dumps({k: v['name'] for k, v in fields.items()})}. The field of each candidate must be one of these ids: {json.dumps(list(fields))}. "
               "Favour what an English-language search tends to miss: work from the UK, Europe and Asia, and reputable sources in other languages (give the English title). "
               f"Also fill gaps: the dataset is thinnest for these fields and decades of first use, so important past milestones there are welcome: {json.dumps([f'{f["name"]}, {d}s' for k, f, d in ra.thin_cells(db, as_of, 8)])}. "
-              "Include AI for the clean energy system where you can. Each needs at least two independent, reputable public sources, and evidence_terms that appear on those pages.\n"
+              "Include AI for the clean energy system where you can. Each needs at least two independent, reputable public sources, and evidence_terms that appear on those pages. "
+              f"Research must have begun in {db['meta']['startYear']} or later: earlier research is outside this dataset. "
+              "Keep every text field brief (titles under 12 words, descriptions under 30 words), so the whole answer fits.\n"
               f"Do not repeat any of these existing titles: {json.dumps(known, ensure_ascii=False)}\n"
               f"Reply with one JSON object only, no commentary, in the form {{\"candidates\": [...]}}, where each candidate follows this schema: {schema}\n"
               "Every candidate MUST include research_origin: the specific paper, patent, laboratory or programme where the research began, with who did it and the year. Candidates without it are rejected. "
               f"An example of one complete candidate: {json.dumps(EXAMPLE)}")
-    out = call_gemini(prompt, search=True, max_tokens=g.get('researchMaxTokens', 32000), want='candidates')
+    out = call_gemini(prompt, search=True, max_tokens=g.get('researchMaxTokens', 32000), want='candidates', thinking_budget=g.get('researchThinkingBudget', 4096))
     if out is None: print('Gemini research: no usable answer this week (see the Gemini lines above for why); skipping.'); return 0
     queued, report, rej = 0, [], {}
     for c in [normalise(x) for x in ra.candidates_of(out, cap * 2)]:

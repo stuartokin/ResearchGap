@@ -59,7 +59,7 @@ const dataReady = (async () => {
   const embedded = JSON.parse(document.getElementById('embedded-data').textContent.replace('/*DATA-START*/', '').replace('/*DATA-END*/', '').trim());
   if (location.protocol.indexOf('http') === 0) {
     try {
-      const r = await fetch('data/data.json', {cache:'no-cache'});
+      const r = await fetch(((window.SG_AI && window.SG_AI.base) || '') + 'data/data.json', {cache:'no-cache'});
       if (r.ok) { const d = await r.json(); if (d && d.meta && d.milestones && (d.meta.revision || 0) >= (embedded.meta.revision || 0)) return d; }
     } catch (e) { /* offline or blocked: use the snapshot */ }
   }

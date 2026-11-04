@@ -13,7 +13,7 @@ function buildWinMenu(){
   view.menuGroups = view.menuGroups || {};
   const item = id => `<button data-w="${id}"><span class="tick ${layout[id].open ? 'on' : ''}">${layout[id].open ? '✓' : ''}</span>${WIN_NAMES[id]}</button>`;
   let h = '<div class="wmh">Ready-made views</div><div class="wmpre">' + PRESETS.map(([k, n, t]) => `<button data-w="__p_${k}" class="${view.preset === k ? 'cur' : ''}" title="${t}"><b>${n}</b><span>${t}</span></button>`).join('') + '</div>';
-  h += '<button data-w="__questions" class="wmq">❓ Start with a question…</button>';
+  h += IS_AI ? '<button data-w="__aiswitch" class="wmq">↩ Back to the standard version</button>' : '<button data-w="__aiswitch" class="wmq">✨ Try the AI-enhanced version</button>';
   h += myViewsMenuHtml();   // your own named views, after the ready-made ones
   const any = WIN_GROUPS.some(([g]) => view.menuGroups[g]);
   h += `<div class="wmh">Panels<button class="wmall" data-x="all">${any ? 'Collapse all' : 'Expand all'}</button></div>`;
@@ -36,7 +36,8 @@ winMenu.addEventListener('click', e => {
   if (b.dataset.g) { view.menuGroups = view.menuGroups || {}; view.menuGroups[b.dataset.g] = !view.menuGroups[b.dataset.g]; buildWinMenu(); return; }
   if (b.dataset.x === 'all') { const any = WIN_GROUPS.some(([g]) => view.menuGroups[g]); WIN_GROUPS.concat([['other']]).forEach(([g]) => { view.menuGroups[g] = !any; }); buildWinMenu(); return; }
   if (b.dataset.mvact) { handleMyView(b.dataset.mv, b.dataset.mvact); return; }
-  if (b.dataset.w === '__questions') { winMenu.classList.remove('open'); setOpen('questions', true); raise('questions'); return; }
+  if (b.dataset.w === '__aiswitch') { goVersion(!IS_AI); return; }
+  if (b.dataset.w === '__questions') { winMenu.classList.remove('open'); openAllQuestions(); return; }
   const w = b.dataset.w;
   if (w === '__csv' || w === '__xlsx') { winMenu.classList.remove('open'); (w === '__csv' ? exportCsv : exportXlsx)(); return; }
   if (w === '__img') { winMenu.classList.remove('open'); setTimeout(exportImage, 150); return; }

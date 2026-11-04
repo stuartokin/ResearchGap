@@ -66,7 +66,7 @@ function questionInsight(id){ const t = qTemplate(id); return t ? tidyText(rende
 function showQInsight(id){
   const Q = QUESTIONS.find(x => x.id === id), t = qTemplate(id); if (!Q || !t) return;
   $('qInsight').innerHTML = `<div class="qihead"><b>★ ${esc(Q.q)}</b><button class="mini" id="qiX" aria-label="Close this insight">✕</button></div><p class="qitext">${renderSayHtml(t.say, questionFacts())}</p>
-    <div class="qifoot"><button class="mini" id="qiSpeak" data-speakbtn="1">${speakLabel()}</button><span class="note-s">${esc(Q.see)} Select a number to see what is behind it. AI-generated narrative, refreshed weekly by the agents; no human review.</span></div>`;
+    <div class="qifoot"><button class="mini" id="qiSpeak" data-speakbtn="1">${speakLabel()}</button><button class="mini" id="qiAll">← All questions</button><button class="mini qinext" id="qiNext">Next question →</button><span class="note-s">${esc(Q.see)} Select a number to see what is behind it. AI-generated narrative, refreshed weekly by the agents; no human review.</span></div>`;
   $('qInsight').dataset.q = id; $('qInsight').classList.add('on');
 }
 function hideQInsight(){ $('qInsight').classList.remove('on'); stopInsight(); }

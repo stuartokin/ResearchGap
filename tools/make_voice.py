@@ -18,14 +18,24 @@ def key_for(text, voice):   # FNV-1a, identical to textKey() in the app
         h ^= b; h = (h * 0x01000193) & 0xffffffff
     return f'{h:08x}'
 
+frozen, meta = {}, {}
 async def narration(port):
     from playwright.async_api import async_playwright
     async with async_playwright() as p:
         b = await p.chromium.launch(args=['--use-gl=swiftshader', '--enable-webgl', '--ignore-gpu-blocklist'])
         pg = await (await b.new_context(viewport={'width': 1440, 'height': 900})).new_page()
-        await pg.goto(f'http://localhost:{port}/index.html?welcome=0'); await pg.wait_for_function('window.__tourTexts && typeof boot === "function"', timeout=60000)
-        await pg.wait_for_timeout(4000)
-        texts = await pg.evaluate('window.__tourTexts()'); await b.close(); return texts
+        texts, seen = [], set()
+        # both versions: the standard app, and the AI-enhanced one if built, so neither's recordings are removed as unused
+        for page in ['index.html'] + (['ai/index.html'] if (ROOT / 'ai/index.html').exists() else []):
+            await pg.goto(f'http://localhost:{port}/{page}?welcome=0'); await pg.wait_for_function('window.__tourTexts && typeof boot === "function"', timeout=60000)
+            await pg.wait_for_timeout(4000)
+            got = await pg.evaluate('window.__tourTexts()')
+            if page == 'index.html':   # the exact narration each step speaks, frozen with the recordings so subtitles, voice and data agree
+                frozen.update({f"{t['tour']}.{t['step']}": t['text'] for t in got if t.get('text') and t.get('tour') != 'charts'})
+                meta.update(await pg.evaluate('window.__tourMeta ? window.__tourMeta() : {}') or {})
+            for t in got:
+                if t.get('text') and t['text'] not in seen: seen.add(t['text']); texts.append(t)
+        await b.close(); return texts
 
 def main():
     cfg = json.loads((ROOT / 'agents/config.json').read_text()).get('voice', {})
@@ -60,7 +70,10 @@ def main():
     for f in (ROOT / 'audio/tours').rglob('*.mp3') if (ROOT / 'audio/tours').exists() else []:   # remove recordings no longer used
         if f.relative_to(ROOT / 'audio').as_posix() not in keep.values(): f.unlink()
     mpath.parent.mkdir(exist_ok=True)
-    mpath.write_text(json.dumps({'voice': voice, 'updated': __import__('datetime').date.today().isoformat(), 'files': keep}, indent=1) + '\n')
+    mpath.write_text(json.dumps({'voice': voice, 'updated': __import__('datetime').date.today().isoformat(), 'files': keep,
+                                 'revision': meta.get('revision'), 'toursVersion': meta.get('toursVersion'), 'texts': frozen}, indent=1) + '\n')
+    missing = [k for k, t in frozen.items() if key_for(t, voice) not in keep]
+    if missing: print(f'Narration without a recording ({len(missing)}): ' + ', '.join(missing[:12]) + ('…' if len(missing) > 12 else ''))
     print(f'Voice: {made} sentence(s) recorded, {len(keep)} in use ({voice}).'); return 0
 
 def mock_mp3():   # for tests only: one second of silence

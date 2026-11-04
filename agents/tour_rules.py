@@ -8,8 +8,8 @@ import re, itertools
 # placeholders and conclusions shared by every tour: the chart facts and the week's facts
 CHART_PH = {'nGap', 'longestTitle', 'longestYears', 'quickRecentTitle', 'quickRecentYears', 'fastField', 'fastFieldYears', 'slowField', 'slowFieldYears', 'improvedField', 'improvedFrom', 'improvedTo',
   'aiMed', 'restMed', 'aiCount', 'pipeTotal', 'pipeResearch', 'pipePilot', 'pipeCommercial', 'pipeScale', 'pipeGB', 'driftCount', 'driftPeakYear', 'driftPeakCount', 'driftRevised', 'driftSlipped',
-  'secCount', 'secMedian', 'secLongestTitle', 'secLongestYears', 'secOpen', 'fortCount', 'fortResearch', 'fortFastest', 'fortFastestTime', 'fortPre', 'fortRecent', 'wiAvg', 'wi2030Now', 'wi2030AI', 'wiTopLever', 'wiResearched'} | {f'{k}{x}' for k in ('quickStory', 'fastStory', 'aiStory', 'pipeStory', 'secStory', 'newStory', 'cleanStory') for x in ('', 'Title')}
-CHART_CASES = {'improvedCase': {'yes', 'no'}, 'aiCase': {'faster', 'similar', 'slower', 'unclear'}, 'pipeCase': {'early', 'late'}, 'driftCase': {'some', 'none'}, 'secCase': {'open', 'closed'}, 'fortCase': {'faster', 'slower', 'similar', 'unclear'}, **{f'{k}Case': {'yes', 'no'} for k in ('quickStory', 'fastStory', 'aiStory', 'pipeStory', 'secStory', 'newStory', 'cleanStory')}}
+  'secCount', 'secMedian', 'secLongestTitle', 'secLongestYears', 'secOpen', 'secResearched', 'secProxy', 'fortCount', 'fortResearch', 'fortFastest', 'fortFastestTime', 'fortPre', 'fortRecent', 'wiAvg', 'wi2030Now', 'wi2030AI', 'wiTopLever', 'wiResearched'} | {f'{k}{x}' for k in ('quickStory', 'fastStory', 'aiStory', 'pipeStory', 'secStory', 'newStory', 'cleanStory') for x in ('', 'Title')}
+CHART_CASES = {'improvedCase': {'yes', 'no'}, 'aiCase': {'faster', 'similar', 'slower', 'unclear'}, 'pipeCase': {'early', 'late'}, 'driftCase': {'some', 'none'}, 'secCase': {'open', 'closed', 'proxy'}, 'fortCase': {'faster', 'slower', 'similar', 'unclear'}, **{f'{k}Case': {'yes', 'no'} for k in ('quickStory', 'fastStory', 'aiStory', 'pipeStory', 'secStory', 'newStory', 'cleanStory')}}
 QUESTION_PH = {'cleanAiCount', 'cleanAiGB', 'cleanAiResearch', 'cleanAiTopArea', 'cleanNext5', 'cleanNext5GB', 'next5Year'}
 WEEK_PH = {'updatedAt', 'newCount', 'newTitles', 'changedCount', 'cleanUpdatedAt', 'cleanNewCount', 'cleanNewTitles', 'cleanChangedCount'}
 CLEAN_VIEWS = {'main', 'radar', 'pipe', 'drift', 'sec', 'whatif', 'findings'}
@@ -39,7 +39,7 @@ SPEC = {
   'secure': {
     'steps': ['intro', 'lens', 'secchart', 'gaps', 'example', 'guidance', 'caution', 'answer'],
     'placeholders': {'attackPct', 'lag', 'gapCount', 'gapTitle', 'guideTitle'},
-    'cases': {'lagCase': {'slow', 'moderate', 'fast', 'unclear'}, 'gapCase': {'some', 'none'}, 'guideCase': {'some', 'none'}, 'trendCase': {'improving', 'worsening', 'flat', 'unclear'}},
+    'cases': {'lagCase': {'slow', 'moderate', 'fast', 'unclear'}, 'gapCase': {'some', 'none', 'proxy'}, 'guideCase': {'some', 'none'}, 'trendCase': {'improving', 'worsening', 'flat', 'unclear'}},
     'years': {'2010', '62443'}, 'maxWords': 40,
   },
   'fortune': {

@@ -103,6 +103,7 @@ function arrangeLayout(name){
   return d;
 }
 function applyPreset(name){
+  view.question = null;   // a ready-made view replaces an answer (a question sets it again afterwards)
   if (name === 'compare') { applyCompare(); return; }   // two chart windows side by side
   if (typeof destroyAllChartWindows === 'function' && name !== 'charts') destroyAllChartWindows();
   const wasDesnz = view.preset === 'desnz';

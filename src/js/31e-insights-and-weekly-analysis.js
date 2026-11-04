@@ -15,7 +15,7 @@ function showVersion(){ const v = `Version ${APP_VERSION} · data revision ${DB.
 showVersion();
 /* ---------- the welcome screen counts its walk-throughs ---------- */
 setTimeout(() => { const n = TOUR_LIST.filter(t => t.ready).length, words = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve'];
-  $('wSub').textContent = `${words[n] || n} walk-throughs of one to two minutes, narrated with subtitles. Or go straight to the tool.`; }, 0);   // after every tour has been added
+  /* the subtitle is now fixed copy on the doors page; the tour count shows on the Learn door instead */; }, 0);   // after every tour has been added
 /* ---------- dates: UK by default, US as an option ---------- */
 function fmtDate(iso, kind){
   if (!iso) return ''; const s = String(iso), d = new Date(s.length <= 10 ? s + 'T12:00:00Z' : s); if (isNaN(d)) return s;
@@ -27,8 +27,8 @@ function fmtDate(iso, kind){
 $('dateFmtS').value = view.dateFmt || 'uk';
 $('dateFmtS').onchange = e => { view.dateFmt = e.target.value; refresh(); try { renderChanges(); renderRadar(); renderCyber(); } catch (err) {} if (selected) openDetail(selected); showDisc && $('disc').classList.contains('on') && showDisc(); };
 /* ---------- live facts behind the chart insights, over all the data ---------- */
-let chartFacts = function(){
-  const live = items.filter(it => !it.removed && !it.aud), hist = live.filter(it => it.kind === 'hist' && !it.co), r1 = v => v == null ? '' : String(Math.round(v * 10) / 10), W = v => v == null ? '' : yrs(Math.round(v));
+let chartFacts = function(dvOnly){
+  const live = items.filter(it => !it.removed && !it.aud && (!dvOnly || it.dv)), hist = live.filter(it => it.kind === 'hist' && !it.co), r1 = v => v == null ? '' : String(Math.round(v * 10) / 10), W = v => v == null ? '' : yrs(Math.round(v));
   const f = {};
   const longest = hist.slice().sort((a, b) => b.lag - a.lag)[0], quick = hist.filter(it => it.p >= 2015).sort((a, b) => a.lag - b.lag || b.major - a.major)[0];
   Object.assign(f, {nGap:String(hist.length), longestTitle:longest ? longest.t : '', longestYears:longest ? String(longest.lag) : '', quickRecentTitle:quick ? quick.t : '', quickRecentYears:quick ? (quick.lag < 1 ? 'under a year' : quick.lag === 1 ? 'a year' : `${quick.lag} years`) : ''});
@@ -39,14 +39,14 @@ let chartFacts = function(){
     improvedField:imp ? fieldName(imp[0]) : '', improvedFrom:imp ? r1(imp[1]) : '', improvedTo:imp ? r1(imp[2]) : '', improvedCase:imp && imp[1] - imp[2] >= 1 ? 'yes' : 'no'});
   const like = hist.filter(it => !POLICY_ARCS.has(it.t) && it.r >= 2010), aiM = like.filter(isAIDriven).map(it => it.lag), reM = like.filter(it => !isAIDriven(it)).map(it => it.lag);
   const am = aiM.length >= 3 ? median(aiM) : null, rm = reM.length ? median(reM) : null;
-  Object.assign(f, {aiMed:r1(am), restMed:r1(rm), aiCount:String(aiM.length), aiCase:am == null || rm == null ? 'unclear' : am <= rm - 1 ? 'faster' : am >= rm + 1 ? 'slower' : 'similar'});
+  Object.assign(f, {aiMed:am == null ? '' : String(fmtY(am)), restMed:rm == null ? '' : String(fmtY(rm)), /* as the Key findings panel shows them */ aiCount:String(aiM.length), aiCase:am == null || rm == null ? 'unclear' : am <= rm - 1 ? 'faster' : am >= rm + 1 ? 'slower' : 'similar'});
   const pv = live.filter(it => it.dv), st = k => pv.filter(it => (it.stage || 'research') === k).length;
   Object.assign(f, {pipeTotal:String(pv.length), pipeResearch:String(st('research')), pipePilot:String(st('pilot')), pipeCommercial:String(st('commercial')), pipeScale:String(st('scale')), pipeGB:String(pv.filter(it => it.gb === 'deployed').length), pipeCase:st('research') + st('pilot') > st('commercial') + st('scale') ? 'early' : 'late'});
   const fc = live.filter(it => it.fc && it.fc.estimatedYear != null), cnt = {}; fc.forEach(it => { const y = it.fc.actualYear ?? it.fc.estimatedYear; cnt[y] = (cnt[y] || 0) + 1; });
   const peak = Object.entries(cnt).sort((a, b) => b[1] - a[1] || a[0] - b[0])[0], revised = fc.filter(it => (it.fc.revisions || []).length), slipped = revised.filter(it => it.fc.estimatedYear > ((it.fc.revisions[0] || {}).from ?? it.fc.estimatedYear));
   Object.assign(f, {driftCount:String(fc.length), driftPeakYear:peak ? peak[0] : '', driftPeakCount:peak ? String(peak[1]) : '', driftRevised:String(revised.length), driftSlipped:String(slipped.length), driftCase:revised.length ? 'some' : 'none'});
   const sec = live.filter(it => it.kind === 'hist' && it.attack).map(it => ({it, r:secResponse(it)})).filter(x => x.r), done = sec.filter(x => x.r.resp && !x.r.expected), longW = done.slice().sort((a, b) => b.r.lag - a.r.lag)[0], open = sec.filter(x => !x.r.resp);
-  Object.assign(f, {secCount:String(sec.length), secMedian:done.length ? r1(median(done.map(x => x.r.lag))) : '', secLongestTitle:longW ? longW.it.t : '', secLongestYears:longW ? String(longW.r.lag) : '', secOpen:String(open.length), secCase:open.length ? 'open' : 'closed'});
+  Object.assign(f, {secCount:String(sec.length), secMedian:done.length ? r1(median(done.map(x => x.r.lag))) : '', secLongestTitle:longW ? longW.it.t : '', secLongestYears:longW ? String(longW.r.lag) : '', secOpen:String(open.length), secResearched:String(sec.filter(x => x.r.researched).length), secProxy:String(sec.filter(x => x.r.proxy && x.r.resp).length), secCase:sec.filter(x => x.r.proxy).length > sec.filter(x => x.r.researched).length ? 'proxy' : open.length ? 'open' : 'closed'});   // mostly proxies: say so, rather than state gaps or waits as facts
   const ff = fortuneFacts();
   Object.assign(f, {fortCount:ff.nFortunes, fortResearch:ff.nResearch, fortFastest:ff.fastestCo, fortFastestTime:ff.fastestTime, fortPre:ff.preYears, fortRecent:ff.recentYears, fortCase:ff.speedCase});
   const proj = live.filter(it => it.kind === 'proj' && it.p > NOW), keep = CH.wiScen; CH.wiScen = 'mid';
@@ -56,10 +56,14 @@ let chartFacts = function(){
     wiTopLever:(Object.entries(levCount).sort((a, b) => b[1] - a[1])[0] || [''])[0].toLowerCase(), wiResearched:String(proj.filter(it => it.aiL).length)});
   return f;
 };
+function speakTitles(ts, n){
+  const clean = t => { let x = String(t).replace(/\s*\([^)]{1,12}\)/g, '').trim(); if (/^[A-Z][a-z]/.test(x) && !/^[A-Z][a-z]+[A-Z]/.test(x) && x.split(' ').length > 1 && !/^[A-Z][a-z]+ [A-Z]/.test(x)) x = x[0].toLowerCase() + x.slice(1); return x; };
+  const xs = ts.slice(0, n || 2).map(clean); return xs.length < 2 ? (xs[0] || '') : xs.slice(0, -1).join(', ') + ' and ' + xs[xs.length - 1];
+}
 function weekFacts(){
   const wk = (tourText.tours.week || {}), recent = CHANGES.filter(c => c.it && daysAgo(c.date) <= 7);
   const added = recent.filter(c => c.type === 'added'), titles = [...new Set(added.map(c => c.it.t))];
-  return {updatedAt:fmtDate(wk.updated || tourText.updated || DATA_AS_OF, (wk.updated || '').length > 10 ? 'time' : 'long'), newCount:String(titles.length), newTitles:titles.slice(0, 3).join(', '), newCase:titles.length ? 'some' : 'none', changedCount:String(recent.filter(c => c.type !== 'added').length)};
+  return {updatedAt:fmtDate(wk.updated || tourText.updated || DATA_AS_OF, (wk.updated || '').length > 10 ? 'time' : 'long'), newCount:String(titles.length), newTitles:speakTitles(titles), newCase:titles.length ? 'some' : 'none', changedCount:String(recent.filter(c => c.type !== 'added').length)};
 }
 /* ---------- the insight callout on each chart: subtitles, and speech if you want it ---------- */
 let chartInsight = function(tab){ const t = ((tourText.tours.charts || TOUR_TEXT.tours.charts || {}).steps || {})[tab]; return t ? renderSay(t.say, chartFacts()).replace(/\s+/g, ' ').trim() : ''; }
@@ -67,7 +71,7 @@ let insightAudio = null;
 function speakInsight(text, onEnd){
   stopInsight(); if (view.muteSpeech) { toast('Speech is muted: Present, “Mute speech”, turns it back on.'); return false; }
   const file = tourAudio.voice && tourAudio.files[textKey(text, tourAudio.voice)], done = () => { if (onEnd) onEnd(); };
-  if (file) { insightAudio = new Audio('audio/' + file); insightAudio.onended = done; insightAudio.play().catch(() => browserSpeak(text, done)); return true; }
+  if (file) { insightAudio = new Audio(asset('audio/') + file); insightAudio.onended = done; insightAudio.play().catch(() => browserSpeak(text, done)); return true; }
   browserSpeak(text, done); return true;
 };
 function browserSpeak(text, onEnd){ if (!('speechSynthesis' in window)) { if (onEnd) onEnd(); return; } speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(speechText(text)); if (tourVoice) { u.voice = tourVoice; u.lang = tourVoice.lang; } else u.lang = 'en-GB'; u.rate = .98; u.onend = u.onerror = () => { if (onEnd) onEnd(); }; speechSynthesis.speak(u); }
@@ -162,7 +166,7 @@ function storyFacts(){
 }
 let chartFactsCache = null;
 const chartFactsBase = chartFacts;
-chartFacts = function(){ chartFactsCache = chartFactsBase(); return Object.assign(chartFactsCache, storyFacts()); };
+chartFacts = function(dvOnly){ if (dvOnly) return Object.assign(chartFactsBase(true), storyFacts()); /* the clean energy subset is not cached */ chartFactsCache = chartFactsBase(); return Object.assign(chartFactsCache, storyFacts()); };
 /* ---------- numbers in an insight open the list behind them ---------- */
 const LIST_PH = {
   pipeTotal:() => items.filter(it => !it.removed && it.dv), pipeResearch:() => items.filter(it => !it.removed && it.dv && (it.stage || 'research') === 'research'),
@@ -183,13 +187,13 @@ const LIST_TITLES = {pipeTotal:'Clean energy technologies', pipeResearch:'In res
 onChartBody('click', e => { const b = e.target.closest('.colink'); if (!b) return; const list = (LIST_PH[b.dataset.list] || (() => []))(); chPanel(`${LIST_TITLES[b.dataset.list] || 'Items'}: ${list.length}`, chItemsHtml(list, it => `${it.stage || ''}${it.p ? ' · ' + (it.kind === 'proj' ? '~' : '') + it.p : ''}`)); renderCharts(); });
 showInsight = function(on){
   const box = $('chartCallout'); if (!on) { box.classList.remove('on'); stopInsight(); return; }
-  const t = ((tourText.tours.charts || TOUR_TEXT.tours.charts || {}).steps || {})[CH.tab], upd = (tourText.tours.charts || {}).updated || tourText.updated;
-  const html = t ? renderSayHtml(t.say, chartFacts()) : '';
+  const t = ((tourText.tours.charts || TOUR_TEXT.tours.charts || {}).steps || {})[CH.tab] || EXT_INSIGHTS[CH.tab], upd = (tourText.tours.charts || {}).updated || tourText.updated;
+  const html = t ? renderSayHtml(t.say, extFacts(CH.tab)) : '';
   box.innerHTML = `<div class="cohead"><b>★ Insight: ${chEsc((CHART_TABS.find(x => x[0] === CH.tab) || [])[1])}</b><button class="mini" id="coX" aria-label="Close insight">✕</button></div><p class="cotext">${html}</p>
     <div class="cofoot"><button class="mini" id="coSpeak" data-speakbtn="1">${speakLabel()}</button><span class="note-s">Select a number to see the items behind it. AI-generated narrative, refreshed weekly by the agents${upd ? ` (updated ${fmtDate(upd)})` : ''}. No human review.</span></div>`;
   box.classList.add('on'); CH.insightOn = true;
 };
-chartInsight = tab => { const t = ((tourText.tours.charts || TOUR_TEXT.tours.charts || {}).steps || {})[tab]; return t ? tidyText(renderSay(t.say, chartFacts())) : ''; };
+chartInsight = tab => { const t = ((tourText.tours.charts || TOUR_TEXT.tours.charts || {}).steps || {})[tab] || EXT_INSIGHTS[tab]; return t ? tidyText(renderSay(t.say, extFacts(tab))) : ''; };
 /* ---------- better pictures behind two steps: charts instead of a list or the model ---------- */
 function chartStepWith(id, tab, opts, extra){ return {id, show:['charts'], act:() => { tourHighlight(null); clearInterval(CH.fortTimer); CH.fortTimer = 0; Object.assign(CH, CH_DEFAULTS, {tab, panel:null, box:null, fortYear:null}, opts || {}); tourFilters(); refresh(); setTimeout(() => { renderCharts(); if (extra) extra(); else setTimeout(() => chartFocus(tab), 400); }, 250); }}; }
 const replaceStep = (tourId, id, step) => { const st = TOURS[tourId].steps, i = st.findIndex(s => s.id === id); if (i >= 0) st[i] = step; };
@@ -198,7 +202,7 @@ replaceStep('secure', 'gaps', chartStepWith('gaps', 'sec', {secSort:'open'}));
 /* ---------- a weekly analysis for AI in clean energy ---------- */
 function cleanWeekFacts(){
   const wk = tourText.tours.cleanweek || {}, recent = CHANGES.filter(c => c.it && c.it.dv && daysAgo(c.date) <= 7), added = [...new Set(recent.filter(c => c.type === 'added').map(c => c.it.t))];
-  return {cleanUpdatedAt:fmtDate(wk.updated || DATA_AS_OF, (wk.updated || '').length > 10 ? 'time' : 'long'), cleanNewCount:String(added.length), cleanNewTitles:added.slice(0, 3).join(', '), cleanCase:added.length ? 'some' : 'none', cleanChangedCount:String(recent.filter(c => c.type !== 'added').length)};
+  return {cleanUpdatedAt:fmtDate(wk.updated || DATA_AS_OF, (wk.updated || '').length > 10 ? 'time' : 'long'), cleanNewCount:String(added.length), cleanNewTitles:speakTitles(added), cleanCase:added.length ? 'some' : 'none', cleanChangedCount:String(recent.filter(c => c.type !== 'added').length)};
 }
 function similarity(a, b){ const w = s => new Set(String(s).toLowerCase().match(/[a-z]{4,}/g) || []); const A = w(a), B = w(b); if (!A.size || !B.size) return 0; let n = 0; A.forEach(x => { if (B.has(x)) n++; }); return n / Math.min(A.size, B.size); }
 function analysisSteps(tourId, opts){
@@ -209,11 +213,12 @@ function analysisSteps(tourId, opts){
     const text = tidyText(renderSay(st[id].say, f)); if (seen.some(t => similarity(t, text) > .6)) return false; seen.push(text); return true;
   }).map(id => { const v = st[id].view || 'main';
     if (CHART_TABS.some(t => t[0] === v)) return chartStepWith(id, v, opts.dvOnly ? {dvOnly:true} : {}, v === 'fort' ? playFortunes : null);
-    return {id, show:WEEK_VIEWS[v] || [], act:() => { tourHighlight(null); tourFilters(); if (opts.dvOnly && v === 'main') F.vision = true; view.lanes = 'v'; view.colour = 'v'; syncDisplayUI(); refresh(); if (v === 'main') { resetView(); setAutoRotate(true); tourTimeline(opts.dvOnly ? 1980 : 2000, 1.2); } }}; });;
+    return {id, show:WEEK_VIEWS[v] || [], act:() => { tourHighlight(null); tourFilters(); if (opts.dvOnly && v === 'main') F.vision = true; if (v === 'radar') { view.radarSince = 'last'; try { renderRadar(); } catch (e) { /* not open yet */ } } view.lanes = 'v'; view.colour = 'v'; syncDisplayUI(); refresh(); if (v === 'main') { resetView(); setAutoRotate(true); tourTimeline(opts.dvOnly ? 1980 : 2000, 1.2); } }}; });;
   cache[tourId] = {t:Date.now(), steps}; return steps
 }
-Object.defineProperty(TOURS.week, 'steps', {get(){ return analysisSteps('week', {}); }, configurable:true});
-TOURS.cleanweek = {title:'AI for clean energy analysis', facts:() => Object.assign({}, chartFacts(), weekFacts(), cleanWeekFacts()), get steps(){ return analysisSteps('cleanweek', {dvOnly:true}); }};
+Object.defineProperty(TOURS.week, 'steps', {get(){ return analysisSteps('week', {}); }, configurable:true}); TOURS.week.direct = true;
+const pickFacts = (f, re) => Object.fromEntries(Object.entries(f).filter(([k]) => re.test(k)));
+TOURS.cleanweek = {title:'AI for clean energy analysis', direct:true, facts:() => Object.assign({}, chartFacts(), pickFacts(chartFacts(true), /^(wi|sec|drift)/), weekFacts(), cleanWeekFacts()), /* its charts show clean energy only, so their figures do too */ get steps(){ return analysisSteps('cleanweek', {dvOnly:true}); }};
 /* ---------- how the charts work: a demonstration of every control ---------- */
 const hl = sel => setTimeout(() => tourHighlight(sel), 700);
 TOURS.charthow = {title:'How the charts work', facts:() => chartFacts(), steps:[
@@ -252,3 +257,6 @@ function chartFocus(tab, tries){
   else return;
   renderCharts();
 }
+
+/* an experimental chart's insight uses its own facts, on top of the shared ones */
+function extFacts(tab){ const x = EXT_INSIGHTS[tab]; if (!x) return chartFacts(); try { return Object.assign({}, chartFacts(), x.facts() || {}); } catch (e) { return chartFacts(); } }

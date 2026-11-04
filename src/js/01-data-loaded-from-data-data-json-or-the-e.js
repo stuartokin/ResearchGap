@@ -2,6 +2,9 @@
  *  DATA (loaded from data/data.json, or the embedded snapshot when offline)
  *  The app maps the dataset into the compact shape the rest of the code uses.
  * ================================================================== */
+const ASSET_BASE = (window.SG_AI && window.SG_AI.base) || '';   // '../' in the AI-enhanced version, which lives in /ai/
+const asset = p => ASSET_BASE + p;
+const IS_AI = !!window.SG_AI;   // the AI-enhanced version: defined first, since the menus ask for it early in start-up
 const DB = window.__DB;
 const KIND_OF = {landed:'hist', outlook:'proj', 'in-lab':'flight'};
 const DATA = DB.milestones.filter(m => !(m.flags && m.flags.hidden)).map(m => {
@@ -14,7 +17,7 @@ const DATA = DB.milestones.filter(m => !(m.flags && m.flags.hidden)).map(m => {
   if (m.adoption) { d.adopt = m.adoption.year; d.adoptWhat = m.adoption.what; d.adoptBasis = m.adoption.basis; }
   d.region = m.region || 'unknown'; if (m.tags) d.tags = m.tags; if (m.subfield) d.sub = m.subfield;
   d.stage = (m.readiness || {}).stage || 'commercial'; if (m.gb) { d.gb = m.gb.status; d.gbNote = m.gb.note || ''; }
-  if (m.security) { d.attack = !!m.security.expandsAttackSurface; d.sec = m.security.note || ''; d.secG = m.security.guidance || ''; }
+  if (m.security) { d.attack = !!m.security.expandsAttackSurface; d.sec = m.security.note || ''; d.secG = m.security.guidance || ''; d.secR = m.security.response || null; }
   if (m.forecast) d.fc = m.forecast;
   if (m.aiLevers) d.aiL = m.aiLevers;
   if (m.story) d.story = m.story;
@@ -49,7 +52,7 @@ const FORTUNES = DB.founders.map(f => {
 });
 const fmtMoney = (bn, sym) => bn >= 1000 ? `${sym}${(bn / 1000).toFixed(1)}tn` : bn >= 1 ? `${sym}${bn >= 100 ? Math.round(bn) : Math.round(bn * 10) / 10}bn` : `${sym}${Math.round(bn * 1000)}m`;
 const DATA_AS_OF = DB.meta.asOf;
-const APP_VERSION = '12.5', APP_BUILD = '';
+const APP_VERSION = '13.4', APP_BUILD = '';
 // Screen-aware scaling: laptops slightly smaller, large screens larger
 const UI = (() => { const w = innerWidth; return w < 1280 ? .85 : w < 1500 ? .95 : w < 1800 ? 1.05 : w < 2300 ? 1.2 : 1.4; })();
 const LARGE = innerWidth >= 1700;

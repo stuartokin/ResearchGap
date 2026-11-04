@@ -1,0 +1,7 @@
+# test rig scratch files
+_test.html
+roundtrip.json
+tests/_work/
+
+# narration check screenshots and review report (working files)
+.narration/

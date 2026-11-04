@@ -4010,5 +4010,280 @@
   "sources": [],
   "reason": "The years are right, but the deployment date is wrong. Sojourner did not roll off the lander on 4 July 1997; that was the landing date. NASA Science ('Sojourner Rover Rolls Down the Ramp'): 'At approximately 10:40 pm Pacific Daylight Time today, 5 July 1997, the Sojourner Rover drove off the rear la",
   "category": "years"
+ },
+ {
+  "date": "2026-11-02",
+  "agent": "claude",
+  "mode": "catch-up",
+  "title": "Broadcom TH6-Davisson 102.4T co-packaged optics switch",
+  "field": null,
+  "status": "landed",
+  "research_year": 2021,
+  "change_year": 2025,
+  "research_origin": "Broadcom co-packaged optics (CPO) programme, earlier generations before TH6-Davisson, plus TSMC COUPE optical-engine packaging",
+  "research_what": "Broadcom's co-packaged optics programme put silicon-photonic optical engines in the same package as Ethernet switch chips to cut power and latency; this third generation uses TSMC's COUPE packaging.",
+  "change_what": "In October 2025 Broadcom began shipping TH6-Davisson. It is the first Ethernet switch with co-packaged optics to reach 102.4 Tbps, with 16 optical engines of 6.4 Tbps each running at 200 Gbps per lane and lasers that can be swapped in the field.",
+  "sources": [
+   "https://www.globenewswire.com/news-release/2025/10/08/3163429/19933/en/Broadcom-Announces-Tomahawk-6-Davisson-the-Industry-s-First-102-4-Tbps-Ethernet-Switch-with-Co-Packaged-Optics.html",
+   "https://www.storagereview.com/news/broadcom-ships-tomahawk-6-davisson-cpo-ethernet-switch-doubling-bandwidth-to-102-4-tb-s-for-ai-fabrics",
+   "https://www.eetimes.com/broadcom-expands-ai-ethernet-offerings/"
+  ],
+  "reason": "only 1 source(s) confirmed the key facts",
+  "category": "sources"
+ },
+ {
+  "date": "2026-11-02",
+  "agent": "claude",
+  "mode": "backfill",
+  "title": "Commercial radio broadcasting (KDKA)",
+  "field": null,
+  "status": "landed",
+  "research_year": 1916,
+  "change_year": 1920,
+  "research_origin": "Frank Conrad's amateur station 8XK in Pittsburgh (late 1910s), which Westinghouse later turned into KDKA",
+  "research_what": "Westinghouse engineer Frank Conrad ran experimental voice-and-music transmissions from his amateur station 8XK, which showed that radio could carry programmes to a general audience.",
+  "change_what": "On 2 November 1920 Westinghouse's licensed station KDKA made the first scheduled commercial broadcast, carrying the Harding–Cox election returns. Within four years there were about 600 US stations.",
+  "sources": [
+   "https://www.fcc.gov/media/radio/history-of-commercial-radio",
+   "https://www.britannica.com/topic/KDKA",
+   "https://www.pabook.libraries.psu.edu/literary-cultural-heritage-map-pa/feature-articles/kdka-broadcastings-pioneer-station"
+  ],
+  "reason": "invalid years",
+  "category": "years"
+ },
+ {
+  "date": "2026-11-02",
+  "agent": "claude",
+  "mode": "backfill",
+  "title": "Transatlantic radiotelephone service",
+  "field": null,
+  "status": "landed",
+  "research_year": 1915,
+  "change_year": 1927,
+  "research_origin": "Bell System 1915 transatlantic voice radio experiment (Arlington, Virginia to Paris), followed by the British Post Office and Bell joint public test in 1926",
+  "research_what": "Bell System engineers made the first brief voice transmission across the Atlantic by radio, between Virginia and Paris.",
+  "change_what": "On 7 January 1927 AT&T and the British General Post Office opened the first commercial public telephone service between New York and London, using radio links through Rocky Point and Rugby.",
+  "sources": [
+   "https://www.comsoc.org/node/18956",
+   "https://www.telcomhistory.org/science-long-distance.html"
+  ],
+  "reason": "invalid years",
+  "category": "years"
+ },
+ {
+  "date": "2026-11-02",
+  "agent": "claude",
+  "mode": "backfill",
+  "title": "Prontosil: first sulfonamide antibacterial drug",
+  "field": null,
+  "status": "landed",
+  "research_year": 1932,
+  "change_year": 1935,
+  "research_origin": "IG Farben dye-screening programme (Klarer, Mietzsch, Domagk), Oct 1932 animal results; Domagk's 1935 paper in Deutsche Medizinische Wochenschrift",
+  "research_what": "IG Farben chemists synthesised sulfonamide azo dyes and Gerhard Domagk showed one, KL 695 (prontosil rubrum), cured streptococcal infections in mice and rabbits.",
+  "change_what": "Bayer/IG Farben put Prontosil on sale in 1935 as the first commercially available drug to cure bacterial infections, launching the sulfa-drug era.",
+  "sources": [
+   "https://www.whatisbiotechnology.org/index.php/exhibitions/antimicrobial/index/sulphonamides",
+   "https://www.sciencehistory.org/stories/magazine/soldier-sulfa/",
+   "https://www.britannica.com/biography/Gerhard-Domagk"
+  ],
+  "reason": "only 1 source(s) confirmed the key facts",
+  "category": "sources"
+ },
+ {
+  "date": "2026-11-02",
+  "agent": "claude",
+  "mode": "backfill",
+  "title": "17D live-attenuated yellow fever vaccine",
+  "field": null,
+  "status": "landed",
+  "research_year": 1928,
+  "change_year": 1937,
+  "research_origin": "Rockefeller Foundation International Health Division laboratories; Theiler & Smith, three 1937 papers in Journal of Experimental Medicine",
+  "research_what": "Max Theiler began serially passaging the Asibi yellow fever virus through mouse and chick-embryo tissue, eventually yielding the attenuated 17D strain.",
+  "change_what": "The first 17D doses were given to people during a 1937 outbreak in Minas Gerais, Brazil, and the vaccine was licensed in 1938.",
+  "sources": [
+   "https://www.nature.com/articles/d42859-020-00012-9",
+   "https://www.sciencedirect.com/science/article/abs/pii/S0264410X24011058",
+   "https://www.britannica.com/biography/Max-Theiler"
+  ],
+  "reason": "only 1 source(s) confirmed the key facts",
+  "category": "sources"
+ },
+ {
+  "date": "2026-11-02",
+  "agent": "claude",
+  "mode": "backfill",
+  "title": "Electrical resistivity well logging (Schlumberger)",
+  "field": null,
+  "status": "landed",
+  "research_year": 1912,
+  "change_year": 1927,
+  "research_origin": "Conrad Schlumberger's electrical surface-prospecting experiments at the École des Mines de Paris, starting in 1912",
+  "research_what": "Conrad Schlumberger began systematic studies of electrical prospecting, using differences in rock conductivity to map what lies underground.",
+  "change_what": "A Schlumberger crew led by Henri Doll lowered an electrical sonde down a well at Pechelbronn, Alsace, and recorded the first resistivity well log; by 1929 the service was being used in Venezuela, the US and the USSR.",
+  "sources": [
+   "https://www.slb.com/about/who-we-are/our-history/1920s",
+   "https://en.wikipedia.org/wiki/Well_logging",
+   "https://www.spwla.org/SPWLAArchived/SPWLA/About/History/Logging_history_rich_with_innovation__Hart_s_E_P_Magazine_.aspx"
+  ],
+  "reason": "invalid years",
+  "category": "years"
+ },
+ {
+  "date": "2026-11-02",
+  "agent": "claude",
+  "mode": "backfill",
+  "title": "Reflection seismograph for oil exploration",
+  "field": null,
+  "status": "landed",
+  "research_year": 1921,
+  "change_year": 1928,
+  "research_origin": "Karcher's 1919 reflection-seismography patent applications and the field test at Belle Isle, Oklahoma City, on 4 June 1921",
+  "research_what": "J. Clarence Karcher and University of Oklahoma colleagues ran field tests near Oklahoma City showing that reflected seismic waves could map buried structures able to trap oil.",
+  "change_what": "Amerada, using surveys by its subsidiary Geophysical Research Corporation, struck oil near Seminole, Oklahoma in December 1928. This was the first well drilled into a structure found by reflection seismography.",
+  "sources": [
+   "https://www.tshaonline.org/handbook/entries/karcher-john-clarence",
+   "https://www.okhistory.org/publications/enc/entry?entry=SE008",
+   "https://aoghs.org/technology/exploring-reflection-seismography/"
+  ],
+  "reason": "invalid years",
+  "category": "years"
+ },
+ {
+  "date": "2026-11-02",
+  "agent": "claude",
+  "mode": "backfill",
+  "title": "Goddard's first liquid-fuelled rocket flight",
+  "field": null,
+  "status": "landed",
+  "research_year": 1909,
+  "change_year": 1926,
+  "research_origin": "Goddard's 1909 graduate paper on liquid rocket propellants and his 1914 US rocket patents, followed by Clark University engine tests from 1921",
+  "research_what": "Robert Goddard, as a graduate student, analysed the feasibility of liquid propellants for rockets and in 1914 patented liquid-fuelled and multi-stage rocket designs, then built and static-tested a gasoline/liquid-oxygen engine from 1921.",
+  "change_what": "On 16 March 1926 Goddard launched 'Nell', the world's first liquid-fuelled rocket, from a farm in Auburn, Massachusetts, flying 2.5 seconds to 41 feet.",
+  "sources": [
+   "https://www.nasa.gov/history/95-years-ago-goddards-first-liquid-fueled-rocket/",
+   "https://www.nps.gov/articles/goddard-rocket-launching-site.htm",
+   "https://www.nasa.gov/dr-robert-h-goddard-american-rocketry-pioneer/"
+  ],
+  "reason": "invalid years",
+  "category": "years"
+ },
+ {
+  "date": "2026-11-02",
+  "agent": "claude",
+  "mode": "backfill",
+  "title": "Zeiss projection planetarium (Deutsches Museum)",
+  "field": null,
+  "status": "landed",
+  "research_year": 1919,
+  "change_year": 1923,
+  "research_origin": "Walther Bauersfeld's March 1919 projection-planetarium design at Carl Zeiss Jena, commissioned by the Deutsches Museum in 1913",
+  "research_what": "After Oskar von Miller's 1913 request for a rotating star sphere, Zeiss engineer Walther Bauersfeld designed an optical-mechanical projector to project stars, Sun, Moon and planets onto a dome in March 1919.",
+  "change_what": "Zeiss's Model I projector was first shown publicly at the Deutsches Museum in Munich on 21 October 1923, and the world's first projection planetarium opened for regular use there on 7 May 1925.",
+  "sources": [
+   "https://www.deutsches-museum.de/en/museum-island/programme/programme-a-z/planetarium/history-of-the-planetarium",
+   "https://www.zeiss.com/corporate/en/about-zeiss/past/history/technological-milestones/planetariums.html",
+   "https://www.dpma.de/english/our_office/publications/background/space-beyond/planetarium/index.html"
+  ],
+  "reason": "invalid years",
+  "category": "years"
+ },
+ {
+  "date": "2026-11-03",
+  "agent": "claude",
+  "mode": "recent",
+  "title": "4F² vertical-channel DRAM heads to mass production (CXMT)",
+  "field": "hw",
+  "status": "outlook",
+  "research_year": 2023,
+  "change_year": 2026,
+  "research_origin": "CXMT IEDM paper (December 2023) on junction-less GAA vertical channel transistor 4F² DRAM; vertical-channel 4F² cell patents date from earlier",
+  "research_what": "CXMT showed a working 18nm DRAM using junction-less gate-all-around vertical channel transistors and a hexagonal capacitor in a compact 4F² cell layout.",
+  "change_what": "CXMT says it has verified a 6th-generation 4F² DRAM platform on real wafers and will move to gradual mass production, starting with servers; reports say a 4F² DDR5 RDIMM is planned before the end of 2026.",
+  "sources": [
+   "https://news.sbs.co.kr/english/article.do?news_id=N1008825046",
+   "https://wccftech.com/while-micron-calls-the-4f%C2%B2-memory-cell-architecture-a-myth-ymtc-has-followed-cxmt-in-lining-up-a-prototype-that-operates-at-9600-mt-s/",
+   "https://www.tomshardware.com/pc-components/ssds/chinas-memory-maker-cxmt-reportedly-violates-us-export-rules-with-its-18nm-3d-dram-chipmaker-blatantly-presented-new-tech-at-industry-conference-report"
+  ],
+  "reason": "outlook year outside the window",
+  "category": "years"
+ },
+ {
+  "date": "2026-11-03",
+  "agent": "claude",
+  "mode": "backfill",
+  "title": "Eric: Britain's first robot",
+  "field": null,
+  "status": "landed",
+  "research_year": 1928,
+  "change_year": 1928,
+  "research_origin": "Eric, built by W.H. Richards and A.H. Reffell in Surrey in 1928 for the Society of Model Engineers exhibition",
+  "research_what": "Captain William H. Richards and aircraft engineer Alan Reffell built Eric, an aluminium humanoid robot driven by 13 electric motors that could stand, bow, give a speech and answer a set of questions.",
+  "change_what": "Eric opened the Society of Model Engineers exhibition at London's Royal Horticultural Halls in September 1928, then toured the world in front of public audiences.",
+  "sources": [
+   "https://collection.sciencemuseumgroup.org.uk/objects/co8564641/replica-of-eric-replica",
+   "https://en.wikipedia.org/wiki/Eric_(robot)",
+   "https://eandt.theiet.org/content/articles/2016/10/eric-britain-s-first-robot-brought-back-to-life-by-the-science-museum"
+  ],
+  "reason": "only 1 source(s) confirmed the key facts",
+  "category": "sources"
+ },
+ {
+  "date": "2026-11-03",
+  "agent": "claude",
+  "mode": "backfill",
+  "title": "Iron lung (Drinker respirator)",
+  "field": null,
+  "status": "landed",
+  "research_year": 1927,
+  "change_year": 1928,
+  "research_origin": "Drinker and Shaw's respirator prototypes at Harvard School of Public Health, 1927–1928",
+  "research_what": "Philip Drinker and Louis Agassiz Shaw at Harvard School of Public Health built a negative-pressure cabinet respirator, testing it on animals and themselves.",
+  "change_what": "First clinical use came on 12 October 1928 at Boston Children's Hospital, on an eight-year-old girl with polio; Warren E. Collins then began making the device.",
+  "sources": [
+   "https://collections.countway.harvard.edu/onview/exhibits/show/-breathe-/item/26593",
+   "https://www.sciencemuseum.org.uk/objects-and-stories/medicine/iron-lung",
+   "https://en.wikipedia.org/wiki/Iron_lung"
+  ],
+  "reason": "only 1 source(s) confirmed the key facts",
+  "category": "sources"
+ },
+ {
+  "date": "2026-11-03",
+  "agent": "claude",
+  "mode": "backfill",
+  "title": "Liver therapy for pernicious anaemia",
+  "field": null,
+  "status": "landed",
+  "research_year": 1926,
+  "change_year": 1928,
+  "research_origin": "Minot & Murphy, 'Treatment of pernicious anemia by a special diet', JAMA 87:470–476, 14 August 1926",
+  "research_what": "George Minot and William Murphy, building on Whipple's work with anaemic dogs, ran clinical trials in Boston showing that a liver-rich diet reversed pernicious anaemia in 45 patients.",
+  "change_what": "Liver diets became standard treatment after 1926, and in 1928 Edwin Cohn at Harvard produced a concentrated liver extract (sold by Eli Lilly as 'Liver Extract 343') that was much easier for patients to take.",
+  "sources": [
+   "https://www.britannica.com/biography/William-P-Murphy",
+   "https://www.mayoclinicproceedings.org/article/S0025-6196(11)61724-2/fulltext",
+   "https://www.britannica.com/biography/George-Minot"
+  ],
+  "reason": "only 0 source(s) confirmed the key facts",
+  "category": "sources"
+ },
+ {
+  "date": "2026-11-03",
+  "agent": "guidance",
+  "mode": "guidance",
+  "title": "CISA 2030: Defend, Harden, Prevail (CISA Strategy, October 2026)",
+  "field": null,
+  "status": null,
+  "research_year": null,
+  "change_year": null,
+  "research_origin": "",
+  "research_what": "",
+  "change_what": "",
+  "sources": [],
+  "reason": "page did not confirm it",
+  "category": "other"
  }
 ]
