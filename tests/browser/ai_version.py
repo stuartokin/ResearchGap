@@ -24,7 +24,8 @@ async def main():
         ok('V3 its banner is visible, saying it is changed by AI without human review', await J("(() => { const b = document.getElementById('aiBanner'), r = b.getBoundingClientRect(); return getComputedStyle(b).display !== 'none' && r.bottom <= innerHeight && /without human review/.test(b.textContent); })()"))
         ok('V4 the data and narration load from one folder up', await J("document.getElementById('loading').classList.contains('done')") and await J("document.body.innerText.length > 500"))
         await J("winBtn.click(); document.querySelector('#winMenu button[data-w=\"__p_charts\"]').click()"); await pg.wait_for_timeout(1500)
-        tab = await J("([...document.querySelectorAll('#chartTabs button')].find(b => b.dataset.t.startsWith('x-')) || {dataset:{}}).dataset.t || ''")
+        tabs = await J("[...document.querySelectorAll('#chartTabs button')].map(b => b.dataset.t).filter(t => t && t.startsWith('x-'))")
+        tab = next((t for t in tabs if t.startswith('x-ai-by-readiness')), tabs[0] if tabs else '')   # the sample feature, by name: other features may come first
         await J(f"document.querySelector('#chartTabs button[data-t=\"{tab}\"]').click()"); await pg.wait_for_timeout(1200)
         ok('V5 the sample feature’s chart draws, with its own controls', await J("!!document.querySelector('#chartSvg [data-xact=\"stage\"]')") and 'experimental chart' in await J("document.getElementById('chartCtl').textContent"))
         ins = await J("(document.querySelector('#chartCallout .cotext') || {}).textContent || ''")
@@ -32,6 +33,14 @@ async def main():
         await J("document.querySelector('#chartSvg [data-xact=\"stage\"][data-xval=\"commercial\"]').dispatchEvent(new MouseEvent('click', {bubbles:true}))"); await pg.wait_for_timeout(700)
         await J("(() => { const s = document.querySelector('#chartSide [data-xact=\"story\"]'); s && s.dispatchEvent(new MouseEvent('click', {bubbles:true})); })()"); await pg.wait_for_timeout(700)
         ok('V7 a bar lists its technologies, and one opens its story', await J("document.getElementById('detailBody').innerText.length > 80"))
+        drawn = []
+        for t in tabs:   # every experimental chart, whatever the weekly agent has added, must draw and fill its insight
+            await J(f"document.querySelector('#chartTabs button[data-t={t}]').click()"); await pg.wait_for_timeout(1200)
+            ok_t = await J("(document.getElementById('chartSvg') || {childElementCount:0}).childElementCount > 0 || document.getElementById('chartBody').innerText.trim().length > 40")
+            txt = await J("(document.querySelector('#chartCallout .cotext') || {}).textContent || ''")
+            drawn.append(ok_t and '{' not in txt)
+            if not (ok_t and '{' not in txt): print('   not drawn properly:', t)
+        ok(f'V7b every experimental chart draws, with its insight filled ({len(tabs)} charts)', len(tabs) >= 1 and all(drawn))
         await pg.click('#aiNews'); await pg.wait_for_timeout(600)
         ok('V8 What’s new lists the features', 'AI by readiness' in await J("(document.querySelector('[id^=\"w-xp-core\"] .xbody') || {}).innerText || ''"))
         await pg.click('#aiBack'); await pg.wait_for_timeout(3500)
