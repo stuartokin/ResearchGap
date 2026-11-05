@@ -46,20 +46,28 @@ def run(cmd, timeout=900):
     return not failed
 
 def main():
-    which = (sys.argv[1] if len(sys.argv) > 1 else 'all').lower(); results = {}
-    if which in ('all', 'agents'):
+    names = [a.lower() for a in sys.argv[1:]] or ['all']; results = {}
+    suites = sorted(x.stem for x in (ROOT / 'tests/browser').glob('*.py'))
+    unknown = [n for n in names if n not in ('all', 'agents', 'browser') and n not in suites]
+    if unknown:   # never an empty run that looks like a pass
+        print(f"Unknown test suite(s): {', '.join(unknown)}. Use all, agents, browser, or any of: {', '.join(suites)}.\nFAILED: no tests were run."); return 2
+    which = 'all' if 'all' in names else ''
+    want = lambda stem: which == 'all' or 'browser' in names or stem in names
+    if which == 'all' or 'agents' in names:
         print('== Agents: guardrails, offline =='); results['agents'] = run([sys.executable, 'tests/agent_tests.py'])
-    if which in ('all', 'browser'):
+    if any(want(x) for x in suites):
         if not (ROOT / 'index.html').exists(): print('index.html is missing: run python tools/build.py first.'); return 1
         s = (ROOT / 'index.html').read_text(encoding='utf-8'); assert 'function boot(){' in s, 'the app no longer has a boot() function; update HOOK'
         (ROOT / PAGE).write_text(s.replace('function boot(){', HOOK, 1), encoding='utf-8')
         WORK.mkdir(parents=True, exist_ok=True); port = free_port(); httpd = serve(port)
         try:
             for suite in sorted((ROOT / 'tests/browser').glob('*.py')):
+                if not want(suite.stem): continue
                 print(f'== Browser: {suite.stem} =='); results[suite.stem] = run([sys.executable, str(adapt(suite, port))])
         finally:
             httpd.shutdown(); (ROOT / PAGE).unlink(missing_ok=True); (ROOT / 'roundtrip.json').unlink(missing_ok=True); shutil.rmtree(WORK, ignore_errors=True)
     print('\n== Summary =='); [print(f"{'PASS' if v else 'FAIL'}  {k}") for k, v in results.items()]
+    if not results: print('FAILED: no tests were run.')
     return 0 if results and all(results.values()) else 1
 
 if __name__ == '__main__': sys.exit(main())

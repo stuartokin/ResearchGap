@@ -45,7 +45,7 @@ is broken beyond repair; if you do, say why in What's new.
 1. `python tools/build_ai.py --exp experimental` must report `included <id>` for every active feature.
 2. `python tools/smoke_ai.py --exp experimental` must pass, with no failed features.
 3. `python tools/screens_ai.py --out .ai-run/screens-after` and **look at the screenshots** on every size.
-4. Optionally `python tests/run_tests.py ai_build ai_version`.
+4. `python tests/run_tests.py ai_build ai_version` must end with `PASS` for each suite. If it prints `FAILED: no tests were run`, or a summary with no suites in it, the checks did not run: say so in your report, never that they passed.
 
 ## 5. Document it (required)
 

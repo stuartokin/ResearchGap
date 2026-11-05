@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-<script>window.SG_AI = {"base": "../", "built": "03 Nov 2026, 08:56 UTC", "features": [{"id": "ai-by-readiness", "title": "AI by readiness", "description": "A chart of clean energy technologies at each stage of readiness, showing how many are AI-driven, with an insight comparing research and scale.", "added": "2026-11-02", "updated": null}], "whatsNew": "<h3>2 November 2026</h3>\n<ul>\n<li>The AI-enhanced version starts, with one sample feature added by hand: AI by readiness, a chart (in Charts) of how many clean energy technologies at each stage of readiness are AI-driven.</li>\n<li>From the next weekly run, an AI agent adds and improves features here each Wednesday, after automatic checks, without human review.</li>\n</ul>", "status": {}, "queue": []};</script>
+<script>window.SG_AI = {"base": "../", "built": "04 Nov 2026, 18:04 UTC", "features": [{"id": "ai-by-readiness", "title": "AI by readiness", "description": "A chart of clean energy technologies at each stage of readiness, showing how many are AI-driven, with an insight comparing research and scale.", "added": "2026-11-02", "updated": null}, {"id": "ai-in-gb", "title": "AI in Great Britain", "description": "A chart of AI-driven clean energy technologies grouped by how close they are to use in Great Britain (in use, trials, planned, not yet, not known), with each technology's details and an insight.", "added": "2026-11-04", "updated": null}], "whatsNew": "<h3>4 November 2026</h3>\n<ul>\n<li>New chart: AI in Great Britain (in Charts). It groups the AI-driven clean energy technologies by how close they are to use in Great Britain: in use, in trials, planned, not yet, or not known. Select one to see its details and open its story. &quot;All clean energy&quot; adds the technologies that are not AI-driven. The Great Britain status is an AI estimate and may be out of date.</li>\n</ul>\n<h3>2 November 2026</h3>\n<ul>\n<li>The AI-enhanced version starts, with one sample feature added by hand: AI by readiness, a chart (in Charts) of how many clean energy technologies at each stage of readiness are AI-driven.</li>\n<li>From the next weekly run, an AI agent adds and improves features here each Wednesday, after automatic checks, without human review.</li>\n</ul>", "status": {}, "queue": []};</script>
 <script>/* experimental feature: ai-by-readiness */(window.SG_AI.queue = window.SG_AI.queue || []).push({id:"ai-by-readiness", run:function(SGX){"use strict";
 /* AI by readiness: how many clean energy technologies at each stage of readiness are AI-driven.
    Uses only the extension interface (SGX). Select a bar to list its AI-driven technologies; select one for its story. */
@@ -43,6 +43,92 @@ SGX.registerChart({
 <style data-feature="ai-by-readiness">
 /* AI by readiness: the story buttons in the side panel */
 .xstory{margin:3px 4px 3px 0;text-align:left}
+
+</style>
+<script>/* experimental feature: ai-in-gb */(window.SG_AI.queue = window.SG_AI.queue || []).push({id:"ai-in-gb", run:function(SGX){"use strict";
+/* AI in Great Britain: which AI-driven clean energy technologies are closest to use in Great Britain.
+   Groups clean energy technologies by their Great Britain status (in use, trials, planned, not yet, not known).
+   Uses only the extension interface (SGX). Select a technology for its details; the story opens from there. */
+const GB = [
+  ['deployed', 'In use in Great Britain', '#4CD3C2'],
+  ['trial', 'In trials', '#7FD6A0'],
+  ['planned', 'Planned', '#F2D38A'],
+  ['not-yet', 'Not yet', '#FF8A7A'],
+  ['unknown', 'Not known', '#8FA6B8']
+];
+const STAGE = {research: 'research', pilot: 'pilot', commercial: 'first commercial use', scale: 'at scale'};
+let aiOnly = true;
+const gbOf = it => { const s = it.gb && typeof it.gb === 'object' ? it.gb.status : it.gb; return GB.some(g => g[0] === s) ? s : 'unknown'; };
+const pick = (items, ai) => items.filter(it => it.cleanEnergyArea && (!ai || it.aiDriven));
+const groups = (items, ai) => {
+  const list = pick(items, ai);
+  return GB.map(([k, name, col]) => ({k, name, col, list: list.filter(it => gbOf(it) === k).sort((a, b) => String(a.title).localeCompare(String(b.title)))}));
+};
+SGX.registerChart({
+  id: 'gb',
+  name: 'AI in Great Britain',
+  note: 'Clean energy technologies grouped by how close they are to use in Great Britain, closest first. Select one for its details.',
+  render: ({fontSize, items, esc}) => {
+    const rows = groups(items, aiOnly), total = rows.reduce((n, r) => n + r.list.length, 0), max = Math.max(1, ...rows.map(r => r.list.length));
+    const what = aiOnly ? 'AI-driven clean energy technologies' : 'clean energy technologies';
+    let h = `<div class="xgb" style="font-size:${fontSize}px">`
+      + `<div class="xgb-top" role="group" aria-label="Which technologies to show">`
+      + `<button class="mini" data-xact="mode" data-xval="ai" aria-pressed="${aiOnly}">AI-driven only</button>`
+      + `<button class="mini" data-xact="mode" data-xval="all" aria-pressed="${!aiOnly}">All clean energy</button>`
+      + `<span class="xgb-sum">${total} ${what} in your view</span></div>`;
+    if (!total) return h + '<p class="note-s">None in your view. Try widening the filters.</p></div>';
+    rows.forEach(r => {
+      h += `<section class="xgb-row" style="--gc:${r.col}" aria-label="${esc(r.name)}: ${r.list.length}">`
+        + `<div class="xgb-head"><span class="xgb-name">${esc(r.name)}</span><span class="xgb-n">${r.list.length}</span>`
+        + `<span class="xgb-bar" aria-hidden="true"><i style="width:${Math.round(100 * r.list.length / max)}%"></i></span></div>`
+        + (r.list.length
+          ? '<div class="xgb-chips">' + r.list.map(it => `<button class="mini xgb-chip" data-xact="tech" data-xval="${esc(it.id)}" title="${esc(it.title)}${it.stage && STAGE[it.stage] ? ', ' + STAGE[it.stage] : ''}">${esc(it.title)}</button>`).join('') + '</div>'
+          : '<p class="note-s xgb-none">None in your view.</p>')
+        + '</section>';
+    });
+    return h + '<p class="note-s xgb-foot">Great Britain status is an AI estimate from public sources and may be out of date.</p></div>';
+  },
+  onAction: (action, value, api) => {
+    if (action === 'story') { api.openStory(value); return; }
+    if (action === 'mode') {
+      aiOnly = value === 'ai';
+      api.panel(aiOnly ? 'AI-driven only' : 'All clean energy', `<p class="note-s">Showing ${aiOnly ? 'only the AI-driven' : 'all the'} clean energy technologies your filters show.</p>`);
+      return;
+    }
+    if (action !== 'tech') return;
+    const it = api.items().find(x => x.id === value);
+    if (!it) return;
+    const g = GB.find(x => x[0] === gbOf(it));
+    api.panel(it.title, `<p><b>Great Britain:</b> ${api.esc(g[1])}</p>`
+      + (it.stage && STAGE[it.stage] ? `<p><b>Readiness worldwide:</b> ${api.esc(STAGE[it.stage])}</p>` : '')
+      + `<p><b>AI-driven:</b> ${it.aiDriven ? 'yes' : 'no'}</p>`
+      + '<p class="note-s">The story gives the note on Great Britain and the sources.</p>'
+      + `<button class="mini" data-xact="story" data-xval="${api.esc(it.id)}">Open the story</button>`);
+  },
+  insight: {
+    say: 'In this data, {inUse} of the {total} AI-driven clean energy technologies are in use in Great Britain so far, {trial} are in trials and {planned} are planned.',
+    facts: api => { const r = groups(api.items(), true), n = k => r.find(x => x.k === k).list.length; return {inUse: n('deployed'), total: r.reduce((s, x) => s + x.list.length, 0), trial: n('trial'), planned: n('planned')}; }
+  }
+});
+
+}});</script>
+<style data-feature="ai-in-gb">
+/* AI in Great Britain: groups of technology buttons, closest to use first */
+.xgb{padding:.4em .6em 1em;color:var(--text);line-height:1.35}
+.xgb-top{display:flex;flex-wrap:wrap;align-items:center;gap:.4em;margin-bottom:.8em}
+.xgb-top .mini[aria-pressed="true"]{background:rgba(183,148,246,.18);border-color:#B794F6;color:var(--text)}
+.xgb-sum{color:var(--muted);font-size:.85em;margin-left:.3em}
+.xgb-row{border-left:3px solid var(--gc);padding:.2em 0 .5em .7em;margin-bottom:.7em}
+.xgb-head{display:flex;align-items:center;gap:.6em;flex-wrap:wrap}
+.xgb-name{font-weight:600;color:var(--gc)}
+.xgb-n{color:var(--text);font-variant-numeric:tabular-nums}
+.xgb-bar{flex:1 1 6em;min-width:4em;height:.45em;background:var(--line);border-radius:999px;overflow:hidden}
+.xgb-bar i{display:block;height:100%;background:var(--gc);border-radius:999px}
+.xgb-chips{display:flex;flex-wrap:wrap;gap:.35em;margin-top:.45em}
+.xgb-chip{text-align:left;color:var(--text);max-width:100%;white-space:normal}
+.xgb-chip:hover,.xgb-chip:focus-visible{border-color:var(--gc)}
+.xgb-none{margin:.3em 0 0}
+.xgb-foot{margin-top:.6em}
 
 </style>
 <meta charset="utf-8">
