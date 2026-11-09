@@ -1,6 +1,6 @@
 {
- "version": 33,
- "updated": "2026-11-03",
+ "version": 34,
+ "updated": "2026-11-09",
  "updatedBy": "tour-agent",
  "note": "Narration templates for the guided tours. Figures come from {placeholders} filled from the live data; conclusions are chosen by rules in the app ({\"by\": fact, \"cases\": {...}}). The weekly tour agent may refine wording and choose examples, within the rules checked by tools/validate.py.",
  "tours": {
@@ -8,9 +8,9 @@
    "title": "Is AI shrinking the gap from research to change?",
    "exampleIds": [
     "penicillin",
-    "integrated-circuit",
     "radar",
-    "mrna-vaccines"
+    "television",
+    "large-language-model-api"
    ],
    "steps": {
     "intro": {
@@ -146,7 +146,7 @@
      "say": {
       "by": "newCase",
       "cases": {
-       "some": "The automated search agents have recently found {newCount} new items, including {newTitle}. Mark them as reviewed, and next time you will see only what has arrived since.",
+       "some": "The automated search agents have recently added items to the radar, {newCount} in all, including {newTitle}. Mark them as reviewed, and next time you will see only what has arrived since.",
        "none": "The automated search agents have found nothing new recently. Mark the radar as reviewed, and next time you will see only what has arrived since."
       }
      }
@@ -155,7 +155,7 @@
      "say": {
       "by": "nextCase",
       "cases": {
-       "some": "Over the next five years, {nextCount} products are expected. The soonest is {nextTitle}, around {nextYear}, and {busiestArea} has the most on the way.",
+       "some": "Looking five years ahead, the number of products expected is {nextCount}. The soonest is {nextTitle}, around {nextYear}, and {busiestArea} has the most on the way.",
        "none": "On current data, no products are expected within the next five years."
       }
      }
@@ -188,7 +188,7 @@
    "title": "Securing the future energy system",
    "steps": {
     "intro": {
-     "say": "New technology can give attackers fresh ways in; together these form the attack surface. This filter keeps only technologies that widen it, {attackPct} per cent of everything tracked, from smart grid-edge devices to AI agents."
+     "say": "New technology can give attackers fresh ways in; together these ways form the attack surface. This filter keeps only the technologies that widen it, which is {attackPct} per cent of everything tracked."
     },
     "lens": {
      "say": [
@@ -208,9 +208,9 @@
      "say": {
       "by": "gapCase",
       "cases": {
-       "some": "Gaps remain. Some technologies that arrived since 2010 still have no security response recorded in their category. They are shown first. So far there are {gapCount}, including {gapTitle}.",
+       "some": "Gaps remain. Some technologies that arrived since 2010 still have no security response recorded in their category, so they are shown first. {gapCount} are flagged so far, including {gapTitle}.",
        "none": "In this data, no technology that has arrived since 2010 is flagged as an open gap, though many of the responses shown are only rough guides taken from related categories.",
-       "proxy": "Gaps are hard to judge yet: most technologies here have not had their own security response researched, so the chart shows the nearest related security milestone as a rough guide. The agents are researching them, most recent first."
+       "proxy": "Gaps are hard to judge yet. Most technologies here have not had their own security response researched, so the chart shows the nearest related security milestone as a rough guide. Their own responses still need researching, most recent first."
       }
      }
     },
@@ -255,7 +255,7 @@
      "say": "Research does not just change products; it can also make fortunes. This chart, Time to a fortune, follows founders from starting a company to the stock market listing, sale or valuation that made them rich."
     },
     "research": {
-     "say": "Of {nFortunes} fortunes here, {nResearch} began with work in a university or research lab. For those founders, research brought not only new products but also their wealth."
+     "say": "Of {nFortunes} fortunes here, {nResearch} began with work in a university or research lab. Where that is so, research brought the founders wealth as well as new products."
     },
     "speed": {
      "say": {
@@ -269,7 +269,7 @@
      }
     },
     "fastest": {
-     "say": "Sorted by speed, the quickest journey so far comes first: {fastestCo}, which took {fastestTime} to go from founding to fortune."
+     "say": "Sorted by speed, the quickest journey so far comes first: {fastestCo}, which took {fastestTime} years to go from founding to fortune."
     },
     "uk": {
      "say": {
@@ -283,7 +283,7 @@
      }
     },
     "uni": {
-     "say": "Now the filter shows university projects. Those yet to reach a product number {nUni}; any still on their way could become breakthroughs, and perhaps fortunes, in future."
+     "say": "Now the filter shows university projects. {nUni} of them have yet to reach a product; any still on their way could become breakthroughs, and perhaps fortunes, in future."
     },
     "table": {
      "say": "The Table lists every milestone. Sort by any column, such as the gap between milestones, and select a row to read its story."
@@ -469,7 +469,7 @@
      ]
     },
     "whatif": {
-     "say": "In this scenario, the measures in AI for clean energy bring expected technologies forward by about {wiAvg} years on average. By 2030, {wi2030AI} would have arrived, against {wi2030Now} on current trends. The biggest lever is {wiTopLever}. This is an illustration, not a forecast."
+     "say": "In this scenario, measures in AI for clean energy bring expected technologies forward by about {wiAvg} years on average. By 2030, {wi2030AI} technologies would have arrived, against {wi2030Now} on current trends. The biggest lever is {wiTopLever}. This is an illustration, not a forecast."
     }
    }
   },
@@ -540,7 +540,7 @@
      "say": "In Forecast drift, each bar counts the milestones expected to arrive in a given year. Select a bar to list them. Trails show how a milestone's expected date has moved each time its forecast was revised."
     },
     "sec": {
-     "say": "Security lag shows the wait between a technology and a security response. Open gaps come first; you can also sort by arrival or longest wait. Only {secResearched} responses are researched with a source; the rest are rough guides from related later milestones."
+     "say": "Security lag shows the wait for a security response, open gaps first; you can also sort by arrival or longest wait. Only {secResearched} responses are researched with a source. The rest are a rough guide, from the nearest later related security milestone."
     },
     "fort": {
      "say": "Press play to watch the race to a fortune unfold over time, or select a bubble to read that company's story."
@@ -555,7 +555,7 @@
   },
   "cleanweek": {
    "title": "AI for clean energy analysis",
-   "updated": "2026-11-03T08:45Z",
+   "updated": "2026-11-09T14:18Z",
    "steps": {
     "intro": {
      "say": [
@@ -571,23 +571,27 @@
     },
     "c1": {
      "view": "findings",
-     "say": "Start with speed. Since 2010, the {aiCount} AI-driven milestones took a median of {aiMed} years to go from research to real use, against {restMed} for the rest. The AI group is small and the evidence is mixed, so treat this as a hint, not proof."
+     "say": "Start with speed. Since 2010, the {aiCount} AI-driven milestones took a median of {aiMed} years to go from research to real use, against {restMed} for the rest. The group is small and the evidence is mixed, so it is a hint, not proof."
     },
     "c2": {
-     "view": "pipe",
-     "say": "The pipeline holds {pipeTotal} clean energy technologies: {pipeResearch} in research, {pipePilot} in pilot, {pipeCommercial} in first commercial use and {pipeScale} at scale. {pipeGB} are used in Great Britain. Checks also scaled back a claim: liquid air storage moved from commercial to pilot."
+     "view": "main",
+     "say": "Journeys still vary hugely. The longest was {longestTitle}, at {longestYears}. The quickest recent arrival was {quickRecentTitle}, at {quickRecentYears}. Across {nGap} landed milestones, the pattern is uneven, not a steady march forward."
     },
     "c3": {
-     "view": "radar",
-     "say": "Some ideas did move forward. AI assurance for energy, which is about checking that AI systems used in energy can be trusted, moved from research to pilot this week. Its status in Great Britain also changed from planned to trial."
+     "view": "pipe",
+     "say": "The pipeline holds {pipeTotal} clean energy technologies, with {pipeGB} used in Great Britain. Checks also scaled back a claim: liquid air energy storage moved from commercial to pilot, and its Great Britain status from deployed to trial."
     },
     "c4": {
+     "view": "radar",
+     "say": "Some ideas did move forward. AI assurance for energy, which is about checking that AI used in energy can be trusted, moved in Great Britain from planned to trial. That is a step towards real use, not yet wide adoption."
+    },
+    "c5": {
      "view": "whatif",
      "say": "In the what-if scenario, practical AI levers would bring {wi2030AI} clean energy technologies into real use by 2030, against {wi2030Now} expected now. {wiTopLever} is the strongest lever. This is a modelled scenario, not a forecast."
     },
-    "c5": {
+    "c6": {
      "view": "sec",
-     "say": "Finally, trust. {secOpen} clean energy technologies still have no researched security response, and these open gaps are listed first. A second AI model also disputed a good share of this week's new entries, so those stay flagged until they are checked."
+     "say": "Finally, trust. {secOpen} clean energy technologies still have no researched security response, so these gaps are listed first. A second AI model also disputed some new entries, and those stay flagged until they are checked."
     }
    }
   },
@@ -635,19 +639,19 @@
     },
     "security": {
      "say": [
-      "As a rough guide, security protections have arrived about {secMedian} years after the technology they protect; some figures are proxies, not researched dates. ",
+      "As a rough guide, security usually arrives about {secMedian} years after the technology it protects. Researched, sourced responses number {secResearched}; the rest are proxies, not researched dates. ",
       {
        "by": "secCase",
        "cases": {
-        "open": "{secOpen} technologies have no known security response in their category yet; these open gaps are listed first.",
+        "open": "{secOpen} technologies have no known security response in their category yet; these open gaps come first.",
         "closed": "No open gaps show at present, though this partly rests on proxies.",
-        "proxy": "Only {secResearched} have a researched security response so far, so treat any gaps as provisional."
+        "proxy": "Treat any gaps as provisional."
        }
       }
      ]
     },
     "whatif": {
-     "say": "If AI were used to speed up development, technologies still to arrive could come about {wiAvg} years sooner on average. By 2030, {wi2030AI} could have arrived, against {wi2030Now} on current trends. The biggest lever is {wiTopLever}. This is an illustration, not a forecast."
+     "say": "If AI were used to speed up development, technologies still to arrive could come about {wiAvg} years sooner on average. By 2030, {wi2030AI} technologies could have arrived, against {wi2030Now} on current trends. The biggest lever is {wiTopLever}. This is an illustration, not a forecast."
     },
     "slips": {
      "say": [
@@ -663,7 +667,7 @@
     },
     "fortune": {
      "say": [
-      "Of {fortCount} fortunes tracked here, {fortResearch} started in a university or research lab. The quickest was {fortFastest}, made in {fortFastestTime}. ",
+      "Of {fortCount} fortunes tracked here, {fortResearch} started in a university or research lab. The quickest was {fortFastest}, made in about {fortFastestTime} years. ",
       {
        "by": "fortCase",
        "cases": {
