@@ -1,0 +1,23 @@
+/* Coming next: outlook milestones by expected year, soonest first; AI for clean energy marked in purple */
+.xcn{padding:.4em .6em 1em;color:var(--text);line-height:1.35}
+.xcn-top{display:flex;flex-wrap:wrap;align-items:center;gap:.4em;margin-bottom:.4em}
+.xcn-top .mini[aria-pressed="true"]{background:rgba(183,148,246,.18);border-color:#B794F6;color:var(--text)}
+.xcn-sum{color:var(--muted);font-size:.85em;margin-left:.3em}
+.xcn-key{color:var(--muted);font-size:.85em;margin:0 0 .8em;display:flex;align-items:center;gap:.4em;flex-wrap:wrap}
+.xcn-row{border-left:3px solid #4CD3C2;padding:.2em 0 .5em .7em;margin-bottom:.7em}
+.xcn-passed{border-left-color:#8FA6B8}
+.xcn-head{display:flex;align-items:center;gap:.6em;flex-wrap:wrap}
+.xcn-name{font-weight:600;color:#4CD3C2;font-variant-numeric:tabular-nums}
+.xcn-passed .xcn-name{color:var(--muted)}
+.xcn-sub{color:var(--muted);font-size:.85em}
+.xcn-n{color:var(--text);font-variant-numeric:tabular-nums}
+.xcn-c{color:var(--muted);font-size:.85em}
+.xcn-bar{flex:1 1 6em;min-width:4em;height:.45em;background:var(--line);border-radius:999px;overflow:hidden}
+.xcn-bar i{display:block;height:100%;background:#4CD3C2;border-radius:999px}
+.xcn-passed .xcn-bar i{background:#8FA6B8}
+.xcn-chips{display:flex;flex-wrap:wrap;gap:.35em;margin-top:.45em}
+.xcn-chip{text-align:left;color:var(--text);max-width:100%;white-space:normal;display:inline-flex;align-items:center;gap:.4em}
+.xcn-chip:hover,.xcn-chip:focus-visible{border-color:#4CD3C2}
+.xcn-ce{border-color:#B794F6}
+.xcn-dot{display:inline-block;width:.6em;height:.6em;border-radius:50%;background:#B794F6;flex:none}
+.xcn-foot{margin-top:.6em}

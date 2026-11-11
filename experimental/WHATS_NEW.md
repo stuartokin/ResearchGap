@@ -1,3 +1,6 @@
+## 11 November 2026
+- New chart: Coming next (in Charts). It lists the outlook milestones by the year they are expected to become real-world change, soonest first, with AI for clean energy marked in purple. Select one to see how long it is expected to take from research, beside the recent gap in its field. The years are AI estimates, not forecasts.
+
 ## 5 November 2026
 - New chart: Security timeline (in Charts). It puts security milestones and each field's technology milestones on one time axis, so you can see when security work arrived beside the technologies. Select a bar to list that period's milestones next to the security milestones of the same years. Security milestones are not matched to a technology here; the Security lag chart does that.
 
