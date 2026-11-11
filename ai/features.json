@@ -1,5 +1,5 @@
 {
- "built": "04 Nov 2026, 18:04 UTC",
+ "built": "09 Nov 2026, 14:29 UTC",
  "features": [
   {
    "id": "ai-by-readiness",
@@ -14,10 +14,18 @@
    "description": "A chart of AI-driven clean energy technologies grouped by how close they are to use in Great Britain (in use, trials, planned, not yet, not known), with each technology's details and an insight.",
    "added": "2026-11-04",
    "updated": null
+  },
+  {
+   "id": "security-timeline",
+   "title": "Security timeline",
+   "description": "A timeline with the security field on top and each other field below, counting landed and outlook milestones by period, so you can see when security work arrived beside the technologies. Select a bar to compare a period's milestones; with an insight.",
+   "added": "2026-11-05",
+   "updated": null
   }
  ],
  "report": [
   "included ai-by-readiness",
-  "included ai-in-gb"
+  "included ai-in-gb",
+  "included security-timeline"
  ]
 }
