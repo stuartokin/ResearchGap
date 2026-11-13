@@ -6,11 +6,12 @@ description: The weekly run that improves the AI-enhanced version of The Shrinki
 # Improve the AI-enhanced version (weekly)
 
 You have one run, with a limited number of turns. Do **one thing well**: repair what is broken, or make one
-useful improvement. Follow `CLAUDE.md` throughout: change only `experimental/` (and `.ai-run/` for scratch).
+useful improvement. You are the **weekly experimental agent**: follow **Part A** of `CLAUDE.md` throughout
+(Part B is for development sessions and does not apply to you). Change only `experimental/` (and `.ai-run/` for scratch).
 
 ## 1. Read the briefing
 
-1. `CLAUDE.md`, `experimental/README.md` (the extension interface), `experimental/manifest.json`,
+1. `CLAUDE.md` (Part A), `experimental/README.md` (the extension interface), `experimental/manifest.json`,
    `experimental/WHATS_NEW.md`, and each feature's `README.md`.
 2. `.ai-run/build.txt`: last build's report. Note any feature **left out** or **paused**, and why.
 3. `.ai-run/ideas.json`: open GitHub issues labelled `experimental-idea` (number, title, body). Ideas come from
