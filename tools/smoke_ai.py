@@ -1,12 +1,13 @@
 """Check the AI-enhanced version in a browser after build_ai.py. Features that fail when loaded are paused (rebuilt
 without them, once); the banner and the AI notices must be visible. Exit 1 only if the AI-enhanced version itself is
 broken, so the workflow keeps the previous one; the standard version is never affected."""
+import os
 import asyncio, functools, http.server, json, pathlib, subprocess, sys, threading
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 async def check(port):
     from playwright.async_api import async_playwright
     async with async_playwright() as p:
-        b = await p.chromium.launch(args=['--use-gl=swiftshader', '--enable-webgl', '--ignore-gpu-blocklist'])
+        b = await p.chromium.launch(executable_path=os.environ.get('CHROME') or None, args=['--use-gl=swiftshader', '--enable-webgl', '--ignore-gpu-blocklist'])
         pg = await (await b.new_context(viewport={'width': 1440, 'height': 900})).new_page(); errs = []
         pg.on('pageerror', lambda e: errs.append(str(e)[:200]))
         await pg.goto(f'http://localhost:{port}/ai/index.html?welcome=0')

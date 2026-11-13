@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Gate: open the rebuilt page in a headless browser and check it works with the new data."""
+import os
 import asyncio, json, subprocess, sys, time
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
@@ -11,7 +12,7 @@ async def main():
     time.sleep(1.5)
     try:
         async with async_playwright() as p:
-            b = await p.chromium.launch(args=['--use-gl=swiftshader', '--enable-webgl', '--ignore-gpu-blocklist'])
+            b = await p.chromium.launch(executable_path=os.environ.get('CHROME') or None, args=['--use-gl=swiftshader', '--enable-webgl', '--ignore-gpu-blocklist'])
             pg = await (await b.new_context(viewport={'width': 1600, 'height': 900})).new_page()
             errs = []; pg.on('pageerror', lambda e: errs.append(str(e)))
             await pg.goto('http://localhost:8799/index.html?view=none&welcome=0'); await pg.wait_for_timeout(6000)

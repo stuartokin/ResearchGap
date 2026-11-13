@@ -22,7 +22,7 @@ frozen, meta = {}, {}
 async def narration(port):
     from playwright.async_api import async_playwright
     async with async_playwright() as p:
-        b = await p.chromium.launch(args=['--use-gl=swiftshader', '--enable-webgl', '--ignore-gpu-blocklist'])
+        b = await p.chromium.launch(executable_path=os.environ.get('CHROME') or None, args=['--use-gl=swiftshader', '--enable-webgl', '--ignore-gpu-blocklist'])
         pg = await (await b.new_context(viewport={'width': 1440, 'height': 900})).new_page()
         texts, seen = [], set()
         # both versions: the standard app, and the AI-enhanced one if built, so neither's recordings are removed as unused
