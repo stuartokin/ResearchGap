@@ -5,3 +5,7 @@ tests/_work/
 
 # narration check screenshots and review report (working files)
 .narration/
+
+# test rig results (portable rig)
+tests/_last_run.log
+tests/_last_run.txt
