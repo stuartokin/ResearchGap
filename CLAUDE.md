@@ -99,3 +99,12 @@ these fails its checks.
 ## How to work each week
 
 Follow the skill `improve-experimental` (`.claude/skills/improve-experimental/SKILL.md`).
+
+## Kill switch
+
+`automation.json` at the top of this repo switches its automatic workflows off
+(`"paused": true`) or on (`false`). The master switch for every repo is
+`automation.json` in `stuartokin/stuartokin.github.io`. Each automated workflow
+starts with a `switch` job that reads both; keep it when editing workflows, and
+add it to any new scheduled or agent workflow. Manual "Run workflow" runs and
+pushes always go ahead.
