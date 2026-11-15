@@ -18,8 +18,7 @@ special focus on **AI for clean energy** (DESNZ's vision of an AI-enabled clean 
 - **Live:** https://stuartokin.github.io/ResearchGap/ (standard) and `/ai/` (the AI-enhanced version).
 - **Repository:** https://github.com/stuartokin/ResearchGap (public).
 - **Owner:** Stuart Okin, a personal project, not affiliated with or endorsed by any employer. Written content uses
-  the byline *Stuart Okin, Director of Cyber Regulation and Emerging Technologies, Ofgem*, while always saying the
-  app is personal and not an Ofgem view.
+  the byline *Stuart Okin* and says it is written in a personal capacity; never his employer or job title.
 - **Principle:** maintained weekly by AI agents **without human review**, so the guardrails are code, not trust.
   The app says plainly that it may contain errors. Figures in text always come from the data (placeholders), never
   typed by hand or by a model.
