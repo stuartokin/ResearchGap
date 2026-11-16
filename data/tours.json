@@ -1,6 +1,6 @@
 {
- "version": 34,
- "updated": "2026-11-09",
+ "version": 35,
+ "updated": "2026-11-16",
  "updatedBy": "tour-agent",
  "note": "Narration templates for the guided tours. Figures come from {placeholders} filled from the live data; conclusions are chosen by rules in the app ({\"by\": fact, \"cases\": {...}}). The weekly tour agent may refine wording and choose examples, within the rules checked by tools/validate.py.",
  "tours": {
@@ -9,7 +9,7 @@
    "exampleIds": [
     "penicillin",
     "radar",
-    "television",
+    "integrated-circuit",
     "large-language-model-api"
    ],
    "steps": {
@@ -155,7 +155,7 @@
      "say": {
       "by": "nextCase",
       "cases": {
-       "some": "Looking five years ahead, the number of products expected is {nextCount}. The soonest is {nextTitle}, around {nextYear}, and {busiestArea} has the most on the way.",
+       "some": "Looking five years ahead, the radar counts {nextCount} expected products. The soonest is {nextTitle}, around {nextYear}, and {busiestArea} has the most on the way.",
        "none": "On current data, no products are expected within the next five years."
       }
      }
@@ -235,16 +235,16 @@
       {
        "by": "trendCase",
        "cases": {
-        "improving": "Security is catching up faster than it used to.",
-        "worsening": "Security is taking longer to catch up than it used to.",
-        "flat": "The pace of catching up has barely changed.",
+        "improving": "On these rough estimates, security is catching up faster than it used to.",
+        "worsening": "On these rough estimates, security is taking longer to catch up than it used to.",
+        "flat": "On these rough estimates, the pace of catching up has barely changed.",
         "unclear": "The data cannot say yet."
        }
       }
      ]
     },
     "secchart": {
-     "say": "This chart shows how many years technologies waited for a security response. Apart from {secResearched} researched cases, bars are rough guides drawn from related milestones, not researched facts. The longest wait shown is {secLongestYears} years, for {secLongestTitle}."
+     "say": "This chart shows the years technologies waited for a security response. Only {secResearched} bars are researched; the rest are rough guides from related milestones, not facts. The longest wait shown is {secLongestYears} years, for {secLongestTitle}."
     }
    }
   },
@@ -255,7 +255,7 @@
      "say": "Research does not just change products; it can also make fortunes. This chart, Time to a fortune, follows founders from starting a company to the stock market listing, sale or valuation that made them rich."
     },
     "research": {
-     "say": "Of {nFortunes} fortunes here, {nResearch} began with work in a university or research lab. Where that is so, research brought the founders wealth as well as new products."
+     "say": "Of {nFortunes} fortunes here, {nResearch} trace back to work in a university or research lab. So research can bring founders wealth as well as new products."
     },
     "speed": {
      "say": {
@@ -283,7 +283,7 @@
      }
     },
     "uni": {
-     "say": "Now the filter shows university projects. {nUni} of them have yet to reach a product; any still on their way could become breakthroughs, and perhaps fortunes, in future."
+     "say": "Now the filter shows university projects. Number yet to reach a product: {nUni}. Any still on their way could become breakthroughs, and perhaps fortunes, in future."
     },
     "table": {
      "say": "The Table lists every milestone. Sort by any column, such as the gap between milestones, and select a row to read its story."
@@ -314,7 +314,7 @@
      "say": "This model is kept up to date by AI agents, automated programs that run every week. So far it holds {nMilestones} milestones."
     },
     "research": {
-     "say": "A research agent searches for new breakthroughs and products across every field of AI, including each area of AI for clean energy. Everything it adds appears in the 'Data changes' view."
+     "say": "A research agent searches for new breakthroughs and products across many fields of AI, including each area of AI for clean energy. Everything it adds is listed in the 'Data changes' view, so you can see what is new."
     },
     "qa": {
      "say": "A second agent checks each new entry independently. It requires more than one source, and the quoted evidence must really appear on the cited page. Nothing is ever deleted."
@@ -424,7 +424,7 @@
     },
     "drift": {
      "say": [
-      "This chart tracks {driftCount} forecasts. The busiest year is {driftPeakYear}, when {driftPeakCount} are expected to arrive. ",
+      "This chart tracks {driftCount} forecasts. The busiest year is {driftPeakYear}, with {driftPeakCount} expected to arrive. ",
       {
        "by": "driftCase",
        "cases": {
@@ -436,13 +436,13 @@
     },
     "sec": {
      "say": [
-      "As a rough guide, security protections typically followed the technology they protect by about {secMedian} years. The longest gap shown is {secLongestYears} years, for {secLongestTitle}. ",
+      "As a rough guide, security responses typically came about {secMedian} years after the technology. The longest gap shown is {secLongestYears} years, for {secLongestTitle}. ",
       {
        "by": "secCase",
        "cases": {
         "open": "Still awaiting a related security milestone: {secOpen}.",
-        "closed": "None is still awaiting a related security milestone, though only {secResearched} matches are researched; the rest are rough proxies.",
-        "proxy": "Dashed grey rows are rough proxies; {secResearched} of these gaps have been researched with a source."
+        "closed": "No related security milestone is still awaited, but only {secResearched} links are researched; the rest are rough proxies.",
+        "proxy": "Dashed grey rows are rough proxies; only {secResearched} of these gaps are researched with a source."
        }
       },
       {
@@ -540,7 +540,7 @@
      "say": "In Forecast drift, each bar counts the milestones expected to arrive in a given year. Select a bar to list them. Trails show how a milestone's expected date has moved each time its forecast was revised."
     },
     "sec": {
-     "say": "Security lag shows the wait for a security response, open gaps first; you can also sort by arrival or longest wait. Only {secResearched} responses are researched with a source. The rest are a rough guide, from the nearest later related security milestone."
+     "say": "Security lag shows the wait for a security response, open gaps first. Only {secResearched} technologies have a researched, sourced response. For the rest, the bar is a rough guide based on the nearest later security milestone in a related category."
     },
     "fort": {
      "say": "Press play to watch the race to a fortune unfold over time, or select a bubble to read that company's story."
@@ -555,7 +555,7 @@
   },
   "cleanweek": {
    "title": "AI for clean energy analysis",
-   "updated": "2026-11-09T14:18Z",
+   "updated": "2026-11-16T14:04Z",
    "steps": {
     "intro": {
      "say": [
@@ -571,27 +571,23 @@
     },
     "c1": {
      "view": "findings",
-     "say": "Start with speed. Since 2010, the {aiCount} AI-driven milestones took a median of {aiMed} years to go from research to real use, against {restMed} for the rest. The group is small and the evidence is mixed, so it is a hint, not proof."
+     "say": "Start with speed. Since 2010, the {aiCount} AI-driven milestones took a median of {aiMed} years to move from research to real use, against {restMed} for the rest. The group is small and the evidence mixed, so treat it as a hint, not proof."
     },
     "c2": {
      "view": "main",
-     "say": "Journeys still vary hugely. The longest was {longestTitle}, at {longestYears}. The quickest recent arrival was {quickRecentTitle}, at {quickRecentYears}. Across {nGap} landed milestones, the pattern is uneven, not a steady march forward."
+     "say": "Journeys vary hugely. The longest was {longestTitle}, at {longestYears}; the quickest recent arrival was {quickRecentTitle}, at {quickRecentYears}. Across {nGap} landed milestones, the pattern is uneven rather than a steady march forward."
     },
     "c3": {
      "view": "pipe",
-     "say": "The pipeline holds {pipeTotal} clean energy technologies, with {pipeGB} used in Great Britain. Checks also scaled back a claim: liquid air energy storage moved from commercial to pilot, and its Great Britain status from deployed to trial."
+     "say": "The pipeline holds {pipeTotal} clean energy technologies: {pipeResearch} in research, {pipePilot} in pilots, {pipeCommercial} commercial and {pipeScale} at scale. Of these, {pipeGB} are used in Great Britain."
     },
     "c4": {
-     "view": "radar",
-     "say": "Some ideas did move forward. AI assurance for energy, which is about checking that AI used in energy can be trusted, moved in Great Britain from planned to trial. That is a step towards real use, not yet wide adoption."
-    },
-    "c5": {
      "view": "whatif",
      "say": "In the what-if scenario, practical AI levers would bring {wi2030AI} clean energy technologies into real use by 2030, against {wi2030Now} expected now. {wiTopLever} is the strongest lever. This is a modelled scenario, not a forecast."
     },
-    "c6": {
+    "c5": {
      "view": "sec",
-     "say": "Finally, trust. {secOpen} clean energy technologies still have no researched security response, so these gaps are listed first. A second AI model also disputed some new entries, and those stay flagged until they are checked."
+     "say": "Finally, trust. {secOpen} clean energy technologies still have no researched security response, so those gaps come first. A second AI model also contradicted one of the newest additions, which stays flagged until it is checked."
     }
    }
   },
@@ -600,7 +596,7 @@
    "updated": "2026-11-01",
    "steps": {
     "clean-ai": {
-     "say": "We track {cleanAiCount} AI-driven clean energy technologies, listed here. Of these, {cleanAiGB} are already used in Great Britain and {cleanAiResearch} are still in research. Of the AI for clean energy areas on the radar, {cleanAiTopArea} has the most."
+     "say": "We track {cleanAiCount} AI-driven clean energy technologies, listed here. {cleanAiGB} of them are already used in Great Britain and {cleanAiResearch} are still in research. On the radar, {cleanAiTopArea} is the AI for clean energy area with the most technologies."
     },
     "clean-next": {
      "say": [
@@ -639,11 +635,11 @@
     },
     "security": {
      "say": [
-      "As a rough guide, security usually arrives about {secMedian} years after the technology it protects. Researched, sourced responses number {secResearched}; the rest are proxies, not researched dates. ",
+      "As a rough guide, security usually arrives about {secMedian} years after the technology it protects. Researched, sourced responses: {secResearched}; the rest are proxies, a rough guide only. ",
       {
        "by": "secCase",
        "cases": {
-        "open": "{secOpen} technologies have no known security response in their category yet; these open gaps come first.",
+        "open": "{secOpen} technologies have no known security response in their category yet; open gaps come first.",
         "closed": "No open gaps show at present, though this partly rests on proxies.",
         "proxy": "Treat any gaps as provisional."
        }
