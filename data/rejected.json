@@ -4647,5 +4647,359 @@
   "sources": [],
   "reason": "the page did not name it",
   "category": "other"
+ },
+ {
+  "date": "2026-11-16",
+  "agent": "claude",
+  "mode": "recent",
+  "title": "Sunharbo (asundexian): first Factor XIa inhibitor approved",
+  "field": "life",
+  "status": "landed",
+  "research_year": 2017,
+  "change_year": 2026,
+  "research_origin": "Bayer's asundexian (BAY 2433334) Factor XIa inhibitor programme; early clinical development in the late 2010s (exact first-publication year not verified in the sources found)",
+  "research_what": "Bayer developed an oral small-molecule inhibitor of Factor XIa, aimed at blocking clot growth with less bleeding risk than standard anticoagulants.",
+  "change_what": "The US FDA approved Sunharbo on 9 Nov 2026 for preventing recurrent stroke after non-cardioembolic ischaemic stroke or high-risk TIA, the first approval of any Factor XIa inhibitor.",
+  "sources": [
+   "https://www.statnews.com/2026/11/09/cardiovascular-stroke-recurrence-bayer-drug-fda-approval/",
+   "https://www.tctmd.com/news/asundexian-first-factor-xia-inhibitor-gain-fda-approval",
+   "https://www.hcplive.com/view/asundexian-sunharbo-receives-fda-approval-for-secondary-stroke-prevention"
+  ],
+  "reason": "only 1 source(s) confirmed the key facts",
+  "category": "sources"
+ },
+ {
+  "date": "2026-11-16",
+  "agent": "claude",
+  "mode": "catch-up",
+  "title": "Bluetooth Channel Sounding in first phones",
+  "field": null,
+  "status": "landed",
+  "research_year": 2024,
+  "change_year": 2025,
+  "research_origin": "Bluetooth SIG Core Specification 6.0 (2024), building on earlier phase-based BLE ranging research",
+  "research_what": "Bluetooth Core 6.0 added a secure ranging feature that measures phase and time delay of radio signals to estimate distance between devices to roughly 20 cm.",
+  "change_what": "Google Pixel 10 became the first phone on the market with hardware support for Bluetooth Channel Sounding, and developer kits interoperated with it from late summer 2025.",
+  "sources": [
+   "https://www.nordicsemi.com/Products/Wireless/Bluetooth-Low-Energy/Channel-Sounding",
+   "https://www.bluetooth.com/blog/a-look-back-at-bluetooth-in-2025-and-whats-ahead-in-2026/",
+   "https://www.nordicsemi.com/Nordic-news/2025/10/Nordics-Android-app-and-nRF54L-Series-evaluate-Bluetooth-Channel-Sounding-using-the-Google-Pixel-10"
+  ],
+  "reason": "only 1 source(s) confirmed the key facts",
+  "category": "sources"
+ },
+ {
+  "date": "2026-11-16",
+  "agent": "claude",
+  "mode": "backfill",
+  "title": "MQ-1 Predator: long-endurance armed-capable UAV",
+  "field": "Robotics & autonomy",
+  "status": "landed",
+  "research_year": 1983,
+  "change_year": 1995,
+  "research_origin": "Karem's Leading Systems Inc. Albatross (1983), Amber and Gnat 750 (first flight 1989)",
+  "research_what": "Abraham Karem built long-endurance unmanned aircraft from the early 1980s, starting with the Albatross in 1983 and leading to the Gnat 750, which first flew in 1989.",
+  "change_what": "General Atomics' RQ-1 Predator, derived from the Gnat 750, deployed over Bosnia in July 1995 under Operation Nomad Vigil, streaming near-real-time video via a satellite link.",
+  "sources": [
+   "https://www.smithsonianmag.com/air-space-magazine/the-man-who-invented-the-predator-3970502/",
+   "https://si.edu/object/general-atomics-mq-1l-predator:nasm_A20040180000",
+   "https://www.aerospaceutah.org/mq-1-predator-drone/"
+  ],
+  "reason": "only 1 source(s) confirmed the key facts",
+  "category": "sources"
+ },
+ {
+  "date": "2026-11-16",
+  "agent": "claude",
+  "mode": "backfill",
+  "title": "Canadarm: first space robotic arm (Shuttle RMS)",
+  "field": null,
+  "status": "landed",
+  "research_year": 1975,
+  "change_year": 1981,
+  "research_origin": "1975 Spar Aerospace appointed prime contractor by NRC Canada for the Shuttle Remote Manipulator System, a Canada–NASA joint programme",
+  "research_what": "Canada and NASA agreed to build a remotely operated manipulator arm for the Space Shuttle, with Spar Aerospace as prime contractor under the National Research Council of Canada.",
+  "change_what": "The Shuttle Remote Manipulator System first flew on STS-2 in November 1981 and went on to support payload deployment, satellite retrieval and repair across the 30-year Shuttle programme.",
+  "sources": [
+   "https://ethw.org/Milestones:Canadarm,_1981",
+   "https://ntrs.nasa.gov/api/citations/20100033369/downloads/20100033369.pdf",
+   "https://www.spacenet.on.ca/data/pages/canada-in-space/canadarm1/canadarm_history.html"
+  ],
+  "reason": "only 1 source(s) confirmed the key facts",
+  "category": "sources"
+ },
+ {
+  "date": "2026-11-16",
+  "agent": "claude",
+  "mode": "backfill",
+  "title": "First fully automatic transatlantic flight (C-54, 1947)",
+  "field": "robotics",
+  "status": "landed",
+  "research_year": 1945,
+  "change_year": 1947,
+  "research_origin": "US Army Air Forces All-Weather Flight Center automatic flight programme and Automatic Flight Controller Mk II, mid-1940s",
+  "research_what": "The US Army Air Forces All-Weather Flight Center developed an automatic flight controller with an electromechanical 'brain' that read instruments, tuned beacon signals and computed navigation to fly without a pilot.",
+  "change_what": "In September 1947 a USAF Douglas C-54 called Robert E. Lee crossed the Atlantic from Newfoundland to England with take-off, flight and landing all automatic and no hand on the controls.",
+  "sources": [
+   "http://www.omsa.org/files/jomsa_arch/Splits/2011/2499_JOMSA_Vol62_1_37.pdf",
+   "https://www.thisdayinaviation.com/tag/42-72451/",
+   "https://www.rarenewspapers.com/view/623884"
+  ],
+  "reason": "only 1 source(s) confirmed the key facts",
+  "category": "sources"
+ },
+ {
+  "date": "2026-11-16",
+  "agent": "gemini",
+  "mode": "recent",
+  "title": "Master-slave teleoperated manipulators",
+  "field": "robotics",
+  "status": "landed",
+  "research_year": 1949,
+  "change_year": 1950,
+  "research_origin": "Raymond Goertz, Argonne National Laboratory, 1949",
+  "research_what": "Raymond Goertz developed the first electric master-slave manipulator for remote handling of radioactive materials.",
+  "change_what": "These manipulators became essential for safely handling hazardous materials in nuclear research and industry.",
+  "sources": [
+   "https://www.anl.gov/article/argonne-and-the-history-of-robotics",
+   "https://www.osti.gov/servlets/purl/4383411"
+  ],
+  "reason": "duplicate of \"Master-slave teleoperated manipulators (Goertz)\"",
+  "category": "duplicate"
+ },
+ {
+  "date": "2026-11-16",
+  "agent": "gemini",
+  "mode": "recent",
+  "title": "Balaklava wind turbine (USSR)",
+  "field": "energy",
+  "status": "landed",
+  "research_year": 1931,
+  "change_year": 1931,
+  "research_origin": "Yalta, USSR, 1931 (design by engineer V.P. Vetchinkin)",
+  "research_what": "The Balaklava wind turbine, a 100 kW experimental wind generator, was connected to the local grid.",
+  "change_what": "It demonstrated the feasibility of large-scale wind power generation for grid integration.",
+  "sources": [
+   "https://www.wind-energy-the-facts.org/history-of-wind-energy.html",
+   "https://www.osti.gov/etdeweb/biblio/6859082"
+  ],
+  "reason": "only 0 source(s) confirmed the key facts",
+  "category": "sources"
+ },
+ {
+  "date": "2026-11-16",
+  "agent": "gemini",
+  "mode": "recent",
+  "title": "EPR paradox paper (quantum entanglement concept)",
+  "field": "quantum",
+  "status": "landed",
+  "research_year": 1935,
+  "change_year": 1935,
+  "research_origin": "Einstein, Podolsky, and Rosen, Physical Review, 1935",
+  "research_what": "Einstein, Podolsky, and Rosen published a paper describing a thought experiment that highlighted the counter-intuitive nature of quantum entanglement.",
+  "change_what": "This paper introduced the concept of quantum entanglement, a cornerstone of quantum information science.",
+  "sources": [
+   "https://journals.aps.org/pr/abstract/10.1103/PhysRev.47.777",
+   "https://plato.stanford.edu/entries/qt-epr/"
+  ],
+  "reason": "only 1 source(s) confirmed the key facts",
+  "category": "sources"
+ },
+ {
+  "date": "2026-11-16",
+  "agent": "gemini",
+  "mode": "recent",
+  "title": "First commercial industrial robot (Unimate)",
+  "field": "robotics",
+  "status": "landed",
+  "research_year": 1954,
+  "change_year": 1961,
+  "research_origin": "George Devol, US Patent 2,988,237, 1954",
+  "research_what": "George Devol patented the 'Programmed Article Transfer' device, which became the basis for the Unimate industrial robot.",
+  "change_what": "The first Unimate robot was installed at a General Motors plant for spot welding.",
+  "sources": [
+   "https://www.robotics.org/about/history-of-robotics",
+   "https://www.britannica.com/technology/Unimate"
+  ],
+  "reason": "duplicate of \"Industrial robot\"",
+  "category": "duplicate"
+ },
+ {
+  "date": "2026-11-16",
+  "agent": "gemini",
+  "mode": "recent",
+  "title": "First computer worm (Morris Worm)",
+  "field": "cyber",
+  "status": "landed",
+  "research_year": 1988,
+  "change_year": 1988,
+  "research_origin": "Robert Tappan Morris, Cornell University, 1988",
+  "research_what": "Robert Tappan Morris released a self-replicating program that exploited vulnerabilities in Unix systems connected to the ARPANET.",
+  "change_what": "The Morris Worm infected thousands of computers, causing widespread disruption and leading to the creation of CERT/CC.",
+  "sources": [
+   "https://www.wired.com/2013/11/morris-worm-25-years-later/",
+   "https://www.cert.org/historical/morris-worm.cfm"
+  ],
+  "reason": "only 0 source(s) confirmed the key facts",
+  "category": "sources"
+ },
+ {
+  "date": "2026-11-16",
+  "agent": "gemini",
+  "mode": "recent",
+  "title": "First commercial humanoid robot (WABOT-1)",
+  "field": "robotics",
+  "status": "landed",
+  "research_year": 1973,
+  "change_year": 1973,
+  "research_origin": "Waseda University, Japan, 1973",
+  "research_what": "Waseda University developed WABOT-1, the first full-scale humanoid robot capable of walking, grasping, and communicating.",
+  "change_what": "WABOT-1 demonstrated advanced humanoid capabilities, influencing subsequent robotics research and development.",
+  "sources": [
+   "https://www.waseda.jp/top/en/about/history/archives/125th/wabot",
+   "https://www.ieee.org/content/dam/ieee-org/ieee/web/eu/robotics/WABOT.pdf"
+  ],
+  "reason": "only 0 source(s) confirmed the key facts",
+  "category": "sources"
+ },
+ {
+  "date": "2026-11-16",
+  "agent": "gemini",
+  "mode": "recent",
+  "title": "First commercial surgical robot (PUMA 2000)",
+  "field": "robotics",
+  "status": "landed",
+  "research_year": 1985,
+  "change_year": 1985,
+  "research_origin": "Kwoh et al., California State University, Long Beach, 1985",
+  "research_what": "The PUMA 2000 robot was adapted for neurosurgical biopsies, marking the first commercial use of a robot in surgery.",
+  "change_what": "The PUMA 2000 successfully performed a CT-guided brain biopsy, demonstrating robotic precision in medical procedures.",
+  "sources": [
+   "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3613620/",
+   "https://www.robotics.org/blog/details-page/the-history-of-robotics-in-medicine"
+  ],
+  "reason": "only 0 source(s) confirmed the key facts",
+  "category": "sources"
+ },
+ {
+  "date": "2026-11-16",
+  "agent": "gemini",
+  "mode": "recent",
+  "title": "First commercial mobile robot for logistics (Kitting Robot)",
+  "field": "robotics",
+  "status": "landed",
+  "research_year": 1983,
+  "change_year": 1983,
+  "research_origin": "Komatsu Ltd., Japan, 1983",
+  "research_what": "Komatsu developed a 'Kitting Robot' for automated parts delivery in factories, a precursor to modern AGVs.",
+  "change_what": "This robot automated the delivery of components to assembly lines, improving efficiency in manufacturing.",
+  "sources": [
+   "https://www.komatsu.jp/en/company/history",
+   "https://www.jstage.jst.go.jp/article/jrsj/2/1/2_1_41/_pdf"
+  ],
+  "reason": "only 0 source(s) confirmed the key facts",
+  "category": "sources"
+ },
+ {
+  "date": "2026-11-16",
+  "agent": "gemini",
+  "mode": "recent",
+  "title": "First commercial AI for energy grid optimization (Siemens Spectrum)",
+  "field": "energy",
+  "status": "landed",
+  "research_year": 1990,
+  "change_year": 1992,
+  "research_origin": "Siemens AG, Germany, early 1990s",
+  "research_what": "Siemens developed Spectrum, an expert system for power system control and optimization.",
+  "change_what": "Spectrum was deployed in several control centers to assist operators in managing complex power grids.",
+  "sources": [
+   "https://www.researchgate.net/publication/237699990_Expert_systems_for_power_system_control_and_optimization",
+   "https://ieeexplore.ieee.org/document/100010"
+  ],
+  "reason": "only 0 source(s) confirmed the key facts",
+  "category": "sources"
+ },
+ {
+  "date": "2026-11-16",
+  "agent": "gemini",
+  "mode": "recent",
+  "title": "First commercial quantum key distribution system (ID Quantique)",
+  "field": "quantum",
+  "status": "landed",
+  "research_year": 2001,
+  "change_year": 2001,
+  "research_origin": "ID Quantique, Switzerland, 2001",
+  "research_what": "ID Quantique launched the first commercial quantum key distribution (QKD) system, Clavis.",
+  "change_what": "Clavis provided highly secure communication by generating and distributing cryptographic keys using quantum mechanics.",
+  "sources": [
+   "https://www.idquantique.com/company/history/",
+   "https://www.nature.com/articles/412038a"
+  ],
+  "reason": "duplicate of \"Quantum key distribution\"",
+  "category": "duplicate"
+ },
+ {
+  "date": "2026-11-16",
+  "agent": "security",
+  "mode": "security",
+  "title": "Desktop Grace Blackwell AI supercomputer (DGX Spark): Security Bulletin: NVIDIA DGX Spark - November 2025 (DGX OS OTA0 security update)",
+  "field": null,
+  "status": null,
+  "research_year": null,
+  "change_year": null,
+  "research_origin": "",
+  "research_what": "",
+  "change_what": "",
+  "sources": [],
+  "reason": "the source page did not load",
+  "category": "sources"
+ },
+ {
+  "date": "2026-11-16",
+  "agent": "security",
+  "mode": "security",
+  "title": "SDA Transport Layer Tranche 1 operational launch: SDA NEBULA Standard (Tranche 1 networking and information-assurance standard for the PWSA Transport Layer)",
+  "field": null,
+  "status": null,
+  "research_year": null,
+  "change_year": null,
+  "research_origin": "",
+  "research_what": "",
+  "change_what": "",
+  "sources": [],
+  "reason": "year 2021 is before the technology's research began (2023)",
+  "category": "years"
+ },
+ {
+  "date": "2026-11-16",
+  "agent": "security",
+  "mode": "security",
+  "title": "Vehicle-to-grid for households: ISO 15118-2:2014 Road vehicles — Vehicle-to-Grid Communication Interface — Part 2: Network and application protocol requirements",
+  "field": null,
+  "status": null,
+  "research_year": null,
+  "change_year": null,
+  "research_origin": "",
+  "research_what": "",
+  "change_what": "",
+  "sources": [],
+  "reason": "the page did not name it",
+  "category": "other"
+ },
+ {
+  "date": "2026-11-16",
+  "agent": "security",
+  "mode": "security",
+  "title": "Dawatt (大瓦特) power-industry AI model, China Southern Grid: Dawatt \"ten security fence measures\" (大瓦特十大安全围栏措施) for the multi-agent upgrade",
+  "field": null,
+  "status": null,
+  "research_year": null,
+  "change_year": null,
+  "research_origin": "",
+  "research_what": "",
+  "change_what": "",
+  "sources": [],
+  "reason": "the page did not name it",
+  "category": "other"
  }
 ]

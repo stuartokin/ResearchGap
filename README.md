@@ -12,6 +12,10 @@ An interactive 3D model of how long research takes to become real-world change, 
 - **What it cannot tell you.** It only contains ideas that succeeded, dates are often approximate, and outlook years are estimates, not forecasts.
 - **Licences.** Code: MIT (`LICENSE`). Data: CC BY 4.0 (`DATA-LICENSE.md`). Third-party components: `ATTRIBUTION.md`.
 
+## Working on it
+
+Start with `CLAUDE.md` (read first), then `docs/KNOWLEDGE_BASE.md` (how everything works), `docs/ROADMAP.md` (status and next steps) and `docs/LESSONS.md`. Test on any machine with `python tests/rig.py` (see `tests/README.md`).
+
 ## How it fits together
 
 | Path | What it is |

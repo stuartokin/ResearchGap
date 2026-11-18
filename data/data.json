@@ -2,203 +2,16 @@
  "$schema": "./schema.json",
  "meta": {
   "title": "The Shrinking Gap from Research to Change",
-  "revision": 37,
+  "revision": 38,
   "version": "8.0",
-  "asOf": "2026-11-09",
+  "asOf": "2026-11-16",
   "horizonYears": 10,
   "startYear": 1925,
   "author": "Stuart Okin",
   "maintainedBy": "AI agents using Claude (Anthropic), without human review",
   "disclaimer": "Personal project by Stuart Okin, not affiliated with or endorsed by any employer. Data is compiled and maintained by AI agents without human review and may contain errors. Outlook years are AI estimates, not forecasts.",
-  "lastAgentRun": "2026-11-09T14:11Z",
+  "lastAgentRun": "2026-11-16T13:56Z",
   "changelog": [
-   {
-    "date": "2026-10-29",
-    "time": "19:36",
-    "revision": 21,
-    "summary": "0 added, 13 corrected, 0 outlook re-estimated, 0 disputed, 1 broken links.",
-    "stats": {
-     "milestones": 474,
-     "sourceCited": 167,
-     "aiCompiled": 229,
-     "aiEstimate": 78,
-     "adoptionKnown": 75,
-     "landed": 374,
-     "regionKnown": 474
-    },
-    "usage": {
-     "calls": 5,
-     "inputTokens": 554256,
-     "outputTokens": 45018,
-     "searches": 38,
-     "model": "claude-sonnet-5-5"
-    },
-    "deepAudit": false,
-    "details": [
-     "carbon-capture-and-storage: source added",
-     "lithium-iron-phosphate-batteries: source added",
-     "modern-electric-cars: research.year 1997 → 2003",
-     "modern-electric-cars: source added",
-     "tidal-stream-power: source added",
-     "household-flexibility-at-scale: source added",
-     "grid-forming-inverters-as-standard: source added",
-     "quantum-optimisation-pilots: source added",
-     "giant-magnetoresistance: adoption year none → 2000 (source-cited)",
-     "high-na-euv-in-volume-production: source added",
-     "high-na-euv-in-volume-production: note updated",
-     "optical-interconnects-in-ai-data-centres: source added",
-     "neuromorphic-chips-at-the-edge: source added",
-     "tours: walk-through scripts refreshed (version 13)"
-    ]
-   },
-   {
-    "date": "2026-10-29",
-    "time": "20:45",
-    "revision": 22,
-    "summary": "0 added, 18 corrected, 0 outlook re-estimated, 2 disputed, 1 broken links, 2 guidance updates.",
-    "stats": {
-     "milestones": 474,
-     "sourceCited": 175,
-     "aiCompiled": 221,
-     "aiEstimate": 78,
-     "adoptionKnown": 76,
-     "landed": 374,
-     "regionKnown": 474
-    },
-    "usage": {
-     "calls": 6,
-     "inputTokens": 456368,
-     "outputTokens": 42151,
-     "searches": 29,
-     "model": "claude-sonnet-5-5"
-    },
-    "deepAudit": false,
-    "details": [
-     "driverless-cars: source added",
-     "computer-weather-forecasting: source added",
-     "computer-weather-forecasting: note updated",
-     "power-system-state-estimation: source added",
-     "synchrophasor-measurement: note updated",
-     "wind-power-forecasting: research.year 1990 → 1992",
-     "wind-power-forecasting: research.what updated",
-     "wind-power-forecasting: change.year 1996 → 1994",
-     "wind-power-forecasting: source added",
-     "smart-ev-charging: source added",
-     "machine-learning-solar-nowcasting: source added",
-     "combined-cycle-gas-turbine: source added",
-     "floating-offshore-wind: source added",
-     "capacitive-touchscreen: adoption estimate 2007",
-     "capacitive-touchscreen: readiness commercial → scale",
-     "capacitive-touchscreen: tags added",
-     "compact-disc: research.what updated",
-     "compact-disc: readiness commercial → scale",
-     "disputed: synchrophasor-measurement",
-     "disputed: smart-ev-charging",
-     "guidance: ETSI EN 303 994 (Parts 1-3) V1.1.2: Privileged Access Workstations (Physical Device, Connectivity, System Integration)",
-     "guidance: ETSI TS 104 275 V1.1.1: Applying Baseline Cyber Security Requirements for AI Models and Systems to Generative AI (Preventing Harm from Deepfakes)",
-     "tours: walk-through scripts refreshed (version 14)"
-    ]
-   },
-   {
-    "date": "2026-10-30",
-    "time": "15:08",
-    "revision": 23,
-    "summary": "1 added, 10 corrected, 0 outlook re-estimated, 1 disputed, 1 broken links.",
-    "stats": {
-     "milestones": 475,
-     "sourceCited": 177,
-     "aiCompiled": 220,
-     "aiEstimate": 78,
-     "adoptionKnown": 76,
-     "landed": 375,
-     "regionKnown": 475
-    },
-    "usage": {
-     "calls": 6,
-     "inputTokens": 536249,
-     "outputTokens": 42715,
-     "searches": 35,
-     "model": "claude-sonnet-5-5"
-    },
-    "deepAudit": false,
-    "details": [
-     "added: reclinker-cement-recycled-in-steel-furnaces",
-     "smart-cards: source added",
-     "smart-cards: source added",
-     "smart-cards: change.what updated",
-     "kerberos-authentication: readiness commercial → scale",
-     "kerberos-authentication: tags added",
-     "erbium-doped-fibre-amplifier: readiness commercial → scale",
-     "tandem-solar-at-volume: source added",
-     "dram: adoption year 1972 → 1972 (source-cited)",
-     "high-na-euv-in-volume-production: source added",
-     "chiplet-ecosystems: source added",
-     "disputed: ai-in-grid-control-rooms",
-     "tours: walk-through scripts refreshed (version 16)"
-    ]
-   },
-   {
-    "date": "2026-10-30",
-    "time": "20:54",
-    "revision": 24,
-    "summary": "0 added, 7 corrected, 0 outlook re-estimated, 0 disputed, 0 broken links, 1 guidance update.",
-    "stats": {
-     "milestones": 475,
-     "sourceCited": 179,
-     "aiCompiled": 218,
-     "aiEstimate": 78,
-     "adoptionKnown": 76,
-     "landed": 375,
-     "regionKnown": 475
-    },
-    "usage": {
-     "calls": 6,
-     "inputTokens": 652325,
-     "outputTokens": 44418,
-     "searches": 40,
-     "model": "claude-sonnet-5-5"
-    },
-    "deepAudit": false,
-    "details": [
-     "offshore-wind-farm: research.year 1985 → 1987",
-     "trapped-ion-commercial-systems: research.year 2014 → 2015",
-     "on-device-ai-as-default: source added",
-     "ai-as-a-scientific-collaborator: source added",
-     "verified-quantum-advantage: source added",
-     "verified-quantum-advantage: note updated",
-     "quantum-navigation-in-service: source added",
-     "guidance: One does not simply defend agentically",
-     "tours: walk-through scripts refreshed (version 18)"
-    ]
-   },
-   {
-    "date": "2026-10-30",
-    "time": "20:58",
-    "revision": 24,
-    "summary": "AI levers researched for 3 technologies.",
-    "stats": {
-     "milestones": 475,
-     "sourceCited": 179,
-     "aiCompiled": 218,
-     "aiEstimate": 78,
-     "adoptionKnown": 76,
-     "landed": 375,
-     "regionKnown": 475
-    },
-    "usage": {
-     "calls": 8,
-     "inputTokens": 189900,
-     "outputTokens": 12509,
-     "searches": 16,
-     "model": "claude-sonnet-5-5"
-    },
-    "deepAudit": false,
-    "details": [
-     "levers   chiplet-ecosystems: demo; simulation, discovery, software",
-     "levers   agentic-ai-in-everyday-work: demo; software",
-     "levers   exploit-windows-collapse: deploy; software"
-    ]
-   },
    {
     "date": "2026-10-30",
     "time": "23:54",
@@ -2273,6 +2086,181 @@
      "story    free-threaded-no-gil-python-officially-supported",
      "story    first-full-stack-silicon-cmos-quantum-computer"
     ]
+   },
+   {
+    "date": "2026-11-16",
+    "time": "13:51",
+    "revision": 37,
+    "summary": "Gemini research: 0 of 10 candidates passed the source checks and were queued for Claude's QA.",
+    "stats": {
+     "milestones": 700,
+     "sourceCited": 499,
+     "aiCompiled": 123,
+     "aiEstimate": 78,
+     "adoptionKnown": 79,
+     "landed": 554,
+     "regionKnown": 700
+    },
+    "usage": {
+     "calls": 0,
+     "inputTokens": 0,
+     "outputTokens": 0,
+     "searches": 0,
+     "model": "claude-sonnet-5-5"
+    },
+    "deepAudit": false
+   },
+   {
+    "date": "2026-11-16",
+    "time": "13:56",
+    "revision": 38,
+    "summary": "7 added, 10 corrected, 0 outlook re-estimated, 0 disputed, 0 broken links.",
+    "stats": {
+     "milestones": 707,
+     "sourceCited": 509,
+     "aiCompiled": 120,
+     "aiEstimate": 78,
+     "adoptionKnown": 79,
+     "landed": 561,
+     "regionKnown": 707
+    },
+    "usage": {
+     "calls": 6,
+     "inputTokens": 533672,
+     "outputTokens": 41871,
+     "searches": 41,
+     "model": "claude-sonnet-5-5"
+    },
+    "deepAudit": false,
+    "details": [
+     "added: ascon-lightweight-cryptography-standard-nist-sp-800-232",
+     "added: sda-transport-layer-tranche-1-operational-launch",
+     "added: aero-materials-ultra-light-zinc-oxide-templated-aeromaterial",
+     "added: dragon-trunk-boost-kit-reboosts-the-iss",
+     "added: t-satellite-starlink-direct-to-cell-phone-service",
+     "added: scara-assembly-robot",
+     "added: first-large-building-heat-pump-zurich-city-hall",
+     "video-meetings: source added",
+     "video-meetings: sub-field messaging → internet",
+     "small-satellite-launcher: source added",
+     "repositionable-adhesive-post-it: source added",
+     "active-network-management: sub-field renewables → grids",
+     "active-network-management: readiness commercial → scale",
+     "fingerprint-sensors-on-phones: change.what updated",
+     "visible-leds: readiness commercial → scale",
+     "visible-leds: tags added",
+     "plant-based-plastics: source added"
+    ]
+   },
+   {
+    "date": "2026-11-16",
+    "time": "13:58",
+    "revision": 38,
+    "summary": "Gemini second opinion on 7 additions: 6 supported, 1 contradicted (disputed), 0 unclear, 1 guidance update, security responses researched: 8 found, 8 open gaps.",
+    "stats": {
+     "milestones": 707,
+     "sourceCited": 509,
+     "aiCompiled": 120,
+     "aiEstimate": 78,
+     "adoptionKnown": 79,
+     "landed": 561,
+     "regionKnown": 707
+    },
+    "usage": {
+     "calls": 0,
+     "inputTokens": 0,
+     "outputTokens": 0,
+     "searches": 0,
+     "model": "claude-sonnet-5-5"
+    },
+    "deepAudit": false,
+    "details": [
+     "disputed: sda-transport-layer-tranche-1-operational-launch (second opinion from Gemini: contradicted. The milestone title 'SDA Transport Layer Tranche 1 operational launch' is supported by sources confirming the launch of operational Tranche 1 Transport Layer satellites in September 2025; however, t",
+     "guidance: ENISA Technical Advisory on Secure Update Mechanisms",
+     "security: Amazon Leo (Kuiper) LEO broadband enterprise preview: Amazon Leo enterprise-grade network-wide encryption and private AWS links (enterprise preview) (2025)",
+     "security: Claude assistant: Anthropic Responsible Scaling Policy (RSP), Version 1.0 (2023)",
+     "security: Open-weight European models: Mistral 7B guardrail system prompt and self-reflection content moderation (2023)",
+     "security: AI voice generation: ElevenLabs AI Speech Classifier (2023)",
+     "security: vLLM and PagedAttention: paged KV-cache LLM serving: GHSA-w2r7-9579-27hf / CVE-2024-8768: vLLM denial of service advisory (fixed in vLLM 0.5.5) (2024)",
+     "security: Learning from human feedback: OWASP Top 10 for Large Language Model Applications (first iteration, 2023) (2023)",
+     "security: Diffusion image generation: DALL·E 2 Preview – Risks and Limitations (system card with red teaming, prompt/image filters, access controls and abuse monitoring) (2022)",
+     "security: Quantum-secured metro network: ITU-T X.1710 – Security framework for quantum key distribution networks (2020)",
+     "security gap: T-Satellite: Starlink direct-to-cell phone service",
+     "security gap: AI coding editor (Cursor)",
+     "security gap: Open Balancing Platform",
+     "security gap: Enhanced geothermal power",
+     "security gap: Demand Flexibility Service",
+     "security gap: Exascale supercomputing",
+     "security gap: Neutral-atom quantum computers",
+     "security gap: Laser links between satellites",
+     "tours: walk-through scripts refreshed (version 35)"
+    ]
+   },
+   {
+    "date": "2026-11-16",
+    "time": "14:07",
+    "revision": 38,
+    "summary": "AI levers researched for 7 technologies.",
+    "stats": {
+     "milestones": 707,
+     "sourceCited": 509,
+     "aiCompiled": 120,
+     "aiEstimate": 78,
+     "adoptionKnown": 79,
+     "landed": 561,
+     "regionKnown": 707
+    },
+    "usage": {
+     "calls": 14,
+     "inputTokens": 235680,
+     "outputTokens": 23594,
+     "searches": 18,
+     "model": "claude-sonnet-5-5"
+    },
+    "deepAudit": false,
+    "details": [
+     "levers   ai-run-oandm-for-remote-renewable-and-grid-stations: demo; deploy, software",
+     "levers   solid-state-batteries-in-production-cars: demo; simulation, software, discovery",
+     "levers   fully-reusable-heavy-launch: demo; simulation, software, discovery, approvals",
+     "levers   in-orbit-refuelling: demo; software, simulation",
+     "levers   fully-driverless-rides-in-london: demo; software, simulation, approvals, deploy",
+     "levers   humanoid-robots-at-work: demo; simulation, software, approvals",
+     "levers   routine-beyond-sight-drone-inspection: approvals; software, deploy, approvals"
+    ]
+   },
+   {
+    "date": "2026-11-16",
+    "time": "14:11",
+    "revision": 38,
+    "summary": "Stories researched for 9 milestones.",
+    "stats": {
+     "milestones": 707,
+     "sourceCited": 509,
+     "aiCompiled": 120,
+     "aiEstimate": 78,
+     "adoptionKnown": 79,
+     "landed": 561,
+     "regionKnown": 707
+    },
+    "usage": {
+     "calls": 16,
+     "inputTokens": 242331,
+     "outputTokens": 30496,
+     "searches": 20,
+     "model": "claude-sonnet-5-5"
+    },
+    "deepAudit": false,
+    "details": [
+     "story    butantan-dv-first-single-dose-dengue-vaccine",
+     "story    trane-ai-control-brainbox-ai-autonomous-hvac-built-into-controls",
+     "story    maximo-ai-vision-robot-fleet-for-solar-module-installation",
+     "story    on-device-ai-detection-of-fake-voices-in-calls-lg-u-ixi-o",
+     "story    rondo-100-mwh-industrial-heat-battery-in-commercial-use",
+     "story    thermodynamic-sampling-unit-platform-extropic-xtr-0",
+     "story    desktop-grace-blackwell-ai-supercomputer-dgx-spark",
+     "story    cuda-tile-and-cutile-python-tile-based-gpu-programming",
+     "story    rust-becomes-a-permanent-linux-kernel-language"
+    ]
    }
   ],
   "adoptionDefinition": "Mainstream adoption: the year the technology reached widespread, routine use, roughly 10% or more of its potential market or standard practice in its sector.",
@@ -2344,7 +2332,11 @@
    "hw|2025Q3": "2026-11-09",
    "sw|2025Q3": "2026-11-09",
    "ai|2025Q3": "2026-11-09",
-   "quantum|2025Q3": "2026-11-09"
+   "quantum|2025Q3": "2026-11-09",
+   "cyber|2025Q3": "2026-11-16",
+   "comms|2025Q3": "2026-11-16",
+   "materials|2025Q3": "2026-11-16",
+   "space|2025Q3": "2026-11-16"
   },
   "researchFunnel": [
    {
@@ -2742,6 +2734,44 @@
     "rejected": 2,
     "retrying": 0,
     "date": "2026-11-09"
+   },
+   {
+    "agent": "claude",
+    "recent_proposed": 1,
+    "recent_queued": 0,
+    "recent_rejected": {
+     "sources": 1
+    },
+    "catchup_proposed": 6,
+    "catchup_queued": 5,
+    "catchup_rejected": {
+     "sources": 1
+    },
+    "backfill_proposed": 8,
+    "backfill_queued": 5,
+    "backfill_rejected": {
+     "sources": 3
+    },
+    "date": "2026-11-16"
+   },
+   {
+    "agent": "gemini",
+    "recent_proposed": 10,
+    "recent_queued": 0,
+    "recent_rejected": {
+     "duplicate": 3,
+     "sources": 7
+    },
+    "date": "2026-11-16"
+   },
+   {
+    "agent": "qa",
+    "confirmed_claude": 7,
+    "confirmed_gemini": 0,
+    "confirmed_deep": 0,
+    "rejected": 0,
+    "retrying": 3,
+    "date": "2026-11-16"
    }
   ],
   "secondOpinion": [
@@ -2883,6 +2913,20 @@
     "supported": 6,
     "not_supported": 1,
     "unclear": 2,
+    "unavailable": 0
+   },
+   {
+    "date": "2026-11-16",
+    "kind": "gemini-research",
+    "proposed": 10,
+    "queued": 0
+   },
+   {
+    "date": "2026-11-16",
+    "kind": "gemini-check",
+    "supported": 6,
+    "not_supported": 1,
+    "unclear": 0,
     "unavailable": 0
    }
   ],
@@ -6030,7 +6074,16 @@
     "expandsAttackSurface": true,
     "note": "Prompt injection, data leakage and misuse at scale are new kinds of risk.",
     "basis": "ai-compiled",
-    "guidance": "ai"
+    "guidance": "ai",
+    "response": {
+     "title": "OWASP Top 10 for Large Language Model Applications (first iteration, 2023)",
+     "year": 2023,
+     "kind": "guidance",
+     "url": "https://owasp.org/www-project-top-10-for-large-language-model-applications/assets/PDF/OWASP-Top-10-for-LLMs-2023-v05.pdf",
+     "note": "Community security guidance ranking the top risks (prompt injection, training data poisoning, etc.) for applications built on human-feedback-tuned large language models; it targets LLM apps, not RLHF itself, and I found no standard or regulation aimed specifically at RLHF.",
+     "basis": "researched",
+     "checked": "2026-11-16"
+    }
    }
   },
   {
@@ -6071,7 +6124,16 @@
     "expandsAttackSurface": true,
     "note": "Models can be fooled by manipulated inputs, and the data behind them can be poisoned.",
     "basis": "ai-compiled",
-    "guidance": "ai"
+    "guidance": "ai",
+    "response": {
+     "title": "DALL·E 2 Preview – Risks and Limitations (system card with red teaming, prompt/image filters, access controls and abuse monitoring)",
+     "year": 2022,
+     "kind": "practice",
+     "url": "https://github.com/openai/dalle-2-preview/blob/main/system-card.md",
+     "note": "OpenAI's April 2022 system card for its diffusion-based DALL·E 2 Preview documents system-level protections (limited trusted-user access, prompt and image filters, abuse monitoring, external red teaming) and admits prompt filters could be bypassed with coded wording; the Stable Diffusion safety chec",
+     "basis": "researched",
+     "checked": "2026-11-16"
+    }
    }
   },
   {
@@ -9033,6 +9095,35 @@
     "expandsAttackSurface": false,
     "note": "Battery chemistry; no new digital attack surface.",
     "basis": "ai-compiled"
+   },
+   "aiLevers": {
+    "phase": "demo",
+    "bottleneck": "Manufacturing yield, throughput and cost at scale, especially sulfide-electrolyte processing. Cells cost several times more than lithium-ion, and chemistry is no longer the main limit.",
+    "levers": [
+     {
+      "k": "simulation",
+      "strength": "mid",
+      "note": "Machine-learning force fields and interface models can predict electrode/electrolyte failure modes and cell-to-pack behaviour, cutting prototype iterations on the 20 Ah to 60 Ah automotive-cell scale-up. Mostly at research stage."
+     },
+     {
+      "k": "software",
+      "strength": "mid",
+      "note": "ML-guided process optimisation and self-driving labs can shorten fabrication-tuning loops for electrolyte layers and stacking, which supports yield learning on pilot lines. Published evidence is mainly lab-scale."
+     },
+     {
+      "k": "discovery",
+      "strength": "low",
+      "note": "AI screening of electrolytes is active, but fast conductors already exist. It helps most with air-stable, cheaper-to-process and interface-stable candidates, so it is not the gating step for 2027–28 cars."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://autonews.gasgoo.com/articles/news/all-solid-state-no-more-empty-promises-2027687099262570497",
+      "label": "Gasgoo: All-Solid-State: No More 'Empty Promises'",
+      "quote": "2027 to 2028 will see small-scale mass production, initially in high-end models"
+     }
+    ],
+    "checked": "2026-11-16"
    }
   },
   {
@@ -9601,7 +9692,51 @@
    },
    "tags": [
     "space"
-   ]
+   ],
+   "aiLevers": {
+    "phase": "demo",
+    "bottleneck": "Proving rapid reuse of both stages: Flight 15 caught the ship, but the booster catch was aborted and heat-shield refurbishment and turnaround remain unproven.",
+    "levers": [
+     {
+      "k": "simulation",
+      "strength": "mid",
+      "note": "Reentry heating and catch-trajectory modelling, plus flight-data analysis of heat-shield condition (on-orbit camera imagery), can cut the number of physical test flights needed to qualify rapid reflight."
+     },
+     {
+      "k": "software",
+      "strength": "mid",
+      "note": "Autonomous guidance and landing software for tower catches, and automated inspection and turnaround checks, support the booster catch conditions and ship refurbishment between flights."
+     },
+     {
+      "k": "discovery",
+      "strength": "low",
+      "note": "Machine-learning-guided search for more durable, lower-maintenance thermal-protection materials could help, but no public evidence shows this is being used on Starship tiles."
+     },
+     {
+      "k": "approvals",
+      "strength": "low",
+      "note": "Modelling of sonic booms and landing hazards feeds the FAA's environmental re-evaluations for returning stages. The regulator's decisions stay human."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://www.techtimes.com/articles/330764/20261115/spacex-starship-tower-catch-succeeds-after-14-orbits-booster-lost-fuel-shortfall.htm",
+      "label": "Tech Times: Flight 15 ship catch, booster lost",
+      "quote": "Musk has called the reusable heat shield the biggest problem that remains for Starship."
+     },
+     {
+      "url": "https://www.ibtimes.co.uk/spacex-starship-ship-42-first-tower-catch-1832419",
+      "label": "IBTimes: Ship 42 first tower catch",
+      "quote": "Flight 15 demonstrates recovery, not routine reuse."
+     },
+     {
+      "url": "https://www.faa.gov/space/stakeholder_engagement/spacex_starship/activity_archive",
+      "label": "FAA: Starship/Super Heavy activity archive",
+      "quote": "updates to sonic boom modeling"
+     }
+    ],
+    "checked": "2026-11-16"
+   }
   },
   {
    "id": "in-orbit-refuelling",
@@ -9655,6 +9790,35 @@
     "estimatedYear": 2028,
     "estimatedOn": "2026-10-27",
     "revisions": []
+   },
+   "aiLevers": {
+    "phase": "demo",
+    "bottleneck": "Western refuellers have yet to fly on-orbit transfers: APS-R is in ground testing, launch slipping to early 2027, and clients must adopt compatible refuelling interfaces.",
+    "levers": [
+     {
+      "k": "software",
+      "strength": "mid",
+      "note": "Autonomous rendezvous, proximity operations and docking is the core enabling software; AI-assisted guidance can help refuellers approach and mate with clients safely, with limited ground control."
+     },
+     {
+      "k": "simulation",
+      "strength": "mid",
+      "note": "Digital twins and hardware-in-the-loop simulation can rehearse docking, fluid transfer and leak checks before launch. This matters because flight demos are few and each failure is costly."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://www.ventureatlas.org/company/astroscale",
+      "label": "Venture Atlas – Astroscale profile (company Q1 materials)",
+      "quote": "environmental tests were due to start in September 2026"
+     },
+     {
+      "url": "https://www.orbitfab.com/news/orbit-fab-finalises-new-rafti-high-pressure-refuelling-interface/",
+      "label": "Orbit Fab – RAFTI High Pressure interface (6 Oct 2026)",
+      "quote": "due to fly in late 2026"
+     }
+    ],
+    "checked": "2026-11-16"
    }
   },
   {
@@ -10059,6 +10223,40 @@
     "estimatedYear": 2028,
     "estimatedOn": "2026-10-27",
     "revisions": []
+   },
+   "aiLevers": {
+    "phase": "demo",
+    "bottleneck": "Final AV Act rules aren't in force: the safety-principles statement reaches Parliament in 2027, authorisation can't precede it taking effect, and rides keep safety drivers.",
+    "levers": [
+     {
+      "k": "software",
+      "strength": "high",
+      "note": "The driving software is itself AI. Wayve's AI Driver processes sensor data in real time on London's streets, and more supervised miles feed its improvement before safety drivers are removed."
+     },
+     {
+      "k": "simulation",
+      "strength": "mid",
+      "note": "Simulated and replayed London scenarios could test the driving AI against draft safety principles (hazard reaction, traffic rules) before safety drivers come off. No source states this practice."
+     },
+     {
+      "k": "approvals",
+      "strength": "low",
+      "note": "AI tools could help compile and analyse safety-case evidence and incident data against the safety principles. The Secretary of State's authorisation decision stays human."
+     },
+     {
+      "k": "deploy",
+      "strength": "low",
+      "note": "AI could support dispatch, fleet operations and rider matching during roll-out. Uber already matches some riders with Wayve cars and lets them decline. Remote support is plausible but unsourced."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://www.gov.uk/government/speeches/new-consultation-on-draft-statutory-statement-of-safety-principles-for-automated-vehicles",
+      "label": "GOV.UK: Consultation on draft statement of safety principles (17 June 2026)",
+      "quote": "the statutory statement of safety principles for AVs will be laid before Parliament next year for approval."
+     }
+    ],
+    "checked": "2026-11-16"
    }
   },
   {
@@ -10108,6 +10306,45 @@
     "estimatedYear": 2028,
     "estimatedOn": "2026-10-27",
     "revisions": []
+   },
+   "aiLevers": {
+    "phase": "demo",
+    "bottleneck": "Balancing robots' falls, low uptime and unfinished safety standards (ISO 25785-1 still draft) keep humanoids in narrow pilots, not fleets.",
+    "levers": [
+     {
+      "k": "simulation",
+      "strength": "high",
+      "note": "Simulated training and testing of walking, balance and fall-recovery policies, and virtual safety validation of stability failures, where standardised physical test methods are still missing."
+     },
+     {
+      "k": "software",
+      "strength": "high",
+      "note": "Learned control and vision-language-action models are what let one humanoid handle varied tasks (tote moving, parts delivery). Their reliability is the limiting factor, not the hardware alone."
+     },
+     {
+      "k": "approvals",
+      "strength": "low",
+      "note": "Tools could help assemble safety cases and gap analyses against ISO 10218 and draft ISO 25785-1. The standard is still unfinished and certification decisions stay human."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://www.therobotreport.com/wp-content/uploads/2025/09/IEEE-Humanoid-Report-of-Future-Standards-Development.pdf",
+      "label": "IEEE pathway study for future humanoid standards",
+      "quote": "Stability is identified as the critical bottleneck"
+     },
+     {
+      "url": "https://www.universal-robots.com/blog/robotics-safety-purpose-beyond-human-imitation/",
+      "label": "Universal Robots: rethinking safety and purpose in robotics",
+      "quote": "Existing standards are still immature and remain work in progress"
+     },
+     {
+      "url": "https://physicalailab.io/en/humanoid-robots-factories-warehouses-deployments-2026/",
+      "label": "Physical AI Lab: humanoid deployments tracker, October 2026",
+      "quote": "factory use planned from 2028"
+     }
+    ],
+    "checked": "2026-11-16"
    }
   },
   {
@@ -10155,6 +10392,45 @@
     "estimatedYear": 2028,
     "estimatedOn": "2026-10-27",
     "revisions": []
+   },
+   "aiLevers": {
+    "phase": "approvals",
+    "bottleneck": "US routine beyond-sight flight still needs case-by-case FAA waivers; the Part 108 final rule has sat in White House review since July 2026, unpublished.",
+    "levers": [
+     {
+      "k": "software",
+      "strength": "mid",
+      "note": "Automated flight paths and automated lidar and imagery analysis (e.g. Censys' 77-mile corridor mission) cut manual review of line defects. Autonomy is established; regulatory acceptance is the open question."
+     },
+     {
+      "k": "deploy",
+      "strength": "mid",
+      "note": "Route planning, drone-in-a-box docks and remote operations centres let a utility run repeat corridor inspections with fewer crews. This applies once a standing BVLOS approval exists."
+     },
+     {
+      "k": "approvals",
+      "strength": "low",
+      "note": "AI could help assemble operational safety-case evidence (e.g. SORA-style risk files, flight logs, detect-and-avoid performance data). The regulator's decision stays human, and the main delay is rulemaking."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://droneauthority.org/laws/part-108",
+      "label": "Drone Authority – Part 108 status (Nov 2026)",
+      "quote": "As of November 7, 2026, no final rule has been published."
+     },
+     {
+      "url": "https://lidarnews.com/bvlos-drone-lidar-infrastructure-inspection-censys/",
+      "label": "LiDAR News – Censys 77-mile BVLOS case study",
+      "quote": "BVLOS is already being approved today for specific, well-defined applications"
+     },
+     {
+      "url": "https://fadron.com/article/bvlos-drone-operations-part-108-infrastructure-inspection",
+      "label": "Fadron – Part 108 and infrastructure inspection",
+      "quote": "instead of applying for a waiver every time a mission profile changes"
+     }
+    ],
+    "checked": "2026-11-16"
    }
   },
   {
@@ -14516,7 +14792,16 @@
     "expandsAttackSurface": true,
     "note": "Prompt injection, data leakage and misuse at scale are new kinds of risk.",
     "basis": "ai-compiled",
-    "guidance": "ai"
+    "guidance": "ai",
+    "response": {
+     "title": "Anthropic Responsible Scaling Policy (RSP), Version 1.0",
+     "year": 2023,
+     "kind": "practice",
+     "url": "https://www.anthropic.com/responsible-scaling-policy",
+     "note": "Anthropic's published framework (v1.0, effective 19 Sept 2023) ties Claude model training and deployment to AI Safety Levels, with required security and deployment safeguards, and it is the earliest Claude-specific security governance measure I could source with a dated page. It is a broad risk-gove",
+     "basis": "researched",
+     "checked": "2026-11-16"
+    }
    }
   },
   {
@@ -14557,7 +14842,16 @@
     "expandsAttackSurface": true,
     "note": "Prompt injection, data leakage and misuse at scale are new kinds of risk.",
     "basis": "ai-compiled",
-    "guidance": "ai"
+    "guidance": "ai",
+    "response": {
+     "title": "Mistral 7B guardrail system prompt and self-reflection content moderation",
+     "year": 2023,
+     "kind": "practice",
+     "url": "https://arxiv.org/html/arXiv:2310.06825",
+     "note": "Mistral AI's own Mistral 7B paper (Oct 2023) described an optional guardrail system prompt and a self-reflection prompt for classifying harmful prompts or outputs, which makes it the first publisher-made misuse mitigation for a European open-weight model. It is a weak control: Mistral said it had no",
+     "basis": "researched",
+     "checked": "2026-11-16"
+    }
    }
   },
   {
@@ -14597,7 +14891,16 @@
     "expandsAttackSurface": true,
     "note": "Prompt injection, data leakage and misuse at scale are new kinds of risk.",
     "basis": "ai-compiled",
-    "guidance": "ai"
+    "guidance": "ai",
+    "response": {
+     "title": "ElevenLabs AI Speech Classifier",
+     "year": 2023,
+     "kind": "product",
+     "url": "https://techcrunch.com/2023/06/20/voice-generating-platform-elevenlabs-raises-19m-launches-detection-tool/amp",
+     "note": "A detection tool, launched in June 2023 by an AI voice platform, that checks whether an uploaded audio sample was generated by ElevenLabs, to help counter misuse of synthetic voices. It is the earliest dated voice-generation-specific security product I could confirm. Resemble Detect followed in July",
+     "basis": "researched",
+     "checked": "2026-11-16"
+    }
    }
   },
   {
@@ -14637,7 +14940,12 @@
     "expandsAttackSurface": true,
     "note": "Agents act on systems, so a manipulated agent can take harmful actions directly.",
     "basis": "ai-compiled",
-    "guidance": "ai"
+    "guidance": "ai",
+    "response": {
+     "none": true,
+     "checked": "2026-11-16",
+     "note": "Cursor's Privacy Mode is probably the earliest control, but it protects data and is not agent-specific, and I found no page giving the year it first shipped, so I can't date a first response responsibly."
+    }
    }
   },
   {
@@ -15675,7 +15983,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-11-01",
+    "lastChecked": "2026-11-16",
     "approximate": false
    },
    "region": "us",
@@ -15713,14 +16021,14 @@
    "note": "Ready just in time for 2020.",
    "company": "Zoom",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-11-01",
+    "lastChecked": "2026-11-16",
     "approximate": false
    },
    "region": "us",
-   "subfield": "messaging",
+   "subfield": "internet",
    "adoption": {
     "year": 2020,
     "what": "Reached mainstream use.",
@@ -15746,7 +16054,15 @@
     "note": "Connects systems to the internet and to each other, the root of most remote attacks.",
     "basis": "ai-compiled",
     "guidance": "it"
-   }
+   },
+   "refs": [
+    {
+     "label": "Zoom: About us (founded 2011; first public release 2013)",
+     "url": "https://www.zoom.com/en/about/",
+     "status": "ok",
+     "checked": "2026-11-16"
+    }
+   ]
   },
   {
    "id": "small-commercial-satellites",
@@ -15864,10 +16180,10 @@
    "note": "Twelve years: rockets remain hard.",
    "company": "Rocket Lab",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-11-01",
+    "lastChecked": "2026-11-16",
     "approximate": false
    },
    "region": "other",
@@ -15884,7 +16200,15 @@
     "expandsAttackSurface": true,
     "note": "Cheaper access to orbit adds more satellites and ground segments that could be attacked or jammed.",
     "basis": "ai-compiled"
-   }
+   },
+   "refs": [
+    {
+     "label": "Space.com: Rocket Lab's first commercial launch, Nov 2018",
+     "url": "https://www.space.com/42415-rocket-lab-first-commercial-launch-in-photos.html",
+     "status": "ok",
+     "checked": "2026-11-16"
+    }
+   ]
   },
   {
    "id": "legged-robots",
@@ -16058,10 +16382,10 @@
    "note": "Twelve years waiting for the right product.",
    "company": "3M",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-11-01",
+    "lastChecked": "2026-11-16",
     "approximate": false
    },
    "region": "us",
@@ -16078,7 +16402,15 @@
     "expandsAttackSurface": false,
     "note": "Not applicable; passive consumer material with no digital attack surface.",
     "basis": "ai-compiled"
-   }
+   },
+   "refs": [
+    {
+     "label": "National Inventors Hall of Fame: Spencer Silver",
+     "url": "https://www.invent.org/inductees/spencer-silver",
+     "status": "ok",
+     "checked": "2026-11-16"
+    }
+   ]
   },
   {
    "id": "expanded-ptfe-gore-tex",
@@ -18601,7 +18933,12 @@
     "expandsAttackSurface": true,
     "note": "Battery management and dispatch systems are networked and remotely controllable.",
     "basis": "ai-compiled",
-    "guidance": "ot"
+    "guidance": "ot",
+    "response": {
+     "none": true,
+     "checked": "2026-11-16",
+     "note": "I found no security standard, regulation, guidance or product made specifically for NESO's Open Balancing Platform (live December 2023). The closest item is an undated NESO OBP service-provider web-services specification with a message-security section covering TLS, IP allow-listing and password rot"
+    }
    }
   },
   {
@@ -18660,7 +18997,12 @@
     "expandsAttackSurface": true,
     "note": "Puts many remotely controllable devices at the grid edge, where coordinated misuse could move demand at scale.",
     "basis": "ai-compiled",
-    "guidance": "edge"
+    "guidance": "edge",
+    "response": {
+     "none": true,
+     "checked": "2026-11-16",
+     "note": "I found no security standard, regulation, guidance or product written specifically for the Demand Flexibility Service; NESO's DFS terms cover registration and anti-gaming checks, and the nearest security work (PAS 1879:2021 for demand side response, DESNZ's Smart Secure Electricity Systems load-cont"
+    }
    }
   },
   {
@@ -19751,7 +20093,12 @@
     "expandsAttackSurface": true,
     "note": "Concentrates valuable data and workloads, making it a high-value target.",
     "basis": "ai-compiled",
-    "guidance": "hw"
+    "guidance": "hw",
+    "response": {
+     "none": true,
+     "checked": "2026-11-16",
+     "note": "I found no security standard, regulation, guidance or product written specifically for exascale supercomputing; the closest items, NIST SP 800-223 and SP 800-234, cover high-performance computing in general, so I did not count them."
+    }
    },
    "refs": [
     {
@@ -20089,7 +20436,12 @@
     "expandsAttackSurface": true,
     "note": "Plant control systems add operational technology exposure.",
     "basis": "ai-compiled",
-    "guidance": "ot"
+    "guidance": "ot",
+    "response": {
+     "none": true,
+     "checked": "2026-11-16",
+     "note": "I found no standard, regulation, guidance, product or practice made specifically for enhanced geothermal power; the closest item is NREL's 2020 geothermal-sector vulnerability assessment, which is research covering geothermal generally, not an EGS-specific response."
+    }
    },
    "refs": [
     {
@@ -21219,7 +21571,12 @@
     "expandsAttackSurface": true,
     "note": "A large enough quantum computer would break today’s public-key cryptography.",
     "basis": "ai-compiled",
-    "guidance": "quantum"
+    "guidance": "quantum",
+    "response": {
+     "none": true,
+     "checked": "2026-11-16",
+     "note": "I found no standard, regulation, official guidance, product or established practice made specifically for neutral-atom quantum computers; the post-quantum cryptography work (NIST, CISA) covers quantum computers in general, and the only specific item is a 2025 research paper proposing a moving target"
+    }
    },
    "refs": [
     {
@@ -21320,7 +21677,16 @@
     "expandsAttackSurface": true,
     "note": "Strengthens key exchange, but adds specialised hardware and trusted-node risks.",
     "basis": "ai-compiled",
-    "guidance": "quantum"
+    "guidance": "quantum",
+    "response": {
+     "title": "ITU-T X.1710 – Security framework for quantum key distribution networks",
+     "year": 2020,
+     "kind": "standard",
+     "url": "https://www.itu.int/rec/dologin_pub.asp?lang=e&id=T-REC-X.1710-202010-I!!PDF-E&type=items",
+     "note": "ITU-T's first recommendation in its QKD security series, it sets out threats, security requirements and measures for QKD networks (including trusted-node and hardware concerns), approved October 2020. I chose it over ETSI GS QKD 008 (2010), which covers individual QKD modules, not networks.",
+     "basis": "researched",
+     "checked": "2026-11-16"
+    }
    },
    "refs": [
     {
@@ -22157,7 +22523,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-16",
     "approximate": false
    },
    "region": "us",
@@ -22180,13 +22546,13 @@
      "label": "NASA/ScienceDaily: first contracted CRS resupply mission, Oct 2012",
      "url": "https://www.sciencedaily.com/releases/2012/10/121010103807.htm",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-16"
     },
     {
      "label": "COTS Demo Flight 2: COTS contract signed 2006",
      "url": "https://en.wikipedia.org/wiki/SpaceX_COTS_Demo_Flight_2",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-16"
     }
    ]
   },
@@ -22213,7 +22579,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-16",
     "approximate": false
    },
    "region": "us",
@@ -22236,7 +22602,7 @@
      "label": "House Science Committee: CCDev initiated February 2010",
      "url": "https://republicans-science.house.gov/sites/republicans.science.house.gov/files/documents/hearings/102611_Charter_0.pdf",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-16"
     }
    ]
   },
@@ -22299,7 +22665,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-16",
     "approximate": false
    },
    "region": "europe",
@@ -22322,7 +22688,7 @@
      "label": "ICEYE (Wikipedia): commercial SAR imagery offered Oct 2019",
      "url": "https://en.wikipedia.org/wiki/ICEYE",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-16"
     }
    ]
   },
@@ -22411,7 +22777,12 @@
     "expandsAttackSurface": true,
     "note": "Satellite links and ground stations can be jammed, spoofed or hacked.",
     "basis": "ai-compiled",
-    "guidance": "comms"
+    "guidance": "comms",
+    "response": {
+     "none": true,
+     "checked": "2026-11-16",
+     "note": "I found no security standard, regulation, guidance, product or practice made specifically for inter-satellite laser links. The closest items are the SDA Optical Communications Terminal Standard, first published in 2020, which covers interoperability rather than security, and the CCSDS Space Data Lin"
+    }
    },
    "refs": [
     {
@@ -23166,14 +23537,14 @@
      "label": "University of Strathclyde REF impact case study",
      "url": "https://results2021.ref.ac.uk/impact/submissions/6b98e262-ec7f-434e-a9af-108419c779b6/impact",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-16"
     }
    ],
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-16",
     "approximate": false
    },
    "region": "uk",
@@ -23181,10 +23552,11 @@
     "grid",
     "wind"
    ],
-   "subfield": "renewables",
+   "subfield": "grids",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-11-16"
    },
    "gb": {
     "status": "deployed",
@@ -23381,7 +23753,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-16",
     "approximate": false
    },
    "region": "uk",
@@ -23401,13 +23773,13 @@
      "label": "Bank of Scotland history (HOBS launch date and Nottingham precursor)",
      "url": "https://en-academic.com/dic.nsf/enwiki/174087",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-16"
     },
     {
      "label": "https://en.wikipedia.org/wiki/Online_banking",
      "url": "https://en.wikipedia.org/wiki/Online_banking",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-16"
     }
    ]
   },
@@ -23431,7 +23803,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-16",
     "approximate": false
    },
    "region": "us",
@@ -23454,7 +23826,7 @@
      "label": "Microsoft Research: Kinect body tracking",
      "url": "https://www.microsoft.com/en-us/research/blog/kinect-body-tracking-reaps-renown/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-16"
     }
    ]
   },
@@ -23478,7 +23850,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-16",
     "approximate": false
    },
    "region": "us",
@@ -23502,7 +23874,7 @@
      "label": "University of Iowa: FDA permits marketing of IDx-DR",
      "url": "https://engineering.uiowa.edu/news-all/2018/04/fda-permits-marketing-idx-dr-automated-detection-diabetic-retinopathy-primary-care",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-16"
     }
    ]
   },
@@ -23526,7 +23898,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-16",
     "approximate": true
    },
    "region": "us",
@@ -23548,7 +23920,7 @@
      "label": "IBM History: the scanning tunneling microscope",
      "url": "https://www.ibm.com/history/scanning-tunneling-microscope",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-16"
     }
    ]
   },
@@ -23572,7 +23944,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-16",
     "approximate": false
    },
    "region": "us",
@@ -23591,13 +23963,13 @@
      "label": "https://nerites.eu/alpes-lasers-sa/",
      "url": "https://nerites.eu/alpes-lasers-sa/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-16"
     },
     {
      "label": "Laser Focus World: Alpes commercializes quantum-cascade laser",
      "url": "https://www.laserfocusworld.com/home/article/16571092/alpes-commercializes-quantum-cascade-laser",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-16"
     }
    ]
   },
@@ -23621,7 +23993,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-16",
     "approximate": false
    },
    "region": "us",
@@ -23638,7 +24010,7 @@
      "label": "Philip Zimmermann background",
      "url": "https://www.mit.edu/~prz/EN/background/background.html",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-16"
     }
    ]
   },
@@ -23662,7 +24034,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-16",
     "approximate": false
    },
    "region": "us",
@@ -23677,13 +24049,13 @@
      "label": "Tor Project history",
      "url": "https://www.torproject.org/about/history/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-16"
     },
     {
      "label": "A history of Tor",
      "url": "https://www.ssdnodes.com/learn/history-of-tor",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-16"
     }
    ],
    "tags": [
@@ -23703,7 +24075,7 @@
    },
    "change": {
     "year": 2013,
-    "what": "Apple launches the iPhone 5s with the Touch ID fingerprint sensor, the first mainstream smartphone with a fingerprint scanner."
+    "what": "Apple launches the iPhone 5s with Touch ID in 2013. It popularised smartphone fingerprint unlock, which had appeared earlier on devices such as the Motorola Atrix 4G in 2011."
    },
    "confidence": "medium",
    "note": "Made biometrics an everyday security control.",
@@ -23711,7 +24083,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-16",
     "approximate": false
    },
    "region": "us",
@@ -23725,7 +24097,7 @@
      "label": "MacRumors: iPhone 5s with Touch ID",
      "url": "https://www.macrumors.com/2013/09/10/apple-announces-iphone-5s/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-16"
     }
    ]
   },
@@ -23749,7 +24121,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-16",
     "approximate": false
    },
    "region": "us",
@@ -23772,13 +24144,13 @@
      "label": "3Com first shipped Ethernet transceiver",
      "url": "https://www.theregister.com/off-prem/2007/10/03/3com-a-company-built-on-ether/1273063",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-16"
     },
     {
      "label": "The Register: 3Com",
      "url": "https://www.theregister.com/off-prem/2007/10/03/3com-a-company-built-on-ether/1273063",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-16"
     }
    ]
   },
@@ -23802,7 +24174,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-16",
     "approximate": false
    },
    "region": "us",
@@ -23822,7 +24194,7 @@
      "label": "PCWorld: Modems, 60 years",
      "url": "https://www.pcworld.com/article/494459/modems_through_the_years.html",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-16"
     }
    ],
    "adoption": {
@@ -23859,7 +24231,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-16",
     "approximate": false
    },
    "region": "europe",
@@ -23882,13 +24254,13 @@
      "label": "Wikipedia: DTT in the UK",
      "url": "https://en.wikipedia.org/wiki/Digital_terrestrial_television_in_the_United_Kingdom",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-16"
     },
     {
      "label": "DVB Project history",
      "url": "https://dvb.org/about/history/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-16"
     }
    ]
   },
@@ -23912,7 +24284,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-16",
     "approximate": false
    },
    "region": "asia",
@@ -23936,7 +24308,7 @@
      "label": "NTT DoCoMo history",
      "url": "https://www.docomo.ne.jp/english/corporate/about/outline/history/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-16"
     }
    ]
   },
@@ -23999,28 +24371,33 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-16",
     "approximate": false
    },
    "region": "us",
    "subfield": "electronic",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "scale",
+    "basis": "ai-estimate",
+    "checked": "2026-11-16"
    },
    "refs": [
     {
      "label": "Univ. of Illinois: Holonyak obituary",
      "url": "https://ece.illinois.edu/news/51161",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-16"
     }
    ],
    "security": {
     "expandsAttackSurface": false,
     "note": "Little direct cyber surface. Smart LED lighting systems add networked controllers, which is a separate matter.",
     "basis": "ai-compiled"
-   }
+   },
+   "tags": [
+    "semiconductors",
+    "materials"
+   ]
   },
   {
    "id": "electrochromic-smart-glass",
@@ -24042,7 +24419,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-16",
     "approximate": true
    },
    "region": "us",
@@ -24059,7 +24436,7 @@
      "label": "Wikipedia: SAGE Electrochromics",
      "url": "https://en.wikipedia.org/wiki/SAGE_Electrochromics",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-16"
     }
    ],
    "security": {
@@ -24088,7 +24465,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-16",
     "approximate": false
    },
    "region": "us",
@@ -24105,7 +24482,13 @@
      "label": "NatureWorks: About",
      "url": "https://natureworksllc.com/about",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-16"
+    },
+    {
+     "label": "AZoM: NatureWorks profile",
+     "url": "https://www.azom.com/suppliers.aspx?SupplierID=13670",
+     "status": "ok",
+     "checked": "2026-11-16"
     }
    ],
    "security": {
@@ -24173,7 +24556,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-16",
     "approximate": false
    },
    "region": "us",
@@ -24196,7 +24579,7 @@
      "label": "Komatsu: Los Bronces AHS announcement",
      "url": "https://www.komatsu.jp/en/newsroom/2022/20220603",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-16"
     }
    ],
    "company": "Komatsu"
@@ -31614,7 +31997,16 @@
    "security": {
     "expandsAttackSurface": true,
     "note": "It adds a widely deployed open-source inference server layer, which is a new component to patch and secure in AI deployments.",
-    "basis": "ai-compiled"
+    "basis": "ai-compiled",
+    "response": {
+     "title": "GHSA-w2r7-9579-27hf / CVE-2024-8768: vLLM denial of service advisory (fixed in vLLM 0.5.5)",
+     "year": 2024,
+     "kind": "practice",
+     "url": "https://github.com/advisories/GHSA-w2r7-9579-27hf",
+     "note": "Earliest dated vLLM-specific public security advisory and patched release I could verify (a crash from an empty-prompt completions request, fixed in 0.5.5); I could not confirm the date of vLLM's SECURITY.md policy or whether an earlier advisory exists, so this may not be the true first.",
+     "basis": "researched",
+     "checked": "2026-11-16"
+    }
    },
    "provenance": {
     "verification": "source-cited",
@@ -36589,6 +36981,24 @@
    },
    "flags": {
     "disputed": true
+   },
+   "story": {
+    "research": "Butantan and US NIH developed a live attenuated tetravalent dengue vaccine over ~15 years, tested in a 2016–2024 Brazilian phase 3 trial of 16,000+ volunteers.",
+    "deploy": "In Brazil's public health system (SUS), the Health Ministry began vaccinating primary-care health workers on 9 Feb 2026, after Anvisa's 26 Nov 2025 approval.",
+    "impact": "By 30 May 2026 about 501,000 doses had been given in Brazil, but the Health Ministry temporarily paused its current strategy as a precaution after rare adverse events, two fatal; causal link unconfirmed.",
+    "refs": [
+     {
+      "url": "https://dndi.org/news/2025/statement-approval-instituto-butantans-dengue-vaccine-and-need-for-dengue-treatment/",
+      "label": "DNDi statement on Anvisa approval of Butantan's dengue vaccine",
+      "quote": "This vaccine is the result of 15 years of partnership between Instituto Butantan and the US National Institutes of Health."
+     },
+     {
+      "url": "https://ensaiosclinicos.gov.br/news/900",
+      "label": "Brazilian Ministry of Health: temporary pause of Butantan-DV strategy",
+      "quote": "501,000 doses were administered to primary healthcare professionals working on the front lines"
+     }
+    ],
+    "checked": "2026-11-16"
    }
   },
   {
@@ -37183,7 +37593,20 @@
      "rules": 2
     }
    },
-   "flags": {}
+   "flags": {},
+   "story": {
+    "research": "BrainBox AI, a Montreal startup founded in 2017, built deep-learning algorithms that predict a building's energy needs and automate its HVAC systems.",
+    "deploy": "In 2025 Trane Technologies launched AI Control, building BrainBox AI optimisation into its Tracer SC+ automation system, after acquiring BrainBox AI (closed January 2025).",
+    "impact": "Trane claims AI Control can cut heating and cooling energy costs by up to 25% and carbon emissions by up to 40%. These are company claims, not independently verified, and I found no measured results.",
+    "refs": [
+     {
+      "url": "https://iotm2mcouncil.org/iot-library/news/smart-building-construction-news/trane-acquires-autonomous-hvac-firm-brainbox-ai/",
+      "label": "IoT M2M Council: Trane acquires BrainBox AI",
+      "quote": "Founded in 2017, BrainBox AI"
+     }
+    ],
+    "checked": "2026-11-16"
+   }
   },
   {
    "id": "baosteel-blast-furnace-ai-model-huawei-pangu",
@@ -39122,6 +39545,19 @@
      "rules": 2
     },
     "qaNote": "Second opinion (Gemini): contradicted. While the description of Maximo is supported, the sources state Maximo made its debut and was in real-world use in July 2024, which contradicts 'Research began around 2024' and 'first product or real-world use around 2025'."
+   },
+   "story": {
+    "research": "AES in-house robotics work on an AI solar-installation robot, using computer vision and generative-AI image reconstruction, unveiled as Maximo in July 2024.",
+    "deploy": "AES announced in July 2024 that Maximo would start installing modules at its Bellefield project in Kern County, California, in August 2024.",
+    "impact": "By March 2026, Maximo, now an AES-incubated company, had installed 100 MW at Bellefield using a four-robot fleet, which AES called a shift to sustained commercial production.",
+    "refs": [
+     {
+      "url": "https://www.prnewswire.com/news-releases/aes-launches-first-ai-enabled-solar-installation-robot-302209154.html",
+      "label": "AES press release, 30 July 2024 (PR Newswire)",
+      "quote": "a groundbreaking, AI-powered robot that enhances solar installation speed, efficiency and safety"
+     }
+    ],
+    "checked": "2026-11-16"
    }
   },
   {
@@ -39965,6 +40401,30 @@
     "url": "https://fgw.beijing.gov.cn/gzdt/tztg/202512/P020251211620917761405.pdf",
     "status": "ok",
     "checked": "2026-10-31"
+   },
+   "aiLevers": {
+    "phase": "demo",
+    "bottleneck": "Making drones, robots, sensors and large models work dependably, mostly unattended, at harsh remote sites; plan sets 2027/2030 goals only; no operator or deployment found.",
+    "levers": [
+     {
+      "k": "deploy",
+      "strength": "high",
+      "note": "Core use: AI links drones, unmanned vehicles and vessels, robots and wearables to inspect remote wind, solar and offshore stations, cutting site visits and raising inspection efficiency."
+     },
+     {
+      "k": "software",
+      "strength": "mid",
+      "note": "Large-model agents and voiceprint/vision analytics could flag faults, diagnose them and auto-generate maintenance work tickets, as the plan describes for equipment O&M. Agent autonomy at remote sites is unproven."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://triviumchina.com/2025/09/12/deep-dive-chinas-ai-energy-plan/",
+      "label": "Trivium China: Deep dive on China's AI + Energy plan",
+      "quote": "in remote, harsh environments, e.g., in deserts and out at sea"
+     }
+    ],
+    "checked": "2026-11-16"
    }
   },
   {
@@ -41019,6 +41479,24 @@
      "date": "2026-11-01",
      "rules": 2
     }
+   },
+   "story": {
+    "research": "LG Uplus built its voice activity detection, speech-to-text and anti-spoofing models, trained on about 3,000 hours of call data and slimmed to run on phones.",
+    "deploy": "LG Uplus added it to its ixi-O AI call app on 30 June 2025, after showing it at MWC in March, alerting within five seconds.",
+    "impact": "Anti-DeepVoice reportedly detected about 5,500 voice phishing attempts in its first month, according to LG Uplus's 2025 security white paper as relayed by BigGo Finance. I found no independent audit of this figure.",
+    "refs": [
+     {
+      "url": "https://www.koreatimes.co.kr/business/tech-science/20250626/lg-uplus-to-launch-ai-driven-anti-phishing-technology",
+      "label": "The Korea Times, 26 June 2025",
+      "quote": "detects voices made or manipulated by AI during a call and alerts the user within five seconds"
+     },
+     {
+      "url": "https://finance.biggo.com/news/0ab3f447-e7c8-472c-9f3f-84666e19a2a8",
+      "label": "BigGo Finance on LG Uplus Information Security White Paper 2025",
+      "quote": "detected roughly 5,500 voice phishing attempts in its first month of commercialization"
+     }
+    ],
+    "checked": "2026-11-16"
    }
   },
   {
@@ -41823,7 +42301,25 @@
      "rules": 2
     }
    },
-   "flags": {}
+   "flags": {},
+   "story": {
+    "research": "Rondo's founders engineered electrically heated brick heat storage, testing 40 and 200 kWh units, then a 2 MWh demo at Calgren's ethanol plant in 2023.",
+    "deploy": "At Holmes Western Oil in Kern County, California, Rondo said on 16 October 2025 its solar-charged 100 MWh heat battery entered daily automatic operation.",
+    "impact": "It replaced one of Holmes' gas-fired boilers, supplying steam around the clock. Rondo reports over 97% round-trip efficiency and estimates savings of just under 13,000 tonnes of CO2 a year (company claims).",
+    "refs": [
+     {
+      "url": "https://www.latitudemedia.com/news/green-blueprint-rondo-energys-complicated-path-to-building-heat-batteries/",
+      "label": "Latitude Media: Rondo Energy's complicated path to building heat batteries",
+      "quote": "a 40-kilowatt-hour project and a 200-kilowatt-hour project"
+     },
+     {
+      "url": "https://www.powermag.com/california-energy-company-launches-worlds-largest-industrial-heat-battery/",
+      "label": "POWER Magazine: California Energy Company Launches World's Largest Industrial Heat Battery (17 Oct 2025)",
+      "quote": "has entered daily automatic operation"
+     }
+    ],
+    "checked": "2026-11-16"
+   }
   },
   {
    "id": "thermodynamic-sampling-unit-platform-extropic-xtr-0",
@@ -41889,6 +42385,24 @@
      "date": "2026-11-01",
      "rules": 2
     }
+   },
+   "story": {
+    "research": "Founded in 2022, Extropic's engineers built all-transistor probabilistic circuits that sample using transistor noise, validating them in the X0 silicon prototype.",
+    "deploy": "In October 2025 Extropic shipped XTR-0, pairing two X0 chips with a conventional processor, to early partners for beta testing, alongside open-source THRML.",
+    "impact": "Extropic's paper projects GPU-parity on a simple image benchmark with about 10,000 times less energy (a system-level estimate); no customer names, pricing or production volumes have been published.",
+    "refs": [
+     {
+      "url": "https://extropic.ai/writing/thermodynamic-computing-from-zero-to-one",
+      "label": "Extropic: Thermodynamic Computing From Zero to One",
+      "quote": "already beta-tested by some of our early partners"
+     },
+     {
+      "url": "https://www.alphaxiv.org/overview/2510.23972v1",
+      "label": "arXiv 2510.23972 abstract (via alphaXiv)",
+      "quote": "could achieve performance parity with GPUs on a simple image benchmark using approximately 10,000 times less energy"
+     }
+    ],
+    "checked": "2026-11-16"
    }
   },
   {
@@ -41955,6 +42469,24 @@
      "date": "2026-11-01",
      "rules": 2
     }
+   },
+   "story": {
+    "research": "NVIDIA and MediaTek co-designed the GB10 Grace Blackwell chip, pairing a 20-core Grace CPU with a Blackwell GPU, unveiled as Project DIGITS at CES 2025.",
+    "deploy": "On 13 October 2025 at Starbase, Texas, Jensen Huang hand-delivered an early DGX Spark to Elon Musk at SpaceX; general orders opened 15 October.",
+    "impact": "NVIDIA and seven PC makers (Acer, ASUS, Dell, GIGABYTE, HP, Lenovo, MSI) offer DGX Spark systems with a petaflop of AI performance and 128GB memory, running 200-billion-parameter models locally.",
+    "refs": [
+     {
+      "url": "https://www.mediatek.com/press-room/mediatek-collaborates-with-nvidia-on-the-new-nvidia-gb10-grace-blackwell-superchip-powering-the-nvidia-project-digits-personal-ai-supercomputer",
+      "label": "MediaTek press release, 6 Jan 2025",
+      "quote": "collaborated with NVIDIA on the design of the NVIDIA GB10 Grace Blackwell Superchip"
+     },
+     {
+      "url": "https://blogs.nvidia.com/blog/live-dgx-spark-delivery/",
+      "label": "NVIDIA blog, 13 Oct 2025",
+      "quote": "hand-delivered the first DGX Spark to Elon Musk"
+     }
+    ],
+    "checked": "2026-11-16"
    }
   },
   {
@@ -42018,7 +42550,25 @@
      "rules": 2
     }
    },
-   "flags": {}
+   "flags": {},
+   "story": {
+    "research": "Harvard compiler research: Philippe Tillet, H. T. Kung and David Cox presented Triton at MAPL 2019, a tile-based language and compiler for neural-network computations.",
+    "deploy": "NVIDIA launched CUDA Tile with CUDA 13.1 in December 2025; cuTile Python, announced 4 December, is its Python front end.",
+    "impact": "CUDA 13.2 (March 2026) extended CUDA Tile to compute capability 8.x Ampere and Ada GPUs. NVIDIA also published cuTile.jl for Julia and a CUDA Tile IR backend for Triton. I found no adoption figure.",
+    "refs": [
+     {
+      "url": "https://developer.nvidia.com/blog/focus-on-your-algorithm-nvidia-cuda-tile-handles-the-hardware/",
+      "label": "NVIDIA Technical Blog: Focus on Your Algorithm—NVIDIA CUDA Tile Handles the Hardware",
+      "quote": "CUDA Tile was launched with CUDA 13.1."
+     },
+     {
+      "url": "https://developer.nvidia.com/blog/tag/cuda-tile/",
+      "label": "NVIDIA Technical Blog: CUDA Tile tag page",
+      "quote": "NVIDIA CUDA Tile is now supported on devices of compute capability 8.X architectures"
+     }
+    ],
+    "checked": "2026-11-16"
+   }
   },
   {
    "id": "rust-becomes-a-permanent-linux-kernel-language",
@@ -42081,7 +42631,25 @@
      "rules": 2
     }
    },
-   "flags": {}
+   "flags": {},
+   "story": {
+    "research": "an experiment by the Rust for Linux project, led by Miguel Ojeda, announced in 2020 to test Rust as a second kernel language.",
+    "deploy": "at the December 2025 Kernel Maintainers Summit in Tokyo, where kernel maintainers agreed Rust's experiment was over and it became a core kernel part.",
+    "impact": "Ojeda's patch removed the \"experimental\" wording from the kernel documentation. He noted Rust was already in production use, including in millions of Android devices. No source gives a lines-of-code or other figure.",
+    "refs": [
+     {
+      "url": "https://lwn.net/Articles/1049831/",
+      "label": "LWN.net: The (successful) end of the kernel Rust experiment (Dec 10, 2025)",
+      "quote": "it is now a core part of the kernel and is here to stay"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Rust_for_Linux",
+      "label": "Wikipedia: Rust for Linux",
+      "quote": "an ongoing project started in 2020"
+     }
+    ],
+    "checked": "2026-11-16"
+   }
   },
   {
    "id": "georgetown-ibm-machine-translation-demonstration",
@@ -43452,7 +44020,16 @@
    "security": {
     "expandsAttackSurface": true,
     "note": "Adding a new satellite network plus direct private links into AWS creates more ground terminals and interconnects that attackers could target.",
-    "basis": "ai-compiled"
+    "basis": "ai-compiled",
+    "response": {
+     "title": "Amazon Leo enterprise-grade network-wide encryption and private AWS links (enterprise preview)",
+     "year": 2025,
+     "kind": "product",
+     "url": "https://www.aboutamazon.com/news/amazon-leo/amazon-leo-satellite-internet-ultra-pro",
+     "note": "Amazon's own announcement of the enterprise preview says the service has advanced encryption across the network, plus private Direct to AWS and Private Network Interconnect links that avoid the public internet. This is the earliest dated, service-specific security feature I could find. It is a vendo",
+     "basis": "researched",
+     "checked": "2026-11-16"
+    }
    },
    "provenance": {
     "verification": "source-cited",
@@ -45236,6 +45813,444 @@
      "verdict": "supported",
      "reason": "Sources confirm the iron lung was developed by Philip Drinker around 1927 and first used in 1928.",
      "date": "2026-11-09",
+     "rules": 2
+    }
+   },
+   "flags": {}
+  },
+  {
+   "id": "ascon-lightweight-cryptography-standard-nist-sp-800-232",
+   "field": "cyber",
+   "origin": "academic",
+   "status": "landed",
+   "title": "Ascon lightweight cryptography standard (NIST SP 800-232)",
+   "research": {
+    "year": 2014,
+    "what": "The Ascon family of lightweight authenticated encryption and hashing algorithms was designed for small, resource-limited devices. Origin: Ascon cipher family designed in 2014 and later chosen by NIST in its lightweight cryptography competition (selected February 2023)"
+   },
+   "change": {
+    "year": 2025,
+    "what": "NIST published SP 800-232 on 13 August 2025, making Ascon-based authenticated encryption, hash and XOF functions an official standard for constrained devices such as IoT sensors, RFID tags and medical implants."
+   },
+   "confidence": "medium",
+   "note": "It gives tiny IoT devices a standardised cipher and hash where AES-class cryptography is too costly.",
+   "refs": [
+    {
+     "label": "NIST CSRC: Lightweight Cryptography project page",
+     "url": "https://csrc.nist.gov/Projects/Lightweight-Cryptography",
+     "status": "ok",
+     "checked": "2026-11-16"
+    },
+    {
+     "label": "AlphaSec: NIST finalises lightweight cryptography standard",
+     "url": "https://alphasec.io/securing-tiny-tech-nist-finalises-lightweight-cryptography-standard/",
+     "status": "ok",
+     "checked": "2026-11-16"
+    }
+   ],
+   "subfield": "network",
+   "region": "europe",
+   "tags": [
+    "cryptography"
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-16",
+    "lastChecked": "2026-11-16",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "supported",
+     "reason": "The sources confirm the publication of NIST SP 800-232, Ascon-Based Lightweight Cryptography Standards, in August 2025, that Ascon was developed in 2014, and that the standard's publication in 2025 enables its real-world use.",
+     "date": "2026-11-16",
+     "rules": 2
+    }
+   },
+   "flags": {}
+  },
+  {
+   "id": "sda-transport-layer-tranche-1-operational-launch",
+   "field": "comms",
+   "origin": "government",
+   "status": "landed",
+   "title": "SDA Transport Layer Tranche 1 operational launch",
+   "research": {
+    "year": 2023,
+    "what": "The US Space Development Agency's Tranche 0 demonstration satellites tested a proliferated low-Earth-orbit mesh with laser inter-satellite links for low-latency military data. Origin: Space Development Agency Tranche 0 demonstration satellites (2023)"
+   },
+   "change": {
+    "year": 2025,
+    "what": "On 10 September 2025 the first 21 operational Transport Layer Tranche 1 satellites, built by York Space Systems, launched to start a military data and voice communications network."
+   },
+   "confidence": "medium",
+   "note": "First operational batch of a government optically linked LEO communications backbone, following the demonstration satellites.",
+   "refs": [
+    {
+     "label": "Federal News Network: SDA launches first operational satellites",
+     "url": "https://federalnewsnetwork.com/space-operations/2025/09/space-development-agency-set-to-launch-its-first-operational-satellites/",
+     "status": "ok",
+     "checked": "2026-11-16"
+    },
+    {
+     "label": "Breaking Defense: SDA launches first operational satellites for data relay",
+     "url": "https://breakingdefense.com/2025/09/space-development-agency-launches-first-operational-satellites-for-data-relay/",
+     "status": "ok",
+     "checked": "2026-11-16"
+    }
+   ],
+   "subfield": "internet",
+   "region": "us",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "A large proliferated satellite network with laser and radio links adds many new space and ground nodes that could be jammed, spoofed or attacked.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-16",
+    "lastChecked": "2026-11-16",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "contradicted",
+     "reason": "The milestone title 'SDA Transport Layer Tranche 1 operational launch' is supported by sources confirming the launch of operational Tranche 1 Transport Layer satellites in September 2025; however, the statement 'Research began around 2023' is contradicted as contracts for Tranche 1 were awarded in F",
+     "date": "2026-11-16",
+     "rules": 2
+    },
+    "qaNote": "Second opinion (Gemini): contradicted. The milestone title 'SDA Transport Layer Tranche 1 operational launch' is supported by sources confirming the launch of operational Tranche 1 Transport Layer satellites in September 2025; however, the statement 'Research began around 2023' is contradicted as co"
+   },
+   "flags": {
+    "disputed": true
+   }
+  },
+  {
+   "id": "aero-materials-ultra-light-zinc-oxide-templated-aeromaterial",
+   "field": "materials",
+   "origin": "academic",
+   "status": "landed",
+   "title": "AERO MATERIALS: ultra-light zinc-oxide-templated aeromaterial",
+   "research": {
+    "year": 2012,
+    "what": "Kiel and Hamburg researchers used flame-transport-synthesised zinc oxide tetrapods as sacrificial templates to build aerographite and other graphene or silicate aeromaterials made of more than 99.9 percent air. Origin: Adelung group (Functional Nanomaterials, Kiel University) tetrapodal ZnO and aerographite work with TUHH, around 2012 onward"
+   },
+   "change": {
+    "year": 2025,
+    "what": "AERO MATERIALS GmbH began operating independently in September 2025, taking the electrically controllable aeromaterial to market for actuation, filtration, optics and EMI shielding, with pilot customers next."
+   },
+   "confidence": "medium",
+   "note": "It moves a decade of university nanomaterials research into a commercial spinout offering a near-air material for soft actuators and shielding.",
+   "refs": [
+    {
+     "label": "Kiel University press release",
+     "url": "https://www.uni-kiel.de/en/details/news/cau-spinoff-aero-materials-geht-mit-nanowerkstoff-an-den-start",
+     "status": "ok",
+     "checked": "2026-11-16"
+    },
+    {
+     "label": "chemeurope: Spin-off AERO MATERIALS launches",
+     "url": "https://www.chemeurope.com/en/news/1187195/spin-off-aero-materials-launches-with-nanomaterials.html",
+     "status": "ok",
+     "checked": "2026-11-16"
+    },
+    {
+     "label": "Graphene-Info company profile",
+     "url": "https://www.graphene-info.com/aero-materials",
+     "status": "ok",
+     "checked": "2026-11-16"
+    }
+   ],
+   "subfield": "polymers",
+   "region": "europe",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-16",
+    "lastChecked": "2026-11-16",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "supported",
+     "reason": "The sources confirm the material is an ultra-light zinc-oxide-templated aeromaterial, developed over a decade before its market launch in September 2025, making both years accurate.",
+     "date": "2026-11-16",
+     "rules": 2
+    }
+   },
+   "flags": {}
+  },
+  {
+   "id": "dragon-trunk-boost-kit-reboosts-the-iss",
+   "field": "space",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Dragon trunk boost kit reboosts the ISS",
+   "research": {
+    "year": 2024,
+    "what": "SpaceX showed that a docked Cargo Dragon could push the ISS to a higher orbit, which led to a dedicated propellant kit in the trunk. Origin: First Dragon ISS reboost demonstration on 8 November 2024, which NASA cites in its CRS-33 mission overview"
+   },
+   "change": {
+    "year": 2025,
+    "what": "On 3 September 2025 the CRS-33 Dragon used trunk-mounted Draco thrusters for the first time, giving the ISS its first reboost from a commercial cargo ship with its own boost kit."
+   },
+   "confidence": "high",
+   "note": "A commercial vehicle now provides part of the ISS orbit-maintenance job that Russian craft used to do alone.",
+   "refs": [
+    {
+     "label": "Wikipedia: SpaceX CRS-33",
+     "url": "https://en.wikipedia.org/wiki/SpaceX_CRS-33",
+     "status": "ok",
+     "checked": "2026-11-16"
+    },
+    {
+     "label": "The Relay: Dragon's trunk boost kit gives the ISS a new lifeline",
+     "url": "https://therelaymag.com/dragon-trunk-boost-kit-iss-reboost-2025",
+     "status": "ok",
+     "checked": "2026-11-16"
+    },
+    {
+     "label": "FFR News: NASA and SpaceX complete Dragon space station reboost",
+     "url": "https://ffrnews.com/astronomy/nasa-and-spacex-complete-dragon-space-station-reboost/",
+     "status": "ok",
+     "checked": "2026-11-16"
+    }
+   ],
+   "subfield": "launch",
+   "region": "us",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Station orbit control is shared across more vehicles, so the commands and software for each vehicle become a security dependency for the station.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-16",
+    "lastChecked": "2026-11-16",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "supported",
+     "reason": "Both sources confirm the Dragon trunk boost kit reboosted the ISS, with an initial reboost capability demonstration in November 2024 and the first reboosts using the dedicated kit in September 2025, aligning with the given years.",
+     "date": "2026-11-16",
+     "rules": 2
+    }
+   },
+   "flags": {}
+  },
+  {
+   "id": "t-satellite-starlink-direct-to-cell-phone-service",
+   "field": "space",
+   "origin": "industry",
+   "status": "landed",
+   "title": "T-Satellite: Starlink direct-to-cell phone service",
+   "research": {
+    "year": 2022,
+    "what": "Direct-to-cell satellites let ordinary unmodified phones connect to low-orbit satellites that act as cell towers in space. Origin: SpaceX and T-Mobile announced their Starlink cellular partnership in August 2022, and the first Direct to Cell text messages followed in January 2024"
+   },
+   "change": {
+    "year": 2025,
+    "what": "T-Mobile launched T-Satellite commercially in the US on 23 July 2025 and opened it to AT&T and Verizon customers. It started with texting and 911 texting, over roughly 650 Starlink satellites."
+   },
+   "confidence": "high",
+   "note": "This is the first large-scale commercial satellite-to-standard-phone service in the US, with no special handset needed.",
+   "refs": [
+    {
+     "label": "T-Mobile Newsroom: T-Satellite launch announcement",
+     "url": "https://www.t-mobile.com/news/network/best-network-in-america",
+     "status": "ok",
+     "checked": "2026-11-16"
+    },
+    {
+     "label": "KeepTrack: Starlink Direct to Cell deep dive",
+     "url": "https://keeptrack.space/deep-dive/starlink-direct-to-cell",
+     "status": "ok",
+     "checked": "2026-11-16"
+    },
+    {
+     "label": "GSMA: T-Mobile to launch T-Satellite commercial service in July",
+     "url": "https://www.gsma.com/solutions-and-impact/technologies/networks/latest-ntn-news/t-mobile-to-launch-t-satellite-commercial-service-in-july/",
+     "status": "ok",
+     "checked": "2026-11-16"
+    }
+   ],
+   "subfield": "launch",
+   "region": "us",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Linking standard phones directly to satellites gives attackers new radio paths to target, including jamming and spoofing.",
+    "basis": "ai-compiled",
+    "response": {
+     "none": true,
+     "checked": "2026-11-16",
+     "note": "I found no security standard, regulation, official guidance, product or practice made specifically for Starlink direct-to-cell or T-Satellite; the closest items are general 3GPP NTN work, FCC interference conditions (not security), and Starlink's general bug-bounty page."
+    }
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-16",
+    "lastChecked": "2026-11-16",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "supported",
+     "reason": "The sources confirm T-Satellite is a Starlink direct-to-cell phone service, with the plan announced in August 2022 and commercial launch in July 2025, fitting the 'around 2022' and 'around 2025' timeframe.",
+     "date": "2026-11-16",
+     "rules": 2
+    }
+   },
+   "flags": {}
+  },
+  {
+   "id": "scara-assembly-robot",
+   "field": "robotics",
+   "origin": "academic",
+   "status": "landed",
+   "title": "SCARA assembly robot",
+   "research": {
+    "year": 1978,
+    "what": "Professor Hiroshi Makino at the University of Yamanashi invented a four-axis arm that is compliant in the horizontal plane and rigid vertically, and built the first prototype in 1978 with a consortium of industrial partners. Origin: Makino and Furuya, 'Selective compliance assembly robot arm', 1st International Conference on Assembly Automation, Brighton, 1980; first prototype 1978 at Yamanashi University"
+   },
+   "change": {
+    "year": 1981,
+    "what": "Industrial partners began marketing their own SCARA-type robots in 1981, introducing fast, low-cost robots for small-parts assembly in electronics manufacturing."
+   },
+   "confidence": "high",
+   "note": "SCARA became a standard robot configuration for high-speed assembly and pick-and-place work, and it still is.",
+   "refs": [
+    {
+     "label": "Makino, 'Development of the SCARA', J. Robotics and Mechatronics 26(1), 2014 (J-STAGE)",
+     "url": "https://www.jstage.jst.go.jp/article/jrobomech/26/1/26_5/_pdf",
+     "status": "ok",
+     "checked": "2026-11-16"
+    },
+    {
+     "label": "Fuji Technology Press: JRM Vol.26 p.5 abstract page",
+     "url": "https://www.fujipress.jp/jrm/rb/robot002600010005/",
+     "status": "ok",
+     "checked": "2026-11-16"
+    }
+   ],
+   "subfield": "industrial",
+   "region": "asia",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Not specifically relevant at the time; today's networked SCARA controllers are exposed to industrial control system attacks.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-16",
+    "lastChecked": "2026-11-16",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "supported",
+     "reason": "The sources confirm the SCARA is an assembly robot, its first prototype was built in 1978, and industrial partners began marketing versions in 1981.",
+     "date": "2026-11-16",
+     "rules": 2
+    }
+   },
+   "flags": {}
+  },
+  {
+   "id": "first-large-building-heat-pump-zurich-city-hall",
+   "field": "energy",
+   "origin": "industry",
+   "status": "landed",
+   "title": "First large building heat pump (Zurich City Hall)",
+   "research": {
+    "year": 1927,
+    "what": "Graeme Haldane built and measured a heat pump for space heating at Foswell, Perthshire, in 1927-28. He reported the results to the Institution of Electrical Engineers in a paper published in 1930. Origin: T. G. N. Haldane's experimental heat pump at Foswell, Auchterarder (1927), and his 1930 paper in the Journal of the IEE"
+   },
+   "change": {
+    "year": 1938,
+    "what": "Escher Wyss installed a 100 kW river-water heat pump in Zurich City Hall in 1937/38. It was a worldwide milestone and ran until 2001."
+   },
+   "confidence": "medium",
+   "note": "It showed that electric heat pumps could heat a major building reliably, and it began Swiss heat pump deployment. Heat pumps are now central to heat decarbonisation.",
+   "desnz": "demand",
+   "refs": [
+    {
+     "label": "EHPA / Zogg: History of Heat Pumps (Swiss contributions)",
+     "url": "https://www.ehpa.org/wp-content/uploads/2023/07/History-of-Heat-Pumps-Swiss-Federation.pdf",
+     "status": "ok",
+     "checked": "2026-11-16"
+    },
+    {
+     "label": "Technology and Culture/ICON-type history article, Taylor & Francis: heat pumps and heating transitions in Switzerland",
+     "url": "https://www.tandfonline.com/doi/full/10.1080/07341512.2022.2033385",
+     "status": "ok",
+     "checked": "2026-11-16"
+    },
+    {
+     "label": "Engineering Hall of Fame: Thomas Graeme Nelson Haldane",
+     "url": "https://engineeringhalloffame.org/profile/thomas-graeme-nelson-haldane",
+     "status": "ok",
+     "checked": "2026-11-16"
+    },
+    {
+     "label": "Zogg: History of Heat Pumps, Swiss Contributions and International Milestones (PDF)",
+     "url": "https://www.zogg-engineering.ch/publi/iea_hpc08_zogg.pdf",
+     "status": "ok",
+     "checked": "2026-11-16"
+    }
+   ],
+   "subfield": "grids",
+   "region": "uk",
+   "tags": [
+    "heat"
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "deployed",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Modern connected heat pumps add remote control and demand-response interfaces, but the 1930s installation itself had no such exposure.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-16",
+    "lastChecked": "2026-11-16",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "supported",
+     "reason": "The Zurich City Hall heat pump was installed in 1938 as the first large heat pump in Europe, and an experimental heat pump was installed in 1927.",
+     "date": "2026-11-16",
      "rules": 2
     }
    },
@@ -48133,6 +49148,15 @@
    "summary": "NIST proposed ten draft design tenets for identity, authentication and authorisation of AI agents. These include giving agents identities separate from people, linking agents to the people who delegate to them, granting least-privilege and short-lived access, keeping policy enforcement outside the model, and requiring human review for high-risk actions. They aim to reduce risks from AI agents havi",
    "url": "https://www.nist.gov/blogs/cybersecurity-insights/design-tenets-agent-identity-management-systems",
    "added": "2026-11-01",
+   "by": "guidance-agent"
+  },
+  {
+   "date": "2026-11-04",
+   "framework": "ENISA",
+   "title": "ENISA Technical Advisory on Secure Update Mechanisms",
+   "summary": "ENISA issued practical technical guidance for teams that design, build or run software and firmware update mechanisms in products with digital elements, aimed mainly at micro, small and medium manufacturers but usable by larger organisations. It sets out common threats across the update life cycle and a set of controls to reduce them, which helps limit software supply chain compromise and tamperin",
+   "url": "https://www.enisa.europa.eu/publications/enisa-technical-advisory-on-secure-update-mechanisms",
+   "added": "2026-11-16",
    "by": "guidance-agent"
   }
  ]

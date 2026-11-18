@@ -26,7 +26,13 @@ jobs:
         run: |
           pip install -r requirements.txt
           python -m playwright install --with-deps chromium
-      - name: Build the app from the current source
-        run: python tools/build.py
-      - name: Run the tests
-        run: python tests/run_tests.py ${{ github.event.inputs.suites || 'all' }}
+      - name: Run the tests (the portable rig builds first, borrows experimental/ for the AI suites, and reruns failures alone)
+        run: python tests/rig.py ${{ github.event.inputs.suites || 'all' }}
+      - name: Keep the results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: |
+            tests/_last_run.txt
+            tests/_last_run.log

@@ -1,1 +1,174 @@
-[]
+[
+ {
+  "id": "sojourner-first-wheeled-rover-on-mars",
+  "field": "robotics",
+  "origin": "government",
+  "status": "landed",
+  "title": "Sojourner: first wheeled rover on Mars",
+  "research": {
+   "year": 1994,
+   "what": "JPL and NASA developed the Microrover Flight Experiment, a flight test of autonomous mobile-vehicle technology to show a small rover could operate on Mars terrain. Origin: NASA OACT Microrover Flight Experiment (MFEX) at JPL, described in Matijevic's 1994 paper"
+  },
+  "change": {
+   "year": 1997,
+   "what": "Sojourner landed with Mars Pathfinder on 4 July 1997 and became the first rover to drive on Mars, operating for 83 sols."
+  },
+  "confidence": "medium",
+  "note": "It proved that a small semi-autonomous rover could work on another planet, which led to the later Mars rovers.",
+  "refs": [
+   {
+    "label": "NASA Science: Mars Pathfinder",
+    "url": "https://science.nasa.gov/mission/mars-pathfinder/",
+    "status": "ok",
+    "checked": "2026-11-16"
+   },
+   {
+    "label": "NASA PDS: Mars Pathfinder Rover Description (MFEX)",
+    "url": "https://planetarydata.jpl.nasa.gov/img/data/mpf/rover/mprv_0001/document/insthost.htm",
+    "status": "ok",
+    "checked": "2026-11-16"
+   },
+   {
+    "label": "JPL History: The 90s, Pathfinder",
+    "url": "https://www.jpl.nasa.gov/jplhistory/the90/pathfinder-t.php",
+    "status": "ok",
+    "checked": "2026-11-16"
+   }
+  ],
+  "subfield": "industrial",
+  "region": "us",
+  "readiness": {
+   "stage": "commercial",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": false,
+   "note": "Remote command links to a distant robot show why authenticated, resilient command channels matter for autonomous systems.",
+   "basis": "ai-compiled"
+  },
+  "evidence_terms": [
+   "Sojourner",
+   "Mars Pathfinder",
+   "Microrover Flight Experiment",
+   "JPL"
+  ],
+  "proposed": "2026-11-16",
+  "attempts": 1
+ },
+ {
+  "id": "grey-walters-tortoises-first-autonomous-robots",
+  "field": "robotics",
+  "origin": "academic",
+  "status": "landed",
+  "title": "Grey Walter's tortoises: first autonomous robots",
+  "research": {
+   "year": 1948,
+   "what": "Neurophysiologist W. Grey Walter built small analogue-electronic robots with two valve 'neurons' to test how simple neural circuits could produce lifelike, exploratory behaviour. Origin: W. Grey Walter's Elmer and Elsie tortoises, Burden Neurological Institute, Bristol, 1948-49"
+  },
+  "change": {
+   "year": 1949,
+   "what": "Elmer and Elsie roamed freely, steered toward light, reacted to obstacles by touch and returned to recharge, so they are generally regarded as the first electronic autonomous robots with complex behaviour."
+  },
+  "confidence": "medium",
+  "note": "They founded behaviour-based robotics and are cited as ancestors of Roomba-style robots, and Walter's 1950s successors were shown to the public at the 1951 Festival of Britain.",
+  "refs": [
+   {
+    "label": "University of Bristol: Grey Walter and his tortoises",
+    "url": "https://www.bristol.ac.uk/news/2008/212017945378.html",
+    "status": "ok",
+    "checked": "2026-11-16"
+   },
+   {
+    "label": "IEEE Spectrum: Meet the Roomba's Ancestor, the Cybernetic Tortoise",
+    "url": "https://spectrum.ieee.org/meet-roombas-ancestor-cybernetic-tortoise",
+    "status": "ok",
+    "checked": "2026-11-16"
+   },
+   {
+    "label": "Wikipedia: History of robots (1940s)",
+    "url": "https://en.wikipedia.org/wiki/History_of_robots",
+    "status": "ok",
+    "checked": "2026-11-16"
+   }
+  ],
+  "subfield": "industrial",
+  "region": "uk",
+  "readiness": {
+   "stage": "pilot",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": false,
+   "note": "Hard-wired analogue control had no software or network link, so it had no cyber attack surface.",
+   "basis": "ai-compiled"
+  },
+  "evidence_terms": [
+   "Grey Walter",
+   "Elmer and Elsie",
+   "Burden Neurological Institute",
+   "tortoises"
+  ],
+  "proposed": "2026-11-16",
+  "attempts": 1
+ },
+ {
+  "id": "fischer-tropsch-coal-to-liquid-fuel-plants",
+  "field": "energy",
+  "origin": "academic",
+  "status": "landed",
+  "title": "Fischer-Tropsch coal-to-liquid fuel plants",
+  "research": {
+   "year": 1925,
+   "what": "Franz Fischer and Hans Tropsch patented a catalytic process that turns carbon monoxide and hydrogen from coal gas into liquid hydrocarbon fuels. Origin: Fischer and Tropsch's patent application of 20 July 1925, Kaiser Wilhelm Institute for Coal Research, Mülheim an der Ruhr"
+  },
+  "change": {
+   "year": 1935,
+   "what": "Ruhrchemie in Oberhausen began industrial Fischer-Tropsch production in 1935, and German plants reached about 600,000 tonnes a year of coal-derived liquid hydrocarbons by the early 1940s."
+  },
+  "confidence": "high",
+  "note": "It was the first industrial route to synthetic liquid fuel from coal, and the basis of later coal-to-liquids and gas-to-liquids technology.",
+  "refs": [
+   {
+    "label": "Max Planck Society: The return of a classic to fuel production",
+    "url": "https://www.mpg.de/511447/fischer-tropsch-synthesis-2005",
+    "status": "ok",
+    "checked": "2026-11-16"
+   },
+   {
+    "label": "Max Planck Institute for Coal Research: Liquid fuels from coal (PDF)",
+    "url": "https://www.kofo.mpg.de/736051/Liquid-fuels-made-out-of-coal.pdf",
+    "status": "ok",
+    "checked": "2026-11-16"
+   },
+   {
+    "label": "Wilhelm Exner Medal Foundation: Franz Joseph Emil Fischer",
+    "url": "https://www.wilhelmexner.org/en/medalists/franz-joseph-emil-fischer/",
+    "status": "ok",
+    "checked": "2026-11-16"
+   }
+  ],
+  "subfield": "grids",
+  "region": "europe",
+  "readiness": {
+   "stage": "commercial",
+   "basis": "ai-estimate"
+  },
+  "gb": {
+   "status": "unknown",
+   "basis": "ai-estimate"
+  },
+  "security": {
+   "expandsAttackSurface": false,
+   "note": "It is a chemical-process plant and adds little new cyber attack surface, apart from the industrial control systems that run modern plants.",
+   "basis": "ai-compiled"
+  },
+  "evidence_terms": [
+   "Fischer-Tropsch",
+   "Ruhrchemie",
+   "Oberhausen",
+   "Kaiser Wilhelm Institute"
+  ],
+  "proposed": "2026-11-16",
+  "attempts": 1
+ }
+]

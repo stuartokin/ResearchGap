@@ -1,12 +1,13 @@
 """Screenshots of the AI-enhanced version for the weekly agent (and its report): phone, tablet and laptop, plus each
 experimental chart tab on a laptop. python tools/screens_ai.py --out .ai-run/screens"""
+import os
 import asyncio, functools, http.server, pathlib, sys, threading
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 async def shoot(port, out):
     from playwright.async_api import async_playwright
     out.mkdir(parents=True, exist_ok=True)
     async with async_playwright() as p:
-        b = await p.chromium.launch(args=['--use-gl=swiftshader', '--enable-webgl', '--ignore-gpu-blocklist'])
+        b = await p.chromium.launch(executable_path=os.environ.get('CHROME') or None, args=['--use-gl=swiftshader', '--enable-webgl', '--ignore-gpu-blocklist'])
         for name, w, h, mob in (('phone', 390, 844, True), ('tablet', 1024, 768, True), ('laptop', 1440, 900, False)):
             pg = await (await b.new_context(viewport={'width': w, 'height': h}, is_mobile=mob, has_touch=mob)).new_page()
             await pg.goto(f'http://localhost:{port}/ai/index.html?welcome=0'); await pg.wait_for_timeout(6000)
