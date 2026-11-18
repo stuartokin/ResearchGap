@@ -1,12 +1,12 @@
 {
- "built": "16 Nov 2026, 14:15 UTC",
+ "built": "18 Nov 2026, 14:45 UTC",
  "features": [
   {
    "id": "ai-by-readiness",
    "title": "AI by readiness",
-   "description": "A chart of clean energy technologies at each stage of readiness, showing how many are AI-driven, with an insight comparing research and scale.",
+   "description": "Clean energy technologies at each stage of readiness and how many are AI-driven, by stage or as a grid of AI for clean energy areas by stage. Select a bar or a cell to list them; with an insight naming the area with the most in use.",
    "added": "2026-11-02",
-   "updated": null
+   "updated": "2026-11-18"
   },
   {
    "id": "ai-in-gb",
