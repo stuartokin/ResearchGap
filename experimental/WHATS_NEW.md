@@ -1,3 +1,6 @@
+## 18 November 2026
+- AI by readiness (in Charts) has a new "By area" view: a grid of the AI for clean energy areas against the stages of readiness, so you can see which kinds of AI for clean energy are furthest along and which are still in research. Each cell shows how many are AI-driven out of all. Select a cell to list its technologies; AI-driven ones come first. The bars in "By stage" now show each stage's AI-driven share, and work with the keyboard. The insight also names the area with the most technologies in use so far.
+
 ## 11 November 2026
 - New chart: Coming next (in Charts). It lists the outlook milestones by the year they are expected to become real-world change, soonest first, with AI for clean energy marked in purple. Select one to see how long it is expected to take from research, beside the recent gap in its field. The years are AI estimates, not forecasts.
 
