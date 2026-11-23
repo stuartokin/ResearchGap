@@ -2,201 +2,16 @@
  "$schema": "./schema.json",
  "meta": {
   "title": "The Shrinking Gap from Research to Change",
-  "revision": 38,
+  "revision": 39,
   "version": "8.0",
-  "asOf": "2026-11-16",
+  "asOf": "2026-11-23",
   "horizonYears": 10,
   "startYear": 1925,
   "author": "Stuart Okin",
   "maintainedBy": "AI agents using Claude (Anthropic), without human review",
   "disclaimer": "Personal project by Stuart Okin, not affiliated with or endorsed by any employer. Data is compiled and maintained by AI agents without human review and may contain errors. Outlook years are AI estimates, not forecasts.",
-  "lastAgentRun": "2026-11-16T13:56Z",
+  "lastAgentRun": "2026-11-23T16:23Z",
   "changelog": [
-   {
-    "date": "2026-10-30",
-    "time": "23:54",
-    "revision": 25,
-    "summary": "4 added, 33 corrected, 0 outlook re-estimated, 2 disputed, 2 broken links, 1 guidance update.",
-    "stats": {
-     "milestones": 479,
-     "sourceCited": 194,
-     "aiCompiled": 207,
-     "aiEstimate": 78,
-     "adoptionKnown": 76,
-     "landed": 379,
-     "regionKnown": 479
-    },
-    "usage": {
-     "calls": 15,
-     "inputTokens": 2536641,
-     "outputTokens": 103096,
-     "searches": 120,
-     "model": "claude-opus-5-5"
-    },
-    "deepAudit": true,
-    "details": [
-     "added: atomic-6-space-armor-debris-shield-flies",
-     "added: digital-in-memory-compute-inference-d-matrix-corsair",
-     "added: korean-kpqc-post-quantum-algorithms-on-military-sims",
-     "added: first-plasmid-dna-immunotherapy-approved-voceryq",
-     "ai-designed-chip-layouts: source added",
-     "email: source added",
-     "java-and-portable-code: readiness commercial → scale",
-     "android: source added",
-     "containers-and-kubernetes: source added",
-     "containers-and-kubernetes: readiness commercial → scale",
-     "generative-adversarial-networks: source added",
-     "quantum-dots: source added",
-     "quantum-dots: source added",
-     "float-glass: source added",
-     "float-glass: readiness commercial → scale",
-     "3d-printing: source added",
-     "silicon-carbide-power-devices: source added",
-     "weather-satellites: readiness commercial → scale",
-     "satellite-radar-imaging: source added",
-     "satellite-radar-imaging: source added",
-     "collaborative-robots: research.year 2005 → 1996",
-     "collaborative-robots: research.what updated",
-     "collaborative-robots: source added",
-     "risc-v-open-chip-architecture: readiness commercial → scale",
-     "quantum-secured-metro-network: readiness commercial → pilot",
-     "trusted-platform-module: sub-field crypto → identity",
-     "radar: sub-field internet → broadcast",
-     "radar: tags added",
-     "fully-reusable-heavy-launch: readiness research → pilot",
-     "fully-reusable-heavy-launch: tags added",
-     "computer-weather-forecasting: readiness commercial → scale",
-     "computer-weather-forecasting: GB status unknown → deployed",
-     "wind-power-forecasting: sub-field renewables → ops",
-     "wind-power-forecasting: readiness commercial → scale",
-     "wind-power-forecasting: GB status unknown → deployed",
-     "f-dell: net worth 120 → 268.0",
-     "f-nvidia: net worth 154 → 200.0",
-     "disputed: online-maps",
-     "disputed: f-cognition",
-     "guidance: Cyber Adversary Simulation (CyAS) guidance and Scheme Standard v1.1 / Working Practices Document",
-     "tours: walk-through scripts refreshed (version 20)"
-    ]
-   },
-   {
-    "date": "2026-10-30",
-    "time": "23:59",
-    "revision": 25,
-    "summary": "AI levers researched for 4 technologies.",
-    "stats": {
-     "milestones": 479,
-     "sourceCited": 194,
-     "aiCompiled": 207,
-     "aiEstimate": 78,
-     "adoptionKnown": 76,
-     "landed": 379,
-     "regionKnown": 479
-    },
-    "usage": {
-     "calls": 8,
-     "inputTokens": 203975,
-     "outputTokens": 9757,
-     "searches": 15,
-     "model": "claude-opus-5-5"
-    },
-    "deepAudit": true,
-    "details": [
-     "levers   ai-in-grid-control-rooms: demo; software, simulation, approvals",
-     "levers   agent-interoperability-standards: deploy; software, deploy, approvals",
-     "levers   on-device-ai-as-default: deploy; software, discovery, simulation",
-     "levers   verified-quantum-advantage: demo; simulation, software, discovery"
-    ]
-   },
-   {
-    "date": "2026-10-30",
-    "time": "00:02",
-    "revision": 25,
-    "summary": "Stories researched for 5 milestones.",
-    "stats": {
-     "milestones": 479,
-     "sourceCited": 194,
-     "aiCompiled": 207,
-     "aiEstimate": 78,
-     "adoptionKnown": 76,
-     "landed": 379,
-     "regionKnown": 479
-    },
-    "usage": {
-     "calls": 10,
-     "inputTokens": 298630,
-     "outputTokens": 18730,
-     "searches": 21,
-     "model": "claude-opus-5-5"
-    },
-    "deepAudit": true,
-    "details": [
-     "story    mandatory-c2pa-style-provenance-in-ai-media-connecticut",
-     "story    uk-robotaxis",
-     "story    plastic-free-moulded-pulp-fibre-bottles-pulpex",
-     "story    size-adjustable-pediatric-heart-valve-autus",
-     "story    spatial-dataflow-processor-in-volume-electron-e1"
-    ]
-   },
-   {
-    "date": "2026-10-31",
-    "time": "01:25",
-    "revision": 25,
-    "summary": "Gemini research: 0 of 8 candidates passed the source checks and were queued for Claude's QA.",
-    "stats": {
-     "milestones": 479,
-     "sourceCited": 194,
-     "aiCompiled": 207,
-     "aiEstimate": 78,
-     "adoptionKnown": 76,
-     "landed": 379,
-     "regionKnown": 479
-    },
-    "usage": {
-     "calls": 0,
-     "inputTokens": 0,
-     "outputTokens": 0,
-     "searches": 0,
-     "model": "claude-sonnet-5-5"
-    },
-    "deepAudit": false
-   },
-   {
-    "date": "2026-10-31",
-    "time": "01:31",
-    "revision": 26,
-    "summary": "6 added, 5 corrected, 0 outlook re-estimated, 0 disputed, 2 broken links.",
-    "stats": {
-     "milestones": 479,
-     "sourceCited": 194,
-     "aiCompiled": 207,
-     "aiEstimate": 78,
-     "adoptionKnown": 76,
-     "landed": 379,
-     "regionKnown": 479
-    },
-    "usage": {
-     "calls": 6,
-     "inputTokens": 508181,
-     "outputTokens": 41261,
-     "searches": 39,
-     "model": "claude-sonnet-5-5"
-    },
-    "deepAudit": false,
-    "details": [
-     "added: fayuvi-first-gene-therapy-for-sanfilippo-type-a",
-     "added: gyroscopic-rocket-guidance-goddard-1932",
-     "added: permanently-crewed-international-space-station",
-     "added: kepler-first-space-telescope-for-transit-exoplanets",
-     "added: transistor-point-contact-bell-labs",
-     "added: nuclear-magnetic-resonance-in-bulk-matter",
-     "microprocessor: sub-field compute → chips",
-     "finfet-transistors: note updated",
-     "web-search-ranking: sub-field data → web",
-     "web-search-ranking: readiness commercial → scale",
-     "statistical-machine-translation: note updated",
-     "tours: walk-through scripts refreshed (version 21)"
-    ]
-   },
    {
     "date": "2026-10-31",
     "time": "01:34",
@@ -2261,6 +2076,208 @@
      "story    cuda-tile-and-cutile-python-tile-based-gpu-programming",
      "story    rust-becomes-a-permanent-linux-kernel-language"
     ]
+   },
+   {
+    "date": "2026-11-23",
+    "time": "16:16",
+    "revision": 38,
+    "summary": "Gemini research: 0 of 8 candidates passed the source checks and were queued for Claude's QA.",
+    "stats": {
+     "milestones": 707,
+     "sourceCited": 509,
+     "aiCompiled": 120,
+     "aiEstimate": 78,
+     "adoptionKnown": 79,
+     "landed": 561,
+     "regionKnown": 707
+    },
+    "usage": {
+     "calls": 0,
+     "inputTokens": 0,
+     "outputTokens": 0,
+     "searches": 0,
+     "model": "claude-sonnet-5-5"
+    },
+    "deepAudit": false
+   },
+   {
+    "date": "2026-11-23",
+    "time": "16:23",
+    "revision": 39,
+    "summary": "12 added, 26 corrected, 0 outlook re-estimated, 3 disputed, 7 broken links.",
+    "stats": {
+     "milestones": 719,
+     "sourceCited": 527,
+     "aiCompiled": 114,
+     "aiEstimate": 78,
+     "adoptionKnown": 80,
+     "landed": 573,
+     "regionKnown": 719
+    },
+    "usage": {
+     "calls": 15,
+     "inputTokens": 779428,
+     "outputTokens": 47534,
+     "searches": 53,
+     "model": "claude-sonnet-5-5"
+    },
+    "deepAudit": false,
+    "details": [
+     "added: sojourner-first-wheeled-rover-on-mars",
+     "added: fischer-tropsch-coal-to-liquid-fuel-plants",
+     "added: silicon-spin-quantum-computer-in-a-commercial-data-centre",
+     "added: pritelivir-hovilpri-helicase-primase-inhibitor-for-hsv",
+     "added: zoox-public-rides-in-a-purpose-built-driverless-robotaxi",
+     "added: brinsupri-first-dpp1-inhibitor-for-bronchiectasis",
+     "added: forzinity-first-mitochondria-targeted-drug-barth-syndrome",
+     "added: d-wave-advantage2-annealer-with-zephyr-topology",
+     "added: mq-1-predator-long-endurance-remote-piloted-drone",
+     "added: sony-aibo-first-mass-market-entertainment-robot",
+     "added: piccards-pressurised-gondola-first-crewed-stratosphere-flight",
+     "added: gmr-spin-valve-read-heads-in-hard-drives",
+     "quantum-diamond-microscope-for-chip-failure-analysis: broken source replaced (https://www.datacenterdynamics.com/en/news/quantum-chip-testing-startup-quantumdiamonds-installs-qdm1-system-in-taiwan/ → https://www.qd-st.com/press/quantumdiamonds-deploys-failure-analysis-technology-at-leading-taiwan-semiconductor-test-house)",
+     "continuous-human-presence-on-the-iss: broken source replaced (https://issnationallab.org/about/iss-national-lab-overview/iss-history-timeline/ → https://nss.org/25-years-of-humans-off-earth/)",
+     "fully-humanless-commercial-truckload-bot-auto-texas: broken source replaced (https://www.ccjdigital.com/equipment-controls/autonomous/article/15823774/bot-auto-completes-first-humanless-commercial-truck-delivery-in-texas → https://www.freightwaves.com/news/bot-auto-first-humanless-commercial-truckload)",
+     "first-commercial-direct-air-co2-capture-plant-hinwil: broken source replaced (https://www.handelszeitung.ch/unternehmen/co2-ruckgewinnung-startup-climeworks-stellt-erste-kommerzielle-anlage-ein-541586 → https://www.swissinfo.ch/eng/sci-tech/environment_giant-carbon-sucking-commercial-plant-launches-in-zurich/43227352)",
+     "hardware-security-keys: source added",
+     "cloud-delivered-security: source added",
+     "cloud-endpoint-protection: source added",
+     "ai-threat-detection: source added",
+     "expanded-ptfe-gore-tex: source added",
+     "expanded-ptfe-gore-tex: source added",
+     "pressurised-water-reactor: source added",
+     "zero-knowledge-proofs-in-the-eu-age-verification-app: sub-field network → crypto",
+     "zero-knowledge-proofs-in-the-eu-age-verification-app: readiness commercial → pilot",
+     "zero-knowledge-proofs-in-the-eu-age-verification-app: tags added",
+     "cluster-based-disaggregated-backbone-routers-kddi: tags added",
+     "continuous-human-presence-on-the-iss: adoption estimate 2000",
+     "continuous-human-presence-on-the-iss: sub-field launch → human",
+     "continuous-human-presence-on-the-iss: tags added",
+     "continuous-human-presence-on-the-iss: major → True",
+     "artemis-ii-first-crewed-orion-flight-round-the-moon: sub-field launch → human",
+     "artemis-ii-first-crewed-orion-flight-round-the-moon: readiness commercial → pilot",
+     "artemis-ii-first-crewed-orion-flight-round-the-moon: tags added",
+     "artemis-ii-first-crewed-orion-flight-round-the-moon: major → True",
+     "v-2-a-4-first-object-to-reach-space: readiness scale → commercial",
+     "v-2-a-4-first-object-to-reach-space: tags added",
+     "v-2-a-4-first-object-to-reach-space: major → True",
+     "disputed: machine-data-analytics-siem",
+     "disputed: ai-threat-detection",
+     "disputed: accident-tolerant-nuclear-fuel-in-a-commercial-reactor"
+    ]
+   },
+   {
+    "date": "2026-11-23",
+    "time": "16:25",
+    "revision": 39,
+    "summary": "Gemini second opinion on 12 additions: 5 supported, 3 contradicted (disputed), 4 unclear, 2 guidance updates, security responses researched: 5 found, 11 open gaps.",
+    "stats": {
+     "milestones": 719,
+     "sourceCited": 527,
+     "aiCompiled": 114,
+     "aiEstimate": 78,
+     "adoptionKnown": 80,
+     "landed": 573,
+     "regionKnown": 719
+    },
+    "usage": {
+     "calls": 0,
+     "inputTokens": 0,
+     "outputTokens": 0,
+     "searches": 0,
+     "model": "claude-sonnet-5-5"
+    },
+    "deepAudit": false,
+    "details": [
+     "disputed: fischer-tropsch-coal-to-liquid-fuel-plants (second opinion from Gemini: contradicted. The sources indicate that research began during World War I, well before the 1925 patent application, though industrial implementation did begin in 1935.)",
+     "disputed: zoox-public-rides-in-a-purpose-built-driverless-robotaxi (second opinion from Gemini: contradicted. While public rides in purpose-built driverless robotaxis began in 2025 as stated, Zoox was founded and began research in 2014, not around 2020.)",
+     "disputed: piccards-pressurised-gondola-first-crewed-stratosphere-flight (second opinion from Gemini: contradicted. While the first crewed stratosphere flight in a pressurized gondola occurred in 1931, research on the balloon and gondola began as early as 1926, not around 1930.)",
+     "guidance: Joint Advisory on the Use of Frontier AI Models for Code Review (ENISA with CERT-EU)",
+     "guidance: NCSC Annual Review 2026 (The State of the Cyber Nation)",
+     "security: UK quantum computing service: NCSC white paper: Preparing for Quantum-Safe Cryptography (2020)",
+     "security: Low-orbit satellite broadband: SpaceX/Starlink bug bounty (vulnerability rewards) program (2021)",
+     "security: Driverless cars: The Key Principles of Vehicle Cyber Security for Connected and Automated Vehicles (2017)",
+     "security: Smart EV charging: An end-to-end security design for smart EV-charging for Enexis and ElaadNL (LaQuSo) (2014)",
+     "security: Large language model API: OpenAI API private-beta access controls: mandatory production review and usage guidelines (2020)",
+     "security gap: SDA Transport Layer Tranche 1 operational launch",
+     "security gap: D-Wave Advantage2 annealer with Zephyr topology",
+     "security gap: Telexistence TX SCARA: AI and remote-operated shelf-stocking robot in convenience stores",
+     "security gap: Avikus HiNAS 2.0: first autonomous ocean crossing by a large LNG carrier",
+     "security gap: NAVER 1784: cloud-brained 'brainless' robots at work",
+     "security gap: Protein structure prediction",
+     "security gap: AI-designed chip layouts",
+     "security gap: Drone inspection of transmission towers",
+     "security gap: Satellite AI vegetation management",
+     "security gap: Machine learning battery lifetime prediction",
+     "security gap: In-orbit satellite servicing",
+     "tours: walk-through scripts refreshed (version 36)"
+    ]
+   },
+   {
+    "date": "2026-11-23",
+    "time": "16:34",
+    "revision": 39,
+    "summary": "AI levers researched for 7 technologies.",
+    "stats": {
+     "milestones": 719,
+     "sourceCited": 527,
+     "aiCompiled": 114,
+     "aiEstimate": 78,
+     "adoptionKnown": 80,
+     "landed": 573,
+     "regionKnown": 719
+    },
+    "usage": {
+     "calls": 12,
+     "inputTokens": 191747,
+     "outputTokens": 18149,
+     "searches": 15,
+     "model": "claude-sonnet-5-5"
+    },
+    "deepAudit": false,
+    "details": [
+     "levers   ai-predictive-maintenance-across-networks: rd; software, simulation, deploy",
+     "levers   ai-assurance-for-energy: demo; simulation, software",
+     "levers   digital-twin-grid-connection-studies: rd; simulation, deploy",
+     "levers   autonomous-materials-labs-in-industry: demo; discovery, software, simulation",
+     "levers   ai-run-satellite-operations: demo; software, deploy, simulation, approvals",
+     "levers   weather-driven-fault-forecasting: demo; software, deploy",
+     "levers   ensign-energy-system-digital-twin: rd; simulation, software, deploy"
+    ]
+   },
+   {
+    "date": "2026-11-23",
+    "time": "16:38",
+    "revision": 39,
+    "summary": "Stories researched for 9 milestones.",
+    "stats": {
+     "milestones": 719,
+     "sourceCited": 527,
+     "aiCompiled": 114,
+     "aiEstimate": 78,
+     "adoptionKnown": 80,
+     "landed": 573,
+     "regionKnown": 719
+    },
+    "usage": {
+     "calls": 18,
+     "inputTokens": 365705,
+     "outputTokens": 31668,
+     "searches": 24,
+     "model": "claude-sonnet-5-5"
+    },
+    "deepAudit": false,
+    "details": [
+     "story    silicon-spin-quantum-computer-in-a-commercial-data-centre",
+     "story    pritelivir-hovilpri-helicase-primase-inhibitor-for-hsv",
+     "story    nvidia-nvqlink-quantum-gpu-interconnect",
+     "story    signal-triple-ratchet-spqr-post-quantum-ratchet",
+     "story    rust-android-binder-driver-merged-in-linux-6-18",
+     "story    amazon-leo-kuiper-leo-broadband-enterprise-preview",
+     "story    densified-superwood-commercial-launch-inventwood",
+     "story    starcloud-1-first-llm-trained-in-orbit-on-an-h100",
+     "story    escapade-low-cost-twin-smallsats-to-mars"
+    ]
    }
   ],
   "adoptionDefinition": "Mainstream adoption: the year the technology reached widespread, routine use, roughly 10% or more of its potential market or standard practice in its sector.",
@@ -2336,7 +2353,11 @@
    "cyber|2025Q3": "2026-11-16",
    "comms|2025Q3": "2026-11-16",
    "materials|2025Q3": "2026-11-16",
-   "space|2025Q3": "2026-11-16"
+   "space|2025Q3": "2026-11-16",
+   "robotics|2025Q3": "2026-11-23",
+   "life|2025Q3": "2026-11-23",
+   "energy|2025Q2": "2026-11-23",
+   "hw|2025Q2": "2026-11-23"
   },
   "researchFunnel": [
    {
@@ -2772,6 +2793,42 @@
     "rejected": 0,
     "retrying": 3,
     "date": "2026-11-16"
+   },
+   {
+    "agent": "claude",
+    "recent_proposed": 2,
+    "recent_queued": 2,
+    "recent_rejected": {},
+    "catchup_proposed": 7,
+    "catchup_queued": 5,
+    "catchup_rejected": {
+     "sources": 1,
+     "duplicate": 1
+    },
+    "backfill_proposed": 7,
+    "backfill_queued": 5,
+    "backfill_rejected": {
+     "sources": 2
+    },
+    "date": "2026-11-23"
+   },
+   {
+    "agent": "gemini",
+    "recent_proposed": 8,
+    "recent_queued": 0,
+    "recent_rejected": {
+     "sources": 8
+    },
+    "date": "2026-11-23"
+   },
+   {
+    "agent": "qa",
+    "confirmed_claude": 12,
+    "confirmed_gemini": 0,
+    "confirmed_deep": 0,
+    "rejected": 1,
+    "retrying": 2,
+    "date": "2026-11-23"
    }
   ],
   "secondOpinion": [
@@ -2927,6 +2984,20 @@
     "supported": 6,
     "not_supported": 1,
     "unclear": 0,
+    "unavailable": 0
+   },
+   {
+    "date": "2026-11-23",
+    "kind": "gemini-research",
+    "proposed": 8,
+    "queued": 0
+   },
+   {
+    "date": "2026-11-23",
+    "kind": "gemini-check",
+    "supported": 5,
+    "not_supported": 3,
+    "unclear": 4,
     "unavailable": 0
    }
   ],
@@ -9598,7 +9669,16 @@
     "expandsAttackSurface": true,
     "note": "Satellite links and ground stations can be jammed, spoofed or hacked.",
     "basis": "ai-compiled",
-    "guidance": "comms"
+    "guidance": "comms",
+    "response": {
+     "title": "SpaceX/Starlink bug bounty (vulnerability rewards) program",
+     "year": 2021,
+     "kind": "practice",
+     "url": "https://bugcrowd.com/disclosures/35b94f7c-75a6-469e-ab6c-7f9649c05595/spacex-debug-page-accessible-when-using-starlink",
+     "note": "A researcher-reporting and reward programme run by the operator of the Starlink low-orbit broadband network, covering its ground infrastructure, user terminals and apps. The earliest dated evidence is a resolved, rewarded report disclosed on 16 Dec 2021. Press coverage says Wouters was paid for a 20",
+     "basis": "researched",
+     "checked": "2026-11-23"
+    }
    }
   },
   {
@@ -9646,7 +9726,12 @@
     "expandsAttackSurface": true,
     "note": "Remotely operated spacecraft depend on secure command links.",
     "basis": "ai-compiled",
-    "guidance": "comms"
+    "guidance": "comms",
+    "response": {
+     "none": true,
+     "checked": "2026-11-23",
+     "note": "I found no cybersecurity standard, regulation, guidance or product written specifically for in-orbit satellite servicing. CONFERS (principles 2018, practices 2019) and ISO 24330 (2022) cover safety, transparency and operations rather than security, and the 2022 OSAM cybersecurity paper is research, "
+    }
    }
   },
   {
@@ -10033,7 +10118,16 @@
     "expandsAttackSurface": true,
     "note": "Remote updates and sensors can be attacked to cause physical harm.",
     "basis": "ai-compiled",
-    "guidance": "autonomy"
+    "guidance": "autonomy",
+    "response": {
+     "title": "The Key Principles of Vehicle Cyber Security for Connected and Automated Vehicles",
+     "year": 2017,
+     "kind": "guidance",
+     "url": "https://www.gov.uk/government/publications/principles-of-cyber-security-for-connected-and-automated-vehicles/the-key-principles-of-vehicle-cyber-security-for-connected-and-automated-vehicles",
+     "note": "UK Department for Transport and CPNI guidance, published August 2017, sets eight principles for securing connected and automated vehicles, including software lifetime management, defence-in-depth, and resilience when defences or sensors fail.",
+     "basis": "researched",
+     "checked": "2026-11-23"
+    }
    },
    "refs": [
     {
@@ -10897,7 +10991,12 @@
     "expandsAttackSurface": true,
     "note": "Valuable data and models are targets for theft and tampering.",
     "basis": "ai-compiled",
-    "guidance": "data"
+    "guidance": "data",
+    "response": {
+     "none": true,
+     "checked": "2026-11-23",
+     "note": "I found no standard, regulation, official guidance, product or established practice made specifically to secure protein structure prediction models or data against theft or tampering. The nearest items either target protein design or generative models (Responsible AI x Biodesign, 2024; the FoldMark "
+    }
    }
   },
   {
@@ -11367,7 +11466,16 @@
     "expandsAttackSurface": true,
     "note": "Puts many remotely controllable devices at the grid edge, where coordinated misuse could move demand at scale.",
     "basis": "ai-compiled",
-    "guidance": "edge"
+    "guidance": "edge",
+    "response": {
+     "title": "An end-to-end security design for smart EV-charging for Enexis and ElaadNL (LaQuSo)",
+     "year": 2014,
+     "kind": "guidance",
+     "url": "https://elaad.nl/wp-content/uploads/2026/04/Smart-Charging-End2End-security-design-LaQuSo-Final-1Dec2014.pdf",
+     "note": "A security analysis and architecture for smart EV charging, covering signed meter readings and certificate-based TLS authentication between charge points and the back end. It later became the basis of the OCPP security specification (ENCS, 2016) and the OCPP 2.0 and 1.6 security work. The 2014 date ",
+     "basis": "researched",
+     "checked": "2026-11-23"
+    }
    },
    "refs": [
     {
@@ -11533,6 +11641,35 @@
     "estimatedYear": 2028,
     "estimatedOn": "2026-10-27",
     "revisions": []
+   },
+   "aiLevers": {
+    "phase": "rd",
+    "bottleneck": "Scarce, fragmented, labelled failure data on rare faults makes models hard to train and to scale from small pilots to whole asset fleets.",
+    "levers": [
+     {
+      "k": "software",
+      "strength": "high",
+      "note": "Machine-learning anomaly detection on sensor data from transformers, cables and breakers, with automatic risk-ranked work orders. Core of the technology, so far shown mainly in small pilots."
+     },
+     {
+      "k": "simulation",
+      "strength": "mid",
+      "note": "Physics-based simulation and digital twins can generate synthetic degradation data to supplement the few real failure records. A 110 kV field trial combined real and synthetic data for training."
+     },
+     {
+      "k": "deploy",
+      "strength": "mid",
+      "note": "Ranks assets by condition risk to plan inspections, repairs and replacements. This could cut faults and avoid replacing assets early, but it needs fleet-wide data integration first."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://cse.cigre.org/cse-n042/artificial-intelligence-in-predictive-maintenance-a-holistic-approach-to-electrical-equipment-monitoring.html",
+      "label": "CIGRE CSE: AI predictive maintenance for electrical equipment",
+      "quote": "hybrid training using both real and synthetic data"
+     }
+    ],
+    "checked": "2026-11-23"
    }
   },
   {
@@ -11634,6 +11771,40 @@
     "estimatedYear": 2028,
     "estimatedOn": "2026-10-27",
     "revisions": []
+   },
+   "aiLevers": {
+    "phase": "demo",
+    "bottleneck": "Ofgem's sector-specific AI assurance approach is only a consultation proposal and its AI sandbox a 12-month pilot, so no settled assurance standard exists.",
+    "levers": [
+     {
+      "k": "simulation",
+      "strength": "mid",
+      "note": "Ofgem's AI sandbox pilot tests AI tools on realistic data and operational scenarios before live use, producing evidence on performance, risk and regulatory fit without exposing the live system."
+     },
+     {
+      "k": "software",
+      "strength": "low",
+      "note": "Ofgem's guidance expects empirical bias and accuracy checks and validation of AI outputs against known-good data. Automated test, monitoring and evaluation tooling could help; no Ofgem-specified tooling was found."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://electricalnews.co.uk/ofgem-opens-ai-assurance-consultation-for-energy/",
+      "label": "Electrical News: Ofgem opens AI assurance consultation (19 Nov 2026)",
+      "quote": "tested, evaluated and governed"
+     },
+     {
+      "url": "https://www.ofgem.gov.uk/sites/default/files/2026-05/ethical-ai-use-in-the-energy-sector.pdf",
+      "label": "Ofgem: Ethical AI use in the energy sector (version 2), May 2026",
+      "quote": "a safe, controlled environment where energy sector participants can test and evaluate AI systems"
+     },
+     {
+      "url": "https://www.ofgem.gov.uk/sites/default/files/2026-06/ai-assurance-call-for-input.pdf",
+      "label": "Ofgem: AI assurance call for input, 17 June 2026",
+      "quote": "AI systems that may influence energy system reliability"
+     }
+    ],
+    "checked": "2026-11-23"
    }
   },
   {
@@ -14737,7 +14908,16 @@
     "expandsAttackSurface": true,
     "note": "Prompt injection, data leakage and misuse at scale are new kinds of risk.",
     "basis": "ai-compiled",
-    "guidance": "ai"
+    "guidance": "ai",
+    "response": {
+     "title": "OpenAI API private-beta access controls: mandatory production review and usage guidelines",
+     "year": 2020,
+     "kind": "practice",
+     "url": "https://openai.com/index/openai-api/",
+     "note": "When the first commercial LLM API launched in June 2020, it limited access to approved customers and use cases. It also required a mandatory production review before applications could go live, and it came with usage guidelines and tools for controlling returned content, to limit misuse of open-ende",
+     "basis": "researched",
+     "checked": "2026-11-23"
+    }
    },
    "refs": [
     {
@@ -15039,8 +15219,9 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-11-01",
-    "approximate": false
+    "lastChecked": "2026-11-23",
+    "approximate": false,
+    "qaNote": "Founding in 2003 is well supported. The first release year is contested: Splunk's own timeline puts the first version in 2004, while other company histories cite Splunk 1.0 in 2005. The 2005 figure is plausible if it means the public 1.0 release, but I could not confirm it from a primary source. Worth checking against a primary Splunk source before changing it. I added a source for the founding."
    },
    "region": "us",
    "subfield": "ops",
@@ -15051,7 +15232,10 @@
    },
    "tags": [
     "networks"
-   ]
+   ],
+   "flags": {
+    "disputed": true
+   }
   },
   {
    "id": "next-generation-firewall",
@@ -15074,7 +15258,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-11-01",
+    "lastChecked": "2026-11-23",
     "approximate": false
    },
    "region": "us",
@@ -15106,10 +15290,10 @@
    "note": "Hardware that later underpinned phishing-resistant MFA.",
    "company": "Yubico",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-11-01",
+    "lastChecked": "2026-11-23",
     "approximate": false
    },
    "region": "europe",
@@ -15121,7 +15305,15 @@
     "stage": "scale",
     "basis": "ai-estimate",
     "checked": "2026-10-29"
-   }
+   },
+   "refs": [
+    {
+     "label": "Wikipedia – YubiKey",
+     "url": "https://en.wikipedia.org/wiki/YubiKey",
+     "status": "ok",
+     "checked": "2026-11-23"
+    }
+   ]
   },
   {
    "id": "cloud-delivered-security",
@@ -15141,10 +15333,10 @@
    "note": "Security as a service rather than a box.",
    "company": "Zscaler",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-11-01",
+    "lastChecked": "2026-11-23",
     "approximate": false
    },
    "region": "us",
@@ -15156,7 +15348,15 @@
     "stage": "scale",
     "basis": "ai-estimate",
     "checked": "2026-10-29"
-   }
+   },
+   "refs": [
+    {
+     "label": "Zscaler investor relations",
+     "url": "https://ir.zscaler.com/",
+     "status": "ok",
+     "checked": "2026-11-23"
+    }
+   ]
   },
   {
    "id": "cloud-identity",
@@ -15179,7 +15379,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-11-01",
+    "lastChecked": "2026-11-23",
     "approximate": false
    },
    "region": "us",
@@ -15207,10 +15407,10 @@
    "note": "The 2024 outage showed the systemic risk of widely deployed security agents.",
    "company": "CrowdStrike",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-11-01",
+    "lastChecked": "2026-11-23",
     "approximate": false
    },
    "region": "us",
@@ -15222,6 +15422,14 @@
    },
    "tags": [
     "networks"
+   ],
+   "refs": [
+    {
+     "label": "Wikipedia – CrowdStrike",
+     "url": "https://en.wikipedia.org/wiki/CrowdStrike",
+     "status": "ok",
+     "checked": "2026-11-23"
+    }
    ]
   },
   {
@@ -15242,11 +15450,12 @@
    "note": "An early UK example of AI in cyber defence.",
    "company": "Darktrace",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-11-01",
-    "approximate": false
+    "lastChecked": "2026-11-23",
+    "approximate": false,
+    "qaNote": "Darktrace was founded in 2013 and is UK-based, which is well supported. Some sources say the Enterprise Immune System launched in 2013, not 2014. The change year of 2014 is unconfirmed, so check against a primary launch announcement. I added Darktrace's own page as a source for the founding."
    },
    "region": "uk",
    "tags": [
@@ -15256,6 +15465,17 @@
    "readiness": {
     "stage": "commercial",
     "basis": "ai-estimate"
+   },
+   "refs": [
+    {
+     "label": "Darktrace – WEF Technology Pioneer",
+     "url": "https://www.darktrace.com/news/darktrace-named-technology-pioneer-by-world-economic-forum",
+     "status": "ok",
+     "checked": "2026-11-23"
+    }
+   ],
+   "flags": {
+    "disputed": true
    }
   },
   {
@@ -15280,7 +15500,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-11-01",
+    "lastChecked": "2026-11-23",
     "approximate": false
    },
    "region": "us",
@@ -15759,7 +15979,16 @@
     "expandsAttackSurface": true,
     "note": "A large enough quantum computer would break today’s public-key cryptography.",
     "basis": "ai-compiled",
-    "guidance": "quantum"
+    "guidance": "quantum",
+    "response": {
+     "title": "NCSC white paper: Preparing for Quantum-Safe Cryptography",
+     "year": 2020,
+     "kind": "guidance",
+     "url": "https://www.ncsc.gov.uk/paper/preparing-for-quantum-safe-cryptography",
+     "note": "UK NCSC guidance, published 11 November 2020, on reducing the risk that quantum computers break public-key cryptography. It recommends quantum-safe (post-quantum) cryptography built on standardised algorithms.",
+     "basis": "researched",
+     "checked": "2026-11-23"
+    }
    }
   },
   {
@@ -16430,10 +16659,10 @@
    "note": "Also used in cable insulation and filtration.",
    "company": "W. L. Gore",
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-11-01",
+    "lastChecked": "2026-11-23",
     "approximate": false
    },
    "region": "us",
@@ -16450,7 +16679,21 @@
     "expandsAttackSurface": false,
     "note": "Not applicable; passive material.",
     "basis": "ai-compiled"
-   }
+   },
+   "refs": [
+    {
+     "label": "Gore-Tex brand history: 1969 ePTFE discovery",
+     "url": "https://www.gore-tex.com/technology/history",
+     "status": "ok",
+     "checked": "2026-11-23"
+    },
+    {
+     "label": "Robert W. Gore (Wikipedia): first commercial Gore-Tex sales 1976",
+     "url": "https://en.wikipedia.org/wiki/Robert_W._Gore",
+     "status": "ok",
+     "checked": "2026-11-23"
+    }
+   ]
   },
   {
    "id": "ultra-strong-polyethylene-fibre",
@@ -16473,7 +16716,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-11-01",
+    "lastChecked": "2026-11-23",
     "approximate": false
    },
    "region": "europe",
@@ -16513,7 +16756,7 @@
     "verification": "ai-compiled",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-11-01",
+    "lastChecked": "2026-11-23",
     "approximate": false
    },
    "region": "uk",
@@ -16552,10 +16795,10 @@
     "major": true
    },
    "provenance": {
-    "verification": "ai-compiled",
+    "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-11-01",
+    "lastChecked": "2026-11-23",
     "approximate": false
    },
    "adoption": {
@@ -16582,7 +16825,15 @@
     "note": "Digital instrumentation and control adds safety-critical cyber exposure.",
     "basis": "ai-compiled",
     "guidance": "ot"
-   }
+   },
+   "refs": [
+    {
+     "label": "OSTI: The Shippingport Pressurized Water Reactor",
+     "url": "https://www.osti.gov/biblio/10191380",
+     "status": "ok",
+     "checked": "2026-11-23"
+    }
+   ]
   },
   {
    "id": "smart-meters-at-scale",
@@ -17124,7 +17375,12 @@
     "expandsAttackSurface": true,
     "note": "Concentrates valuable data and workloads, making it a high-value target.",
     "basis": "ai-compiled",
-    "guidance": "hw"
+    "guidance": "hw",
+    "response": {
+     "none": true,
+     "checked": "2026-11-23",
+     "note": "I found no published standard, regulation, official guidance, product or established practice made specifically to secure AI-designed chip layouts. The nearest items are academic work (the 2022 \"Dark Side: Security Concerns in Machine Learning for EDA\" survey) and IEEE P4102, a broad AI-in-IC-design"
+    }
    },
    "refs": [
     {
@@ -18441,6 +18697,35 @@
     "estimatedYear": 2028,
     "estimatedOn": "2026-10-27",
     "revisions": []
+   },
+   "aiLevers": {
+    "phase": "rd",
+    "bottleneck": "Trusted, live, standardised network models and data, plus auditable studies that regulators and applicants will accept; current work is pilots and benchmarks, not routine practice.",
+    "levers": [
+     {
+      "k": "simulation",
+      "strength": "high",
+      "note": "Live network twins run power-flow, N-1 and short-circuit studies to test hosting capacity and flag weak points. ENTSO-E TSO-DSO pilots are testing this on real networks."
+     },
+     {
+      "k": "deploy",
+      "strength": "mid",
+      "note": "Automated studies and reinforcement screening could clear connection queues faster and speed up offers. Ofgem's review wants live, real-time data on local grid conditions."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://eepublicdownloads.blob.core.windows.net/public-cdn-container/clean-documents/Reports/2026/260130_JTF_TSO-DSO_Technical_Report_Use_cases_digital_twin_solutions_v3.pdf",
+      "label": "ENTSO-E/EU DSO Entity: Use Cases & Digital Twin Solutions (Jan 2026)",
+      "quote": "Through detailed simulations, it identifies weak points"
+     },
+     {
+      "url": "https://www.ofgem.gov.uk/sites/default/files/2025-12/connections-end-to-end-review-next-steps-final.pdf",
+      "label": "Ofgem: Connections End-to-end Review",
+      "quote": "the single digital view should be a live system with real-time updates"
+     }
+    ],
+    "checked": "2026-11-23"
    }
   },
   {
@@ -18488,6 +18773,45 @@
     "expandsAttackSurface": true,
     "note": "Networked robotic labs and AI planners can be tampered with (corrupted data, unsafe chemical operations) and expose IP.",
     "basis": "ai-compiled"
+   },
+   "aiLevers": {
+    "phase": "demo",
+    "bottleneck": "Integration and standardisation: bespoke, siloed hardware and data formats limit transfer between labs, and lab-scale results are not yet proven at industrial scale.",
+    "levers": [
+     {
+      "k": "discovery",
+      "strength": "high",
+      "note": "AI models propose candidates and choose the next experiment in closed loops. Lila Sciences screened 2,942 catalyst formulations to find palladium-based oxides, but industrial viability is unproven."
+     },
+     {
+      "k": "software",
+      "strength": "mid",
+      "note": "Orchestration, scheduling, instrument-control and data-analysis software, plus agentic planning, run the loop. Missing interoperability standards and middleware are the gap, and AI-assisted integration could narrow it."
+     },
+     {
+      "k": "simulation",
+      "strength": "low",
+      "note": "Digital twins of the lab are proposed for running many in-silico experiments before physical runs. This is still a research-agenda item, not routine practice."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://www.nature.com/articles/s44160-026-01194-2",
+      "label": "Nature Synthesis editorial: The road to self-driving laboratories in industry",
+      "quote": "combine robotics, automation and artificial intelligence (AI) to autonomously plan and run experiments"
+     },
+     {
+      "url": "https://scifiniti.com/3104-4719/3/2026.0041",
+      "label": "AI-Guided Self-Driving Laboratories for Advanced Materials Discovery (2026 perspective)",
+      "quote": "data generated by autonomous labs often remains in bespoke, siloed formats"
+     },
+     {
+      "url": "https://cen.acs.org/business/start-ups/lila-ai-hydrogen-catalyst-electrolyzer/104/web/2026/10",
+      "label": "C&EN: Lila Sciences tests AI's ability to find hydrogen catalysts",
+      "quote": "Whether the materials can survive inside an industrial electrolyzer is another matter."
+     }
+    ],
+    "checked": "2026-11-23"
    }
   },
   {
@@ -18660,6 +18984,50 @@
     "expandsAttackSurface": true,
     "note": "Autonomous on-board decision-making and automated ground segments create new targets: spoofed inputs, model tampering, or command-link compromise could affect whole constellations.",
     "basis": "ai-compiled"
+   },
+   "aiLevers": {
+    "phase": "demo",
+    "bottleneck": "Proving on-board autonomy is trustworthy, certifiable and cyber-resilient, within tight on-board compute limits, before operators hand more constellation decisions to AI.",
+    "levers": [
+     {
+      "k": "software",
+      "strength": "high",
+      "note": "The AI is the product: autonomous tasking, scheduling, anomaly detection and fault isolation or recovery, plus on-board intrusion detection that contains attacks without waiting for ground commands."
+     },
+     {
+      "k": "deploy",
+      "strength": "mid",
+      "note": "Operating live fleets: AI collision-avoidance, routing and beam management at Starlink scale, and cross-satellite tasking demos that need to scale from a handful of spacecraft to dozens."
+     },
+     {
+      "k": "simulation",
+      "strength": "mid",
+      "note": "Reinforcement-learning policies for constellation management are trained and benchmarked in simulation. Spacecraft replicas and cubesat digital twins are used to simulate cyberattacks and train anomaly detectors."
+     },
+     {
+      "k": "approvals",
+      "strength": "low",
+      "note": "Explainable anomaly detection could generate verification and validation evidence for operator acceptance of on-board autonomy. No formal certification route for this exists yet, and decisions stay human."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://arxiv.org/pdf/2604.08424",
+      "label": "arXiv: On-board Telemetry Monitoring in Autonomous Satellites",
+      "quote": "fundamental challenges concerning reliability, certification, and trust"
+     },
+     {
+      "url": "https://arxiv.org/pdf/2507.15574",
+      "label": "arXiv: ConstellAI project, AI in managing satellite constellations",
+      "quote": "This encourages continued research of solutions where the AI training and/or inference is performed onboard the satellites"
+     },
+     {
+      "url": "https://www.satellitetoday.com/cybersecurity/2026/11/05/dod-must-embrace-autonomous-on-orbit-cyber-defense-dod-cio-official-says/",
+      "label": "Via Satellite: DoD must embrace autonomous on-orbit cyber defense",
+      "quote": "we can’t wait months for human review boards"
+     }
+    ],
+    "checked": "2026-11-23"
    }
   },
   {
@@ -19122,7 +19490,12 @@
     "expandsAttackSurface": true,
     "note": "Brings software and data into control-room decisions, so data integrity and model security matter.",
     "basis": "ai-compiled",
-    "guidance": "ot"
+    "guidance": "ot",
+    "response": {
+     "none": true,
+     "checked": "2026-11-23",
+     "note": "I found no security standard, regulation, official guidance or product made specifically for drone inspection of transmission towers. The nearest items fall short: CISA, FBI and GSA guidance covers drones generally, State Grid Q/GDW 11399-2015 covers flight safety rather than cybersecurity, and IEEE"
+    }
    }
   },
   {
@@ -19642,7 +20015,41 @@
    "tags": [
     "grid",
     "ai-models"
-   ]
+   ],
+   "aiLevers": {
+    "phase": "demo",
+    "bottleneck": "Fault forecasts are shown reliable only to about four days ahead on two GB networks; reaching two weeks and routine control-room use is unproven.",
+    "levers": [
+     {
+      "k": "software",
+      "strength": "high",
+      "note": "Machine-learning and statistical models (quantile regression, extreme-value methods) post-process ensemble weather forecasts into probabilistic fault-count forecasts. Extending them to longer lead times is the core research task."
+     },
+     {
+      "k": "deploy",
+      "strength": "mid",
+      "note": "Forecasts feed the SP Energy Networks control room, which can pre-position crews and equipment before storms. This could shorten outages and make roll-out to other network operators easier."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://eprints.gla.ac.uk/id/eprint/382515",
+      "label": "University of Glasgow Enlighten – Maia, Castro-Camilo & Browell (2026)",
+      "quote": "designed to provide reliable fault predictions up to four days ahead"
+     },
+     {
+      "url": "https://www.gla.ac.uk/news/archiveofnews/2022/march/headline_837214_en.html",
+      "label": "University of Glasgow news, 3 March 2022",
+      "quote": "up to two weeks ahead"
+     },
+     {
+      "url": "https://www.gla.ac.uk/news/headline_1017483_en.html",
+      "label": "University of Glasgow news – UofG teams up with SP Energy Networks",
+      "quote": "mobilise teams and send them out ahead of time"
+     }
+    ],
+    "checked": "2026-11-23"
+   }
   },
   {
    "id": "ensign-energy-system-digital-twin",
@@ -19711,7 +20118,46 @@
      "status": "ok",
      "checked": "2026-11-03"
     }
-   ]
+   ],
+   "aiLevers": {
+    "phase": "rd",
+    "bottleneck": "Research must still merge separate electricity, heat, hydrogen and industrial-cluster sub-twins into one whole-system twin using real network and asset data before routine operator use.",
+    "levers": [
+     {
+      "k": "simulation",
+      "strength": "high",
+      "note": "The twin is the product: it models electricity, heat, hydrogen and industrial-cluster networks so SPEN can simulate services and investments, like heat pumps, flexibility and severe weather, before rollout."
+     },
+     {
+      "k": "software",
+      "strength": "mid",
+      "note": "Real-time modelling is combined with machine learning and AI to run the twin. Examples include physics-informed transformer-ageing assessment and data pipelines feeding network and asset data into the models."
+     },
+     {
+      "k": "deploy",
+      "strength": "low",
+      "note": "Findings should support network planning and operational decisions and bring digital twins closer to routine use at SPEN and other operators. This is a stated aim, not yet operational."
+     }
+    ],
+    "refs": [
+     {
+      "url": "https://ensign.ac.uk/2026/04/27/ensign-dissemination-event-showcases-progress-and-ambition-for-future-energy-networks/",
+      "label": "Ensign dissemination event, April 2026",
+      "quote": "contributing to a whole system digital twin approach"
+     },
+     {
+      "url": "https://energymanagementsummit.co.uk/briefing/10m-ensign-project-aims-to-develop-digital-twin-for-industrial-clusters/",
+      "label": "Energy Management Summit: ENSIGN briefing",
+      "quote": "integrate real-time modelling, artificial intelligence, and machine learning"
+     },
+     {
+      "url": "https://www.strath.ac.uk/whystrathclyde/news/2023/digitaltwinprojectwillinformfutureinnovationintheukenergyindustry/",
+      "label": "University of Strathclyde news",
+      "quote": "stress-test tech and services before they launch publicly"
+     }
+    ],
+    "checked": "2026-11-23"
+   }
   },
   {
    "id": "heat-flexibility-and-thermal-storage",
@@ -24643,7 +25089,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-23",
     "approximate": false
    },
    "region": "us",
@@ -24662,7 +25108,7 @@
      "label": "Lasker Foundation: Herceptin",
      "url": "https://laskerfoundation.org/winners/herceptin-a-targeted-antibody-therapy-for-breast-cancer/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     }
    ]
   },
@@ -24686,7 +25132,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-23",
     "approximate": false
    },
    "region": "us",
@@ -24704,7 +25150,7 @@
      "label": "JCI review: The long road to imatinib",
      "url": "https://www.jci.org/articles/view/31691",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     }
    ],
    "security": {
@@ -24733,7 +25179,7 @@
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-23",
     "approximate": false
    },
    "region": "us",
@@ -24753,7 +25199,7 @@
      "label": "Laser Focus World: Excimer eye surgery celebrates 25 years",
      "url": "https://www.laserfocusworld.com/home/article/14190186/laser-vision-correction-excimer-eye-surgery-celebrates-25-years",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     }
    ],
    "adoption": {
@@ -24795,13 +25241,13 @@
     "label": "Artelys: L2RPN 2023 white paper",
     "url": "https://www.artelys.com/app/uploads/2024/04/White_paper_L2RPN_2023_.pdf",
     "status": "ok",
-    "checked": "2026-10-31"
+    "checked": "2026-11-23"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "initial-build",
     "added": "2026-10-27",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-23",
     "approximate": true
    },
    "region": "europe",
@@ -24834,7 +25280,7 @@
      "label": "arXiv: Design and implementation of an environment for L2RPN",
      "url": "https://arxiv.org/abs/2104.04080",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     }
    ]
   },
@@ -24891,7 +25337,12 @@
     "expandsAttackSurface": true,
     "note": "Brings software and data into control-room decisions, so data integrity and model security matter.",
     "basis": "ai-compiled",
-    "guidance": "ot"
+    "guidance": "ot",
+    "response": {
+     "none": true,
+     "checked": "2026-11-23",
+     "note": "I found no standard, regulation, official guidance or product made specifically to secure satellite AI vegetation management; the results were vendor marketing, generic enterprise certifications (ISO 27001, SOC 2) and NERC FAC-003, which covers vegetation clearances rather than cyber security."
+    }
    }
   },
   {
@@ -25133,7 +25584,12 @@
     "expandsAttackSurface": true,
     "note": "Battery management and dispatch systems are networked and remotely controllable.",
     "basis": "ai-compiled",
-    "guidance": "ot"
+    "guidance": "ot",
+    "response": {
+     "none": true,
+     "checked": "2026-11-23",
+     "note": "I found no standard, regulation, official guidance, product or established practice made specifically for ML battery lifetime prediction; there are only academic defence papers on false-data-injection and adversarial attacks against SOH/RUL models, plus general BMS cybersecurity guidance such as ISO"
+    }
    },
    "refs": [
     {
@@ -29459,19 +29915,19 @@
      "label": "SK hynix newsroom: mass production of 192GB SOCAMM2",
      "url": "https://news.skhynix.com/en/mass-production-socamm2-192gb/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     },
     {
      "label": "TrendForce: SK hynix starts mass production of 192GB SOCAMM2",
      "url": "https://www.trendforce.com/news/2026/04/20/news-sk-hynix-starts-mass-production-of-192gb-socamm2-tapping-1c-dram-and-nvidia-rubin-optimization/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     },
     {
      "label": "Korea Times: SK hynix begins mass production of 1c SOCAMM2",
      "url": "https://www.koreatimes.co.kr/business/tech-science/20260420/sk-hynix-begins-mass-production-of-1c-socamm2-ai-server-chips",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     }
    ],
    "subfield": "chips",
@@ -29489,7 +29945,7 @@
     "verification": "source-cited",
     "addedBy": "research-agent",
     "added": "2026-10-31",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-23",
     "approximate": false,
     "secondOpinion": {
      "model": "gemini",
@@ -29545,19 +30001,20 @@
      "label": "QuantumDiamonds press release (21 April 2026)",
      "url": "https://www.qd-st.com/press/quantumdiamonds-deploys-failure-analysis-technology-at-leading-taiwan-semiconductor-test-house",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     },
     {
-     "label": "Data Center Dynamics: QuantumDiamonds installs QDm.1 system in Taiwan",
-     "url": "https://www.datacenterdynamics.com/en/news/quantum-chip-testing-startup-quantumdiamonds-installs-qdm1-system-in-taiwan/",
+     "label": "QuantumDiamonds press release (21 April 2026): QDm.1 deployed at iST, Hsinchu, Taiwan",
+     "url": "https://www.qd-st.com/press/quantumdiamonds-deploys-failure-analysis-technology-at-leading-taiwan-semiconductor-test-house",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23",
+     "replaced": "https://www.datacenterdynamics.com/en/news/quantum-chip-testing-startup-quantumdiamonds-installs-qdm1-system-in-taiwan/"
     },
     {
      "label": "Quantum Computing Report: QDm.1 at Taiwan's iST",
      "url": "https://quantumcomputingreport.com/quantumdiamonds-deploys-first-asian-quantum-sensing-system-qd-m-1-at-taiwans-ist/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     }
    ],
    "subfield": "devices",
@@ -29578,7 +30035,7 @@
     "verification": "source-cited",
     "addedBy": "research-agent",
     "added": "2026-10-31",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-23",
     "approximate": false,
     "secondOpinion": {
      "model": "gemini",
@@ -29634,26 +30091,27 @@
      "label": "The Next Web: The EU says its age verification app is ready (15 Apr 2026)",
      "url": "https://thenextweb.com/news/eu-age-verification-app-children-social-media",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     },
     {
      "label": "European Commission: Blueprint for an age verification solution",
      "url": "https://digital-strategy.ec.europa.eu/en/factpages/blueprint-age-verification-solution-help-protect-minors-online",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     }
    ],
-   "subfield": "network",
+   "subfield": "crypto",
    "region": "us",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "pilot",
+    "basis": "ai-estimate",
+    "checked": "2026-11-23"
    },
    "provenance": {
     "verification": "source-cited",
     "addedBy": "research-agent",
     "added": "2026-10-31",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-23",
     "approximate": false,
     "secondOpinion": {
      "model": "gemini",
@@ -29686,7 +30144,11 @@
      }
     ],
     "checked": "2026-11-01"
-   }
+   },
+   "tags": [
+    "cryptography",
+    "regulation"
+   ]
   },
   {
    "id": "cluster-based-disaggregated-backbone-routers-kddi",
@@ -29709,19 +30171,19 @@
      "label": "KDDI newsroom: launch of DDBR cluster commercial deployment",
      "url": "https://newsroom.kddi.com/english/news/detail/kddi_nr-1052_4563.html",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     },
     {
      "label": "Telecompaper: KDDI deploys disaggregated core router architecture",
      "url": "https://www.telecompaper.com/news/kddi-deploys-disaggregated-core-router-architecture-across-backbone-network--1573597",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     },
     {
      "label": "The Fast Mode: KDDI rolls out DDBR cluster architecture",
      "url": "https://www.thefastmode.com/technology-solutions/48916-kddi-rolls-out-ddbr-cluster-architecture-to-scale-backbone-networks-for-ai-traffic-growth",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     }
    ],
    "subfield": "internet",
@@ -29739,7 +30201,7 @@
     "verification": "source-cited",
     "addedBy": "research-agent",
     "added": "2026-10-31",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-23",
     "approximate": false,
     "secondOpinion": {
      "model": "gemini",
@@ -29767,7 +30229,10 @@
      }
     ],
     "checked": "2026-11-01"
-   }
+   },
+   "tags": [
+    "networks"
+   ]
   },
   {
    "id": "radio-astronomy-janskys-cosmic-radio-detection",
@@ -29790,19 +30255,19 @@
      "label": "NRAO – Karl Jansky and his Merry-go-Round",
      "url": "https://public.nrao.edu/gallery/karl-jansky-and-his-merrygoround/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     },
     {
      "label": "NRAO – The History of Radio Astronomy",
      "url": "https://public.nrao.edu/radio-astronomy/the-history-of-radio-astronomy/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     },
     {
      "label": "AIP – Scenes from the making of astrophysics, part 2",
      "url": "https://www.aip.org/history/scenes-making-astrophysics-2",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     }
    ],
    "subfield": "launch",
@@ -29820,7 +30285,7 @@
     "verification": "source-cited",
     "addedBy": "research-agent",
     "added": "2026-10-31",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-23",
     "approximate": false,
     "secondOpinion": {
      "model": "gemini",
@@ -29850,25 +30315,26 @@
    "note": "It created the first permanently inhabited orbital research platform, run by five space agencies.",
    "refs": [
     {
-     "label": "ISS National Lab: ISS history and timeline",
-     "url": "https://issnationallab.org/about/iss-national-lab-overview/iss-history-timeline/",
+     "label": "National Space Society: 25 Years of Humans Off-Earth",
+     "url": "https://nss.org/25-years-of-humans-off-earth/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23",
+     "replaced": "https://issnationallab.org/about/iss-national-lab-overview/iss-history-timeline/"
     },
     {
      "label": "History.com: first residential crew arrives aboard the ISS",
      "url": "https://www.history.com/this-day-in-history/november-2/first-residential-crew-arrives-aboard-international-space-station",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     },
     {
      "label": "NASA: ISS marks 25 years of continuous human presence",
      "url": "https://www.nasa.gov/centers-and-facilities/johnson/the-international-space-station-marks-25-years-of-continuous-human-presence",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     }
    ],
-   "subfield": "launch",
+   "subfield": "human",
    "region": "global",
    "readiness": {
     "stage": "scale",
@@ -29883,7 +30349,7 @@
     "verification": "source-cited",
     "addedBy": "research-agent",
     "added": "2026-10-31",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-23",
     "approximate": false,
     "secondOpinion": {
      "model": "gemini",
@@ -29891,6 +30357,17 @@
      "reason": "Sources confirm President Reagan directed NASA to build an international space station in 1984, the international partnership was agreed upon and first components launched in 1998, and the Expedition 1 crew boarded the ISS on November 2, 2000, starting continuous human presence.",
      "date": "2026-10-31"
     }
+   },
+   "adoption": {
+    "year": 2000,
+    "what": "Continuous crewed occupancy began with Expedition 1",
+    "basis": "ai-estimate"
+   },
+   "tags": [
+    "space"
+   ],
+   "flags": {
+    "major": true
    }
   },
   {
@@ -29914,19 +30391,19 @@
      "label": "NASA Mars: Mars Exploration Rovers overview",
      "url": "https://mars.nasa.gov/mer/mission/overview/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     },
     {
      "label": "Britannica: Mars Exploration Rover",
      "url": "https://www.britannica.com/topic/Mars-Exploration-Rover",
-     "status": "ok",
-     "checked": "2026-10-31"
+     "status": "broken",
+     "checked": "2026-11-23"
     },
     {
      "label": "NASA: 20 years after landing, how the twin rovers changed Mars science",
      "url": "https://www.nasa.gov/missions/mer/20-years-after-landing-how-nasas-twin-rovers-changed-mars-science/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     }
    ],
    "subfield": "launch",
@@ -29944,7 +30421,7 @@
     "verification": "source-cited",
     "addedBy": "research-agent",
     "added": "2026-10-31",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-23",
     "approximate": false,
     "secondOpinion": {
      "model": "gemini",
@@ -30047,19 +30524,19 @@
      "label": "Questions and Answers in MRI: Discovery of NMR",
      "url": "https://mriquestions.com/who-discovered-nmr.html",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     },
     {
      "label": "Britannica: E. M. Purcell",
      "url": "https://www.britannica.com/biography/E-M-Purcell",
-     "status": "ok",
-     "checked": "2026-10-31"
+     "status": "broken",
+     "checked": "2026-11-23"
     },
     {
      "label": "Magnetic Resonance in Medicine: History of MRI",
      "url": "https://magnetic-resonance.org/ch/20-02.html",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     }
    ],
    "subfield": "devices",
@@ -30077,7 +30554,7 @@
     "verification": "source-cited",
     "addedBy": "research-agent",
     "added": "2026-10-31",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-23",
     "approximate": false,
     "secondOpinion": {
      "model": "gemini",
@@ -30113,13 +30590,13 @@
      "label": "Nobel Prize: Willis Lamb Biography",
      "url": "https://www.nobelprize.org/prizes/physics/1955/lamb/biographical/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     },
     {
      "label": "Wikipedia: Lamb Shift",
      "url": "https://en.wikipedia.org/wiki/Lamb_shift",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     }
    ],
    "subfield": "devices",
@@ -30132,7 +30609,7 @@
     "verification": "source-cited",
     "addedBy": "gemini-research",
     "added": "2026-10-31",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-23",
     "approximate": false
    }
   },
@@ -30157,13 +30634,13 @@
      "label": "Solar Power World: Tandem PV begins demonstration manufacturing",
      "url": "https://www.solarpowerworldonline.com/2026/04/tandem-pv-begins-perovskite-silicon-solar-panel-demonstration-manufacturing/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     },
     {
      "label": "pv magazine USA: Tandem PV launches commercial perovskite-silicon manufacturing",
      "url": "https://pv-magazine-usa.com/2026/04/20/tandem-pv-launches-commercial-perovskite-silicon-manufacturing-in-california/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     }
    ],
    "subfield": "polymers",
@@ -30179,7 +30656,7 @@
     "verification": "source-cited",
     "addedBy": "research-agent",
     "added": "2026-10-31",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-23",
     "approximate": false,
     "secondOpinion": {
      "model": "gemini",
@@ -30230,26 +30707,27 @@
      "label": "NASA: Artemis II mission page",
      "url": "https://www.nasa.gov/mission/artemis-ii/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     },
     {
      "label": "Britannica: Artemis II",
      "url": "https://www.britannica.com/topic/Artemis-II",
-     "status": "ok",
-     "checked": "2026-10-31"
+     "status": "broken",
+     "checked": "2026-11-23"
     },
     {
      "label": "NASA: Artemis II Mission Milestones recap",
      "url": "https://www.nasa.gov/centers-and-facilities/johnson/artemis-ii-mission-milestones-an-image-and-video-recap/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     }
    ],
-   "subfield": "launch",
+   "subfield": "human",
    "region": "us",
    "readiness": {
-    "stage": "commercial",
-    "basis": "ai-estimate"
+    "stage": "pilot",
+    "basis": "ai-estimate",
+    "checked": "2026-11-23"
    },
    "security": {
     "expandsAttackSurface": false,
@@ -30260,7 +30738,7 @@
     "verification": "source-cited",
     "addedBy": "research-agent",
     "added": "2026-10-31",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-23",
     "approximate": false,
     "secondOpinion": {
      "model": "gemini",
@@ -30270,7 +30748,9 @@
      "rules": 2
     }
    },
-   "flags": {},
+   "flags": {
+    "major": true
+   },
    "story": {
     "research": "NASA's Constellation Program, set up under the 2005 NASA Authorization Act, began developing the Orion crew capsule; a 2010 law added the Space Launch System.",
     "deploy": "on Artemis II, launched from Kennedy Space Center, Florida, on 1 April 2026, carrying Wiseman, Glover, Koch and Canada's Hansen around the Moon.",
@@ -30293,7 +30773,10 @@
      }
     ],
     "checked": "2026-11-01"
-   }
+   },
+   "tags": [
+    "space"
+   ]
   },
   {
    "id": "fully-humanless-commercial-truckload-bot-auto-texas",
@@ -30316,22 +30799,23 @@
    },
    "refs": [
     {
-     "label": "CCJ Digital: Bot Auto completes first humanless commercial truck delivery in Texas",
-     "url": "https://www.ccjdigital.com/equipment-controls/autonomous/article/15823774/bot-auto-completes-first-humanless-commercial-truck-delivery-in-texas",
+     "label": "FreightWaves – Houston, We Have Liftoff: Bot Auto achieves first humanless commercial run",
+     "url": "https://www.freightwaves.com/news/bot-auto-first-humanless-commercial-truckload",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23",
+     "replaced": "https://www.ccjdigital.com/equipment-controls/autonomous/article/15823774/bot-auto-completes-first-humanless-commercial-truck-delivery-in-texas"
     },
     {
      "label": "Robotics & Automation News: Bot Auto completes driverless commercial truck delivery between Houston and Dallas",
      "url": "https://roboticsandautomationnews.com/2026/05/14/bot-auto-completes-driverless-commercial-truck-delivery-between-houston-and-dallas/101503/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     },
     {
      "label": "Road to Autonomy: Bot Auto launch field report",
      "url": "https://www.roadtoautonomy.com/bot-auto-commercial-launch-field-report/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     }
    ],
    "subfield": "industrial",
@@ -30354,7 +30838,7 @@
     "verification": "source-cited",
     "addedBy": "research-agent",
     "added": "2026-10-31",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-23",
     "approximate": false,
     "secondOpinion": {
      "model": "gemini",
@@ -30404,19 +30888,19 @@
      "label": "Intel: PowerVia test shows industry-leading performance",
      "url": "https://www.intc.com/news-events/press-releases/detail/1623/powervia-test-shows-industry-leading-performance",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     },
     {
      "label": "Inside Deep Tech: Backside Power Delivery full guide (2026)",
      "url": "https://www.insidedeeptech.com/backside-power-delivery-powervia-full-guide/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     },
     {
      "label": "XDA Developers: Backside power delivery is the CPU innovation I'm excited for",
      "url": "https://www.xda-developers.com/backside-power-delivery-is-the-cpu-innovation-im-actually-excited-for/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     }
    ],
    "subfield": "chips",
@@ -30437,7 +30921,7 @@
     "verification": "source-cited",
     "addedBy": "research-agent",
     "added": "2026-10-31",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-23",
     "approximate": false,
     "secondOpinion": {
      "model": "gemini",
@@ -30488,26 +30972,27 @@
      "label": "MW 18014 (Wikipedia)",
      "url": "https://en.wikipedia.org/wiki/MW_18014",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     },
     {
      "label": "Astronomy: Remembering MW 18014, 80 years later",
      "url": "https://www.astronomy.com/space-exploration/devils-bargain-remembering-mw-18014-80-years-later/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     },
     {
      "label": "Space.com: V2 rocket origin, history and legacy",
      "url": "https://www.space.com/v2-rocket",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     }
    ],
    "subfield": "launch",
    "region": "europe",
    "readiness": {
-    "stage": "scale",
-    "basis": "ai-estimate"
+    "stage": "commercial",
+    "basis": "ai-estimate",
+    "checked": "2026-11-23"
    },
    "security": {
     "expandsAttackSurface": false,
@@ -30518,7 +31003,7 @@
     "verification": "source-cited",
     "addedBy": "research-agent",
     "added": "2026-10-31",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-23",
     "approximate": false,
     "secondOpinion": {
      "model": "gemini",
@@ -30528,7 +31013,12 @@
      "rules": 2
     }
    },
-   "flags": {}
+   "flags": {
+    "major": true
+   },
+   "tags": [
+    "space"
+   ]
   },
   {
    "id": "accident-tolerant-nuclear-fuel-in-a-commercial-reactor",
@@ -30552,19 +31042,19 @@
      "label": "World Nuclear News: Hatch unit restarts with accident-tolerant fuel",
      "url": "https://www.world-nuclear-news.org/Articles/Hatch-unit-restarts-with-accident-tolerant-fuel",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     },
     {
      "label": "Power Engineering: Plant Hatch returns to service with new fuel test assembly technology",
      "url": "https://www.power-eng.com/nuclear/plant-hatch-returns-to-service-with-new-fuel-test-assembly-technology/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     },
     {
      "label": "POWER magazine: Accident-Tolerant Fuels Could Be a Boon for Nuclear Industry",
      "url": "https://www.powermag.com/accident-tolerant-fuels-could-be-a-boon-for-nuclear-industry/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     }
    ],
    "subfield": "grids",
@@ -30578,7 +31068,8 @@
    },
    "gb": {
     "status": "not-yet",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "Relevant to the safety and operating margins of GB's PWR (Sizewell B) and future fleets, but there is no confirmed GB deployment of ATF."
    },
    "security": {
     "expandsAttackSurface": false,
@@ -30589,7 +31080,7 @@
     "verification": "source-cited",
     "addedBy": "deep-search",
     "added": "2026-10-31",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-23",
     "approximate": false,
     "secondOpinion": {
      "model": "gemini",
@@ -30597,9 +31088,12 @@
      "reason": "The sources confirm that accident-tolerant fuel test assemblies were installed and began operating in a commercial nuclear reactor (Hatch 1) in March 2018, described as the 'first of its kind,' which aligns with 'first product or real-world use around 2018.' The research timeline is supported by the",
      "date": "2026-10-31",
      "rules": 2
-    }
+    },
+    "qaNote": "Facts are fine: a March 2018 Hatch 1 restart with GNF IronClad and ARMOR lead test assemblies. The DESNZ AI energy vision area 'asset' looks wrong because nothing here is AI-linked, so 'none' fits better."
    },
-   "flags": {}
+   "flags": {
+    "disputed": true
+   }
   },
   {
    "id": "first-commercial-direct-air-co2-capture-plant-hinwil",
@@ -30622,19 +31116,20 @@
      "label": "UBA SNS Chronik: Erste kommerzielle CO2-Filteranlage der Welt ist in Betrieb gegangen",
      "url": "https://sns.uba.de/chronik/_d21afa04",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     },
     {
      "label": "scinexx: Erste kommerzielle Anlage saugt CO2 aus der Luft",
      "url": "https://www.scinexx.de/news/technik/erste-kommerzielle-anlage-saugt-co2-aus-der-luft/",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23"
     },
     {
-     "label": "Handelszeitung: Startup Climeworks stellt erste kommerzielle Anlage ein",
-     "url": "https://www.handelszeitung.ch/unternehmen/co2-ruckgewinnung-startup-climeworks-stellt-erste-kommerzielle-anlage-ein-541586",
+     "label": "SWI swissinfo.ch – Giant carbon-sucking commercial plant launches in Zurich",
+     "url": "https://www.swissinfo.ch/eng/sci-tech/environment_giant-carbon-sucking-commercial-plant-launches-in-zurich/43227352",
      "status": "ok",
-     "checked": "2026-10-31"
+     "checked": "2026-11-23",
+     "replaced": "https://www.handelszeitung.ch/unternehmen/co2-ruckgewinnung-startup-climeworks-stellt-erste-kommerzielle-anlage-ein-541586"
     }
    ],
    "subfield": "grids",
@@ -30645,7 +31140,8 @@
    },
    "gb": {
     "status": "not-yet",
-    "basis": "ai-estimate"
+    "basis": "ai-estimate",
+    "note": "Direct air capture is a candidate greenhouse gas removal route for UK net zero. It adds a large electricity and heat demand, and no commercial GB plant is operating."
    },
    "security": {
     "expandsAttackSurface": false,
@@ -30656,7 +31152,7 @@
     "verification": "source-cited",
     "addedBy": "deep-search",
     "added": "2026-10-31",
-    "lastChecked": "2026-10-31",
+    "lastChecked": "2026-11-23",
     "approximate": false,
     "secondOpinion": {
      "model": "gemini",
@@ -36391,7 +36887,12 @@
    "security": {
     "expandsAttackSurface": true,
     "note": "Robots that can be remotely operated from other countries create a remote-control channel that must be authenticated and protected against takeover.",
-    "basis": "ai-compiled"
+    "basis": "ai-compiled",
+    "response": {
+     "none": true,
+     "checked": "2026-11-23",
+     "note": "Searches found no standard, regulation, official guidance, product or documented practice made specifically for TX SCARA or its remote-control channel; the pages found only describe the robot, and the security material found is general (ISO/IEC 27001) or about other robots."
+    }
    },
    "provenance": {
     "verification": "source-cited",
@@ -36450,7 +36951,12 @@
    "security": {
     "expandsAttackSurface": true,
     "note": "Autonomous steering depends on navigation sensors and satellite positioning, which can be spoofed or jammed.",
-    "basis": "ai-compiled"
+    "basis": "ai-compiled",
+    "response": {
+     "none": true,
+     "checked": "2026-11-23",
+     "note": "I found no security standard, guidance or product made specifically for Avikus HiNAS 2.0 or its GNSS and sensor dependence. The results only showed safety and performance certification (ABS and KR verification of the 2022 voyage, and a 2026 DNV type approval for the later HiNAS Control). The cyber m"
+    }
    },
    "provenance": {
     "verification": "source-cited",
@@ -40245,7 +40751,12 @@
    "security": {
     "expandsAttackSurface": true,
     "note": "Moving robot control into the cloud over 5G means a compromise of the cloud or network could take over a whole fleet and connected building systems such as lifts and doors.",
-    "basis": "ai-compiled"
+    "basis": "ai-compiled",
+    "response": {
+     "none": true,
+     "checked": "2026-11-23",
+     "note": "I found no security standard, regulation, official guidance, product or practice made specifically for NAVER 1784's cloud-controlled \"brainless\" robots (ARC over private 5G); the results were only deployment announcements and generic cloud-robotics or robot-security material."
+    }
    },
    "provenance": {
     "verification": "source-cited",
@@ -43513,7 +44024,25 @@
      "rules": 2
     }
    },
-   "flags": {}
+   "flags": {},
+   "story": {
+    "research": "NVIDIA and Quantum Machines engineered DGX Quantum in 2023, pairing a Grace Hopper GPU system with a quantum controller; NVIDIA claimed sub-microsecond GPU-to-QPU latency.",
+    "deploy": "At GTC Washington, D.C. on October 28, 2025, NVIDIA announced NVQLink, backed by 17 QPU builders, five controller builders and nine U.S. national labs.",
+    "impact": "By November 17, 2025, NVIDIA said more than a dozen supercomputing centers worldwide were adopting NVQLink, and Quantinuum's Helios processor used it for real-time error-correction decoding.",
+    "refs": [
+     {
+      "url": "https://nvidianews.nvidia.com/news/nvidia-nvqlink-quantum-gpu-computing",
+      "label": "NVIDIA newsroom, Oct 28, 2025 (NVQLink launch)",
+      "quote": "an open system architecture for tightly coupling the extreme performance of GPU computing with quantum processors"
+     },
+     {
+      "url": "https://nvidianews.nvidia.com/news/scientific-supercomputing-centers-nvqlink-grace-blackwell-quantum-processors",
+      "label": "NVIDIA newsroom, SC25 (NVQLink adoption)",
+      "quote": "adopted by more than a dozen supercomputing centers"
+     }
+    ],
+    "checked": "2026-11-23"
+   }
   },
   {
    "id": "signal-triple-ratchet-spqr-post-quantum-ratchet",
@@ -43571,7 +44100,30 @@
      "rules": 2
     }
    },
-   "flags": {}
+   "flags": {},
+   "story": {
+    "research": "Signal and PQShield researchers designed post-quantum ratchets, presented at Eurocrypt 2025 and USENIX Security 2025, using erasure coding and ML-KEM to keep bandwidth low.",
+    "deploy": "Signal began rolling out the Triple Ratchet to its messaging users on 2 October 2025, running SPQR alongside the Double Ratchet and mixing their keys.",
+    "impact": "Signal's messaging now has post-quantum forward secrecy and post-compromise security, with little extra bandwidth per message. Rollout is gradual, needs no user action. Signal plans to enforce SPQR for all sessions. No adoption figure found.",
+    "refs": [
+     {
+      "url": "https://signal.org/blog/spqr/",
+      "label": "Signal blog: Signal Protocol and Post-Quantum Ratchets",
+      "quote": "Signal is rolling out a new version of the Signal Protocol with the Triple Ratchet."
+     },
+     {
+      "url": "https://cyberinsider.com/signal-adds-post-quantum-triple-ratchet-protocol-for-stronger-security/",
+      "label": "CyberInsider: Signal Adds Post-Quantum Triple Ratchet",
+      "quote": "builds on academic research presented at Eurocrypt 2025 and USENIX 2025"
+     },
+     {
+      "url": "https://www.bleepingcomputer.com/news/security/signal-adds-new-cryptographic-defense-against-quantum-attacks/",
+      "label": "BleepingComputer: Signal adds new cryptographic defense against quantum attacks",
+      "quote": "Once SPQR is made available to all clients, Signal will enforce it across all sessions."
+     }
+    ],
+    "checked": "2026-11-23"
+   }
   },
   {
    "id": "rust-android-binder-driver-merged-in-linux-6-18",
@@ -43629,7 +44181,20 @@
      "rules": 2
     }
    },
-   "flags": {}
+   "flags": {},
+   "story": {
+    "research": "a Rust for Linux project rewriting Android's Binder driver in Rust, first by Wedson Almeida Filho, later maintained by Alice Ryhl; RFC in 2023.",
+    "deploy": "in mainline Linux: Google's Rust Binder driver was merged into the kernel at v6.18-rc1 in 2025, with Linux 6.18 released on 30 November 2025.",
+    "impact": "the old C Binder was queued for removal in Linux 7.4, about 11,000 lines of C deleted, after Rust Binder proved easier to maintain and as fast or faster.",
+    "refs": [
+     {
+      "url": "https://rust-for-linux.com/android-binder-driver",
+      "label": "Rust for Linux: Android Binder Driver",
+      "quote": "originally authored by Wedson Almeida Filho, and is now maintained by Alice Ryhl"
+     }
+    ],
+    "checked": "2026-11-23"
+   }
   },
   {
    "id": "pulse-code-modulation-first-digital-voice-link-sigsaly",
@@ -44045,7 +44610,25 @@
      "rules": 2
     }
    },
-   "flags": {}
+   "flags": {},
+   "story": {
+    "research": "Amazon announced Project Kuiper in April 2019 to build a low-Earth-orbit broadband constellation, then tested prototype satellites KuiperSat-1 and -2, launched on 6 October 2023.",
+    "deploy": "In November 2025, Amazon Leo began shipping Leo Pro and Leo Ultra terminals to select enterprise customers such as JetBlue and Hunt Energy Network.",
+    "impact": "Leo Ultra is rated at up to 1 Gbps download and 400 Mbps upload. By July 2026 Amazon had launched 396 production satellites, though the preview is limited to select customers.",
+    "refs": [
+     {
+      "url": "https://www.aboutamazon.com/news/amazon-leo/amazon-leo-satellite-internet-ultra-pro",
+      "label": "Amazon: Leo Ultra antenna and enterprise preview",
+      "quote": "allows select business customers to begin testing the network using production hardware and software"
+     },
+     {
+      "url": "https://en.wikipedia.org/wiki/Amazon_Leo",
+      "label": "Wikipedia: Amazon Leo",
+      "quote": "Amazon Leo has launched 396 production satellites"
+     }
+    ],
+    "checked": "2026-11-23"
+   }
   },
   {
    "id": "densified-superwood-commercial-launch-inventwood",
@@ -44117,6 +44700,29 @@
    },
    "flags": {
     "disputed": true
+   },
+   "story": {
+    "research": "Liangbing Hu's University of Maryland team partly removed lignin and hemicellulose, then hot-pressed natural wood, making it far stronger and tougher; published in Nature, 2018.",
+    "deploy": "InventWood, a University of Maryland spin-off co-founded by Hu, launched Superwood in 2025, made in Frederick, Maryland; first shipments due Q3 2025, exterior uses first.",
+    "impact": "InventWood has raised over $50 million in total capital. Its Frederick plant can make over one million square feet of Superwood a year, and the company says current capacity is fully allocated.",
+    "refs": [
+     {
+      "url": "https://www.nature.com/articles/nature25476",
+      "label": "Nature (2018): Song et al., Processing bulk natural wood into a high-performance structural material",
+      "quote": "more than tenfold increase in strength, toughness and ballistic resistance"
+     },
+     {
+      "url": "https://www.cnn.com/science/superwood-10-times-stronger-than-steel-spc",
+      "label": "CNN: Scientists create 'Superwood' that's stronger than steel",
+      "quote": "has just launched as a commercial product, manufactured by InventWood"
+     },
+     {
+      "url": "https://www.inventwood.com/contact",
+      "label": "InventWood: FAQ/Contact",
+      "quote": "capable of producing over one million square feet of SUPERWOOD annually"
+     }
+    ],
+    "checked": "2026-11-23"
    }
   },
   {
@@ -44194,6 +44800,19 @@
      "date": "2026-11-02",
      "rules": 2
     }
+   },
+   "story": {
+    "research": "Lumen Orbit (later renamed Starcloud), a startup, published a white paper in September 2024 arguing for solar-powered orbital data centres to train AI models.",
+    "deploy": "On Starcloud's Starcloud-1 satellite, which launched in November 2025 with an Nvidia H100. On 10 December 2025 Starcloud said it had trained NanoGPT in orbit.",
+    "impact": "Starcloud announced a $170 million Series A at a $1.1 billion valuation in March 2026. Total funding reached $200 million. Funds go to Starcloud-3 satellites and a manufacturing facility.",
+    "refs": [
+     {
+      "url": "https://builtin.com/articles/orbital-data-centers-ai",
+      "label": "Built In: Orbital Data Centers, Explained",
+      "quote": "giving rise to the modern conceptualization of orbital data centers"
+     }
+    ],
+    "checked": "2026-11-23"
    }
   },
   {
@@ -44258,7 +44877,30 @@
      "rules": 2
     }
    },
-   "flags": {}
+   "flags": {},
+   "story": {
+    "research": "UC Berkeley's Space Sciences Laboratory led development of two identical satellites for stereo views of Mars' magnetosphere and atmospheric escape, its first planetary mission lead.",
+    "deploy": "On 13 November 2025, Blue Origin's second New Glenn launched twin ESCAPADE spacecraft for NASA from Cape Canaveral into a loiter orbit around Earth-Sun L2.",
+    "impact": "Blue and Gold looped back to Earth and completed powered flyby burns on 7 and 9 November 2026, putting them on course for Mars arrival in September 2027 after about ten months' cruise.",
+    "refs": [
+     {
+      "url": "https://news.berkeley.edu/2025/11/05/nasas-escapade-mission-to-mars-twin-uc-berkeley-satellites-dubbed-blue-and-gold-will-launch-in-early-november/",
+      "label": "Berkeley News (Nov 2025): ESCAPADE launch preview",
+      "quote": "NASA’s ESCAPADE is the first UC Berkeley-led planetary mission."
+     },
+     {
+      "url": "https://science.nasa.gov/mission/escapade/",
+      "label": "NASA Science: ESCAPADE mission page",
+      "quote": "ESCAPADE launched from Cape Canaveral, Florida, on Nov. 13, 2025."
+     },
+     {
+      "url": "https://news.berkeley.edu/2026/11/09/berkeleys-escapade-spacecraft-say-goodbye-to-earth-next-stop-mars/",
+      "label": "Berkeley News (Nov 2026): spacecraft leave Earth for Mars",
+      "quote": "set the twin ESCAPADE spacecraft up for arrival at Mars in September of 2027"
+     }
+    ],
+    "checked": "2026-11-23"
+   }
   },
   {
    "id": "bell-labs-voder-first-electronic-speech-synthesizer",
@@ -45912,7 +46554,12 @@
    "security": {
     "expandsAttackSurface": true,
     "note": "A large proliferated satellite network with laser and radio links adds many new space and ground nodes that could be jammed, spoofed or attacked.",
-    "basis": "ai-compiled"
+    "basis": "ai-compiled",
+    "response": {
+     "none": true,
+     "checked": "2026-11-23",
+     "note": "I found no security response written specifically for the Tranche 1 Transport Layer. The closest item is SDA's architecture-wide PWSA Cybersecurity Strategy, which I could not date. The SDA OCT and NEBULA standards are about interoperability, not security."
+    }
    },
    "provenance": {
     "verification": "source-cited",
@@ -46251,6 +46898,803 @@
      "verdict": "supported",
      "reason": "The Zurich City Hall heat pump was installed in 1938 as the first large heat pump in Europe, and an experimental heat pump was installed in 1927.",
      "date": "2026-11-16",
+     "rules": 2
+    }
+   },
+   "flags": {}
+  },
+  {
+   "id": "sojourner-first-wheeled-rover-on-mars",
+   "field": "robotics",
+   "origin": "government",
+   "status": "landed",
+   "title": "Sojourner: first wheeled rover on Mars",
+   "research": {
+    "year": 1994,
+    "what": "JPL and NASA developed the Microrover Flight Experiment, a flight test of autonomous mobile-vehicle technology to show a small rover could operate on Mars terrain. Origin: NASA OACT Microrover Flight Experiment (MFEX) at JPL, described in Matijevic's 1994 paper"
+   },
+   "change": {
+    "year": 1997,
+    "what": "Sojourner landed with Mars Pathfinder on 4 July 1997 and became the first rover to drive on Mars, operating for 83 sols."
+   },
+   "confidence": "medium",
+   "note": "It proved that a small semi-autonomous rover could work on another planet, which led to the later Mars rovers.",
+   "refs": [
+    {
+     "label": "NASA Science: Mars Pathfinder",
+     "url": "https://science.nasa.gov/mission/mars-pathfinder/",
+     "status": "ok",
+     "checked": "2026-11-16"
+    },
+    {
+     "label": "NASA PDS: Mars Pathfinder Rover Description (MFEX)",
+     "url": "https://planetarydata.jpl.nasa.gov/img/data/mpf/rover/mprv_0001/document/insthost.htm",
+     "status": "ok",
+     "checked": "2026-11-16"
+    },
+    {
+     "label": "JPL History: The 90s, Pathfinder",
+     "url": "https://www.jpl.nasa.gov/jplhistory/the90/pathfinder-t.php",
+     "status": "ok",
+     "checked": "2026-11-16"
+    }
+   ],
+   "subfield": "industrial",
+   "region": "us",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Remote command links to a distant robot show why authenticated, resilient command channels matter for autonomous systems.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-23",
+    "lastChecked": "2026-11-23",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "supported",
+     "reason": "The sources confirm Sojourner was the first robotic rover on Mars, and its deployment and real-world use occurred in 1997; a 1994 publication reference suggests research was active by that year, supporting 'around 1994' for research beginning.",
+     "date": "2026-11-23",
+     "rules": 2
+    }
+   },
+   "flags": {}
+  },
+  {
+   "id": "fischer-tropsch-coal-to-liquid-fuel-plants",
+   "field": "energy",
+   "origin": "academic",
+   "status": "landed",
+   "title": "Fischer-Tropsch coal-to-liquid fuel plants",
+   "research": {
+    "year": 1925,
+    "what": "Franz Fischer and Hans Tropsch patented a catalytic process that turns carbon monoxide and hydrogen from coal gas into liquid hydrocarbon fuels. Origin: Fischer and Tropsch's patent application of 20 July 1925, Kaiser Wilhelm Institute for Coal Research, Mülheim an der Ruhr"
+   },
+   "change": {
+    "year": 1935,
+    "what": "Ruhrchemie in Oberhausen began industrial Fischer-Tropsch production in 1935, and German plants reached about 600,000 tonnes a year of coal-derived liquid hydrocarbons by the early 1940s."
+   },
+   "confidence": "high",
+   "note": "It was the first industrial route to synthetic liquid fuel from coal, and the basis of later coal-to-liquids and gas-to-liquids technology.",
+   "refs": [
+    {
+     "label": "Max Planck Society: The return of a classic to fuel production",
+     "url": "https://www.mpg.de/511447/fischer-tropsch-synthesis-2005",
+     "status": "ok",
+     "checked": "2026-11-16"
+    },
+    {
+     "label": "Max Planck Institute for Coal Research: Liquid fuels from coal (PDF)",
+     "url": "https://www.kofo.mpg.de/736051/Liquid-fuels-made-out-of-coal.pdf",
+     "status": "ok",
+     "checked": "2026-11-16"
+    },
+    {
+     "label": "Wilhelm Exner Medal Foundation: Franz Joseph Emil Fischer",
+     "url": "https://www.wilhelmexner.org/en/medalists/franz-joseph-emil-fischer/",
+     "status": "ok",
+     "checked": "2026-11-16"
+    }
+   ],
+   "subfield": "grids",
+   "region": "europe",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "gb": {
+    "status": "unknown",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "It is a chemical-process plant and adds little new cyber attack surface, apart from the industrial control systems that run modern plants.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-23",
+    "lastChecked": "2026-11-23",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "contradicted",
+     "reason": "The sources indicate that research began during World War I, well before the 1925 patent application, though industrial implementation did begin in 1935.",
+     "date": "2026-11-23",
+     "rules": 2
+    },
+    "qaNote": "Second opinion (Gemini): contradicted. The sources indicate that research began during World War I, well before the 1925 patent application, though industrial implementation did begin in 1935."
+   },
+   "flags": {
+    "disputed": true
+   }
+  },
+  {
+   "id": "silicon-spin-quantum-computer-in-a-commercial-data-centre",
+   "field": "quantum",
+   "origin": "academic",
+   "status": "landed",
+   "title": "Silicon spin quantum computer in a commercial data centre",
+   "research": {
+    "year": 1998,
+    "what": "Proposal for a silicon-based spin quantum computer, later developed at UNSW into CMOS-compatible silicon spin qubits, including the 2015 demonstration of a two-qubit logic gate in silicon. Origin: B. Kane, Nature 1998, silicon nuclear-spin quantum computer proposal (Australia); UNSW silicon MOS qubit and two-qubit logic work around 2015 (Dzurak group, which went on to found Diraq)"
+   },
+   "change": {
+    "year": 2026,
+    "what": "Diraq installed an eight-qubit silicon spin quantum computer in Equinix's Sydney data centre in November 2026 and says it is the first such system hosted in a commercial data centre."
+   },
+   "confidence": "medium",
+   "note": "Moves silicon spin qubits, which can in principle be made in chip foundries, out of the lab and into a commercial colocation facility. It is a single eight-qubit deployment, and overlaps with the existing silicon CMOS quantum computer milestone.",
+   "refs": [
+    {
+     "label": "GlobeNewswire press release: Diraq deploys world's first silicon spin quantum computer inside a commercial data center",
+     "url": "https://www.globenewswire.com/news-release/2026/11/09/3398883/0/en/diraq-deploys-world-s-first-silicon-spin-quantum-computer-inside-a-commercial-data-center.html",
+     "status": "ok",
+     "checked": "2026-11-23"
+    },
+    {
+     "label": "The Quantum Insider: From Lab to Live, quantum computing at data centre scale (Equinix and Diraq)",
+     "url": "https://thequantuminsider.com/2026/11/19/from-lab-to-live-inside-the-practical-realities-of-deploying-quantum-computing-at-data-center-scale/",
+     "status": "ok",
+     "checked": "2026-11-23"
+    }
+   ],
+   "subfield": "computing",
+   "region": "other",
+   "tags": [
+    "semiconductors"
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Quantum computers hosted in shared commercial facilities add a new class of remotely accessed infrastructure to secure, though this single system is small and not cryptographically relevant.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-23",
+    "lastChecked": "2026-11-23",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "unclear",
+     "reason": "The sources confirm the deployment of a silicon spin quantum computer in a commercial data center in 2026, but do not provide information about when research began around 1998.",
+     "date": "2026-11-23",
+     "rules": 2
+    }
+   },
+   "flags": {},
+   "story": {
+    "research": "In 1998 Bruce Kane proposed phosphorus nuclear spins in silicon as qubits; in 2015 Andrew Dzurak's UNSW team built silicon's first two-qubit logic gate.",
+    "deploy": "By Diraq, the UNSW spin-out founded in 2022, at Equinix's Sydney data centre, Australia. The eight-qubit system went live around 9 November 2026.",
+    "impact": "Diraq calls it the first silicon spin quantum computer in a commercial data centre. It draws under 20 kW and takes about 170 sq ft; Diraq plans 256 qubits within a year (company claims).",
+    "refs": [
+     {
+      "url": "https://www.nature.com/articles/30156",
+      "label": "Nature: Kane, A silicon-based nuclear spin quantum computer (1998)",
+      "quote": "A silicon-based nuclear spin quantum computer"
+     },
+     {
+      "url": "https://www.unsw.edu.au/newsroom/news/2015/10/crucial-hurdle-overcome-in-quantum-computing",
+      "label": "UNSW newsroom: Crucial hurdle overcome in quantum computing (2015)",
+      "quote": "A team of Australian engineers has built a quantum logic gate in silicon for the first time"
+     },
+     {
+      "url": "https://thequantuminsider.com/2026/11/09/diraq-deploys-silicon-spin-quantum-computer-inside-a-commercial-data-center/",
+      "label": "The Quantum Insider: Diraq deploys silicon spin quantum computer in a commercial data center",
+      "quote": "Diraq has installed the world’s first silicon spin quantum computer inside a commercial data center, now live at Equinix"
+     }
+    ],
+    "checked": "2026-11-23"
+   }
+  },
+  {
+   "id": "pritelivir-hovilpri-helicase-primase-inhibitor-for-hsv",
+   "field": "life",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Pritelivir (Hovilpri): helicase-primase inhibitor for HSV",
+   "research": {
+    "year": 2002,
+    "what": "Bayer scientists reported the helicase-primase inhibitor class, including the compound later named pritelivir, as a new route to treating herpes simplex. Origin: Kleymann et al., Nature Medicine 2002, on helicase-primase inhibitors as herpes drug candidates (Bayer, Germany); developed later by AiCuris. Year and paper are from my own knowledge, not from the retrieved sources."
+   },
+   "change": {
+    "year": 2026,
+    "what": "The FDA approved Hovilpri on 9 October 2026 for refractory mucocutaneous HSV lesions in immunocompromised adults, with US availability expected before year-end."
+   },
+   "confidence": "medium",
+   "note": "It is the first FDA-approved HSV therapy with a new mechanism of action in nearly 30 years, reached about 24 years after the class was first published.",
+   "refs": [
+    {
+     "label": "FDA Novel Drug Approvals for 2026",
+     "url": "https://www.fda.gov/drugs/novel-drug-approvals-fda/novel-drug-approvals-2026",
+     "status": "ok",
+     "checked": "2026-11-23"
+    },
+    {
+     "label": "Asahi Kasei Therapeutics announcement",
+     "url": "https://www.aktx.com/en/news/hovilpri-now-approved/",
+     "status": "ok",
+     "checked": "2026-11-23"
+    },
+    {
+     "label": "Dermatology Times",
+     "url": "https://www.dermatologytimes.com/view/fda-approves-pritelivir-for-refractory-mucocutaneous-hsv-in-immunocompromised-adults",
+     "status": "ok",
+     "checked": "2026-11-23"
+    }
+   ],
+   "subfield": "medicines",
+   "region": "europe",
+   "tags": [
+    "medicine"
+   ],
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-23",
+    "lastChecked": "2026-11-23",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "unclear",
+     "reason": "The description of Pritelivir (Hovilpri) as a helicase-primase inhibitor for HSV is supported, and the first product or real-world use around 2026 is supported by the October 2026 FDA approval and expected availability before the end of 2026. However, the source texts do not provide any information ",
+     "date": "2026-11-23",
+     "rules": 2
+    }
+   },
+   "flags": {},
+   "story": {
+    "research": "Bayer scientists, including Betz, Fischer and Kleymann, tested BAY 57-1293 (pritelivir), a new antiviral class targeting HSV's primase-helicase, in cell and rodent models in 2002.",
+    "deploy": "FDA approved it 9 October 2026 for Asahi Kasei Therapeutics (including developer AiCuris), treating refractory HSV lesions in immunocompromised adults; US launch due by year-end.",
+    "impact": "approval rested on Phase 3 PRIOH-1: 63% had complete lesion healing by day 28 versus 34% on investigator's-choice therapy. The company calls it the first novel-mechanism HSV therapy in nearly 30 years.",
+    "refs": [
+     {
+      "url": "https://www.asahi-kasei.com/news/2026/e261013",
+      "label": "Asahi Kasei Therapeutics press release on FDA approval of Hovilpri",
+      "quote": "first FDA approved HSV therapy with a novel mechanism of action in nearly 30 years"
+     },
+     {
+      "url": "https://www.pharmaceutical-technology.com/news/fda-asahi-kaseis-hovilpri-refractory-hsv/",
+      "label": "Pharmaceutical Technology: FDA approves Asahi Kasei's Hovilpri",
+      "quote": "complete lesion healing occurred in 63% of patients receiving Hovilpri"
+     }
+    ],
+    "checked": "2026-11-23"
+   }
+  },
+  {
+   "id": "zoox-public-rides-in-a-purpose-built-driverless-robotaxi",
+   "field": "robotics",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Zoox: public rides in a purpose-built driverless robotaxi",
+   "research": {
+    "year": 2020,
+    "what": "Zoox designed a fully autonomous, all-electric robotaxi built from scratch with no steering wheel or pedals, rather than a modified consumer car. Origin: Zoox's December 2020 showcase of its purpose-built autonomous vehicle (company founded in 2014); Nevada road testing from June 2023."
+   },
+   "change": {
+    "year": 2025,
+    "what": "On 10 September 2025 Zoox opened free public rides on the Las Vegas Strip in a purpose-built robotaxi with no driver controls, billed as an industry first."
+   },
+   "confidence": "high",
+   "note": "First public ride-hailing service run entirely on a vehicle designed without manual controls.",
+   "refs": [
+    {
+     "label": "Electrek: Zoox begins free public robotaxi rides in Las Vegas",
+     "url": "https://electrek.co/2025/09/10/zoox-free-driverless-robotaxi-rides-general-public-vegas/",
+     "status": "ok",
+     "checked": "2026-11-23"
+    },
+    {
+     "label": "Las Vegas Sun: Zoox launches its robotaxi service with free rides",
+     "url": "https://lasvegassun.com/news/2025/sep/10/amazons-zoox-launches-its-robotaxi-service-in-las/",
+     "status": "ok",
+     "checked": "2026-11-23"
+    },
+    {
+     "label": "Wikipedia: Zoox",
+     "url": "https://en.wikipedia.org/wiki/Zoox",
+     "status": "ok",
+     "checked": "2026-11-23"
+    }
+   ],
+   "subfield": "industrial",
+   "region": "us",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Vehicles with no manual controls depend wholly on software and remote-operations links, so a compromise has no human fallback.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-23",
+    "lastChecked": "2026-11-23",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "contradicted",
+     "reason": "While public rides in purpose-built driverless robotaxis began in 2025 as stated, Zoox was founded and began research in 2014, not around 2020.",
+     "date": "2026-11-23",
+     "rules": 2
+    },
+    "qaNote": "Second opinion (Gemini): contradicted. While public rides in purpose-built driverless robotaxis began in 2025 as stated, Zoox was founded and began research in 2014, not around 2020."
+   },
+   "flags": {
+    "disputed": true
+   }
+  },
+  {
+   "id": "brinsupri-first-dpp1-inhibitor-for-bronchiectasis",
+   "field": "life",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Brinsupri: first DPP1 inhibitor for bronchiectasis",
+   "research": {
+    "year": 2020,
+    "what": "The WILLOW phase 2 trial showed that blocking dipeptidyl peptidase 1 (DPP1) lowers neutrophil protease activity and exacerbations in bronchiectasis. Origin: WILLOW phase 2 trial of brensocatib (Insmed) in bronchiectasis, 2020, followed by the phase 3 ASPEN trial"
+   },
+   "change": {
+    "year": 2025,
+    "what": "The US FDA approved brensocatib on 12 August 2025 as the first treatment for non-cystic fibrosis bronchiectasis and the first DPP1 inhibitor, available by prescription."
+   },
+   "confidence": "medium",
+   "note": "First approved drug to target the neutrophil-driven inflammation behind bronchiectasis, a disease that previously had no approved therapy.",
+   "refs": [
+    {
+     "label": "Insmed press release, 12 Aug 2025",
+     "url": "https://investor.insmed.com/2025-08-12-FDA-Approves-BRINSUPRI-TM-brensocatib-as-the-First-and-Only-Treatment-for-Non-Cystic-Fibrosis-Bronchiectasis,-a-Serious,-Chronic-Lung-Disease",
+     "status": "ok",
+     "checked": "2026-11-23"
+    },
+    {
+     "label": "Nature Reviews Drug Discovery news",
+     "url": "https://www.nature.com/articles/d41573-025-00135-6",
+     "status": "ok",
+     "checked": "2026-11-23"
+    },
+    {
+     "label": "AJMC",
+     "url": "https://www.ajmc.com/view/brensocatib-becomes-first-fda-approved-therapy-for-bronchiectasis",
+     "status": "ok",
+     "checked": "2026-11-23"
+    }
+   ],
+   "subfield": "medicines",
+   "region": "global",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-23",
+    "lastChecked": "2026-11-23",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "unclear",
+     "reason": "The sources confirm Brinsupri's FDA approval as the first DPP1 inhibitor for bronchiectasis on August 12, 2025, but do not provide information on when research began.",
+     "date": "2026-11-23",
+     "rules": 2
+    }
+   },
+   "flags": {}
+  },
+  {
+   "id": "forzinity-first-mitochondria-targeted-drug-barth-syndrome",
+   "field": "life",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Forzinity: first mitochondria-targeted drug (Barth syndrome)",
+   "research": {
+    "year": 2017,
+    "what": "Elamipretide (SS-31), a peptide that binds cardiolipin to improve mitochondrial function, was tested in Barth syndrome patients in the randomised TAZPOWER trial. Origin: Stealth BioTherapeutics TAZPOWER phase 2/3 trial of elamipretide (NCT03098797), started 2017"
+   },
+   "change": {
+    "year": 2025,
+    "what": "The US FDA granted accelerated approval on 19 September 2025 to Forzinity (elamipretide) to improve muscle strength in patients with Barth syndrome weighing at least 30 kg."
+   },
+   "confidence": "medium",
+   "note": "It is the first approved therapy for Barth syndrome and the first approved mitochondria-targeted drug.",
+   "refs": [
+    {
+     "label": "Stealth BioTherapeutics press release (PR Newswire)",
+     "url": "https://www.prnewswire.com/news-releases/stealth-biotherapeutics-announces-fda-accelerated-approval-of-forzinity-elamipretide-hcl-the-first-therapy-for-progressive-and-life-limiting-ultra-rare-genetic-disease-barth-syndrome-302562058.html",
+     "status": "ok",
+     "checked": "2026-11-23"
+    },
+    {
+     "label": "Barth Syndrome Foundation",
+     "url": "https://www.barthsyndrome.org/newsevents/newsandpressreleases.html/article/2025/09/19/fda-approves-first-medication-for-barth-syndrome",
+     "status": "ok",
+     "checked": "2026-11-23"
+    },
+    {
+     "label": "The Cardiology Advisor",
+     "url": "https://www.thecardiologyadvisor.com/news/forzinity-gets-accelerated-approval-for-barth-syndrome/",
+     "status": "ok",
+     "checked": "2026-11-23"
+    }
+   ],
+   "subfield": "medicines",
+   "region": "us",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-23",
+    "lastChecked": "2026-11-23",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "unclear",
+     "reason": "The sources confirm Forzinity is the first FDA-approved medication for Barth syndrome and targets mitochondrial function, and the first product use was in 2025, but they do not provide information on when research began.",
+     "date": "2026-11-23",
+     "rules": 2
+    }
+   },
+   "flags": {}
+  },
+  {
+   "id": "d-wave-advantage2-annealer-with-zephyr-topology",
+   "field": "hw",
+   "origin": "industry",
+   "status": "landed",
+   "title": "D-Wave Advantage2 annealer with Zephyr topology",
+   "research": {
+    "year": 2021,
+    "what": "D-Wave designed the Zephyr qubit-connectivity topology, giving each qubit 20 couplers instead of 15, to embed larger problems in annealing processors. Origin: Boothby, King and Raymond, 'Zephyr Topology of D-Wave Quantum Processors', D-Wave Technical Report 14-1056A-A, September 2021"
+   },
+   "change": {
+    "year": 2025,
+    "what": "On 20 May 2025 D-Wave made the full-scale Advantage2 annealing quantum computer (4,400+ qubits) generally available in its Leap cloud and for on-premises purchase."
+   },
+   "confidence": "medium",
+   "note": "First general-availability release of a quantum annealer built on the higher-connectivity Zephyr topology, after prototypes had been available since 2022.",
+   "refs": [
+    {
+     "label": "HPCwire: D-Wave announces general availability of Advantage2",
+     "url": "https://www.hpcwire.com/off-the-wire/d-wave-announces-general-availability-of-advantage2-quantum-system/",
+     "status": "ok",
+     "checked": "2026-11-23"
+    },
+    {
+     "label": "SiliconANGLE: D-Wave launches the Advantage2 quantum computer",
+     "url": "https://siliconangle.com/2025/05/20/d-wave-launches-advantage2-quantum-computer-4400-qubits/",
+     "status": "ok",
+     "checked": "2026-11-23"
+    },
+    {
+     "label": "D-Wave Zephyr topology technical report (2021)",
+     "url": "https://www.dwavequantum.com/media/fawfas04/14-1056a-a_zephyr_topology_of_d-wave_quantum_processors.pdf",
+     "status": "ok",
+     "checked": "2026-11-23"
+    }
+   ],
+   "subfield": "chips",
+   "region": "other",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Cloud-accessed quantum annealing adds a remote service to secure, and it feeds the longer-term debate on quantum threats to cryptography (annealers are not the main concern).",
+    "basis": "ai-compiled",
+    "response": {
+     "none": true,
+     "checked": "2026-11-23",
+     "note": "I found no security standard, regulation, guidance or product made specifically for the Advantage2 annealer or its Zephyr topology. D-Wave's SOC 2 audits (Type 1 as of March 2023, Type 2 completed in December 2023) cover the Leap cloud service that fronts all its annealers, including the older Advan"
+    }
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-23",
+    "lastChecked": "2026-11-23",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "supported",
+     "reason": "The D-Wave Advantage2 system with Zephyr topology was announced as generally available for real-world use in May 2025, and a technical report describing the Zephyr topology was published in September 2021, indicating research around that time.",
+     "date": "2026-11-23",
+     "rules": 2
+    }
+   },
+   "flags": {}
+  },
+  {
+   "id": "mq-1-predator-long-endurance-remote-piloted-drone",
+   "field": "robotics",
+   "origin": "industry",
+   "status": "landed",
+   "title": "MQ-1 Predator: long-endurance remote-piloted drone",
+   "research": {
+    "year": 1985,
+    "what": "Abraham Karem's Leading Systems built the Amber long-endurance unmanned aircraft under DARPA sponsorship, proving that a small drone could stay aloft for many hours. Origin: DARPA-funded Amber UAV by Leading Systems Inc. (Abraham Karem), mid-1980s, followed by the export Gnat-750"
+   },
+   "change": {
+    "year": 1995,
+    "what": "General Atomics' RQ-1 Predator, flown from 1994, was deployed over Bosnia in summer 1995 and gave commanders live video from an aircraft that could loiter for 24 hours or more."
+   },
+   "confidence": "medium",
+   "note": "It was the first long-endurance drone to see sustained operational use, and it set the model for later military and civil unmanned aircraft.",
+   "refs": [
+    {
+     "label": "Bard Center for the Study of the Drone: Drones in Bosnia",
+     "url": "https://dronecenter.bard.edu/drones-in-bosnia/",
+     "status": "ok",
+     "checked": "2026-11-23"
+    },
+    {
+     "label": "CIA Studies in Intelligence: Early Evolution of the Predator",
+     "url": "https://www.cia.gov/resources/csi/static/Early-Evolution-of-Predator.pdf",
+     "status": "ok",
+     "checked": "2026-11-23"
+    },
+    {
+     "label": "Wikipedia: General Atomics MQ-1 Predator",
+     "url": "https://en.wikipedia.org/wiki/General_Atomics_MQ-1_Predator",
+     "status": "ok",
+     "checked": "2026-11-23"
+    }
+   ],
+   "subfield": "industrial",
+   "region": "us",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "Remote piloting over satellite links created a new dependence on secure communications and exposed drones to jamming and interception.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-23",
+    "lastChecked": "2026-11-23",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "supported",
+     "reason": "Sources confirm the MQ-1 Predator is a long-endurance remote-piloted drone, with foundational research on endurance UAVs beginning in the 1980s and its first real-world deployment in 1995.",
+     "date": "2026-11-23",
+     "rules": 2
+    }
+   },
+   "flags": {}
+  },
+  {
+   "id": "sony-aibo-first-mass-market-entertainment-robot",
+   "field": "robotics",
+   "origin": "industry",
+   "status": "landed",
+   "title": "Sony AIBO: first mass-market entertainment robot",
+   "research": {
+    "year": 1994,
+    "what": "Toshitada Doi and AI researcher Masahiro Fujita began work at Sony's Computer Science Laboratory on an autonomous robot designed to entertain people, which led to a quadruped prototype in 1997. Origin: Sony CSL entertainment-robot project (Doi and Fujita, 1994); Fujita and Kitano, 'Development of an Autonomous Quadruped Robot for Robot Entertainment', Autonomous Robots, 1998"
+   },
+   "change": {
+    "year": 1999,
+    "what": "Sony began selling the AIBO ERS-110 as a consumer product in 1999, the first mass-market robot sold for entertainment."
+   },
+   "confidence": "high",
+   "note": "AIBO showed that autonomous, learning robots could be sold to households, and it later became a standard platform for RoboCup research.",
+   "flags": {
+    "aiDriven": true
+   },
+   "refs": [
+    {
+     "label": "Robotics Society of Japan: Entertainment Robot AIBO",
+     "url": "http://rraj.rsj-web.org/en_atcl/2184",
+     "status": "ok",
+     "checked": "2026-11-23"
+    },
+    {
+     "label": "M+ Museum: Sony AIBO ERS-110 (1999)",
+     "url": "https://www.mplus.org.hk/en/collection/objects/sony-aibo-entertainment-robot-model-ers-110-2016772/",
+     "status": "ok",
+     "checked": "2026-11-23"
+    },
+    {
+     "label": "Wikipedia: AIBO",
+     "url": "https://en.wikipedia.org/wiki/AIBO",
+     "status": "ok",
+     "checked": "2026-11-23"
+    }
+   ],
+   "subfield": "industrial",
+   "region": "asia",
+   "readiness": {
+    "stage": "commercial",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": true,
+    "note": "It was an early network-connected consumer robot with a camera and microphone, which raises privacy and device-security concerns.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-23",
+    "lastChecked": "2026-11-23",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "supported",
+     "reason": "The Wikipedia source explicitly states AIBO received an award as 'the world's first mass-market consumer robot for entertainment applications', and both sources confirm the first product was released in 1999, while Wikipedia states research began in 1994.",
+     "date": "2026-11-23",
+     "rules": 2
+    }
+   }
+  },
+  {
+   "id": "piccards-pressurised-gondola-first-crewed-stratosphere-flight",
+   "field": "space",
+   "origin": "academic",
+   "status": "landed",
+   "title": "Piccard's pressurised gondola: first crewed stratosphere flight",
+   "research": {
+    "year": 1930,
+    "what": "Auguste Piccard designed a sealed, pressurised aluminium balloon cabin so people and instruments could survive the thin air of the stratosphere, in order to measure cosmic rays. Origin: Piccard's 1930 FNRS balloon project, funded by the Belgian Fonds National de la Recherche Scientifique, to build a pressurised gondola for cosmic-ray measurement"
+   },
+   "change": {
+    "year": 1931,
+    "what": "On 27 May 1931 Piccard and Paul Kipfer rose to about 15.8 km in the FNRS balloon, the first people to enter the stratosphere, proving a sealed cabin could keep crews alive near the edge of space."
+   },
+   "confidence": "high",
+   "note": "The sealed-cabin concept was the forerunner of pressurised crew capsules, and balloons kept using essentially the same gondola design into the 1950s.",
+   "refs": [
+    {
+     "label": "Encyclopedia.com: Piccard and Kipfer are first to enter the stratosphere",
+     "url": "https://www.encyclopedia.com/science/encyclopedias-almanacs-transcripts-and-maps/auguste-piccard-and-paul-kipfer-are-first-enter-stratosphere",
+     "status": "ok",
+     "checked": "2026-11-23"
+    },
+    {
+     "label": "Britannica: Auguste Piccard",
+     "url": "https://www.britannica.com/biography/Auguste-Piccard-Swiss-Belgian-physicist",
+     "status": "ok",
+     "checked": "2026-11-23"
+    },
+    {
+     "label": "EBSCO Research Starters: Piccard travels to the stratosphere by balloon",
+     "url": "https://www.ebsco.com/research-starters/history/piccard-travels-stratosphere-balloon/",
+     "status": "ok",
+     "checked": "2026-11-23"
+    }
+   ],
+   "subfield": "launch",
+   "region": "europe",
+   "readiness": {
+    "stage": "pilot",
+    "basis": "ai-estimate"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-23",
+    "lastChecked": "2026-11-23",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "contradicted",
+     "reason": "While the first crewed stratosphere flight in a pressurized gondola occurred in 1931, research on the balloon and gondola began as early as 1926, not around 1930.",
+     "date": "2026-11-23",
+     "rules": 2
+    },
+    "qaNote": "Second opinion (Gemini): contradicted. While the first crewed stratosphere flight in a pressurized gondola occurred in 1931, research on the balloon and gondola began as early as 1926, not around 1930."
+   },
+   "flags": {
+    "disputed": true
+   }
+  },
+  {
+   "id": "gmr-spin-valve-read-heads-in-hard-drives",
+   "field": "quantum",
+   "origin": "academic",
+   "status": "landed",
+   "title": "GMR spin-valve read heads in hard drives",
+   "research": {
+    "year": 1988,
+    "what": "Fert and Grünberg independently found that nanometre-thin magnetic multilayers show a very large change in electrical resistance depending on their relative magnetisation, an effect rooted in electron spin. Origin: Giant magnetoresistance discovered independently by Albert Fert (Paris-Sud/Orsay) and Peter Grünberg (Jülich) in 1988; 2007 Nobel Prize in Physics"
+   },
+   "change": {
+    "year": 1997,
+    "what": "IBM shipped the first commercial hard disk drive (Deskstar 16GP) with a GMR read head, which sharply raised the storage density of disk drives."
+   },
+   "confidence": "high",
+   "note": "It was the first mass-market device built on spin-dependent quantum transport, and it turned spintronics from a laboratory discovery into an industry standard within a decade.",
+   "refs": [
+    {
+     "label": "National MagLab Magnet Academy: Giant Magnetoresistance",
+     "url": "https://nationalmaglab.org/magnet-academy/read-science-stories/science-simplified/giant-magnetoresistance/",
+     "status": "ok",
+     "checked": "2026-11-23"
+    },
+    {
+     "label": "Computer History Museum: IBM Deskstar 16GP, first commercial use of GMR heads",
+     "url": "http://s3.computerhistory.org/groups/ibm-deskstar-16gp-disk-drive.pdf",
+     "status": "ok",
+     "checked": "2026-11-23"
+    },
+    {
+     "label": "Open University: Hard Disk Technology",
+     "url": "https://university.open.ac.uk/stem/mathematics-and-statistics/research/research-highlights/hard-disk-technology",
+     "status": "ok",
+     "checked": "2026-11-23"
+    }
+   ],
+   "subfield": "devices",
+   "region": "global",
+   "readiness": {
+    "stage": "scale",
+    "basis": "ai-estimate"
+   },
+   "security": {
+    "expandsAttackSurface": false,
+    "note": "Low direct cyber relevance; it is a passive storage-read component.",
+    "basis": "ai-compiled"
+   },
+   "provenance": {
+    "verification": "source-cited",
+    "addedBy": "research-agent",
+    "added": "2026-11-23",
+    "lastChecked": "2026-11-23",
+    "approximate": false,
+    "secondOpinion": {
+     "model": "gemini",
+     "verdict": "supported",
+     "reason": "The GMR effect was discovered in 1988, and the first commercial product using GMR heads shipped in late 1997.",
+     "date": "2026-11-23",
      "rules": 2
     }
    },
@@ -49157,6 +50601,24 @@
    "summary": "ENISA issued practical technical guidance for teams that design, build or run software and firmware update mechanisms in products with digital elements, aimed mainly at micro, small and medium manufacturers but usable by larger organisations. It sets out common threats across the update life cycle and a set of controls to reduce them, which helps limit software supply chain compromise and tamperin",
    "url": "https://www.enisa.europa.eu/publications/enisa-technical-advisory-on-secure-update-mechanisms",
    "added": "2026-11-16",
+   "by": "guidance-agent"
+  },
+  {
+   "date": "2026-11-12",
+   "framework": "ENISA",
+   "title": "Joint Advisory on the Use of Frontier AI Models for Code Review (ENISA with CERT-EU)",
+   "summary": "Reports an ENISA and CERT-EU experiment in which frontier AI models reviewed open-source software maintained by EU institutions for security flaws. It finds AI can speed up code review but cannot replace human judgement, which is relevant to software supply chain assurance and to safe use of AI in vulnerability discovery.",
+   "url": "https://www.enisa.europa.eu/publications/joint-advisory-on-the-use-of-frontier-ai-models-for-code-review",
+   "added": "2026-11-23",
+   "by": "guidance-agent"
+  },
+  {
+   "date": "2026-11-03",
+   "framework": "NCSC",
+   "title": "NCSC Annual Review 2026 (The State of the Cyber Nation)",
+   "summary": "The NCSC's tenth annual review covers 1 September 2025 to 31 August 2026. Secondary reports say it looks at AI-enabled threats to critical national infrastructure, restates the post-quantum migration timeline and signals work to make the CAF easier to use, which bears on AI, PQC and CAF-based regulation. I could only confirm the title, date and coverage period on the official page, so check the fu",
+   "url": "https://www.ncsc.gov.uk/collection/annual-review-2026/introduction",
+   "added": "2026-11-23",
    "by": "guidance-agent"
   }
  ]

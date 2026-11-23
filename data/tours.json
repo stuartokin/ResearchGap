@@ -1,6 +1,6 @@
 {
- "version": 35,
- "updated": "2026-11-16",
+ "version": 36,
+ "updated": "2026-11-23",
  "updatedBy": "tour-agent",
  "note": "Narration templates for the guided tours. Figures come from {placeholders} filled from the live data; conclusions are chosen by rules in the app ({\"by\": fact, \"cases\": {...}}). The weekly tour agent may refine wording and choose examples, within the rules checked by tools/validate.py.",
  "tours": {
@@ -9,7 +9,7 @@
    "exampleIds": [
     "penicillin",
     "radar",
-    "integrated-circuit",
+    "mrna-vaccines",
     "large-language-model-api"
    ],
    "steps": {
@@ -129,7 +129,7 @@
      "say": "The heatmap shows how the typical gap from research to first product varies by field and by decade. Since 2010, {fastField} has been quickest and {slowField} slowest."
     },
     "aichart": {
-     "say": "Each dot is one milestone, and the teal dots are AI-driven. For research since 2010, those typically took about {aiMed} years to reach a first product, against {restMed} for the rest."
+     "say": "Each dot is one milestone, and the teal dots are AI-driven. For research since 2010, those typically took about {aiMed} years to reach a first product, against {restMed} years for the rest."
     }
    }
   },
@@ -140,7 +140,7 @@
      "say": "The government's AI for clean energy vision is divided into several areas. Each diamond marks a story linked to one of those areas, and the stories play through in date order from 1980 onwards."
     },
     "radar": {
-     "say": "The AI Energy Vision Radar shows how close each area's technologies are to everyday use: {nResearch} in research, {nPilot} in pilots, {nCommercial} in early commercial use and {nScale} widely used. Already in use in Great Britain: {nGB}."
+     "say": "The radar shows how close technologies are to everyday use: {nResearch} in research, {nPilot} in pilots, {nCommercial} in early commercial use and {nScale} widely used. The number already in use in Great Britain is {nGB}."
     },
     "new": {
      "say": {
@@ -196,9 +196,9 @@
       {
        "by": "lagCase",
        "cases": {
-        "slow": "Typical wait: {lag} years, which is long.",
-        "moderate": "Typical wait: {lag} years.",
-        "fast": "Typical wait: {lag} years, which is quick.",
+        "slow": "Rough typical wait: {lag} years, which is long.",
+        "moderate": "Rough typical wait: {lag} years.",
+        "fast": "Rough typical wait: {lag} years, which is quick.",
         "unclear": "No clear pattern shows yet."
        }
       }
@@ -208,7 +208,7 @@
      "say": {
       "by": "gapCase",
       "cases": {
-       "some": "Gaps remain. Some technologies that arrived since 2010 still have no security response recorded in their category, so they are shown first. {gapCount} are flagged so far, including {gapTitle}.",
+       "some": "Gaps remain. Some technologies that arrived since 2010 still have no security response recorded in their category, so they are shown first. Flagged so far: {gapCount}, including {gapTitle}.",
        "none": "In this data, no technology that has arrived since 2010 is flagged as an open gap, though many of the responses shown are only rough guides taken from related categories.",
        "proxy": "Gaps are hard to judge yet. Most technologies here have not had their own security response researched, so the chart shows the nearest related security milestone as a rough guide. Their own responses still need researching, most recent first."
       }
@@ -255,7 +255,7 @@
      "say": "Research does not just change products; it can also make fortunes. This chart, Time to a fortune, follows founders from starting a company to the stock market listing, sale or valuation that made them rich."
     },
     "research": {
-     "say": "Of {nFortunes} fortunes here, {nResearch} trace back to work in a university or research lab. So research can bring founders wealth as well as new products."
+     "say": "Fortunes here that trace back to work in a university or research lab: {nResearch} of {nFortunes}. Research can lead to wealth for founders, as well as to new products."
     },
     "speed": {
      "say": {
@@ -283,7 +283,7 @@
      }
     },
     "uni": {
-     "say": "Now the filter shows university projects. Number yet to reach a product: {nUni}. Any still on their way could become breakthroughs, and perhaps fortunes, in future."
+     "say": "Now the filter shows university projects. Those yet to reach a product: {nUni}. If any are still under way, they could become future breakthroughs, and perhaps fortunes."
     },
     "table": {
      "say": "The Table lists every milestone. Sort by any column, such as the gap between milestones, and select a row to read its story."
@@ -328,7 +328,7 @@
       {
        "by": "fcCase",
        "cases": {
-        "scored": "Once a forecast's outcome is known, it is scored against what really happened. So far, {fcResolved} forecasts have been scored.",
+        "scored": "Once a forecast's outcome is known, it is scored against what really happened. Forecasts scored so far: {fcResolved}.",
         "none": "Each forecast is recorded now and will be scored against what really happens once the outcome is known."
        }
       }
@@ -540,7 +540,7 @@
      "say": "In Forecast drift, each bar counts the milestones expected to arrive in a given year. Select a bar to list them. Trails show how a milestone's expected date has moved each time its forecast was revised."
     },
     "sec": {
-     "say": "Security lag shows the wait for a security response, open gaps first. Only {secResearched} technologies have a researched, sourced response. For the rest, the bar is a rough guide based on the nearest later security milestone in a related category."
+     "say": "Security lag shows how long each technology waited for a security response, with open gaps first. Researched, sourced responses exist for just {secResearched} technologies. For the rest, the bar is only a rough guide, using the nearest later security milestone in a related category."
     },
     "fort": {
      "say": "Press play to watch the race to a fortune unfold over time, or select a bubble to read that company's story."
@@ -555,7 +555,7 @@
   },
   "cleanweek": {
    "title": "AI for clean energy analysis",
-   "updated": "2026-11-16T14:04Z",
+   "updated": "2026-11-23T16:31Z",
    "steps": {
     "intro": {
      "say": [
@@ -587,7 +587,7 @@
     },
     "c5": {
      "view": "sec",
-     "say": "Finally, trust. {secOpen} clean energy technologies still have no researched security response, so those gaps come first. A second AI model also contradicted one of the newest additions, which stays flagged until it is checked."
+     "say": "Finally, trust. {secOpen} clean energy technologies still have no researched security response, so those gaps come first. A second AI model also contradicted several of this week's additions, and they stay flagged until checked."
     }
    }
   },
@@ -600,11 +600,11 @@
     },
     "clean-next": {
      "say": [
-      "{cleanNext5} clean energy technologies are expected by {next5Year}. ",
+      "Forecasts point to {cleanNext5} clean energy technologies arriving by {next5Year}. ",
       {
        "by": "cleanNextCase",
        "cases": {
-        "some": "{cleanNext5GB} of them are already in use or on trial in Great Britain; the rest would be new here.",
+        "some": "Of these, {cleanNext5GB} are already in use or on trial in Great Britain; the rest would be new here.",
         "none": "None of them is in use or on trial in Great Britain yet."
        }
       }
@@ -635,11 +635,11 @@
     },
     "security": {
      "say": [
-      "As a rough guide, security usually arrives about {secMedian} years after the technology it protects. Researched, sourced responses: {secResearched}; the rest are proxies, a rough guide only. ",
+      "As a rough guide, security arrives about {secMedian} years after the technology it protects. Only {secResearched} responses are researched and sourced; the rest are proxies, only a rough guide. ",
       {
        "by": "secCase",
        "cases": {
-        "open": "{secOpen} technologies have no known security response in their category yet; open gaps come first.",
+        "open": "Technologies with no known response in their category yet: {secOpen}. Open gaps come first.",
         "closed": "No open gaps show at present, though this partly rests on proxies.",
         "proxy": "Treat any gaps as provisional."
        }
@@ -680,11 +680,11 @@
       {
        "by": "newCase",
        "cases": {
-        "some": "The agents added {newCount} milestones this week, including {newTitles}. ",
+        "some": "New milestones added by the agents this week: {newCount}, including {newTitles}. ",
         "none": "No new milestones were added this week. "
        }
       },
-      "{changedCount} records were corrected or updated."
+      "Records corrected or updated: {changedCount}."
      ]
     }
    }
