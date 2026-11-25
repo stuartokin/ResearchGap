@@ -1,3 +1,6 @@
+## 25 November 2026
+- AI in Great Britain (in Charts) now shows which technologies are closest to use here. A new "Closest next" strip lists those in trials or planned in Great Britain that are already in commercial use or at scale somewhere. Each technology has a small tag for its readiness worldwide, and the ones furthest along come first in each group. The insight adds how many of those in trials or planned are already in use somewhere. Both the Great Britain status and the readiness are AI estimates, so this is a reading of the data, not a forecast.
+
 ## 18 November 2026
 - AI by readiness (in Charts) has a new "By area" view: a grid of the AI for clean energy areas against the stages of readiness, so you can see which kinds of AI for clean energy are furthest along and which are still in research. Each cell shows how many are AI-driven out of all. Select a cell to list its technologies; AI-driven ones come first. The bars in "By stage" now show each stage's AI-driven share, and work with the keyboard. The insight also names the area with the most technologies in use so far.
 

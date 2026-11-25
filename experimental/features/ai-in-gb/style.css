@@ -14,3 +14,8 @@
 .xgb-chip:hover,.xgb-chip:focus-visible{border-color:var(--gc)}
 .xgb-none{margin:.3em 0 0}
 .xgb-foot{margin-top:.6em}
+.xgb-next{border:1px dashed #B794F6;border-radius:.6em;padding:.5em .7em .6em;margin-bottom:.9em;background:rgba(183,148,246,.07);--gc:#C9B2FA}
+.xgb-sub{margin:.2em 0 0}
+.xgb-why{min-width:1.8em;padding:0 .5em}
+.xgb-st{display:inline-block;margin-left:.35em;padding:0 .4em;border-radius:999px;font-size:.82em;color:var(--muted);border:1px solid var(--line);white-space:nowrap}
+.xgb-st-scale,.xgb-st-commercial{color:var(--text);border-color:#4CD3C2}
