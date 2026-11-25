@@ -1,5 +1,5 @@
 {
- "built": "23 Nov 2026, 16:42 UTC",
+ "built": "25 Nov 2026, 16:04 UTC",
  "features": [
   {
    "id": "ai-by-readiness",
@@ -11,9 +11,9 @@
   {
    "id": "ai-in-gb",
    "title": "AI in Great Britain",
-   "description": "A chart of AI-driven clean energy technologies grouped by how close they are to use in Great Britain (in use, trials, planned, not yet, not known), with each technology's details and an insight.",
+   "description": "A chart of AI-driven clean energy technologies grouped by how close they are to use in Great Britain (in use, trials, planned, not yet, not known), ordered and tagged by readiness worldwide, with a Closest next strip for those in trials or planned that are already in commercial use or at scale somewhere; with each technology's details and an insight.",
    "added": "2026-11-04",
-   "updated": null
+   "updated": "2026-11-25"
   },
   {
    "id": "security-timeline",
